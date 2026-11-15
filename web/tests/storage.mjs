@@ -298,6 +298,7 @@ if (process.env.REAL !== '0') {
         // a resource through the presets panel (the proxy stores it)
         const kpp = readFileSync(KPP);
         const before = await page.evaluate(() => __engine.presets({ search: 'Size_default' }).then(p => p.length));
+        await page.getByRole('tab', { name: 'Brush Presets' }).click();
         await page.locator('input[aria-label="Import resource files"]').setInputFiles({ name: 'b)_Basic-5_Size_default.kpp', mimeType: 'application/octet-stream', buffer: kpp });
         await page.waitForTimeout(1500);
         const mid = await page.evaluate(() => __engine.presets({ search: 'Size_default' }).then(p => p.length));
