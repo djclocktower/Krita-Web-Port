@@ -1,4 +1,27 @@
-.brush-editor { padding: var(--gap); }
+.brush-editor { padding: var(--gap); container-type: inline-size; }
 .brush-editor h3 { margin: 0; }
 .be-engine { margin: 0 0 var(--gap); color: var(--text-dim); }
 .be-error { color: var(--danger); margin: 0 0 var(--gap); }
+.be-note { color: var(--text-dim); margin: 0 0 var(--gap); }
+.be-search { width: 100%; box-sizing: border-box; margin-bottom: var(--gap); background: var(--panel-raised); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px 6px; }
+.be-body { display: grid; grid-template-columns: minmax(110px, 38%) 1fr; gap: var(--gap); align-items: start; }
+.narrow .be-body { display: block; }
+.be-groups { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1px; }
+.be-group-row { display: flex; align-items: center; gap: var(--gap); }
+.be-group { flex: 1; min-width: 0; text-align: left; background: var(--panel-raised); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px 6px; cursor: pointer; }
+.be-group[aria-current=true] { background: var(--accent); color: #fff; }
+.be-group:focus-visible, .be-search:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.be-enable { flex: none; }
+.be-pane { min-width: 0; }
+.narrow .be-pane { padding: var(--gap) 0 var(--gap) var(--gap); border-left: 2px solid var(--accent); margin-bottom: var(--gap); }
+.be-ro { color: var(--text-dim); overflow-wrap: anywhere; font-size: 0.9em; }
+.be-curve { margin: var(--gap) 0; }
+@media (pointer: coarse), (max-width: 1099px) {
+    .be-group, .be-search { min-height: 40px; }
+    .be-enable { width: 28px; height: 28px; margin: 6px; }
+    .brush-editor .property-form input[type=number], .brush-editor .property-form input[type=text], .brush-editor .property-form select { min-height: 40px; }
+    .brush-editor .property-form input[type=range] { min-height: 40px; }
+    .brush-editor .property-form input[type=checkbox] { width: 28px; height: 28px; margin: 6px; }
+    .brush-editor .pf-row { min-height: 40px; }
+    .brush-editor .curve-remove { min-height: 40px; }
+}

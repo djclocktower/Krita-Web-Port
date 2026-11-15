@@ -13,7 +13,7 @@ const context = await browser.newContext({ viewport: { width: 1280, height: 800 
 const page = await context.newPage();
 const errors = [];
 page.on('pageerror', e => errors.push(e.message));
-await page.goto('http://localhost:5181/');
+await page.goto(process.env.URL ?? 'http://localhost:5181/');
 await page.waitForFunction(() => document.querySelector('.status-doc')?.textContent.includes('1600 × 1200'));
 
 const settle = () => page.waitForTimeout(120);
@@ -227,7 +227,7 @@ let enabledDocCommands = [];
 for (const m of ['File', 'Edit', 'Image', 'Layer', 'Select', 'Filter']) {
     await page.locator(`button[data-menu="${m}"]`).click();
     const items = await page.locator('.menu-list [role=menuitem]').evaluateAll(b => b.map(x => [x.querySelector('span').textContent, x.disabled]));
-    enabledDocCommands.push(...items.filter(([t, dis]) => !dis && !['New…', 'Open…'].includes(t)).map(([t]) => `${m}:${t}`));
+    enabledDocCommands.push(...items.filter(([t, dis]) => !dis && !['New…', 'Open…', 'Open Recent…'].includes(t)).map(([t]) => `${m}:${t}`));
     await page.keyboard.press('Escape');
 }
 check(enabledDocCommands.length === 0, 'with no document every document command is disabled in the menus', enabledDocCommands.join(', '));

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import type { Engine } from '../../engine/protocol';
 import type { Panel } from '../../panels';
+import { reportError } from '../../shell/errors';
 import { openFilterDialog } from './FilterDialog';
 import './filters.css';
 
@@ -24,7 +25,7 @@ const panel: Panel = {
     id: 'filters', title: 'Filters', area: 'right', order: 10, component: Filters,
     commands: [{
         id: 'filter.gallery', title: 'Filters…', menu: 'Filter',
-        run: engine => { void openFilterDialog(engine, 'apply').catch(e => alert(String(e?.message ?? e))); },
+        run: engine => { void openFilterDialog(engine, 'apply').catch(e => reportError(String(e?.message ?? e))); },
     }],
 };
 export default panel;

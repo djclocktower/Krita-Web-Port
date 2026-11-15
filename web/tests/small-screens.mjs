@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
 
 const SHOTS = '/tmp/claude-0/-home-user-Krita-Web-Port/65182417-9f70-5299-9ecc-ec5673875a37/scratchpad';
-const URL = 'http://localhost:5181/';
+const URL = process.env.URL ?? 'http://localhost:5181/';
 let failed = 0;
 const check = (ok, name, detail = '') => { console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${ok ? '' : '  ' + detail}`); if (!ok) failed++; };
 setTimeout(() => { console.log('FAIL  timeout'); process.exit(1); }, 150000).unref();

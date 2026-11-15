@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { BlendMode, ConfigDescription, Engine, LayerNode, PropertyValue } from '../../engine/protocol';
+import { describe } from '../../descriptions';
+import { coerce } from '../filters/coerce';
 import { PropertyForm } from '../../ui/PropertyForm';
 import { BlendSelect } from './BlendSelect';
 
@@ -20,7 +22,9 @@ export function PropertiesDialog({ engine, node, modes, onClose }:
         (async () => {
             try {
                 const { values } = await engine.nodeConfig(node.id);
-                const desc = await (node.type === 'fill' ? engine.generatorConfig(node.configId!) : engine.filterConfig(node.configId!));
+                const fill = node.type === 'fill';
+                const desc = describe(fill ? 'generator' : 'filter', node.configId!,
+                                      await (fill ? engine.generatorConfig(node.configId!) : engine.filterConfig(node.configId!)));
                 setConfig({ desc, values: { ...desc.defaults, ...values } });
             } catch (e) { setError(message(e)); }
         })();
@@ -28,6 +32,7 @@ export function PropertiesDialog({ engine, node, modes, onClose }:
 
     const change = (key: string, value: PropertyValue) => {
         if (!config || (typeof value === 'number' && isNaN(value))) return;
+        value = coerce(config.desc.defaults, key, value);
         const values = { ...config.values, [key]: value };
         setConfig({ ...config, values });
         engine.setNodeConfig(node.id, values).then(() => setError(''), e => setError(message(e)));

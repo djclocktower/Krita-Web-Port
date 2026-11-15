@@ -1,11 +1,14 @@
 // Applies Krita-accurate labels, ranges, choices and grouping to the engine's generated filter forms.
 import type { ConfigDescription, PropertySpec } from '../engine/protocol';
+import { BRUSHES } from './brushes';
 import { FILTERS } from './filters';
 import { GENERATORS } from './generators';
 export type { Row, Table } from './types';
+export { BRUSHES, GROUP_ENABLE, READ_ONLY, SENSOR_GROUPS, TIP_GROUPS } from './brushes';
 
-export function describe(kind: 'filter' | 'generator', id: string, fromEngine: ConfigDescription): ConfigDescription {
-    const table = (kind === 'filter' ? FILTERS : GENERATORS)[id];
+/** `kind` 'brush': `id` is the brush engine id; keys no row mentions are shown under a final "Other" group. */
+export function describe(kind: 'filter' | 'generator' | 'brush', id: string, fromEngine: ConfigDescription): ConfigDescription {
+    const table = (kind === 'filter' ? FILTERS : kind === 'brush' ? BRUSHES : GENERATORS)[id];
     if (!table) return fromEngine;
     const byKey = new Map(fromEngine.specs.map(s => [s.key, s]));
     const out: PropertySpec[] = [];
@@ -20,6 +23,6 @@ export function describe(kind: 'filter' | 'generator', id: string, fromEngine: C
         out.push(next);
     }
     // Keys the engine reports that no row mentions pass through untouched.
-    for (const spec of fromEngine.specs) if (byKey.has(spec.key)) out.push(spec);
+    for (const spec of fromEngine.specs) if (byKey.has(spec.key)) out.push(kind === 'brush' ? { ...spec, group: 'Other' } : spec);
     return { specs: out, defaults: fromEngine.defaults };
 }

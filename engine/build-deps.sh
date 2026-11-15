@@ -145,8 +145,18 @@ s_webp() { fetch_git webp https://github.com/webmproject/libwebp.git v1.4.0
            cm webp -DWEBP_BUILD_ANIM_UTILS=OFF -DWEBP_BUILD_CWEBP=OFF -DWEBP_BUILD_DWEBP=OFF -DWEBP_BUILD_GIF2WEBP=OFF \
               -DWEBP_BUILD_IMG2WEBP=OFF -DWEBP_BUILD_VWEBP=OFF -DWEBP_BUILD_WEBPINFO=OFF -DWEBP_BUILD_WEBPMUX=OFF \
               -DWEBP_BUILD_EXTRAS=OFF -DWEBP_BUILD_LIBWEBPMUX=ON -DWEBP_USE_THREAD=ON; }
+s_giflib() { fetch_git giflib https://git.code.sf.net/p/giflib/code master   # no tags past 4.1.6 on this remote; master is giflib 6.1.3
+             local g="$KW/src/giflib"
+             rawlib gif "$g/dgif_lib.c $g/egif_lib.c $g/gifalloc.c $g/gif_err.c $g/gif_font.c $g/gif_hash.c $g/openbsd-reallocarray.c $g/quantize.c" "$g/gif_lib.h" "-I$g" &&
+             pc giflib 6.1.3 -lgif; }
+s_imath() { fetch_git imath https://github.com/AcademySoftwareFoundation/Imath.git v3.1.12
+            cm imath -DIMATH_INSTALL_PKG_CONFIG=ON -DCMAKE_CXX_FLAGS="$KW_CFLAGS -fexceptions" -DPYTHON=OFF -DIMATH_BUILD_TESTING=OFF; }
+s_openexr() { fetch_git openexr https://github.com/AcademySoftwareFoundation/openexr.git v3.3.2
+              cm openexr -DCMAKE_CXX_FLAGS="$KW_CFLAGS -fexceptions" -DOPENEXR_BUILD_TOOLS=OFF -DOPENEXR_BUILD_EXAMPLES=OFF \
+                 -DOPENEXR_INSTALL_TOOLS=OFF -DOPENEXR_INSTALL_PKG_CONFIG=ON -DOPENEXR_ENABLE_THREADING=ON -DOPENEXR_BUILD_PYTHON=OFF \
+                 -DOPENEXR_FORCE_INTERNAL_IMATH=OFF -DOPENEXR_FORCE_INTERNAL_DEFLATE=OFF -DBUILD_TESTING=OFF -DOPENEXR_IS_SUBPROJECT=OFF; }
 
-ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp"
+ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr"
 for s in ${@:-$ALL}; do
     if [ -e "$KW/stamps/$s" ]; then echo "skip $s"; continue; fi
     echo "== $s"

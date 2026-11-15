@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { BlendMode, DocumentInfo, Engine, LayerNode, NodeId, NodeType } from '../../engine/protocol';
 import type { Command, Panel } from '../../panels';
+import { reportError } from '../../shell/errors';
 import { openFilterDialog } from '../filters/FilterDialog';
 import { activeNode } from './active';
 import { BlendSelect } from './BlendSelect';
@@ -19,8 +20,8 @@ const TYPES: { type: NodeType; label: string; abbr: string }[] = [
 ];
 const info = (type: NodeType) => TYPES.find(t => t.type === type)!;
 
-// Errors go to the mounted panel; if it is not mounted (a menu command ran first) fall back to an alert.
-let showError: (message: string) => void = m => alert(m);
+// Errors go to the mounted panel; if it is not mounted (a menu command ran first) fall back to the shell's banner.
+let showError: (message: string) => void = reportError;
 let openProperties: ((id: NodeId) => void) | null = null;
 async function act(fn: () => Promise<unknown> | undefined) {
     try { await fn(); } catch (e) { showError(e instanceof Error ? e.message : String(e)); }
@@ -96,8 +97,9 @@ function Layers({ engine }: { engine: Engine }) {
     useEffect(() => {
         showError = setError;
         openProperties = setProps;
-        void activeNode(engine);   // start remembering the active node for commands
         let token = 0, throttle = 0, gone = false;
+        const adopt = () => void activeNode(engine).then(id => { if (!gone) setActive(a => a ?? id); });
+        adopt();   // also starts remembering the active node for commands; a panel that mounts late has seen no event
 
         const loadThumbs = async () => {
             const mine = ++token, shown = flatten(live.current.tree);
@@ -121,7 +123,7 @@ function Layers({ engine }: { engine: Engine }) {
         const start = async () => {
             const d = await engine.documentInfo();
             setDoc(d);
-            if (d) await reload(); else { setTree([]); setActive(null); }
+            if (d) { await reload(); adopt(); } else { setTree([]); setActive(null); }
         };
         void start(); engine.blendModes().then(setModes, e => setError(String(e?.message ?? e)));
         const off = [
@@ -134,7 +136,7 @@ function Layers({ engine }: { engine: Engine }) {
         return () => {
             gone = true; clearTimeout(throttle); off.forEach(f => f());
             Object.values(live.current.thumbs).forEach(URL.revokeObjectURL);
-            showError = m => alert(m); openProperties = null;
+            showError = reportError; openProperties = null;
         };
     }, [engine]);
 

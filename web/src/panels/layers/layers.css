@@ -43,3 +43,14 @@
 .lyr-form label { display: flex; justify-content: space-between; align-items: center; gap: var(--gap); }
 .lyr-form .lyr-check { justify-content: flex-start; }
 .lyr-dialog footer { display: flex; justify-content: flex-end; margin-top: 12px; }
+
+/* Touch: every control at least 40 px in its smaller dimension. */
+@media (pointer: coarse), (max-width: 1099px) {
+    .lyr button, .lyr-dialog button, .lyr select, .lyr-dialog select, .lyr-dialog input:not([type=checkbox]), .lyr .lyr-rename { min-height: 40px; min-width: 40px; box-sizing: border-box; }
+    .lyr input[type=range], .lyr-dialog input[type=range] { min-height: 40px; }
+    .lyr .lyr-toggle, .lyr .lyr-expander { min-width: 40px; min-height: 40px; }
+    .lyr-grip { min-width: 40px; min-height: 40px; box-sizing: border-box; display: grid; place-items: center; padding: 0; }
+    .lyr-check, .lyr-dialog .pf-row { min-height: 40px; }
+    .lyr-dialog input[type=checkbox], .lyr-dialog .pf-row input[type=checkbox] { width: 24px; height: 24px; }
+    .lyr-menu { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}

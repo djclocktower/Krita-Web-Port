@@ -6,6 +6,7 @@ import type { ConfigDescription, Engine, FilterInfo, NodeId, PropertyValue } fro
 import { describe } from '../../descriptions';
 import { PropertyForm } from '../../ui/PropertyForm';
 import { activeNode } from '../layers/active';
+import { coerce } from './coerce';
 import './filters.css';
 
 export type FilterMode = 'apply' | 'filter' | 'fill' | 'filterMask';
@@ -129,9 +130,8 @@ function FilterDialog({ engine, mode, nodeId, category, onDone }: Props) {
                         ? <PropertyForm description={desc} values={values}
                                         onChange={(k, v) => {
                                             if (typeof v === 'number' && isNaN(v)) return;
-                                            // A <select> hands back text; integer settings must stay numbers.
-                                            if (typeof desc.defaults[k] === 'number' && typeof v === 'string' && v.trim() !== '' && !isNaN(Number(v))) v = Number(v);
-                                            setValues(p => ({ ...p, [k]: v }));
+                                            const value = coerce(desc.defaults, k, v);
+                                            setValues(p => ({ ...p, [k]: value }));
                                         }} />
                         : <p class="fd-dim">This has no settings.</p>)}
                 </div>

@@ -24,3 +24,12 @@
 .tl-error { color: var(--danger); margin: 0; display: flex; gap: var(--gap); align-items: center; }
 .tl-error span { flex: 1; }
 .tl-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Touch: every control at least 40 px in its smaller dimension (rows are 41 px: see RH in index.tsx). */
+@media (pointer: coarse), (max-width: 1099px) {
+    .tl button { min-width: 40px; min-height: 40px; }
+    .tl-field input, .tl-zoom input { min-height: 40px; }
+    .tl-bar { max-height: 50%; overflow-y: auto; }
+    .tl .tl-name button { min-height: 0; }
+    .tl .tl-name .onion { min-width: 40px; }
+}

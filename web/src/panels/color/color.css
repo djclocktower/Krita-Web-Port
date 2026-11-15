@@ -12,3 +12,10 @@
 .color .fields label { display: flex; flex-direction: column; font-size: 11px; color: var(--text-dim); }
 .color .fields .hexfield { grid-column: 1 / -1; }
 .color .fields input { width: 100%; box-sizing: border-box; background: var(--panel-raised); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px; }
+
+/* Touch: every control at least 40 px in its smaller dimension. */
+@media (pointer: coarse), (max-width: 1099px) {
+    .color .hue { height: 40px; padding: 12px 0; background-clip: content-box; box-sizing: border-box; }
+    .color .swatch { width: 48px; height: 40px; }
+    .color .fields input { min-height: 40px; }
+}

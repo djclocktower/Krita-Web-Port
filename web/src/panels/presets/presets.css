@@ -12,3 +12,9 @@
 .preset img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .preset.current { border-color: var(--accent); }
 .preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Touch: every control at least 40 px in its smaller dimension. */
+@media (pointer: coarse), (max-width: 1099px) {
+    .presets-bar input, .presets-bar select, .presets-bar button { min-height: 40px; min-width: 40px; box-sizing: border-box; }
+    .presets-grid { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); }
+}

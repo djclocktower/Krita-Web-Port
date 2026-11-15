@@ -25,3 +25,11 @@
 .fd footer { display: flex; align-items: center; justify-content: flex-end; gap: var(--gap); margin-top: 12px; }
 .fd-preview { margin-right: auto; display: flex; align-items: center; gap: 4px; }
 @media (max-width: 520px) { .fd-body { flex-direction: column; height: 70vh; } .fd-list { flex-basis: 45%; } }
+
+/* Touch: every control at least 40 px in its smaller dimension. */
+@media (pointer: coarse), (max-width: 1099px) {
+    .filters-panel button, .fd button, .fd select, .fd input:not([type=checkbox]) { min-height: 40px; min-width: 40px; box-sizing: border-box; }
+    .fd-scroll li button { min-height: 40px; }
+    .fd-preview, .fd .pf-row { min-height: 40px; }
+    .fd input[type=checkbox] { width: 24px; height: 24px; }
+}

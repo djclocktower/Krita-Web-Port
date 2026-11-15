@@ -183,18 +183,29 @@ check(/Frame 1, (no )?keyframe on Ink/.test(await page.locator('.tl-sr').innerTe
 
 // --- playback
 await setField('Frame', '0');
-const { played, dt } = await page.evaluate(async () => {
+// The panel shows start + floor(t * fps) as of its last animation frame, so on a loaded machine it can trail the clock by
+// the length of a stall. Sample the displayed frame every 20 ms: it must never run ahead of the clock (+1 for rounding), and
+// at the end it may trail by no more than the longest stall this page saw (plus 100 ms).
+const play = await page.evaluate(async () => {
     const btn = l => [...document.querySelectorAll('.tl button')].find(b => b.getAttribute('aria-label') === l);
+    const input = document.querySelector('.tl-field input');
     const t0 = performance.now(); btn('Play').click();
-    await new Promise(r => setTimeout(r, 1000));
-    const played = Number(document.querySelector('.tl-field input').value), dt = (performance.now() - t0) / 1000;
+    let last = t0, stall = 0, ahead = 0, shown = 0, t = 0;
+    while ((t = performance.now() - t0) < 1000) {
+        await new Promise(r => setTimeout(r, 20));
+        const now = performance.now(); stall = Math.max(stall, now - last); last = now;
+        shown = Number(input.value); t = now - t0;
+        ahead = Math.max(ahead, shown - Math.floor(t / 1000 * 24));
+    }
     btn('Pause').click();
-    return { played, dt };
+    return { shown, t, stall, ahead };
 });
 await settle();
-check((await anim()).currentTime === played || (await anim()).currentTime >= played, 'engine reaches the played frame after pause');
-const expected = 24 * dt;
-check(Math.abs(played - expected) <= 5 && played > 0, 'play advances at roughly 24 fps', `${played} vs ${expected.toFixed(1)}`);
+const played = play.shown, expected = 24 * play.t / 1000;
+check((await anim()).currentTime >= played, 'engine reaches the played frame after pause');
+check(play.ahead <= 1, 'play never runs ahead of 24 fps', `ahead by ${play.ahead} frames`);
+check(played > 0 && played >= Math.floor(24 * (play.t - play.stall - 100) / 1000), 'play advances at 24 fps, trailing only by the longest stall',
+      `${played} vs ${expected.toFixed(1)} (longest stall ${Math.round(play.stall)} ms)`);
 const stopped = (await anim()).currentTime; await page.waitForTimeout(250);
 check((await anim()).currentTime === stopped, 'pause stops playback');
 await setField('End', '10'); await setField('Frame', '0');

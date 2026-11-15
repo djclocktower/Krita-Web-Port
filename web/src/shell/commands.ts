@@ -31,6 +31,7 @@ const opacityStep = (dir: number) => (e: Engine) => e.setBrush({ opacity: clamp(
 export const shellCommands: Command[] = [
     { id: 'file.new', title: 'New…', menu: 'File', shortcut: 'Ctrl+N', run: () => app.set({ newOpen: true }) },
     { id: 'file.open', title: 'Open…', menu: 'File', shortcut: 'Ctrl+O', run: openFile },
+    { id: 'file.openRecent', title: 'Open Recent…', menu: 'File', run: open('recent') },
     { id: 'file.saveKra', title: 'Save as .kra', menu: 'File', shortcut: 'Ctrl+S', run: async e => download(`${baseName()}.kra`, await e.exportDocument('kra')) },
     { id: 'file.export', title: 'Export…', menu: 'File', shortcut: 'Ctrl+Shift+E', run: open('export') },
     { id: 'edit.undo', title: 'Undo', menu: 'Edit', shortcut: 'Ctrl+Z', run: e => e.undo() },
@@ -76,7 +77,7 @@ export const allCommands: Command[] = [...shellCommands, ...panels.flatMap(p => 
 /** Whether a command can run now: it needs a document (except New and Open), and Undo, Redo and Trim need something to act on. */
 export function isEnabled(c: Command): boolean {
     const { doc, history, sel } = app.get();
-    const needsDoc = ['Edit', 'Image', 'Layer', 'Select', 'Filter'].includes(c.menu) || (c.menu === 'File' && c.id !== 'file.new' && c.id !== 'file.open');
+    const needsDoc = ['Edit', 'Image', 'Layer', 'Select', 'Filter'].includes(c.menu) || (c.menu === 'File' && !['file.new', 'file.open', 'file.openRecent'].includes(c.id));
     if (needsDoc && !doc) return false;
     return c.id === 'edit.undo' ? history.canUndo : c.id === 'edit.redo' ? history.canRedo : c.id === 'image.trim' ? !!sel : true;
 }

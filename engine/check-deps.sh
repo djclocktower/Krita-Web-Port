@@ -1,0 +1,131 @@
+#!/usr/bin/env bash
+# Compiles and runs one small program per image library (jpeg tiff webp gif exr) under node.
+# Usage: engine/check-deps.sh      Exit status is non-zero if any check fails.
+source "$(dirname "$0")/env.sh" 2>/dev/null
+T=$(mktemp -d); P=$PREFIX
+F="-pthread -sPROXY_TO_PTHREAD -sEXIT_RUNTIME=1 -sALLOW_MEMORY_GROWTH -O1 -I$P/include -I$P/include/OpenEXR -I$P/include/Imath -L$P/lib"
+fail=0
+run() { # name lang libs  (source on stdin)
+    local n=$1 lang=$2 cc=emcc ext=c; shift 2
+    [ "$lang" = cxx ] && cc=em++ && ext=cpp
+    cat >"$T/$n.$ext"
+    if $cc $KW_CFLAGS -fexceptions $F "$T/$n.$ext" -o "$T/$n.js" "$@" >"$T/$n.log" 2>&1 && node "$T/$n.js" >>"$T/$n.log" 2>&1
+    then echo "PASS $n"; else echo "FAIL $n"; tail -15 "$T/$n.log"; fail=1; fi
+}
+
+run jpeg c -lturbojpeg -ljpeg <<'EOF'
+#include <turbojpeg.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main(void) {
+    enum { W = 32, H = 24 };
+    unsigned char img[W*H*3], out[W*H*3];
+    for (int i = 0; i < W*H; i++) { img[3*i] = 200; img[3*i+1] = 100; img[3*i+2] = 50; } /* flat colour: lossy-safe */
+    tjhandle c = tj3Init(TJINIT_COMPRESS);
+    tj3Set(c, TJPARAM_QUALITY, 95); tj3Set(c, TJPARAM_SUBSAMP, TJSAMP_444);
+    unsigned char *jpg = NULL; size_t n = 0;
+    if (tj3Compress8(c, img, W, 0, H, TJPF_RGB, &jpg, &n)) { puts(tj3GetErrorStr(c)); return 1; }
+    tjhandle d = tj3Init(TJINIT_DECOMPRESS);
+    if (tj3DecompressHeader(d, jpg, n)) return 2;
+    if (tj3Get(d, TJPARAM_JPEGWIDTH) != W || tj3Get(d, TJPARAM_JPEGHEIGHT) != H) return 3;
+    if (tj3Decompress8(d, jpg, n, out, 0, TJPF_RGB)) return 4;
+    for (int i = 0; i < W*H*3; i++) if (abs(out[i] - img[i]) > 4) { printf("pixel %d: %d vs %d\n", i, out[i], img[i]); return 5; }
+    printf("jpeg %zu bytes ok\n", n); return 0;
+}
+EOF
+
+run tiff c -ltiff -ljpeg -lz <<'EOF'
+#include <tiffio.h>
+#include <stdio.h>
+#include <string.h>
+int main(void) {
+    enum { W = 8, H = 8 };
+    unsigned char px[W*3], row[W*3];
+    TIFF *t = TIFFOpen("t.tif", "w"); if (!t) return 1;
+    TIFFSetField(t, TIFFTAG_IMAGEWIDTH, W); TIFFSetField(t, TIFFTAG_IMAGELENGTH, H);
+    TIFFSetField(t, TIFFTAG_SAMPLESPERPIXEL, 3); TIFFSetField(t, TIFFTAG_BITSPERSAMPLE, 8);
+    TIFFSetField(t, TIFFTAG_PHOTOMETRIC, PHOTOMETRIC_RGB); TIFFSetField(t, TIFFTAG_PLANARCONFIG, PLANARCONFIG_CONTIG);
+    TIFFSetField(t, TIFFTAG_COMPRESSION, COMPRESSION_ADOBE_DEFLATE); TIFFSetField(t, TIFFTAG_ROWSPERSTRIP, H);
+    unsigned char psd[4] = {1,2,3,4};                      /* what Krita's PSD-tag check does */
+    if (!TIFFSetField(t, TIFFTAG_PHOTOSHOP, 4u, psd)) return 6;
+    for (int y = 0; y < H; y++) { for (int x = 0; x < W*3; x++) px[x] = y*16 + x; if (TIFFWriteScanline(t, px, y, 0) < 0) return 2; }
+    TIFFClose(t);
+    t = TIFFOpen("t.tif", "r"); if (!t) return 3;
+    unsigned w, h; TIFFGetField(t, TIFFTAG_IMAGEWIDTH, &w); TIFFGetField(t, TIFFTAG_IMAGELENGTH, &h);
+    if (w != W || h != H) return 4;
+    for (int y = 0; y < H; y++) { TIFFReadScanline(t, row, y, 0); for (int x = 0; x < W*3; x++) if (row[x] != (unsigned char)(y*16 + x)) return 5; }
+    TIFFClose(t); printf("tiff %s ok\n", TIFFGetVersion()); return 0;
+}
+EOF
+
+run webp c -lwebpmux -lwebpdemux -lwebp -lsharpyuv <<'EOF'
+#include <webp/encode.h>
+#include <webp/decode.h>
+#include <webp/mux.h>
+#include <webp/demux.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main(void) {
+    enum { W = 16, H = 16 };
+    uint8_t rgba[W*H*4]; for (int i = 0; i < W*H; i++) { rgba[4*i]=10; rgba[4*i+1]=200; rgba[4*i+2]=90; rgba[4*i+3]=255; }
+    uint8_t *webp = NULL; size_t n = WebPEncodeLosslessRGBA(rgba, W, H, W*4, &webp);
+    if (!n) return 1;
+    int w, h; uint8_t *dec = WebPDecodeRGBA(webp, n, &w, &h);
+    if (!dec || w != W || h != H) return 2;
+    for (int i = 0; i < W*H*4; i++) if (dec[i] != rgba[i]) return 3;      /* lossless: exact */
+    WebPData d = { webp, n }, out = {0};
+    WebPMux *m = WebPMuxCreate(&d, 1); if (!m) return 4;
+    WebPData icc = { (const uint8_t*)"icc", 3 };
+    if (WebPMuxSetChunk(m, "ICCP", &icc, 1) != WEBP_MUX_OK) return 5;
+    if (WebPMuxAssemble(m, &out) != WEBP_MUX_OK) return 6;
+    WebPDemuxer *dm = WebPDemux(&out); if (!dm) return 7;
+    if (WebPDemuxGetI(dm, WEBP_FF_CANVAS_WIDTH) != W || WebPDemuxGetI(dm, WEBP_FF_FRAME_COUNT) != 1) return 8;
+    printf("webp encoder 0x%x ok\n", WebPGetEncoderVersion()); return 0;
+}
+EOF
+
+run gif c -lgif <<'EOF'
+#include <gif_lib.h>
+#include <stdio.h>
+int main(void) {
+    int err; enum { W = 4, H = 4 };
+    GifFileType *g = EGifOpenFileName("t.gif", 0, &err); if (!g) return 1;
+    GifColorType c[2] = {{0,0,0},{255,255,255}};
+    ColorMapObject *cm = GifMakeMapObject(2, c);
+    if (EGifPutScreenDesc(g, W, H, 1, 0, cm) != GIF_OK) return 2;
+    if (EGifPutImageDesc(g, 0, 0, W, H, 0, NULL) != GIF_OK) return 3;
+    GifByteType row[W]; for (int y = 0; y < H; y++) { for (int x = 0; x < W; x++) row[x] = (x+y)&1; if (EGifPutLine(g, row, W) != GIF_OK) return 4; }
+    if (EGifCloseFile(g, &err) != GIF_OK) return 5;
+    g = DGifOpenFileName("t.gif", &err); if (!g) return 6;
+    if (DGifSlurp(g) != GIF_OK || g->SWidth != W || g->SHeight != H || g->ImageCount != 1) return 7;
+    for (int i = 0; i < W*H; i++) if (g->SavedImages[0].RasterBits[i] != ((i%W + i/W)&1)) return 8;
+    DGifCloseFile(g, &err); puts("gif ok"); return 0;
+}
+EOF
+
+run exr cxx -lOpenEXR-3_3 -lOpenEXRCore-3_3 -lIlmThread-3_3 -lIex-3_3 -lImath-3_1 <<'EOF'
+#include <ImfRgbaFile.h>
+#include <ImfArray.h>
+#include <ImathVec.h>
+#include <ImathMatrix.h>
+#include <cstdio>
+using namespace Imf; using namespace Imath;
+int main() {
+    const int W = 16, H = 8;
+    Array2D<Rgba> px(H, W);
+    for (int y = 0; y < H; y++) for (int x = 0; x < W; x++) px[y][x] = Rgba(x / 16.0f, y / 8.0f, 0.5f, 1.0f);
+    try {
+        { RgbaOutputFile o("t.exr", W, H, WRITE_RGBA); o.setFrameBuffer(&px[0][0], 1, W); o.writePixels(H); }
+        RgbaInputFile i("t.exr"); Box2i dw = i.dataWindow();
+        if (dw.max.x - dw.min.x + 1 != W || dw.max.y - dw.min.y + 1 != H) return 2;
+        Array2D<Rgba> rd(H, W); i.setFrameBuffer(&rd[0][0], 1, W); i.readPixels(dw.min.y, dw.max.y);
+        for (int y = 0; y < H; y++) for (int x = 0; x < W; x++)
+            if (rd[y][x].r != px[y][x].r || rd[y][x].g != px[y][x].g || (float)rd[y][x].b != 0.5f) return 3;   /* half is exact for these */
+    } catch (const std::exception &e) { puts(e.what()); return 1; }
+    V3f v(1, 2, 3); M44f m; m.setScale(V3f(2, 2, 2)); V3f r = v * m;
+    if (r.x != 2 || r.z != 6) return 4;
+    puts("exr ok"); return 0;
+}
+EOF
+
+rm -rf "$T"; [ $fail = 0 ] && echo "all checks passed"; exit $fail

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { Canvas } from '../canvas/Canvas';
 import { view } from '../canvas/view';
 import type { Engine } from '../engine/protocol';
@@ -9,6 +9,7 @@ import { Dialogs } from '../dialogs';
 import { allCommands, isEnabled } from './commands';
 import { errors } from './errors';
 import { sheet, useLayout, useSheet, type Layout } from './layout';
+import { notice, restoreDocument, restoreResources, saveState, wrapEngine } from '../storage/session';
 import { app, report, trackEngine } from './state';
 import { useStore } from './store';
 import './shell.css';
@@ -17,19 +18,26 @@ if (import.meta.env.DEV) (window as unknown as { __app: unknown }).__app = app; 
 
 const MENUS = ['File', 'Edit', 'View', 'Image', 'Layer', 'Select', 'Filter', 'Tools', 'Settings'] as const;
 
-export function App({ engine }: { engine: Engine }) {
+const NEW_DOC = { width: 1600, height: 1200, name: 'Untitled' };
+
+export function App({ engine: rawEngine }: { engine: Engine }) {
+    const engine = useMemo(() => wrapEngine(rawEngine), [rawEngine]);   // stores imported resources, autosaves
+    const [ready, setReady] = useState(false);
     const layout = useLayout();
     const run = async (c: Command) => { if (!isEnabled(c)) return; try { await c.run(engine); } catch (e) { report(e); } };
     useEffect(() => {
         const offs = [trackEngine(engine), attachKeys(allCommands, c => void run(c))];
         (async () => {
-            if (!(await engine.documentInfo())) await engine.newDocument({ width: 1600, height: 1200, name: 'Untitled' });
+            await restoreResources();   // before the panels mount, so the presets list includes them
+            setReady(true);
+            if (!(await engine.documentInfo()) && !(await restoreDocument())) await engine.newDocument(NEW_DOC);
             app.set({ doc: await engine.documentInfo() });
             // The engine has no getters for brush and colours; setting them to themselves makes it announce them.
             await engine.setColors({}); await engine.setBrush({});
         })().catch(report);
         return () => offs.forEach(f => f());
     }, [engine]);
+    if (!ready) return <div class={`app app-${layout}`} />;
     return (
         <div class={`app app-${layout}`}>
             {layout === 'narrow' ? <MobileBar run={run} /> : <MenuBar run={run} />}
@@ -44,9 +52,25 @@ export function App({ engine }: { engine: Engine }) {
                 {layout === 'narrow' && <Sheet engine={engine} />}
             </div>
             <StatusBar />
+            <Notice engine={engine} />
             <ErrorBanner />
             <NewDialog engine={engine} />
             <Dialogs engine={engine} />
+        </div>
+    );
+}
+
+const clock = (t: number) => new Date(t).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+
+function Notice({ engine }: { engine: Engine }) {
+    const { restored } = useStore(notice);
+    if (!restored) return null;
+    const close = () => notice.set({ restored: null });
+    return (
+        <div class="banner notice" role="status">
+            <span>Restored {restored.name} from {clock(restored.at)}</span>
+            <button onClick={() => { close(); engine.newDocument(NEW_DOC).catch(report); }}>Start new instead</button>
+            <button aria-label="Dismiss notice" onClick={close}>✕</button>
         </div>
     );
 }
@@ -239,12 +263,18 @@ function Sheet({ engine }: { engine: Engine }) {
 function StatusBar() {
     const { doc, sel } = useStore(app);
     const v = useStore(view);
+    const save = useStore(saveState);
     const deg = Math.round((((v.rot * 180) / Math.PI) % 360 + 360) % 360);
     return (
         <footer class="statusbar">
             <span class="status-doc">{doc ? `${doc.name}${doc.modified ? '*' : ''} · ${doc.width} × ${doc.height} px` : 'No document'}</span>
             {doc && <span class="status-cs">{doc.colorModel} {doc.colorDepth}</span>}
             {sel && <span class="status-sel">Selection {sel.width} × {sel.height}</span>}
+            {save.kind !== 'none' && (
+                <span class="status-save" role="status">
+                    {save.kind === 'saving' ? 'Saving…' : save.kind === 'saved' ? `Saved locally ${clock(save.at)}` : `Not saved (${save.reason})`}
+                </span>
+            )}
             <span class="status-zoom">{Math.round(v.scale * 100)}%</span>
             <span class="status-rot">{deg}°{v.mirror ? ' mirrored' : ''}</span>
             <span class="status-pos">{v.pointer ? `${Math.floor(v.pointer.x)}, ${Math.floor(v.pointer.y)}` : '—'}</span>

@@ -4,9 +4,11 @@ import { app, report } from '../shell/state';
 import { useStore } from '../shell/store';
 import { download } from './download';
 import { Modal, area, pixels } from './Modal';
+import { Recent } from './Recent';
 
 export function Dialogs({ engine }: { engine: Engine }) {
     const { dialog, doc } = useStore(app);
+    if (dialog === 'recent') return <Recent />;
     if (!dialog || !doc) return null;
     return dialog === 'export' ? <Export engine={engine} /> : dialog === 'scale' ? <Scale engine={engine} />
         : dialog === 'resize' ? <Resize engine={engine} /> : dialog === 'rotate' ? <Rotate engine={engine} /> : <Convert engine={engine} />;

@@ -21,7 +21,9 @@ target_link_options(kritaengine PRIVATE -Wl,--whole-archive)
 foreach(_lib ${_krita_libs})
     # A format's import and export plugins compile the same converter sources, so keeping both
     # archives whole would define everything twice. They are pulled in by Q_IMPORT_PLUGIN instead.
-    if (NOT _lib MATCHES "(import|export)$")
+    # krita_flaketools and kritadefaulttools both embed a resource file called "defaulttools";
+    # the flake one only holds toolbar icons, which a headless engine does not need.
+    if (NOT _lib MATCHES "(import|export|flaketools)$")
         target_link_options(kritaengine PRIVATE $<TARGET_FILE:${_lib}>)
     endif()
 endforeach()

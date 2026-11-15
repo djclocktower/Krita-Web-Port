@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { AnimationState, Engine, LayerNode, NodeId } from '../../engine/protocol';
 import type { Command, Panel } from '../../panels';
+import { reportError } from '../../shell/errors';
+import { activeNode } from '../layers/active';
 import './timeline.css';
 
-const NAMEW = 170, HEAD = 24, RH = 28;
+const NAMEW = 170, HEAD = 24;
+// Rows hold 40 px buttons plus a 1 px border on touch layouts; the grid is drawn with the same height.
+const coarse = matchMedia('(pointer: coarse), (max-width: 1099px)');
+let RH = coarse.matches ? 41 : 28;
 const EXTRA = 10;   // empty frames shown after the last one that matters
 type Row = { id: NodeId; name: string; depth: number };
 type Patch = Partial<AnimationState>;
@@ -13,17 +18,9 @@ const msg = (e: unknown) => (e instanceof Error ? e.message : String(e));
 const rowsOf = (nodes: LayerNode[], depth = 0): Row[] =>
     nodes.flatMap(n => [...(n.type === 'paint' ? [{ id: n.id, name: n.name, depth }] : []), ...rowsOf(n.children, depth + 1)]);
 
-// The engine has no "which node is active" query, so remember the last activeNodeChanged per engine.
-const seen = new WeakMap<Engine, { id: NodeId | null }>();
-async function activeNode(engine: Engine): Promise<NodeId | null> {
-    let s = seen.get(engine);
-    if (!s) { const state = s = { id: null as NodeId | null }; seen.set(engine, state); engine.on('activeNodeChanged', id => { state.id = id; }); }
-    return s.id ?? rowsOf(await engine.layers())[0]?.id ?? null;
-}
-
 // What the mounted panel offers to commands; null when the panel is not mounted.
 let live: { anim: () => AnimationState; active: () => NodeId | null; send: (p: Patch) => void; toggle: () => void } | null = null;
-let showError: (m: string) => void = m => alert(m);
+let showError: (m: string) => void = reportError;
 async function act(fn: () => Promise<unknown>) { try { await fn(); } catch (e) { showError(msg(e)); } }
 
 const current = async (engine: Engine) => live?.anim() ?? await engine.animation();
@@ -83,6 +80,7 @@ function Timeline({ engine }: { engine: Engine }) {
     const [cw, setCw] = useState(14);
     const [drag, setDrag] = useState<Drag | null>(null);
     const [error, setError] = useState('');
+    const [, redraw] = useState(0);
     const scroller = useRef<HTMLDivElement>(null), canvas = useRef<HTMLCanvasElement>(null);
     const S = useRef({
         anim, engineAnim: anim, busy: false, queued: null as Patch | null, loop, playing,
@@ -107,9 +105,11 @@ function Timeline({ engine }: { engine: Engine }) {
         if (S.busy) return;
         const pump = () => {
             const p = S.queued;
-            if (!p) { setA(S.engineAnim); return; }
+            if (!p) return;
             S.queued = null; S.busy = true;
-            engine.setAnimation(p).catch(e => setError(msg(e))).finally(() => { S.busy = false; pump(); });
+            // Only a failed call goes back to the engine's state; after a success S.anim already holds what was sent,
+            // and the engine's own (older) state would make playback restart from a stale frame.
+            engine.setAnimation(p).catch(e => { setError(msg(e)); if (!S.queued) setA(S.engineAnim); }).finally(() => { S.busy = false; pump(); });
         };
         pump();
     };
@@ -118,6 +118,8 @@ function Timeline({ engine }: { engine: Engine }) {
     useEffect(() => {
         showError = setError;
         let gone = false;
+        const rowHeight = () => { RH = coarse.matches ? 41 : 28; redraw(n => n + 1); };
+        coarse.addEventListener('change', rowHeight); rowHeight();
         const loadKeys = (id: NodeId) => engine.keyframes(id).then(k => { if (!gone) setKeys(o => ({ ...o, [id]: k })); }, e => setError(msg(e)));
         const loadLayers = async () => {
             try {
@@ -139,7 +141,7 @@ function Timeline({ engine }: { engine: Engine }) {
             engine.on('activeNodeChanged', setActive),
             engine.on('animationChanged', a => { S.engineAnim = a; if (!S.busy && !S.queued) setA(a); }),
         ];
-        return () => { gone = true; off.forEach(f => f()); live = null; showError = m => alert(m); };
+        return () => { gone = true; coarse.removeEventListener('change', rowHeight); off.forEach(f => f()); live = null; showError = reportError; };
     }, [engine]);
 
     // Playback: the frame comes from elapsed wall-clock time, so a slow engine drops frames instead of slowing down.
@@ -148,11 +150,11 @@ function Timeline({ engine }: { engine: Engine }) {
         const a = S.anim;
         let f0 = a.currentTime >= a.startTime && a.currentTime <= a.endTime && !(a.currentTime === a.endTime && !S.loop) ? a.currentTime : a.startTime;
         let t0 = performance.now(), fps = a.framesPerSecond, expected = a.currentTime, id = 0;
-        const tick = (now: number) => {
-            const cur = S.anim;
+        const tick = () => {
+            const now = performance.now(), cur = S.anim;   // not rAF's timestamp: that is the frame start and can precede t0
             if (cur.currentTime !== expected) { f0 = cur.currentTime; t0 = now; expected = f0; }   // the user moved the playhead
             if (cur.framesPerSecond !== fps) { f0 = cur.currentTime; t0 = now; fps = cur.framesPerSecond; }
-            let f = f0 + Math.floor((now - t0) / 1000 * fps);
+            let f = f0 + Math.max(0, Math.floor((now - t0) / 1000 * fps));
             if (f > cur.endTime) {
                 if (S.loop) f = cur.startTime + (f - cur.startTime) % (cur.endTime - cur.startTime + 1);
                 else { f = cur.endTime; if (f !== cur.currentTime) send({ currentTime: f }); setPlaying(false); return; }
@@ -246,7 +248,7 @@ function Timeline({ engine }: { engine: Engine }) {
     };
     const onMove = (e: PointerEvent) => {
         const [x] = local(e), sc = scroller.current!;
-        if (S.scrub) send({ currentTime: frameAt(x) });
+        if (S.scrub) { const f = frameAt(x); if (f !== S.anim.currentTime) send({ currentTime: f }); }   // moves within one frame cost nothing
         else if (S.drag) { const to = frameAt(x); if (to !== S.drag.to) setDrag({ ...S.drag, to }); }
         else if (S.pan) {
             const dx = e.clientX - S.pan.x, dy = e.clientY - S.pan.y;
