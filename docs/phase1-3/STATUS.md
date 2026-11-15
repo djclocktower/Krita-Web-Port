@@ -25,9 +25,9 @@ What the real-engine contract test establishes: documents can be created; 134 bl
 
 ## Open problems
 
-1. **Start-up takes about 40 seconds.** Almost all of it is importing the default resource bundle into the resource database on every load, because the virtual filesystem is in memory. Fix: keep the database in the browser's persistent storage, or ship it prebuilt.
+1. **Start-up: fixed, from about 44 s to under 3 s** (headless Chromium, local server). Measured: 42.5 of the 44 s were Krita importing the default resource bundle into its database on every load. `engine/make-resource-cache.mjs` now builds that database once at build time (11.8 MB) and the page puts it in place before the engine starts. If the cache is missing the engine still works and builds the database itself, slowly. Rerun the script after rebuilding the engine. Resources a user imports are still lost on reload: nothing is persisted in the browser yet.
 2. **Painting with some presets through the interface stalls the page.** Seen with "Bristles-2 Flat Rough" and "Watercolor Fringe" when painting with real pointer events on the canvas. The engine is not the cause: driven directly it paints a 1,200 px stroke with that preset in about 0.4 s, and it handles duplicate points, tiny steps, repeated timestamps and zero pressure. Flow control for image updates did not cure it. The cause is somewhere in the interface path and is not found yet.
-3. **A document containing a fill layer does not render identically after a `.kra` round trip.** Cause not yet known.
+3. **A document containing a fill layer sometimes does not render identically after a `.kra` round trip.** It fails in some runs and passes in others, which points at timing (fill layers render asynchronously) rather than at saving, but that is not confirmed.
 4. **The preset survey cannot judge 18 presets.** `tests/presets-wasm.mjs` painted with all 117 bundled presets on the real engine: none hung or crashed and 99 visibly changed a blank white canvas. The other 18 are blenders, dodge/lighten adjusters, clone, distort and blur/sharpen brushes, which have nothing to act on there (this also explains the "filter brush" failure in the contract test). They need a test on a canvas with content.
 5. **Transform masks and file layers are refused.** Transform masks need the transform tool's plugin (Phase 4).
 6. **Forms for filter and brush settings are generic.** They are generated from each setting's stored type, so labels are raw keys and numbers have no ranges. Krita's hand-built option panels are not reproduced yet.
@@ -47,6 +47,7 @@ What the real-engine contract test establishes: documents can be created; 134 bl
 
 ```sh
 engine/build-krita.sh kritaengine
+node engine/make-resource-cache.mjs $KW/build/krita/bin     # once per engine build; makes start-up fast
 ln -sfn $KW/build/krita/bin web/public/engine
 cd web && npm install && npx vite --port 5173
 # http://localhost:5173/            mock engine

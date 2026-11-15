@@ -4,9 +4,11 @@
 //   page  -> kw_request(id, method, paramsJson, bytes)      (any thread; hops to Krita's thread)
 //   core  -> Module.kwOnMessage(json, bytes|null)           (on the browser's main thread)
 #define TESTUI
+#define KRITA_KEEP_RESOURCE_CACHE   // a prebuilt resource database may already be in place (see make-resource-cache.mjs)
 #include <kistest.h>            // Krita's own headless bootstrap (registerResources)
 
 #include <QBuffer>
+#include <QElapsedTimer>
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -15,6 +17,7 @@
 #include <QTimer>
 #include <QtPlugin>
 #include <emscripten.h>
+#include <utime.h>
 
 #include <KisDocument.h>
 #include <KisPart.h>
@@ -761,11 +764,23 @@ int main(int argc, char *argv[])
     qputenv("QT_QPA_PLATFORM", "kritaheadless");
     qputenv("FONTCONFIG_FILE", "/etc/fonts/fonts.conf");
     QStandardPaths::setTestModeEnabled(true);
+    QElapsedTimer t;
+    t.start();
+    QJsonObject startup;
+    auto lap = [&](const char *what) { startup[what] = t.restart(); };
     QApplication app(argc, argv);
+    lap("applicationMs");
+    // Preloaded files get "now" as their modification time on every page load, which would make
+    // Krita think the bundle changed and re-import it. Pin it so a stored database stays valid.
+    const struct utimbuf pinned = {1700000000, 1700000000};
+    utime("/share/krita/bundles/Krita_4_Default_Resources.bundle", &pinned);
     registerResources();
+    lap("resourcesMs");
     g_engine = new Engine;
+    lap("engineMs");
     g_engine->selectDefaultPreset();
-    emitEvent("ready");
+    lap("defaultPresetMs");
+    emitEvent("ready", {{"startup", startup}, {"dataDir", QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)}});
     return app.exec();
 }
 

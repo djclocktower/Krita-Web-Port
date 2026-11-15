@@ -463,3 +463,20 @@ index e69dea2..9b13c0e 100644
                                       const KisRateOption *rateOption,
                                       const KisPaintInformation &pi)
  {
+diff --git a/sdk/tests/kistest.h b/sdk/tests/kistest.h
+index 2c813ac..7b739cf 100644
+--- a/sdk/tests/kistest.h
++++ b/sdk/tests/kistest.h
+@@ -170,10 +170,12 @@ void registerResources()
+ #if defined(TESTRESOURCES) || defined(TESTPIGMENT) || defined (TESTFLAKE) || defined(TESTIMAGE) || defined(TESTBRUSH) || defined(TESTUI)
+ 
+     QDir dir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
++#ifndef KRITA_KEEP_RESOURCE_CACHE   // tests want a fresh database; an application wants to keep it
+     if (dir.exists("resourcecache.sqlite")) {
+         bool result = dir.removeRecursively();
+         qDebug() << "Result of deleting resourcecache.sqlite:" << (result);
+     }
++#endif
+ 
+     addResourceTypes();
+ 

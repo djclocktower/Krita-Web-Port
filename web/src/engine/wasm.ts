@@ -6,7 +6,9 @@ import type { Engine, EngineEvents } from './protocol';
 interface Module {
     _kw_request(id: number, seq: number): void;
     _kw_ack(): void;
-    FS: { writeFile(path: string, data: Uint8Array | string): void };
+    FS: { writeFile(path: string, data: Uint8Array | string): void; readFile(path: string): Uint8Array; mkdirTree(path: string): void };
+    addRunDependency(id: string): void;
+    removeRunDependency(id: string): void;
 }
 type Message = { id?: number; event?: string; result?: unknown; error?: string } & Record<string, unknown>;
 
@@ -44,7 +46,7 @@ export async function createWasmEngine(): Promise<Engine> {
             return;
         }
         switch (msg.event) {
-            case 'ready': ready(); break;
+            case 'ready': console.info('engine start-up', JSON.stringify(msg.startup), `since page load: ${Math.round(performance.now())} ms`); ready(); break;
             // The engine sends the next update only after this acknowledgement (flow control).
             case 'imageUpdate': try { if (bytes) emit('imageUpdate', msg.rect, bytes); } finally { module._kw_ack(); } break;
             case 'documentChanged': emit('documentChanged', msg.info ?? null); break;
@@ -57,14 +59,42 @@ export async function createWasmEngine(): Promise<Engine> {
         }
     }
 
+    const t0 = performance.now();
     await loadScript(`${BASE}kritaengine.js`);
     const entry = (window as unknown as { kritaengine_entry: (config: object) => Promise<Module> }).kritaengine_entry;
-    const module: Module = await entry({
+    // Krita's resource database takes ~40 s to build from the default bundle. engine/make-resource-cache.mjs
+    // builds it once; here it is put in place before the engine starts. Without it the engine still
+    // works, it just builds the database itself.
+    const config = {} as Module & Record<string, unknown>;
+    const restoreResourceCache = () => {
+        config.addRunDependency('resource-cache');
+        (async () => {
+            const manifest = await fetch(`${BASE}resource-cache/manifest.json`).then(r => (r.ok ? r.json() : null), () => null) as
+                { dir: string; files: string[]; copies: { from: string; name: string }[] } | null;
+            if (manifest) {
+                config.FS.mkdirTree(manifest.dir);
+                for (const copy of manifest.copies) {
+                    // The engine's bundled files are unpacked asynchronously and may not be there yet.
+                    for (let tries = 0; ; tries++) {
+                        try { config.FS.writeFile(`${manifest.dir}/${copy.name}`, config.FS.readFile(copy.from)); break; }
+                        catch (e) { if (tries > 1500) throw e; await new Promise(r => setTimeout(r, 20)); }
+                    }
+                }
+                await Promise.all(manifest.files.map(async name => {
+                    const data = await fetch(`${BASE}resource-cache/${name}`).then(r => r.arrayBuffer());
+                    config.FS.writeFile(`${manifest.dir}/${name}`, new Uint8Array(data));
+                }));
+            }
+        })().catch(e => console.warn('Could not restore the resource cache', e)).finally(() => config.removeRunDependency('resource-cache'));
+    };
+    const module: Module = await entry(Object.assign(config, {
+        preRun: [restoreResourceCache],
         locateFile: (file: string) => BASE + file,
         kwOnMessage: onMessage,
         print: (text: string) => console.debug(text),
         printErr: (text: string) => console.debug(text),
-    });
+    }));
+    console.info(`engine module instantiated after ${Math.round(performance.now() - t0)} ms`);
     await whenReady;
 
     // Requests go through the engine's virtual filesystem: /tmp/kw-<seq>.json, plus /tmp/kw-<seq>.bin for bytes.
