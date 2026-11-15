@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b5f826f..39dcee8 100644
+index b5f826f..7d91290 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -84,6 +84,16 @@ endif()
+@@ -84,6 +84,20 @@ endif()
  
  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
  
@@ -13,13 +13,17 @@ index b5f826f..39dcee8 100644
 +        set(args ${ARGN})
 +        list(TRANSFORM args REPLACE "^(SHARED|MODULE)$" "STATIC")
 +        _add_library(${name} ${args})
++        if ("MODULE" IN_LIST ARGN)
++            # plugins become Qt static plugins; KoJsonTrader lists them via QPluginLoader::staticPlugins()
++            target_compile_definitions(${name} PRIVATE QT_STATICPLUGIN)
++        endif()
 +    endfunction()
 +endif()
 +
  if (APPLE)
      add_subdirectory(packaging/macos)
  
-@@ -902,7 +912,7 @@ if (Qt${QT_MAJOR_VERSION}QuickWidgets_FOUND)
+@@ -902,7 +916,7 @@ if (Qt${QT_MAJOR_VERSION}QuickWidgets_FOUND)
  endif()
  
  
@@ -28,7 +32,7 @@ index b5f826f..39dcee8 100644
      if (QT_MAJOR_VERSION STREQUAL "5")
          find_package(Qt${QT_MAJOR_VERSION} ${MIN_QT_VERSION} REQUIRED X11Extras)
      endif()
-@@ -1243,7 +1253,9 @@ set_package_properties(TIFF PROPERTIES
+@@ -1243,7 +1257,9 @@ set_package_properties(TIFF PROPERTIES
      URL "http://www.libtiff.org"
      TYPE OPTIONAL
      PURPOSE "Required by the Krita TIFF filter")
@@ -39,7 +43,7 @@ index b5f826f..39dcee8 100644
  configure_file(config-tiff.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-tiff.h)
  
  find_package(JPEG)
-@@ -1678,7 +1690,9 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
+@@ -1678,7 +1694,9 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
  add_subdirectory(sdk/tests)
  
  add_subdirectory(libs)
@@ -78,6 +82,281 @@ index 2dfcd10..a6c48dd 100644
  
        list(FIND _x86_aliases "${_processor}" _has_x86)
        list(FIND _amd64_aliases "${_processor}" _has_amd64)
+diff --git a/libs/koplugin/KoJsonTrader.cpp b/libs/koplugin/KoJsonTrader.cpp
+index c197f52..ad15e2e 100644
+--- a/libs/koplugin/KoJsonTrader.cpp
++++ b/libs/koplugin/KoJsonTrader.cpp
+@@ -27,6 +27,8 @@ struct KoJsonTrader::PluginCacheEntry
+     QJsonArray serviceTypes;
+     QStringList mimeTypes;
+     QSharedPointer<QPluginLoader> loader;
++    QObject *(*staticInstance)() = nullptr;
++    QJsonObject staticMetaData;
+ };
+ 
+ 
+@@ -138,6 +140,29 @@ void KoJsonTrader::initializePluginLoaderCache()
+ 
+     KIS_SAFE_ASSERT_RECOVER_RETURN(m_pluginLoaderCache.isEmpty());
+ 
++#ifdef Q_OS_WASM
++    // Everything is linked statically: take the plugins Qt knows about instead of scanning a directory.
++    Q_FOREACH (const QStaticPlugin &plugin, QPluginLoader::staticPlugins()) {
++        const QJsonObject metaData = plugin.metaData();
++        const QJsonObject json = metaData.value("MetaData").toObject();
++        const QJsonArray serviceTypes = json.value("X-KDE-ServiceTypes").toArray();
++        if (serviceTypes.isEmpty()) continue; // one of Qt's own plugins
++
++        QStringList mimeTypes = json.value("X-KDE-ExtraNativeMimeTypes").toString().split(',');
++        mimeTypes += json.value("MimeType").toString().split(';');
++        mimeTypes += json.value("X-KDE-NativeMimeType").toString();
++
++        PluginCacheEntry cacheEntry;
++        cacheEntry.filePath = metaData.value("className").toString();
++        cacheEntry.serviceTypes = serviceTypes;
++        cacheEntry.mimeTypes = mimeTypes;
++        cacheEntry.staticInstance = plugin.instance;
++        cacheEntry.staticMetaData = metaData;
++        m_pluginLoaderCache << cacheEntry;
++    }
++    return;
++#endif
++
+     QList<QPluginLoader *>list;
+     QDirIterator dirIter(m_pluginPath, QDirIterator::Subdirectories);
+     while (dirIter.hasNext()) {
+@@ -196,7 +221,11 @@ QList<KoJsonTrader::Plugin> KoJsonTrader::query(const QString &servicetype, cons
+             continue;
+         }
+ 
+-        list << Plugin(plugin.loader, &m_mutex);
++        if (plugin.staticInstance) {
++            list << Plugin(plugin.staticInstance, plugin.staticMetaData, &m_mutex);
++        } else {
++            list << Plugin(plugin.loader, &m_mutex);
++        }
+     }
+ 
+     return list;
+@@ -208,6 +237,13 @@ KoJsonTrader::Plugin::Plugin(QSharedPointer<QPluginLoader> loader, QMutex *mutex
+ {
+ }
+ 
++KoJsonTrader::Plugin::Plugin(QObject *(*staticInstance)(), const QJsonObject &staticMetaData, QMutex *mutex)
++    : m_staticInstance(staticInstance),
++      m_staticMetaData(staticMetaData),
++      m_mutex(mutex)
++{
++}
++
+ KoJsonTrader::Plugin::~Plugin()
+ {
+ }
+@@ -215,20 +251,20 @@ KoJsonTrader::Plugin::~Plugin()
+ QObject *KoJsonTrader::Plugin::instance() const
+ {
+     QMutexLocker l(m_mutex);
+-    return m_loader->instance();
++    return m_staticInstance ? m_staticInstance() : m_loader->instance();
+ }
+ 
+ QJsonObject KoJsonTrader::Plugin::metaData() const
+ {
+-    return m_loader->metaData();
++    return m_staticInstance ? m_staticMetaData : m_loader->metaData();
+ }
+ 
+ QString KoJsonTrader::Plugin::fileName() const
+ {
+-    return m_loader->fileName();
++    return m_staticInstance ? m_staticMetaData.value("className").toString() : m_loader->fileName();
+ }
+ 
+ QString KoJsonTrader::Plugin::errorString() const
+ {
+-    return m_loader->errorString();
++    return m_staticInstance ? QString() : m_loader->errorString();
+ }
+diff --git a/libs/koplugin/KoJsonTrader.h b/libs/koplugin/KoJsonTrader.h
+index 409f0a5..eef6f7a 100644
+--- a/libs/koplugin/KoJsonTrader.h
++++ b/libs/koplugin/KoJsonTrader.h
+@@ -15,6 +15,7 @@
+ #include <kis_pointer_utils.h>
+ #include "kritaplugin_export.h"
+ 
++#include <QJsonObject>
+ class QPluginLoader;
+ 
+ /**
+@@ -34,6 +35,8 @@ public:
+     struct KRITAPLUGIN_EXPORT Plugin {
+         Plugin() = default;
+         Plugin(QSharedPointer<QPluginLoader> loader, QMutex *mutex);
++        /// a statically linked plugin (used where plugins cannot be loaded from files)
++        Plugin(QObject *(*staticInstance)(), const QJsonObject &staticMetaData, QMutex *mutex);
+         ~Plugin();
+ 
+         QObject *instance() const;
+@@ -44,6 +47,8 @@ public:
+ 
+     private:
+         QSharedPointer<QPluginLoader> m_loader;
++        QObject *(*m_staticInstance)() = nullptr;
++        QJsonObject m_staticMetaData;
+         QMutex *m_mutex = 0;
+     };
+ 
+diff --git a/libs/ui/CMakeLists.txt b/libs/ui/CMakeLists.txt
+index 767bc9b..c914f69 100644
+--- a/libs/ui/CMakeLists.txt
++++ b/libs/ui/CMakeLists.txt
+@@ -696,6 +696,10 @@ endif()
+ 
+ 
+ kis_add_library(kritaui SHARED ${kritaui_HEADERS_MOC} ${kritaui_LIB_SRCS})
++if (EMSCRIPTEN)
++    # WebGL is OpenGL ES; Qt 6 no longer defines this macro itself
++    target_compile_definitions(kritaui PRIVATE QT_OPENGL_ES_2)
++endif()
+ 
+ target_sources(kritaui
+   PRIVATE
+diff --git a/libs/ui/animation/KisFFMpegWrapper.cpp b/libs/ui/animation/KisFFMpegWrapper.cpp
+index ec69d45..ced79df 100644
+--- a/libs/ui/animation/KisFFMpegWrapper.cpp
++++ b/libs/ui/animation/KisFFMpegWrapper.cpp
+@@ -45,6 +45,9 @@ KisFFMpegWrapper::~KisFFMpegWrapper()
+ 
+ void KisFFMpegWrapper::startNonBlocking(const KisFFMpegWrapperSettings &settings)
+ {
++#if !QT_CONFIG(process) // no child processes on WebAssembly
++    return;
++#else
+     KIS_ASSERT(m_process == nullptr);
+ 
+     m_stdoutBuffer.clear();
+@@ -158,6 +161,7 @@ void KisFFMpegWrapper::startNonBlocking(const KisFFMpegWrapperSettings &settings
+     fixUpNonEmbeddedProcessEnvironment(settings.processPath, *m_process);
+ 
+     m_process->start(settings.processPath, args);
++#endif
+ }
+ 
+ KisImportExportErrorCode KisFFMpegWrapper::start(const KisFFMpegWrapperSettings &settings)
+@@ -195,6 +199,9 @@ KisImportExportErrorCode KisFFMpegWrapper::start(const KisFFMpegWrapperSettings
+ 
+ bool KisFFMpegWrapper::waitForFinished(int msecs)
+ {
++#if !QT_CONFIG(process) // no child processes on WebAssembly
++    return false;
++#else
+     if (!m_process) return false;
+ 
+     if (m_process->waitForStarted(msecs)) {
+@@ -202,9 +209,13 @@ bool KisFFMpegWrapper::waitForFinished(int msecs)
+     }
+ 
+     return false;
++#endif
+ }
+ 
+ void KisFFMpegWrapper::updateProgressDialog(int progressValue) {
++#if !QT_CONFIG(process) // no child processes on WebAssembly
++    return;
++#else
+     
+     dbgFile << "Update Progress" << progressValue << "/" << m_processSettings.totalFrames;
+     
+@@ -224,6 +235,7 @@ void KisFFMpegWrapper::updateProgressDialog(int progressValue) {
+     if (m_process && m_process->state() == QProcess::Running) {
+         QApplication::processEvents();
+     }
++#endif
+ }
+ 
+ bool KisFFMpegWrapper::ffprobeCheckStreamsValid(const QJsonObject& ffprobeJsonObj, const QString& ffprobeSTDERR)
+@@ -252,6 +264,9 @@ bool KisFFMpegWrapper::ffprobeCheckStreamsValid(const QJsonObject& ffprobeJsonOb
+ 
+ void KisFFMpegWrapper::reset()
+ {
++#if !QT_CONFIG(process) // no child processes on WebAssembly
++    return;
++#else
+     if (m_process == nullptr)
+         return;
+ 
+@@ -260,10 +275,14 @@ void KisFFMpegWrapper::reset()
+         m_process->kill();
+     }
+     m_process.reset();
++#endif
+ }
+ 
+ void KisFFMpegWrapper::slotReadyReadSTDERR()
+ {
++#if !QT_CONFIG(process) // no child processes on WebAssembly
++    return;
++#else
+     QByteArray stderrRawBuffer = m_process->readAllStandardError();
+     
+     Q_EMIT sigReadSTDERR(stderrRawBuffer);
+@@ -305,10 +324,14 @@ void KisFFMpegWrapper::slotReadyReadSTDERR()
+         Q_EMIT sigProgressUpdated(frameNo);
+     }
+     
++#endif
+ }
+ 
+ void KisFFMpegWrapper::slotReadyReadSTDOUT()
+ {
++#if !QT_CONFIG(process) // no child processes on WebAssembly
++    return;
++#else
+     QByteArray stdoutRawBuffer = m_process->readAllStandardOutput();
+     
+     Q_EMIT sigReadSTDOUT(stdoutRawBuffer);
+@@ -338,6 +361,7 @@ void KisFFMpegWrapper::slotReadyReadSTDOUT()
+     }
+ 
+     
++#endif
+ }
+ 
+ void KisFFMpegWrapper::slotStarted()
+@@ -368,6 +392,9 @@ void KisFFMpegWrapper::slotFinished(int exitCode)
+ 
+ void KisFFMpegWrapper::fixUpNonEmbeddedProcessEnvironment(const QString &processPath, QProcess &process)
+ {
++#if !QT_CONFIG(process) // no child processes on WebAssembly
++    return;
++#else
+ #ifdef Q_OS_LINUX
+ 
+     /**
+@@ -411,10 +438,14 @@ void KisFFMpegWrapper::fixUpNonEmbeddedProcessEnvironment(const QString &process
+     Q_UNUSED(processPath);
+     Q_UNUSED(process);
+ #endif /* Q_OS_LINUX */
++#endif
+ }
+ 
+ QByteArray KisFFMpegWrapper::runProcessAndReturn(const QString &processPath, const QStringList &args, int msecs)
+ {
++#if !QT_CONFIG(process) // no child processes on WebAssembly
++    return QByteArray();
++#else
+     QProcess runProcess;
+     
+     fixUpNonEmbeddedProcessEnvironment(processPath, runProcess);
+@@ -432,6 +463,7 @@ QByteArray KisFFMpegWrapper::runProcessAndReturn(const QString &processPath, con
+     if (successfulStart) return runProcess.readAllStandardOutput();
+ 
+     return "";
++#endif
+ }
+ 
+ QString KisFFMpegWrapper::configuredFFMpegLocation()
 diff --git a/libs/widgetutils/xmlgui/kbugreport.cpp b/libs/widgetutils/xmlgui/kbugreport.cpp
 index 29c94d4..4cc0ae9 100644
 --- a/libs/widgetutils/xmlgui/kbugreport.cpp
