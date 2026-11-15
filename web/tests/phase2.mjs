@@ -21,7 +21,8 @@ await page.goto('http://localhost:5174/tests/phase2.html');
 await page.waitForFunction(() => window.ready);
 const buttons = page.locator('.presets-grid .preset');
 const names = () => buttons.evaluateAll(b => b.map(x => x.getAttribute('aria-label')));
-const setting = key => page.evaluate(async k => (await window.engine.presetSettings()).values[k], key);
+// Engine writes are coalesced for 80 ms by the editor.
+const setting = async key => { await page.waitForTimeout(250); return page.evaluate(async k => (await window.engine.presetSettings()).values[k], key); };
 
 await check('curve: parse/serialise round trip', () => page.evaluate(() => {
     const { parseCurve, serializeCurve } = window.curve;
@@ -78,8 +79,9 @@ await check('selecting a preset highlights it and the editor reloads', async () 
     await page.getByRole('heading', { name: 'Blender Blur' }).waitFor();
     assert.match(await page.locator('.be-engine').innerText(), /colorsmudge/);
 });
-await check('editor groups settings into sections', async () => {
-    assert.deepEqual(await page.locator('.brush-editor summary').allInnerTexts(), ['Brush Tip', 'Size', 'Opacity']);
+// The editor now lists option groups (Krita's layout); the mock engine's keys are not real Krita keys, so they all pass through under "Other".
+await check('editor lists option groups; unknown keys pass through under Other', async () => {
+    assert.deepEqual(await page.locator('.brush-editor .be-group').allInnerTexts(), ['Other']);
 });
 await check('editor changes reach the engine; numbers are clamped; empty is ignored', async () => {
     const diameter = page.locator('.brush-editor').getByRole('spinbutton', { name: 'Diameter' });

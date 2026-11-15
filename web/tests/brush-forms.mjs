@@ -146,14 +146,16 @@ const FULL = process.env.FULL === '1';
 const t0 = Date.now(), budget = Number(process.env.BUDGET_MS ?? 25 * 60000);
 let sweeps = 0;
 for (const [eng, table] of Object.entries(BRUSHES)) {
-    const presetName = dump[eng].presets[0];
+    // The preset of this engine that carries the most keys (a key can only be written when the preset holds it).
+    const presetName = await run(page, `let best=null,n=-1;for(const p of (await __engine.presets()).filter(x=>x.engine===arg)){await __engine.selectPreset(p.id);const c=Object.keys((await __engine.presetSettings()).values).length;if(c>n){n=c;best=p.name}}return best;`, eng);
     const rows = table.filter(r => !r.hidden && r.key in dump[eng].keys && (r.choices || r.min !== undefined || r.max !== undefined));
     const tryRow = async (row, value) => {
         if (Date.now() - t0 > budget) return;
         sweeps++;
         let res;
-        try { res = await run(page, `await __engine.selectPreset((await __engine.presets()).find(x=>x.name===arg[0]).id);await __engine.setPresetSetting(arg[1],arg[2]);const h=await stroke();return {h};`, [presetName, row.key, value]); }
+        try { res = await run(page, `await __engine.selectPreset((await __engine.presets()).find(x=>x.name===arg[0]).id);if(!(arg[1] in (await __engine.presetSettings()).values))return {skipped:true};await __engine.setPresetSetting(arg[1],arg[2]);const h=await stroke();return {h};`, [presetName, row.key, value]); }
         catch (e) { res = { error: String(e.message).split('\n')[0] }; }
+        if (res?.skipped) { sweeps--; return; }
         if (!res || res.error || res.timeout) {
             sweepFailures.push(`${eng} ${row.key}=${value}: ${res?.error ?? (res?.timeout ? 'did not return in 30 s' : 'no result')}`);
             await page.close().catch(() => {}); page = await boot();

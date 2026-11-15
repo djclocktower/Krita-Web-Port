@@ -297,25 +297,35 @@ if (process.env.REAL !== '0') {
         const n1 = await names(), h1 = await hash(page);
         // a resource through the presets panel (the proxy stores it)
         const kpp = readFileSync(KPP);
-        const before = await page.evaluate(() => __engine.presets({ search: 'Size_default' }).then(p => p.length));
+        const before = await page.evaluate(() => __engine.presets().then(p => p.length));
         await page.getByRole('tab', { name: 'Brush Presets' }).click();
         await page.locator('input[aria-label="Import resource files"]').setInputFiles({ name: 'b)_Basic-5_Size_default.kpp', mimeType: 'application/octet-stream', buffer: kpp });
         await page.waitForTimeout(1500);
-        const mid = await page.evaluate(() => __engine.presets({ search: 'Size_default' }).then(p => p.length));
+        const mid = await page.evaluate(() => __engine.presets().then(p => p.length));
         const res = await page.evaluate(() => new Promise(res => { const r = indexedDB.open('krita-web'); r.onsuccess = () => { const g = r.result.transaction('resources').objectStore('resources').getAll(); g.onsuccess = () => res(g.result.map(x => [x.name, x.bytes.length])); }; }));
         check(res.length === 1 && res[0][1] === kpp.length, 'imported file stored with its bytes', JSON.stringify(res));
-        console.log(`INFO  presets matching "Size_default": before import ${before}, after ${mid}`);
+        console.log(`INFO  total presets: before import ${before}, after ${mid}`);
         await load(page, q);
         check(await page.locator('.notice').count() === 1, 'real engine: restore notice shown');
         check((await names()) === n1, 'restored layer names match', `${n1} vs ${await names()}`);
         const h2 = await hash(page);
         check(h1 === h2, 'restored document renders identically (PNG pixels)', `${h1} vs ${h2}`);
-        const after = await page.evaluate(() => __engine.presets({ search: 'Size_default' }).then(p => p.length));
-        check(after === mid && after >= 1, 'resource re-imported after reload', `before ${before} mid ${mid} after ${after}`);
+        const after = await page.evaluate(() => __engine.presets().then(p => p.length));
+        const imps = await page.evaluate(() => window.__imports);
+        check(imps.length === 1 && imps[0] === `b)_Basic-5_Size_default.kpp:${kpp.length}`, 'resource re-imported after reload (once, same bytes)', JSON.stringify(imps));
+        check(after === mid, 'preset list unchanged by the re-import', `${mid} vs ${after}`);
         check(await page.locator('.banner[role=alert]').count() === 0, 'no error banner');
         await dragPaint(page, 80); await waitSaved(page, 120000);
         check((await stored(page)).length === 1, 'editing the restored document updates its snapshot (no duplicate)');
-    }, { real: true });
+    }, { real: true, init: () => {
+        // records every importResource call that reaches the engine
+        let eng; window.__imports = [];
+        Object.defineProperty(window, '__engine', { configurable: true, get: () => eng, set(e) {
+            const orig = e.importResource.bind(e);
+            e.importResource = (name, bytes) => { window.__imports.push(`${name}:${bytes.length}`); return orig(name, bytes); };
+            eng = e;
+        } });
+    } });
 }
 
 console.log(errors.length ? `page errors:\n${errors.join('\n')}` : 'no page errors');
