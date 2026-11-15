@@ -18,7 +18,11 @@ set(_krita_libs
     ${KRITA_WEB_PLUGIN_TARGETS})
 target_link_options(kritaengine PRIVATE -Wl,--whole-archive)
 foreach(_lib ${_krita_libs})
-    target_link_options(kritaengine PRIVATE $<TARGET_FILE:${_lib}>)
+    # A format's import and export plugins compile the same converter sources, so keeping both
+    # archives whole would define everything twice. They are pulled in by Q_IMPORT_PLUGIN instead.
+    if (NOT _lib MATCHES "(import|export)$")
+        target_link_options(kritaengine PRIVATE $<TARGET_FILE:${_lib}>)
+    endif()
 endforeach()
 target_link_options(kritaengine PRIVATE -Wl,--no-whole-archive)
 target_link_libraries(kritaengine PRIVATE

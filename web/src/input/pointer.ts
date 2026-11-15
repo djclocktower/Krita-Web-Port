@@ -1,11 +1,15 @@
-// Pointer Events -> engine strokes, plus canvas navigation (pan, zoom, rotate, two-finger touch).
+// Pointer Events -> the active tool, plus canvas navigation (pan, zoom, rotate, two-finger touch).
 import { gesture, pan, rotateAbout, toImage, view, zoomAbout } from '../canvas/view';
-import type { Engine, StrokePoint } from '../engine/protocol';
+import type { StrokePoint } from '../engine/protocol';
+import { activeTool, type ToolContext } from '../tools';
 
 /** Set by the keyboard handler while Space is held. */
 export const nav = { space: false };
 
-export function attachPointer(engine: Engine, cv: HTMLCanvasElement): () => void {
+/** The canvas shows the tool's cursor, or a hand while Space is held. */
+export const updateCursor = (cv: HTMLElement | null) => { if (cv) cv.style.cursor = nav.space ? 'grab' : activeTool().cursor ?? ''; };
+
+export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => void {
     const local = (e: { clientX: number; clientY: number }) => {
         const r = cv.getBoundingClientRect();
         return { x: e.clientX - r.left, y: e.clientY - r.top };
@@ -18,8 +22,9 @@ export function attachPointer(engine: Engine, cv: HTMLCanvasElement): () => void
         };
     };
 
+    const mods = (e: { shiftKey: boolean; ctrlKey: boolean; altKey: boolean }) => { ctx.modifiers = { shift: e.shiftKey, ctrl: e.ctrlKey, alt: e.altKey }; };
     const touches = new Map<number, { x: number; y: number }>();
-    let mode: 'none' | 'stroke' | 'pan' | 'zoom' | 'rotate' | 'pinch' = 'none';
+    let mode: 'none' | 'tool' | 'pan' | 'zoom' | 'rotate' | 'pinch' = 'none';
     let id = -1, last = { x: 0, y: 0 }, anchor = last, pinchPrev = { x: 0, y: 0, d: 1, a: 0 };
     const pinch = () => {
         const [p, q] = [...touches.values()];
@@ -28,24 +33,26 @@ export function attachPointer(engine: Engine, cv: HTMLCanvasElement): () => void
 
     const down = (e: PointerEvent) => {
         const l = local(e);
+        mods(e);
         if (e.pointerType === 'touch') {
             touches.set(e.pointerId, l);
             if (touches.size === 2) {
-                // ponytail: the first finger already started a dab; undo it so a pinch leaves no mark
-                if (mode === 'stroke') { engine.endStroke(); void engine.undo(); }
+                if (mode === 'tool') activeTool().onCancel?.(ctx);   // the first finger may have started a dab: a pinch leaves no mark
                 mode = 'pinch'; pinchPrev = pinch(); return;
             }
             if (touches.size > 2 || mode === 'pinch') return;
         } else if (mode !== 'none') return;
+        (document.activeElement as HTMLElement | null)?.blur();   // so Space and Enter go to the canvas, not to the last button used
         cv.setPointerCapture(e.pointerId);
         id = e.pointerId; last = anchor = l;
         if (e.button === 1 || nav.space) { mode = e.ctrlKey ? 'zoom' : e.shiftKey ? 'rotate' : 'pan'; e.preventDefault(); return; }
         if (e.button !== 0) return;
-        mode = 'stroke';
-        engine.beginStroke(sample(e));
+        mode = 'tool';
+        activeTool().onPointerDown(ctx, sample(e));
     };
     const move = (e: PointerEvent) => {
         const l = local(e);
+        mods(e);
         if (e.pointerType !== 'touch') view.set({ pointer: toImage(l.x, l.y) });
         if (touches.has(e.pointerId)) touches.set(e.pointerId, l);
         if (mode === 'pinch') {
@@ -53,9 +60,9 @@ export function attachPointer(engine: Engine, cv: HTMLCanvasElement): () => void
             return;
         }
         if (e.pointerId !== id) return;
-        if (mode === 'stroke') {
+        if (mode === 'tool') {
             const list = e.getCoalescedEvents?.() ?? [];
-            engine.continueStroke((list.length ? list : [e]).map(sample));
+            activeTool().onPointerMove(ctx, (list.length ? list : [e]).map(sample));
         } else if (mode === 'pan') pan(l.x - last.x, l.y - last.y);
         else if (mode === 'zoom') zoomAbout(Math.exp(-(l.y - last.y) * 0.01), anchor.x, anchor.y);
         else if (mode === 'rotate') {
@@ -68,8 +75,15 @@ export function attachPointer(engine: Engine, cv: HTMLCanvasElement): () => void
         touches.delete(e.pointerId);
         if (mode === 'pinch') { if (!touches.size) mode = 'none'; return; }
         if (e.pointerId !== id) return;
-        if (mode === 'stroke') engine.endStroke();
+        mods(e);
+        if (mode === 'tool') activeTool().onPointerUp(ctx, sample(e));
         mode = 'none';
+    };
+    const cancel = (e: PointerEvent) => {
+        if (mode === 'tool' && e.pointerId === id) { activeTool().onCancel?.(ctx); mode = 'none'; } else up(e);
+    };
+    const key = (e: KeyboardEvent) => {
+        if (e.key === 'Escape' && mode === 'tool') { activeTool().onCancel?.(ctx); mode = 'none'; }
     };
     const wheel = (e: WheelEvent) => {
         e.preventDefault();
@@ -82,13 +96,15 @@ export function attachPointer(engine: Engine, cv: HTMLCanvasElement): () => void
     cv.addEventListener('pointerdown', down);
     cv.addEventListener('pointermove', move);
     cv.addEventListener('pointerup', up);
-    cv.addEventListener('pointercancel', up);
+    cv.addEventListener('pointercancel', cancel);
     cv.addEventListener('pointerleave', leave);
     cv.addEventListener('wheel', wheel, { passive: false });
     cv.addEventListener('contextmenu', noMenu);
+    addEventListener('keydown', key);
     return () => {
+        removeEventListener('keydown', key);
         cv.removeEventListener('pointerdown', down); cv.removeEventListener('pointermove', move);
-        cv.removeEventListener('pointerup', up); cv.removeEventListener('pointercancel', up);
+        cv.removeEventListener('pointerup', up); cv.removeEventListener('pointercancel', cancel);
         cv.removeEventListener('pointerleave', leave); cv.removeEventListener('wheel', wheel);
         cv.removeEventListener('contextmenu', noMenu);
     };

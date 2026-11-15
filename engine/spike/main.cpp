@@ -34,7 +34,7 @@
 
 Q_IMPORT_PLUGIN(PluginFactory)                  // LittleCMS colour engine
 Q_IMPORT_PLUGIN(DefaultPaintOpsPluginFactory)   // pixel brush and friends
-Q_IMPORT_PLUGIN(ImportFactory)                  // .kra import
+Q_IMPORT_PLUGIN(KraImportFactory)                  // .kra import
 Q_IMPORT_PLUGIN(HeadlessPlugin)                 // display-less Qt platform (headless_qpa.cpp)
 
 static void publish(const char *name, const QImage &image)

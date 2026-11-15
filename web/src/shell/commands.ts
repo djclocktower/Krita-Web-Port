@@ -1,7 +1,8 @@
 import { fit, resetRotation, rotateBy, toggleMirror, zoomBy, zoomTo } from '../canvas/view';
 import type { Engine } from '../engine/protocol';
 import { panels, type Command } from '../panels';
-import { app, report } from './state';
+import { download } from '../dialogs/download';
+import { app, report, type DialogId } from './state';
 
 const DEG = Math.PI / 180;
 
@@ -16,14 +17,8 @@ function openFile(engine: Engine) {
     input.click();
 }
 
-async function exportPng(engine: Engine) {
-    const bytes = await engine.exportDocument('png');
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([bytes as Uint8Array<ArrayBuffer>], { type: 'image/png' }));
-    a.download = `${(app.get().doc?.name ?? 'image').replace(/\.[^.]*$/, '')}.png`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 10000);
-}
+const baseName = () => (app.get().doc?.name ?? 'image').replace(/\.[^.]*$/, '');
+const open = (dialog: DialogId) => () => app.set({ dialog });
 
 const brush = () => app.get().brush;
 const clamp = (x: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, x));
@@ -36,9 +31,27 @@ const opacityStep = (dir: number) => (e: Engine) => e.setBrush({ opacity: clamp(
 export const shellCommands: Command[] = [
     { id: 'file.new', title: 'New…', menu: 'File', shortcut: 'Ctrl+N', run: () => app.set({ newOpen: true }) },
     { id: 'file.open', title: 'Open…', menu: 'File', shortcut: 'Ctrl+O', run: openFile },
-    { id: 'file.exportPng', title: 'Export as PNG', menu: 'File', shortcut: 'Ctrl+Shift+E', run: exportPng },
+    { id: 'file.saveKra', title: 'Save as .kra', menu: 'File', shortcut: 'Ctrl+S', run: async e => download(`${baseName()}.kra`, await e.exportDocument('kra')) },
+    { id: 'file.export', title: 'Export…', menu: 'File', shortcut: 'Ctrl+Shift+E', run: open('export') },
     { id: 'edit.undo', title: 'Undo', menu: 'Edit', shortcut: 'Ctrl+Z', run: e => e.undo() },
     { id: 'edit.redo', title: 'Redo', menu: 'Edit', shortcut: 'Ctrl+Shift+Z', run: e => e.redo() },
+    { id: 'edit.fillFg', title: 'Fill with Foreground Color', menu: 'Edit', shortcut: 'Shift+Backspace', run: e => e.fillSelection('foreground') },
+    { id: 'edit.fillBg', title: 'Fill with Background Color', menu: 'Edit', shortcut: 'Backspace', run: e => e.fillSelection('background') },
+    { id: 'edit.clear', title: 'Clear', menu: 'Edit', shortcut: 'Delete', run: e => e.clearSelection() },
+    { id: 'select.all', title: 'Select All', menu: 'Select', shortcut: 'Ctrl+A', run: e => e.selectAll() },
+    { id: 'select.none', title: 'Deselect', menu: 'Select', shortcut: 'Ctrl+Shift+A', run: e => e.deselect() },
+    { id: 'select.invert', title: 'Invert Selection', menu: 'Select', shortcut: 'Ctrl+Shift+I', run: e => e.invertSelection() },
+    { id: 'image.scale', title: 'Scale Image To New Size…', menu: 'Image', shortcut: 'Ctrl+Alt+I', run: open('scale') },
+    { id: 'image.resizeCanvas', title: 'Resize Canvas…', menu: 'Image', shortcut: 'Ctrl+Alt+C', run: open('resize') },
+    { id: 'image.trim', title: 'Trim to Current Selection', menu: 'Image', run: e => { const r = app.get().sel; return r ? e.cropImage(r).then(() => undefined) : undefined; } },
+    { id: 'image.rotateRight', title: 'Rotate Image › 90° Right', menu: 'Image', run: e => e.rotateImage(90).then(() => undefined) },
+    { id: 'image.rotateLeft', title: 'Rotate Image › 90° Left', menu: 'Image', run: e => e.rotateImage(-90).then(() => undefined) },
+    { id: 'image.rotate180', title: 'Rotate Image › 180°', menu: 'Image', run: e => e.rotateImage(180).then(() => undefined) },
+    { id: 'image.rotateCustom', title: 'Rotate Image › Custom…', menu: 'Image', run: open('rotate') },
+    { id: 'image.mirrorH', title: 'Mirror Image Horizontally', menu: 'Image', run: e => e.mirrorImage('horizontal') },
+    { id: 'image.mirrorV', title: 'Mirror Image Vertically', menu: 'Image', run: e => e.mirrorImage('vertical') },
+    { id: 'image.flatten', title: 'Flatten Image', menu: 'Image', run: e => e.flattenImage() },
+    { id: 'image.convert', title: 'Convert Image Color Space…', menu: 'Image', run: open('convert') },
     { id: 'view.zoomIn', title: 'Zoom In', menu: 'View', run: () => zoomBy(1.25) },
     { id: 'view.zoomOut', title: 'Zoom Out', menu: 'View', run: () => zoomBy(0.8) },
     { id: 'view.zoom100', title: 'Zoom to 100%', menu: 'View', shortcut: '1', run: () => zoomTo(1) },
@@ -59,3 +72,11 @@ export const shellCommands: Command[] = [
 ];
 
 export const allCommands: Command[] = [...shellCommands, ...panels.flatMap(p => p.commands ?? [])];
+
+/** Whether a command can run now: it needs a document (except New and Open), and Undo, Redo and Trim need something to act on. */
+export function isEnabled(c: Command): boolean {
+    const { doc, history, sel } = app.get();
+    const needsDoc = ['Edit', 'Image', 'Layer', 'Select', 'Filter'].includes(c.menu) || (c.menu === 'File' && c.id !== 'file.new' && c.id !== 'file.open');
+    if (needsDoc && !doc) return false;
+    return c.id === 'edit.undo' ? history.canUndo : c.id === 'edit.redo' ? history.canRedo : c.id === 'image.trim' ? !!sel : true;
+}

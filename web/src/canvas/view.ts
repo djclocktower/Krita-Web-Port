@@ -22,6 +22,11 @@ export function toImage(sx: number, sy: number) {
     return { x: (d * X - c * Y) / det + s.docW / 2, y: (-b * X + a * Y) / det + s.docH / 2 };
 }
 
+export function toScreen(ix: number, iy: number) {
+    const { a, b, c, d } = matrix(), s = v(), dx = ix - s.docW / 2, dy = iy - s.docH / 2;
+    return { x: a * dx + c * dy + s.w / 2 + s.panX, y: b * dx + d * dy + s.h / 2 + s.panY };
+}
+
 /** Applies `next`, then pans so image point `img` lands on screen point (sx, sy). */
 function place(img: { x: number; y: number }, sx: number, sy: number, next: Partial<ReturnType<typeof v>>) {
     view.set(next);
@@ -53,3 +58,6 @@ export function fit() {
     view.set({ scale: clampScale(Math.min(s.w / s.docW, s.h / s.docH) * 0.95), panX: 0, panY: 0 });
 }
 export function setViewport(w: number, h: number) { view.set({ w, h }); if (needFit) fit(); }
+
+// For tests and debugging in the dev server only.
+if (import.meta.env.DEV) (window as unknown as { __view: unknown }).__view = { view, toScreen, toImage };

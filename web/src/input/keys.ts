@@ -1,6 +1,7 @@
 // Keyboard shortcuts for every command, plus Space-to-navigate.
 import type { Command } from '../panels';
-import { nav } from './pointer';
+import { setActiveTool, tools } from '../tools';
+import { nav, updateCursor } from './pointer';
 
 const canon = (ctrl: boolean, alt: boolean, shift: boolean, key: string) => `${ctrl ? 'c' : ''}${alt ? 'a' : ''}${shift ? 's' : ''}|${key.toUpperCase()}`;
 const fromShortcut = (s: string) => {
@@ -10,8 +11,9 @@ const fromShortcut = (s: string) => {
 
 export function attachKeys(commands: Command[], run: (c: Command) => void): () => void {
     const byKey = new Map(commands.filter(c => c.shortcut).map(c => [fromShortcut(c.shortcut!), c]));
+    const toolByKey = new Map(tools.filter(t => t.shortcut).map(t => [fromShortcut(t.shortcut!), t]));
     const typing = (t: Element) => !!t.closest('textarea,select,[contenteditable],dialog,input:not([type=range],[type=checkbox],[type=color],[type=button])');
-    const cursor = () => { const cv = document.querySelector<HTMLElement>('canvas.view'); if (cv) cv.style.cursor = nav.space ? 'grab' : ''; };
+    const cursor = () => updateCursor(document.querySelector<HTMLElement>('canvas.view'));
 
     const down = (e: KeyboardEvent) => {
         const t = e.target as Element;
@@ -20,8 +22,9 @@ export function attachKeys(commands: Command[], run: (c: Command) => void): () =
             if (t.closest('button,summary')) return;   // let Space activate a focused button
             nav.space = true; cursor(); e.preventDefault(); return;
         }
-        const c = byKey.get(canon(e.ctrlKey || e.metaKey, e.altKey, e.shiftKey, e.key));
+        const k = canon(e.ctrlKey || e.metaKey, e.altKey, e.shiftKey, e.key), c = byKey.get(k), tool = toolByKey.get(k);
         if (c) { e.preventDefault(); run(c); }
+        else if (tool) { e.preventDefault(); setActiveTool(tool.id); }
     };
     const up = (e: KeyboardEvent) => { if (e.key === ' ') { nav.space = false; cursor(); } };
     const blur = () => { nav.space = false; cursor(); };

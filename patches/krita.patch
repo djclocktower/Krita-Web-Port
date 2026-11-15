@@ -441,6 +441,218 @@ index 44b5c7e..2f1c4d2 100644
  ki18n_wrap_ui(kritalevelfilter_SOURCES
      KisLevelsConfigWidget.ui
      )
+diff --git a/plugins/impex/exr/exr_export.cc b/plugins/impex/exr/exr_export.cc
+index 46ac959..0965352 100644
+--- a/plugins/impex/exr/exr_export.cc
++++ b/plugins/impex/exr/exr_export.cc
+@@ -30,7 +30,7 @@
+ 
+ class KisExternalLayer;
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ExportFactory, "krita_exr_export.json", registerPlugin<EXRExport>();)
++K_PLUGIN_FACTORY_WITH_JSON(ExrExportFactory, "krita_exr_export.json", registerPlugin<EXRExport>();)
+ 
+ EXRExport::EXRExport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/exr/exr_import.cc b/plugins/impex/exr/exr_import.cc
+index 0ce98d5..cb607e8 100644
+--- a/plugins/impex/exr/exr_import.cc
++++ b/plugins/impex/exr/exr_import.cc
+@@ -15,7 +15,7 @@
+ 
+ #include "exr_converter.h"
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ImportFactory, "krita_exr_import.json", registerPlugin<exrImport>();)
++K_PLUGIN_FACTORY_WITH_JSON(ExrImportFactory, "krita_exr_import.json", registerPlugin<exrImport>();)
+ 
+ exrImport::exrImport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/heif/HeifExport.cpp b/plugins/impex/heif/HeifExport.cpp
+index 737bb7a..7f46735 100644
+--- a/plugins/impex/heif/HeifExport.cpp
++++ b/plugins/impex/heif/HeifExport.cpp
+@@ -49,7 +49,7 @@ using heif::Error;
+ 
+ class KisExternalLayer;
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ExportFactory, "krita_heif_export.json", registerPlugin<HeifExport>();)
++K_PLUGIN_FACTORY_WITH_JSON(HeifExportFactory, "krita_heif_export.json", registerPlugin<HeifExport>();)
+ 
+ HeifExport::HeifExport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/heif/HeifImport.cpp b/plugins/impex/heif/HeifImport.cpp
+index 2b94243..6d6c7ac 100644
+--- a/plugins/impex/heif/HeifImport.cpp
++++ b/plugins/impex/heif/HeifImport.cpp
+@@ -40,7 +40,7 @@
+ 
+ using heif::Error;
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ImportFactory, "krita_heif_import.json", registerPlugin<HeifImport>();)
++K_PLUGIN_FACTORY_WITH_JSON(HeifImportFactory, "krita_heif_import.json", registerPlugin<HeifImport>();)
+ 
+ HeifImport::HeifImport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/jp2/jp2_import.cc b/plugins/impex/jp2/jp2_import.cc
+index 57092fe..9ed90fe 100644
+--- a/plugins/impex/jp2/jp2_import.cc
++++ b/plugins/impex/jp2/jp2_import.cc
+@@ -13,7 +13,7 @@
+ 
+ #include "jp2_converter.h"
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ImportFactory, "krita_jp2_import.json", registerPlugin<jp2Import>();)
++K_PLUGIN_FACTORY_WITH_JSON(Jp2ImportFactory, "krita_jp2_import.json", registerPlugin<jp2Import>();)
+ 
+ jp2Import::jp2Import(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/jxl/JPEGXLExport.cpp b/plugins/impex/jxl/JPEGXLExport.cpp
+index 6f87381..b7a9b41 100644
+--- a/plugins/impex/jxl/JPEGXLExport.cpp
++++ b/plugins/impex/jxl/JPEGXLExport.cpp
+@@ -57,7 +57,7 @@
+ #include "kis_wdg_options_jpegxl.h"
+ #include "kis_jpegxl_export_tools.h"
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ExportFactory, "krita_jxl_export.json", registerPlugin<JPEGXLExport>();)
++K_PLUGIN_FACTORY_WITH_JSON(JxlExportFactory, "krita_jxl_export.json", registerPlugin<JPEGXLExport>();)
+ 
+ JPEGXLExport::JPEGXLExport(QObject *parent, const QVariantList &)
+     : KisImportExportFilter(parent)
+diff --git a/plugins/impex/jxl/JPEGXLImport.cpp b/plugins/impex/jxl/JPEGXLImport.cpp
+index 77fa3ec..07ae085 100644
+--- a/plugins/impex/jxl/JPEGXLImport.cpp
++++ b/plugins/impex/jxl/JPEGXLImport.cpp
+@@ -41,7 +41,7 @@
+ #include <kis_paint_layer.h>
+ #include <kis_raster_keyframe_channel.h>
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ImportFactory, "krita_jxl_import.json", registerPlugin<JPEGXLImport>();)
++K_PLUGIN_FACTORY_WITH_JSON(JxlImportFactory, "krita_jxl_import.json", registerPlugin<JPEGXLImport>();)
+ 
+ static constexpr std::array<char, 4> exifTag = {'e', 'x', 'i', 'f'};
+ static constexpr std::array<char, 4> xmpTag = {'x', 'm', 'l', ' '};
+diff --git a/plugins/impex/kra/kra_export.cpp b/plugins/impex/kra/kra_export.cpp
+index b951cac..5b33c74 100644
+--- a/plugins/impex/kra/kra_export.cpp
++++ b/plugins/impex/kra/kra_export.cpp
+@@ -29,7 +29,7 @@
+ 
+ class KisExternalLayer;
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ExportFactory, "krita_kra_export.json", registerPlugin<KraExport>();)
++K_PLUGIN_FACTORY_WITH_JSON(KraExportFactory, "krita_kra_export.json", registerPlugin<KraExport>();)
+ 
+ KraExport::KraExport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/kra/kra_import.cpp b/plugins/impex/kra/kra_import.cpp
+index 921922e..c2e8c2f 100644
+--- a/plugins/impex/kra/kra_import.cpp
++++ b/plugins/impex/kra/kra_import.cpp
+@@ -13,7 +13,7 @@
+ 
+ #include "kra_converter.h"
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ImportFactory, "krita_kra_import.json", registerPlugin<KraImport>();)
++K_PLUGIN_FACTORY_WITH_JSON(KraImportFactory, "krita_kra_import.json", registerPlugin<KraImport>();)
+ 
+ KraImport::KraImport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/ora/CMakeLists.txt b/plugins/impex/ora/CMakeLists.txt
+index 28b2ad0..f848dd9 100644
+--- a/plugins/impex/ora/CMakeLists.txt
++++ b/plugins/impex/ora/CMakeLists.txt
+@@ -21,8 +21,11 @@ install(TARGETS kritaoraimport  DESTINATION ${KRITA_PLUGIN_INSTALL_DIR})
+ 
+ set(kritaoraexport_SOURCES
+     ora_export.cc
+-    ${libkritaconverter_LIB_SRCS}
+     )
++if (NOT EMSCRIPTEN)
++    # In a static build the converter comes from kritaoraimport; compiling it twice collides at link time.
++    list(APPEND kritaoraexport_SOURCES ${libkritaconverter_LIB_SRCS})
++endif()
+ 
+ kis_add_library(kritaoraexport MODULE ${kritaoraexport_SOURCES})
+ 
+diff --git a/plugins/impex/ora/ora_export.cc b/plugins/impex/ora/ora_export.cc
+index a87ae7d..c0fee43 100644
+--- a/plugins/impex/ora/ora_export.cc
++++ b/plugins/impex/ora/ora_export.cc
+@@ -29,7 +29,7 @@
+ 
+ class KisExternalLayer;
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ExportFactory, "krita_ora_export.json", registerPlugin<OraExport>();)
++K_PLUGIN_FACTORY_WITH_JSON(OraExportFactory, "krita_ora_export.json", registerPlugin<OraExport>();)
+ 
+ OraExport::OraExport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/ora/ora_import.cc b/plugins/impex/ora/ora_import.cc
+index 0fcbae3..fb90243 100644
+--- a/plugins/impex/ora/ora_import.cc
++++ b/plugins/impex/ora/ora_import.cc
+@@ -13,7 +13,7 @@
+ 
+ #include "ora_converter.h"
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ImportFactory, "krita_ora_import.json", registerPlugin<OraImport>();)
++K_PLUGIN_FACTORY_WITH_JSON(OraImportFactory, "krita_ora_import.json", registerPlugin<OraImport>();)
+ 
+ OraImport::OraImport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/psd/psd_export.cc b/plugins/impex/psd/psd_export.cc
+index 7159159..4de2e2f 100644
+--- a/plugins/impex/psd/psd_export.cc
++++ b/plugins/impex/psd/psd_export.cc
+@@ -27,7 +27,7 @@
+ 
+ class KisExternalLayer;
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ExportFactory, "krita_psd_export.json", registerPlugin<psdExport>();)
++K_PLUGIN_FACTORY_WITH_JSON(PsdExportFactory, "krita_psd_export.json", registerPlugin<psdExport>();)
+ 
+ psdExport::psdExport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/psd/psd_import.cc b/plugins/impex/psd/psd_import.cc
+index 1a21d7e..71d7a2f 100644
+--- a/plugins/impex/psd/psd_import.cc
++++ b/plugins/impex/psd/psd_import.cc
+@@ -12,7 +12,7 @@
+ 
+ #include "psd_loader.h"
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ImportFactory, "krita_psd_import.json", registerPlugin<psdImport>();)
++K_PLUGIN_FACTORY_WITH_JSON(PsdImportFactory, "krita_psd_import.json", registerPlugin<psdImport>();)
+ 
+ psdImport::psdImport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/qml/qml_export.cc b/plugins/impex/qml/qml_export.cc
+index dfd5787..6b6d295 100644
+--- a/plugins/impex/qml/qml_export.cc
++++ b/plugins/impex/qml/qml_export.cc
+@@ -19,7 +19,7 @@
+ #include "qml_converter.h"
+ #include <KoColorModelStandardIds.h>
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ExportFactory, "krita_qml_export.json", registerPlugin<QMLExport>();)
++K_PLUGIN_FACTORY_WITH_JSON(QmlExportFactory, "krita_qml_export.json", registerPlugin<QMLExport>();)
+ 
+ QMLExport::QMLExport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
+ {
+diff --git a/plugins/impex/rgbe/RGBEExport.cpp b/plugins/impex/rgbe/RGBEExport.cpp
+index b27ae5d..2ff95fe 100644
+--- a/plugins/impex/rgbe/RGBEExport.cpp
++++ b/plugins/impex/rgbe/RGBEExport.cpp
+@@ -37,7 +37,7 @@
+ 
+ #include "kis_wdg_options_rgbe.h"
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(ExportFactory, "krita_rgbe_export.json", registerPlugin<RGBEExport>();)
++K_PLUGIN_FACTORY_WITH_JSON(RgbeExportFactory, "krita_rgbe_export.json", registerPlugin<RGBEExport>();)
+ 
+ namespace RGBE
+ {
 diff --git a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h b/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h
 index e69dea2..9b13c0e 100644
 --- a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h

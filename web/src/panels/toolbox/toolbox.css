@@ -1,0 +1,4 @@
+.toolbox { display: flex; flex-wrap: wrap; gap: var(--gap); padding: var(--gap); }
+.toolbox button { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; color: var(--text); background: var(--panel-raised); border: 1px solid var(--border); border-radius: var(--radius); }
+.toolbox button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.toolbox button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }

@@ -1,18 +1,22 @@
 * { box-sizing: border-box; }
-html, body, #app { margin: 0; height: 100%; overflow: hidden; }
+html, body, #app { margin: 0; height: 100%; overflow: hidden; overscroll-behavior: none; touch-action: pan-x pan-y; }
+.app { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.app input { -webkit-user-select: text; user-select: text; }
+input[type="range"] { touch-action: none; }
 button, input, select { font: inherit; color: inherit; }
 button { background: var(--panel-raised); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px 10px; cursor: pointer; min-height: 28px; }
 button:disabled { opacity: .45; cursor: default; }
 button[aria-pressed="true"], button[aria-selected="true"] { border-color: var(--accent); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-.app { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto auto; height: 100dvh; background: var(--bg); }
+.app { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; height: 100dvh; background: var(--bg);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
 
 .menubar { display: flex; background: var(--panel); border-bottom: 1px solid var(--border); position: relative; z-index: 10; }
 .menu { position: relative; }
 .menubar > .menu > button { background: none; border: 0; border-radius: 0; padding: 4px 12px; min-height: 32px; }
 .menubar > .menu > button[aria-expanded="true"] { background: var(--panel-raised); }
-.menu-list { position: absolute; top: 100%; left: 0; min-width: 260px; max-height: 80dvh; overflow: auto; background: var(--panel); border: 1px solid var(--border); box-shadow: 0 4px 12px #0008; display: flex; flex-direction: column; }
+.menu-list { position: absolute; top: 100%; left: 0; min-width: 260px; max-height: 80dvh; overflow: auto; background: var(--panel); border: 1px solid var(--border); box-shadow: 0 4px 12px var(--border); display: flex; flex-direction: column; }
 .menu-list button { display: flex; justify-content: space-between; gap: 24px; border: 0; border-radius: 0; background: none; text-align: left; min-height: 32px; }
 .menu-list button:hover:not(:disabled), .menu-list button:focus-visible { background: var(--panel-raised); }
 .menu-list kbd { color: var(--text-dim); font: inherit; }
@@ -20,10 +24,11 @@ button[aria-pressed="true"], button[aria-selected="true"] { border-color: var(--
 .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap) 16px; padding: 4px var(--gap); background: var(--panel); border-bottom: 1px solid var(--border); }
 .toolbar label { display: flex; align-items: center; gap: var(--gap); }
 .toolbar output { min-width: 4.5em; color: var(--text-dim); }
-.toolbar .colors { display: flex; align-items: center; gap: var(--gap); }
+.toolbar .colors, .toolbar .history { display: flex; align-items: center; gap: var(--gap); }
 .toolbar input.swatch { width: 36px; height: 28px; padding: 0; border: 2px solid var(--border); border-radius: var(--radius); background: none; cursor: pointer; }
 
-.main { display: flex; min-height: 0; min-width: 0; }
+.main-wrap { position: relative; display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+.main { flex: 1; display: flex; min-height: 0; min-width: 0; }
 .stage { position: relative; flex: 1; min-width: 0; min-height: 0; overflow: hidden; background: var(--bg); }
 .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; display: block; }
 
@@ -39,10 +44,29 @@ button[aria-pressed="true"], button[aria-selected="true"] { border-color: var(--
 .dock-body { flex: 1; overflow: auto; min-height: 0; }
 
 .statusbar { display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 2px var(--gap); background: var(--panel); border-top: 1px solid var(--border); color: var(--text-dim); font-size: 12px; }
-.statusbar .status-msg { margin-left: auto; color: var(--danger); }
+
+.banner { position: fixed; z-index: 50; left: var(--gap); right: var(--gap); bottom: calc(var(--gap) + 28px + env(safe-area-inset-bottom)); max-width: 640px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: var(--gap); padding: 4px 4px 4px 12px;
+    background: var(--panel); border: 1px solid var(--danger); border-radius: var(--radius); box-shadow: 0 4px 12px var(--border); }
+.banner button { background: none; border: 0; }
+
+.mobile-bar { display: flex; align-items: center; gap: var(--gap); padding: 2px var(--gap); background: var(--panel); border-bottom: 1px solid var(--border); position: relative; z-index: 30; }
+.mobile-bar .doc-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; color: var(--text-dim); }
+.menu-sheet { position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; top: calc(env(safe-area-inset-top) + 44px); overflow-y: auto; overscroll-behavior: contain;
+    background: var(--panel); padding-bottom: env(safe-area-inset-bottom); touch-action: pan-y; }
+.menu-sheet button { display: flex; width: 100%; justify-content: space-between; align-items: center; min-height: 44px; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; background: none; text-align: left; }
+.menu-sheet .group { background: var(--panel-raised); }
+.menu-sheet .item { padding-left: 24px; }
+
+.anchor { display: grid; grid-template-columns: repeat(3, 40px); gap: 4px; }
+.anchor button { padding: 0; }
+dialog label.check { flex-direction: row; align-items: center; gap: var(--gap); min-height: 28px; }
+dialog { max-width: calc(100vw - 24px); max-height: calc(100dvh - 24px); overflow: auto; }
+
+.handle, .sheet-body, .sheet-bottom { display: none; }
 
 dialog { background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
-dialog::backdrop { background: #0008; }
+dialog::backdrop { background: color-mix(in srgb, var(--border) 60%, transparent); }
 dialog h2 { margin: 0 0 var(--gap); font-size: 15px; }
 dialog form { display: flex; flex-direction: column; gap: var(--gap); min-width: 260px; }
 dialog label { display: flex; flex-direction: column; gap: 2px; }
@@ -52,10 +76,42 @@ dialog .error { color: var(--danger); margin: 0; min-height: 1.4em; }
 dialog .buttons { display: flex; justify-content: flex-end; gap: var(--gap); }
 dialog .primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 
-@media (max-width: 760px) {
-    .main { flex-direction: column; }
-    .stage { order: -1; }
-    .dock-left, .dock-right { width: auto; max-height: 30dvh; border-width: 1px 0 0; }
-    .dock-bottom { height: auto; max-height: 25dvh; }
-    .app { grid-template-rows: auto auto minmax(0, 1fr) auto auto; }
+/* Medium (tablet): docks are overlay sheets, one open at a time, each with a handle button. */
+.app-medium .dock { position: absolute; z-index: 5; background: none; border: 0; pointer-events: none; width: auto; height: auto; }
+.app-medium .dock > * { pointer-events: auto; }
+.app-medium .dock-left { left: 0; top: 0; bottom: 0; flex-direction: row-reverse; }
+.app-medium .dock-right { right: 0; top: 0; bottom: 0; flex-direction: row; }
+.app-medium .dock-bottom { left: 0; right: 0; bottom: 0; flex-direction: column; }
+.app-medium .handle { display: block; align-self: flex-start; margin: 12px 0 0; background: var(--panel); }
+.app-medium .dock-left .handle, .app-medium .dock-right .handle { writing-mode: vertical-rl; padding: 10px 4px; }
+.app-medium .dock-bottom .handle { margin: 0 0 0 12px; }
+.app-medium .sheet-body { display: flex; flex-direction: column; min-height: 0; background: var(--panel); border: 1px solid var(--border); box-shadow: 0 4px 12px var(--border); }
+.app-medium .dock-left .sheet-body, .app-medium .dock-right .sheet-body { width: min(320px, 80vw); }
+.app-medium .dock-bottom .sheet-body { height: min(45dvh, 360px); }
+.app-medium .dock-head .tabs { overflow-x: auto; flex-wrap: nowrap; }
+
+/* Narrow (phone): one bottom sheet for every panel; the canvas gets everything else. */
+.app-narrow .sheet-bottom { display: flex; flex-direction: column; position: absolute; z-index: 6; left: 0; right: 0; bottom: 0; height: 55%;
+    background: var(--panel); border-top: 1px solid var(--border); box-shadow: 0 -4px 12px var(--border); }
+.app-narrow .dock-head .tabs { flex-wrap: nowrap; overflow-x: auto; flex: 1; }
+.app-narrow .dock-head .tabs button { flex: none; }
+.app-narrow .toolbar { flex-wrap: nowrap; overflow-x: auto; gap: 4px; padding: 2px var(--gap); }
+.app-narrow .toolbar label { flex: 1; min-width: 56px; }
+.app-narrow .toolbar input[type="range"] { flex: 1; min-width: 0; width: 100%; }
+.app-narrow .toolbar .lbl, .app-narrow .toolbar output, .app-narrow .toolbar .swap { display: none; }
+.app-narrow .toolbar .history { margin-left: auto; }
+.app-narrow .statusbar { flex-wrap: nowrap; overflow: hidden; white-space: nowrap; }
+.app-narrow .status-pos, .app-narrow .status-rot { display: none; }
+
+/* Touch: nothing is smaller than 40 px on narrow and medium screens or with a coarse pointer. */
+@media (max-width: 1099px), (pointer: coarse) {
+    button, select, input[type="color"], input[type="number"], input[type="text"] { min-height: 40px; min-width: 40px; }
+    input[type="range"] { min-height: 40px; }
+    input[type="color"].swatch { width: 44px; height: 40px; }
+    input[type="checkbox"] { width: 22px; height: 22px; }
+    dialog label.check { min-height: 40px; }
+    .menubar > .menu > button { min-height: 40px; }
+    .menu-list button { min-height: 40px; }
+    .banner button { min-width: 40px; }
 }
+.app-medium .toolbar input[type="range"] { width: 96px; }

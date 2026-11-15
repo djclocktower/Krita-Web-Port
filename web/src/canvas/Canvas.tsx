@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'preact/hooks';
 import type { DocumentInfo, Engine } from '../engine/protocol';
-import { attachPointer } from '../input/pointer';
-import { fit, matrix, setViewport, view } from './view';
+import { attachPointer, updateCursor } from '../input/pointer';
+import { activeTool, onActiveToolChange, type ToolContext } from '../tools';
+import { fit, matrix, setViewport, toScreen, view } from './view';
 
 // The image is one quad: vertex ids give the corners, a 2x2 matrix + offset (CSS px) places it.
 const VS = `#version 300 es
@@ -28,8 +29,9 @@ void main() {
 export function Canvas({ engine }: { engine: Engine }) {
     const box = useRef<HTMLDivElement>(null);
     const cv = useRef<HTMLCanvasElement>(null);
+    const ov = useRef<HTMLCanvasElement>(null);
     useEffect(() => {
-        const el = cv.current!;
+        const el = cv.current!, overlay = ov.current!, g = overlay.getContext('2d')!;
         // preserveDrawingBuffer so the tests (and screenshots) can read the canvas back
         const gl = el.getContext('webgl2', { preserveDrawingBuffer: true, antialias: false });
         if (!gl) { box.current!.textContent = 'WebGL2 is not available in this browser.'; return; }
@@ -85,7 +87,48 @@ export function Canvas({ engine }: { engine: Engine }) {
             schedule();
         };
 
+        // Overlay: marching ants for the selection, then whatever the active tool draws.
+        let outline: number[][] = [], ants: Path2D | null = null, oraf = 0, outlineToken = 0;
+        const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const ctx: ToolContext = {
+            engine, requestOverlay: () => { oraf ||= requestAnimationFrame(redraw); },
+            toScreen: p => toScreen(p.x, p.y), modifiers: { shift: false, ctrl: false, alt: false },
+        };
+        function redraw() {
+            oraf = 0;
+            const s = view.get(), dpr = devicePixelRatio, W = Math.round(s.w * dpr), H = Math.round(s.h * dpr);
+            if (overlay.width !== W || overlay.height !== H) { overlay.width = W; overlay.height = H; }
+            g.setTransform(dpr, 0, 0, dpr, 0, 0);
+            g.clearRect(0, 0, s.w, s.h);
+            if (outline.length) {
+                if (!ants) {
+                    ants = new Path2D();
+                    for (const l of outline) {
+                        for (let i = 0; i + 1 < l.length; i += 2) { const p = toScreen(l[i], l[i + 1]); i ? ants.lineTo(p.x, p.y) : ants.moveTo(p.x, p.y); }
+                        if (l.length >= 6) ants.closePath();
+                    }
+                }
+                g.lineWidth = 1; g.strokeStyle = '#fff'; g.setLineDash([]); g.stroke(ants);
+                g.strokeStyle = '#000'; g.setLineDash([4, 4]); g.lineDashOffset = -(performance.now() / 80) % 8; g.stroke(ants);
+                g.setLineDash([]);
+                if (!still) ctx.requestOverlay();   // animate only while something is selected
+            }
+            g.save(); activeTool().drawOverlay?.(ctx, g); g.restore();
+        }
+        const setOutline = (next: number[][]) => { outline = next; ants = null; ctx.requestOverlay(); };
+        const loadOutline = () => {
+            const mine = ++outlineToken;
+            engine.selectionOutline().then(o => { if (mine === outlineToken) setOutline(o); }, () => { if (mine === outlineToken) setOutline([]); });
+        };
+        let tool = activeTool();
+        const toolChanged = () => { tool.onCancel?.(ctx); tool = activeTool(); updateCursor(el); ctx.requestOverlay(); };
+        updateCursor(el);
+
         const offs = [
+            engine.on('selectionChanged', b => { if (b) loadOutline(); else { outlineToken++; setOutline([]); } }),
+            view.sub(() => { ants = null; ctx.requestOverlay(); }),
+            onActiveToolChange(toolChanged),
+            attachPointer(ctx, el),
             engine.on('documentChanged', setDoc),
             engine.on('imageUpdate', (r, px) => {
                 if (!tex) return;
@@ -94,12 +137,13 @@ export function Canvas({ engine }: { engine: Engine }) {
                 schedule();
             }),
             view.sub(schedule),
-            attachPointer(engine, el),
         ];
         const ro = new ResizeObserver(() => { const r = box.current!.getBoundingClientRect(); setViewport(r.width, r.height); });
         ro.observe(box.current!);
         void engine.documentInfo().then(setDoc);
-        return () => { offs.forEach(f => f()); ro.disconnect(); cancelAnimationFrame(raf); };
+        loadOutline();
+        return () => { offs.forEach(f => f()); ro.disconnect(); cancelAnimationFrame(raf); cancelAnimationFrame(oraf); };
     }, [engine]);
-    return <div class="stage" ref={box}><canvas class="view" ref={cv} aria-label="Canvas" /></div>;
+    return <div class="stage" ref={box}><canvas class="view" ref={cv} aria-label="Canvas" />
+        <canvas class="overlay" ref={ov} aria-hidden="true" style="pointer-events: none" /></div>;
 }

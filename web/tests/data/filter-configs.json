@@ -1,0 +1,3738 @@
+{
+ "filters": [
+  {
+   "category": "Map",
+   "id": "gradientmap",
+   "name": "Gradient Map",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "colorMode": 0,
+     "dither/noiseSeed": 0,
+     "dither/pattern": "DITH 0202 GEN ",
+     "dither/patternValueMode": 0,
+     "dither/spread": 1,
+     "dither/thresholdMode": 0,
+     "gradientXML": ""
+    },
+    "specs": [
+     {
+      "key": "colorMode",
+      "kind": "integer",
+      "label": "colorMode"
+     },
+     {
+      "key": "dither/noiseSeed",
+      "kind": "integer",
+      "label": "dither/noiseSeed"
+     },
+     {
+      "key": "dither/pattern",
+      "kind": "string",
+      "label": "dither/pattern"
+     },
+     {
+      "key": "dither/patternValueMode",
+      "kind": "integer",
+      "label": "dither/patternValueMode"
+     },
+     {
+      "key": "dither/spread",
+      "kind": "number",
+      "label": "dither/spread"
+     },
+     {
+      "key": "dither/thresholdMode",
+      "kind": "integer",
+      "label": "dither/thresholdMode"
+     },
+     {
+      "key": "gradientXML",
+      "kind": "string",
+      "label": "gradientXML"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Other",
+   "id": "randompick",
+   "name": "Random Pick",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "level": 50,
+     "opacity": 100,
+     "seedH": 1616430695,
+     "seedThreshold": 740882966,
+     "seedV": 1708849955,
+     "windowsize": 2.5
+    },
+    "specs": [
+     {
+      "key": "level",
+      "kind": "integer",
+      "label": "level"
+     },
+     {
+      "key": "opacity",
+      "kind": "integer",
+      "label": "opacity"
+     },
+     {
+      "key": "seedH",
+      "kind": "integer",
+      "label": "seedH"
+     },
+     {
+      "key": "seedThreshold",
+      "kind": "integer",
+      "label": "seedThreshold"
+     },
+     {
+      "key": "seedV",
+      "kind": "integer",
+      "label": "seedV"
+     },
+     {
+      "key": "windowsize",
+      "kind": "number",
+      "label": "windowsize"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Colors",
+   "id": "minimize",
+   "name": "Minimize Channel",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Emboss",
+   "id": "emboss horizontal and vertical",
+   "name": "Emboss Horizontal & Vertical",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "desaturate",
+   "name": "Desaturate",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "type": 0
+    },
+    "specs": [
+     {
+      "key": "type",
+      "kind": "integer",
+      "label": "type"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Artistic",
+   "id": "raindrops",
+   "name": "Raindrops",
+   "supportsAdjustmentLayers": false,
+   "config": {
+    "defaults": {
+     "dropsize": 80,
+     "fishEyes": 30,
+     "number": 80,
+     "seed": 268
+    },
+    "specs": [
+     {
+      "key": "dropsize",
+      "kind": "integer",
+      "label": "dropsize"
+     },
+     {
+      "key": "fishEyes",
+      "kind": "integer",
+      "label": "fishEyes"
+     },
+     {
+      "key": "number",
+      "kind": "integer",
+      "label": "number"
+     },
+     {
+      "key": "seed",
+      "kind": "integer",
+      "label": "seed"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Emboss",
+   "id": "emboss all directions",
+   "name": "Emboss in All Directions",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Emboss",
+   "id": "emboss",
+   "name": "Emboss with Variable Depth",
+   "supportsAdjustmentLayers": false,
+   "config": {
+    "defaults": {
+     "depth": 30
+    },
+    "specs": [
+     {
+      "key": "depth",
+      "kind": "integer",
+      "label": "depth"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "dodge",
+   "name": "Dodge...",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "exposure": 0.5,
+     "type": 1
+    },
+    "specs": [
+     {
+      "key": "exposure",
+      "kind": "number",
+      "label": "exposure"
+     },
+     {
+      "key": "type",
+      "kind": "integer",
+      "label": "type"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Map",
+   "id": "smalltiles",
+   "name": "Small Tiles",
+   "supportsAdjustmentLayers": false,
+   "config": {
+    "defaults": {
+     "numberOfTiles": 2
+    },
+    "specs": [
+     {
+      "key": "numberOfTiles",
+      "kind": "integer",
+      "label": "numberOfTiles"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Artistic",
+   "id": "pixelize",
+   "name": "Pixelize",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "keepAspect": true,
+     "pixelHeight": 10,
+     "pixelWidth": 10
+    },
+    "specs": [
+     {
+      "key": "keepAspect",
+      "kind": "boolean",
+      "label": "keepAspect"
+     },
+     {
+      "key": "pixelHeight",
+      "kind": "integer",
+      "label": "pixelHeight"
+     },
+     {
+      "key": "pixelWidth",
+      "kind": "integer",
+      "label": "pixelWidth"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Artistic",
+   "id": "oilpaint",
+   "name": "Oilpaint",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "brushSize": 1,
+     "smooth": 30
+    },
+    "specs": [
+     {
+      "key": "brushSize",
+      "kind": "integer",
+      "label": "brushSize"
+     },
+     {
+      "key": "smooth",
+      "kind": "integer",
+      "label": "smooth"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Emboss",
+   "id": "emboss horizontal only",
+   "name": "Emboss Horizontal Only",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "asc-cdl",
+   "name": "Slope, Offset, Power(ASC-CDL)",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Blur",
+   "id": "gaussian blur",
+   "name": "Gaussian Blur",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "horizRadius": 5,
+     "lockAspect": true,
+     "vertRadius": 5
+    },
+    "specs": [
+     {
+      "key": "horizRadius",
+      "kind": "integer",
+      "label": "horizRadius"
+     },
+     {
+      "key": "lockAspect",
+      "kind": "boolean",
+      "label": "lockAspect"
+     },
+     {
+      "key": "vertRadius",
+      "kind": "integer",
+      "label": "vertRadius"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Enhance",
+   "id": "sharpen",
+   "name": "Sharpen",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "crosschannel",
+   "name": "Cross-channel color adjustment",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "nTransfers": 0
+    },
+    "specs": [
+     {
+      "key": "nTransfers",
+      "kind": "integer",
+      "label": "nTransfers"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Edge Detection",
+   "id": "height to normal",
+   "name": "Height to Normal Map",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "blueSwizzle": 4,
+     "channelToConvert": 0,
+     "greenSwizzle": 2,
+     "horizRadius": 1,
+     "lockAspect": true,
+     "redSwizzle": 0,
+     "type": "sobol",
+     "vertRadius": 1
+    },
+    "specs": [
+     {
+      "key": "blueSwizzle",
+      "kind": "integer",
+      "label": "blueSwizzle"
+     },
+     {
+      "key": "channelToConvert",
+      "kind": "integer",
+      "label": "channelToConvert"
+     },
+     {
+      "key": "greenSwizzle",
+      "kind": "integer",
+      "label": "greenSwizzle"
+     },
+     {
+      "key": "horizRadius",
+      "kind": "integer",
+      "label": "horizRadius"
+     },
+     {
+      "key": "lockAspect",
+      "kind": "boolean",
+      "label": "lockAspect"
+     },
+     {
+      "key": "redSwizzle",
+      "kind": "integer",
+      "label": "redSwizzle"
+     },
+     {
+      "key": "type",
+      "kind": "string",
+      "label": "type"
+     },
+     {
+      "key": "vertRadius",
+      "kind": "integer",
+      "label": "vertRadius"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Artistic",
+   "id": "indexcolors",
+   "name": "Index Colors",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "LFactor": 1,
+     "aFactor": 1,
+     "alphaSteps": 1,
+     "bFactor": 1,
+     "colorLimit": 32,
+     "reduceColorsEnabled": false
+    },
+    "specs": [
+     {
+      "key": "LFactor",
+      "kind": "number",
+      "label": "LFactor"
+     },
+     {
+      "key": "aFactor",
+      "kind": "number",
+      "label": "aFactor"
+     },
+     {
+      "key": "alphaSteps",
+      "kind": "integer",
+      "label": "alphaSteps"
+     },
+     {
+      "key": "bFactor",
+      "kind": "number",
+      "label": "bFactor"
+     },
+     {
+      "key": "colorLimit",
+      "kind": "integer",
+      "label": "colorLimit"
+     },
+     {
+      "key": "reduceColorsEnabled",
+      "kind": "boolean",
+      "label": "reduceColorsEnabled"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Map",
+   "id": "normalize",
+   "name": "Normalize",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Colors",
+   "id": "colortoalpha",
+   "name": "Color to Alpha",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "targetcolor": "#ffffff",
+     "threshold": 100
+    },
+    "specs": [
+     {
+      "key": "targetcolor",
+      "kind": "color",
+      "label": "targetcolor"
+     },
+     {
+      "key": "threshold",
+      "kind": "integer",
+      "label": "threshold"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "hsvadjustment",
+   "name": "HSV/HSL Adjustment",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "colorize": false,
+     "compatibilityMode": false,
+     "h": 0,
+     "s": 0,
+     "type": 1,
+     "v": 0
+    },
+    "specs": [
+     {
+      "key": "colorize",
+      "kind": "boolean",
+      "label": "colorize"
+     },
+     {
+      "key": "compatibilityMode",
+      "kind": "boolean",
+      "label": "compatibilityMode"
+     },
+     {
+      "key": "h",
+      "kind": "integer",
+      "label": "h"
+     },
+     {
+      "key": "s",
+      "kind": "integer",
+      "label": "s"
+     },
+     {
+      "key": "type",
+      "kind": "integer",
+      "label": "type"
+     },
+     {
+      "key": "v",
+      "kind": "integer",
+      "label": "v"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Colors",
+   "id": "fastcoloroverlay",
+   "name": "Fast Color Overlay",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "color": "#3e8cec",
+     "compositeop": "normal",
+     "opacity": 100
+    },
+    "specs": [
+     {
+      "key": "color",
+      "kind": "color",
+      "label": "color"
+     },
+     {
+      "key": "compositeop",
+      "kind": "string",
+      "label": "compositeop"
+     },
+     {
+      "key": "opacity",
+      "kind": "integer",
+      "label": "opacity"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Blur",
+   "id": "lens blur",
+   "name": "Lens Blur",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "halfHeight": 5,
+     "halfWidth": 5,
+     "irisRadius": 5,
+     "irisRotation": 0,
+     "irisShape": "Pentagon (5)"
+    },
+    "specs": [
+     {
+      "key": "halfHeight",
+      "kind": "integer",
+      "label": "halfHeight"
+     },
+     {
+      "key": "halfWidth",
+      "kind": "integer",
+      "label": "halfWidth"
+     },
+     {
+      "key": "irisRadius",
+      "kind": "integer",
+      "label": "irisRadius"
+     },
+     {
+      "key": "irisRotation",
+      "kind": "integer",
+      "label": "irisRotation"
+     },
+     {
+      "key": "irisShape",
+      "kind": "string",
+      "label": "irisShape"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Map",
+   "id": "phongbumpmap",
+   "name": "Phong Bumpmap",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "Azimuth0": 50,
+     "Azimuth1": 100,
+     "Azimuth2": 150,
+     "Azimuth3": 200,
+     "Inclination0": 25,
+     "Inclination1": 20,
+     "Inclination2": 30,
+     "Inclination3": 40,
+     "ambientReflectivity": 0.2,
+     "diffuseReflectivity": 0.5,
+     "diffuseReflectivityIsEnabled": true,
+     "illuminantColor0": "#ffff00",
+     "illuminantColor1": "#ff0000",
+     "illuminantColor2": "#0000ff",
+     "illuminantColor3": "#00ff00",
+     "illuminantIsEnabled0": true,
+     "illuminantIsEnabled1": true,
+     "illuminantIsEnabled2": false,
+     "illuminantIsEnabled3": false,
+     "shinynessExponent": 2,
+     "specularReflectivity": 0.3,
+     "specularReflectivityIsEnabled": true,
+     "useNormalMapIsEnabled": false
+    },
+    "specs": [
+     {
+      "key": "Azimuth0",
+      "kind": "integer",
+      "label": "Azimuth0"
+     },
+     {
+      "key": "Azimuth1",
+      "kind": "integer",
+      "label": "Azimuth1"
+     },
+     {
+      "key": "Azimuth2",
+      "kind": "integer",
+      "label": "Azimuth2"
+     },
+     {
+      "key": "Azimuth3",
+      "kind": "integer",
+      "label": "Azimuth3"
+     },
+     {
+      "key": "Inclination0",
+      "kind": "integer",
+      "label": "Inclination0"
+     },
+     {
+      "key": "Inclination1",
+      "kind": "integer",
+      "label": "Inclination1"
+     },
+     {
+      "key": "Inclination2",
+      "kind": "integer",
+      "label": "Inclination2"
+     },
+     {
+      "key": "Inclination3",
+      "kind": "integer",
+      "label": "Inclination3"
+     },
+     {
+      "key": "ambientReflectivity",
+      "kind": "number",
+      "label": "ambientReflectivity"
+     },
+     {
+      "key": "diffuseReflectivity",
+      "kind": "number",
+      "label": "diffuseReflectivity"
+     },
+     {
+      "key": "diffuseReflectivityIsEnabled",
+      "kind": "boolean",
+      "label": "diffuseReflectivityIsEnabled"
+     },
+     {
+      "key": "illuminantColor0",
+      "kind": "color",
+      "label": "illuminantColor0"
+     },
+     {
+      "key": "illuminantColor1",
+      "kind": "color",
+      "label": "illuminantColor1"
+     },
+     {
+      "key": "illuminantColor2",
+      "kind": "color",
+      "label": "illuminantColor2"
+     },
+     {
+      "key": "illuminantColor3",
+      "kind": "color",
+      "label": "illuminantColor3"
+     },
+     {
+      "key": "illuminantIsEnabled0",
+      "kind": "boolean",
+      "label": "illuminantIsEnabled0"
+     },
+     {
+      "key": "illuminantIsEnabled1",
+      "kind": "boolean",
+      "label": "illuminantIsEnabled1"
+     },
+     {
+      "key": "illuminantIsEnabled2",
+      "kind": "boolean",
+      "label": "illuminantIsEnabled2"
+     },
+     {
+      "key": "illuminantIsEnabled3",
+      "kind": "boolean",
+      "label": "illuminantIsEnabled3"
+     },
+     {
+      "key": "shinynessExponent",
+      "kind": "integer",
+      "label": "shinynessExponent"
+     },
+     {
+      "key": "specularReflectivity",
+      "kind": "number",
+      "label": "specularReflectivity"
+     },
+     {
+      "key": "specularReflectivityIsEnabled",
+      "kind": "boolean",
+      "label": "specularReflectivityIsEnabled"
+     },
+     {
+      "key": "useNormalMapIsEnabled",
+      "kind": "boolean",
+      "label": "useNormalMapIsEnabled"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Enhance",
+   "id": "mean removal",
+   "name": "Mean Removal",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Emboss",
+   "id": "emboss laplascian",
+   "name": "Emboss (Laplacian)",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Artistic",
+   "id": "posterize",
+   "name": "Posterize",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "steps": 16
+    },
+    "specs": [
+     {
+      "key": "steps",
+      "kind": "integer",
+      "label": "steps"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Other",
+   "id": "noise",
+   "name": "Random Noise",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "grayscale": false,
+     "level": 50,
+     "opacity": 100,
+     "seedBlue": 1296416700,
+     "seedGreen": 276737754,
+     "seedRed": 406334850,
+     "seedThreshold": 1669437588
+    },
+    "specs": [
+     {
+      "key": "grayscale",
+      "kind": "boolean",
+      "label": "grayscale"
+     },
+     {
+      "key": "level",
+      "kind": "integer",
+      "label": "level"
+     },
+     {
+      "key": "opacity",
+      "kind": "integer",
+      "label": "opacity"
+     },
+     {
+      "key": "seedBlue",
+      "kind": "integer",
+      "label": "seedBlue"
+     },
+     {
+      "key": "seedGreen",
+      "kind": "integer",
+      "label": "seedGreen"
+     },
+     {
+      "key": "seedRed",
+      "kind": "integer",
+      "label": "seedRed"
+     },
+     {
+      "key": "seedThreshold",
+      "kind": "integer",
+      "label": "seedThreshold"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "autocontrast",
+   "name": "Auto Contrast",
+   "supportsAdjustmentLayers": false,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Map",
+   "id": "roundcorners",
+   "name": "Round Corners",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "radius": 30
+    },
+    "specs": [
+     {
+      "key": "radius",
+      "kind": "integer",
+      "label": "radius"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "threshold",
+   "name": "Threshold",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "threshold": 128
+    },
+    "specs": [
+     {
+      "key": "threshold",
+      "kind": "integer",
+      "label": "threshold"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Blur",
+   "id": "motion blur",
+   "name": "Motion Blur",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "blurAngle": 0,
+     "blurLength": 5
+    },
+    "specs": [
+     {
+      "key": "blurAngle",
+      "kind": "integer",
+      "label": "blurAngle"
+     },
+     {
+      "key": "blurLength",
+      "kind": "integer",
+      "label": "blurLength"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "colorbalance",
+   "name": "Color Balance",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "cyan_red_highlights": 0,
+     "cyan_red_midtones": 0,
+     "cyan_red_shadows": 0,
+     "magenta_blue_highlights": 0,
+     "magenta_blue_midtones": 0,
+     "magenta_blue_shadows": 0,
+     "preserve_luminosity": true,
+     "yellow_green_highlights": 0,
+     "yellow_green_midtones": 0,
+     "yellow_green_shadows": 0
+    },
+    "specs": [
+     {
+      "key": "cyan_red_highlights",
+      "kind": "integer",
+      "label": "cyan_red_highlights"
+     },
+     {
+      "key": "cyan_red_midtones",
+      "kind": "integer",
+      "label": "cyan_red_midtones"
+     },
+     {
+      "key": "cyan_red_shadows",
+      "kind": "integer",
+      "label": "cyan_red_shadows"
+     },
+     {
+      "key": "magenta_blue_highlights",
+      "kind": "integer",
+      "label": "magenta_blue_highlights"
+     },
+     {
+      "key": "magenta_blue_midtones",
+      "kind": "integer",
+      "label": "magenta_blue_midtones"
+     },
+     {
+      "key": "magenta_blue_shadows",
+      "kind": "integer",
+      "label": "magenta_blue_shadows"
+     },
+     {
+      "key": "preserve_luminosity",
+      "kind": "boolean",
+      "label": "preserve_luminosity"
+     },
+     {
+      "key": "yellow_green_highlights",
+      "kind": "integer",
+      "label": "yellow_green_highlights"
+     },
+     {
+      "key": "yellow_green_midtones",
+      "kind": "integer",
+      "label": "yellow_green_midtones"
+     },
+     {
+      "key": "yellow_green_shadows",
+      "kind": "integer",
+      "label": "yellow_green_shadows"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Enhance",
+   "id": "unsharp",
+   "name": "Unsharp Mask",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "amount": 0.5,
+     "halfSize": 1,
+     "lightnessOnly": true,
+     "threshold": 0
+    },
+    "specs": [
+     {
+      "key": "amount",
+      "kind": "number",
+      "label": "amount"
+     },
+     {
+      "key": "halfSize",
+      "kind": "integer",
+      "label": "halfSize"
+     },
+     {
+      "key": "lightnessOnly",
+      "kind": "boolean",
+      "label": "lightnessOnly"
+     },
+     {
+      "key": "threshold",
+      "kind": "integer",
+      "label": "threshold"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Colors",
+   "id": "propagatecolors",
+   "name": "Propagate Colors",
+   "supportsAdjustmentLayers": false,
+   "config": {
+    "defaults": {
+     "alphaChannelMode": "expand",
+     "distanceMetric": "euclidean",
+     "expansionAmount": 10,
+     "expansionMode": "unbounded"
+    },
+    "specs": [
+     {
+      "key": "alphaChannelMode",
+      "kind": "string",
+      "label": "alphaChannelMode"
+     },
+     {
+      "key": "distanceMetric",
+      "kind": "string",
+      "label": "distanceMetric"
+     },
+     {
+      "key": "expansionAmount",
+      "kind": "number",
+      "label": "expansionAmount"
+     },
+     {
+      "key": "expansionMode",
+      "kind": "string",
+      "label": "expansionMode"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Map",
+   "id": "palettize",
+   "name": "Palettize",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "alphaClip": 0.5,
+     "alphaDither/noiseSeed": 1438950452,
+     "alphaDither/pattern": "DITH 0202 GEN ",
+     "alphaDither/patternValueMode": 0,
+     "alphaDither/spread": 1,
+     "alphaDither/thresholdMode": 0,
+     "alphaEnabled": true,
+     "alphaIndex": 0,
+     "alphaMode": 0,
+     "colorspace": 0,
+     "dither/colorMode": 0,
+     "dither/noiseSeed": 672443628,
+     "dither/offsetScale": 0.125,
+     "dither/pattern": "DITH 0202 GEN ",
+     "dither/patternValueMode": 0,
+     "dither/spread": 1,
+     "dither/thresholdMode": 0,
+     "ditherEnabled": false,
+     "palette": "Default"
+    },
+    "specs": [
+     {
+      "key": "alphaClip",
+      "kind": "number",
+      "label": "alphaClip"
+     },
+     {
+      "key": "alphaDither/noiseSeed",
+      "kind": "integer",
+      "label": "alphaDither/noiseSeed"
+     },
+     {
+      "key": "alphaDither/pattern",
+      "kind": "string",
+      "label": "alphaDither/pattern"
+     },
+     {
+      "key": "alphaDither/patternValueMode",
+      "kind": "integer",
+      "label": "alphaDither/patternValueMode"
+     },
+     {
+      "key": "alphaDither/spread",
+      "kind": "number",
+      "label": "alphaDither/spread"
+     },
+     {
+      "key": "alphaDither/thresholdMode",
+      "kind": "integer",
+      "label": "alphaDither/thresholdMode"
+     },
+     {
+      "key": "alphaEnabled",
+      "kind": "boolean",
+      "label": "alphaEnabled"
+     },
+     {
+      "key": "alphaIndex",
+      "kind": "integer",
+      "label": "alphaIndex"
+     },
+     {
+      "key": "alphaMode",
+      "kind": "integer",
+      "label": "alphaMode"
+     },
+     {
+      "key": "colorspace",
+      "kind": "integer",
+      "label": "colorspace"
+     },
+     {
+      "key": "dither/colorMode",
+      "kind": "integer",
+      "label": "dither/colorMode"
+     },
+     {
+      "key": "dither/noiseSeed",
+      "kind": "integer",
+      "label": "dither/noiseSeed"
+     },
+     {
+      "key": "dither/offsetScale",
+      "kind": "number",
+      "label": "dither/offsetScale"
+     },
+     {
+      "key": "dither/pattern",
+      "kind": "string",
+      "label": "dither/pattern"
+     },
+     {
+      "key": "dither/patternValueMode",
+      "kind": "integer",
+      "label": "dither/patternValueMode"
+     },
+     {
+      "key": "dither/spread",
+      "kind": "number",
+      "label": "dither/spread"
+     },
+     {
+      "key": "dither/thresholdMode",
+      "kind": "integer",
+      "label": "dither/thresholdMode"
+     },
+     {
+      "key": "ditherEnabled",
+      "kind": "boolean",
+      "label": "ditherEnabled"
+     },
+     {
+      "key": "palette",
+      "kind": "string",
+      "label": "palette"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Other",
+   "id": "wave",
+   "name": "Wave",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "horizontalamplitude": 4,
+     "horizontalshape": 0,
+     "horizontalshift": 50,
+     "horizontalwavelength": 50,
+     "verticalamplitude": 4,
+     "verticalshape": 0,
+     "verticalshift": 50,
+     "verticalwavelength": 50
+    },
+    "specs": [
+     {
+      "key": "horizontalamplitude",
+      "kind": "integer",
+      "label": "horizontalamplitude"
+     },
+     {
+      "key": "horizontalshape",
+      "kind": "integer",
+      "label": "horizontalshape"
+     },
+     {
+      "key": "horizontalshift",
+      "kind": "integer",
+      "label": "horizontalshift"
+     },
+     {
+      "key": "horizontalwavelength",
+      "kind": "integer",
+      "label": "horizontalwavelength"
+     },
+     {
+      "key": "verticalamplitude",
+      "kind": "integer",
+      "label": "verticalamplitude"
+     },
+     {
+      "key": "verticalshape",
+      "kind": "integer",
+      "label": "verticalshape"
+     },
+     {
+      "key": "verticalshift",
+      "kind": "integer",
+      "label": "verticalshift"
+     },
+     {
+      "key": "verticalwavelength",
+      "kind": "integer",
+      "label": "verticalwavelength"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Other",
+   "id": "resettransparent",
+   "name": "Reset Transparent",
+   "supportsAdjustmentLayers": false,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Enhance",
+   "id": "gaussiannoisereducer",
+   "name": "Gaussian Noise Reducer",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "threshold": 15,
+     "windowsize": 1
+    },
+    "specs": [
+     {
+      "key": "threshold",
+      "kind": "integer",
+      "label": "threshold"
+     },
+     {
+      "key": "windowsize",
+      "kind": "integer",
+      "label": "windowsize"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Colors",
+   "id": "colortransfer",
+   "name": "Color Transfer",
+   "supportsAdjustmentLayers": false,
+   "config": {
+    "defaults": {
+     "filename": ""
+    },
+    "specs": [
+     {
+      "key": "filename",
+      "kind": "string",
+      "label": "filename"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Edge Detection",
+   "id": "gaussianhighpass",
+   "name": "Gaussian High Pass",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "blurAmount": 1
+    },
+    "specs": [
+     {
+      "key": "blurAmount",
+      "kind": "integer",
+      "label": "blurAmount"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "burn",
+   "name": "Burn...",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "exposure": 0.5,
+     "type": 1
+    },
+    "specs": [
+     {
+      "key": "exposure",
+      "kind": "number",
+      "label": "exposure"
+     },
+     {
+      "key": "type",
+      "kind": "integer",
+      "label": "type"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Artistic",
+   "id": "halftone",
+   "name": "Halftone",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "CMYKA_channel0_generator": "screentone",
+     "CMYKA_channel0_generator_screentone_align_to_pixel_grid": true,
+     "CMYKA_channel0_generator_screentone_align_to_pixel_grid_x": 1,
+     "CMYKA_channel0_generator_screentone_align_to_pixel_grid_y": 1,
+     "CMYKA_channel0_generator_screentone_background_opacity": 100,
+     "CMYKA_channel0_generator_screentone_brightness": 50,
+     "CMYKA_channel0_generator_screentone_constrain_frequency": true,
+     "CMYKA_channel0_generator_screentone_contrast": 50,
+     "CMYKA_channel0_generator_screentone_equalization_mode": 2,
+     "CMYKA_channel0_generator_screentone_foreground_opacity": 100,
+     "CMYKA_channel0_generator_screentone_frequency_x": 30,
+     "CMYKA_channel0_generator_screentone_frequency_y": 30,
+     "CMYKA_channel0_generator_screentone_interpolation": 0,
+     "CMYKA_channel0_generator_screentone_invert": false,
+     "CMYKA_channel0_generator_screentone_keep_size_square": true,
+     "CMYKA_channel0_generator_screentone_pattern": 0,
+     "CMYKA_channel0_generator_screentone_position_x": 0,
+     "CMYKA_channel0_generator_screentone_position_y": 0,
+     "CMYKA_channel0_generator_screentone_resolution": 300,
+     "CMYKA_channel0_generator_screentone_rotation": 15,
+     "CMYKA_channel0_generator_screentone_shape": 0,
+     "CMYKA_channel0_generator_screentone_shear_x": 0,
+     "CMYKA_channel0_generator_screentone_shear_y": 0,
+     "CMYKA_channel0_generator_screentone_size_mode": 0,
+     "CMYKA_channel0_generator_screentone_size_x": 10,
+     "CMYKA_channel0_generator_screentone_size_y": 10,
+     "CMYKA_channel0_generator_screentone_units": 0,
+     "CMYKA_channel0_hardness": 80,
+     "CMYKA_channel0_invert": false,
+     "CMYKA_channel1_generator": "screentone",
+     "CMYKA_channel1_generator_screentone_align_to_pixel_grid": true,
+     "CMYKA_channel1_generator_screentone_align_to_pixel_grid_x": 1,
+     "CMYKA_channel1_generator_screentone_align_to_pixel_grid_y": 1,
+     "CMYKA_channel1_generator_screentone_background_opacity": 100,
+     "CMYKA_channel1_generator_screentone_brightness": 50,
+     "CMYKA_channel1_generator_screentone_constrain_frequency": true,
+     "CMYKA_channel1_generator_screentone_contrast": 50,
+     "CMYKA_channel1_generator_screentone_equalization_mode": 2,
+     "CMYKA_channel1_generator_screentone_foreground_opacity": 100,
+     "CMYKA_channel1_generator_screentone_frequency_x": 30,
+     "CMYKA_channel1_generator_screentone_frequency_y": 30,
+     "CMYKA_channel1_generator_screentone_interpolation": 0,
+     "CMYKA_channel1_generator_screentone_invert": false,
+     "CMYKA_channel1_generator_screentone_keep_size_square": true,
+     "CMYKA_channel1_generator_screentone_pattern": 0,
+     "CMYKA_channel1_generator_screentone_position_x": 0,
+     "CMYKA_channel1_generator_screentone_position_y": 0,
+     "CMYKA_channel1_generator_screentone_resolution": 300,
+     "CMYKA_channel1_generator_screentone_rotation": 75,
+     "CMYKA_channel1_generator_screentone_shape": 0,
+     "CMYKA_channel1_generator_screentone_shear_x": 0,
+     "CMYKA_channel1_generator_screentone_shear_y": 0,
+     "CMYKA_channel1_generator_screentone_size_mode": 0,
+     "CMYKA_channel1_generator_screentone_size_x": 10,
+     "CMYKA_channel1_generator_screentone_size_y": 10,
+     "CMYKA_channel1_generator_screentone_units": 0,
+     "CMYKA_channel1_hardness": 80,
+     "CMYKA_channel1_invert": false,
+     "CMYKA_channel2_generator": "screentone",
+     "CMYKA_channel2_generator_screentone_align_to_pixel_grid": true,
+     "CMYKA_channel2_generator_screentone_align_to_pixel_grid_x": 1,
+     "CMYKA_channel2_generator_screentone_align_to_pixel_grid_y": 1,
+     "CMYKA_channel2_generator_screentone_background_opacity": 100,
+     "CMYKA_channel2_generator_screentone_brightness": 50,
+     "CMYKA_channel2_generator_screentone_constrain_frequency": true,
+     "CMYKA_channel2_generator_screentone_contrast": 50,
+     "CMYKA_channel2_generator_screentone_equalization_mode": 2,
+     "CMYKA_channel2_generator_screentone_foreground_opacity": 100,
+     "CMYKA_channel2_generator_screentone_frequency_x": 30,
+     "CMYKA_channel2_generator_screentone_frequency_y": 30,
+     "CMYKA_channel2_generator_screentone_interpolation": 0,
+     "CMYKA_channel2_generator_screentone_invert": false,
+     "CMYKA_channel2_generator_screentone_keep_size_square": true,
+     "CMYKA_channel2_generator_screentone_pattern": 0,
+     "CMYKA_channel2_generator_screentone_position_x": 0,
+     "CMYKA_channel2_generator_screentone_position_y": 0,
+     "CMYKA_channel2_generator_screentone_resolution": 300,
+     "CMYKA_channel2_generator_screentone_rotation": 0,
+     "CMYKA_channel2_generator_screentone_shape": 0,
+     "CMYKA_channel2_generator_screentone_shear_x": 0,
+     "CMYKA_channel2_generator_screentone_shear_y": 0,
+     "CMYKA_channel2_generator_screentone_size_mode": 0,
+     "CMYKA_channel2_generator_screentone_size_x": 10,
+     "CMYKA_channel2_generator_screentone_size_y": 10,
+     "CMYKA_channel2_generator_screentone_units": 0,
+     "CMYKA_channel2_hardness": 80,
+     "CMYKA_channel2_invert": false,
+     "CMYKA_channel3_generator": "screentone",
+     "CMYKA_channel3_generator_screentone_align_to_pixel_grid": true,
+     "CMYKA_channel3_generator_screentone_align_to_pixel_grid_x": 1,
+     "CMYKA_channel3_generator_screentone_align_to_pixel_grid_y": 1,
+     "CMYKA_channel3_generator_screentone_background_opacity": 100,
+     "CMYKA_channel3_generator_screentone_brightness": 50,
+     "CMYKA_channel3_generator_screentone_constrain_frequency": true,
+     "CMYKA_channel3_generator_screentone_contrast": 50,
+     "CMYKA_channel3_generator_screentone_equalization_mode": 2,
+     "CMYKA_channel3_generator_screentone_foreground_opacity": 100,
+     "CMYKA_channel3_generator_screentone_frequency_x": 30,
+     "CMYKA_channel3_generator_screentone_frequency_y": 30,
+     "CMYKA_channel3_generator_screentone_interpolation": 0,
+     "CMYKA_channel3_generator_screentone_invert": false,
+     "CMYKA_channel3_generator_screentone_keep_size_square": true,
+     "CMYKA_channel3_generator_screentone_pattern": 0,
+     "CMYKA_channel3_generator_screentone_position_x": 0,
+     "CMYKA_channel3_generator_screentone_position_y": 0,
+     "CMYKA_channel3_generator_screentone_resolution": 300,
+     "CMYKA_channel3_generator_screentone_rotation": 45,
+     "CMYKA_channel3_generator_screentone_shape": 0,
+     "CMYKA_channel3_generator_screentone_shear_x": 0,
+     "CMYKA_channel3_generator_screentone_shear_y": 0,
+     "CMYKA_channel3_generator_screentone_size_mode": 0,
+     "CMYKA_channel3_generator_screentone_size_x": 10,
+     "CMYKA_channel3_generator_screentone_size_y": 10,
+     "CMYKA_channel3_generator_screentone_units": 0,
+     "CMYKA_channel3_hardness": 80,
+     "CMYKA_channel3_invert": false,
+     "RGBA_channel0_generator": "screentone",
+     "RGBA_channel0_generator_screentone_align_to_pixel_grid": true,
+     "RGBA_channel0_generator_screentone_align_to_pixel_grid_x": 1,
+     "RGBA_channel0_generator_screentone_align_to_pixel_grid_y": 1,
+     "RGBA_channel0_generator_screentone_background_opacity": 100,
+     "RGBA_channel0_generator_screentone_brightness": 50,
+     "RGBA_channel0_generator_screentone_constrain_frequency": true,
+     "RGBA_channel0_generator_screentone_contrast": 50,
+     "RGBA_channel0_generator_screentone_equalization_mode": 2,
+     "RGBA_channel0_generator_screentone_foreground_opacity": 100,
+     "RGBA_channel0_generator_screentone_frequency_x": 30,
+     "RGBA_channel0_generator_screentone_frequency_y": 30,
+     "RGBA_channel0_generator_screentone_interpolation": 0,
+     "RGBA_channel0_generator_screentone_invert": false,
+     "RGBA_channel0_generator_screentone_keep_size_square": true,
+     "RGBA_channel0_generator_screentone_pattern": 0,
+     "RGBA_channel0_generator_screentone_position_x": 0,
+     "RGBA_channel0_generator_screentone_position_y": 0,
+     "RGBA_channel0_generator_screentone_resolution": 300,
+     "RGBA_channel0_generator_screentone_rotation": 15,
+     "RGBA_channel0_generator_screentone_shape": 0,
+     "RGBA_channel0_generator_screentone_shear_x": 0,
+     "RGBA_channel0_generator_screentone_shear_y": 0,
+     "RGBA_channel0_generator_screentone_size_mode": 0,
+     "RGBA_channel0_generator_screentone_size_x": 10,
+     "RGBA_channel0_generator_screentone_size_y": 10,
+     "RGBA_channel0_generator_screentone_units": 0,
+     "RGBA_channel0_hardness": 80,
+     "RGBA_channel0_invert": false,
+     "RGBA_channel1_generator": "screentone",
+     "RGBA_channel1_generator_screentone_align_to_pixel_grid": true,
+     "RGBA_channel1_generator_screentone_align_to_pixel_grid_x": 1,
+     "RGBA_channel1_generator_screentone_align_to_pixel_grid_y": 1,
+     "RGBA_channel1_generator_screentone_background_opacity": 100,
+     "RGBA_channel1_generator_screentone_brightness": 50,
+     "RGBA_channel1_generator_screentone_constrain_frequency": true,
+     "RGBA_channel1_generator_screentone_contrast": 50,
+     "RGBA_channel1_generator_screentone_equalization_mode": 2,
+     "RGBA_channel1_generator_screentone_foreground_opacity": 100,
+     "RGBA_channel1_generator_screentone_frequency_x": 30,
+     "RGBA_channel1_generator_screentone_frequency_y": 30,
+     "RGBA_channel1_generator_screentone_interpolation": 0,
+     "RGBA_channel1_generator_screentone_invert": false,
+     "RGBA_channel1_generator_screentone_keep_size_square": true,
+     "RGBA_channel1_generator_screentone_pattern": 0,
+     "RGBA_channel1_generator_screentone_position_x": 0,
+     "RGBA_channel1_generator_screentone_position_y": 0,
+     "RGBA_channel1_generator_screentone_resolution": 300,
+     "RGBA_channel1_generator_screentone_rotation": 45,
+     "RGBA_channel1_generator_screentone_shape": 0,
+     "RGBA_channel1_generator_screentone_shear_x": 0,
+     "RGBA_channel1_generator_screentone_shear_y": 0,
+     "RGBA_channel1_generator_screentone_size_mode": 0,
+     "RGBA_channel1_generator_screentone_size_x": 10,
+     "RGBA_channel1_generator_screentone_size_y": 10,
+     "RGBA_channel1_generator_screentone_units": 0,
+     "RGBA_channel1_hardness": 80,
+     "RGBA_channel1_invert": false,
+     "RGBA_channel2_generator": "screentone",
+     "RGBA_channel2_generator_screentone_align_to_pixel_grid": true,
+     "RGBA_channel2_generator_screentone_align_to_pixel_grid_x": 1,
+     "RGBA_channel2_generator_screentone_align_to_pixel_grid_y": 1,
+     "RGBA_channel2_generator_screentone_background_opacity": 100,
+     "RGBA_channel2_generator_screentone_brightness": 50,
+     "RGBA_channel2_generator_screentone_constrain_frequency": true,
+     "RGBA_channel2_generator_screentone_contrast": 50,
+     "RGBA_channel2_generator_screentone_equalization_mode": 2,
+     "RGBA_channel2_generator_screentone_foreground_opacity": 100,
+     "RGBA_channel2_generator_screentone_frequency_x": 30,
+     "RGBA_channel2_generator_screentone_frequency_y": 30,
+     "RGBA_channel2_generator_screentone_interpolation": 0,
+     "RGBA_channel2_generator_screentone_invert": false,
+     "RGBA_channel2_generator_screentone_keep_size_square": true,
+     "RGBA_channel2_generator_screentone_pattern": 0,
+     "RGBA_channel2_generator_screentone_position_x": 0,
+     "RGBA_channel2_generator_screentone_position_y": 0,
+     "RGBA_channel2_generator_screentone_resolution": 300,
+     "RGBA_channel2_generator_screentone_rotation": 75,
+     "RGBA_channel2_generator_screentone_shape": 0,
+     "RGBA_channel2_generator_screentone_shear_x": 0,
+     "RGBA_channel2_generator_screentone_shear_y": 0,
+     "RGBA_channel2_generator_screentone_size_mode": 0,
+     "RGBA_channel2_generator_screentone_size_x": 10,
+     "RGBA_channel2_generator_screentone_size_y": 10,
+     "RGBA_channel2_generator_screentone_units": 0,
+     "RGBA_channel2_hardness": 80,
+     "RGBA_channel2_invert": false,
+     "alpha_generator": "screentone",
+     "alpha_generator_screentone_align_to_pixel_grid": true,
+     "alpha_generator_screentone_align_to_pixel_grid_x": 1,
+     "alpha_generator_screentone_align_to_pixel_grid_y": 1,
+     "alpha_generator_screentone_background_opacity": 100,
+     "alpha_generator_screentone_brightness": 50,
+     "alpha_generator_screentone_constrain_frequency": true,
+     "alpha_generator_screentone_contrast": 50,
+     "alpha_generator_screentone_equalization_mode": 2,
+     "alpha_generator_screentone_foreground_opacity": 100,
+     "alpha_generator_screentone_frequency_x": 30,
+     "alpha_generator_screentone_frequency_y": 30,
+     "alpha_generator_screentone_interpolation": 0,
+     "alpha_generator_screentone_invert": false,
+     "alpha_generator_screentone_keep_size_square": true,
+     "alpha_generator_screentone_pattern": 0,
+     "alpha_generator_screentone_position_x": 0,
+     "alpha_generator_screentone_position_y": 0,
+     "alpha_generator_screentone_resolution": 300,
+     "alpha_generator_screentone_rotation": 45,
+     "alpha_generator_screentone_shape": 0,
+     "alpha_generator_screentone_shear_x": 0,
+     "alpha_generator_screentone_shear_y": 0,
+     "alpha_generator_screentone_size_mode": 0,
+     "alpha_generator_screentone_size_x": 10,
+     "alpha_generator_screentone_size_y": 10,
+     "alpha_generator_screentone_units": 0,
+     "alpha_hardness": 80,
+     "alpha_invert": false,
+     "intensity_background_opacity": 100,
+     "intensity_foreground_opacity": 100,
+     "intensity_generator": "screentone",
+     "intensity_generator_screentone_align_to_pixel_grid": true,
+     "intensity_generator_screentone_align_to_pixel_grid_x": 1,
+     "intensity_generator_screentone_align_to_pixel_grid_y": 1,
+     "intensity_generator_screentone_background_opacity": 100,
+     "intensity_generator_screentone_brightness": 50,
+     "intensity_generator_screentone_constrain_frequency": true,
+     "intensity_generator_screentone_contrast": 50,
+     "intensity_generator_screentone_equalization_mode": 2,
+     "intensity_generator_screentone_foreground_opacity": 100,
+     "intensity_generator_screentone_frequency_x": 30,
+     "intensity_generator_screentone_frequency_y": 30,
+     "intensity_generator_screentone_interpolation": 0,
+     "intensity_generator_screentone_invert": false,
+     "intensity_generator_screentone_keep_size_square": true,
+     "intensity_generator_screentone_pattern": 0,
+     "intensity_generator_screentone_position_x": 0,
+     "intensity_generator_screentone_position_y": 0,
+     "intensity_generator_screentone_resolution": 300,
+     "intensity_generator_screentone_rotation": 45,
+     "intensity_generator_screentone_shape": 0,
+     "intensity_generator_screentone_shear_x": 0,
+     "intensity_generator_screentone_shear_y": 0,
+     "intensity_generator_screentone_size_mode": 0,
+     "intensity_generator_screentone_size_x": 10,
+     "intensity_generator_screentone_size_y": 10,
+     "intensity_generator_screentone_units": 0,
+     "intensity_hardness": 80,
+     "intensity_invert": false,
+     "mode": "intensity"
+    },
+    "specs": [
+     {
+      "key": "CMYKA_channel0_generator",
+      "kind": "string",
+      "label": "CMYKA_channel0_generator"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "CMYKA_channel0_generator_screentone_align_to_pixel_grid"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_align_to_pixel_grid_x"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_align_to_pixel_grid_y"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_background_opacity",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_background_opacity"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_brightness",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_brightness"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_constrain_frequency",
+      "kind": "boolean",
+      "label": "CMYKA_channel0_generator_screentone_constrain_frequency"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_contrast",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_contrast"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_equalization_mode",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_equalization_mode"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_foreground_opacity",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_foreground_opacity"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_frequency_x",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_frequency_x"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_frequency_y",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_frequency_y"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_interpolation",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_interpolation"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_invert",
+      "kind": "boolean",
+      "label": "CMYKA_channel0_generator_screentone_invert"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_keep_size_square",
+      "kind": "boolean",
+      "label": "CMYKA_channel0_generator_screentone_keep_size_square"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_pattern",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_pattern"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_position_x",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_position_x"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_position_y",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_position_y"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_resolution",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_resolution"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_rotation",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_rotation"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_shape",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_shape"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_shear_x",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_shear_x"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_shear_y",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_shear_y"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_size_mode",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_size_mode"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_size_x",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_size_x"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_size_y",
+      "kind": "number",
+      "label": "CMYKA_channel0_generator_screentone_size_y"
+     },
+     {
+      "key": "CMYKA_channel0_generator_screentone_units",
+      "kind": "integer",
+      "label": "CMYKA_channel0_generator_screentone_units"
+     },
+     {
+      "key": "CMYKA_channel0_hardness",
+      "kind": "number",
+      "label": "CMYKA_channel0_hardness"
+     },
+     {
+      "key": "CMYKA_channel0_invert",
+      "kind": "boolean",
+      "label": "CMYKA_channel0_invert"
+     },
+     {
+      "key": "CMYKA_channel1_generator",
+      "kind": "string",
+      "label": "CMYKA_channel1_generator"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "CMYKA_channel1_generator_screentone_align_to_pixel_grid"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_align_to_pixel_grid_x"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_align_to_pixel_grid_y"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_background_opacity",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_background_opacity"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_brightness",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_brightness"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_constrain_frequency",
+      "kind": "boolean",
+      "label": "CMYKA_channel1_generator_screentone_constrain_frequency"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_contrast",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_contrast"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_equalization_mode",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_equalization_mode"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_foreground_opacity",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_foreground_opacity"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_frequency_x",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_frequency_x"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_frequency_y",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_frequency_y"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_interpolation",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_interpolation"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_invert",
+      "kind": "boolean",
+      "label": "CMYKA_channel1_generator_screentone_invert"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_keep_size_square",
+      "kind": "boolean",
+      "label": "CMYKA_channel1_generator_screentone_keep_size_square"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_pattern",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_pattern"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_position_x",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_position_x"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_position_y",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_position_y"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_resolution",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_resolution"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_rotation",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_rotation"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_shape",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_shape"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_shear_x",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_shear_x"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_shear_y",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_shear_y"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_size_mode",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_size_mode"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_size_x",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_size_x"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_size_y",
+      "kind": "number",
+      "label": "CMYKA_channel1_generator_screentone_size_y"
+     },
+     {
+      "key": "CMYKA_channel1_generator_screentone_units",
+      "kind": "integer",
+      "label": "CMYKA_channel1_generator_screentone_units"
+     },
+     {
+      "key": "CMYKA_channel1_hardness",
+      "kind": "number",
+      "label": "CMYKA_channel1_hardness"
+     },
+     {
+      "key": "CMYKA_channel1_invert",
+      "kind": "boolean",
+      "label": "CMYKA_channel1_invert"
+     },
+     {
+      "key": "CMYKA_channel2_generator",
+      "kind": "string",
+      "label": "CMYKA_channel2_generator"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "CMYKA_channel2_generator_screentone_align_to_pixel_grid"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_align_to_pixel_grid_x"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_align_to_pixel_grid_y"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_background_opacity",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_background_opacity"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_brightness",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_brightness"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_constrain_frequency",
+      "kind": "boolean",
+      "label": "CMYKA_channel2_generator_screentone_constrain_frequency"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_contrast",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_contrast"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_equalization_mode",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_equalization_mode"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_foreground_opacity",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_foreground_opacity"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_frequency_x",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_frequency_x"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_frequency_y",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_frequency_y"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_interpolation",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_interpolation"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_invert",
+      "kind": "boolean",
+      "label": "CMYKA_channel2_generator_screentone_invert"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_keep_size_square",
+      "kind": "boolean",
+      "label": "CMYKA_channel2_generator_screentone_keep_size_square"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_pattern",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_pattern"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_position_x",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_position_x"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_position_y",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_position_y"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_resolution",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_resolution"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_rotation",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_rotation"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_shape",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_shape"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_shear_x",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_shear_x"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_shear_y",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_shear_y"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_size_mode",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_size_mode"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_size_x",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_size_x"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_size_y",
+      "kind": "number",
+      "label": "CMYKA_channel2_generator_screentone_size_y"
+     },
+     {
+      "key": "CMYKA_channel2_generator_screentone_units",
+      "kind": "integer",
+      "label": "CMYKA_channel2_generator_screentone_units"
+     },
+     {
+      "key": "CMYKA_channel2_hardness",
+      "kind": "number",
+      "label": "CMYKA_channel2_hardness"
+     },
+     {
+      "key": "CMYKA_channel2_invert",
+      "kind": "boolean",
+      "label": "CMYKA_channel2_invert"
+     },
+     {
+      "key": "CMYKA_channel3_generator",
+      "kind": "string",
+      "label": "CMYKA_channel3_generator"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "CMYKA_channel3_generator_screentone_align_to_pixel_grid"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_align_to_pixel_grid_x"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_align_to_pixel_grid_y"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_background_opacity",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_background_opacity"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_brightness",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_brightness"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_constrain_frequency",
+      "kind": "boolean",
+      "label": "CMYKA_channel3_generator_screentone_constrain_frequency"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_contrast",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_contrast"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_equalization_mode",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_equalization_mode"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_foreground_opacity",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_foreground_opacity"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_frequency_x",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_frequency_x"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_frequency_y",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_frequency_y"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_interpolation",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_interpolation"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_invert",
+      "kind": "boolean",
+      "label": "CMYKA_channel3_generator_screentone_invert"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_keep_size_square",
+      "kind": "boolean",
+      "label": "CMYKA_channel3_generator_screentone_keep_size_square"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_pattern",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_pattern"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_position_x",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_position_x"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_position_y",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_position_y"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_resolution",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_resolution"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_rotation",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_rotation"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_shape",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_shape"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_shear_x",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_shear_x"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_shear_y",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_shear_y"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_size_mode",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_size_mode"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_size_x",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_size_x"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_size_y",
+      "kind": "number",
+      "label": "CMYKA_channel3_generator_screentone_size_y"
+     },
+     {
+      "key": "CMYKA_channel3_generator_screentone_units",
+      "kind": "integer",
+      "label": "CMYKA_channel3_generator_screentone_units"
+     },
+     {
+      "key": "CMYKA_channel3_hardness",
+      "kind": "number",
+      "label": "CMYKA_channel3_hardness"
+     },
+     {
+      "key": "CMYKA_channel3_invert",
+      "kind": "boolean",
+      "label": "CMYKA_channel3_invert"
+     },
+     {
+      "key": "RGBA_channel0_generator",
+      "kind": "string",
+      "label": "RGBA_channel0_generator"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "RGBA_channel0_generator_screentone_align_to_pixel_grid"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_align_to_pixel_grid_x"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_align_to_pixel_grid_y"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_background_opacity",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_background_opacity"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_brightness",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_brightness"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_constrain_frequency",
+      "kind": "boolean",
+      "label": "RGBA_channel0_generator_screentone_constrain_frequency"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_contrast",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_contrast"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_equalization_mode",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_equalization_mode"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_foreground_opacity",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_foreground_opacity"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_frequency_x",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_frequency_x"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_frequency_y",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_frequency_y"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_interpolation",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_interpolation"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_invert",
+      "kind": "boolean",
+      "label": "RGBA_channel0_generator_screentone_invert"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_keep_size_square",
+      "kind": "boolean",
+      "label": "RGBA_channel0_generator_screentone_keep_size_square"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_pattern",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_pattern"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_position_x",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_position_x"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_position_y",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_position_y"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_resolution",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_resolution"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_rotation",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_rotation"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_shape",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_shape"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_shear_x",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_shear_x"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_shear_y",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_shear_y"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_size_mode",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_size_mode"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_size_x",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_size_x"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_size_y",
+      "kind": "number",
+      "label": "RGBA_channel0_generator_screentone_size_y"
+     },
+     {
+      "key": "RGBA_channel0_generator_screentone_units",
+      "kind": "integer",
+      "label": "RGBA_channel0_generator_screentone_units"
+     },
+     {
+      "key": "RGBA_channel0_hardness",
+      "kind": "number",
+      "label": "RGBA_channel0_hardness"
+     },
+     {
+      "key": "RGBA_channel0_invert",
+      "kind": "boolean",
+      "label": "RGBA_channel0_invert"
+     },
+     {
+      "key": "RGBA_channel1_generator",
+      "kind": "string",
+      "label": "RGBA_channel1_generator"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "RGBA_channel1_generator_screentone_align_to_pixel_grid"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_align_to_pixel_grid_x"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_align_to_pixel_grid_y"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_background_opacity",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_background_opacity"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_brightness",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_brightness"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_constrain_frequency",
+      "kind": "boolean",
+      "label": "RGBA_channel1_generator_screentone_constrain_frequency"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_contrast",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_contrast"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_equalization_mode",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_equalization_mode"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_foreground_opacity",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_foreground_opacity"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_frequency_x",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_frequency_x"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_frequency_y",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_frequency_y"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_interpolation",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_interpolation"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_invert",
+      "kind": "boolean",
+      "label": "RGBA_channel1_generator_screentone_invert"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_keep_size_square",
+      "kind": "boolean",
+      "label": "RGBA_channel1_generator_screentone_keep_size_square"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_pattern",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_pattern"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_position_x",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_position_x"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_position_y",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_position_y"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_resolution",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_resolution"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_rotation",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_rotation"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_shape",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_shape"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_shear_x",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_shear_x"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_shear_y",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_shear_y"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_size_mode",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_size_mode"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_size_x",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_size_x"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_size_y",
+      "kind": "number",
+      "label": "RGBA_channel1_generator_screentone_size_y"
+     },
+     {
+      "key": "RGBA_channel1_generator_screentone_units",
+      "kind": "integer",
+      "label": "RGBA_channel1_generator_screentone_units"
+     },
+     {
+      "key": "RGBA_channel1_hardness",
+      "kind": "number",
+      "label": "RGBA_channel1_hardness"
+     },
+     {
+      "key": "RGBA_channel1_invert",
+      "kind": "boolean",
+      "label": "RGBA_channel1_invert"
+     },
+     {
+      "key": "RGBA_channel2_generator",
+      "kind": "string",
+      "label": "RGBA_channel2_generator"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "RGBA_channel2_generator_screentone_align_to_pixel_grid"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_align_to_pixel_grid_x"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_align_to_pixel_grid_y"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_background_opacity",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_background_opacity"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_brightness",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_brightness"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_constrain_frequency",
+      "kind": "boolean",
+      "label": "RGBA_channel2_generator_screentone_constrain_frequency"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_contrast",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_contrast"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_equalization_mode",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_equalization_mode"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_foreground_opacity",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_foreground_opacity"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_frequency_x",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_frequency_x"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_frequency_y",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_frequency_y"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_interpolation",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_interpolation"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_invert",
+      "kind": "boolean",
+      "label": "RGBA_channel2_generator_screentone_invert"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_keep_size_square",
+      "kind": "boolean",
+      "label": "RGBA_channel2_generator_screentone_keep_size_square"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_pattern",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_pattern"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_position_x",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_position_x"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_position_y",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_position_y"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_resolution",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_resolution"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_rotation",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_rotation"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_shape",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_shape"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_shear_x",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_shear_x"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_shear_y",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_shear_y"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_size_mode",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_size_mode"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_size_x",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_size_x"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_size_y",
+      "kind": "number",
+      "label": "RGBA_channel2_generator_screentone_size_y"
+     },
+     {
+      "key": "RGBA_channel2_generator_screentone_units",
+      "kind": "integer",
+      "label": "RGBA_channel2_generator_screentone_units"
+     },
+     {
+      "key": "RGBA_channel2_hardness",
+      "kind": "number",
+      "label": "RGBA_channel2_hardness"
+     },
+     {
+      "key": "RGBA_channel2_invert",
+      "kind": "boolean",
+      "label": "RGBA_channel2_invert"
+     },
+     {
+      "key": "alpha_generator",
+      "kind": "string",
+      "label": "alpha_generator"
+     },
+     {
+      "key": "alpha_generator_screentone_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "alpha_generator_screentone_align_to_pixel_grid"
+     },
+     {
+      "key": "alpha_generator_screentone_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_align_to_pixel_grid_x"
+     },
+     {
+      "key": "alpha_generator_screentone_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_align_to_pixel_grid_y"
+     },
+     {
+      "key": "alpha_generator_screentone_background_opacity",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_background_opacity"
+     },
+     {
+      "key": "alpha_generator_screentone_brightness",
+      "kind": "number",
+      "label": "alpha_generator_screentone_brightness"
+     },
+     {
+      "key": "alpha_generator_screentone_constrain_frequency",
+      "kind": "boolean",
+      "label": "alpha_generator_screentone_constrain_frequency"
+     },
+     {
+      "key": "alpha_generator_screentone_contrast",
+      "kind": "number",
+      "label": "alpha_generator_screentone_contrast"
+     },
+     {
+      "key": "alpha_generator_screentone_equalization_mode",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_equalization_mode"
+     },
+     {
+      "key": "alpha_generator_screentone_foreground_opacity",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_foreground_opacity"
+     },
+     {
+      "key": "alpha_generator_screentone_frequency_x",
+      "kind": "number",
+      "label": "alpha_generator_screentone_frequency_x"
+     },
+     {
+      "key": "alpha_generator_screentone_frequency_y",
+      "kind": "number",
+      "label": "alpha_generator_screentone_frequency_y"
+     },
+     {
+      "key": "alpha_generator_screentone_interpolation",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_interpolation"
+     },
+     {
+      "key": "alpha_generator_screentone_invert",
+      "kind": "boolean",
+      "label": "alpha_generator_screentone_invert"
+     },
+     {
+      "key": "alpha_generator_screentone_keep_size_square",
+      "kind": "boolean",
+      "label": "alpha_generator_screentone_keep_size_square"
+     },
+     {
+      "key": "alpha_generator_screentone_pattern",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_pattern"
+     },
+     {
+      "key": "alpha_generator_screentone_position_x",
+      "kind": "number",
+      "label": "alpha_generator_screentone_position_x"
+     },
+     {
+      "key": "alpha_generator_screentone_position_y",
+      "kind": "number",
+      "label": "alpha_generator_screentone_position_y"
+     },
+     {
+      "key": "alpha_generator_screentone_resolution",
+      "kind": "number",
+      "label": "alpha_generator_screentone_resolution"
+     },
+     {
+      "key": "alpha_generator_screentone_rotation",
+      "kind": "number",
+      "label": "alpha_generator_screentone_rotation"
+     },
+     {
+      "key": "alpha_generator_screentone_shape",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_shape"
+     },
+     {
+      "key": "alpha_generator_screentone_shear_x",
+      "kind": "number",
+      "label": "alpha_generator_screentone_shear_x"
+     },
+     {
+      "key": "alpha_generator_screentone_shear_y",
+      "kind": "number",
+      "label": "alpha_generator_screentone_shear_y"
+     },
+     {
+      "key": "alpha_generator_screentone_size_mode",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_size_mode"
+     },
+     {
+      "key": "alpha_generator_screentone_size_x",
+      "kind": "number",
+      "label": "alpha_generator_screentone_size_x"
+     },
+     {
+      "key": "alpha_generator_screentone_size_y",
+      "kind": "number",
+      "label": "alpha_generator_screentone_size_y"
+     },
+     {
+      "key": "alpha_generator_screentone_units",
+      "kind": "integer",
+      "label": "alpha_generator_screentone_units"
+     },
+     {
+      "key": "alpha_hardness",
+      "kind": "number",
+      "label": "alpha_hardness"
+     },
+     {
+      "key": "alpha_invert",
+      "kind": "boolean",
+      "label": "alpha_invert"
+     },
+     {
+      "key": "intensity_background_opacity",
+      "kind": "integer",
+      "label": "intensity_background_opacity"
+     },
+     {
+      "key": "intensity_foreground_opacity",
+      "kind": "integer",
+      "label": "intensity_foreground_opacity"
+     },
+     {
+      "key": "intensity_generator",
+      "kind": "string",
+      "label": "intensity_generator"
+     },
+     {
+      "key": "intensity_generator_screentone_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "intensity_generator_screentone_align_to_pixel_grid"
+     },
+     {
+      "key": "intensity_generator_screentone_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_align_to_pixel_grid_x"
+     },
+     {
+      "key": "intensity_generator_screentone_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_align_to_pixel_grid_y"
+     },
+     {
+      "key": "intensity_generator_screentone_background_opacity",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_background_opacity"
+     },
+     {
+      "key": "intensity_generator_screentone_brightness",
+      "kind": "number",
+      "label": "intensity_generator_screentone_brightness"
+     },
+     {
+      "key": "intensity_generator_screentone_constrain_frequency",
+      "kind": "boolean",
+      "label": "intensity_generator_screentone_constrain_frequency"
+     },
+     {
+      "key": "intensity_generator_screentone_contrast",
+      "kind": "number",
+      "label": "intensity_generator_screentone_contrast"
+     },
+     {
+      "key": "intensity_generator_screentone_equalization_mode",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_equalization_mode"
+     },
+     {
+      "key": "intensity_generator_screentone_foreground_opacity",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_foreground_opacity"
+     },
+     {
+      "key": "intensity_generator_screentone_frequency_x",
+      "kind": "number",
+      "label": "intensity_generator_screentone_frequency_x"
+     },
+     {
+      "key": "intensity_generator_screentone_frequency_y",
+      "kind": "number",
+      "label": "intensity_generator_screentone_frequency_y"
+     },
+     {
+      "key": "intensity_generator_screentone_interpolation",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_interpolation"
+     },
+     {
+      "key": "intensity_generator_screentone_invert",
+      "kind": "boolean",
+      "label": "intensity_generator_screentone_invert"
+     },
+     {
+      "key": "intensity_generator_screentone_keep_size_square",
+      "kind": "boolean",
+      "label": "intensity_generator_screentone_keep_size_square"
+     },
+     {
+      "key": "intensity_generator_screentone_pattern",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_pattern"
+     },
+     {
+      "key": "intensity_generator_screentone_position_x",
+      "kind": "number",
+      "label": "intensity_generator_screentone_position_x"
+     },
+     {
+      "key": "intensity_generator_screentone_position_y",
+      "kind": "number",
+      "label": "intensity_generator_screentone_position_y"
+     },
+     {
+      "key": "intensity_generator_screentone_resolution",
+      "kind": "number",
+      "label": "intensity_generator_screentone_resolution"
+     },
+     {
+      "key": "intensity_generator_screentone_rotation",
+      "kind": "number",
+      "label": "intensity_generator_screentone_rotation"
+     },
+     {
+      "key": "intensity_generator_screentone_shape",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_shape"
+     },
+     {
+      "key": "intensity_generator_screentone_shear_x",
+      "kind": "number",
+      "label": "intensity_generator_screentone_shear_x"
+     },
+     {
+      "key": "intensity_generator_screentone_shear_y",
+      "kind": "number",
+      "label": "intensity_generator_screentone_shear_y"
+     },
+     {
+      "key": "intensity_generator_screentone_size_mode",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_size_mode"
+     },
+     {
+      "key": "intensity_generator_screentone_size_x",
+      "kind": "number",
+      "label": "intensity_generator_screentone_size_x"
+     },
+     {
+      "key": "intensity_generator_screentone_size_y",
+      "kind": "number",
+      "label": "intensity_generator_screentone_size_y"
+     },
+     {
+      "key": "intensity_generator_screentone_units",
+      "kind": "integer",
+      "label": "intensity_generator_screentone_units"
+     },
+     {
+      "key": "intensity_hardness",
+      "kind": "number",
+      "label": "intensity_hardness"
+     },
+     {
+      "key": "intensity_invert",
+      "kind": "boolean",
+      "label": "intensity_invert"
+     },
+     {
+      "key": "mode",
+      "kind": "string",
+      "label": "mode"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Edge Detection",
+   "id": "edge detection",
+   "name": "Edge Detection",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "horizRadius": 1,
+     "lockAspect": true,
+     "output": "pythagorean",
+     "transparency": false,
+     "type": "prewitt",
+     "vertRadius": 1
+    },
+    "specs": [
+     {
+      "key": "horizRadius",
+      "kind": "integer",
+      "label": "horizRadius"
+     },
+     {
+      "key": "lockAspect",
+      "kind": "boolean",
+      "label": "lockAspect"
+     },
+     {
+      "key": "output",
+      "kind": "string",
+      "label": "output"
+     },
+     {
+      "key": "transparency",
+      "kind": "boolean",
+      "label": "transparency"
+     },
+     {
+      "key": "type",
+      "kind": "string",
+      "label": "type"
+     },
+     {
+      "key": "vertRadius",
+      "kind": "integer",
+      "label": "vertRadius"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "invert",
+   "name": "Invert",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "levels",
+   "name": "Levels",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "blackvalue": 0,
+     "gammavalue": 1,
+     "histogram_mode": "linear",
+     "lightness": "0;1;1;0;1",
+     "mode": "lightness",
+     "number_of_channels": 0,
+     "outblackvalue": 0,
+     "outwhitevalue": 255,
+     "whitevalue": 255
+    },
+    "specs": [
+     {
+      "key": "blackvalue",
+      "kind": "integer",
+      "label": "blackvalue"
+     },
+     {
+      "key": "gammavalue",
+      "kind": "number",
+      "label": "gammavalue"
+     },
+     {
+      "key": "histogram_mode",
+      "kind": "string",
+      "label": "histogram_mode"
+     },
+     {
+      "key": "lightness",
+      "kind": "string",
+      "label": "lightness"
+     },
+     {
+      "key": "mode",
+      "kind": "string",
+      "label": "mode"
+     },
+     {
+      "key": "number_of_channels",
+      "kind": "integer",
+      "label": "number_of_channels"
+     },
+     {
+      "key": "outblackvalue",
+      "kind": "integer",
+      "label": "outblackvalue"
+     },
+     {
+      "key": "outwhitevalue",
+      "kind": "integer",
+      "label": "outwhitevalue"
+     },
+     {
+      "key": "whitevalue",
+      "kind": "integer",
+      "label": "whitevalue"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Blur",
+   "id": "blur",
+   "name": "Blur",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "halfHeight": 5,
+     "halfWidth": 5,
+     "lockAspect": true,
+     "rotate": 0,
+     "shape": 0,
+     "strength": 0
+    },
+    "specs": [
+     {
+      "key": "halfHeight",
+      "kind": "integer",
+      "label": "halfHeight"
+     },
+     {
+      "key": "halfWidth",
+      "kind": "integer",
+      "label": "halfWidth"
+     },
+     {
+      "key": "lockAspect",
+      "kind": "boolean",
+      "label": "lockAspect"
+     },
+     {
+      "key": "rotate",
+      "kind": "integer",
+      "label": "rotate"
+     },
+     {
+      "key": "shape",
+      "kind": "integer",
+      "label": "shape"
+     },
+     {
+      "key": "strength",
+      "kind": "integer",
+      "label": "strength"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Adjust",
+   "id": "perchannel",
+   "name": "Color Adjustment",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "nTransfers": 0
+    },
+    "specs": [
+     {
+      "key": "nTransfers",
+      "kind": "integer",
+      "label": "nTransfers"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Emboss",
+   "id": "emboss vertical only",
+   "name": "Emboss Vertical Only",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Colors",
+   "id": "maximize",
+   "name": "Maximize Channel",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  },
+  {
+   "category": "Enhance",
+   "id": "waveletnoisereducer",
+   "name": "Wavelet Noise Reducer",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "threshold": 7
+    },
+    "specs": [
+     {
+      "key": "threshold",
+      "kind": "number",
+      "label": "threshold"
+     }
+    ]
+   }
+  }
+ ],
+ "generators": [
+  {
+   "category": "Fill",
+   "id": "simplex_noise",
+   "name": "Simplex Noise",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "custom_seed_string": "",
+     "frequency": 25,
+     "looping": false,
+     "ratio_x": 1,
+     "ratio_y": 1,
+     "seed": 906079059
+    },
+    "specs": [
+     {
+      "key": "custom_seed_string",
+      "kind": "string",
+      "label": "custom_seed_string"
+     },
+     {
+      "key": "frequency",
+      "kind": "number",
+      "label": "frequency"
+     },
+     {
+      "key": "looping",
+      "kind": "boolean",
+      "label": "looping"
+     },
+     {
+      "key": "ratio_x",
+      "kind": "number",
+      "label": "ratio_x"
+     },
+     {
+      "key": "ratio_y",
+      "kind": "number",
+      "label": "ratio_y"
+     },
+     {
+      "key": "seed",
+      "kind": "integer",
+      "label": "seed"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Fill",
+   "id": "gradient",
+   "name": "Gradient",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "antialias_threshold": 0,
+     "end_position_angle": 0,
+     "end_position_coordinate_system": "cartesian",
+     "end_position_distance": 100,
+     "end_position_distance_units": "percent_of_width",
+     "end_position_x": 100,
+     "end_position_x_positioning": "absolute",
+     "end_position_x_units": "percent_of_width",
+     "end_position_y": 50,
+     "end_position_y_positioning": "absolute",
+     "end_position_y_units": "percent_of_height",
+     "gradient": "",
+     "repeat": "none",
+     "reverse": false,
+     "shape": "linear",
+     "start_position_x": 0,
+     "start_position_x_units": "percent_of_width",
+     "start_position_y": 50,
+     "start_position_y_units": "percent_of_height"
+    },
+    "specs": [
+     {
+      "key": "antialias_threshold",
+      "kind": "number",
+      "label": "antialias_threshold"
+     },
+     {
+      "key": "end_position_angle",
+      "kind": "number",
+      "label": "end_position_angle"
+     },
+     {
+      "key": "end_position_coordinate_system",
+      "kind": "string",
+      "label": "end_position_coordinate_system"
+     },
+     {
+      "key": "end_position_distance",
+      "kind": "number",
+      "label": "end_position_distance"
+     },
+     {
+      "key": "end_position_distance_units",
+      "kind": "string",
+      "label": "end_position_distance_units"
+     },
+     {
+      "key": "end_position_x",
+      "kind": "number",
+      "label": "end_position_x"
+     },
+     {
+      "key": "end_position_x_positioning",
+      "kind": "string",
+      "label": "end_position_x_positioning"
+     },
+     {
+      "key": "end_position_x_units",
+      "kind": "string",
+      "label": "end_position_x_units"
+     },
+     {
+      "key": "end_position_y",
+      "kind": "number",
+      "label": "end_position_y"
+     },
+     {
+      "key": "end_position_y_positioning",
+      "kind": "string",
+      "label": "end_position_y_positioning"
+     },
+     {
+      "key": "end_position_y_units",
+      "kind": "string",
+      "label": "end_position_y_units"
+     },
+     {
+      "key": "gradient",
+      "kind": "string",
+      "label": "gradient"
+     },
+     {
+      "key": "repeat",
+      "kind": "string",
+      "label": "repeat"
+     },
+     {
+      "key": "reverse",
+      "kind": "boolean",
+      "label": "reverse"
+     },
+     {
+      "key": "shape",
+      "kind": "string",
+      "label": "shape"
+     },
+     {
+      "key": "start_position_x",
+      "kind": "number",
+      "label": "start_position_x"
+     },
+     {
+      "key": "start_position_x_units",
+      "kind": "string",
+      "label": "start_position_x_units"
+     },
+     {
+      "key": "start_position_y",
+      "kind": "number",
+      "label": "start_position_y"
+     },
+     {
+      "key": "start_position_y_units",
+      "kind": "string",
+      "label": "start_position_y_units"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Fill",
+   "id": "screentone",
+   "name": "Screentone",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "align_to_pixel_grid": true,
+     "align_to_pixel_grid_x": 1,
+     "align_to_pixel_grid_y": 1,
+     "background_opacity": 100,
+     "brightness": 50,
+     "constrain_frequency": true,
+     "contrast": 95,
+     "equalization_mode": 2,
+     "foreground_opacity": 100,
+     "frequency_x": 30,
+     "frequency_y": 30,
+     "interpolation": 0,
+     "invert": false,
+     "keep_size_square": true,
+     "pattern": 0,
+     "position_x": 0,
+     "position_y": 0,
+     "resolution": 300,
+     "rotation": 45,
+     "shape": 0,
+     "shear_x": 0,
+     "shear_y": 0,
+     "size_mode": 0,
+     "size_x": 10,
+     "size_y": 10,
+     "units": 0
+    },
+    "specs": [
+     {
+      "key": "align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "align_to_pixel_grid"
+     },
+     {
+      "key": "align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "align_to_pixel_grid_x"
+     },
+     {
+      "key": "align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "align_to_pixel_grid_y"
+     },
+     {
+      "key": "background_opacity",
+      "kind": "integer",
+      "label": "background_opacity"
+     },
+     {
+      "key": "brightness",
+      "kind": "number",
+      "label": "brightness"
+     },
+     {
+      "key": "constrain_frequency",
+      "kind": "boolean",
+      "label": "constrain_frequency"
+     },
+     {
+      "key": "contrast",
+      "kind": "number",
+      "label": "contrast"
+     },
+     {
+      "key": "equalization_mode",
+      "kind": "integer",
+      "label": "equalization_mode"
+     },
+     {
+      "key": "foreground_opacity",
+      "kind": "integer",
+      "label": "foreground_opacity"
+     },
+     {
+      "key": "frequency_x",
+      "kind": "number",
+      "label": "frequency_x"
+     },
+     {
+      "key": "frequency_y",
+      "kind": "number",
+      "label": "frequency_y"
+     },
+     {
+      "key": "interpolation",
+      "kind": "integer",
+      "label": "interpolation"
+     },
+     {
+      "key": "invert",
+      "kind": "boolean",
+      "label": "invert"
+     },
+     {
+      "key": "keep_size_square",
+      "kind": "boolean",
+      "label": "keep_size_square"
+     },
+     {
+      "key": "pattern",
+      "kind": "integer",
+      "label": "pattern"
+     },
+     {
+      "key": "position_x",
+      "kind": "number",
+      "label": "position_x"
+     },
+     {
+      "key": "position_y",
+      "kind": "number",
+      "label": "position_y"
+     },
+     {
+      "key": "resolution",
+      "kind": "number",
+      "label": "resolution"
+     },
+     {
+      "key": "rotation",
+      "kind": "number",
+      "label": "rotation"
+     },
+     {
+      "key": "shape",
+      "kind": "integer",
+      "label": "shape"
+     },
+     {
+      "key": "shear_x",
+      "kind": "number",
+      "label": "shear_x"
+     },
+     {
+      "key": "shear_y",
+      "kind": "number",
+      "label": "shear_y"
+     },
+     {
+      "key": "size_mode",
+      "kind": "integer",
+      "label": "size_mode"
+     },
+     {
+      "key": "size_x",
+      "kind": "number",
+      "label": "size_x"
+     },
+     {
+      "key": "size_y",
+      "kind": "number",
+      "label": "size_y"
+     },
+     {
+      "key": "units",
+      "kind": "integer",
+      "label": "units"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Fill",
+   "id": "multigrid",
+   "name": "Multigrid",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "colorIndex": 0,
+     "colorIntersect": 0,
+     "colorRatio": 1,
+     "connectorType": 0,
+     "connectorWidth": 1,
+     "dimensions": 5,
+     "divisions": 5,
+     "gradientXML": "<gradient type=\"stop\">\n <stop alpha=\"1\" bitdepth=\"U8\" offset=\"0\" stoptype=\"0\">\n  <RGB b=\"0\" g=\"1\" r=\"0\" space=\"sRGB-elle-V2-srgbtrc.icc\"/>\n </stop>\n <stop alpha=\"1\" bitdepth=\"U8\" offset=\"1\" stoptype=\"0\">\n  <RGB b=\"1\" g=\"0\" r=\"0\" space=\"sRGB-elle-V2-srgbtrc.icc\"/>\n </stop>\n</gradient>\n",
+     "lineWidth": 1,
+     "offset": 0.2
+    },
+    "specs": [
+     {
+      "key": "colorIndex",
+      "kind": "number",
+      "label": "colorIndex"
+     },
+     {
+      "key": "colorIntersect",
+      "kind": "number",
+      "label": "colorIntersect"
+     },
+     {
+      "key": "colorRatio",
+      "kind": "number",
+      "label": "colorRatio"
+     },
+     {
+      "key": "connectorType",
+      "kind": "integer",
+      "label": "connectorType"
+     },
+     {
+      "key": "connectorWidth",
+      "kind": "integer",
+      "label": "connectorWidth"
+     },
+     {
+      "key": "dimensions",
+      "kind": "integer",
+      "label": "dimensions"
+     },
+     {
+      "key": "divisions",
+      "kind": "integer",
+      "label": "divisions"
+     },
+     {
+      "key": "gradientXML",
+      "kind": "string",
+      "label": "gradientXML"
+     },
+     {
+      "key": "lineWidth",
+      "kind": "integer",
+      "label": "lineWidth"
+     },
+     {
+      "key": "offset",
+      "kind": "number",
+      "label": "offset"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Fill",
+   "id": "pattern",
+   "name": "Pattern",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {
+     "fileName": "01_canvas.png",
+     "md5sum": "df2464ed4fcdc081d1731a53fb6f1bc4",
+     "pattern": "01_canvas.png",
+     "transform_align_to_pixel_grid": false,
+     "transform_align_to_pixel_grid_x": 1,
+     "transform_align_to_pixel_grid_y": 1,
+     "transform_keep_scale_aspect": true,
+     "transform_offset_x": 0,
+     "transform_offset_y": 0,
+     "transform_rotation_x": 0,
+     "transform_rotation_y": 0,
+     "transform_rotation_z": 0,
+     "transform_scale_x": 1,
+     "transform_scale_y": 1,
+     "transform_shear_x": 0,
+     "transform_shear_y": 0
+    },
+    "specs": [
+     {
+      "key": "fileName",
+      "kind": "string",
+      "label": "fileName"
+     },
+     {
+      "key": "md5sum",
+      "kind": "string",
+      "label": "md5sum"
+     },
+     {
+      "key": "pattern",
+      "kind": "string",
+      "label": "pattern"
+     },
+     {
+      "key": "transform_align_to_pixel_grid",
+      "kind": "boolean",
+      "label": "transform_align_to_pixel_grid"
+     },
+     {
+      "key": "transform_align_to_pixel_grid_x",
+      "kind": "integer",
+      "label": "transform_align_to_pixel_grid_x"
+     },
+     {
+      "key": "transform_align_to_pixel_grid_y",
+      "kind": "integer",
+      "label": "transform_align_to_pixel_grid_y"
+     },
+     {
+      "key": "transform_keep_scale_aspect",
+      "kind": "boolean",
+      "label": "transform_keep_scale_aspect"
+     },
+     {
+      "key": "transform_offset_x",
+      "kind": "integer",
+      "label": "transform_offset_x"
+     },
+     {
+      "key": "transform_offset_y",
+      "kind": "integer",
+      "label": "transform_offset_y"
+     },
+     {
+      "key": "transform_rotation_x",
+      "kind": "number",
+      "label": "transform_rotation_x"
+     },
+     {
+      "key": "transform_rotation_y",
+      "kind": "number",
+      "label": "transform_rotation_y"
+     },
+     {
+      "key": "transform_rotation_z",
+      "kind": "number",
+      "label": "transform_rotation_z"
+     },
+     {
+      "key": "transform_scale_x",
+      "kind": "number",
+      "label": "transform_scale_x"
+     },
+     {
+      "key": "transform_scale_y",
+      "kind": "number",
+      "label": "transform_scale_y"
+     },
+     {
+      "key": "transform_shear_x",
+      "kind": "number",
+      "label": "transform_shear_x"
+     },
+     {
+      "key": "transform_shear_y",
+      "kind": "number",
+      "label": "transform_shear_y"
+     }
+    ]
+   }
+  },
+  {
+   "category": "Fill",
+   "id": "color",
+   "name": "Color",
+   "supportsAdjustmentLayers": true,
+   "config": {
+    "defaults": {},
+    "specs": []
+   }
+  }
+ ]
+}

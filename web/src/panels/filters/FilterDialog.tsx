@@ -3,6 +3,7 @@
 import { render } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { ConfigDescription, Engine, FilterInfo, NodeId, PropertyValue } from '../../engine/protocol';
+import { describe } from '../../descriptions';
 import { PropertyForm } from '../../ui/PropertyForm';
 import { activeNode } from '../layers/active';
 import './filters.css';
@@ -55,7 +56,7 @@ function FilterDialog({ engine, mode, nodeId, category, onDone }: Props) {
     const select = async (id: string) => {
         const mine = ++token.current;
         try {
-            const d = await (generators ? engine.generatorConfig(id) : engine.filterConfig(id));
+            const d = describe(generators ? 'generator' : 'filter', id, await (generators ? engine.generatorConfig(id) : engine.filterConfig(id)));
             if (mine !== token.current) return;
             setSel(id); setDesc(d); setValues({ ...d.defaults }); setError('');
         } catch (e) { setError(message(e)); }
@@ -126,7 +127,12 @@ function FilterDialog({ engine, mode, nodeId, category, onDone }: Props) {
                 <div class="fd-settings">
                     {desc && (desc.specs.length
                         ? <PropertyForm description={desc} values={values}
-                                        onChange={(k, v) => { if (!(typeof v === 'number' && isNaN(v))) setValues(p => ({ ...p, [k]: v })); }} />
+                                        onChange={(k, v) => {
+                                            if (typeof v === 'number' && isNaN(v)) return;
+                                            // A <select> hands back text; integer settings must stay numbers.
+                                            if (typeof desc.defaults[k] === 'number' && typeof v === 'string' && v.trim() !== '' && !isNaN(Number(v))) v = Number(v);
+                                            setValues(p => ({ ...p, [k]: v }));
+                                        }} />
                         : <p class="fd-dim">This has no settings.</p>)}
                 </div>
             </div>
