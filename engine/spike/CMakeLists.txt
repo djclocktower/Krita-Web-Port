@@ -1,6 +1,9 @@
 # Phase 0 spike executable. Added to Krita's build with -DKRITA_WEB_SPIKE_DIR=<this dir>.
 qt_add_executable(kritaspike main.cpp headless_qpa.cpp)
 set_target_properties(kritaspike PROPERTIES AUTOMOC ON)
+# Krita's own file-type database (the krita executable embeds it the same way); without it .kra is "a zip"
+qt_add_resources(_spike_rcc ${CMAKE_SOURCE_DIR}/krita/data/mime-database/mime-database.qrc)
+target_sources(kritaspike PRIVATE ${_spike_rcc})
 target_compile_definitions(kritaspike PRIVATE QT_STATICPLUGIN)
 target_include_directories(kritaspike PRIVATE ${CMAKE_SOURCE_DIR}/sdk/tests ${CMAKE_BINARY_DIR})
 # Krita's libraries register things from static initialisers and embedded Qt resources

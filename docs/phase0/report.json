@@ -1,0 +1,15 @@
+{
+  "blendModes": 136,
+  "colorSpace": "RGB/Alpha (8-bit integer/channel)",
+  "initMs": 1053,
+  "kraLayers": 4,
+  "kraLoadAndRenderMs": 434,
+  "kraOpened": true,
+  "kraSize": "1000x753",
+  "msPerSegment": 0.4575,
+  "presetLoaded": true,
+  "strokeMs": 183,
+  "strokeSegments": 400,
+  "totalMs": 2040,
+  "wallMsFromNavigation": 2965
+}

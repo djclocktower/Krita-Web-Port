@@ -1,6 +1,6 @@
 # Krita Web Port — Plan (awaiting approval)
 
-Status: **approved; Phase 0 (feasibility spike) in progress.** Decisions in §9 are recorded as answered.
+Status: **Phase 0 gate passed (go).** Results and remaining Phase 0 items are in `docs/phase0/REPORT.md`. The cut line is settled: all of Krita's core including `libs/ui` runs headless in a worker thread.
 
 ## 1. Summary
 
