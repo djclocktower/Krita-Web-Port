@@ -32,8 +32,7 @@
 .lyr .lyr-toggle { flex: none; min-width: 24px; min-height: 24px; padding: 2px; display: grid; place-items: center; background: transparent; border-color: transparent; color: inherit; opacity: .4; }
 .lyr .lyr-toggle[aria-pressed="true"] { opacity: 1; }
 .lyr-bar { display: flex; flex-wrap: wrap; gap: var(--gap); }
-.lyr-add { position: relative; }
-.lyr-menu { position: absolute; bottom: 100%; left: 0; z-index: 10; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); }
+.lyr-menu { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 2px; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px; }
 .lyr .lyr-menu button { border: 0; text-align: left; white-space: nowrap; }
 .lyr-error { color: var(--danger); margin: 0; display: flex; gap: var(--gap); align-items: center; }
 .lyr-error span { flex: 1; }

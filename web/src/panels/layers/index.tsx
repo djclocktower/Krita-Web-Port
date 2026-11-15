@@ -237,15 +237,7 @@ function Layers({ engine }: { engine: Engine }) {
             {error && <p class="lyr-error" role="alert"><span>{error}</span> <button type="button" onClick={() => setError('')}>Dismiss</button></p>}
 
             <div class="lyr-bar">
-                <div class="lyr-add">
-                    <button type="button" aria-haspopup="menu" aria-expanded={menu} onClick={() => setMenu(!menu)}>Add</button>
-                    {menu && (
-                        <div class="lyr-menu" role="menu" onKeyDown={e => { if (e.key === 'Escape') setMenu(false); }}>
-                            {TYPES.map(t => <button type="button" role="menuitem" key={t.type}
-                                                    onClick={() => { setMenu(false); void run(() => add(engine, t.type)); }}>{t.label}</button>)}
-                        </div>
-                    )}
-                </div>
+                <button type="button" aria-haspopup="menu" aria-expanded={menu} onClick={() => setMenu(!menu)}>Add</button>
                 <button type="button" disabled={needsNode} onClick={() => run(() => engine.duplicateNode(current!.id))}>Duplicate</button>
                 <button type="button" disabled={needsNode} onClick={() => run(() => moveBy(engine, tree, current!.id, -1))}>Move up</button>
                 <button type="button" disabled={needsNode} onClick={() => run(() => moveBy(engine, tree, current!.id, 1))}>Move down</button>
@@ -253,6 +245,12 @@ function Layers({ engine }: { engine: Engine }) {
                 <button type="button" disabled={needsNode} onClick={() => run(() => engine.removeNode(current!.id))}>Delete</button>
                 <button type="button" disabled={needsNode} onClick={() => setProps(current!.id)}>Properties…</button>
             </div>
+            {menu && (
+                <div class="lyr-menu" role="menu" onKeyDown={e => { if (e.key === 'Escape') setMenu(false); }}>
+                    {TYPES.map(t => <button type="button" role="menuitem" key={t.type}
+                                            onClick={() => { setMenu(false); void run(() => add(engine, t.type)); }}>{t.label}</button>)}
+                </div>
+            )}
             {propsNode && <PropertiesDialog key={propsNode.id} engine={engine} node={propsNode} modes={modes} onClose={() => { setProps(null); treeRef.current?.focus(); }} />}
         </div>
     );

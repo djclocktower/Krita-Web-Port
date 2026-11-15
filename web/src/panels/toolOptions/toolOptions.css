@@ -1,0 +1,4 @@
+.tool-options { display: flex; flex-direction: column; gap: var(--gap); padding: var(--gap); }
+.tool-options .row { display: grid; grid-template-columns: 6.5em 1fr 3em; align-items: center; gap: var(--gap); }
+.tool-options select { grid-column: 2 / -1; background: var(--panel-raised); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px; }
+.tool-options output { text-align: right; color: var(--text-dim); }

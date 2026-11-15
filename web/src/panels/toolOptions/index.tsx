@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import type { Panel } from '../../panels';
 import type { BlendMode, BrushState, Engine } from '../../engine/protocol';
+import './toolOptions.css';
 
 const DEFAULT: BrushState = { presetId: null, size: 12, opacity: 1, flow: 1, blendMode: 'normal', eraser: false };
 
