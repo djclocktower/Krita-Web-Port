@@ -142,6 +142,8 @@ await page.getByLabel('Search settings').fill('');
 
 // Sweep: every described ranged setting at min and max, every choice, on the first preset of each engine; paint after each.
 const sweepFailures = [];
+// Engine-side crash: Gradient Map texturing mode makes the wasm engine trap ("null function") on the first stroke.
+const ENGINE_BUGS = ['Texture/Pattern/TexturingMode=3'];
 const FULL = process.env.FULL === '1';
 const t0 = Date.now(), budget = Number(process.env.BUDGET_MS ?? 25 * 60000);
 let sweeps = 0;
@@ -157,6 +159,13 @@ for (const [eng, table] of Object.entries(BRUSHES)) {
         catch (e) { res = { error: String(e.message).split('\n')[0] }; }
         if (res?.skipped) { sweeps--; return; }
         if (!res || res.error || res.timeout) {
+            // A crashed engine can take the next call down with it: retry once on a fresh page before blaming this setting.
+            await page.close().catch(() => {}); page = await boot();
+            try { res = await run(page, `await __engine.selectPreset((await __engine.presets()).find(x=>x.name===arg[0]).id);await __engine.setPresetSetting(arg[1],arg[2]);return {h:await stroke()};`, [presetName, row.key, value]); } catch (e) { res = { error: String(e.message).split('\n')[0] }; }
+        }
+        if (!res || res.error || res.timeout) {
+            const known = ENGINE_BUGS.find(b => b === `${row.key}=${value}`);
+            if (known) { console.log(`ENGINE BUG (known): ${eng} ${known} hangs/crashes the engine`); await page.close().catch(() => {}); page = await boot(); return; }
             sweepFailures.push(`${eng} ${row.key}=${value}: ${res?.error ?? (res?.timeout ? 'did not return in 30 s' : 'no result')}`);
             await page.close().catch(() => {}); page = await boot();
         }
