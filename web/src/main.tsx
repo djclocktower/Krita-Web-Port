@@ -1,3 +1,4 @@
+import './ui/theme.css';
 import { render } from 'preact';
 import { createEngine } from './engine';
 import { App } from './shell/App';

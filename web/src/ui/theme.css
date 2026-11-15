@@ -1,0 +1,17 @@
+/* Shared look. Every component uses these variables; nothing hard-codes colours. */
+:root {
+    --bg: #2b2b2b;          /* window background */
+    --panel: #353535;       /* docker and dialog background */
+    --panel-raised: #424242;/* buttons, inputs, list rows on hover */
+    --border: #1e1e1e;
+    --text: #dedede;
+    --text-dim: #9a9a9a;
+    --accent: #3daee9;      /* selection, focus ring, active tool */
+    --danger: #da4453;
+    --radius: 3px;
+    --gap: 6px;
+    font: 13px/1.4 system-ui, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    color-scheme: dark;
+}

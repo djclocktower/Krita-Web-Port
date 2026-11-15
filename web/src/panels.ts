@@ -3,6 +3,16 @@
 import type { ComponentType } from 'preact';
 import type { Engine } from './engine/protocol';
 
+/** A menu entry or shortcut. The shell builds its menus from every panel's commands plus its own. */
+export interface Command {
+    id: string;
+    title: string;
+    menu: 'File' | 'Edit' | 'View' | 'Image' | 'Layer' | 'Select' | 'Filter' | 'Tools' | 'Settings';
+    /** Krita's default, e.g. "Ctrl+Shift+N". */
+    shortcut?: string;
+    run: (engine: Engine) => void | Promise<void>;
+}
+
 export interface Panel {
     id: string;
     title: string;
@@ -11,6 +21,7 @@ export interface Panel {
     /** Lower comes first within its area. */
     order?: number;
     component: ComponentType<{ engine: Engine }>;
+    commands?: Command[];
 }
 
 const modules = import.meta.glob<{ default: Panel }>('./panels/*/index.tsx', { eager: true });
