@@ -223,10 +223,27 @@ index 767bc9b..c914f69 100644
  target_sources(kritaui
    PRIVATE
 diff --git a/libs/ui/animation/KisFFMpegWrapper.cpp b/libs/ui/animation/KisFFMpegWrapper.cpp
-index ec69d45..ced79df 100644
+index ec69d45..4578158 100644
 --- a/libs/ui/animation/KisFFMpegWrapper.cpp
 +++ b/libs/ui/animation/KisFFMpegWrapper.cpp
-@@ -45,6 +45,9 @@ KisFFMpegWrapper::~KisFFMpegWrapper()
+@@ -33,6 +33,16 @@ QRegularExpression ffmpegVersionRX("(ffmpeg|ffprobe) version (.+?)\\s");
+ 
+ }
+ 
++#if !QT_CONFIG(process)
++// Qt for WebAssembly only forward-declares QProcess; give the never-created member a complete type.
++class QProcess : public QObject
++{
++public:
++    enum ExitStatus { NormalExit, CrashExit };
++    ExitStatus exitStatus() const { return NormalExit; }
++};
++#endif
++
+ KisFFMpegWrapper::KisFFMpegWrapper(QObject *parent)
+     : QObject(parent)
+ {
+@@ -45,6 +55,9 @@ KisFFMpegWrapper::~KisFFMpegWrapper()
  
  void KisFFMpegWrapper::startNonBlocking(const KisFFMpegWrapperSettings &settings)
  {
@@ -236,7 +253,7 @@ index ec69d45..ced79df 100644
      KIS_ASSERT(m_process == nullptr);
  
      m_stdoutBuffer.clear();
-@@ -158,6 +161,7 @@ void KisFFMpegWrapper::startNonBlocking(const KisFFMpegWrapperSettings &settings
+@@ -158,6 +171,7 @@ void KisFFMpegWrapper::startNonBlocking(const KisFFMpegWrapperSettings &settings
      fixUpNonEmbeddedProcessEnvironment(settings.processPath, *m_process);
  
      m_process->start(settings.processPath, args);
@@ -244,7 +261,7 @@ index ec69d45..ced79df 100644
  }
  
  KisImportExportErrorCode KisFFMpegWrapper::start(const KisFFMpegWrapperSettings &settings)
-@@ -195,6 +199,9 @@ KisImportExportErrorCode KisFFMpegWrapper::start(const KisFFMpegWrapperSettings
+@@ -195,6 +209,9 @@ KisImportExportErrorCode KisFFMpegWrapper::start(const KisFFMpegWrapperSettings
  
  bool KisFFMpegWrapper::waitForFinished(int msecs)
  {
@@ -254,7 +271,7 @@ index ec69d45..ced79df 100644
      if (!m_process) return false;
  
      if (m_process->waitForStarted(msecs)) {
-@@ -202,9 +209,13 @@ bool KisFFMpegWrapper::waitForFinished(int msecs)
+@@ -202,9 +219,13 @@ bool KisFFMpegWrapper::waitForFinished(int msecs)
      }
  
      return false;
@@ -268,7 +285,7 @@ index ec69d45..ced79df 100644
      
      dbgFile << "Update Progress" << progressValue << "/" << m_processSettings.totalFrames;
      
-@@ -224,6 +235,7 @@ void KisFFMpegWrapper::updateProgressDialog(int progressValue) {
+@@ -224,6 +245,7 @@ void KisFFMpegWrapper::updateProgressDialog(int progressValue) {
      if (m_process && m_process->state() == QProcess::Running) {
          QApplication::processEvents();
      }
@@ -276,7 +293,7 @@ index ec69d45..ced79df 100644
  }
  
  bool KisFFMpegWrapper::ffprobeCheckStreamsValid(const QJsonObject& ffprobeJsonObj, const QString& ffprobeSTDERR)
-@@ -252,6 +264,9 @@ bool KisFFMpegWrapper::ffprobeCheckStreamsValid(const QJsonObject& ffprobeJsonOb
+@@ -252,6 +274,9 @@ bool KisFFMpegWrapper::ffprobeCheckStreamsValid(const QJsonObject& ffprobeJsonOb
  
  void KisFFMpegWrapper::reset()
  {
@@ -286,7 +303,7 @@ index ec69d45..ced79df 100644
      if (m_process == nullptr)
          return;
  
-@@ -260,10 +275,14 @@ void KisFFMpegWrapper::reset()
+@@ -260,10 +285,14 @@ void KisFFMpegWrapper::reset()
          m_process->kill();
      }
      m_process.reset();
@@ -301,7 +318,7 @@ index ec69d45..ced79df 100644
      QByteArray stderrRawBuffer = m_process->readAllStandardError();
      
      Q_EMIT sigReadSTDERR(stderrRawBuffer);
-@@ -305,10 +324,14 @@ void KisFFMpegWrapper::slotReadyReadSTDERR()
+@@ -305,10 +334,14 @@ void KisFFMpegWrapper::slotReadyReadSTDERR()
          Q_EMIT sigProgressUpdated(frameNo);
      }
      
@@ -316,7 +333,7 @@ index ec69d45..ced79df 100644
      QByteArray stdoutRawBuffer = m_process->readAllStandardOutput();
      
      Q_EMIT sigReadSTDOUT(stdoutRawBuffer);
-@@ -338,6 +361,7 @@ void KisFFMpegWrapper::slotReadyReadSTDOUT()
+@@ -338,6 +371,7 @@ void KisFFMpegWrapper::slotReadyReadSTDOUT()
      }
  
      
@@ -324,7 +341,7 @@ index ec69d45..ced79df 100644
  }
  
  void KisFFMpegWrapper::slotStarted()
-@@ -368,6 +392,9 @@ void KisFFMpegWrapper::slotFinished(int exitCode)
+@@ -368,6 +402,9 @@ void KisFFMpegWrapper::slotFinished(int exitCode)
  
  void KisFFMpegWrapper::fixUpNonEmbeddedProcessEnvironment(const QString &processPath, QProcess &process)
  {
@@ -334,7 +351,7 @@ index ec69d45..ced79df 100644
  #ifdef Q_OS_LINUX
  
      /**
-@@ -411,10 +438,14 @@ void KisFFMpegWrapper::fixUpNonEmbeddedProcessEnvironment(const QString &process
+@@ -411,10 +448,14 @@ void KisFFMpegWrapper::fixUpNonEmbeddedProcessEnvironment(const QString &process
      Q_UNUSED(processPath);
      Q_UNUSED(process);
  #endif /* Q_OS_LINUX */
@@ -349,7 +366,7 @@ index ec69d45..ced79df 100644
      QProcess runProcess;
      
      fixUpNonEmbeddedProcessEnvironment(processPath, runProcess);
-@@ -432,6 +463,7 @@ QByteArray KisFFMpegWrapper::runProcessAndReturn(const QString &processPath, con
+@@ -432,6 +473,7 @@ QByteArray KisFFMpegWrapper::runProcessAndReturn(const QString &processPath, con
      if (successfulStart) return runProcess.readAllStandardOutput();
  
      return "";
