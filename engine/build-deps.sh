@@ -131,7 +131,10 @@ s_fontconfig() { fetch_git fontconfig https://gitlab.freedesktop.org/fontconfig/
 s_fribidi()    { fetch_git fribidi https://github.com/fribidi/fribidi.git v1.0.16
                  mes fribidi -Ddocs=false -Dtests=false -Dbin=false; }
 
-ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi"
+s_gsl() { fetch_git gsl https://github.com/ampl/gsl.git v2.7.0   # GNU GSL with a CMake build
+           cm gsl -DGSL_DISABLE_TESTS=ON -DNO_AMPL_BINDINGS=ON -DDOCUMENTATION=OFF; }
+
+ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl"
 for s in ${@:-$ALL}; do
     if [ -e "$KW/stamps/$s" ]; then echo "skip $s"; continue; fi
     echo "== $s"

@@ -25,4 +25,4 @@ if [ ! -f "$B/build.ninja" ] || [ -n "${RECONFIGURE:-}" ]; then
         -DCMAKE_C_FLAGS="$FLAGS" -DCMAKE_CXX_FLAGS="$FLAGS" \
         "-DCMAKE_EXE_LINKER_FLAGS=-lembind -fexceptions"
 fi
-cmake --build "$B" --target "${@:-kritaimage}"
+cmake --build "$B" --target "${@:-kritaimage}" -- ${NINJA_ARGS:-}
