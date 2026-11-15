@@ -10,7 +10,7 @@ interface Module {
     addRunDependency(id: string): void;
     removeRunDependency(id: string): void;
 }
-type Message = { id?: number; event?: string; result?: unknown; error?: string } & Record<string, unknown>;
+type Message = { id?: number | string; event?: string; result?: unknown; error?: string } & Record<string, unknown>;
 
 // `?engineBase=/engine-dev/` loads a different build (used while the engine is being rebuilt).
 const BASE = new URLSearchParams(location.search).get('engineBase') ?? '/engine/';
@@ -37,9 +37,9 @@ export async function createWasmEngine(): Promise<Engine> {
 
     function onMessage(json: string, bytes: Uint8Array | null) {
         const msg = JSON.parse(json) as Message;
-        if (msg.id !== undefined) {
-            const call = pending.get(msg.id);
-            pending.delete(msg.id);
+        if (msg.event === undefined) {      // a reply; events may carry an `id` field of their own (a node id)
+            const call = pending.get(msg.id as number);
+            pending.delete(msg.id as number);
             if (!call) return;
             if (msg.error !== undefined) call.reject(new Error(msg.error));
             // The view points into the engine's memory and is freed after this call: copy it.

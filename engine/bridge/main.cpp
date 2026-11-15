@@ -20,6 +20,7 @@
 #include <utime.h>
 
 #include <KisDocument.h>
+#include <KisImportExportManager.h>
 #include <KisPart.h>
 #include <KisViewManager.h>
 #include <KisGlobalResourcesInterface.h>
@@ -160,6 +161,17 @@ public:
     QJsonValue handle(const QString &m, const Params &p, const QByteArray &data, QByteArray &out);
     Q_INVOKABLE void flushPending() { flushImage(); }
 
+    // While a stroke is open the image is busy, and many handlers wait for it to go idle. A request
+    // that waits would block the queue that the stroke's own endStroke arrives on, deadlocking the
+    // engine. So everything except the stroke itself is held until the stroke ends, then run in order.
+    bool strokeOpen() const { return bool(stroke); }
+    bool hasDeferred() const { return !deferred.isEmpty(); }
+    void defer(std::function<void()> request) { deferred.append(std::move(request)); }
+    void runDeferred()
+    {
+        while (!deferred.isEmpty() && !strokeOpen()) deferred.takeFirst()();
+    }
+
     /// Krita's own default brush, so the app opens ready to paint.
     void selectDefaultPreset()
     {
@@ -186,6 +198,7 @@ private:
     KisPaintInformation last;
     QRect pending;
     QTimer flushTimer, layersTimer;
+    QList<std::function<void()>> deferred;
 
     template <class T> void setResource(int key, const T &value) { manager->setResource(key, QVariant::fromValue(value)); }
     KisImageSP image() const { if (!doc) fail("No document is open"); return doc->image(); }
@@ -555,6 +568,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             {"psd", "image/vnd.adobe.photoshop"}, {"ora", "image/openraster"}, {"tga", "image/x-tga"}, {"bmp", "image/bmp"}};
         const char *mime = mimes.value(format, nullptr);
         if (!mime) fail("Unsupported format: " + format);
+        if (!KisImportExportManager::supportedMimeTypes(KisImportExportManager::Export).contains(mime)) fail("This build of the engine cannot write ." + format + " files");
         image()->waitForDone();
         const QString path = "/tmp/export." + format;
         if (!doc->exportDocumentSync(path, mime)) fail(doc->errorMessage().isEmpty() ? "Export failed" : doc->errorMessage());
@@ -1127,6 +1141,8 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
     const QString m = envelope["method"].toString();
     const QJsonObject params = envelope["params"].toObject();
     QMetaObject::invokeMethod(g_engine, [id, m, params] {
+      const bool strokeCall = m == "beginStroke" || m == "continueStroke" || m == "endStroke";
+      auto run = [id, m, params] {
         QJsonObject reply{{"id", id}};
         QByteArray data, out;
         if (params.contains("__file")) {
@@ -1143,6 +1159,10 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
         }
         if (id) post(reply, out);                  // id 0 = fire-and-forget (stroke samples)
         else if (reply.contains("error")) emitEvent("error", {{"message", reply["error"]}, {"method", m}});
+      };
+      if (!strokeCall && (g_engine->strokeOpen() || g_engine->hasDeferred())) { g_engine->defer(run); return; }
+      run();
+      if (strokeCall) g_engine->runDeferred();
     }, Qt::QueuedConnection);
 }
 

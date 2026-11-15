@@ -1,12 +1,12 @@
 import type { Engine, Point, Rect } from '../../engine/protocol';
 import { view } from '../../canvas/view';
 import { store, useStore } from '../../shell/store';
-import type { Tool } from '../../tools';
+import type { Tool, ToolContext } from '../../tools';
 import { css, run, svg } from '../shared';
 
 // Drag a frame, adjust it by its handles or by dragging inside it, then Enter (or Apply) crops the image.
 const crop = store({ rect: null as Rect | null });
-let engine: Engine | null = null;
+let engine: Engine | null = null, canvas: ToolContext | null = null;
 let drag: { kind: 'new' | 'move' | 'resize'; hx: number; hy: number; start: Point; orig: Rect } | null = null;
 const HANDLE = 12;   // grab radius in CSS pixels, big enough for a finger
 
@@ -19,10 +19,10 @@ function apply() {
     const { docW, docH } = view.get();
     const x = Math.max(0, Math.round(r.x)), y = Math.max(0, Math.round(r.y));
     const width = Math.min(docW, Math.round(r.x + r.width)) - x, height = Math.min(docH, Math.round(r.y + r.height)) - y;
-    crop.set({ rect: null });
+    cancel();
     if (width >= 1 && height >= 1) run(engine.cropImage({ x, y, width, height }));
 }
-const cancel = () => crop.set({ rect: null });
+function cancel() { crop.set({ rect: null }); canvas?.requestOverlay(); }
 
 addEventListener('keydown', e => {
     if (!crop.get().rect || (e.target as Element).closest('input,select,textarea,button,dialog')) return;
@@ -45,7 +45,7 @@ export default {
     id: 'crop', title: 'Crop', shortcut: 'C', cursor: 'crosshair', order: 30, options: Options,
     icon: svg('<path d="M7 3v14h14M3 7h14v14"/>'),
     onPointerDown(ctx, p) {
-        engine = ctx.engine;
+        engine = ctx.engine; canvas = ctx;
         const r = crop.get().rect, s = ctx.toScreen(p);
         const h = r && handles(r).find(h => Math.hypot(ctx.toScreen(h).x - s.x, ctx.toScreen(h).y - s.y) <= HANDLE);
         if (r && h) drag = { kind: 'resize', hx: h.hx, hy: h.hy, start: p, orig: r };
@@ -70,7 +70,7 @@ export default {
         if (r && (r.width < 1 || r.height < 1)) crop.set({ rect: null });   // a click without a drag leaves no frame
         ctx.requestOverlay();
     },
-    onCancel(ctx) { drag = null; cancel(); ctx.requestOverlay(); },
+    onCancel() { drag = null; cancel(); },
     drawOverlay(ctx, g) {
         const r = crop.get().rect;
         if (!r) return;
