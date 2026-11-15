@@ -19,15 +19,16 @@ This pass produced a working vertical slice, not finished phases: a web interfac
 | `tests/phase3.mjs` (layers, filters; mock engine) | all pass |
 | `tests/contract-wasm.mjs` (the contract against the **real** engine) | 56 of 58 |
 | `tests/wasm.mjs` (interface + real engine: app starts, a mouse stroke paints) | pass |
+| `tests/presets-wasm.mjs` (every bundled preset on the real engine) | 99 of 117 paint, 0 hang; 18 not judgeable on a blank canvas |
 
 What the real-engine contract test establishes: documents can be created; 134 blend modes, over 50 filters and 6 generators are listed; 117 presets load from Krita's default bundle across 15 brush engines; strokes paint and undo/redo restore pixels exactly; layer add, move, duplicate, remove, properties and thumbnails work; paint, group, filter, fill, clone and vector layers and transparency, filter, colorize and selection masks can be added; filters apply and undo; filter preview shows, clears exactly and never reaches an export; a document with strokes, layers, groups and filter layers survives a `.kra` round trip unchanged.
 
 ## Open problems
 
 1. **Start-up takes about 40 seconds.** Almost all of it is importing the default resource bundle into the resource database on every load, because the virtual filesystem is in memory. Fix: keep the database in the browser's persistent storage, or ship it prebuilt.
-2. **Some presets hang the engine.** At least "Bristles-2 Flat Rough" and "Watercolor Fringe". `tests/presets-wasm.mjs` paints with every preset to find them all; see its results below when recorded.
+2. **Painting with some presets through the interface stalls the page.** Seen with "Bristles-2 Flat Rough" and "Watercolor Fringe" when painting with real pointer events on the canvas. The engine is not the cause: driven directly it paints a 1,200 px stroke with that preset in about 0.4 s, and it handles duplicate points, tiny steps, repeated timestamps and zero pressure. Flow control for image updates did not cure it. The cause is somewhere in the interface path and is not found yet.
 3. **A document containing a fill layer does not render identically after a `.kra` round trip.** Cause not yet known.
-4. **The filter brush engine made no visible change** in the contract test. Not investigated.
+4. **The preset survey cannot judge 18 presets.** `tests/presets-wasm.mjs` painted with all 117 bundled presets on the real engine: none hung or crashed and 99 visibly changed a blank white canvas. The other 18 are blenders, dodge/lighten adjusters, clone, distort and blur/sharpen brushes, which have nothing to act on there (this also explains the "filter brush" failure in the contract test). They need a test on a canvas with content.
 5. **Transform masks and file layers are refused.** Transform masks need the transform tool's plugin (Phase 4).
 6. **Forms for filter and brush settings are generic.** They are generated from each setting's stored type, so labels are raw keys and numbers have no ranges. Krita's hand-built option panels are not reproduced yet.
 7. **No stabiliser or smoothing.** Strokes are straight segments between pointer samples.
