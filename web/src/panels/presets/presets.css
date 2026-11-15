@@ -1,0 +1,14 @@
+.presets { display: flex; flex-direction: column; gap: var(--gap); padding: var(--gap); border: 2px solid transparent; }
+.presets.dragging { border-color: var(--accent); }
+.presets-bar { display: flex; flex-wrap: wrap; gap: var(--gap); }
+.presets-bar input[type=search] { flex: 1; min-width: 90px; }
+.presets-bar input, .presets-bar select, .presets-bar button {
+    background: var(--panel-raised); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 3px 6px;
+}
+.presets-error { color: var(--danger); margin: 0; white-space: pre-wrap; }
+.presets-empty { color: var(--text-dim); margin: 0; }
+.presets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: var(--gap); max-height: 320px; overflow: auto; }
+.preset { width: 100%; aspect-ratio: 1; padding: 0; background: var(--panel-raised); border: 2px solid var(--border); border-radius: var(--radius); overflow: hidden; cursor: pointer; }
+.preset img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.preset.current { border-color: var(--accent); }
+.preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }

@@ -1,0 +1,14 @@
+.property-form { display: flex; flex-direction: column; gap: var(--gap); }
+.property-form details { border-top: 1px solid var(--border); padding-top: var(--gap); }
+.property-form summary { font-weight: 600; cursor: pointer; margin-bottom: var(--gap); }
+.property-form summary:focus-visible { outline: 2px solid var(--accent); }
+.pf-row { display: grid; grid-template-columns: minmax(80px, 1fr) 2fr; gap: var(--gap); align-items: center; margin-bottom: var(--gap); }
+.pf-label, .pf-row > label { color: var(--text); }
+.pf-number { display: flex; gap: var(--gap); align-items: center; min-width: 0; }
+.pf-number input[type=range] { flex: 1; min-width: 0; accent-color: var(--accent); }
+.pf-number input[type=number] { width: 72px; }
+.pf-color { display: flex; gap: var(--gap); align-items: center; }
+.property-form input[type=number], .property-form input[type=text], .property-form select {
+    background: var(--panel-raised); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 4px; min-width: 0;
+}
+.property-form :focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }

@@ -1,0 +1,4 @@
+.brush-editor { padding: var(--gap); }
+.brush-editor h3 { margin: 0; }
+.be-engine { margin: 0 0 var(--gap); color: var(--text-dim); }
+.be-error { color: var(--danger); margin: 0 0 var(--gap); }
