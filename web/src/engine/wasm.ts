@@ -4,8 +4,8 @@
 import type { Engine, EngineEvents } from './protocol';
 
 interface Module {
-    ccall(name: string, ret: null, argTypes: string[], args: unknown[]): void;
-    FS: { writeFile(path: string, data: Uint8Array): void };
+    _kw_request(id: number, seq: number): void;
+    FS: { writeFile(path: string, data: Uint8Array | string): void };
 }
 type Message = { id?: number; event?: string; result?: unknown; error?: string } & Record<string, unknown>;
 
@@ -65,13 +65,16 @@ export async function createWasmEngine(): Promise<Engine> {
     });
     await whenReady;
 
+    // Requests go through the engine's virtual filesystem: /tmp/kw-<seq>.json, plus /tmp/kw-<seq>.bin for bytes.
+    let seq = 0;
     const send = (id: number, method: string, params: object, bytes?: Uint8Array) => {
+        seq++;
         if (bytes) {
-            const file = `/tmp/request-${id || `s${nextId++}`}`;
-            module.FS.writeFile(file, bytes);
-            params = { ...params, __file: file };
+            module.FS.writeFile(`/tmp/kw-${seq}.bin`, bytes);
+            params = { ...params, __file: `/tmp/kw-${seq}.bin` };
         }
-        module.ccall('kw_request', null, ['number', 'string', 'string'], [id, method, JSON.stringify(params)]);
+        module.FS.writeFile(`/tmp/kw-${seq}.json`, JSON.stringify({ method, params }));
+        module._kw_request(id, seq);
     };
     const call = <T>(method: string, params: object = {}, options: { bytes?: Uint8Array; wantsBytes?: boolean } = {}) =>
         new Promise<T>((resolve, reject) => {

@@ -692,12 +692,17 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
 
 static Engine *g_engine = nullptr;
 
-// Request bytes (a file to open, a resource to import) are written by the page to params.__file
-// in the virtual filesystem, which avoids copying large buffers through the call stack.
-extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, const char *method, const char *paramsJson)
+// The page writes each request as /tmp/kw-<seq>.json ({method, params}) and then calls this.
+// Going through the virtual filesystem needs nothing exported beyond this one function, and
+// request bytes (a file to open, a resource to import) travel the same way via params.__file.
+extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
 {
-    const QString m = QString::fromUtf8(method);
-    const QJsonObject params = QJsonDocument::fromJson(paramsJson).object();
+    QFile request(QString("/tmp/kw-%1.json").arg(seq));
+    if (!request.open(QIODevice::ReadOnly)) return;
+    const QJsonObject envelope = QJsonDocument::fromJson(request.readAll()).object();
+    request.remove();
+    const QString m = envelope["method"].toString();
+    const QJsonObject params = envelope["params"].toObject();
     QMetaObject::invokeMethod(g_engine, [id, m, params] {
         QJsonObject reply{{"id", id}};
         QByteArray data, out;
