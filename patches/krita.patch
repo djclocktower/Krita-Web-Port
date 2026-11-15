@@ -1,0 +1,65 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b5f826f..39dcee8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -84,6 +84,16 @@ endif()
+ 
+ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ 
++if (EMSCRIPTEN)
++    # WebAssembly has no usable shared libraries here (Qt's dynamic linking cannot be
++    # combined with threads), so every library and plugin is linked statically.
++    function(add_library name)
++        set(args ${ARGN})
++        list(TRANSFORM args REPLACE "^(SHARED|MODULE)$" "STATIC")
++        _add_library(${name} ${args})
++    endfunction()
++endif()
++
+ if (APPLE)
+     add_subdirectory(packaging/macos)
+ 
+@@ -902,7 +912,7 @@ if (Qt${QT_MAJOR_VERSION}QuickWidgets_FOUND)
+ endif()
+ 
+ 
+-if (NOT WIN32 AND NOT APPLE AND NOT ANDROID AND NOT HAIKU)
++if (NOT WIN32 AND NOT APPLE AND NOT ANDROID AND NOT HAIKU AND NOT EMSCRIPTEN)
+     if (QT_MAJOR_VERSION STREQUAL "5")
+         find_package(Qt${QT_MAJOR_VERSION} ${MIN_QT_VERSION} REQUIRED X11Extras)
+     endif()
+@@ -1243,7 +1253,9 @@ set_package_properties(TIFF PROPERTIES
+     URL "http://www.libtiff.org"
+     TYPE OPTIONAL
+     PURPOSE "Required by the Krita TIFF filter")
+-include(CheckLibTIFFPSDSupport)
++if (TIFF_FOUND)
++    include(CheckLibTIFFPSDSupport)
++endif()
+ configure_file(config-tiff.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-tiff.h)
+ 
+ find_package(JPEG)
+@@ -1678,7 +1690,9 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
+ add_subdirectory(sdk/tests)
+ 
+ add_subdirectory(libs)
+-add_subdirectory(qmlmodules)
++if (NOT EMSCRIPTEN)
++    add_subdirectory(qmlmodules)
++endif()
+ add_subdirectory(plugins)
+ if (BUILD_TESTING)
+     add_subdirectory(benchmarks)
+diff --git a/cmake/modules/FindLibMyPaint.cmake b/cmake/modules/FindLibMyPaint.cmake
+index ba3c960..84898bf 100644
+--- a/cmake/modules/FindLibMyPaint.cmake
++++ b/cmake/modules/FindLibMyPaint.cmake
+@@ -89,7 +89,7 @@ find_library(LibMyPaint_LIBRARY
+     HINTS ${MYPAINT_PKGCONF_LIBRARY_DIRS} ${MYPAINT_PKGCONF_LIBDIR}
+ )
+ 
+-if (NOT LibMyPaint_VERSION)
++if (NOT LibMyPaint_VERSION AND LibMyPaint_INCLUDE_DIR)
+     file(READ ${LibMyPaint_INCLUDE_DIR}/config.h _version_content)
+ 
+     string(REGEX MATCH "#define PACKAGE_VERSION[ \t]+\"(.+)\"" _version_match ${_version_content})

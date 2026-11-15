@@ -90,7 +90,7 @@ s_intl() { # ponytail: stub libintl (no translations yet); swap for real gettext
     rawlib intl "$KW/src/intl/libintl.c" "$KW/src/intl/libintl.h" "-DSTUB_ONLY"
 }
 s_quazip() { fetch_git quazip https://github.com/stachenov/quazip.git v1.4
-             qcm quazip -DQUAZIP_QT_MAJOR_VERSION=6 -DQUAZIP_BZIP2=OFF -DQUAZIP_ENABLE_TESTS=OFF; }
+             qcm quazip -DQUAZIP_QT_MAJOR_VERSION=6 -DQUAZIP_INSTALL=ON -DQUAZIP_BZIP2=OFF -DQUAZIP_ENABLE_TESTS=OFF; }
 
 kf() { fetch_git "kf-$1" "https://invent.kde.org/frameworks/$1.git" "$KF_TAG"; local n=$1; shift; qcm "kf-$n" "$@"; }
 s_ki18n()         { kf ki18n; }
@@ -106,8 +106,8 @@ s_kcolorscheme()  { kf kcolorscheme; }
 s_exiv2() { fetch_git exiv2 https://github.com/Exiv2/exiv2.git v0.28.3
             cm exiv2 -DEXIV2_BUILD_SAMPLES=OFF -DEXIV2_BUILD_EXIV2_COMMAND=OFF -DEXIV2_ENABLE_INIH=OFF -DEXIV2_ENABLE_BROTLI=OFF \
                -DEXIV2_ENABLE_NLS=OFF -DEXIV2_ENABLE_WEBREADY=OFF -DEXIV2_ENABLE_XMP=ON -DEXIV2_ENABLE_BMFF=OFF; }
-s_fontconfig() {
-    fetch_git fontconfig https://gitlab.freedesktop.org/fontconfig/fontconfig.git 2.15.0
+mes() { # name [meson options...]   (Meson project)
+    local n=$1; shift; rm -rf "$KW/build/$n"
     cat >"$KW/build/meson-cross.ini" <<EOF
 [binaries]
 c = 'emcc'
@@ -122,14 +122,16 @@ cpu_family = 'wasm32'
 cpu = 'wasm32'
 endian = 'little'
 EOF
-    rm -rf "$KW/build/fontconfig"
-    meson setup "$KW/build/fontconfig" "$KW/src/fontconfig" --cross-file "$KW/build/meson-cross.ini" --prefix "$PREFIX" \
-        --buildtype release --default-library static -Ddoc=disabled -Dtests=disabled -Dtools=disabled -Dnls=disabled \
-        -Dcache-build=disabled >"$KW/build/fontconfig.log" 2>&1 &&
-    meson install -C "$KW/build/fontconfig" >>"$KW/build/fontconfig.log" 2>&1
+    meson setup "$KW/build/$n" "$KW/src/$n" --cross-file "$KW/build/meson-cross.ini" --prefix "$PREFIX" --libdir lib \
+        --buildtype release --default-library static "$@" >"$KW/build/$n.log" 2>&1 &&
+    meson install -C "$KW/build/$n" >>"$KW/build/$n.log" 2>&1
 }
+s_fontconfig() { fetch_git fontconfig https://gitlab.freedesktop.org/fontconfig/fontconfig.git 2.15.0
+                 mes fontconfig -Ddoc=disabled -Dtests=disabled -Dtools=disabled -Dnls=disabled -Dcache-build=disabled; }
+s_fribidi()    { fetch_git fribidi https://github.com/fribidi/fribidi.git v1.0.16
+                 mes fribidi -Ddocs=false -Dtests=false -Dbin=false; }
 
-ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig"
+ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi"
 for s in ${@:-$ALL}; do
     if [ -e "$KW/stamps/$s" ]; then echo "skip $s"; continue; fi
     echo "== $s"
