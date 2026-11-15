@@ -149,6 +149,9 @@ export interface Engine {
     endStroke(): void;
     setColors(colors: { foreground?: Color; background?: Color }): Promise<void>;
     setBrush(state: Partial<Omit<BrushState, 'presetId'>>): Promise<void>;
+    /** Current values, for panels that mount after the last change event. */
+    brushState(): Promise<BrushState>;
+    colors(): Promise<{ foreground: Color; background: Color }>;
     undo(): Promise<void>;
     redo(): Promise<void>;
 

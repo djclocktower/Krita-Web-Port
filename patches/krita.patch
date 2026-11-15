@@ -420,6 +420,27 @@ index 2725af0..56a65c8 100644
              e->accept();
              return true;
  
+diff --git a/plugins/filters/levelfilter/CMakeLists.txt b/plugins/filters/levelfilter/CMakeLists.txt
+index 44b5c7e..2f1c4d2 100644
+--- a/plugins/filters/levelfilter/CMakeLists.txt
++++ b/plugins/filters/levelfilter/CMakeLists.txt
+@@ -3,9 +3,14 @@ set(kritalevelfilter_SOURCES
+     KisLevelsFilter.cpp
+     KisLevelsConfigWidget.cpp
+     KisLevelsFilterConfiguration.cpp
+-    ../colorsfilters/kis_multichannel_utils.cpp
+-    ../colorsfilters/virtual_channel_info.cpp
+     )
++if (NOT EMSCRIPTEN)
++    # In a static build these come from kritacolorsfilters; compiling them twice collides at link time.
++    list(APPEND kritalevelfilter_SOURCES
++        ../colorsfilters/kis_multichannel_utils.cpp
++        ../colorsfilters/virtual_channel_info.cpp
++        )
++endif()
+ ki18n_wrap_ui(kritalevelfilter_SOURCES
+     KisLevelsConfigWidget.ui
+     )
 diff --git a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h b/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h
 index e69dea2..9b13c0e 100644
 --- a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h

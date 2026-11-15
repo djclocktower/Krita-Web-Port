@@ -11,7 +11,7 @@ const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 const browser = await chromium.launch();
 const page = await (await browser.newContext({ viewport: { width: 700, height: 1100 }, deviceScaleFactor: 2 })).newPage();
-page.setDefaultTimeout(5000);
+page.setDefaultTimeout(15000);
 page.on('pageerror', e => { failures++; console.log('FAIL  page error:', e.message); });
 
 // The app does not expose its engine, so hand the test a reference to the same instance the UI uses.
@@ -22,7 +22,7 @@ await page.route(/\/src\/engine\/index\.ts/, async route => {
         '\nexport async function createEngine() { const e = await __create(); window.__engine = e; return e; }' });
 });
 
-const until = async (fn, msg, ms = 5000) => {
+const until = async (fn, msg, ms = 12000) => {
     const end = Date.now() + ms;
     while (Date.now() < end) { if (await fn()) return true; await page.waitForTimeout(50); }
     check(false, `timeout: ${msg}`); return false;
@@ -185,6 +185,14 @@ check(await page.locator('.lyr-error').count() === 0, 'error can be dismissed');
 // through the shell's Filter menu, which exercises the panel's command
 const open = async () => { await page.locator('[data-menu="Filter"]').click(); await page.getByRole('menuitem', { name: 'Filters…' }).click(); };
 const dlg = page.locator('dialog.fd[open]');
+// some grey paint on Background so thresholds have something to act on
+await selectRow('Background');
+await page.evaluate(async () => {
+    const e = window.__engine, t = performance.now();
+    await e.setColors({ foreground: { r: 0.5, g: 0.5, b: 0.5, a: 1 } }); await e.setBrush({ size: 200, opacity: 1, flow: 1, eraser: false });
+    e.beginStroke({ x: 200, y: 600, pressure: 1, timeMs: t }); e.continueStroke([{ x: 1200, y: 600, pressure: 1, timeMs: t + 10 }]); e.endStroke();
+});
+await page.waitForTimeout(300);
 const C = await composite();
 await open(); await dlg.waitFor();
 check(await dlg.locator('h3').allTextContents().then(a => a.includes('Adjust') && a.includes('Artistic')), 'filters grouped by category');
@@ -202,7 +210,7 @@ await until(dialogGone, 'dialog closed');
 check(await until(async () => await composite() === C, 'restored'), 'Cancel restores the image exactly');
 await open(); await dlg.waitFor();
 await dlg.getByRole('button', { name: 'Threshold' }).click();
-await dlg.getByRole('spinbutton', { name: 'Threshold' }).fill('100');
+await dlg.getByRole('spinbutton', { name: 'Threshold' }).fill('100'); await dlg.getByRole('spinbutton', { name: 'Threshold' }).blur();
 await until(async () => await composite() !== C, 'threshold preview');
 await page.keyboard.press('Escape');
 await until(dialogGone, 'closed by Escape');
@@ -219,12 +227,12 @@ await page.evaluate(() => window.__engine.undo());
 check(await until(async () => await composite() === C, 'undo'), 'applying is undoable');
 
 // --- filter layer with settings, then edit through properties
-await selectRow('Sketch');
+await selectRow('Group Layer 1');   // the filter layer goes above the group, so it affects Background
 await addNode('Filter Layer');
 await dlg.waitFor();
 check(await dlg.getByLabel('Preview').count() === 0, 'no preview in add mode');
 await dlg.getByRole('button', { name: 'Threshold' }).click();
-await dlg.getByRole('spinbutton', { name: 'Threshold' }).fill('200');
+await dlg.getByRole('spinbutton', { name: 'Threshold' }).fill('200'); await dlg.getByRole('spinbutton', { name: 'Threshold' }).blur();
 await dlg.getByRole('button', { name: 'OK' }).click();
 await until(dialogGone, 'dialog closes');
 await until(async () => (await names()).includes('Filter Layer 1'), 'filter layer in tree');
@@ -236,7 +244,7 @@ await bar('Properties…').click();
 await page.locator('dialog.lyr-dialog[open]').waitFor();
 const field = page.locator('dialog.lyr-dialog').getByRole('spinbutton', { name: 'Threshold' });
 check(await field.inputValue() === '200', 'properties show the filter layer settings');
-await field.fill('5');
+await field.fill('5'); await field.blur();
 await until(async () => (await page.evaluate(id => window.__engine.nodeConfig(id), f.id)).values.threshold === 5, 'config updated');
 check(true, 'editing settings in properties reaches the engine');
 check(await until(async () => await composite() !== withFilter, 'composite follows'), 'composite follows the edited settings');

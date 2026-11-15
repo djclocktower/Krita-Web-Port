@@ -46,7 +46,7 @@
 #include <generator/kis_generator_registry.h>
 #include <kis_adjustment_layer.h>
 #include <kis_clone_layer.h>
-#include <kis_colorize_mask.h>
+#include <lazybrush/kis_colorize_mask.h>
 #include <kis_file_layer.h>
 #include <kis_filter_mask.h>
 #include <kis_group_layer.h>
@@ -56,7 +56,7 @@
 #include <kis_paint_layer.h>
 #include <kis_resources_snapshot.h>
 #include <kis_selection_mask.h>
-#include <kis_shape_layer.h>
+#include <flake/kis_shape_layer.h>
 #include <kis_transaction.h>
 #include <kis_transform_mask.h>
 #include <kis_transparency_mask.h>
@@ -134,6 +134,20 @@ public:
 
     QJsonValue handle(const QString &m, const Params &p, const QByteArray &data, QByteArray &out);
 
+    /// Krita's own default brush, so the app opens ready to paint.
+    void selectDefaultPreset()
+    {
+        KisResourceModel model(ResourceType::PaintOpPresets);
+        int fallback = -1;
+        for (int row = 0; row < model.rowCount(); row++) {
+            const QModelIndex i = model.index(row, 0);
+            const int id = model.data(i, Qt::UserRole + KisAbstractResourceModel::Id).toInt();
+            if (fallback < 0) fallback = id;
+            if (model.data(i, Qt::UserRole + KisAbstractResourceModel::Name).toString().contains("Basic-5 Size")) { fallback = id; break; }
+        }
+        if (fallback >= 0) selectPreset(model.resourceForId(fallback).dynamicCast<KisPaintOpPreset>(), QString::number(fallback));
+    }
+
 private:
     const KoColorSpace *rgb8 = nullptr;
     KoCanvasResourceProvider *manager = nullptr;
@@ -156,8 +170,9 @@ private:
         doc = document; previewMask = nullptr; stroke.clear();
         KisImageSP img = doc->image();
         connect(img.data(), &KisImage::sigImageUpdated, this, [this](const QRect &rc) { pending |= rc; if (!flushTimer.isActive()) flushTimer.start(); });
-        for (auto signal : {&KisImage::sigNodeAddedAsync, &KisImage::sigRemoveNodeAsync, &KisImage::sigNodeChanged})
-            connect(img.data(), signal, this, [this] { layersTimer.start(); });
+        connect(img.data(), &KisImage::sigNodeAddedAsync, this, [this] { layersTimer.start(); });
+        connect(img.data(), &KisImage::sigRemoveNodeAsync, this, [this] { layersTimer.start(); });
+        connect(img.data(), &KisImage::sigNodeChanged, this, [this] { layersTimer.start(); });
         connect(img.data(), &KisImage::sigLayersChangedAsync, this, [this] { layersTimer.start(); });
         connect(doc->undoStack(), &KUndo2Stack::indexChanged, this, [this] { emitHistory(); });
 
@@ -307,8 +322,9 @@ private:
     }
     KisFilterConfigurationSP filterConfig(const QString &id, const QJsonObject &values, bool generator = false) const
     {
-        KisBaseProcessorSP f = generator ? KisBaseProcessorSP(KisGeneratorRegistry::instance()->value(id))
-                                         : KisBaseProcessorSP(KisFilterRegistry::instance()->value(id));
+        const KisBaseProcessor *f = nullptr;
+        if (generator) f = KisGeneratorRegistry::instance()->value(id).data();
+        else f = KisFilterRegistry::instance()->value(id).data();
         if (!f) fail("Unknown filter: " + id);
         KisFilterConfigurationSP cfg = f->defaultConfiguration(KisGlobalResourcesInterface::instance());
         apply(*cfg, values);
@@ -324,16 +340,17 @@ private:
 
     // --- brush
     KisPaintOpPresetSP preset() const { return manager->resource(KoCanvasResource::CurrentPaintOpPreset).value<KisPaintOpPresetSP>(); }
-    void emitBrush()
+    QJsonObject brushJson() const
     {
-        emitEvent("brushChanged", {{"state", QJsonObject{
+        return QJsonObject{
             {"presetId", presetId.isEmpty() ? QJsonValue() : QJsonValue(presetId)},
             {"size", manager->resource(KoCanvasResource::Size).toDouble()},
             {"opacity", manager->resource(KoCanvasResource::Opacity).toDouble()},
             {"flow", manager->resource(KoCanvasResource::Flow).toDouble()},
             {"blendMode", manager->resource(KoCanvasResource::CurrentCompositeOp).toString()},
-            {"eraser", manager->resource(KoCanvasResource::EraserMode).toBool()}}}});
+            {"eraser", manager->resource(KoCanvasResource::EraserMode).toBool()}};
     }
+    void emitBrush() { emitEvent("brushChanged", {{"state", brushJson()}}); }
     static QJsonObject colorJson(const KoColor &c) { const QColor q = c.toQColor(); return {{"r", q.redF()}, {"g", q.greenF()}, {"b", q.blueF()}, {"a", q.alphaF()}}; }
     KoColor colorFrom(const QJsonObject &o) const
     {
@@ -342,7 +359,7 @@ private:
     static KisPaintInformation sample(const QJsonObject &o)
     {
         return KisPaintInformation(QPointF(o["x"].toDouble(), o["y"].toDouble()), qBound(0.0, o["pressure"].toDouble(1.0), 1.0),
-                                   o["xTilt"].toDouble(), o["yTilt"].toDouble(), o["rotation"].toDouble(), 0.0, 1.0, o["timeMs"].toDouble());
+                                   o["xTilt"].toDouble(), o["yTilt"].toDouble(), o["rotation"].toDouble(), 0.0, 1.0, o["timeMs"].toDouble(), 0.0);
     }
     void selectPreset(KisPaintOpPresetSP source, const QString &id)
     {
@@ -535,6 +552,8 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         emitBrush();
         return QJsonValue();
     }
+    if (m == "brushState") return brushJson();
+    if (m == "colors") return QJsonObject{{"foreground", colorJson(manager->foregroundColor())}, {"background", colorJson(manager->backgroundColor())}};
     if (m == "undo" || m == "redo") {
         image()->waitForDone();
         m == "undo" ? doc->undoStack()->undo() : doc->undoStack()->redo();
@@ -673,14 +692,20 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
 
 static Engine *g_engine = nullptr;
 
-extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, const char *method, const char *paramsJson, const char *bytes, int length)
+// Request bytes (a file to open, a resource to import) are written by the page to params.__file
+// in the virtual filesystem, which avoids copying large buffers through the call stack.
+extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, const char *method, const char *paramsJson)
 {
     const QString m = QString::fromUtf8(method);
     const QJsonObject params = QJsonDocument::fromJson(paramsJson).object();
-    const QByteArray data(bytes, length);          // copies; the page frees its buffer after this returns
-    QMetaObject::invokeMethod(g_engine, [id, m, params, data] {
+    QMetaObject::invokeMethod(g_engine, [id, m, params] {
         QJsonObject reply{{"id", id}};
-        QByteArray out;
+        QByteArray data, out;
+        if (params.contains("__file")) {
+            QFile f(params["__file"].toString());
+            if (f.open(QIODevice::ReadOnly)) data = f.readAll();
+            f.remove();
+        }
         try {
             reply["result"] = g_engine->handle(m, params, data, out);
         } catch (const Failure &f) {
@@ -701,6 +726,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     registerResources();
     g_engine = new Engine;
+    g_engine->selectDefaultPreset();
     emitEvent("ready");
     return app.exec();
 }

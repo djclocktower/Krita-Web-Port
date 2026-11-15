@@ -43,8 +43,9 @@ const BRUSH_SETTINGS: ConfigDescription = {
         { key: 'fade', label: 'Fade', kind: 'number', min: 0, max: 1, step: 0.01, group: 'Brush Tip' },
         { key: 'pressureSize', label: 'Pressure controls size', kind: 'boolean', group: 'Size' },
         { key: 'pressureOpacity', label: 'Pressure controls opacity', kind: 'boolean', group: 'Opacity' },
+        { key: 'pressureCurve', label: 'Pressure curve', kind: 'curve', group: 'Size' },
     ],
-    defaults: { diameter: 12, spacing: 0.1, fade: 0.8, pressureSize: true, pressureOpacity: false },
+    defaults: { diameter: 12, spacing: 0.1, fade: 0.8, pressureSize: true, pressureOpacity: false, pressureCurve: '0,0;1,1;' },
 };
 
 const hasPixels = (type: NodeType) => type === 'paint' || type.endsWith('Mask');
@@ -300,6 +301,8 @@ export function createMockEngine(): Engine {
             emit('colorChanged', foreground, background);
         },
         async setBrush(state) { brush = { ...brush, ...state }; emit('brushChanged', clone(brush)); },
+        async brushState() { return clone(brush); },
+        async colors() { return { foreground, background }; },
         async undo() { restore(undoStack, redoStack); },
         async redo() { restore(redoStack, undoStack); },
 
