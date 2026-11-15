@@ -5,6 +5,7 @@ import type { Engine, EngineEvents } from './protocol';
 
 interface Module {
     _kw_request(id: number, seq: number): void;
+    _kw_ack(): void;
     FS: { writeFile(path: string, data: Uint8Array | string): void };
 }
 type Message = { id?: number; event?: string; result?: unknown; error?: string } & Record<string, unknown>;
@@ -44,7 +45,8 @@ export async function createWasmEngine(): Promise<Engine> {
         }
         switch (msg.event) {
             case 'ready': ready(); break;
-            case 'imageUpdate': if (bytes) emit('imageUpdate', msg.rect, bytes); break;
+            // The engine sends the next update only after this acknowledgement (flow control).
+            case 'imageUpdate': try { if (bytes) emit('imageUpdate', msg.rect, bytes); } finally { module._kw_ack(); } break;
             case 'documentChanged': emit('documentChanged', msg.info ?? null); break;
             case 'layersChanged': emit('layersChanged'); break;
             case 'activeNodeChanged': emit('activeNodeChanged', msg.id ?? null); break;
@@ -57,7 +59,7 @@ export async function createWasmEngine(): Promise<Engine> {
 
     await loadScript(`${BASE}kritaengine.js`);
     const entry = (window as unknown as { kritaengine_entry: (config: object) => Promise<Module> }).kritaengine_entry;
-    const module = await entry({
+    const module: Module = await entry({
         locateFile: (file: string) => BASE + file,
         kwOnMessage: onMessage,
         print: (text: string) => console.debug(text),

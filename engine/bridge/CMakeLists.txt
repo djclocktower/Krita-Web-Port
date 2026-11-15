@@ -34,7 +34,7 @@ target_link_options(kritaengine PRIVATE
     -fexceptions
     -sPROXY_TO_PTHREAD   # main() runs in a worker; the browser's main thread stays free
     -sPTHREAD_POOL_SIZE=16 -sINITIAL_MEMORY=512MB -sALLOW_MEMORY_GROWTH=1 -sMAXIMUM_MEMORY=4GB
-    -sEXPORTED_FUNCTIONS=_main,_malloc,_free,_kw_request
+    -sEXPORTED_FUNCTIONS=_main,_malloc,_free,_kw_request,_kw_ack
     "SHELL:--preload-file ${_data}/profiles@/share/krita/profiles"
     "SHELL:--preload-file ${_data}/bundles/Krita_4_Default_Resources.bundle@/share/krita/bundles/Krita_4_Default_Resources.bundle"
     "SHELL:--preload-file ${_spike}/fonts.conf@/etc/fonts/fonts.conf"

@@ -96,6 +96,8 @@ static void emitEvent(const char *name, QJsonObject fields = QJsonObject(), cons
     post(fields, bytes);
 }
 
+static QAtomicInt g_updatesInFlight;
+
 struct Failure { QString message; };
 [[noreturn]] static void fail(const QString &message) { throw Failure{message}; }
 
@@ -133,6 +135,7 @@ public:
     }
 
     QJsonValue handle(const QString &m, const Params &p, const QByteArray &data, QByteArray &out);
+    Q_INVOKABLE void flushPending() { flushImage(); }
 
     /// Krita's own default brush, so the app opens ready to paint.
     void selectDefaultPreset()
@@ -204,10 +207,14 @@ private:
     void flushImage()
     {
         if (!doc || pending.isEmpty()) return;
+        // Back-pressure: one update in flight at a time. While the page is still drawing the last
+        // one, dirty rects just keep accumulating here, so a slow brush cannot flood the page.
+        if (g_updatesInFlight.loadAcquire() > 0) return;
+        g_updatesInFlight.ref();
         KisImageSP img = image();
         const QRect rc = pending & img->bounds();
         pending = QRect();
-        if (rc.isEmpty()) return;
+        if (rc.isEmpty()) { g_updatesInFlight.deref(); return; }
         // ponytail: converts the dirty rect on Krita's GUI thread and copies it twice; move to a
         // shared tile cache when profiling shows this in the stroke path.
         const QImage rgba = img->projection()->convertToQImage(nullptr, rc).convertToFormat(QImage::Format_RGBA8888);
@@ -740,6 +747,13 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
         if (id) post(reply, out);                  // id 0 = fire-and-forget (stroke samples)
         else if (reply.contains("error")) emitEvent("error", {{"message", reply["error"]}, {"method", m}});
     }, Qt::QueuedConnection);
+}
+
+/// The page calls this after it has drawn an imageUpdate.
+extern "C" EMSCRIPTEN_KEEPALIVE void kw_ack()
+{
+    g_updatesInFlight.deref();
+    if (g_engine) QMetaObject::invokeMethod(g_engine, "flushPending", Qt::QueuedConnection);
 }
 
 int main(int argc, char *argv[])

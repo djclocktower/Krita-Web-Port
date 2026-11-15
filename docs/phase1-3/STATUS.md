@@ -20,7 +20,7 @@ This pass produced a working vertical slice, not finished phases: a web interfac
 | `tests/contract-wasm.mjs` (the contract against the **real** engine) | 56 of 58 |
 | `tests/wasm.mjs` (interface + real engine: app starts, a mouse stroke paints) | pass |
 
-What the real-engine contract test establishes: documents can be created; 134 blend modes, 52 filters and 6 generators are listed; 117 presets load from Krita's default bundle across 15 brush engines; strokes paint and undo/redo restore pixels exactly; layer add, move, duplicate, remove, properties and thumbnails work; paint, group, filter, fill, clone and vector layers and transparency, filter, colorize and selection masks can be added; filters apply and undo; filter preview shows, clears exactly and never reaches an export; a document with strokes, layers, groups and filter layers survives a `.kra` round trip unchanged.
+What the real-engine contract test establishes: documents can be created; 134 blend modes, over 50 filters and 6 generators are listed; 117 presets load from Krita's default bundle across 15 brush engines; strokes paint and undo/redo restore pixels exactly; layer add, move, duplicate, remove, properties and thumbnails work; paint, group, filter, fill, clone and vector layers and transparency, filter, colorize and selection masks can be added; filters apply and undo; filter preview shows, clears exactly and never reaches an export; a document with strokes, layers, groups and filter layers survives a `.kra` round trip unchanged.
 
 ## Open problems
 
