@@ -32,7 +32,7 @@ The stroke figure is a throughput number for a small brush, not pen-to-screen la
 
 - 29 third-party libraries for WebAssembly (`engine/build-deps.sh`), including nine KDE Frameworks.
 - Krita libraries: `kritaglobal`, `kritapigment`, `kritaflake`, `kritawidgets`, `kritaimage`, `kritalibbrush`, `kritaui`, `kritalibpaintop`, `kritalibkra`, plus the LittleCMS colour engine, default brush engines and `.kra` import plugins. About 1,700 build steps; all pass.
-- Patches: a 400-line diff against Krita (10 files, 129 lines added), plus small patches to five KDE Frameworks. All in `patches/`.
+- Patches: a 441-line diff against Krita (10 files, 129 lines added), plus small patches to five KDE Frameworks. All in `patches/`.
 
 ## Findings that change the plan
 
