@@ -153,7 +153,8 @@ private:
     KoCanvasResourceProvider *manager = nullptr;
     KisDocument *doc = nullptr;
     KisNodeSP active;
-    KisNodeSP previewMask;
+    KisNodeSP previewNode;
+    std::unique_ptr<KisTransaction> previewTransaction;
     QString presetId;
     KisStrokeId stroke;
     KisPaintInformation last;
@@ -167,7 +168,7 @@ private:
     void adopt(KisDocument *document)
     {
         if (doc) { doc->image()->disconnect(this); doc->undoStack()->disconnect(this); doc->deleteLater(); }
-        doc = document; previewMask = nullptr; stroke.clear();
+        previewTransaction.reset(); previewNode = nullptr; doc = document; stroke.clear();
         KisImageSP img = doc->image();
         connect(img.data(), &KisImage::sigImageUpdated, this, [this](const QRect &rc) { pending |= rc; if (!flushTimer.isActive()) flushTimer.start(); });
         connect(img.data(), &KisImage::sigNodeAddedAsync, this, [this] { layersTimer.start(); });
@@ -247,7 +248,7 @@ private:
         QJsonArray list;
         for (KisNodeSP n = parent->lastChild(); n; n = n->prevSibling()) {
             const char *type = typeOf(n);
-            if (!type || n == previewMask) continue;
+            if (!type) continue;
             auto *paint = dynamic_cast<KisPaintLayer *>(n.data());
             QJsonObject o{{"id", idOf(n)}, {"type", type}, {"name", n->name()}, {"visible", n->visible()}, {"locked", n->userLocked()},
                           {"alphaLocked", paint && paint->alphaLocked()}, {"opacity", n->opacity() / 255.0},
@@ -330,12 +331,16 @@ private:
         apply(*cfg, values);
         return cfg;
     }
+    // A filter preview is the filter applied inside a transaction that is never committed:
+    // clearing the preview reverts it, so pixels and the undo stack end up untouched.
     void clearPreview()
     {
-        if (!previewMask) return;
-        KisNodeSP mask = previewMask;
-        previewMask = nullptr;
-        image()->removeNode(mask);
+        if (!previewTransaction) return;
+        image()->waitForDone();
+        previewTransaction->revert();
+        previewTransaction.reset();
+        if (previewNode) previewNode->setDirty();
+        previewNode = nullptr;
     }
 
     // --- brush
@@ -374,6 +379,12 @@ private:
 
 QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &data, QByteArray &out)
 {
+    // An uncommitted preview must never leak into strokes, undo, or saved files.
+    static const QSet<QString> keepsPreview = {"previewFilter", "applyFilter", "layers", "blendModes", "filters", "generators",
+        "filterConfig", "generatorConfig", "documentInfo", "refresh", "nodeThumbnail", "brushState", "colors", "presets",
+        "presetTags", "presetThumbnail", "presetSettings", "nodeConfig", "setColors", "setBrush"};
+    if (previewTransaction && !keepsPreview.contains(m)) clearPreview();
+
     // ---- documents
     if (m == "newDocument") {
         const int w = p["width"].toInt(), h = p["height"].toInt();
@@ -441,7 +452,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         else if (type == "transparencyMask") { auto *mk = new KisTransparencyMask(img, name); node = mk; if (layer) mk->initSelection(layer); }
         else if (type == "filterMask") { auto *mk = new KisFilterMask(img, name); node = mk; mk->setFilter(filterConfig(configId, config)->cloneWithResourcesSnapshot()); if (layer) mk->initSelection(layer); }
         else if (type == "colorizeMask") node = new KisColorizeMask(img, name);
-        else if (type == "transformMask") node = new KisTransformMask(img, name);
+        // transform masks need the transform tool plugin (it registers their parameter factories); that arrives with the transform tool
         else if (type == "selectionMask") { auto *mk = new KisSelectionMask(img, name); node = mk; if (layer) mk->initSelection(layer); }
         else fail("Adding a " + type + " layer is not supported yet");
         insert(node, p, kundo2_i18n("Add Layer"));
@@ -661,12 +672,20 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         clearPreview();
         if (p["filterId"].isNull()) return QJsonValue();
         KisNodeSP n = need(p["nodeId"].toString());
-        // A temporary filter mask shows the effect without touching pixels or the undo stack.
-        auto *mask = new KisFilterMask(image(), "preview");
-        mask->setFilter(filterConfig(p["filterId"].toString(), p["config"].toObject())->cloneWithResourcesSnapshot());
-        if (auto *layer = qobject_cast<KisLayer *>(n.data())) mask->initSelection(layer);
-        previewMask = mask;
-        image()->addNode(previewMask, n);
+        KisPaintDeviceSP device = n->paintDevice();
+        if (!device) fail("Filters can only be previewed on layers with pixels");
+        const QString id = p["filterId"].toString();
+        KisFilterSP filter = KisFilterRegistry::instance()->value(id);
+        if (!filter) fail("Unknown filter: " + id);
+        KisFilterConfigurationSP cfg = filterConfig(id, p["config"].toObject())->cloneWithResourcesSnapshot();
+        KisImageSP img = image();
+        img->waitForDone();
+        img->barrierLock();
+        previewTransaction.reset(new KisTransaction(device));
+        filter->process(device, img->bounds(), cfg);
+        img->unlock();
+        previewNode = n;
+        n->setDirty();
         return QJsonValue();
     }
     if (m == "nodeConfig" || m == "setNodeConfig") {
