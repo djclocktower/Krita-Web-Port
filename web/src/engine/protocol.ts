@@ -102,12 +102,46 @@ export interface ConfigDescription {
 
 export interface HistoryState { canUndo: boolean; canRedo: boolean; undoText: string; redoText: string }
 
-export type ExportFormat = 'kra' | 'png' | 'jpg';
+export type ExportFormat = 'kra' | 'png' | 'jpg' | 'psd' | 'ora' | 'tga' | 'bmp';
+
+/** How a new selection combines with the existing one. */
+export type SelectionMode = 'replace' | 'add' | 'subtract' | 'intersect';
+export interface Point { x: number; y: number }
+
+export interface FillOptions {
+    /** 0..255: how different a pixel may be from the clicked one and still be filled. */
+    threshold?: number;
+    /** False fills every similar pixel in the image, not just the connected region. */
+    contiguous?: boolean;
+    /** Decide the region from the whole image instead of the active layer only. */
+    sampleMerged?: boolean;
+}
+export interface GradientOptions {
+    shape: 'linear' | 'bilinear' | 'radial' | 'square' | 'conical' | 'spiral';
+    repeat?: 'none' | 'forwards' | 'alternating';
+    reverse?: boolean;
+}
+
+export interface ColorSpaceInfo { model: string; modelName: string; depth: string; depthName: string; profiles: string[] }
+
+export interface AnimationState {
+    framesPerSecond: number;
+    /** Playback range, inclusive. */
+    startTime: number;
+    endTime: number;
+    currentTime: number;
+}
 
 export interface EngineEvents {
     /** Pixels changed. `pixels` is straight-alpha RGBA8 in sRGB, rect.width * rect.height * 4 bytes, valid only during the call. */
     imageUpdate: (rect: Rect, pixels: Uint8Array | Uint8ClampedArray) => void;
     documentChanged: (info: DocumentInfo | null) => void;
+    /** The selection changed; `bounds` is null when nothing is selected. Call selectionOutline() to draw it. */
+    selectionChanged: (bounds: Rect | null) => void;
+    /** Frame rate, range or current time changed. */
+    animationChanged: (state: AnimationState) => void;
+    /** Keyframes of a node changed; call keyframes() again. */
+    keyframesChanged: (id: NodeId) => void;
     /** The layer tree or a layer property changed; call layers() again. */
     layersChanged: () => void;
     activeNodeChanged: (id: NodeId | null) => void;
@@ -179,4 +213,51 @@ export interface Engine {
     /** Current settings of a filter layer, fill layer or filter mask. */
     nodeConfig(id: NodeId): Promise<{ configId: string; values: Record<string, PropertyValue> }>;
     setNodeConfig(id: NodeId, config: Record<string, PropertyValue>): Promise<void>;
+
+    // --- selections (Phase 4). All undoable. Painting, fills and filters are limited to the selection.
+    selectAll(): Promise<void>;
+    deselect(): Promise<void>;
+    invertSelection(): Promise<void>;
+    selectRect(rect: Rect, mode: SelectionMode): Promise<void>;
+    selectEllipse(rect: Rect, mode: SelectionMode): Promise<void>;
+    /** Freehand (lasso) or polygonal selection. */
+    selectPolygon(points: Point[], mode: SelectionMode): Promise<void>;
+    /** Contiguous ("magic wand") selection from a clicked point. */
+    selectSimilar(at: Point, options: FillOptions, mode: SelectionMode): Promise<void>;
+    /** Closed polygons in image pixels, each [x0, y0, x1, y1, ...], for drawing the marching ants. Empty when nothing is selected. */
+    selectionOutline(): Promise<number[][]>;
+
+    // --- fill and gradient tools (Phase 4). They act on the active node, inside the selection if there is one.
+    floodFill(at: Point, source: 'foreground' | 'background', options: FillOptions): Promise<void>;
+    /** Fills the selection (or the whole layer) with a colour, as Edit > Fill does. */
+    fillSelection(source: 'foreground' | 'background'): Promise<void>;
+    /** Clears the selection's pixels (or the whole layer), as Edit > Clear does. */
+    clearSelection(): Promise<void>;
+    /** Foreground-to-background gradient from one point to another. */
+    drawGradient(from: Point, to: Point, options: GradientOptions): Promise<void>;
+
+    // --- image operations (Phase 4, Image menu). All undoable.
+    scaleImage(options: { width: number; height: number; filter?: 'Bicubic' | 'Bilinear' | 'NearestNeighbor' | 'Lanczos3' }): Promise<DocumentInfo>;
+    /** Changes the canvas size without scaling; `offsetX/Y` place the old image inside the new canvas. */
+    resizeCanvas(options: { width: number; height: number; offsetX: number; offsetY: number }): Promise<DocumentInfo>;
+    cropImage(rect: Rect): Promise<DocumentInfo>;
+    rotateImage(degrees: number): Promise<DocumentInfo>;
+    mirrorImage(axis: 'horizontal' | 'vertical'): Promise<void>;
+    flattenImage(): Promise<void>;
+
+    // --- colour management (Phase 6)
+    colorSpaces(): Promise<ColorSpaceInfo[]>;
+    convertColorSpace(options: { model: string; depth: string; profile?: string }): Promise<DocumentInfo>;
+
+    // --- animation (Phase 7). Times are frame numbers starting at 0.
+    animation(): Promise<AnimationState>;
+    setAnimation(state: Partial<AnimationState>): Promise<void>;
+    /** Frame numbers that have a keyframe on this node, ascending. Empty for a node that is not animated. */
+    keyframes(id: NodeId): Promise<number[]>;
+    /** Adds a keyframe; `copy` duplicates the frame visible at that time instead of starting blank. */
+    addKeyframe(id: NodeId, time: number, options?: { copy?: boolean }): Promise<void>;
+    removeKeyframe(id: NodeId, time: number): Promise<void>;
+    moveKeyframe(id: NodeId, from: number, to: number): Promise<void>;
+    /** Onion skins show neighbouring frames faintly on this node while drawing. */
+    setOnionSkin(id: NodeId, enabled: boolean): Promise<void>;
 }

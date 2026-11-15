@@ -5,10 +5,11 @@ import type {
     BlendMode, BrushState, Color, ConfigDescription, DocumentInfo, Engine, EngineEvents, ExportFormat, FilterInfo,
     HistoryState, LayerNode, NodeId, NodeType, Preset, PropertyValue, Rect, StrokePoint,
 } from './protocol';
+import { createMockExtra } from './mock-extra';
 
-type Pixels = Uint8ClampedArray;
-interface MockNode extends LayerNode { children: MockNode[]; pixels?: Pixels; config?: Record<string, PropertyValue> }
-interface Snapshot { text: string; tree: MockNode[]; activeId: NodeId | null }
+export type Pixels = Uint8ClampedArray;
+export interface MockNode extends LayerNode { children: MockNode[]; pixels?: Pixels; config?: Record<string, PropertyValue> }
+interface Snapshot { text: string; tree: MockNode[]; activeId: NodeId | null; size: [number, number]; extra: unknown }
 
 const BLEND_MODES: BlendMode[] = [
     { id: 'normal', name: 'Normal', category: 'Mix' }, { id: 'multiply', name: 'Multiply', category: 'Darken' },
@@ -85,8 +86,9 @@ export function createMockEngine(): Engine {
         canUndo: undoStack.length > 0, canRedo: redoStack.length > 0,
         undoText: undoStack.at(-1)?.text ?? '', redoText: redoStack.at(-1)?.text ?? '',
     });
+    const snapshot = (text: string): Snapshot => ({ text, tree: clone(tree), activeId, size: [doc().width, doc().height], extra: extra.save() });
     const record = (text: string) => {
-        undoStack.push({ text, tree: clone(tree), activeId });
+        undoStack.push(snapshot(text));
         if (undoStack.length > 30) undoStack.shift();
         redoStack = [];
         if (info) info.modified = true;
@@ -148,7 +150,7 @@ export function createMockEngine(): Engine {
         const [r, g, b] = [foreground.r * 255, foreground.g * 255, foreground.b * 255];
         for (let j = Math.max(0, Math.floor(y - radius)); j <= Math.min(height - 1, Math.ceil(y + radius)); j++) {
             for (let i = Math.max(0, Math.floor(x - radius)); i <= Math.min(width - 1, Math.ceil(x + radius)); i++) {
-                const cover = Math.min(1, Math.max(0, radius - Math.hypot(i - x, j - y) + 0.5)) * alpha;
+                const cover = Math.min(1, Math.max(0, radius - Math.hypot(i - x, j - y) + 0.5)) * alpha * extra.selected(i, j);
                 if (cover <= 0) continue;
                 const p = (j * width + i) * 4, da = px[p + 3] / 255;
                 if (erase) { px[p + 3] = da * (1 - cover) * 255; continue; }
@@ -185,9 +187,9 @@ export function createMockEngine(): Engine {
     const restore = (from: Snapshot[], to: Snapshot[]) => {
         const snap = from.pop();
         if (!snap) return;
-        to.push({ text: snap.text, tree: clone(tree), activeId });
-        tree = snap.tree; activeId = snap.activeId;
-        emit('historyChanged', history()); emit('activeNodeChanged', activeId); changed();
+        to.push(snapshot(snap.text));
+        tree = snap.tree; activeId = snap.activeId; [info!.width, info!.height] = snap.size; extra.restore(snap.extra);
+        emit('documentChanged', clone(info)); emit('historyChanged', history()); emit('activeNodeChanged', activeId); changed();
     };
     const publicNode = (n: MockNode): LayerNode => {
         const { pixels: _p, config: _c, children, ...rest } = n;
@@ -199,6 +201,15 @@ export function createMockEngine(): Engine {
         return { specs: clone(f.specs), defaults: clone(f.defaults) };
     };
 
+    // Selections, fills, image operations and animation live in mock-extra.ts.
+    const extra = createMockExtra({
+        doc, record, changed, emit, find, walk,
+        tree: () => tree, setTree: t => { tree = t; },
+        activeId: () => activeId,
+        colors: () => ({ foreground, background }),
+        composite,
+    });
+
     const engine: Engine = {
         on(event, handler) {
             ((handlers[event] ??= new Set() as never) as Set<typeof handler>).add(handler);
@@ -208,7 +219,7 @@ export function createMockEngine(): Engine {
         async newDocument({ width, height, name = 'Untitled', background: bg }) {
             if (!(width > 0 && height > 0 && width * height <= 64e6)) throw new Error('Invalid document size');
             info = { name, width, height, resolutionPpi: 300, colorModel: 'RGBA', colorDepth: 'U8', profile: 'sRGB-elle-V2-srgbtrc.icc', modified: false };
-            tree = []; undoStack = []; redoStack = []; nextId = 1; preview = null;
+            tree = []; undoStack = []; redoStack = []; nextId = 1; preview = null; extra.reset();
             const base = makeNode('paint', 'Background');
             const fill = bg ?? { r: 1, g: 1, b: 1, a: 1 };
             for (let p = 0; p < base.pixels!.length; p += 4) base.pixels!.set([fill.r * 255, fill.g * 255, fill.b * 255, fill.a * 255], p);
@@ -357,6 +368,7 @@ export function createMockEngine(): Engine {
             if (!node.configId) throw new Error('This node has no filter or generator settings');
             record('Change Filter Settings'); node.config = clone(config); changed(false);
         },
+        ...extra.methods,
     };
     return engine;
 }

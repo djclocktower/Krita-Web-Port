@@ -55,6 +55,9 @@ export async function createWasmEngine(): Promise<Engine> {
             case 'historyChanged': emit('historyChanged', msg.state); break;
             case 'brushChanged': emit('brushChanged', msg.state); break;
             case 'colorChanged': emit('colorChanged', msg.foreground, msg.background); break;
+            case 'selectionChanged': emit('selectionChanged', msg.bounds ?? null); break;
+            case 'animationChanged': emit('animationChanged', msg.state); break;
+            case 'keyframesChanged': emit('keyframesChanged', msg.id); break;
             case 'error': console.error(`Engine error in ${String(msg.method)}: ${String(msg.message)}`); break;
         }
     }
@@ -165,5 +168,37 @@ export async function createWasmEngine(): Promise<Engine> {
         generatorConfig: id => call('generatorConfig', { id }),
         nodeConfig: id => call('nodeConfig', { id }),
         setNodeConfig: (id, config) => call('setNodeConfig', { id, config }),
+
+        selectAll: () => call('selectAll'),
+        deselect: () => call('deselect'),
+        invertSelection: () => call('invertSelection'),
+        selectRect: (rect, mode) => call('selectRect', { rect, mode }),
+        selectEllipse: (rect, mode) => call('selectEllipse', { rect, mode }),
+        selectPolygon: (points, mode) => call('selectPolygon', { points, mode }),
+        selectSimilar: (at, options, mode) => call('selectSimilar', { at, options, mode }),
+        selectionOutline: () => call('selectionOutline'),
+
+        floodFill: (at, source, options) => call('floodFill', { at, source, options }),
+        fillSelection: source => call('fillSelection', { source }),
+        clearSelection: () => call('clearSelection'),
+        drawGradient: (from, to, options) => call('drawGradient', { from, to, options }),
+
+        scaleImage: options => call('scaleImage', options),
+        resizeCanvas: options => call('resizeCanvas', options),
+        cropImage: rect => call('cropImage', { rect }),
+        rotateImage: degrees => call('rotateImage', { degrees }),
+        mirrorImage: axis => call('mirrorImage', { axis }),
+        flattenImage: () => call('flattenImage'),
+
+        colorSpaces: () => call('colorSpaces'),
+        convertColorSpace: options => call('convertColorSpace', options),
+
+        animation: () => call('animation'),
+        setAnimation: state => call('setAnimation', { state }),
+        keyframes: id => call('keyframes', { id }),
+        addKeyframe: (id, time, options) => call('addKeyframe', { id, time, ...options }),
+        removeKeyframe: (id, time) => call('removeKeyframe', { id, time }),
+        moveKeyframe: (id, from, to) => call('moveKeyframe', { id, from, to }),
+        setOnionSkin: (id, enabled) => call('setOnionSkin', { id, enabled }),
     };
 }
