@@ -12,7 +12,9 @@ if git -C "$ROOT/krita" apply --check "$ROOT/patches/krita.patch" 2>/dev/null; t
 fi
 
 # Qt's prebuilt WebAssembly libraries use Emscripten (JS) exceptions, so Krita must too.
-FLAGS="$KW_CFLAGS -fexceptions -I$PREFIX/include"
+# ponytail: scalar only (no -msimd128): Krita's multi-arch SIMD layer has no wasm backend.
+# Adding an xsimd::wasm architecture there is the first performance upgrade to make.
+FLAGS="-pthread -fexceptions -I$PREFIX/include"
 
 if [ ! -f "$B/build.ninja" ] || [ -n "${RECONFIGURE:-}" ]; then
     cmake -S "$ROOT/krita" -B "$B" -G Ninja -DCMAKE_BUILD_TYPE=Release \
