@@ -1,0 +1,15 @@
+diff --git a/src/util/kurlhandler_p.cpp b/src/util/kurlhandler_p.cpp
+index c2b579c..1f20e55 100644
+--- a/src/util/kurlhandler_p.cpp
++++ b/src/util/kurlhandler_p.cpp
+@@ -28,8 +28,10 @@ static bool openWithKHelpCenter(const QUrl &url)
+             u.setPath(appName);
+         }
+ 
++#if QT_CONFIG(process)
+         QProcess::startDetached(helpcenter, QStringList(u.toString()));
+         return true;
++#endif
+     }
+ 
+     return false;

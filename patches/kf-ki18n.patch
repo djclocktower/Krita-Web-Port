@@ -1,0 +1,15 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index bfc527e..fc66859 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -2,10 +2,8 @@
+ # SPDX-License-Identifier: BSD-3-Clause
+ 
+ add_subdirectory(i18n)
+-add_subdirectory(localedata)
+ if (TARGET Qt6::Qml)
+     add_subdirectory(i18n-qml)
+-    add_subdirectory(localedata-qml)
+ endif()
+ 
+ ecm_qt_install_logging_categories(

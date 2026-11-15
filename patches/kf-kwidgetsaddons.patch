@@ -1,0 +1,46 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index bf8aec3..aa79756 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -61,8 +61,6 @@ target_sources(KF6WidgetsAddons PRIVATE
+     kdaterangecontrol_p.h
+     kdatetable.cpp
+     kdatetable_p.h
+-    kdatetimeedit.cpp
+-    kdatetimeedit.h
+     kdragwidgetdecorator.cpp
+     kdragwidgetdecorator.h
+     kdualaction.cpp
+@@ -98,8 +96,6 @@ target_sources(KF6WidgetsAddons PRIVATE
+     kmessagewidget.h
+     kmimetypechooser.cpp
+     kmimetypechooser.h
+-    kmimetypeeditor.cpp
+-    kmimetypeeditor.h
+     kmultitabbar.cpp
+     kmultitabbar.h
+     kmultitabbar_p.h
+@@ -202,7 +198,6 @@ target_sources(KF6WidgetsAddons PRIVATE
+ 
+ set(kwidgetsaddons_UI_SRCS)
+ qt_wrap_ui(kwidgetsaddons_UI_SRCS
+-   kdatetimeedit.ui
+    knewpassworddialog.ui
+    knewpasswordwidget.ui
+    kpassworddialog.ui
+@@ -247,7 +242,6 @@ ecm_generate_headers(KWidgetsAddons_HEADERS
+   KDateComboBox
+   KDatePicker
+   KDatePickerPopup
+-  KDateTimeEdit
+   KDragWidgetDecorator
+   KDualAction
+   KFontAction
+@@ -308,7 +302,6 @@ ecm_generate_headers(KWidgetsAddons_HEADERS
+   KPixmapRegionSelectorDialog
+   KPixmapRegionSelectorWidget
+   KMimeTypeChooser,KMimeTypeChooserDialog
+-  KMimeTypeEditor
+   KMessageBoxNotifyInterface
+   KSplitterCollapserButton
+   KStyleExtensions

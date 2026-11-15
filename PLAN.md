@@ -1,6 +1,6 @@
 # Krita Web Port — Plan (awaiting approval)
 
-Status: **research done, nothing built yet.** Approve, or change the decisions in §9, before any code is written.
+Status: **approved; Phase 0 (feasibility spike) in progress.** Decisions in §9 are recorded as answered.
 
 ## 1. Summary
 
@@ -179,12 +179,12 @@ G'MIC, Python scripting and the bundled Python plugins, remaining dockers and ex
 
 ## 9. Decisions needed from you
 
-1. **GPL-3.0.** Using Krita's code means this tool's source (WASM engine and the UI that forms one program with it) must be released under GPL-3.0 to anyone who can use it. The rest of your website is unaffected as long as the tool is a separate program on it. Default: this repository is GPL-3.0 and public. This is my reading, not legal advice. If GPL is unacceptable, option C is off the table and only a clean-room rewrite (option B) remains.
+1. **GPL-3.0.** Using Krita's code means this tool's source (WASM engine and the UI that forms one program with it) must be released under GPL-3.0 to anyone who can use it. The rest of your website is unaffected as long as the tool is a separate program on it. **Resolved: accepted**, this repository is GPL-3.0. This is my reading, not legal advice. If GPL is unacceptable, option C is off the table and only a clean-room rewrite (option B) remains.
 2. **Hosting headers.** Threads require the page to send `Cross-Origin-Opener-Policy: same-origin` and `Cross-Origin-Embedder-Policy: require-corp`, which can break third-party embeds and ads on the same page. **Resolved:** the site is on Cloudflare with a Worker serving from R2, so the Worker adds both headers to responses under the tool's path only (e.g. `/krita/*`); the rest of the site is untouched. The engine files live in R2 (no per-file size cap that matters here) and the Worker must serve `.wasm` as `application/wasm` with long-lived caching. Phase 0 verifies edge compression of the `.wasm` and the real download size.
-3. **Target devices.** Default: desktop Chrome, Edge, Firefox and Safari first; iPad and Android tablets supported with smaller document limits; phones not targeted.
+3. **Target devices.** **Resolved:** desktop Chrome, Edge, Firefox and Safari first. Phones and tablets are a hard requirement later: once desktop works, a stripped-down build is served to those devices. Consequence for the design now: the engine must stay split into separately loadable modules and the UI must not assume a mouse or a large screen.
 4. **UI fidelity.** Default: same layout and concepts as Krita (dockers, workspaces, same names and shortcuts) built as normal web UI, not a pixel copy of the Qt look.
 5. **Krita version.** Default: pin to the latest 6.0.x release tag and update deliberately.
-6. **Section 8 gaps.** Confirm those count as acceptable exceptions to "feature parity".
+6. **Section 8 gaps.** **Resolved:** acceptable, unless one turns out to remove a major feature or cause poor performance; any such case is raised before proceeding.
 
 ## 10. Main risks
 
