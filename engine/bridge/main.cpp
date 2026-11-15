@@ -675,6 +675,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         return QJsonValue();
     }
     if (m == "setActiveNode") { setActive(need(p["id"].toString())); return QJsonValue(); }
+    if (m == "activeNode") return active ? QJsonValue(idOf(active)) : QJsonValue();
     if (m == "nodeThumbnail") {
         KisNodeSP n = need(p["id"].toString());
         const int size = qBound(8, p["size"].toInt(64), 1024);

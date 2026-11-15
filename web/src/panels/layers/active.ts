@@ -14,5 +14,6 @@ export async function activeNode(engine: Engine): Promise<NodeId | null> {
         engine.on('activeNodeChanged', id => { state.id = id; state.known = true; });
         engine.on('documentChanged', d => { if (!d) { state.id = null; state.known = false; } });
     }
-    return s.known ? s.id : (await engine.layers())[0]?.id ?? null;
+    // Ask the engine; an engine build older than activeNode() falls back to the top-most layer.
+    return s.known ? s.id : engine.activeNode().catch(async () => (await engine.layers())[0]?.id ?? null);
 }

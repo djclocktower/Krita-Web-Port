@@ -173,6 +173,8 @@ export interface Engine {
     setNodeProperties(id: NodeId, props: Partial<Pick<LayerNode,
         'name' | 'visible' | 'locked' | 'alphaLocked' | 'opacity' | 'blendMode' | 'collapsed'>>): Promise<void>;
     setActiveNode(id: NodeId): Promise<void>;
+    /** The active node now, for panels that mount after the last activeNodeChanged event. */
+    activeNode(): Promise<NodeId | null>;
     /** PNG bytes, at most `size` pixels on the longer side. */
     nodeThumbnail(id: NodeId, size: number): Promise<Uint8Array>;
     blendModes(): Promise<BlendMode[]>;

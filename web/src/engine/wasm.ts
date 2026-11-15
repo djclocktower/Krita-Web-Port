@@ -140,6 +140,7 @@ export async function createWasmEngine(): Promise<Engine> {
         mergeDown: id => call('mergeDown', { id }),
         setNodeProperties: (id, props) => call('setNodeProperties', { id, props }),
         setActiveNode: id => call('setActiveNode', { id }),
+        activeNode: () => call('activeNode'),
         nodeThumbnail: (id, size) => bytes('nodeThumbnail', { id, size }),
         blendModes: () => call('blendModes'),
 

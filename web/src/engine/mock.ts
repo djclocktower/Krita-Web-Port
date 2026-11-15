@@ -297,6 +297,7 @@ export function createMockEngine(): Engine {
             Object.assign(node, props); changed();
         },
         async setActiveNode(id) { find(id); activeId = id; emit('activeNodeChanged', id); },
+        async activeNode() { return activeId; },
         async nodeThumbnail(id, size) {
             const { node } = find(id), { width, height } = doc(), out = new Uint8ClampedArray(width * height * 4);
             composite([{ ...node, visible: true, opacity: 1 }], out, width, height);
