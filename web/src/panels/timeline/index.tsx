@@ -128,11 +128,13 @@ function Timeline({ engine }: { engine: Engine }) {
             } catch (e) { setError(msg(e)); }
         };
         void loadLayers();
-        engine.animation().then(a => { S.engineAnim = a; if (!S.busy) setA(a); }, e => setError(msg(e)));
+        // Animation state exists only once a document is open; it is loaded again when one appears.
+        const loadAnim = () => engine.documentInfo().then(d => d && engine.animation().then(a => { S.engineAnim = a; if (!S.busy) setA(a); })).catch(e => setError(msg(e)));
+        void loadAnim();
         void activeNode(engine).then(id => { if (!gone) setActive(a => a ?? id); });
         const off = [
             engine.on('layersChanged', () => void loadLayers()),
-            engine.on('documentChanged', () => void loadLayers()),
+            engine.on('documentChanged', () => { void loadLayers(); void loadAnim(); }),
             engine.on('keyframesChanged', id => void loadKeys(id)),
             engine.on('activeNodeChanged', setActive),
             engine.on('animationChanged', a => { S.engineAnim = a; if (!S.busy && !S.queued) setA(a); }),

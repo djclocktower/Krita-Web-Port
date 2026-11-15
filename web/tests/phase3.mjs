@@ -10,7 +10,7 @@ const check = (ok, msg) => { if (!ok) failures++; console.log(`${ok ? 'PASS' : '
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 const browser = await chromium.launch();
-const page = await (await browser.newContext({ viewport: { width: 700, height: 1100 }, deviceScaleFactor: 2 })).newPage();
+const page = await (await browser.newContext({ viewport: { width: 1280, height: 1100 }, deviceScaleFactor: 2 })).newPage();
 page.setDefaultTimeout(15000);
 page.on('pageerror', e => { failures++; console.log('FAIL  page error:', e.message); });
 

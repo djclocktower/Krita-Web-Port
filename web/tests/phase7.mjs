@@ -266,16 +266,18 @@ check(JSON.stringify(await E((e, id) => e.keyframes(id), ids[0])) === '[0,4,9,15
 
 check(errors.length === 0, 'no uncaught page errors (mock)', errors.join(' | '));
 
-// --- real engine: animation calls are unimplemented; the panel must show the error and survive
+// --- real engine: the panel drives Krita's own animation
 errors.length = 0;
 await page.goto('http://localhost:5183/?engine=wasm');
-await page.waitForFunction(() => window.__engine, null, { timeout: 60000 });
+await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 60000 });
 const tab = page.locator('[role=tab]:has-text("Timeline")');
 if (await tab.count()) await tab.first().click();
 await page.waitForSelector('.tl-grid');
-await page.waitForSelector('.tl [role=alert]', { timeout: 30000 });
-check(/Unknown method/i.test(await alertText()), 'wasm engine: panel shows the Unknown method error', await alertText());
-await page.getByRole('button', { name: 'Next frame', exact: true }).click(); await page.waitForTimeout(500);
+await page.waitForTimeout(1500);
+check((await page.locator('.tl [role=alert]').count()) === 0, 'wasm engine: panel loads without an error', await alertText().catch(() => ''));
+const before = await page.evaluate(async () => (await __engine.animation()).currentTime);
+await page.getByRole('button', { name: 'Next frame', exact: true }).click(); await page.waitForTimeout(800);
+check((await page.evaluate(async () => (await __engine.animation()).currentTime)) === before + 1, 'wasm engine: Next frame advances the engine\'s current time');
 check((await page.locator('.tl-grid').count()) === 1, 'wasm engine: panel still renders after more calls');
 check(errors.length === 0, 'wasm engine: no uncaught page errors', errors.join(' | '));
 

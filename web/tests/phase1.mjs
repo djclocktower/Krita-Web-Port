@@ -175,9 +175,11 @@ await settle();
 check((await page.locator('.swatches .swatch').first().evaluate(e => getComputedStyle(e).backgroundColor)) === 'rgb(0, 0, 0)', 'D resets colours');
 
 // 8. export and open
-const [download] = await Promise.all([page.waitForEvent('download'), page.keyboard.press('Control+Shift+e')]);
+// Ctrl+Shift+E opens the Export dialog (PNG is the default format); submitting it downloads the file.
+await page.keyboard.press('Control+Shift+e');
+const [download] = await Promise.all([page.waitForEvent('download'), page.locator('dialog[open] button[type=submit], dialog[open] button:has-text("Export")').last().click()]);
 const png = readFileSync(await download.path());
-check(download.suggestedFilename() === 'Small.png' && png.subarray(1, 4).toString() === 'PNG', 'Ctrl+Shift+E downloads a PNG', download.suggestedFilename());
+check(download.suggestedFilename() === 'Small.png' && png.subarray(1, 4).toString() === 'PNG', 'Ctrl+Shift+E then Export downloads a PNG', download.suggestedFilename());
 const bytes = Buffer.from(await page.evaluate(async () => {
     const c = new OffscreenCanvas(64, 48); const g = c.getContext('2d'); g.fillStyle = '#0a0'; g.fillRect(0, 0, 64, 48);
     return btoa(String.fromCharCode(...new Uint8Array(await (await c.convertToBlob()).arrayBuffer())));
