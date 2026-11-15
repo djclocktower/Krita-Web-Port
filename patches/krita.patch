@@ -420,6 +420,19 @@ index 2725af0..56a65c8 100644
              e->accept();
              return true;
  
+diff --git a/plugins/dockers/svgcollectiondocker/Plugin.cpp b/plugins/dockers/svgcollectiondocker/Plugin.cpp
+index 6bca124..524a05b 100644
+--- a/plugins/dockers/svgcollectiondocker/Plugin.cpp
++++ b/plugins/dockers/svgcollectiondocker/Plugin.cpp
+@@ -11,7 +11,7 @@
+ 
+ #include <kpluginfactory.h>
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(PluginFactory, "svgcollectiondocker.json", registerPlugin<Plugin>();)
++K_PLUGIN_FACTORY_WITH_JSON(SvgCollectionPluginFactory, "svgcollectiondocker.json", registerPlugin<Plugin>();)
+ 
+ Plugin::Plugin(QObject *parent, const QVariantList &)
+     : QObject(parent)
 diff --git a/plugins/filters/levelfilter/CMakeLists.txt b/plugins/filters/levelfilter/CMakeLists.txt
 index 44b5c7e..2f1c4d2 100644
 --- a/plugins/filters/levelfilter/CMakeLists.txt
@@ -675,6 +688,71 @@ index e69dea2..9b13c0e 100644
                                       const KisRateOption *rateOption,
                                       const KisPaintInformation &pi)
  {
+diff --git a/plugins/tools/defaulttool/Plugin.cpp b/plugins/tools/defaulttool/Plugin.cpp
+index 1d18b52..b5ce92b 100644
+--- a/plugins/tools/defaulttool/Plugin.cpp
++++ b/plugins/tools/defaulttool/Plugin.cpp
+@@ -11,7 +11,7 @@
+ 
+ #include <kpluginfactory.h>
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(PluginFactory, "calligra_tool_defaults.json", registerPlugin<Plugin>();)
++K_PLUGIN_FACTORY_WITH_JSON(FlakeToolsPluginFactory, "calligra_tool_defaults.json", registerPlugin<Plugin>();)
+ 
+ Plugin::Plugin(QObject *parent, const QVariantList &)
+     : QObject(parent)
+diff --git a/plugins/tools/svgtexttool/Plugin.cpp b/plugins/tools/svgtexttool/Plugin.cpp
+index ebe31b3..0ca0fad 100644
+--- a/plugins/tools/svgtexttool/Plugin.cpp
++++ b/plugins/tools/svgtexttool/Plugin.cpp
+@@ -20,7 +20,7 @@
+ #include "SvgTextToolOptionsModel.h"
+ #include "SvgTextToolOptionsManager.h"
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(PluginFactory, "krita_tool_svgtext.json", registerPlugin<Plugin>();)
++K_PLUGIN_FACTORY_WITH_JSON(SvgTextPluginFactory, "krita_tool_svgtext.json", registerPlugin<Plugin>();)
+ 
+ KIS_DECLARE_STATIC_INITIALIZER {
+     qmlRegisterType<GlyphPaletteProxyModel>("org.krita.tools.text", 1, 0, "GlyphPaletteProxyModel");
+diff --git a/plugins/tools/tool_knife/ToolKnife.cpp b/plugins/tools/tool_knife/ToolKnife.cpp
+index 18acb5c..2f20d90 100644
+--- a/plugins/tools/tool_knife/ToolKnife.cpp
++++ b/plugins/tools/tool_knife/ToolKnife.cpp
+@@ -14,7 +14,7 @@
+ #include "KisToolKnife.h"
+ 
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(DefaultToolsFactory, "kritatoolknife.json", registerPlugin<ToolKnife>();)
++K_PLUGIN_FACTORY_WITH_JSON(KnifeToolsFactory, "kritatoolknife.json", registerPlugin<ToolKnife>();)
+ 
+ 
+ ToolKnife::ToolKnife(QObject *parent, const QVariantList &)
+diff --git a/plugins/tools/tool_lazybrush/tool_lazybrush.cpp b/plugins/tools/tool_lazybrush/tool_lazybrush.cpp
+index 3014e6c..8c60c04 100644
+--- a/plugins/tools/tool_lazybrush/tool_lazybrush.cpp
++++ b/plugins/tools/tool_lazybrush/tool_lazybrush.cpp
+@@ -16,7 +16,7 @@
+ #include "kis_tool_lazy_brush.h"
+ 
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(DefaultToolsFactory, "kritatoollazybrush.json", registerPlugin<ToolLazyBrush>();)
++K_PLUGIN_FACTORY_WITH_JSON(LazyBrushToolsFactory, "kritatoollazybrush.json", registerPlugin<ToolLazyBrush>();)
+ 
+ 
+ ToolLazyBrush::ToolLazyBrush(QObject *parent, const QVariantList &)
+diff --git a/plugins/tools/tool_smart_patch/tool_smartpatch.cpp b/plugins/tools/tool_smart_patch/tool_smartpatch.cpp
+index 5d4fb51..5e5a7b2 100644
+--- a/plugins/tools/tool_smart_patch/tool_smartpatch.cpp
++++ b/plugins/tools/tool_smart_patch/tool_smartpatch.cpp
+@@ -16,7 +16,7 @@
+ #include "kis_tool_smart_patch.h"
+ 
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(DefaultToolsFactory, "kritatoolsmartpatch.json", registerPlugin<ToolSmartPatch>();)
++K_PLUGIN_FACTORY_WITH_JSON(SmartPatchToolsFactory, "kritatoolsmartpatch.json", registerPlugin<ToolSmartPatch>();)
+ 
+ 
+ ToolSmartPatch::ToolSmartPatch(QObject *parent, const QVariantList &)
 diff --git a/sdk/tests/kistest.h b/sdk/tests/kistest.h
 index 2c813ac..7b739cf 100644
 --- a/sdk/tests/kistest.h

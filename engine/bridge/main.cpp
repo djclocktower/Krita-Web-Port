@@ -20,6 +20,12 @@
 #include <utime.h>
 
 #include <KisDocument.h>
+#include <KisMainWindow.h>
+#include <KisView.h>
+#include <kis_canvas2.h>
+#include <kis_config.h>
+#include <KoToolManager.h>
+#include <kactioncollection.h>
 #include <KisImportExportManager.h>
 #include <KisPart.h>
 #include <KisViewManager.h>
@@ -1121,6 +1127,24 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         if (!paint) fail("Onion skins are only available on paint layers");
         paint->setOnionSkinEnabled(p["enabled"].toBool());
         return QJsonValue();
+    }
+    // ---- spike: Krita's own main window, view and tools, with no display
+    if (m == "spike.mainWindow") {
+        QJsonObject o;
+        KisConfig(false).disableOpenGL();
+        KisMainWindow *window = KisPart::instance()->createMainWindow();
+        o["window"] = bool(window);
+        o["actions"] = int(window->actionCollection()->count());
+        if (doc) {
+            KisPart::instance()->addDocument(doc);
+            KisView *view = window->addViewAndNotifyLoadingCompleted(doc);
+            o["view"] = bool(view);
+            o["canvasWidget"] = view && view->canvasBase() && view->canvasBase()->canvasWidget() ? view->canvasBase()->canvasWidget()->metaObject()->className() : "none";
+        }
+        QStringList tools;
+        for (KoToolAction *t : KoToolManager::instance()->toolActionList()) tools << t->id();
+        o["tools"] = QJsonArray::fromStringList(tools);
+        return o;
     }
     fail("Unknown method: " + m);
 }

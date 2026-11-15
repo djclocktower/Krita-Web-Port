@@ -134,7 +134,19 @@ s_fribidi()    { fetch_git fribidi https://github.com/fribidi/fribidi.git v1.0.1
 s_gsl() { fetch_git gsl https://github.com/ampl/gsl.git v2.7.0   # GNU GSL with a CMake build
            cm gsl -DGSL_DISABLE_TESTS=ON -DNO_AMPL_BINDINGS=ON -DDOCUMENTATION=OFF; }
 
-ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl"
+# --- image format libraries (all -pthread via KW_CFLAGS; C++ ones also -fexceptions) ---
+s_jpeg() { fetch_git jpeg https://github.com/libjpeg-turbo/libjpeg-turbo.git 3.0.4
+           cm jpeg -DENABLE_SHARED=OFF -DENABLE_STATIC=ON -DWITH_SIMD=OFF -DWITH_TURBOJPEG=ON -DWITH_JAVA=OFF -DWITH_TOOLS=OFF \
+              -DCMAKE_INSTALL_DEFAULT_LIBDIR=lib; }
+s_tiff() { fetch_git tiff https://gitlab.com/libtiff/libtiff.git v4.7.0
+           cm tiff -Dtiff-tools=OFF -Dtiff-tests=OFF -Dtiff-contrib=OFF -Dtiff-docs=OFF -Dtiff-opengl=OFF \
+              -Dlzma=OFF -Dzstd=OFF -Dwebp=OFF -Djbig=OFF -Dlerc=OFF -Dlibdeflate=OFF -Dcxx=OFF -Dzlib=ON -Djpeg=ON -Dpixarlog=ON; }
+s_webp() { fetch_git webp https://github.com/webmproject/libwebp.git v1.4.0
+           cm webp -DWEBP_BUILD_ANIM_UTILS=OFF -DWEBP_BUILD_CWEBP=OFF -DWEBP_BUILD_DWEBP=OFF -DWEBP_BUILD_GIF2WEBP=OFF \
+              -DWEBP_BUILD_IMG2WEBP=OFF -DWEBP_BUILD_VWEBP=OFF -DWEBP_BUILD_WEBPINFO=OFF -DWEBP_BUILD_WEBPMUX=OFF \
+              -DWEBP_BUILD_EXTRAS=OFF -DWEBP_BUILD_LIBWEBPMUX=ON -DWEBP_USE_THREAD=ON; }
+
+ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp"
 for s in ${@:-$ALL}; do
     if [ -e "$KW/stamps/$s" ]; then echo "skip $s"; continue; fi
     echo "== $s"

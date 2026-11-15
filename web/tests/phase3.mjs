@@ -3,7 +3,7 @@
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
 
-const URL = 'http://localhost:5175/';
+const URL = process.env.URL ?? 'http://localhost:5175/';
 const SHOT = '/tmp/claude-0/-home-user-Krita-Web-Port/65182417-9f70-5299-9ecc-ec5673875a37/scratchpad/phase3.png';
 let failures = 0;
 const check = (ok, msg) => { if (!ok) failures++; console.log(`${ok ? 'PASS' : 'FAIL'}  ${msg}`); };

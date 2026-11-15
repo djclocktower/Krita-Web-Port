@@ -1,0 +1,8956 @@
+{
+ "generatedBy": "real engine presets()/selectPreset()/presetSettings()",
+ "engines": {
+  "paintbrush": {
+   "presets": [
+    "a) Eraser Circle",
+    "a) Eraser Small",
+    "a) Eraser Soft",
+    "b) Airbrush Soft",
+    "b) Basic-2 Opacity",
+    "b) Basic-3 Flow",
+    "b) Basic-4 Flow Opacity",
+    "b) Basic-5 Size Opacity",
+    "b) Basic-5 Size",
+    "b) Basic-6 Details",
+    "c) Pencil-1 Hard",
+    "c) Pencil-2",
+    "c) Pencil-3 Large 4B",
+    "c) Pencil-4 Soft",
+    "c) Pencil-5 Tilted",
+    "c) Pencil-6 Quick Shade",
+    "d) Ink-1 Precision",
+    "d) Ink-2 Fineliner",
+    "d) Ink-3 Gpen",
+    "d) Ink-4 Pen Rough",
+    "d) Ink-7 Brush Rough",
+    "e) Marker Chisel Smooth",
+    "e) Marker Details",
+    "e) Marker Dry",
+    "f) Bristles-1 Details",
+    "f) Bristles-2 Flat Rough",
+    "f) Bristles-3 Large Smooth",
+    "f) Bristles-4 Glaze",
+    "f) Bristles-5 Flat",
+    "f) Charcoal Rock Soft",
+    "f) Dry Roller",
+    "g) Dry Bristles Eroded",
+    "g) Dry Bristles",
+    "g) Dry Brushing",
+    "g) Dry Textured Creases",
+    "h) Chalk Details",
+    "h) Chalk Grainy",
+    "h) Chalk Soft",
+    "h) Charcoal Pencil Medium",
+    "h) Charcoal Pencil Thin",
+    "h) Charcoal pencil large",
+    "j) Watercolor Texture",
+    "j) Waterpaint Hard Edges",
+    "j) Waterpaint Soft Edges",
+    "l) Adjust Color",
+    "l) Adjust Dodge",
+    "l) Adjust Lighten",
+    "l) Adjust Multiply",
+    "l) Adjust Overlay Burn",
+    "t) Shapes Mecha",
+    "t) Shapes Rounded",
+    "t) Shapes Spikes",
+    "t) Shapes Square",
+    "u) Pixel Art Dithering",
+    "u) Pixel Art Fill",
+    "u) Pixel Art",
+    "v) Texture Impressionism",
+    "y) Screentone Pressure",
+    "y) Screentones Regular",
+    "y) Texture Big",
+    "y) Texture Crackles",
+    "y) Texture Hair",
+    "y) Texture Large Splat",
+    "y) Texture Noise",
+    "y) Texture Random Particles",
+    "y) Texture Reptile",
+    "y) Texture Snow Pile",
+    "y) Texture Spines",
+    "y) Texture Splat",
+    "y) Texture Spray",
+    "y) Texture Wood Fiber",
+    "z) Stamp Bokeh",
+    "z) Stamp Floor",
+    "z) Stamp Grass Patch",
+    "z) Stamp Grass",
+    "z) Stamp Herbals",
+    "z) Stamp Leaves",
+    "z) Stamp Mountains Distant",
+    "z) Stamp Sparkles",
+    "z) Stamp Stylised Tree",
+    "z) Stamp Vegetal",
+    "z) Stamp Water"
+   ],
+   "keys": {
+    "AirbrushOption/isAirbrushing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 8
+    },
+    "AirbrushOption/rate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "100",
+      "1000"
+     ],
+     "n": 8
+    },
+    "ColorSource/Type": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "plain"
+     ],
+     "n": 82
+    },
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "erase",
+      "normal",
+      "color",
+      "dodge",
+      "lighten",
+      "multiply",
+      "overlay"
+     ],
+     "n": 82
+    },
+    "DarkenSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params rotationModeEnabled=\"0\" id=\"fuzzy\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0;1,0.951807;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "DarkenUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "DarkenUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "DarkenValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 82
+    },
+    "FlowSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.771084,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.169082,0.306533;0.270531,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.361446,0.0917031;0.558233,0.244541;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.595855,0.323144;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.104803;0.259067,0.497817;0.398964,0.982533;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.0361991,0.266332;0.0678731,0.994975;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.477387,0.477387;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.00518135,0.69869;0.605261,0.899563;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.759036,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.00502513;0.550725,0.221106;1,1;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "FlowUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "FlowUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "FlowValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.8",
+      "0.4",
+      "0.33",
+      "0.6",
+      "0.9"
+     ],
+     "n": 82
+    },
+    "HorizontalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "KisPrecisionOption/AutoPrecisionEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "KisPrecisionOption/DeltaValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15",
+      "8",
+      "30"
+     ],
+     "n": 82
+    },
+    "KisPrecisionOption/SizeToStartFrom": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0",
+      "10",
+      "90"
+     ],
+     "n": 82
+    },
+    "KisPrecisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5",
+      "1",
+      "4",
+      "2"
+     ],
+     "n": 82
+    },
+    "KisPresisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5",
+      "2"
+     ],
+     "n": 8
+    },
+    "Krita/compositeop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal",
+      "overlay"
+     ],
+     "n": 6
+    },
+    "Krita/erase": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 6
+    },
+    "Krita/mirrorhorizontal": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 6
+    },
+    "Krita/mirrorvertical": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 6
+    },
+    "Krita/opacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "100"
+     ],
+     "n": 6
+    },
+    "MirrorSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzystroke\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"/> "
+     ],
+     "n": 82
+    },
+    "MirrorUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "MirrorUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "MirrorValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0"
+     ],
+     "n": 82
+    },
+    "MixSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.208835;0.13253,0.554217;0.445783,0.947791;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0.502183;0.525317,1;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "MixUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "MixUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "MixValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 82
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.5,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.0932642,0.716157;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.190955,0.110553;0.769853,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.675298,0.578529;0.859438,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.353413,0.0786025;0.562249,0.244541;0.855422,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.507538,0.336683;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.325305,0.288175;0.727782,0.924817;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.25,0.126637;0.754237,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.128414,0.100402;0.473896,0.710843;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.487437;0.305276,0.537186;0.75,0.9;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.0817124,0.159411;0.567839,0.763819;1,1;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.6",
+      "0.15"
+     ],
+     "n": 82
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 6
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2",
+      "1"
+     ],
+     "n": 82
+    },
+    "PressureDarken": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 82
+    },
+    "PressureMirror": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "PressureMix": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 82
+    },
+    "PressureOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 8
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "PressureScatter": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "PressureSharpness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "PressureSoftness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "PressureSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "PressureTexture/Strength/": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "Pressureh": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "Pressures": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 82
+    },
+    "Pressurev": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"drawingangle\" lockedAngleMode=\"0\" angleOffset=\"0\" fanCornersEnabled=\"0\" fanCornersStep=\"30\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"tangentialpressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"drawingangle\" lockedAngleMode=\"0\" angleOffset=\"0\" fanCornersEnabled=\"1\" fanCornersStep=\"90\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params fanCornersStep=\"90\" fanCornersEnabled=\"1\" lockedAngleMode=\"0\" angleOffset=\"0\" id=\"drawingangle\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params fanCornersEnabled=\"1\" lockedAngleMode=\"0\" id=\"drawingangle\" fanCornersStep=\"90\" angleOffset=\"0\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"ascension\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params fanCornersStep=\"30\" fanCornersEnabled=\"0\" lockedAngleMode=\"0\" angleOffset=\"0\" id=\"drawingangle\"/> ",
+      "<!DOCTYPE params> <params id=\"sensorslist\"> <ChildSensor id=\"fuzzy\"/> <ChildSensor id=\"pressure\"> <curve>0,0;1,1;</curve> </ChildSensor> </params> ",
+      "<!DOCTYPE params> <params fanCornersEnabled=\"1\" angleOffset=\"0\" id=\"drawingangle\" lockedAngleMode=\"0\" fanCornersStep=\"90\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params fanCornersEnabled=\"1\" angleOffset=\"0\" fanCornersStep=\"90\" id=\"drawingangle\" lockedAngleMode=\"0\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0.472362;1,0.517588;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0",
+      "0.19"
+     ],
+     "n": 82
+    },
+    "ScatterSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;1,0.113537;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;1,0;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;0.75502,0.113537;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.482412;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"sensorslist\"> <ChildSensor id=\"fuzzy\"> <curve>0,0.0904523;1,1;</curve> </ChildSensor> <ChildSensor id=\"pressure\"> <curve>0,0;1,1;</curve> </ChildSensor> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.445783,0.204819;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"sensorslist\"> <ChildSensor id=\"fuzzy\"> <curve>0,0;1,1;</curve> </ChildSensor> <ChildSensor id=\"pressure\"/> </params> "
+     ],
+     "n": 82
+    },
+    "ScatterUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "ScatterUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "ScatterValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "5",
+      "0.09",
+      "2.79",
+      "0.089999999999999997",
+      "0.08",
+      "0.15",
+      "0.04",
+      "0",
+      "2.18",
+      "0.17",
+      "0.7"
+     ],
+     "n": 82
+    },
+    "Scattering/AxisX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "Scattering/AxisY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "Sharpness/threshold": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "4",
+      "2",
+      "40",
+      "31",
+      "21",
+      "42",
+      "50",
+      "54",
+      "11",
+      "1"
+     ],
+     "n": 82
+    },
+    "SharpnessSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,0.811245;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.457831,0.461847;1,1;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "SharpnessUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "SharpnessUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "SharpnessValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.3",
+      "0",
+      "0.04"
+     ],
+     "n": 82
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.413655,0.333333;0.674699,0.772125;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.487437;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.124498,0.341365;0.502008,0.875502;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.389558;0.305221,0.658635;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.406552;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.24498;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.0698697;0.196891,0.144105;0.689119,0.812227;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.35,0.1;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.485944;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.145729,0.0351759;0.683417,0.859296;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"declination\"> <curve>0,1;1,0.246231;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 82
+    },
+    "SoftnessSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"sensorslist\"> <ChildSensor id=\"speed\"> <curve>0,0.963855;0.20482,0.558233;1,0;</curve> </ChildSensor> <ChildSensor id=\"pressure\"> <curve>0.00803213,0;0.722992,0.172691;1,1;</curve> </ChildSensor> </params> ",
+      "<!DOCTYPE params> <params periodic=\"1\" duration=\"1470\" id=\"time\"/> "
+     ],
+     "n": 82
+    },
+    "SoftnessUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "SoftnessUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "SoftnessValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.1"
+     ],
+     "n": 82
+    },
+    "Spacing/Isotropic": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "SpacingSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.124498,0.341365;0.502008,0.875502;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.696682,0.370166;1,0.994475;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.00803213,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;0.25,0.9;0.75,0.1;1,0;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.78481,1;0.873417,0.642253;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.727849,1;0.860759,0.498149;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.658228,1;0.892405,0.502184;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.588609,1;0.841772,0.820961;1,0.563319;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;0.337349,0.891566;0.469879,0.819277;1,0.546185;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.100402;0.341365,0.2249;0.646586,0.514056;1,1;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "SpacingUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 82
+    },
+    "SpacingUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "SpacingValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.08",
+      "0.45"
+     ],
+     "n": 82
+    },
+    "Texture/Pattern/Enabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "VerticalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 82
+    },
+    "brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"1\" randomness=\"0\" density=\"1\" autoSpacingCoeff=\"1.2\" BrushVersion=\"2\" spacing=\"0.1\" angle=\"0\"> <MaskGenerator ratio=\"1\" type=\"circle\" vfade=\"0.87\" id=\"default\" spikes=\"2\" antialiasEdges=\"1\" hfade=\"0.87\" diameter=\"50\"/> </Brush> ",
+      "<Brush angle=\"0\" autoSpacingCoeff=\"1\" useAutoSpacing=\"0\" randomness=\"0\" spacing=\"0.05\" BrushVersion=\"2\" type=\"auto_brush\" density=\"1\"> <MaskGenerator vfade=\"1\" id=\"default\" hfade=\"1\" spikes=\"2\" ratio=\"0.52\" diameter=\"25\" antialiasEdges=\"1\" type=\"rect\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"1\" BrushVersion=\"2\" spacing=\"0.1\" useAutoSpacing=\"0\" randomness=\"0\" density=\"1\" angle=\"0\" type=\"auto_brush\"> <MaskGenerator spikes=\"2\" id=\"gauss\" antialiasEdges=\"0\" hfade=\"0\" ratio=\"1\" type=\"circle\" diameter=\"60\" vfade=\"0\"/> </Brush> ",
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" spacing=\"0.1\" BrushVersion=\"2\" randomness=\"0\" density=\"1\" autoSpacingCoeff=\"1\" angle=\"0\"> <MaskGenerator type=\"circle\" vfade=\"0\" spikes=\"2\" id=\"soft\" hfade=\"0\" softness_curve=\"0,0.39911;0.429719,0.118523;1,0;\" diameter=\"600\" antialiasEdges=\"0\" ratio=\"1\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"0.8\" BrushVersion=\"2\" spacing=\"0.1\" useAutoSpacing=\"1\" randomness=\"0\" density=\"1\" angle=\"0\" type=\"auto_brush\"> <MaskGenerator spikes=\"2\" id=\"default\" antialiasEdges=\"1\" hfade=\"0.9\" ratio=\"1\" type=\"circle\" diameter=\"40\" vfade=\"0.9\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"0.4\" BrushVersion=\"2\" useAutoSpacing=\"1\" density=\"1\" spacing=\"0.1\" angle=\"5.98648\" randomness=\"0\" type=\"auto_brush\"> <MaskGenerator ratio=\"1\" antialiasEdges=\"0\" diameter=\"40\" vfade=\"0.89\" id=\"gauss\" hfade=\"0.89\" spikes=\"2\" type=\"circle\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"0.4\" BrushVersion=\"2\" useAutoSpacing=\"1\" density=\"1\" spacing=\"0.1\" angle=\"5.98648\" randomness=\"0\" type=\"auto_brush\"> <MaskGenerator ratio=\"1\" antialiasEdges=\"0\" diameter=\"40\" vfade=\"0.9\" id=\"gauss\" hfade=\"0.9\" spikes=\"2\" type=\"circle\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"1\" BrushVersion=\"2\" spacing=\"0.2\" useAutoSpacing=\"0\" randomness=\"0\" density=\"1\" angle=\"6.28319\" type=\"auto_brush\"> <MaskGenerator spikes=\"2\" id=\"gauss\" antialiasEdges=\"1\" hfade=\"1\" ratio=\"1\" type=\"circle\" diameter=\"40\" vfade=\"1\"/> </Brush> ",
+      "<Brush useAutoSpacing=\"1\" angle=\"0\" spacing=\"0.1\" density=\"1\" BrushVersion=\"2\" type=\"auto_brush\" randomness=\"0\" autoSpacingCoeff=\"0.8\"> <MaskGenerator spikes=\"2\" hfade=\"1\" ratio=\"1\" diameter=\"40\" id=\"default\" type=\"circle\" antialiasEdges=\"1\" vfade=\"1\"/> </Brush> ",
+      "<Brush scale=\"0.05\" type=\"png_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"0\" spacing=\"0.02\" BrushVersion=\"2\" filename=\"plain_rake.png\"/> ",
+      "<Brush angle=\"0\" autoSpacingCoeff=\"1\" useAutoSpacing=\"0\" randomness=\"0\" spacing=\"0.2\" BrushVersion=\"2\" type=\"auto_brush\" density=\"1\"> <MaskGenerator vfade=\"0.15\" id=\"gauss\" hfade=\"0.15\" spikes=\"2\" ratio=\"1\" diameter=\"10\" antialiasEdges=\"0\" type=\"circle\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"1\" density=\"1\" BrushVersion=\"2\" type=\"auto_brush\" spacing=\"0.2\" useAutoSpacing=\"0\" randomness=\"0\" angle=\"0\"> <MaskGenerator ratio=\"1\" hfade=\"0.15\" spikes=\"2\" vfade=\"0.15\" diameter=\"10\" type=\"circle\" id=\"gauss\" antialiasEdges=\"0\"/> </Brush> "
+     ],
+     "n": 82
+    },
+    "hSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0.445415;1,0.541485;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.432314;1,0.567686;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0.407035;1,0.592964;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0.497816;1,0.591495;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "hUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "hUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "hValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 82
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "paintbrush"
+     ],
+     "n": 82
+    },
+    "requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "",
+      "plain_rake.png",
+      "graphite_grain.gih",
+      "gradient.png",
+      "bristle.png",
+      "chisel_streaks.png",
+      "bristles_circle_dense.png",
+      "random_particles.png",
+      "rake_flat.png",
+      "chalk_chisel_random_small.gih",
+      "square_eroded.png",
+      "chalk_chisel_random.gih"
+     ],
+     "n": 82
+    },
+    "runtimeCanvasMirroredX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 9
+    },
+    "runtimeCanvasMirroredY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 9
+    },
+    "runtimeCanvasRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 9
+    },
+    "sSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 82
+    },
+    "sUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "sUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "sValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 82
+    },
+    "vSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0.423581;1,0.576419;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0.480349;1,0.616445;</curve> </params> "
+     ],
+     "n": 82
+    },
+    "vUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "vUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 82
+    },
+    "vValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 82
+    },
+    "DarkencurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 81
+    },
+    "FlowcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "MaskingBrush/Enabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/MaskingCompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "multiply",
+      "subtract",
+      "overlay",
+      "linear_dodge"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/MasterSizeCoeff": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.2",
+      "0.03472152543232416",
+      "0.052082288148486235",
+      "0.03906171611136467",
+      "5.3745",
+      "0.06249874577818347",
+      "0.05",
+      "0.7954545454545455",
+      "23.491",
+      "0.5",
+      "11.728",
+      "6.711875"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/FlowSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.608696,0.291457;1,1;</curve> </params> "
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/FlowUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/FlowUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/FlowValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.31",
+      "0.85",
+      "0.67"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/FlowcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/HorizontalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/MirrorSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/MirrorUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/MirrorUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/MirrorValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/MirrorcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.824121;0.487437,0.768844;0.763819,0.562814;1,0;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.80402,0.351758;0.924624,0.758794;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.60804,0;0.81407,0.40201;0.879397,0.753769;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.603015,0;0.829146,0.376884;0.899497,0.743719;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.361809,0.376884;0.527638,0.678392;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.512563;0.61809,0.964824;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"/> "
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.8",
+      "0.47",
+      "0.53"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0",
+      "4"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/PressureMirror": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/PressureRatio": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/PressureScatter": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RatioSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RatioUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RatioUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RatioValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RatiocurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"fuzzystroke\"/> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"sensorslist\"> <ChildSensor id=\"fuzzy\"/> <ChildSensor id=\"pressure\"/> </params> "
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/ScatterSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"/> "
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/ScatterUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/ScatterUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/ScatterValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5",
+      "1",
+      "0.35",
+      "0.14",
+      "0.26",
+      "0.59"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/ScattercurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/Scattering/AxisX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/Scattering/AxisY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"fuzzystroke\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.748744;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.552764;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.241206;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.180905;0.31401,0.266332;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"/> "
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/VerticalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush angle=\"0\" autoSpacingCoeff=\"1\" useAutoSpacing=\"0\" randomness=\"0\" spacing=\"0.1\" BrushVersion=\"2\" type=\"auto_brush\" density=\"1\"> <MaskGenerator vfade=\"0.5\" id=\"default\" hfade=\"0.5\" spikes=\"2\" ratio=\"1\" diameter=\"5\" antialiasEdges=\"0\" type=\"circle\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"1\" BrushVersion=\"2\" spacing=\"0.1\" useAutoSpacing=\"0\" randomness=\"0\" density=\"1\" angle=\"0\" type=\"auto_brush\"> <MaskGenerator spikes=\"2\" id=\"default\" antialiasEdges=\"0\" hfade=\"0.5\" ratio=\"1\" type=\"circle\" diameter=\"2.08329\" vfade=\"0.5\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"1\" BrushVersion=\"2\" useAutoSpacing=\"0\" density=\"1\" spacing=\"0.1\" angle=\"0\" randomness=\"0\" type=\"auto_brush\"> <MaskGenerator ratio=\"1\" antialiasEdges=\"0\" diameter=\"1.56247\" vfade=\"0.5\" id=\"default\" hfade=\"0.5\" spikes=\"2\" type=\"circle\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"1\" BrushVersion=\"2\" useAutoSpacing=\"0\" filename=\"abominable_snowman.png\" spacing=\"0.12\" angle=\"0\" scale=\"0.7166\" type=\"png_brush\"/> ",
+      "<Brush angle=\"0\" autoSpacingCoeff=\"1\" useAutoSpacing=\"0\" randomness=\"0\" spacing=\"0.1\" BrushVersion=\"2\" type=\"auto_brush\" density=\"1\"> <MaskGenerator vfade=\"0.5\" id=\"default\" hfade=\"0.5\" spikes=\"2\" ratio=\"1\" diameter=\"1.56247\" antialiasEdges=\"0\" type=\"circle\"/> </Brush> ",
+      "<Brush density=\"1\" spacing=\"0.1\" BrushVersion=\"2\" autoSpacingCoeff=\"1\" angle=\"0\" randomness=\"0\" type=\"auto_brush\" useAutoSpacing=\"0\"> <MaskGenerator diameter=\"5\" hfade=\"0.5\" antialiasEdges=\"0\" vfade=\"0.5\" id=\"default\" spikes=\"2\" type=\"circle\" ratio=\"1\"/> </Brush> ",
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"0\" spacing=\"0.1\" BrushVersion=\"2\" density=\"1\" randomness=\"0\"> <MaskGenerator ratio=\"1\" vfade=\"0.5\" spikes=\"2\" type=\"circle\" hfade=\"0.5\" antialiasEdges=\"0\" diameter=\"5.96591\" id=\"default\"/> </Brush> ",
+      "<Brush filename=\"abominable_snowman.png\" angle=\"0\" autoSpacingCoeff=\"1\" useAutoSpacing=\"0\" spacing=\"0.25\" scale=\"0.783033\" BrushVersion=\"2\" type=\"png_brush\"/> ",
+      "<Brush autoSpacingCoeff=\"1\" density=\"1\" BrushVersion=\"2\" type=\"auto_brush\" spacing=\"0.1\" useAutoSpacing=\"0\" randomness=\"0\" angle=\"0\"> <MaskGenerator ratio=\"1\" hfade=\"0.5\" spikes=\"2\" vfade=\"0.5\" diameter=\"5\" type=\"circle\" id=\"default\" antialiasEdges=\"0\"/> </Brush> ",
+      "<Brush filename=\"abominable_snowman.png\" scale=\"0.390933\" BrushVersion=\"2\" spacing=\"0.25\" autoSpacingCoeff=\"1\" type=\"png_brush\" angle=\"0\" useAutoSpacing=\"0\"/> ",
+      "<Brush scale=\"0.357967\" type=\"png_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"0\" spacing=\"0.25\" BrushVersion=\"2\" filename=\"abominable_snowman.png\"/> ",
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"0\" spacing=\"0.1\" BrushVersion=\"2\" density=\"1\" randomness=\"0\"> <MaskGenerator ratio=\"1\" vfade=\"0.5\" spikes=\"2\" type=\"circle\" hfade=\"0.5\" antialiasEdges=\"0\" diameter=\"34.0692\" id=\"default\"/> </Brush> "
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "",
+      "abominable_snowman.png",
+      "random-debris.gbr",
+      "rock.png",
+      "scribbles.png",
+      "square_rough.png"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/Preset/requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "",
+      "abominable_snowman.png",
+      "random-debris.gbr",
+      "rock.png",
+      "scribbles.png",
+      "square_rough.png"
+     ],
+     "n": 74
+    },
+    "MaskingBrush/UseMasterSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 74
+    },
+    "MirrorcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "MixcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "PaintOpSettings/ignoreSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 75
+    },
+    "PaintOpSettings/isAirbrushing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 75
+    },
+    "PaintOpSettings/rate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20",
+      "1000"
+     ],
+     "n": 75
+    },
+    "PaintOpSettings/updateSpacingBetweenDabs": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 75
+    },
+    "PressureRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 75
+    },
+    "PressureRatio": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 76
+    },
+    "RateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 75
+    },
+    "RateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 75
+    },
+    "RateUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 75
+    },
+    "RateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 75
+    },
+    "RatecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "RatioSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"declination\"> <curve>0,0.0351759;0.262443,0.0954774;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"sensorslist\"> <ChildSensor id=\"fuzzy\"> <curve>0,0.742359;1,1;</curve> </ChildSensor> <ChildSensor id=\"pressure\"> <curve>0,0;1,1;</curve> </ChildSensor> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.240175;0.727848,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0.979899;0.347826,0.296482;0.545894,0.819095;0.801932,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.742359;1,1;</curve> </params> "
+     ],
+     "n": 76
+    },
+    "RatioUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 76
+    },
+    "RatioUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 76
+    },
+    "RatioValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 76
+    },
+    "RatiocurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "ScattercurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "SharpnesscurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "SoftnesscurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "SpacingcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "hcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "",
+      "abominable_snowman.png",
+      "plain_rake.png",
+      "graphite_grain.gih;abominable_snowman.png",
+      "gradient.png",
+      "bristle.png;abominable_snowman.png",
+      "chisel_streaks.png;abominable_snowman.png",
+      "bristles_circle_dense.png;abominable_snowman.png;bristles_circle_dense.png;bristles_circle_dense.png;bristles_circle_dense.png;bristles_circle_dense.png;bristles_circle_dense.png",
+      "random_particles.png",
+      "rake_flat.png",
+      "chalk_chisel_random_small.gih",
+      "square_eroded.png"
+     ],
+     "n": 75
+    },
+    "scurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "vcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 75
+    },
+    "ColorRateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 5
+    },
+    "ColorRateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 5
+    },
+    "ColorRateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 5
+    },
+    "GradientSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 5
+    },
+    "GradientUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 5
+    },
+    "GradientValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 5
+    },
+    "MergedPaint": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 5
+    },
+    "PressureColorRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 5
+    },
+    "PressureGradient": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 5
+    },
+    "PressureSmudgeRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 5
+    },
+    "SmudgeRateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 5
+    },
+    "SmudgeRateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 5
+    },
+    "SmudgeRateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 5
+    },
+    "lodUserAllowed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 54
+    },
+    "Texture/Pattern/Brightness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.3",
+      "0",
+      "0.35",
+      "0.18",
+      "0.55",
+      "-0.4"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/Contrast": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "1.3",
+      "0.6",
+      "2"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/CutoffLeft": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0",
+      "70"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/CutoffPolicy": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0",
+      "1",
+      "2"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/CutoffRight": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "254",
+      "255"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/Invert": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/MaximumOffsetX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "256",
+      "140",
+      "250",
+      "4",
+      "12",
+      "13"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/MaximumOffsetY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "256",
+      "140",
+      "250",
+      "4",
+      "12",
+      "13"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/Name": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "10_drawed_dotted.png",
+      "04_paper-C-grain.png",
+      "03_default-paper.png",
+      "4-paper-soft-grain_testdark-black55.png",
+      "4-paper-soft-grain_testtweak2.png",
+      "tex9.png",
+      "4-paper-soft-grain_testdark-black15.png",
+      "Squares08.pat",
+      "23-dynamic-screentone-A.png",
+      "24-dynamic-screentone-B.png",
+      "22_texture-reptile.png"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/OffsetX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0",
+      "172",
+      "33",
+      "58",
+      "132"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/OffsetY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "65",
+      "0",
+      "114",
+      "199",
+      "87",
+      "103"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/PatternFileName": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "D:/Users/RAMON/Downloads/KRITA releases/krita-nightly-x64-v4.0.0.51-300-g4840e16bfe/share/krita/patterns/10_drawed_dotted.png",
+      "/home/deevad/sources/krita/inst/share/krita/patterns/04_paper-C-grain.png",
+      "/home/deevad/sources/krita/inst/share/krita/patterns/03_default-paper.png",
+      "/home/deevad/.local/share/krita/patterns//4-paper-soft-grain_testdark-black55.png.pat",
+      "/home/deevad/.local/share/krita/patterns//4-paper-soft-grain_testtweak2.png.pat",
+      "/home/deevad/.local/share/krita/patterns//tex9.png.pat",
+      "C:/Users/scott/AppData/Roaming/krita/patterns//4-paper-soft-grain_testdark-black15.png.pat",
+      "/home/deevad/sources/krita/inst/share/krita/patterns/10_drawed_dotted.png",
+      "/home/deevad/sources/krita/inst/share/krita/patterns/Squares08.pat",
+      "/home/deevad/sources/krita/inst/share/krita/patterns/23-dynamic-screentone-A.png",
+      "/home/deevad/sources/krita/inst/share/krita/patterns/24-dynamic-screentone-B.png",
+      "/home/deevad/.local/share/krita/patterns/22_texture-reptile.png"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/Scale": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.1",
+      "0.6",
+      "1",
+      "1.5",
+      "0.9",
+      "0.35",
+      "0.4",
+      "0.5",
+      "1.58"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/Strength": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 15
+    },
+    "Texture/Pattern/TexturingMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/isRandomOffsetX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 16
+    },
+    "Texture/Pattern/isRandomOffsetY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 16
+    },
+    "Texture/Strength/Sensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.129397,0.0648241;0.513819,0.714071;0.758794,0.768844;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"sensorslist\"> <ChildSensor periodic=\"0\" length=\"1000\" id=\"fade\"> <curve>0,1;1,0;</curve> </ChildSensor> <ChildSensor id=\"pressure\"> <curve>0,0;1,1;</curve> </ChildSensor> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;0.353414,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.443629,0.331658;0.732673,0.98995;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.427136;0.306931,0.467337;0.579208,0.688442;0.886139,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;1,0;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.0481928,0.212851;0.128514,0.353414;1,1;</curve> </params> "
+     ],
+     "n": 16
+    },
+    "Texture/Strength/StrengthVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 16
+    },
+    "Texture/Strength/UseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 16
+    },
+    "Texture/Strength/UseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 16
+    },
+    "Texture/Strength/Value": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 16
+    },
+    "Texture/Strength/curveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0",
+      "1"
+     ],
+     "n": 16
+    },
+    "CurveDarken": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 2
+    },
+    "CurveMix": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 2
+    },
+    "CurveOpacity": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 2
+    },
+    "CurveRotation": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 2
+    },
+    "CurveSize": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 2
+    },
+    "CustomDarken": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "CustomMix": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "CustomOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "CustomRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "CustomSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "CurveMirror": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CurveScatter": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CurveSharpness": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CurveSoftness": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "Curveh": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "Curves": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "Curvev": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CustomMirror": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CustomScatter": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CustomSharpness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CustomSoftness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Customh": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Customs": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Customv": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Scattering/Amount": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "Sharpness/factor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    }
+   }
+  },
+  "roundmarker": {
+   "presets": [
+    "b) Basic-1"
+   ],
+   "keys": {
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 1
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "FlowValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "PaintOpSettings/updateSpacingBetweenDabs": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Spacing/Isotropic": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "SpacingSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "SpacingUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SpacingUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SpacingValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SpacingcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "autoSpacingCoeff": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "diameter": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "40"
+     ],
+     "n": 1
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "roundmarker"
+     ],
+     "n": 1
+    },
+    "spacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.1"
+     ],
+     "n": 1
+    },
+    "useAutoSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    }
+   }
+  },
+  "hairybrush": {
+   "presets": [
+    "d) Ink-8 Sumi-e"
+   ],
+   "keys": {
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 1
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HairyBristle/antialias": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "HairyBristle/density": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "34"
+     ],
+     "n": 1
+    },
+    "HairyBristle/isConnected": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HairyBristle/random": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "7.47"
+     ],
+     "n": 1
+    },
+    "HairyBristle/scale": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1.03"
+     ],
+     "n": 1
+    },
+    "HairyBristle/shear": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "HairyBristle/threshold": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HairyBristle/useCompositing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HairyBristle/useMousePressure": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HairyInk/bristleInkAmountWeight": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "50"
+     ],
+     "n": 1
+    },
+    "HairyInk/bristleLengthWeights": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "50"
+     ],
+     "n": 1
+    },
+    "HairyInk/enabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HairyInk/inkAmount": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1024"
+     ],
+     "n": 1
+    },
+    "HairyInk/inkDepletionCurve": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;0.666667,0.629956;1,1;"
+     ],
+     "n": 1
+    },
+    "HairyInk/inkDepletionWeight": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "50"
+     ],
+     "n": 1
+    },
+    "HairyInk/pressureWeights": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "50"
+     ],
+     "n": 1
+    },
+    "HairyInk/soak": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HairyInk/useOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HairyInk/useSaturation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HairyInk/useWeights": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/AutoPrecisionEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/DeltaValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/SizeToStartFrom": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5"
+     ],
+     "n": 1
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.5,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params fanCornersStep=\"30\" fanCornersEnabled=\"0\" lockedAngleMode=\"0\" angleOffset=\"0\" id=\"drawingangle\"/> "
+     ],
+     "n": 1
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.35,0.1;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush scale=\"0.3\" type=\"gbr_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" ColorAsMask=\"1\" angle=\"0\" spacing=\"0.5\" BrushVersion=\"2\" filename=\"bristles_circle_random.gih\"/> "
+     ],
+     "n": 1
+    },
+    "lodUserAllowed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "hairybrush"
+     ],
+     "n": 1
+    },
+    "requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "bristles_circle_random.gih"
+     ],
+     "n": 1
+    },
+    "requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "bristles_circle_random.gih"
+     ],
+     "n": 1
+    }
+   }
+  },
+  "colorsmudge": {
+   "presets": [
+    "i) Wet Bristles Rough",
+    "i) Wet Bristles",
+    "i) Wet Circle",
+    "i) Wet Knife",
+    "i) Wet Paint Details",
+    "i) Wet Paint",
+    "i) Wet Smear",
+    "i) Wet Textured Soft",
+    "j) Watercolor Fringe",
+    "k) Blender Basic",
+    "k) Blender Blur",
+    "k) Blender Knife Edge",
+    "k) Blender Rake",
+    "k) Blender Smear",
+    "k) Blender Textured Soft"
+   ],
+   "keys": {
+    "ColorRateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.50623,0;0.723618,0.59799;0.772152,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.506329,0;0.632911,0.19214;0.759493,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.257028,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.274069,0.120401;0.748725,0.944865;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.0562249;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.297468,0.135371;0.43038,0.366812;0.676453,0.799055;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.124372,0.150251;0.75,0.9;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.25,0.1;0.75,0.9;1,1;</curve> </params> "
+     ],
+     "n": 15
+    },
+    "ColorRateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "ColorRateUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 15
+    },
+    "ColorRateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.7",
+      "0.5",
+      "0"
+     ],
+     "n": 15
+    },
+    "ColorRatecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 15
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 13
+    },
+    "GradientSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 15
+    },
+    "GradientUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "GradientUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "GradientValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 15
+    },
+    "GradientcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "HorizontalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "KisPrecisionOption/AutoPrecisionEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 15
+    },
+    "KisPrecisionOption/DeltaValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "25",
+      "15"
+     ],
+     "n": 15
+    },
+    "KisPrecisionOption/SizeToStartFrom": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "50",
+      "0"
+     ],
+     "n": 15
+    },
+    "KisPrecisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "5"
+     ],
+     "n": 15
+    },
+    "MergedPaint": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 15
+    },
+    "MirrorSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"fuzzy\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 15
+    },
+    "MirrorUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "MirrorUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "MirrorValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 15
+    },
+    "MirrorcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.305675;0.253871,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.201005;0.427136,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.184739,0.759036;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.15261;0.060241,0.261044;0.165254,0.419214;0.228814,0.480349;0.300847,0.528384;0.88755,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.15261;0.060241,0.261044;0.88755,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.572864,0.336683;1,0.934498;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.361737,0.716158;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;8.07527e-31,1;</curve> </params> "
+     ],
+     "n": 15
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 15
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 15
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 15
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "PaintOpSettings/updateSpacingBetweenDabs": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 13
+    },
+    "PressureColorRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "PressureGradient": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 15
+    },
+    "PressureMirror": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 15
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 15
+    },
+    "PressureScatter": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "PressureSmudgeRadius": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 15
+    },
+    "PressureSmudgeRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "PressureSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 15
+    },
+    "PressureTexture/Strength/": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0.458515;1,0.524017;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"ascension\"/> ",
+      "<!DOCTYPE params> <params fanCornersEnabled=\"0\" angleOffset=\"0\" fanCornersStep=\"30\" id=\"drawingangle\" lockedAngleMode=\"0\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"ascension\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params fanCornersStep=\"30\" fanCornersEnabled=\"0\" lockedAngleMode=\"0\" angleOffset=\"0\" id=\"drawingangle\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"fuzzy\"/> ",
+      "<!DOCTYPE params> <params angleOffset=\"0\" lockedAngleMode=\"0\" id=\"drawingangle\" fanCornersEnabled=\"0\" fanCornersStep=\"30\"/> ",
+      "<!DOCTYPE params> <params fanCornersStep=\"30\" fanCornersEnabled=\"0\" angleOffset=\"0\" id=\"drawingangle\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 15
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 15
+    },
+    "RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "ScatterSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.674699,0.344444;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.126483,1;0.340245,0.492462;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;0.144578,0.425703;0.341365,0.236948;1,0;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.485944;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.38191,0.19598;0.748744,0.809045;0.839196,0.899497;1,0.743718;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 15
+    },
+    "ScatterUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 15
+    },
+    "ScatterUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "ScatterValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.12",
+      "0.08",
+      "1",
+      "3.34",
+      "1.11",
+      "0.29",
+      "0.51"
+     ],
+     "n": 15
+    },
+    "ScattercurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "Scattering/AxisX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "Scattering/AxisY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 15
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.668122;0.772152,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.139738;0.258197,0.41048;0.733606,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.598394,0.427884;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.486428;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.122271;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.122271;0.136546,0.290033;0.269076,0.803493;0.333333,0.921397;0.39759,0.956332;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.00401594;0.365094,0.308711;0.699892,0.728116;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.201005,0.110553;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.25,0.1;0.75,0.9;1,1;</curve> </params> "
+     ],
+     "n": 15
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 15
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "SmudgeRadiusSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.331878;0.48996,0.628821;0.811245,1;1,1;</curve> </params> "
+     ],
+     "n": 15
+    },
+    "SmudgeRadiusUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 15
+    },
+    "SmudgeRadiusUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "SmudgeRadiusValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "300",
+      "1",
+      "2",
+      "9.23",
+      "0.41",
+      "30",
+      "3",
+      "25",
+      "0.5"
+     ],
+     "n": 15
+    },
+    "SmudgeRadiuscurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "SmudgeRateMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0",
+      "1"
+     ],
+     "n": 15
+    },
+    "SmudgeRateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;0.485944,0.947791;1,0.795181;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.301508;0.169362,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.771084,0.935743;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.0803213;0.128515,0.28514;0.706827,1;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.256317,0.259203;0.44713,0.853387;0.544304,0.925764;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.0562249;0.552302,0.536662;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.140704,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.130653,0.080402;0.449939,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.226131,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.502008,0.231441;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.0803213;0.228916,0.122271;1,1;</curve> </params> "
+     ],
+     "n": 15
+    },
+    "SmudgeRateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "SmudgeRateUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "SmudgeRateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.6",
+      "0.95",
+      "0.7"
+     ],
+     "n": 15
+    },
+    "SmudgeRatecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "Spacing/Isotropic": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 15
+    },
+    "SpacingSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.746193;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0.0708261,0.36214;0.196204,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;1,0;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.493451;1,1;</curve> </params> "
+     ],
+     "n": 15
+    },
+    "SpacingUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "SpacingUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 15
+    },
+    "SpacingValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 15
+    },
+    "SpacingcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 13
+    },
+    "Texture/Pattern/Enabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 15
+    },
+    "VerticalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 15
+    },
+    "brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush scale=\"0.266667\" type=\"png_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"0\" spacing=\"0.05\" BrushVersion=\"2\" filename=\"chalk_round_hard.png\"/> ",
+      "<Brush type=\"gbr_brush\" useAutoSpacing=\"0\" ColorAsMask=\"0\" spacing=\"0.03\" filename=\"chisel_knife.gbr\" angle=\"0\" autoSpacingCoeff=\"1\" BrushVersion=\"2\" scale=\"0.3\"/> ",
+      "<Brush randomness=\"0\" type=\"auto_brush\" autoSpacingCoeff=\"1\" spacing=\"0.04\" angle=\"0\" BrushVersion=\"2\" useAutoSpacing=\"0\" density=\"1\"> <MaskGenerator spikes=\"2\" type=\"circle\" vfade=\"1\" diameter=\"40\" id=\"default\" ratio=\"1\" hfade=\"1\" antialiasEdges=\"1\"/> </Brush> ",
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"1.5708\" spacing=\"0.08\" BrushVersion=\"2\" density=\"1\" randomness=\"0\"> <MaskGenerator ratio=\"0.2\" vfade=\"0.83\" spikes=\"2\" type=\"circle\" softness_curve=\"0,1;0.843373,0.285714;1,0.649351;\" hfade=\"0.83\" antialiasEdges=\"0\" diameter=\"75\" id=\"soft\"/> </Brush> ",
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" randomness=\"0\" density=\"1\" autoSpacingCoeff=\"1\" BrushVersion=\"2\" spacing=\"0.04\" angle=\"0\"> <MaskGenerator ratio=\"1\" type=\"circle\" vfade=\"0.5\" id=\"default\" spikes=\"2\" antialiasEdges=\"0\" hfade=\"0.5\" diameter=\"15\"/> </Brush> ",
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" angle=\"0\" spacing=\"0.07\" density=\"1\" BrushVersion=\"2\" autoSpacingCoeff=\"1\" randomness=\"0\"> <MaskGenerator hfade=\"0.5\" type=\"circle\" antialiasEdges=\"0\" ratio=\"1\" diameter=\"46\" id=\"default\" vfade=\"0.5\" spikes=\"2\"/> </Brush> ",
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"0\" spacing=\"0.06\" BrushVersion=\"2\" density=\"1\" randomness=\"0\"> <MaskGenerator ratio=\"1\" vfade=\"0.5\" spikes=\"2\" type=\"circle\" softness_curve=\"0,0;0.594377,0.302325;0.742972,0.837209;0.915663,0.55814;1,0;\" hfade=\"0.5\" antialiasEdges=\"0\" diameter=\"60\" id=\"soft\"/> </Brush> ",
+      "<Brush type=\"gbr_brush\" useAutoSpacing=\"0\" angle=\"0\" filename=\"bristles_grouped.gbr\" spacing=\"0.07\" BrushVersion=\"2\" ColorAsMask=\"0\" autoSpacingCoeff=\"1\" scale=\"0.9375\"/> ",
+      "<Brush angle=\"0\" BrushVersion=\"2\" density=\"1\" useAutoSpacing=\"0\" randomness=\"0\" autoSpacingCoeff=\"1\" spacing=\"0.09\" type=\"auto_brush\"> <MaskGenerator hfade=\"1\" vfade=\"1\" id=\"default\" antialiasEdges=\"1\" ratio=\"0.17\" diameter=\"60\" spikes=\"2\" type=\"circle\"/> </Brush> ",
+      "<Brush angle=\"0\" autoSpacingCoeff=\"1\" useAutoSpacing=\"0\" randomness=\"0\" spacing=\"0.1\" BrushVersion=\"2\" type=\"auto_brush\" density=\"1\"> <MaskGenerator vfade=\"0.5\" id=\"default\" hfade=\"0.5\" spikes=\"2\" ratio=\"1\" diameter=\"50\" antialiasEdges=\"0\" type=\"circle\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"1\" angle=\"0\" BrushVersion=\"2\" type=\"auto_brush\" randomness=\"0\" spacing=\"0.02\" density=\"1\" useAutoSpacing=\"0\"> <MaskGenerator antialiasEdges=\"0\" hfade=\"0.33\" id=\"default\" type=\"circle\" diameter=\"60\" vfade=\"0.33\" spikes=\"2\" ratio=\"1\"/> </Brush> ",
+      "<Brush autoSpacingCoeff=\"0.6\" angle=\"0\" BrushVersion=\"2\" type=\"auto_brush\" randomness=\"0\" spacing=\"0.1\" density=\"1\" useAutoSpacing=\"1\"> <MaskGenerator antialiasEdges=\"1\" hfade=\"1\" id=\"default\" type=\"circle\" diameter=\"60\" vfade=\"1\" spikes=\"2\" ratio=\"0.2\"/> </Brush> "
+     ],
+     "n": 15
+    },
+    "lodUserAllowed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 6
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "colorsmudge"
+     ],
+     "n": 15
+    },
+    "requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "chalk_round_hard.png",
+      "chisel_knife.gbr",
+      "",
+      "bristles_grouped.gbr",
+      "rake_dense.png"
+     ],
+     "n": 15
+    },
+    "requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "chalk_round_hard.png",
+      "chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_knife.gbr;chisel_kn…",
+      "",
+      "bristles_grouped.gbr",
+      "rake_dense.png"
+     ],
+     "n": 13
+    },
+    "Pressureh": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Pressures": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Pressurev": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "hSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "hUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "hUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "hValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "hcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "sSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "sUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "sUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "sValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "scurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "vSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "vUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "vUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "vValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "vcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "KisPresisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "3"
+     ],
+     "n": 2
+    },
+    "Scattering/Amount": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.51"
+     ],
+     "n": 2
+    },
+    "Texture/Pattern/CutoffLeft": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/CutoffPolicy": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/CutoffRight": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "255"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/Invert": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/MaximumOffsetX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "140"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/MaximumOffsetY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "140"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/Name": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "4-flathack-black55.png",
+      "4-paper-soft-grain_testdark-black55.png"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/OffsetX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/OffsetY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/PatternFileName": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "/home/deevad/.kde/share/apps/krita/patterns/4-flathack-black55.png",
+      "/home/deevad/.local/share/krita/patterns//4-flathack-black55.png.pat",
+      "/home/deevad/.local/share/krita/patterns//4-paper-soft-grain_testdark-black55.png.pat",
+      "/home/deevad/.local/share/krita/patterns/4-flathack-black55.png",
+      "/home/deevad/.local/share/krita/patterns/4-paper-soft-grain_testdark-black55.png"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/Scale": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1.61",
+      "1"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/Strength": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "Texture/Pattern/TexturingMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/isRandomOffsetX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 5
+    },
+    "Texture/Pattern/isRandomOffsetY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 5
+    },
+    "Texture/Strength/Sensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.461847,0.152838;1,1;</curve> </params> "
+     ],
+     "n": 5
+    },
+    "Texture/Strength/StrengthVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 5
+    },
+    "Texture/Strength/UseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 5
+    },
+    "Texture/Strength/UseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 5
+    },
+    "Texture/Strength/Value": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 5
+    },
+    "runtimeCanvasMirroredX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "runtimeCanvasMirroredY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "runtimeCanvasRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "Texture/Pattern/Brightness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "-0.1",
+      "-0.25",
+      "0"
+     ],
+     "n": 4
+    },
+    "Texture/Pattern/Contrast": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 4
+    },
+    "Texture/Strength/curveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 4
+    },
+    "FlowValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "PressureOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    }
+   }
+  },
+  "gridbrush": {
+   "presets": [
+    "k) Blender Pixelize"
+   ],
+   "keys": {
+    "ColorOption/colorPerParticle": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/fillBackground": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/hue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "ColorOption/mixBgColor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/sampleInputColor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "ColorOption/saturation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "ColorOption/useRandomHSV": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/useRandomOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/value": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 1
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Grid/divisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Grid/gridHeight": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20"
+     ],
+     "n": 1
+    },
+    "Grid/gridWidth": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20"
+     ],
+     "n": 1
+    },
+    "Grid/horizontalBorder": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Grid/pressureDivision": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Grid/randomBorder": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Grid/scale": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "Grid/verticalBorder": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "GridShape/shape": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "gridbrush"
+     ],
+     "n": 1
+    }
+   }
+  },
+  "experimentbrush": {
+   "presets": [
+    "t) Shapes Fill"
+   ],
+   "keys": {
+    "ColorOption/colorPerParticle": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/fillBackground": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/hue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "ColorOption/mixBgColor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/sampleInputColor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/saturation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "ColorOption/useRandomHSV": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/useRandomOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ColorOption/value": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 1
+    },
+    "CurveOpacity": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CurveRotation": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CurveSize": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CustomOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CustomRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CustomSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Experiment/displacement": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "42"
+     ],
+     "n": 1
+    },
+    "Experiment/displacementEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Experiment/hardEdge": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Experiment/smoothing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Experiment/smoothingValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20"
+     ],
+     "n": 1
+    },
+    "Experiment/speed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "42"
+     ],
+     "n": 1
+    },
+    "Experiment/speedEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Experiment/windingFill": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "PressureOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "experimentbrush"
+     ],
+     "n": 1
+    },
+    "runtimeCanvasMirroredX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "runtimeCanvasMirroredY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "runtimeCanvasRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    }
+   }
+  },
+  "duplicate": {
+   "presets": [
+    "v) Clone Tool"
+   ],
+   "keys": {
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 1
+    },
+    "Duplicateop/CloneFromProjection": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Duplicateop/CorrectPerspective": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Duplicateop/Healing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Duplicateop/MoveSourcePoint": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "HorizontalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/AutoPrecisionEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/DeltaValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/SizeToStartFrom": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5"
+     ],
+     "n": 1
+    },
+    "MirrorSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "MirrorUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "MirrorUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "MirrorValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "MirrorcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.385542,0.11245;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "PressureMirror": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureTexture/Strength/": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Texture/Pattern/Enabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "VerticalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush density=\"1\" spacing=\"0.15\" BrushVersion=\"2\" autoSpacingCoeff=\"1\" angle=\"0\" randomness=\"0\" type=\"auto_brush\" useAutoSpacing=\"0\"> <MaskGenerator softness_curve=\"0,0.589744;0.244979,0.320513;1,0;\" diameter=\"100\" hfade=\"0\" antialiasEdges=\"0\" vfade=\"0\" id=\"soft\" spikes=\"2\" type=\"circle\" ratio=\"1\"/> </Brush> "
+     ],
+     "n": 1
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "duplicate"
+     ],
+     "n": 1
+    },
+    "requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 1
+    },
+    "requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 1
+    }
+   }
+  },
+  "deformbrush": {
+   "presets": [
+    "v) Distort Grow",
+    "v) Distort Move",
+    "v) Distort Shrink"
+   ],
+   "keys": {
+    "AirbrushOption/isAirbrushing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "AirbrushOption/rate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15"
+     ],
+     "n": 1
+    },
+    "Brush/aspect": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 3
+    },
+    "Brush/density": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "100",
+      "1"
+     ],
+     "n": 3
+    },
+    "Brush/diameter": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "80"
+     ],
+     "n": 3
+    },
+    "Brush/jitterMovement": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 3
+    },
+    "Brush/jitterMovementEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 3
+    },
+    "Brush/rotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 3
+    },
+    "Brush/scale": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 3
+    },
+    "Brush/spacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.15"
+     ],
+     "n": 3
+    },
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "copy"
+     ],
+     "n": 3
+    },
+    "CurveOpacity": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CurveRotation": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CurveSize": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CustomOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CustomRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CustomSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Deform/bilinear": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 3
+    },
+    "Deform/deformAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "5",
+      "2"
+     ],
+     "n": 3
+    },
+    "Deform/deformAmount": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.05",
+      "0.3"
+     ],
+     "n": 3
+    },
+    "Deform/useCounter": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 3
+    },
+    "Deform/useMovementPaint": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Deform/useOldData": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 3
+    },
+    "FlowValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.610442,0.393574;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,0.176707;</curve> </params> "
+     ],
+     "n": 3
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 3
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 3
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 3
+    },
+    "PressureOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 3
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 3
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;0.855422,0.746988;</curve> </params> "
+     ],
+     "n": 3
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 3
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 3
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 3
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 3
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 3
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "deformbrush"
+     ],
+     "n": 3
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "PaintOpSettings/ignoreSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PaintOpSettings/isAirbrushing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PaintOpSettings/rate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20"
+     ],
+     "n": 2
+    },
+    "PressureRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "RateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 2
+    },
+    "RateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RateUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "RatecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    }
+   }
+  },
+  "particlebrush": {
+   "presets": [
+    "v) Experimental Webs"
+   ],
+   "keys": {
+    "AirbrushOption/isAirbrushing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "AirbrushOption/rate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5"
+     ],
+     "n": 1
+    },
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 1
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "PaintOpSettings/ignoreSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PaintOpSettings/isAirbrushing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PaintOpSettings/rate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20"
+     ],
+     "n": 1
+    },
+    "Particle/count": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "65"
+     ],
+     "n": 1
+    },
+    "Particle/gravity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.906"
+     ],
+     "n": 1
+    },
+    "Particle/iterations": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15"
+     ],
+     "n": 1
+    },
+    "Particle/scaleX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "Particle/scaleY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "Particle/weight": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.06"
+     ],
+     "n": 1
+    },
+    "PressureRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "RateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "RateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RateUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "RatecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "particlebrush"
+     ],
+     "n": 1
+    },
+    "runtimeCanvasMirroredX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "runtimeCanvasMirroredY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "runtimeCanvasRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    }
+   }
+  },
+  "sketchbrush": {
+   "presets": [
+    "v) Sketching-1 Chrome Thin",
+    "v) Sketching-2 Chrome Large"
+   ],
+   "keys": {
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 2
+    },
+    "DensitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 2
+    },
+    "DensityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "DensityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "DensityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "DensitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "KisPrecisionOption/AutoPrecisionEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "KisPrecisionOption/DeltaValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15"
+     ],
+     "n": 2
+    },
+    "KisPrecisionOption/SizeToStartFrom": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "KisPrecisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5"
+     ],
+     "n": 2
+    },
+    "Line widthSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 2
+    },
+    "Line widthUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "Line widthUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "Line widthValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "Line widthcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "Offset scaleSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 2
+    },
+    "Offset scaleUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "Offset scaleUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "Offset scaleValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "Offset scalecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.5,0.48996;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.562814,0.221106;1,1;</curve> </params> "
+     ],
+     "n": 2
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 2
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "PaintOpSettings/ignoreSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PaintOpSettings/isAirbrushing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PaintOpSettings/rate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20"
+     ],
+     "n": 2
+    },
+    "PressureDensity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PressureLine width": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PressureOffset scale": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PressureRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 2
+    },
+    "RateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RateUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "RatecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 2
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.492462;1,1;</curve> </params> "
+     ],
+     "n": 2
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "Sketch/distanceDensity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "Sketch/distanceOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 2
+    },
+    "Sketch/lineWidth": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "4"
+     ],
+     "n": 2
+    },
+    "Sketch/magnetify": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "Sketch/makeConnection": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "Sketch/offset": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20",
+      "10"
+     ],
+     "n": 2
+    },
+    "Sketch/probability": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "Sketch/randomOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "Sketch/randomRGB": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 2
+    },
+    "Sketch/simpleMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"0\" spacing=\"0.1\" BrushVersion=\"2\" density=\"1\" randomness=\"0\"> <MaskGenerator ratio=\"1\" vfade=\"0.5\" spikes=\"2\" type=\"circle\" hfade=\"0.5\" antialiasEdges=\"0\" diameter=\"60\" id=\"default\"/> </Brush> "
+     ],
+     "n": 2
+    },
+    "lodUserAllowed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "sketchbrush"
+     ],
+     "n": 2
+    },
+    "requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 2
+    },
+    "requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 2
+    }
+   }
+  },
+  "curvebrush": {
+   "presets": [
+    "v) Sketching-3 Leaky"
+   ],
+   "keys": {
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 1
+    },
+    "Curve/curvesOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "Curve/lineWidth": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "4"
+     ],
+     "n": 1
+    },
+    "Curve/makeConnection": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Curve/smoothing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Curve/strokeHistorySize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "12"
+     ],
+     "n": 1
+    },
+    "Curves opacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "Curves opacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Curves opacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Curves opacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "Curves opacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Line widthSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "Line widthUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Line widthUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Line widthValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "Line widthcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.5,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "PressureCurves opacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureLine width": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "lodUserAllowed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "curvebrush"
+     ],
+     "n": 1
+    }
+   }
+  },
+  "spraybrush": {
+   "presets": [
+    "v) Texture Pointillism",
+    "y) Texture Starfield",
+    "z) Stamp Hearts",
+    "z) Stamp Shoujo Bubbles"
+   ],
+   "keys": {
+    "ColorOption/colorPerParticle": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 4
+    },
+    "ColorOption/fillBackground": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "ColorOption/hue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15",
+      "63",
+      "58",
+      "38"
+     ],
+     "n": 4
+    },
+    "ColorOption/mixBgColor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "ColorOption/sampleInputColor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "ColorOption/saturation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "-10",
+      "0",
+      "32"
+     ],
+     "n": 4
+    },
+    "ColorOption/useRandomHSV": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 4
+    },
+    "ColorOption/useRandomOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 4
+    },
+    "ColorOption/value": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "35",
+      "-3",
+      "19",
+      "0"
+     ],
+     "n": 4
+    },
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal",
+      "add"
+     ],
+     "n": 4
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "KisPrecisionOption/AutoPrecisionEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "KisPrecisionOption/DeltaValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15"
+     ],
+     "n": 4
+    },
+    "KisPrecisionOption/SizeToStartFrom": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 4
+    },
+    "KisPrecisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5"
+     ],
+     "n": 4
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0.431658;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.5,1;</curve> </params> "
+     ],
+     "n": 4
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 4
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 4
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 4
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 4
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 4
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2",
+      "1"
+     ],
+     "n": 4
+    },
+    "PaintOpSettings/ignoreSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "PaintOpSettings/isAirbrushing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 4
+    },
+    "PaintOpSettings/rate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20",
+      "261.74"
+     ],
+     "n": 4
+    },
+    "PressureRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 4
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 4
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 4
+    },
+    "RateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 4
+    },
+    "RateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 4
+    },
+    "RateUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 4
+    },
+    "RateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 4
+    },
+    "RatecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 4
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"sensorslist\"> <ChildSensor id=\"fuzzy\"/> <ChildSensor id=\"pressure\"/> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 4
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 4
+    },
+    "RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 4
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 4
+    },
+    "RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/enabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/fixedAngle": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "30"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/fixedRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/followCursor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/followCursorWeigth": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/followDrawingAngle": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/followDrawingAngleWeigth": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/randomRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/randomRotationWeight": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.3",
+      "0.5"
+     ],
+     "n": 4
+    },
+    "ShapeDynamics/randomSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 4
+    },
+    "ShapeDynamicsVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2.3"
+     ],
+     "n": 4
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"speed\"> <curve>0,1;0.25,0.9;0.75,0.1;1,0;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"/> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> ",
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,1;1,0;</curve> </params> "
+     ],
+     "n": 4
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 4
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 4
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 4
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 4
+    },
+    "Spray/aspect": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 4
+    },
+    "Spray/coverage": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.8999999999999999",
+      "0.1"
+     ],
+     "n": 4
+    },
+    "Spray/diameter": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "55",
+      "250",
+      "500"
+     ],
+     "n": 4
+    },
+    "Spray/gaussianDistribution": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 4
+    },
+    "Spray/jitterMoveAmount": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 4
+    },
+    "Spray/jitterMovement": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "Spray/particleCount": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "12",
+      "2",
+      "3",
+      "1"
+     ],
+     "n": 4
+    },
+    "Spray/rotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 4
+    },
+    "Spray/scale": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "2"
+     ],
+     "n": 4
+    },
+    "Spray/spacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2",
+      "0.5"
+     ],
+     "n": 4
+    },
+    "Spray/useDensity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "SprayShape/enabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true",
+      "false"
+     ],
+     "n": 4
+    },
+    "SprayShape/height": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "22",
+      "6"
+     ],
+     "n": 4
+    },
+    "SprayShape/imageUrl": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 4
+    },
+    "SprayShape/proportional": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 4
+    },
+    "SprayShape/shape": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 4
+    },
+    "SprayShape/useAspect": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false",
+      "true"
+     ],
+     "n": 4
+    },
+    "SprayShape/width": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "25",
+      "6"
+     ],
+     "n": 4
+    },
+    "brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush type=\"auto_brush\" spacing=\"0.1\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" BrushVersion=\"2\" density=\"1\" randomness=\"0\" angle=\"0\"> <MaskGenerator diameter=\"114.04\" type=\"circle\" ratio=\"1\" antialiasEdges=\"0\" vfade=\"0.5\" spikes=\"2\" id=\"default\" hfade=\"0.5\"/> </Brush> ",
+      "<Brush angle=\"0\" autoSpacingCoeff=\"1\" useAutoSpacing=\"0\" randomness=\"0\" spacing=\"0.1\" BrushVersion=\"2\" type=\"auto_brush\" density=\"1\"> <MaskGenerator vfade=\"0\" id=\"default\" hfade=\"0\" spikes=\"2\" ratio=\"1\" diameter=\"3\" antialiasEdges=\"0\" type=\"circle\"/> </Brush> ",
+      "<Brush useAutoSpacing=\"0\" ColorAsMask=\"1\" type=\"gbr_brush\" spacing=\"0.25\" angle=\"0\" scale=\"1\" BrushVersion=\"2\" filename=\"hearts.gih\" autoSpacingCoeff=\"1\"/> ",
+      "<Brush angle=\"0\" useAutoSpacing=\"0\" density=\"0.5\" type=\"auto_brush\" spacing=\"0.1\" BrushVersion=\"2\" autoSpacingCoeff=\"1\" randomness=\"0.23\"> <MaskGenerator softness_curve=\"0.248996,0;0.779117,0.222222;0.855422,0.510204;0.935743,1;0.983936,0.511111;0.991868,0.144444;1,0;\" antialiasEdges=\"1\" ratio=\"1\" type=\"circle\" vfade=\"0.5\" spikes=\"2\" hfade=\"0.5\" id=\"soft\" diameter=\"80\"/> </Brush> "
+     ],
+     "n": 4
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "spraybrush"
+     ],
+     "n": 4
+    },
+    "requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "",
+      "hearts.gih"
+     ],
+     "n": 4
+    },
+    "requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "",
+      "hearts.gih"
+     ],
+     "n": 3
+    },
+    "CurveOpacity": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CurveRotation": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CurveSize": {
+     "kind": "curve",
+     "specKind": "curve",
+     "values": [
+      "0,0;1,1;"
+     ],
+     "n": 1
+    },
+    "CustomOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CustomRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CustomSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "PressureOpacity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SprayShape/fixedAngle": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "30"
+     ],
+     "n": 1
+    },
+    "SprayShape/fixedRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "SprayShape/followCursor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "SprayShape/followCursorWeigth": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SprayShape/randomRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "SprayShape/randomRotationWeight": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0.5"
+     ],
+     "n": 1
+    },
+    "SprayShape/randomSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "lodUserAllowed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "runtimeCanvasMirroredX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "runtimeCanvasMirroredY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "runtimeCanvasRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    }
+   }
+  },
+  "tangentnormal": {
+   "presets": [
+    "w) Texture Normal Map"
+   ],
+   "keys": {
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 1
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "FlowSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "FlowUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "FlowUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "FlowValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "FlowcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "HorizontalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/AutoPrecisionEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/DeltaValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/SizeToStartFrom": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5"
+     ],
+     "n": 1
+    },
+    "MirrorSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "MirrorUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "MirrorUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "MirrorValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "MirrorcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "PaintOpSettings/ignoreSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PaintOpSettings/isAirbrushing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PaintOpSettings/rate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "20"
+     ],
+     "n": 1
+    },
+    "PaintOpSettings/updateSpacingBetweenDabs": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureMirror": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureRate": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureScatter": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureSharpness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "PressureSoftness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureSpacing": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureTexture/Strength/": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RateSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "RateUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RateUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RateValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "RatecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "ScatterSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "ScatterUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "ScatterUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "ScatterValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "ScattercurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Scattering/AxisX": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Scattering/AxisY": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Sharpness/threshold": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "4"
+     ],
+     "n": 1
+    },
+    "SharpnessSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "SharpnessUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SharpnessUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SharpnessValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SharpnesscurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "SoftnessSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "SoftnessUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SoftnessUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SoftnessValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SoftnesscurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Spacing/Isotropic": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "SpacingSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "SpacingUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SpacingUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SpacingValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SpacingcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Tangent/directionType": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Tangent/elevationSensitivity": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "100"
+     ],
+     "n": 1
+    },
+    "Tangent/mixValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "50"
+     ],
+     "n": 1
+    },
+    "Tangent/swizzleBlue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "4"
+     ],
+     "n": 1
+    },
+    "Tangent/swizzleGreen": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "Tangent/swizzleRed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Texture/Pattern/Enabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "VerticalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"0\" spacing=\"0.1\" BrushVersion=\"2\" density=\"1\" randomness=\"0\"> <MaskGenerator ratio=\"1\" vfade=\"0.85\" spikes=\"2\" type=\"circle\" hfade=\"0.86\" antialiasEdges=\"0\" diameter=\"80\" id=\"default\"/> </Brush> "
+     ],
+     "n": 1
+    },
+    "lodUserAllowed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "tangentnormal"
+     ],
+     "n": 1
+    },
+    "requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 1
+    },
+    "requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 1
+    }
+   }
+  },
+  "filter": {
+   "presets": [
+    "x) Filter Blur",
+    "x) Filter Sharpen"
+   ],
+   "keys": {
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "copy"
+     ],
+     "n": 2
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "Filter/configuration": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params>\n<params version=\"1\">\n <param name=\"horizRadius\" type=\"string\"><![CDATA[5]]></param>\n <param name=\"lockAspect\" type=\"string\"><![CDATA[true]]></param>\n <param name=\"vertRadius\" type=\"string\"><![CDATA[5]]></param>\n</params>\n",
+      "<!DOCTYPE params>\n<params version=\"1\">\n <param name=\"amount\" type=\"string\"><![CDATA[2]]></param>\n <param name=\"halfSize\" type=\"string\"><![CDATA[4]]></param>\n <param name=\"lightnessOnly\" type=\"string\"><![CDATA[true]]></param>\n <param name=\"threshold\" type=\"string\"><![CDATA[0]]></param>\n</params>\n"
+     ],
+     "n": 2
+    },
+    "Filter/id": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "gaussian blur",
+      "unsharp"
+     ],
+     "n": 2
+    },
+    "Filter/smudgeMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "FlowValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "HorizontalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "KisPrecisionOption/AutoPrecisionEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "KisPrecisionOption/DeltaValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15"
+     ],
+     "n": 2
+    },
+    "KisPrecisionOption/SizeToStartFrom": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "KisPrecisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5"
+     ],
+     "n": 2
+    },
+    "MirrorSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 2
+    },
+    "MirrorUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "MirrorUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "MirrorValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "MirrorcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 2
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1",
+      "0.73"
+     ],
+     "n": 2
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 2
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "PressureMirror": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PressureRotation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "RotationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 2
+    },
+    "RotationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RotationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "RotationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "RotationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 2
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 2
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 2
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 2
+    },
+    "VerticalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 2
+    },
+    "brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush BrushVersion=\"2\" randomness=\"0\" type=\"auto_brush\" angle=\"0\" density=\"1\" useAutoSpacing=\"0\" spacing=\"0.1\" autoSpacingCoeff=\"1\"> <MaskGenerator vfade=\"0.5\" diameter=\"60\" id=\"soft\" type=\"circle\" hfade=\"0.5\" ratio=\"1\" softness_curve=\"0,0.255814;0.453815,0.0813953;1,0;\" spikes=\"2\" antialiasEdges=\"0\"/> </Brush> ",
+      "<Brush type=\"auto_brush\" angle=\"0\" BrushVersion=\"2\" spacing=\"0.1\" useAutoSpacing=\"0\" density=\"1\" randomness=\"0\" autoSpacingCoeff=\"1\"> <MaskGenerator type=\"circle\" diameter=\"60\" ratio=\"1\" id=\"soft\" softness_curve=\"0,0.255814;0.453815,0.0813953;1,0;\" spikes=\"2\" antialiasEdges=\"0\" hfade=\"0.5\" vfade=\"0.5\"/> </Brush> "
+     ],
+     "n": 2
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "filter"
+     ],
+     "n": 2
+    },
+    "requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 2
+    },
+    "requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 2
+    }
+   }
+  },
+  "hatchingbrush": {
+   "presets": [
+    "y) Screentone Moire"
+   ],
+   "keys": {
+    "AngleSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "AngleUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "AngleUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "AngleValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "AnglecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "CompositeOp": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "normal"
+     ],
+     "n": 1
+    },
+    "CrosshatchingSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"fuzzy\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "CrosshatchingUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CrosshatchingUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "CrosshatchingValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "CrosshatchingcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "EraserMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Hatching/angle": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "45"
+     ],
+     "n": 1
+    },
+    "Hatching/bool_antialias": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Hatching/bool_minusthenplus": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Hatching/bool_moirepattern": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Hatching/bool_nocrosshatching": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Hatching/bool_opaquebackground": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Hatching/bool_perpendicular": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Hatching/bool_plusthenminus": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "Hatching/bool_subpixelprecision": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "Hatching/origin_x": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Hatching/origin_y": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Hatching/separation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "18"
+     ],
+     "n": 1
+    },
+    "Hatching/separationintervals": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "Hatching/thickness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "9"
+     ],
+     "n": 1
+    },
+    "HorizontalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/AutoPrecisionEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/DeltaValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "15"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/SizeToStartFrom": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "KisPrecisionOption/precisionLevel": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "5"
+     ],
+     "n": 1
+    },
+    "MirrorSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"/> "
+     ],
+     "n": 1
+    },
+    "MirrorUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "MirrorUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "MirrorValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "MirrorcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "OpacitySensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.627049,0.433735;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "OpacityUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacityUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "OpacityValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "OpacityVersion": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "2"
+     ],
+     "n": 1
+    },
+    "OpacitycurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "PaintOpAction": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "PressureAngle": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureCrosshatching": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "PressureMirror": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureSeparation": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureSize": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "PressureTexture/Strength/": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "PressureThickness": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "SeparationSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "SeparationUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SeparationUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SeparationValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SeparationcurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "SizeSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.445783,0.124498;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "SizeUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "SizeValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "SizecurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "Texture/Pattern/Enabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "ThicknessSensor": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<!DOCTYPE params> <params id=\"pressure\"> <curve>0,0;0.618474,0.46988;1,1;</curve> </params> "
+     ],
+     "n": 1
+    },
+    "ThicknessUseCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "ThicknessUseSameCurve": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "true"
+     ],
+     "n": 1
+    },
+    "ThicknessValue": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "1"
+     ],
+     "n": 1
+    },
+    "ThicknesscurveMode": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "0"
+     ],
+     "n": 1
+    },
+    "VerticalMirrorEnabled": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "brush_definition": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "<Brush type=\"auto_brush\" useAutoSpacing=\"0\" autoSpacingCoeff=\"1\" angle=\"0.349066\" spacing=\"0.45\" BrushVersion=\"2\" density=\"1\" randomness=\"0\"> <MaskGenerator ratio=\"1\" vfade=\"0.5\" spikes=\"2\" type=\"circle\" hfade=\"0.5\" antialiasEdges=\"0\" diameter=\"120\" id=\"default\"/> </Brush> "
+     ],
+     "n": 1
+    },
+    "lodUserAllowed": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "false"
+     ],
+     "n": 1
+    },
+    "paintop": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      "hatchingbrush"
+     ],
+     "n": 1
+    },
+    "requiredBrushFile": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 1
+    },
+    "requiredBrushFilesList": {
+     "kind": "string",
+     "specKind": "string",
+     "values": [
+      ""
+     ],
+     "n": 1
+    }
+   }
+  }
+ }
+}

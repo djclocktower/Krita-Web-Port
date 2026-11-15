@@ -3,7 +3,7 @@
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
 
-const URL = 'http://localhost:5183/';
+const URL = process.env.URL ?? 'http://localhost:5183/';
 const SHOT = '/tmp/claude-0/-home-user-Krita-Web-Port/65182417-9f70-5299-9ecc-ec5673875a37/scratchpad/timeline.png';
 const NAMEW = 170, HEAD = 24, RH = 28;   // geometry of the timeline grid, see src/panels/timeline/index.tsx
 let failed = 0;
@@ -268,7 +268,7 @@ check(errors.length === 0, 'no uncaught page errors (mock)', errors.join(' | '))
 
 // --- real engine: the panel drives Krita's own animation
 errors.length = 0;
-await page.goto('http://localhost:5183/?engine=wasm');
+await page.goto(new globalThis.URL('?engine=wasm', URL).href);
 await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 60000 });
 const tab = page.locator('[role=tab]:has-text("Timeline")');
 if (await tab.count()) await tab.first().click();
