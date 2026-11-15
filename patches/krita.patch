@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b5f826f..7d91290 100644
+index b5f826f..2f6d179 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -84,6 +84,20 @@ endif()
@@ -43,7 +43,7 @@ index b5f826f..7d91290 100644
  configure_file(config-tiff.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-tiff.h)
  
  find_package(JPEG)
-@@ -1678,7 +1694,9 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
+@@ -1678,13 +1694,19 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
  add_subdirectory(sdk/tests)
  
  add_subdirectory(libs)
@@ -54,6 +54,16 @@ index b5f826f..7d91290 100644
  add_subdirectory(plugins)
  if (BUILD_TESTING)
      add_subdirectory(benchmarks)
+ endif()
+ add_subdirectory(krita)
+ 
++if (EMSCRIPTEN AND KRITA_WEB_SPIKE_DIR)
++    add_subdirectory(${KRITA_WEB_SPIKE_DIR} webspike)
++endif()
++
+ configure_file(KoConfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/KoConfig.h )
+ configure_file(KoTestConfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/KoTestConfig.h )
+ configure_file(config_convolution.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config_convolution.h)
 diff --git a/cmake/modules/FindLibMyPaint.cmake b/cmake/modules/FindLibMyPaint.cmake
 index ba3c960..84898bf 100644
 --- a/cmake/modules/FindLibMyPaint.cmake
@@ -407,3 +417,25 @@ index 2725af0..56a65c8 100644
              e->accept();
              return true;
  
+diff --git a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h b/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h
+index e69dea2..9b13c0e 100644
+--- a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h
++++ b/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h
+@@ -38,7 +38,7 @@ namespace KisPaintOpPluginUtils {
+  * @param pi - The paint information.
+  * @see KisPaintInformation
+  */
+-KisSpacingInformation effectiveSpacing(qreal dabWidth,
++inline KisSpacingInformation effectiveSpacing(qreal dabWidth,
+                                        qreal dabHeight,
+                                        bool isotropicSpacing,
+                                        qreal rotation,
+@@ -79,7 +79,7 @@ KisSpacingInformation effectiveSpacing(qreal dabWidth,
+  * @param pi - The paint information.
+  * @see KisPaintInformation
+  */
+-KisTimingInformation effectiveTiming(const KisAirbrushOptionData *airbrushOption,
++inline KisTimingInformation effectiveTiming(const KisAirbrushOptionData *airbrushOption,
+                                      const KisRateOption *rateOption,
+                                      const KisPaintInformation &pi)
+ {
