@@ -1,3 +1,4 @@
 [submodule "krita"]
 	path = krita
 	url = https://github.com/KDE/krita.git
+	ignore = dirty
