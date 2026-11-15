@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b5f826f..2f6d179 100644
+index b5f826f..ddf49e3 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -84,6 +84,20 @@ endif()
@@ -43,7 +43,7 @@ index b5f826f..2f6d179 100644
  configure_file(config-tiff.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-tiff.h)
  
  find_package(JPEG)
-@@ -1678,13 +1694,19 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
+@@ -1678,13 +1694,22 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
  add_subdirectory(sdk/tests)
  
  add_subdirectory(libs)
@@ -59,6 +59,9 @@ index b5f826f..2f6d179 100644
  
 +if (EMSCRIPTEN AND KRITA_WEB_SPIKE_DIR)
 +    add_subdirectory(${KRITA_WEB_SPIKE_DIR} webspike)
++endif()
++if (EMSCRIPTEN AND KRITA_WEB_BRIDGE_DIR)
++    add_subdirectory(${KRITA_WEB_BRIDGE_DIR} webbridge)
 +endif()
 +
  configure_file(KoConfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/KoConfig.h )
