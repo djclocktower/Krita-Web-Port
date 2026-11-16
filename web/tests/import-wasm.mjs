@@ -20,10 +20,94 @@ const OPEN_MS = +(process.env.OPEN_MS || 120000), EXPORT_MS = +(process.env.EXPO
 // ---- expectations ------------------------------------------------------------------------------------------------------
 // [file in samples/, width, height, what it is]
 const OPEN = [
+    // PNG, JPEG, WebP, GIF, BMP, TGA (Qt image plugins and libpng/libjpeg/libwebp)
+    ['png-rgb8.png', 96, 64, 'PNG 8-bit RGB'],
+    ['png-rgb16.png', 96, 64, 'PNG 16-bit RGB'],
+    ['png-grey16.png', 96, 64, 'PNG 16-bit greyscale'],
+    ['png-icc.png', 57, 57, 'PNG with ICC profile (sRGB IEC61966-2.1)'],
+    ['jpg-rgb8.jpg', 96, 64, 'JPEG RGB'],
+    ['jpg-grey8.jpg', 96, 64, 'JPEG greyscale'],
+    ['jpg-cmyk.jpg', 96, 64, 'JPEG CMYK'],
+    ['jpg-cmyk-adobe.jpg', 100, 100, 'JPEG CMYK, Adobe marker'],
+    ['jpg-icc.jpg', 96, 64, 'JPEG with ICC profile'],
+    ['jpg-exif.jpg', 20, 20, 'JPEG with Exif (orientation 6)'],
+    ['webp-lossless.webp', 96, 64, 'WebP lossless'],
+    ['webp-anim.webp', 256, 256, 'WebP animated'],
+    ['gif-rgb8.gif', 96, 64, 'GIF'],
+    ['gif-anim.gif', 64, 48, 'GIF animated, 5 frames'],
+    ['bmp-rgb8.bmp', 96, 64, 'BMP 24-bit'],
+    ['bmp-rle8.bmp', 128, 128, 'BMP RLE8'],
+    ['tga-rgb8.tga', 96, 64, 'TGA uncompressed'],
+    ['tga-rle-alpha.tga', 199, 199, 'TGA RLE with alpha'],
+    ['ico-16.ico', 16, 16, 'ICO (Qt image plugin)'],
+    // TIFF (libtiff 4.7 without lzma/zstd/webp/jbig/lerc)
+    ['tif-rgb8.tif', 96, 64, 'TIFF 8-bit RGB, no extra tags'],
+    ['tif-deflate-predictor.tif', 96, 64, 'TIFF deflate + horizontal predictor, WhitePoint/Primaries tags'],
+    ['tif-rgb16.tif', 96, 64, 'TIFF 16-bit RGB'],
+    ['tif-grey16.tif', 96, 64, 'TIFF 16-bit greyscale'],
+    ['tif-float32.tif', 96, 64, 'TIFF 32-bit float RGB'],
+    ['tif-cmyk.tif', 96, 64, 'TIFF CMYK'],
+    ['tif-webp.tif', 128, 128, 'TIFF with WebP compression'],
+    ['tif-jpeg-tiled.tif', 512, 384, 'TIFF tiled, JPEG compression'],
+    // PSD
+    ['psd-rgb8.psd', 96, 64, 'PSD RGB 8-bit'],
+    ['psd-rgb16.psd', 96, 64, 'PSD RGB 16-bit'],
+    ['psd-grey8.psd', 96, 64, 'PSD greyscale'],
+    ['psd-cmyk8.psd', 96, 64, 'PSD CMYK 8-bit'],
+    ['psd-cmyk16.psd', 100, 104, 'PSD CMYK 16-bit (Krita test file)'],
+    ['psd-layers.psd', 128, 128, 'PSD two layers', { layers: 2 }],
+    ['psd-groups.psd', 100, 100, 'PSD layer groups'],
+    ['psd-indexed.psd', 100, 104, 'PSD indexed colour'],
+    // Krita's own and OpenRaster
+    ['ora-two-layers.ora', 96, 64, 'ORA two layers', { layers: 2 }],
+    ['kra-two-layers.kra', 96, 64, 'KRA two layers (written by the engine)', { layers: 2 }],
+    ['kra-load-test.kra', 1000, 753, 'KRA from Krita\'s tests'],
+    ['krz-two-layers.krz', 96, 64, 'KRZ two layers (written by the engine)', { layers: 2 }],
+    // HDR formats
+    ['exr-half.exr', 800, 800, 'EXR half float'],
+    ['exr-float32.exr', 500, 500, 'EXR 32-bit float'],
+    ['exr-memorial.exr', 512, 768, 'EXR half float, photo'],
+    ['hdr-objects.hdr', 512, 512, 'Radiance RGBE'],
+    ['hdr-256box.hdr', 256, 256, 'Radiance RGBE, small'],
+    ['hdr-rgb8.hdr', 96, 64, 'Radiance RGBE (ImageMagick)'],
+    // JPEG XL, HEIF family
+    ['jxl-rgb.jxl', 512, 384, 'JPEG XL RGB'],
+    ['jxl-cmyk.jxl', 128, 128, 'JPEG XL CMYK'],
+    ['jxl-anim.jxl', 256, 256, 'JPEG XL animated'],
+    ['jxl-hdr.jxl', 512, 215, 'JPEG XL HDR (PQ/Rec2020, float)'],
+    ['heic-rainbow.heic', 451, 461, 'HEIC (HEVC)'],
+    ['heic-example.heic', 1280, 854, 'HEIC (HEVC), photo'],
+    ['avif-example.avif', 800, 533, 'AVIF, photo'],
+    ['avif-rgba10.avif', 64, 64, 'AVIF 10-bit with alpha'],
+    ['heif-rgba10.heif', 64, 64, 'HEIF 10-bit with alpha'],
+    // JPEG 2000
+    ['jp2-rgb8.jp2', 96, 64, 'JP2 RGB 8-bit'],
+    ['jp2-grey16.jp2', 96, 64, 'JP2 greyscale 16-bit'],
+    ['jp2-testcard.jp2', 640, 480, 'JP2 photo, lossless'],
+    ['jp2-4comp.jp2', 64, 64, 'JP2 sRGB with 4 components'],
+    ['jp2-subsampled.jp2', 480, 640, 'JP2 with chroma sub-sampling'],
+    ['j2k-codestream.j2k', 96, 64, 'raw JPEG 2000 codestream (.j2k)'],
+    // RAW (LibRaw through KDcraw). The exiftool files are metadata-only stubs with no sensor data.
+    ['raw-kodak.kdc', 768, 512, 'RAW Kodak DC50 .kdc'],
+    ['raw-exiftool.dng', 0, 0, 'DNG stub from exiftool\'s tests (no sensor data)'],
+    ['raw-exiftool.nef', 0, 0, 'NEF stub from exiftool\'s tests (no sensor data)'],
+    ['raw-exiftool.cr2', 0, 0, 'CR2 stub from exiftool\'s tests (no sensor data)'],
+    // PDF: Krita always shows its "PDF Import Options" dialog; the test answers it (Enter, after choosing "All pages" where noted)
+    ['pdf-text.pdf', 2480, 3500, 'PDF one page with text, first page only'],
+    ['pdf-6pages.pdf', 3334, 3505, 'PDF six pages, all pages', { allPages: true, layers: 6 }],
+    ['pdf-image.pdf', 0, 0, 'PDF with an image'],
+    // vector, heightmaps, brushes
+    ['svg-units.svg', 400, 200, 'SVG'],
+    ['svg-gnu.svg', 625, 625, 'SVG (GNU head)'],
+    ['heightmap-512.r16', 512, 512, 'heightmap 16-bit (.r16)'],
+    ['heightmap-512.r8', 512, 512, 'heightmap 8-bit (.r8)'],
+    ['brush-grey.gbr', 7, 7, 'GIMP brush, greyscale'],
+    ['brush-rgba.gbr', 49, 61, 'GIMP brush, RGBA'],
+    ['brush-animated.gih', 64, 64, 'GIMP brush pipe (.gih), opened as an image'],
 ];
 // Export round trip: engine's own 320x200 document with one stroke, written as `format`, reopened as `reopenAs`.
 const EXPORT = ['kra', 'png', 'jpg', 'psd', 'ora', 'tga', 'bmp', 'webp', 'gif', 'exr', 'jxl', 'avif', 'krz', 'hdr', 'csv', 'r16',
-    'tiff', 'heic', 'jp2', 'svg', 'gbr', 'qml'];
+    'tiff', 'tif', 'heic', 'jp2', 'svg', 'gbr', 'gih', 'r8', 'qml'];
 // name -> reason. Open cases are "open:<file>", export cases "export:<format>".
 const KNOWN = {
 };
@@ -123,7 +207,10 @@ const hardStop = setTimeout(() => { console.log('FAILED: hard timeout'); process
 
 async function guarded(fn) {
     // the page-side timers catch a hung engine; this catches a page that died with it
-    const r = await Promise.race([fn().catch(e => ({ error: 'PAGE: ' + e.message })), new Promise(res => setTimeout(() => res({ error: 'HANG: page did not answer' }), OPEN_MS + EXPORT_MS + 30000))]);
+    const run = () => Promise.race([fn().catch(e => ({ error: 'PAGE: ' + e.message })), new Promise(res => setTimeout(() => res({ error: 'HANG: page did not answer' }), OPEN_MS + EXPORT_MS + 30000))]);
+    let r = await run();
+    // the dev server reloads the page when someone edits web/src while the suite runs: start over once, that is not an engine result
+    if (r.error && /Execution context was destroyed|navigation/.test(r.error)) { await boot(); r = await run(); }
     if (r.pngError) { r.console = log.slice(-6); await boot(); }   // a hung export leaves the engine inside a nested event loop: start clean
     else if (r.error && /^(HANG|PAGE)|out of bounds|unreachable|abort|RuntimeError|Aborted|memory/i.test(r.error)) {
         r.crashed = true;
@@ -162,6 +249,7 @@ async function runOpen(name, w, h, what, opts = {}) {
     else if (r.error) verdict = 'ERROR ' + r.error;
     else if (w && (r.w !== w || r.h !== h)) verdict = `WRONG SIZE ${r.w}x${r.h}, expected ${w}x${h}`;
     else if (r.bmpSize && (r.bmpSize[0] !== r.w || r.bmpSize[1] !== r.h)) verdict = `WRONG SIZE the pixel read-back is ${r.bmpSize}`;
+    else if (opts.layers && r.layers !== opts.layers) verdict = `WRONG LAYER COUNT ${r.layers}, expected ${opts.layers}`;
     else if (r.colours < 2 && !opts.flat) verdict = `BLANK (read-back has ${r.colours} colour)`;
     else { verdict = `ok ${r.w}x${r.h} ${r.model}/${r.depth} layers=${r.layers} colours=${r.colours}${dlg}`; ok = true; }
     report('open:' + name, ok, `[${what}] ${verdict} (${secs})`);

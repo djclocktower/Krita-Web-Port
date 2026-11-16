@@ -64,6 +64,7 @@ export async function createWasmEngine(): Promise<Engine> {
             case 'kritaWindow': emit('kritaWindow', msg.window); break;
             case 'kritaWindowPaint': if (bytes) emit('kritaWindowPaint', msg.id, msg.width, msg.height, bytes); break;
             case 'kritaWindowClosed': emit('kritaWindowClosed', msg.id); break;
+            case 'kritaMessage': emit('kritaMessage', msg.text); break;
             case 'kritaCursor': emit('kritaCursor', msg.cursor); break;
             case 'error': console.error(`Engine error in ${String(msg.method)}: ${String(msg.message)}`); break;
         }

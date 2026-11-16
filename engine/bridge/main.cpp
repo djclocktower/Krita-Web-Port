@@ -435,6 +435,11 @@ public:
     void watch(QObject *o, QEvent *e)
     {
         filterEvents++;
+        if (o == qApp && e->type() == QEvent::DynamicPropertyChange
+            && static_cast<QDynamicPropertyChangeEvent *>(e)->propertyName() == "kritaWebMessage") {
+            const QString text = qApp->property("kritaWebMessage").toString();     // Krita's on-canvas messages
+            if (!text.isEmpty()) emitEvent("kritaMessage", {{"text", text}});
+        }
         if (grabbing || !o->isWidgetType()) return;
         auto *w = static_cast<QWidget *>(o);
         if (e->type() == QEvent::Show && w->isWindow()) shows++;

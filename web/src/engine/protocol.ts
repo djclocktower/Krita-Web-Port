@@ -221,6 +221,8 @@ export interface EngineEvents {
     /** New picture of a Krita window: straight-alpha RGBA8, width * height * 4 bytes, valid only during the call. */
     kritaWindowPaint: (id: number, width: number, height: number, pixels: Uint8Array) => void;
     kritaWindowClosed: (id: number) => void;
+    /** One of Krita's short on-canvas messages ("Cannot transform locked layers", zoom level, ...). */
+    kritaMessage: (text: string) => void;
     /** Krita's cursor over the canvas or a Krita window changed: a CSS cursor name. */
     kritaCursor: (cursor: string) => void;
 }
