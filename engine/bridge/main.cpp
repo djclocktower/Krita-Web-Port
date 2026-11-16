@@ -337,7 +337,7 @@ private:
     QSet<QWidget *> dirtyWindows;
     QPointer<QWidget> toolOptions;
     QTimer windowTimer, overlayTimer;
-    int nextWindowId = 1;
+    int nextWindowId = 1, filterEvents = 0, shows = 0, updateRequests = 0;
     bool grabbing = false, overlayShown = false;
     size_t overlayHash = 0;
     QSize viewportSize;
@@ -426,8 +426,11 @@ private:
     }
     bool eventFilter(QObject *o, QEvent *e) override
     {
+        filterEvents++;
         if (grabbing || !o->isWidgetType()) return false;
         auto *w = static_cast<QWidget *>(o);
+        if (e->type() == QEvent::Show && w->isWindow()) shows++;
+        if (e->type() == QEvent::UpdateRequest) updateRequests++;
         switch (e->type()) {
         case QEvent::Show:
             if (w->isWindow() && w != window && w->windowType() != Qt::ToolTip && w->windowType() != Qt::Desktop) trackWindow(w);
@@ -1429,6 +1432,14 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
     // ---- Krita's own main window, view, actions and tools, with no display.
     // ponytail: the hand-written handlers above and this path both edit the document; the plan is
     // to move tools and menu commands onto this path and retire the hand-written ones.
+    if (m == "krita.debug") {
+        QJsonArray tops;
+        for (QWidget *w : QApplication::topLevelWidgets())
+            tops.append(QString("%1 '%2' visible=%3 %4x%5 type=%6 handle=%7").arg(w->metaObject()->className(), w->windowTitle()).arg(w->isVisible())
+                            .arg(w->width()).arg(w->height()).arg(int(w->windowType())).arg(w->windowHandle() != nullptr));
+        return QJsonObject{{"topLevel", tops}, {"filterEvents", filterEvents}, {"shows", shows}, {"updateRequests", updateRequests},
+                           {"tracked", windows.size()}, {"mainWindow", QString("%1x%2").arg(window->width()).arg(window->height())}};
+    }
     if (m == "krita.windows") {
         QJsonArray list;
         for (auto it = windows.constBegin(); it != windows.constEnd(); ++it) list.append(describe(it.key()));

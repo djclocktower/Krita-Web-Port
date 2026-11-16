@@ -199,11 +199,13 @@ s_heif() { local KW_CFLAGS="-pthread -fexceptions"        # HEVC decode via libd
               -DENABLE_PLUGIN_LOADING=OFF -DWITH_LIBDE265=ON -DWITH_X265=OFF -DWITH_X264=OFF -DWITH_OpenH264_DECODER=OFF -DWITH_DAV1D=OFF \
               -DWITH_AOM_DECODER=ON -DWITH_AOM_ENCODER=ON -DWITH_RAV1E=OFF -DWITH_SvtEnc=OFF -DWITH_JPEG_DECODER=OFF -DWITH_JPEG_ENCODER=OFF \
               -DWITH_OpenJPEG_DECODER=OFF -DWITH_OpenJPEG_ENCODER=OFF -DWITH_FFMPEG_DECODER=OFF -DWITH_LIBSHARPYUV=OFF \
-              -DENABLE_MULTITHREADING_SUPPORT=ON -DENABLE_PARALLEL_TILE_DECODING=ON; }
+              -DENABLE_MULTITHREADING_SUPPORT=ON -DENABLE_PARALLEL_TILE_DECODING=ON &&
+           # the installed config refers to libheif's private AOM::aom target, which no consumer defines: name the archive instead
+           sed -i 's|\\\$<LINK_ONLY:AOM::aom>|'"$PREFIX"'/lib/libaom.a|g' "$PREFIX/lib/cmake/libheif/libheif-config.cmake"; }
 
 s_libraw() { local KW_CFLAGS="-pthread -fexceptions"     # 0.22.1 + krita-deps-management's CMake patches (patches/dep-libraw.patch); no OpenMP/Jasper/RawSpeed
              fetch_git libraw https://github.com/LibRaw/LibRaw.git 0.22.1
-             cm libraw -DENABLE_OPENMP=OFF -DENABLE_JASPER=OFF -DENABLE_LCMS=ON -DENABLE_EXAMPLES=OFF -DENABLE_RAWSPEED=OFF; }
+             cm libraw -DMATH_LIBRARY=m -DENABLE_OPENMP=OFF -DENABLE_JASPER=OFF -DENABLE_LCMS=ON -DENABLE_EXAMPLES=OFF -DENABLE_RAWSPEED=OFF; }
 s_openjpeg() { local KW_CFLAGS="-pthread -fexceptions"
                fetch_git openjpeg https://github.com/uclouvain/openjpeg.git v2.5.4
                cm openjpeg -DBUILD_CODEC=OFF -DBUILD_JPIP=OFF -DBUILD_JAVA=OFF -DBUILD_DOC=OFF -DBUILD_STATIC_LIBS=ON \
@@ -211,9 +213,17 @@ s_openjpeg() { local KW_CFLAGS="-pthread -fexceptions"
 # Qt6 libkdcraw (provides the KDcrawQt6 CMake package Krita's raw plugin links); only its static-library patch is needed
 s_kdcraw() { local KW_CFLAGS="-pthread -fexceptions"
              fetch_git kdcraw https://invent.kde.org/graphics/libkdcraw.git v24.02.0
-             qcm kdcraw -DQT_MAJOR_VERSION=6; }
+             qcm kdcraw -DQT_MAJOR_VERSION=6 &&
+             # same problem: the config refers to libkdcraw's private LibRaw::LibRaw target (libraw needs zlib, lcms2 when static)
+             sed -i 's|\\\$<LINK_ONLY:LibRaw::LibRaw>|'"$PREFIX/lib/libraw_r.a;$PREFIX/lib/liblcms2.a;$PREFIX/lib/libz.a"'|' "$PREFIX/lib/cmake/KDcrawQt6/KDcrawQt6Targets.cmake"; }
 
-ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr json-c mypaint highway brotli jxl libde265 aom heif libraw openjpeg kdcraw"
+s_poppler() { local KW_CFLAGS="-pthread -fexceptions"    # Qt6 wrapper only (PDF import); same switches as krita-deps-management ext_poppler, no JPX/boost/crypto/curl
+              fetch_git poppler https://gitlab.freedesktop.org/poppler/poppler.git poppler-26.04.0
+              qcm poppler -DENABLE_QT6=ON -DENABLE_QT5=OFF -DENABLE_UTILS=OFF -DENABLE_CPP=OFF -DENABLE_GLIB=OFF -DENABLE_GOBJECT_INTROSPECTION=OFF \
+                  -DENABLE_BOOST=OFF -DENABLE_LIBOPENJPEG=none -DENABLE_NSS3=OFF -DENABLE_GPGME=OFF -DENABLE_LIBCURL=OFF -DENABLE_LCMS=ON -DENABLE_LIBTIFF=ON -DRUN_GPERF_IF_PRESENT=OFF \
+                  -DBUILD_GTK_TESTS=OFF -DBUILD_QT5_TESTS=OFF -DBUILD_QT6_TESTS=OFF -DBUILD_CPP_TESTS=OFF -DBUILD_MANUAL_TESTS=OFF; }
+
+ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr json-c mypaint highway brotli jxl libde265 aom heif libraw openjpeg kdcraw poppler"
 for s in ${@:-$ALL}; do
     if [ -e "$KW/stamps/$s" ]; then echo "skip $s"; continue; fi
     echo "== $s"

@@ -232,4 +232,47 @@ int main() {
 }
 EOF2
 
+run libraw cxx -lraw_r -llcms2 -lz -lm <<'EOF2'
+#include <libraw/libraw.h>
+#include <cstdio>
+#include <vector>
+int main() {
+    printf("LibRaw %s, %d known cameras\n", LibRaw::version(), LibRaw::cameraCount());
+    if (LibRaw::cameraCount() < 500) return 1;
+    LibRaw *pp = new LibRaw; LibRaw &p = *pp;   /* LibRaw is >100 KB: too big for the default 64 KB wasm stack */
+    std::vector<char> junk(4096, 0x5a);                         /* not a RAW file: must be rejected cleanly, not crash */
+    int r = p.open_buffer(junk.data(), junk.size());
+    if (r != LIBRAW_FILE_UNSUPPORTED) { printf("open_buffer returned %d (%s)\n", r, libraw_strerror(r)); return 2; }
+    puts("libraw ok (init, camera list, parser rejects junk; no real RAW sample decoded)"); return 0;
+}
+EOF2
+
+run openjpeg c -I$P/include/openjpeg-2.5 -lopenjp2 -lm <<'EOF2'
+#include <openjpeg.h>
+#include <stdio.h>
+int main(void) {
+    enum { W = 32, H = 32 };
+    printf("openjpeg %s\n", opj_version());
+    opj_image_cmptparm_t cp[3]; for (int i = 0; i < 3; i++) { cp[i] = (opj_image_cmptparm_t){1, 1, W, H, 0, 0, 8, 8, 0}; }
+    opj_image_t *img = opj_image_create(3, cp, OPJ_CLRSPC_SRGB);
+    img->x0 = img->y0 = 0; img->x1 = W; img->y1 = H;
+    for (int c = 0; c < 3; c++) for (int i = 0; i < W*H; i++) img->comps[c].data[i] = (c*60 + (i % W) * 3) & 255;
+    opj_cparameters_t par; opj_set_default_encoder_parameters(&par);
+    par.tcp_numlayers = 1; par.cp_disto_alloc = 1; par.tcp_rates[0] = 0;   /* lossless */
+    opj_codec_t *e = opj_create_compress(OPJ_CODEC_J2K);
+    if (!opj_setup_encoder(e, &par, img)) return 1;
+    opj_stream_t *s = opj_stream_create_default_file_stream("t.j2k", OPJ_FALSE);
+    if (!opj_start_compress(e, img, s) || !opj_encode(e, s) || !opj_end_compress(e, s)) return 2;
+    opj_stream_destroy(s); opj_destroy_codec(e);
+    opj_dparameters_t dp; opj_set_default_decoder_parameters(&dp);
+    opj_codec_t *d = opj_create_decompress(OPJ_CODEC_J2K); opj_setup_decoder(d, &dp);
+    s = opj_stream_create_default_file_stream("t.j2k", OPJ_TRUE);
+    opj_image_t *out = NULL;
+    if (!opj_read_header(s, d, &out) || !opj_decode(d, s, out)) return 3;
+    if (out->x1 != W || out->numcomps != 3) return 4;
+    for (int c = 0; c < 3; c++) for (int i = 0; i < W*H; i++) if (out->comps[c].data[i] != ((c*60 + (i % W) * 3) & 255)) return 5;   /* lossless (the encoder clobbers img when it applies the MCT, so recompute) */
+    puts("openjpeg lossless round trip ok"); return 0;
+}
+EOF2
+
 rm -rf "$T"; [ $fail = 0 ] && echo "all checks passed"; exit $fail

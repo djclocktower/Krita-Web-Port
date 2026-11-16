@@ -1,0 +1,54 @@
+diff --git a/poppler/Object.cc b/poppler/Object.cc
+index 53a08dc..527b7a3 100644
+--- a/poppler/Object.cc
++++ b/poppler/Object.cc
+@@ -34,6 +34,8 @@
+ #include "XRef.h"
+ #include "goo/gmem.h"
+ 
++Object::Object(std::unique_ptr<Array> arrayA) : type { objArray }, data { std::shared_ptr<Array>(std::move(arrayA)) } { }
++
+ //------------------------------------------------------------------------
+ // Object
+ //------------------------------------------------------------------------
+diff --git a/poppler/Object.h b/poppler/Object.h
+index 33e3557..3b48d65 100644
+--- a/poppler/Object.h
++++ b/poppler/Object.h
+@@ -233,7 +233,7 @@ public:
+ 
+     explicit Object(long long int64gA) : type { objInt64 }, data { int64gA } { }
+ 
+-    explicit Object(std::unique_ptr<Array> arrayA) : type { objArray }, data { std::shared_ptr<Array>(std::move(arrayA)) } { }
++    explicit Object(std::unique_ptr<Array> arrayA); // out of line (Object.cc): libc++ needs Array to be complete here
+ 
+     explicit Object(std::unique_ptr<Dict> &&dictA) : type { objDict }, data { std::shared_ptr<Dict>(std::move(dictA)) } { }
+ 
+diff --git a/qt6/src/poppler-document.cc b/qt6/src/poppler-document.cc
+index 3314686..db47129 100644
+--- a/qt6/src/poppler-document.cc
++++ b/qt6/src/poppler-document.cc
+@@ -909,7 +909,7 @@ QDateTime convertDate(const char *dateString)
+                     qWarning("unexpected tz val");
+                 }
+             }
+-            return QDateTime(d, t, QTimeZone(tzSecs));
++            return QDateTime(d, t, Qt::OffsetFromUTC, tzSecs);
+         }
+     }
+     return QDateTime();
+diff --git a/qt6/src/poppler-form.cc b/qt6/src/poppler-form.cc
+index 884f25a..bdbc4d2 100644
+--- a/qt6/src/poppler-form.cc
++++ b/qt6/src/poppler-form.cc
+@@ -1060,8 +1060,8 @@ static CertificateInfoPrivate *createCertificateInfoPrivate(const X509Certificat
+         certPriv->nick_name = QString::fromStdString(ci->getNickName().toStr());
+ 
+         X509CertificateInfo::Validity certValidity = ci->getValidity();
+-        certPriv->validity_start = QDateTime::fromSecsSinceEpoch(certValidity.notBefore, QTimeZone::utc());
+-        certPriv->validity_end = QDateTime::fromSecsSinceEpoch(certValidity.notAfter, QTimeZone::utc());
++        certPriv->validity_start = QDateTime::fromSecsSinceEpoch(certValidity.notBefore, Qt::UTC);
++        certPriv->validity_end = QDateTime::fromSecsSinceEpoch(certValidity.notAfter, Qt::UTC);
+ 
+         const X509CertificateInfo::PublicKeyInfo &pkInfo = ci->getPublicKeyInfo();
+         certPriv->public_key = QByteArray(pkInfo.publicKey.c_str(), pkInfo.publicKey.size());
