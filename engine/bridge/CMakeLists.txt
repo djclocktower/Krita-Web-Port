@@ -46,7 +46,7 @@ endforeach()
 target_link_options(kritaengine PRIVATE -Wl,--no-whole-archive)
 target_link_libraries(kritaengine PRIVATE
     ${_krita_libs}
-    Qt6::Test Qt6::GuiPrivate Qt6::CorePrivate
+    Qt6::Test Qt6::GuiPrivate Qt6::CorePrivate Qt6::Quick Qt6::QuickControls2 Qt6::QuickWidgets   # Quick: Krita's QML panels
     # static dependencies that KF6I18n and fontconfig do not propagate themselves
     ${KRITA_WEB_PREFIX}/lib/libintl.a ${KRITA_WEB_PREFIX}/lib/libexpat.a)
 # Static dependencies of the format and MyPaint plugins that their own CMake files do not list

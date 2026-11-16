@@ -255,6 +255,14 @@ public:
             dock->resize(300, 500);
             dock->show();
         }
+        // The Text Properties docker (QML) gets a window of its own the same way; the text tool's panel opens it.
+        if (auto *dock = window->findChild<QDockWidget *>("TextProperties")) {
+            dock->setTitleBarWidget(new QWidget(dock));
+            dock->setProperty("kwBare", true);
+            dock->setFloating(true);
+            dock->resize(320, 600);
+            dock->hide();
+        }
         windowTimer.setSingleShot(true);
         windowTimer.setInterval(30);
         connect(&windowTimer, &QTimer::timeout, this, &Engine::paintWindows);
@@ -1783,6 +1791,7 @@ int main(int argc, char *argv[])
     // Uncaught errors in this worker reach the page without a stack; log it here first.
     EM_ASM({ self.addEventListener('error', function (e) { console.error('ENGINE STACK ' + (e.error && e.error.stack ? e.error.stack : e.message)); }); });
     qputenv("QT_QPA_PLATFORM", "kritaheadless");
+    qputenv("QT_QUICK_BACKEND", "software");           // QML panels (QQuickWidget) render to an image; the platform has no GL
     qputenv("FONTCONFIG_FILE", "/etc/fonts/fonts.conf");
     qputenv("QT_QPA_FONTDIR", "/usr/share/fonts");
     QStandardPaths::setTestModeEnabled(true);
