@@ -27,7 +27,7 @@ function KritaToolbox() {
                         return (
                             <button key={t.id} type="button" data-krita-tool={t.id} aria-label={t.name} aria-pressed={!k.page && k.active === t.id}
                                 aria-keyshortcuts={t.shortcut || undefined} title={t.shortcut ? `${t.name} (${t.shortcut})` : t.name} onClick={() => pick(t.id)}
-                                {...(icon ? { children: <span class="kicon" aria-hidden="true" style={`--kicon:url(${icon})`} /> } : { children: <span class="letters" aria-hidden="true">{letters(t.name)}</span> })} />
+                                {...(icon ? { children: <span class="kicon" aria-hidden="true" style={`--kicon:url("${icon}")`} /> } : { children: <span class="letters" aria-hidden="true">{letters(t.name)}</span> })} />
                         );
                     })}
                 </div>
