@@ -6,6 +6,7 @@ const isolation = { 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-E
 
 export default defineConfig({
     plugins: [preact()],
+    base: './',   // relative paths, so the built app works from any folder on a site
     build: { target: 'es2022' },   // every browser with WebAssembly threads has this
     server: { headers: isolation },
     preview: { headers: isolation },

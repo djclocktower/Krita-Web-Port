@@ -13,7 +13,7 @@ interface Module {
 type Message = { id?: number | string; event?: string; result?: unknown; error?: string } & Record<string, unknown>;
 
 // `?engineBase=/engine-dev/` loads a different build (used while the engine is being rebuilt).
-const BASE = new URLSearchParams(location.search).get('engineBase') ?? '/engine/';
+const BASE = new URLSearchParams(location.search).get('engineBase') ?? new URL('engine/', document.baseURI).pathname;
 
 function loadScript(src: string): Promise<void> {
     return new Promise((resolve, reject) => {
