@@ -556,7 +556,7 @@ private:
             if (n->inherits("KisPaintLayer")) active = n;
         if (!active) active = img->root()->lastChild();
         if (active) { window->viewManager()->nodeManager()->slotNonUiActivatedNode(active); window->viewManager()->nodeManager()->slotSetSelectedNodes(KisNodeList{active}); }   // tools act on the selected nodes, not only the active one
-        setResource(KoCanvasResource::CurrentKritaNode, active);
+        setResource(KoCanvasResource::CurrentKritaNode, KisNodeWSP(active));   // Krita keeps (and reads) a weak pointer here; any other type reads back as "no layer"
 
         emitEvent("documentChanged", {{"info", info()}});
         emitEvent("layersChanged");
@@ -641,7 +641,7 @@ private:
     {
         active = node;
         if (active) { window->viewManager()->nodeManager()->slotNonUiActivatedNode(active); window->viewManager()->nodeManager()->slotSetSelectedNodes(KisNodeList{active}); }   // tools act on the selected nodes, not only the active one
-        setResource(KoCanvasResource::CurrentKritaNode, active);
+        setResource(KoCanvasResource::CurrentKritaNode, KisNodeWSP(active));   // Krita keeps (and reads) a weak pointer here; any other type reads back as "no layer"
         emitEvent("activeNodeChanged", {{"id", active ? QJsonValue(idOf(active)) : QJsonValue()}});
     }
     void insert(KisNodeSP node, const Params &p, const KUndo2MagicString &text)
