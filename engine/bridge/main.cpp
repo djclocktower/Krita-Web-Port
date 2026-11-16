@@ -42,6 +42,7 @@
 #include <QPointer>
 #include <kactioncollection.h>
 #include <KisImportExportManager.h>
+#include <KisMimeDatabase.h>
 #include <KisPart.h>
 #include <KisViewManager.h>
 #include <KisGlobalResourcesInterface.h>
@@ -872,14 +873,15 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         static const QHash<QString, const char *> mimes = {{"kra", "application/x-krita"}, {"png", "image/png"}, {"jpg", "image/jpeg"},
             {"psd", "image/vnd.adobe.photoshop"}, {"ora", "image/openraster"}, {"tga", "image/x-tga"}, {"bmp", "image/bmp"},
             {"tiff", "image/tiff"}, {"webp", "image/webp"}, {"gif", "image/gif"}, {"exr", "image/x-exr"}};
-        const char *mime = mimes.value(format, nullptr);
-        if (!mime) fail("Unsupported format: " + format);
+        // Anything else goes by its file extension through Krita's own file-type table.
+        const QString mime = mimes.contains(format) ? QString::fromLatin1(mimes.value(format)) : KisMimeDatabase::mimeTypeForSuffix(format);
+        if (mime.isEmpty()) fail("Unsupported format: " + format);
         // Krita's TIFF writer calls a missing function in this build and takes the engine down; refuse until that is fixed.
         if (format == "tiff") fail("TIFF export does not work in this build yet");
         if (!KisImportExportManager::supportedMimeTypes(KisImportExportManager::Export).contains(mime)) fail("This build of the engine cannot write ." + format + " files");
         image()->waitForDone();
         const QString path = "/tmp/export." + format;
-        if (!doc->exportDocumentSync(path, mime)) fail(doc->errorMessage().isEmpty() ? "Export failed" : doc->errorMessage());
+        if (!doc->exportDocumentSync(path, mime.toLatin1())) fail(doc->errorMessage().isEmpty() ? "Export failed" : doc->errorMessage());
         QFile f(path);
         if (!f.open(QIODevice::ReadOnly)) fail("Export produced no file");
         out = f.readAll();
@@ -1445,6 +1447,10 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
     if (m == "krita.windows") {
         QJsonArray list;
         for (auto it = windows.constBegin(); it != windows.constEnd(); ++it) list.append(describe(it.key()));
+        // Whoever asks is (re)starting to show them, so send every picture again.
+        painted.clear();
+        for (auto it = windows.constBegin(); it != windows.constEnd(); ++it) dirtyWindows << it.key();
+        windowTimer.start();
         return list;
     }
     if (m == "krita.closeWindow" || m == "krita.resizeWindow" || m == "krita.windowInput") {

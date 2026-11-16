@@ -21,7 +21,8 @@ export function Dialogs({ engine }: { engine: Engine }) {
 }
 
 const FORMATS: [ExportFormat, string][] = [['png', 'PNG'], ['jpg', 'JPEG'], ['kra', 'Krita (.kra)'], ['psd', 'Photoshop (.psd)'],
-    ['ora', 'OpenRaster (.ora)'], ['tga', 'TGA'], ['bmp', 'BMP']];
+    ['ora', 'OpenRaster (.ora)'], ['tga', 'TGA'], ['bmp', 'BMP'], ['webp', 'WebP'], ['gif', 'GIF'], ['exr', 'OpenEXR'],
+    ['jxl', 'JPEG XL'], ['avif', 'AVIF'], ['krz', 'Krita archive (.krz)']];
 
 function Export({ engine }: { engine: Engine }) {
     const [format, setFormat] = useState<ExportFormat>('png');
