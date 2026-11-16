@@ -52,6 +52,7 @@ target_link_options(kritaengine PRIVATE
     -sEXPORTED_FUNCTIONS=_main,_malloc,_free,_kw_request,_kw_ack
     "SHELL:--preload-file ${_data}/profiles@/share/krita/profiles"
     "SHELL:--preload-file ${_data}/actions@/share/krita/actions"
+    "SHELL:--preload-file ${CMAKE_SOURCE_DIR}/plugins/paintops/mypaint/brushes@/share/krita/paintoppresets"   # MyPaint presets
     "SHELL:--preload-file ${_data}/input@/share/krita/input"   # which button or gesture does what on the canvas
     "SHELL:--preload-file ${_data}/bundles/Krita_4_Default_Resources.bundle@/share/krita/bundles/Krita_4_Default_Resources.bundle"
     "SHELL:--preload-file ${_spike}/fonts.conf@/etc/fonts/fonts.conf"
