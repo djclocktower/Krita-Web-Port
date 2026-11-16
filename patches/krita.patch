@@ -746,6 +746,23 @@ index ec69d45..4578158 100644
  }
  
  QString KisFFMpegWrapper::configuredFFMpegLocation()
+diff --git a/libs/ui/kis_paintop_box.cc b/libs/ui/kis_paintop_box.cc
+index 043a865..83b4c49 100644
+--- a/libs/ui/kis_paintop_box.cc
++++ b/libs/ui/kis_paintop_box.cc
+@@ -911,6 +911,12 @@ void KisPaintopBox::slotSetPaintop(const QString& paintOpId)
+ 
+ void KisPaintopBox::slotInputDeviceChanged(const KoInputDevice& inputDevice)
+ {
++#ifdef __EMSCRIPTEN__
++    // The web interface has one current brush. Remembering a preset per input device (and putting
++    // it back when a mouse or pen event arrives) replaced the brush the page had just selected.
++    Q_UNUSED(inputDevice);
++    return;
++#endif
+     TabletToolMap::iterator toolData = m_tabletToolMap.find(inputDevice);
+ 
+     //qDebug() << "slotInputDeviceChanged()" << inputDevice.device() << inputDevice.uniqueTabletId();
 diff --git a/libs/widgetutils/xmlgui/kbugreport.cpp b/libs/widgetutils/xmlgui/kbugreport.cpp
 index 29c94d4..4cc0ae9 100644
 --- a/libs/widgetutils/xmlgui/kbugreport.cpp

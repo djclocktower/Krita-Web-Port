@@ -40,7 +40,6 @@
 #include <KoDockFactoryBase.h>
 #include <KoCanvasObserverBase.h>
 #include <kis_mainwindow_observer.h>
-#include <kis_paintop_box.h>
 #include <KisSynchronizedConnection.h>
 #include <QDir>
 #include <KisResourceLoaderRegistry.h>
@@ -898,14 +897,10 @@ private:
     void selectPreset(KisPaintOpPresetSP source, const QString &id)
     {
         if (!source) fail("Unknown preset: " + id);
-        // Through Krita's brush toolbar, as picking a preset in Krita does. It keeps its own record of
-        // the current preset per input device and puts it back when input arrives; setting the canvas
-        // resource behind its back made Krita's tools paint with the previously chosen preset.
-        if (KisPaintopBox *box = window ? window->viewManager()->paintOpBox() : nullptr) {
-            box->resourceSelected(source);
-        } else {
-            setResource(KoCanvasResource::CurrentPaintOpPreset, source->clone().dynamicCast<KisPaintOpPreset>());
-        }
+        // a private copy, so editing the brush does not rewrite the stored resource
+        // (not through Krita's brush toolbar: its preset editor writes its own widget state back
+        // into the preset, which undid the page's edits and flattened pen pressure)
+        setResource(KoCanvasResource::CurrentPaintOpPreset, source->clone().dynamicCast<KisPaintOpPreset>());
         presetId = id;
         emitBrush();
     }
