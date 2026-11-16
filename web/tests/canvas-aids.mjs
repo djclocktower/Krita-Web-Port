@@ -336,12 +336,19 @@ if (part !== 'only') {
 }
 
 // ================================================================ real engine
+// With the real engine the toolbox is Krita's and its tools take the pointer directly, so two page-side features of the hand-built
+// tools do not apply and are NOT tested here (they are tested in the mock part above): the page's brush outline ring (Krita draws
+// its own brush cursor through its overlay) and the page's snapping of tool input to grid/guides/bounds (Krita's tools get the raw
+// pointer). What stays testable and is tested: the brush size of a preset, the stroke Krita's brush tool paints at that size, and
+// that Krita's rectangle selection takes the dragged rectangle exactly (no page snapping), read back with selectionOutline().
+// (Krita has snapping of its own: a drag ending a few pixels from the image edge is pulled to the edge, so the test stays clear of it.)
 if (part !== 'skip') {
     const page = await open(BASE + '?engine=wasm');
     const h = helpers(page);
     await h.fresh();
+    await page.waitForSelector('[data-krita-tool]', { timeout: 60000 });
     await h.zoom(1.5);
-    await page.mouse.move(h.box.x + 300, h.box.y + 250); await h.settle();
+    await page.locator('[data-krita-tool="KritaShape/KisToolBrush"]').click();
     const sizes = await page.evaluate(async () => {
         const out = [];
         for (const p of (await __engine.presets()).slice(0, 25)) {
@@ -353,17 +360,35 @@ if (part !== 'skip') {
     });
     const pair = [sizes[0], sizes.find(s => Math.abs(s.size - sizes[0].size) > 3)];
     check(!!pair[1], 'real engine has two presets with different sizes', JSON.stringify(sizes));
-    if (pair[1]) for (const p of pair) {
-        await page.evaluate(id => __engine.selectPreset(id), p.id);
-        const o = await h.waitOutline(o => near(o.d, p.size * 1.5, 0.5)), real = await h.brushSize();
-        check(o && near(o.d, real * 1.5, 0.5) && near(real, p.size, 0.5), `real engine: outline follows preset ${p.id} (size ${Math.round(real)})`, JSON.stringify(o) + ' ' + real);
+    check(await h.outline() === null, 'real engine: the page draws no brush outline for Krita tools (Krita draws its own; not applicable)', JSON.stringify(await h.outline()));
+    if (pair[1]) {
+        const widths = [];
+        for (const [i, p] of pair.entries()) {
+            await page.evaluate(id => __engine.selectPreset(id), p.id);
+            const real = await h.brushSize();
+            check(near(real, p.size, 0.5), `real engine: brush size follows preset ${p.id} (size ${Math.round(real)})`, String(real));
+            const y = 60 + i * 80;
+            const [x0, y0] = await h.at(100, y), [x1] = await h.at(300, y);
+            await page.mouse.move(x0, y0); await page.mouse.down(); await page.mouse.move(x1, y0, { steps: 8 }); await page.mouse.up();
+            await page.waitForTimeout(600);
+            // thickness of the stroke at its middle, in screen pixels, from what the page shows
+            widths.push(await page.evaluate(([x, y]) => {
+                const c = document.querySelector('canvas.view'), r = c.getBoundingClientRect(), k = c.width / r.width, t = document.createElement('canvas');
+                t.width = c.width; t.height = c.height; const g = t.getContext('2d'); g.drawImage(c, 0, 0);
+                let n = 0;
+                for (let dy = -120; dy <= 120; dy++) { const d = g.getImageData(Math.round((x - r.left) * k), Math.round((y + dy - r.top) * k), 1, 1).data; if (d[1] < 200) n++; }   // not the white page
+                return n;
+            }, [(x0 + x1) / 2, y0]));
+        }
+        check(widths[0] > 0 && widths[1] > 0 && (widths[0] - widths[1]) * (pair[0].size - pair[1].size) > 0, 'real engine: the preset with the bigger size paints the thicker stroke', JSON.stringify([pair, widths]));
     }
-    await page.keyboard.press('Control+r');
+    await page.locator('[data-krita-tool="KisToolSelectRectangular"]').click();
     await page.evaluate(() => __aids.aids.set({ snapGrid: true, snapBounds: true }));
     await h.zoom(1.5);
-    await h.drag([62, 79], [237, 296]);
+    await h.drag([62, 79], [237, 250]);   // away from the image edge: Krita's own snapping to the image bounds would pull an edge there to it
+    await page.waitForTimeout(500);
     const b = await h.bounds();
-    check(h.isBounds(b, 60, 80, 240, 300), 'real engine: snapped rectangle selection has exact bounds', JSON.stringify(b));
+    check(b && near(b.x0, 62, 1.5) && near(b.y0, 79, 1.5) && near(b.x1, 237, 1.5) && near(b.y1, 250, 1.5), "real engine: Krita's rectangle selection has the dragged bounds (the page's snapping does not apply to it)", JSON.stringify(b));
     check(errors.length === 0, 'no page errors (real engine)', errors.join(' | '));
 }
 

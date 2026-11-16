@@ -10,7 +10,8 @@ let failed = 0;
 const check = (ok, name, detail = '') => { console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${ok ? '' : '  ' + detail}`); if (!ok) failed++; };
 const near = (a, b, tol = 2) => Math.abs(a - b) <= tol;
 
-const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+const launch = () => chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+let browser = await launch();
 const errors = [];
 const open = async (url, viewport = { width: 1280, height: 800 }, deviceScaleFactor = 1) => {
     const page = await (await browser.newContext({ viewport, deviceScaleFactor })).newPage();
@@ -89,8 +90,8 @@ function helpers(page) {
     return h;
 }
 
-// ================================================================ mock engine
-{
+// ================================================================ mock engine (REAL=only skips it, REAL=skip skips the real-engine part)
+if (process.env.REAL !== 'only') {
     const page = await open(BASE);
     const h = helpers(page);
     await h.fresh();
@@ -177,14 +178,14 @@ function helpers(page) {
 
     // selection mode in the tool options, for touch users
     await h.fresh(); await tool('Control+r');
-    await page.getByRole('tab', { name: 'Tool Options' }).click();
+    // Toolbox and Tool Options are stacked (no tabs) in the default layout, so there is nothing to switch
+    check(await page.getByRole('tab', { name: 'Tool Options' }).count() === 0 && await page.locator('.dock-left .toolbox').isVisible(), 'Toolbox and Tool Options are both visible without switching tabs');
     await page.getByRole('group', { name: 'Selection mode' }).getByRole('button', { name: 'Add', exact: true }).click();
     check((await page.getByRole('group', { name: 'Selection mode' }).getByRole('button', { name: 'Add', exact: true }).getAttribute('aria-pressed')) === 'true', 'tool options show the selection mode');
     await drag([50, 40], [150, 120]); await drag([200, 40], [300, 120]);
     await fill();
     check(red(await pixelAt(100, 80)) && red(await pixelAt(250, 80)), 'Add mode from the options works without a modifier');
     await page.getByRole('group', { name: 'Selection mode' }).getByRole('button', { name: 'Replace', exact: true }).click();
-    await page.getByRole('tab', { name: 'Toolbox' }).click();
 
     // ---- ellipse
     await h.fresh(); await tool('j');
@@ -238,12 +239,10 @@ function helpers(page) {
     check(left[0] > 200 && left[2] < 60 && right[2] > 200 && right[0] < 60, 'gradient: foreground to background along the drag', JSON.stringify([left, right]));
     await page.keyboard.press('Control+z'); await h.settle();
     check(white(await pixelAt(60, 150)), 'gradient: undo');
-    await page.getByRole('tab', { name: 'Tool Options' }).click();
     await page.getByLabel('Reverse').check();
     await h.drag([40, 150], [360, 150]);
     const l2 = await pixelAt(60, 150);
     check(l2[2] > 200 && l2[0] < 60, 'gradient: Reverse option swaps the colours', JSON.stringify(l2));
-    await page.getByRole('tab', { name: 'Toolbox' }).click();
 
     // ---- crop
     await h.fresh(); await tool('c');
@@ -261,11 +260,9 @@ function helpers(page) {
     d = await h.docInfo();
     check(d.width === 400 && d.height === 300 && (await h.ants()) === 0, 'crop: Escape cancels and clears the frame');
     await drag([50, 40], [250, 200]);
-    await page.getByRole('tab', { name: 'Tool Options' }).click();
     await page.getByRole('button', { name: 'Apply' }).click(); await h.settle();
     d = await h.docInfo();
     check(d.width === 200 && d.height === 160, 'crop: the Apply button crops', `${d.width}x${d.height}`);
-    await page.getByRole('tab', { name: 'Toolbox' }).click();
 
     // ---- Escape cancels selection drags
     await h.fresh(); await tool('Control+r');
@@ -348,15 +345,25 @@ function helpers(page) {
 }
 
 // ================================================================ real engine
-{
+// With the real engine the toolbox is Krita's own (data-krita-tool buttons) and pointer input goes to Krita's tools; the page's
+// hand-built tools, their keys and their page-side marching-ants preview do not exist there. So each hand-built tool above is
+// tested here through its Krita counterpart: select it in the toolbox, drag on the canvas, then check the engine's own state
+// (selectionOutline(), pixels, no error banner). Page-only features that do not apply to Krita's tools are covered in the mock part:
+// the hand-built tools' live preview/ants while dragging, modifier keys of the page tools, and the page's snapping (see canvas-aids.mjs).
+if (process.env.REAL !== 'skip') {
+    await browser.close(); browser = await launch();   // a fresh browser: after the mock part's many pages the real engine's start-up stalled (seen once, cause not found)
     const page = await open(BASE + '?engine=wasm');
     const h = helpers(page);
+    await page.waitForSelector('[data-krita-tool]', { timeout: 60000 });
     await page.waitForTimeout(1500);
     h.box = await page.locator('canvas.view').boundingBox();
     const banner = async () => (await page.locator('.banner').first().innerText({ timeout: 4000 }).catch(() => '')) || '';
     const dismiss = async () => { const b = page.getByRole('button', { name: 'Dismiss error' }); if (await b.count()) await b.click(); };
-    // The real engine implements these calls: each tool must work without raising an error.
-    const unknown = async (name, act) => {
+    const pick = async id => { await page.locator(`[data-krita-tool="${id}"]`).click(); await page.waitForTimeout(200); };
+    const picked = () => page.evaluate(() => document.querySelector('[data-krita-tool][aria-pressed=true]')?.getAttribute('data-krita-tool'));
+    const outline = () => page.evaluate(() => __engine.selectionOutline());
+    // each Krita tool must work without raising an error
+    const works = async (name, act) => {
         await dismiss(); await act();
         await page.waitForTimeout(1200);
         const t = await banner();
@@ -364,25 +371,33 @@ function helpers(page) {
     };
     await page.waitForFunction(() => __view.view.get().docW > 0);
     const [cx, cy] = [h.box.x + h.box.width / 2, h.box.y + h.box.height / 2];
-    await h.tool('Control+r');
-    await unknown('rectangle select', async () => { await page.mouse.move(cx - 80, cy - 50); await page.mouse.down(); await page.mouse.move(cx + 80, cy + 50, { steps: 5 }); await page.mouse.up(); });
-    check((await page.evaluate(() => __engine.selectionOutline())).length > 0, 'real engine: rectangle select produced a selection');
-    await h.tool('j');
-    await unknown('ellipse select', async () => { await page.mouse.move(cx - 80, cy - 50); await page.mouse.down(); await page.mouse.move(cx + 80, cy + 50, { steps: 5 }); await page.mouse.up(); });
-    await page.locator('.toolbox button[aria-label="Freehand Selection"]').click();
-    await unknown('lasso select', async () => { await page.mouse.move(cx - 60, cy - 40); await page.mouse.down(); await page.mouse.move(cx + 60, cy - 40, { steps: 4 }); await page.mouse.move(cx, cy + 50, { steps: 4 }); await page.mouse.up(); });
-    await page.locator('.toolbox button[aria-label="Contiguous Selection"]').click();
-    await unknown('contiguous select', () => page.mouse.click(cx, cy));
-    await h.tool('f');
-    await unknown('fill', () => page.mouse.click(cx, cy));
-    await h.tool('g');
-    await unknown('gradient', async () => { await page.mouse.move(cx - 80, cy); await page.mouse.down(); await page.mouse.move(cx + 80, cy, { steps: 5 }); await page.mouse.up(); });
-    await h.tool('c');
-    await unknown('crop', async () => { await page.mouse.move(cx - 80, cy - 50); await page.mouse.down(); await page.mouse.move(cx + 80, cy + 50, { steps: 5 }); await page.mouse.up(); await page.keyboard.press('Enter'); });
-    // The real engine performs these selections, so their outline is on the overlay unless the last tool cleared it.
+    const drag = async (dx = 80, dy = 50) => { await page.mouse.move(cx - dx, cy - dy); await page.mouse.down(); await page.mouse.move(cx + dx, cy + dy, { steps: 5 }); await page.mouse.up(); };
+
+    await pick('KisToolSelectRectangular');
+    check(await picked() === 'KisToolSelectRectangular', 'real engine: clicking a Krita tool in the toolbox selects it', await picked());
+    await works('rectangle select', drag);
+    const rect = await outline();
+    check(rect.length > 0, 'real engine: rectangle select produced a selection (selectionOutline)');
+    const b = await h.bounds();
+    const view = await page.evaluate(() => __view.view.get());
+    check(b && near(b.x1 - b.x0, 160 / view.scale, 3 / view.scale + 1) && near(b.y1 - b.y0, 100 / view.scale, 3 / view.scale + 1), 'real engine: the selection is the dragged rectangle', JSON.stringify([b, view.scale]));
+    await pick('KisToolSelectElliptical');
+    await works('ellipse select', drag);
+    check((await outline()).length > 0, 'real engine: ellipse select produced a selection');
+    await pick('KisToolSelectOutline');
+    await works('lasso select', async () => { await page.mouse.move(cx - 60, cy - 40); await page.mouse.down(); await page.mouse.move(cx + 60, cy - 40, { steps: 4 }); await page.mouse.move(cx, cy + 50, { steps: 4 }); await page.mouse.up(); });
+    check((await outline()).length > 0, 'real engine: freehand selection produced a selection');
+    await pick('KisToolSelectContiguous');
+    await works('contiguous select', () => page.mouse.click(cx, cy));
+    await pick('KritaFill/KisToolFill');
+    await works('fill', () => page.mouse.click(cx, cy));
+    await pick('KritaFill/KisToolGradient');
+    await works('gradient', drag);
+    await pick('KisToolCrop');
+    await works('crop', async () => { await drag(); await page.keyboard.press('Enter'); });
     check(Number.isFinite(await h.ants()), 'real engine: overlay is readable after the tool calls', String(await h.ants()));
     // brush last, and quick: the Layers panel asks for thumbnails 400 ms into a stroke, which stalls the engine (see tests/stall-wasm.mjs)
-    await dismiss(); await h.tool('b');
+    await dismiss(); await pick('KritaShape/KisToolBrush');
     await page.mouse.move(cx - 100, cy); await page.mouse.down(); await page.mouse.move(cx + 100, cy, { steps: 8 }); await page.mouse.up();
     await page.waitForTimeout(500);
     const p = await h.pixel(cx, cy);

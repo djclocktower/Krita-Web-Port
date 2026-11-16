@@ -230,6 +230,8 @@ await scenario('workspaces and splitters', async page => {
     await load(page);
     const ws = t => menu(page, 'Settings', `Workspace: ${t}`);
     const defaults = { left: await tabs(page, 'left'), right: await tabs(page, 'right'), bottom: await tabs(page, 'bottom') };
+    // the left dock is stacked (Toolbox above Tool Options), so it has no tabs: its panels are listed by their tabpanel labels
+    defaults.left = await page.locator('section[aria-label="left panels"] [role=tabpanel]').evaluateAll(e => e.map(x => x.getAttribute('aria-label')));
     check(defaults.left.length >= 2 && defaults.right.length >= 4 && defaults.bottom.length === 1, 'default shows every panel', JSON.stringify(defaults));
     const b0 = await box(page, 'bottom');
     await ws('Minimal');

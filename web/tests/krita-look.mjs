@@ -16,7 +16,7 @@ const open = async (query, size = { width: 1280, height: 800 }) => {
     page.on('pageerror', e => errors.push(e.message));
     await page.goto(BASE + query);
     await page.waitForFunction(() => window.__engine && /\d+\s*[x×]\s*\d+/.test(document.querySelector('.status-doc')?.textContent ?? ''), null, { timeout: 150000 });
-    await page.waitForSelector('[data-krita-tool]', { state: 'attached', timeout: 150000 });   // on a phone the toolbox is inside the closed sheet
+    if (size.width > 700) await page.waitForSelector('[data-krita-tool]', { timeout: 150000 });   // on a phone the panels are in a closed sheet
     await page.waitForTimeout(500);
     return page;
 };

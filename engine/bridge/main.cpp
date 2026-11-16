@@ -36,6 +36,9 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QDockWidget>
+#include <QDir>
+#include <KisResourceLoaderRegistry.h>
+#include <KisResourceLoader.h>
 #include <brushengine/kis_paintop_registry.h>
 #include <kis_canvas_decoration.h>
 #include <QPainter>
@@ -529,7 +532,7 @@ private:
         for (KisNodeSP n = img->root()->lastChild(); n && !active; n = n->prevSibling())
             if (n->inherits("KisPaintLayer")) active = n;
         if (!active) active = img->root()->lastChild();
-        if (active) window->viewManager()->nodeManager()->slotNonUiActivatedNode(active);
+        if (active) { window->viewManager()->nodeManager()->slotNonUiActivatedNode(active); window->viewManager()->nodeManager()->slotSetSelectedNodes(KisNodeList{active}); }   // tools act on the selected nodes, not only the active one
         setResource(KoCanvasResource::CurrentKritaNode, active);
 
         emitEvent("documentChanged", {{"info", info()}});
@@ -614,7 +617,7 @@ private:
     void setActive(KisNodeSP node)
     {
         active = node;
-        if (active) window->viewManager()->nodeManager()->slotNonUiActivatedNode(active);
+        if (active) { window->viewManager()->nodeManager()->slotNonUiActivatedNode(active); window->viewManager()->nodeManager()->slotSetSelectedNodes(KisNodeList{active}); }   // tools act on the selected nodes, not only the active one
         setResource(KoCanvasResource::CurrentKritaNode, active);
         emitEvent("activeNodeChanged", {{"id", active ? QJsonValue(idOf(active)) : QJsonValue()}});
     }
@@ -1446,7 +1449,17 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         for (QWidget *w : QApplication::topLevelWidgets())
             tops.append(QString("%1 '%2' visible=%3 %4x%5 type=%6 handle=%7").arg(w->metaObject()->className(), w->windowTitle()).arg(w->isVisible())
                             .arg(w->width()).arg(w->height()).arg(int(w->windowType())).arg(w->windowHandle() != nullptr));
-        return QJsonObject{{"topLevel", tops}, {"filterEvents", filterEvents}, {"shows", shows}, {"updateRequests", updateRequests},
+        QJsonObject res;
+        res["paintops"] = QJsonArray::fromStringList(KisPaintOpRegistry::instance()->keys());
+        res["presetFilesInstalled"] = QJsonArray::fromStringList(QDir("/share/krita/paintoppresets").entryList(QDir::Files).mid(0, 4));
+        const QString data = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+        res["dataDir"] = data;
+        res["presetFilesCopied"] = QJsonArray::fromStringList(QDir(data + "/paintoppresets").entryList(QDir::Files).mid(0, 4));
+        res["dataDirEntries"] = QJsonArray::fromStringList(QDir(data).entryList(QDir::AllEntries | QDir::NoDotAndDotDot));
+        QStringList loaders;
+        for (KisResourceLoaderBase *l : KisResourceLoaderRegistry::instance()->resourceTypeLoaders(ResourceType::PaintOpPresets)) loaders << l->id() + ":" + l->mimetypes().join(",");
+        res["presetLoaders"] = QJsonArray::fromStringList(loaders);
+        return QJsonObject{{"resources", res}, {"topLevel", tops}, {"filterEvents", filterEvents}, {"shows", shows}, {"updateRequests", updateRequests},
                            {"tracked", windows.size()}, {"mainWindow", QString("%1x%2").arg(window->width()).arg(window->height())}};
     }
     if (m == "krita.dockers") {

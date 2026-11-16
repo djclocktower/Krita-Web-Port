@@ -15,7 +15,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const SAMPLES = process.env.SAMPLES || join(here, 'samples');
 const base = process.env.ENGINE_BASE ? `&engineBase=${process.env.ENGINE_BASE}` : '';
 const URL_ = (process.env.URL || 'http://localhost:5173/?engine=wasm') + base;
-const OPEN_MS = 120000, EXPORT_MS = 60000;
+const OPEN_MS = +(process.env.OPEN_MS || 120000), EXPORT_MS = +(process.env.EXPORT_MS || 60000);
 
 // ---- expectations ------------------------------------------------------------------------------------------------------
 // [file in samples/, width, height, what it is]
@@ -55,7 +55,9 @@ const inPage = {
             const bytes = new Uint8Array(await (await fetch('/__sample/' + encodeURIComponent(name))).arrayBuffer());
             const info = await within(__engine.openDocument(name, bytes), openMs, 'open');
             const r = { w: info.width, h: info.height, model: info.colorModel, depth: info.colorDepth, profile: info.profile };
-            const png = await within(__engine.exportDocument('png'), exportMs, 'png export');
+            let png;
+            try { png = await within(__engine.exportDocument('png'), exportMs, 'png export'); }
+            catch (e) { r.pngError = e.message; return r; }   // the document is open; only reading its pixels failed
             const img = await createImageBitmap(new Blob([png], { type: 'image/png' }));
             if (img.width !== info.width || img.height !== info.height) r.pngSize = [img.width, img.height];
             const c = new OffscreenCanvas(Math.min(img.width, 64), Math.min(img.height, 64)); const g = c.getContext('2d');
@@ -100,7 +102,8 @@ const hardStop = setTimeout(() => { console.log('FAILED: hard timeout'); process
 async function guarded(fn) {
     // the page-side timers catch a hung engine; this catches a page that died with it
     const r = await Promise.race([fn().catch(e => ({ error: 'PAGE: ' + e.message })), new Promise(res => setTimeout(() => res({ error: 'HANG: page did not answer' }), OPEN_MS + EXPORT_MS + 30000))]);
-    if (r.error && /^(HANG|PAGE)|out of bounds|unreachable|abort|RuntimeError|Aborted|memory/i.test(r.error)) {
+    if (r.pngError) { r.console = log.slice(-6); await boot(); }   // a hung export leaves the engine inside a nested event loop: start clean
+    else if (r.error && /^(HANG|PAGE)|out of bounds|unreachable|abort|RuntimeError|Aborted|memory/i.test(r.error)) {
         r.crashed = true;
         r.console = log.slice(-6);
         await boot();
@@ -134,6 +137,7 @@ async function runOpen(name, w, h, what) {
     if (r.crashed) verdict = 'CRASH/HANG ' + r.error + (r.console?.length ? ' | console: ' + r.console.join(' / ').slice(0, 400) : '');
     else if (r.error) verdict = 'ERROR ' + r.error;
     else if (w && (r.w !== w || r.h !== h)) verdict = `WRONG SIZE ${r.w}x${r.h}, expected ${w}x${h}`;
+    else if (r.pngError) verdict = `OPENS ${r.w}x${r.h} ${r.model}/${r.depth} but cannot be read back: PNG export: ${r.pngError}`;
     else if (r.pngSize) verdict = `WRONG SIZE png export is ${r.pngSize}`;
     else if (r.colours < 2 && !(r.alphaMax > 0 && r.alphaMin !== r.alphaMax)) verdict = `BLANK (${r.colours} colour, alpha ${r.alphaMin}..${r.alphaMax})`;
     else { verdict = `ok ${r.w}x${r.h} ${r.model}/${r.depth} colours=${r.colours} alpha=${r.alphaMin}..${r.alphaMax}`; ok = true; }
