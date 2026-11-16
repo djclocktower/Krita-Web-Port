@@ -126,7 +126,13 @@ export function wrapEngine(engine: Engine): Engine {
     const rearm = () => { clearTimeout(timer); if (dirty && autosaving()) schedule(Math.min(idleMs(), firstAt + maxWaitMs() - Date.now())); };
     onSettingChange('autosave', rearm); onSettingChange('autosaveSeconds', rearm);
     const w = window;
-    const down = (e: PointerEvent) => void downs.set(e.pointerId, Date.now()), up = (e: PointerEvent) => void downs.delete(e.pointerId);
+    const down = (e: PointerEvent) => void downs.set(e.pointerId, Date.now());
+    const up = (e: PointerEvent) => {
+        downs.delete(e.pointerId);
+        // A save that is overdue runs the moment the pen lifts. Waiting for the next retry tick could
+        // miss every short gap between quick strokes and go a long time without saving.
+        if (dirty && autosaving() && !pointerDown() && Date.now() >= firstAt + maxWaitMs()) schedule(0);
+    };
     w.addEventListener('pointerdown', down, true); w.addEventListener('pointerup', up, true); w.addEventListener('pointercancel', up, true);
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && autosaving()) void flush(); });
     w.addEventListener('beforeunload', e => { if (dirty && getSetting('confirmClose')) { e.preventDefault(); e.returnValue = ''; } });

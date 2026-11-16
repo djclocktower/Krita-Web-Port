@@ -35,7 +35,7 @@ const find = (dir, file) => {                 // locate <file> anywhere under di
 const PORT = 8800 + Math.floor(Math.random() * 100);
 const server = spawn('node', [fileURLToPath(new URL('../serve.mjs', import.meta.url)), build, String(PORT)], { stdio: 'ignore' });
 await new Promise(r => setTimeout(r, 700));
-const browser = await chromium.launch({ args: ['--enable-features=SharedArrayBuffer'] });
+const browser = await chromium.launch({ args: ['--enable-features=SharedArrayBuffer', '--disable-dev-shm-usage'] });
 
 const HTML = (script, args) => `<!doctype html><meta charset=utf-8><body><script>
 window.__exit = null;

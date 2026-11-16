@@ -10,8 +10,11 @@ set(_KW_SPIKE_DIR ${CMAKE_CURRENT_LIST_DIR}/../spike)
 set(KRITA_WEB_FONT /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf CACHE FILEPATH "Fallback font to bundle")
 # Plugins every test gets: "<cmake target>:<Qt plugin class>". The colour engine is needed by anything that makes a colour space.
 set(KRITA_WEB_TEST_PLUGINS "kritalcmsengine:PluginFactory" CACHE STRING "Static plugins linked into every test")
+# Added for tests that use the image library: every filter and generator plugin plus the default brush engines
+# (Krita's tests find them through KRITA_PLUGIN_PATH on desktop; here they are static).
+set(KRITA_WEB_IMAGE_PLUGINS "kritablurfilter:BlurFilterPluginFactory;kritacolorsfilters:ColorsFiltersFactory;kritadodgeburn:DodgeBurnPluginFactory;kritagaussianhighpassfilter:GaussianHighPassPluginFactory;kritaindexcolors:IndexColorsFactory;kritaembossfilter:KisEmbossFilterPluginFactory;kritaoilpaintfilter:KisOilPaintFilterPluginFactory;kritaphongbumpmap:KisPhongBumpmapFactory;kritapixelizefilter:KisPixelizeFilterPluginFactory;kritaraindropsfilter:KisRainDropsFilterPluginFactory;kritaroundcornersfilter:KisRoundCornersFilterPluginFactory;kritasmalltilesfilter:KisSmallTilesFilterPluginFactory;kritaasccdl:KritaASCCDLFactory;kritacolorgenerator:KritaColorGeneratorFactory;kritaconvertheighttonormalmap:KritaConvertHeightToNormalMapFilterFactory;kritaconvolutionfilters:KritaConvolutionFiltersFactory;kritaedgedetection:KritaEdgeDetectionFilterFactory;kritaextensioncolorsfilters:KritaExtensionsColorsFactory;kritafastcolortransferfilter:KritaFastColorTransferFactory;kritagradientgenerator:KritaGradientGeneratorFactory;kritagradientmap:KritaGradientMapFilterFactory;kritahalftone:KritaHalftoneFactory;kritaimageenhancement:KritaImageEnhancementFactory;kritamultigridpatterngenerator:KritaMultigridPatternGeneratorFactory;kritanoisefilter:KritaNoiseFilterFactory;kritanormalize:KritaNormalizeFilterFactory;kritapatterngenerator:KritaPatternGeneratorFactory;kritarandompickfilter:KritaRandomPickFilterFactory;kritascreentonegenerator:KritaScreentoneGeneratorFactory;kritasimplexnoisegenerator:KritaSimplexNoiseGeneratorFactory;kritathreshold:KritaThresholdFactory;kritawavefilter:KritaWaveFilterFactory;kritalevelfilter:LevelsFilterFactory;kritapalettize:PalettizeFactory;kritaposterize:PosterizeFactory;kritapropagatecolors:PropagateColorsFilterFactory;kritaresettransparent:ResetTransparentFactory;kritaunsharpfilter:UnsharpPluginFactory;kritadefaultpaintops:DefaultPaintOpsPluginFactory" CACHE STRING "Static plugins linked into tests that use kritaimage")
 # Tests that compile library sources into themselves clash with a whole-archive link (duplicate symbols).
-set(KRITA_WEB_NO_WHOLE_ARCHIVE TestColorConversionSystem CACHE STRING "Tests linked without whole-archive")
+set(KRITA_WEB_NO_WHOLE_ARCHIVE "TestColorConversionSystem;kis_fixed_point_maths_test;kis_filter_weights_buffer_test;kis_filter_weights_applicator_test" CACHE STRING "Tests linked without whole-archive")
 # Krita libraries kept whole (static initialisers and embedded resources); only those a test really depends on are used.
 set(_KW_WHOLE kritaversion kritaglobal kritaplugin kritastore kritaresources kritacommand kritawidgetutils
     kritamultiarch kritapigment kritaflake kritawidgets kritaresourcewidgets kritametadata
@@ -60,6 +63,9 @@ function(_kw_finish_test target srcdir bindir)
     set(_plugins "")
     if (kritapigment IN_LIST _deps)      # only colour-aware tests need the colour engine
         set(_plugins ${KRITA_WEB_TEST_PLUGINS})
+    endif()
+    if (kritaimage IN_LIST _deps)
+        list(APPEND _plugins ${KRITA_WEB_IMAGE_PLUGINS})
     endif()
     foreach (p IN LISTS _plugins)
         string(REPLACE ":" ";" pp ${p})
