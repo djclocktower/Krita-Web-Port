@@ -1450,6 +1450,12 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             tops.append(QString("%1 '%2' visible=%3 %4x%5 type=%6 handle=%7").arg(w->metaObject()->className(), w->windowTitle()).arg(w->isVisible())
                             .arg(w->width()).arg(w->height()).arg(int(w->windowType())).arg(w->windowHandle() != nullptr));
         QJsonObject res;
+        res["selectedNodes"] = int(window->viewManager()->nodeManager()->selectedNodes().size());
+        res["activeTool"] = KoToolManager::instance()->activeToolId();
+        res["imageIdle"] = doc ? doc->image()->isIdle() : true;
+        overlayShown = false; overlayHash = 0;
+        paintOverlay();
+        res["overlayShown"] = overlayShown;
         res["paintops"] = QJsonArray::fromStringList(KisPaintOpRegistry::instance()->keys());
         res["presetFilesInstalled"] = QJsonArray::fromStringList(QDir("/share/krita/paintoppresets").entryList(QDir::Files).mid(0, 4));
         const QString data = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);

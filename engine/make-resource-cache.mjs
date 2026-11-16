@@ -57,6 +57,21 @@ try {
         total += size;
         console.log(`${name}: ${size} bytes`);
     }
+    // Loose resources Krita installed into sub-folders (MyPaint presets, ...) are also files the engine
+    // carries under /share/krita; record them as copies too, or Krita drops them from the database at start-up.
+    const loose = await page.evaluate(dir => {
+        const found = [];
+        for (const sub of engine.FS.readdir(dir)) {
+            if (sub.startsWith('.') || !engine.FS.isDir(engine.FS.stat(`${dir}/${sub}`).mode)) continue;
+            for (const name of engine.FS.readdir(`${dir}/${sub}`)) {
+                const here = `${dir}/${sub}/${name}`, shipped = `/share/krita/${sub}/${name}`;
+                try { if (engine.FS.isFile(engine.FS.stat(here).mode) && engine.FS.stat(shipped).size === engine.FS.stat(here).size) found.push({ from: shipped, name: `${sub}/${name}` }); } catch { /* not shipped */ }
+            }
+        }
+        return found;
+    }, dir);
+    copies.push(...loose);
+    console.log(`${loose.length} loose resource files copied from /share/krita at start-up`);
     writeFileSync(`${out}/manifest.json`, JSON.stringify({ dir, files, copies }));
     console.log(`resource cache written to ${out} (${files.length} files, ${(total / 1e6).toFixed(1)} MB)`);
 } finally {

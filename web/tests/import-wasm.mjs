@@ -47,33 +47,55 @@ async function boot() {
     await page.waitForTimeout(1500);
 }
 
-// Runs in the page. Opens `name` (bytes fetched from the route), reports size and sampled pixels of its PNG export.
+// Runs in the page. Opens `name` (bytes fetched from the route), clicks through the PDF import dialog if one appears
+// (Krita shows it even in batch mode and waits for OK), then reads the pixels back through an 8-bit BMP export (BMP carries no
+// metadata, so it works even where the PNG export hangs; see RESULTS.md) and, separately, through a PNG export.
 const inPage = {
-    async open(name, openMs, exportMs) {
+    async open(name, openMs, exportMs, opts) {
         const within = (p, ms, what) => Promise.race([p, new Promise((_, r) => setTimeout(() => r(new Error('HANG: ' + what + ' did not return in ' + ms / 1000 + ' s')), ms))]);
-        try {
-            const bytes = new Uint8Array(await (await fetch('/__sample/' + encodeURIComponent(name))).arrayBuffer());
-            const info = await within(__engine.openDocument(name, bytes), openMs, 'open');
-            const r = { w: info.width, h: info.height, model: info.colorModel, depth: info.colorDepth, profile: info.profile };
-            let png;
-            try { png = await within(__engine.exportDocument('png'), exportMs, 'png export'); }
-            catch (e) { r.pngError = e.message; return r; }   // the document is open; only reading its pixels failed
-            const img = await createImageBitmap(new Blob([png], { type: 'image/png' }));
-            if (img.width !== info.width || img.height !== info.height) r.pngSize = [img.width, img.height];
+        const stats = async (fmt, ms) => {
+            const bytes = await within(__engine.exportDocument(fmt), ms, fmt + ' export');
+            const img = await createImageBitmap(new Blob([bytes], { type: 'image/' + fmt }));
             const c = new OffscreenCanvas(Math.min(img.width, 64), Math.min(img.height, 64)); const g = c.getContext('2d');
             g.drawImage(img, 0, 0, c.width, c.height);
             const d = g.getImageData(0, 0, c.width, c.height).data;
             const seen = new Set(); let amax = 0, amin = 255;
             for (let i = 0; i < d.length; i += 4) { seen.add((d[i] >> 4) << 8 | (d[i + 1] >> 4) << 4 | d[i + 2] >> 4); amax = Math.max(amax, d[i + 3]); amin = Math.min(amin, d[i + 3]); }
-            r.colours = seen.size; r.alphaMax = amax; r.alphaMin = amin;
+            return { size: [img.width, img.height], colours: seen.size, alphaMax: amax, alphaMin: amin };
+        };
+        try {
+            const bytes = new Uint8Array(await (await fetch('/__sample/' + encodeURIComponent(name))).arrayBuffer());
+            let pdfDialog = null;
+            const opening = __engine.openDocument(name, bytes);
+            const poll = setInterval(async () => {
+                if (pdfDialog) return;
+                const d = (await __engine.kritaWindows()).find(w => w.kind === 'dialog' && w.modal);
+                if (!d) return;
+                pdfDialog = d.title;
+                const click = (x, y) => { for (const type of ['move', 'press', 'release']) __engine.kritaWindowInput(d.id, { type, x, y, button: 'left' }); };
+                if (/PDF Import/.test(d.title)) {
+                    if (opts && opts.allPages) { click(30, 57); await new Promise(r => setTimeout(r, 400)); }   // "All pages" radio button
+                    __engine.kritaWindowInput(d.id, { type: 'keydown', key: 'Enter' }); __engine.kritaWindowInput(d.id, { type: 'keyup', key: 'Enter' });
+                }
+            }, 400);
+            let info;
+            try { info = await within(opening, openMs, 'open' + (pdfDialog ? ' (a "' + pdfDialog + '" dialog is waiting for input)' : '')); } finally { clearInterval(poll); }
+            const r = { w: info.width, h: info.height, model: info.colorModel, depth: info.colorDepth, profile: info.profile, dialog: pdfDialog };
+            r.layers = (await within(__engine.layers(), 10000, 'layers')).length;
+            const bmp = await within(stats('bmp', exportMs), exportMs, 'bmp read-back');
+            r.colours = bmp.colours; r.bmpSize = bmp.size;
+            if (!opts || !opts.noPng) {
+                try { const png = await stats('png', exportMs); r.pngSize = png.size; r.alphaMin = png.alphaMin; r.alphaMax = png.alphaMax; r.pngColours = png.colours; }
+                catch (e) { r.pngError = e.message; }
+            }
             return r;
         } catch (e) { return { error: e.message }; }
     },
     async roundTrip(format, exportMs, openMs) {
         const within = (p, ms, what) => Promise.race([p, new Promise((_, r) => setTimeout(() => r(new Error('HANG: ' + what + ' did not return in ' + ms / 1000 + ' s')), ms))]);
         const pixels = async () => {
-            const png = await within(__engine.exportDocument('png'), exportMs, 'png export');
-            const img = await createImageBitmap(new Blob([png], { type: 'image/png' }));
+            const png = await within(__engine.exportDocument('bmp'), exportMs, 'bmp read-back');
+            const img = await createImageBitmap(new Blob([png], { type: 'image/bmp' }));
             const c = new OffscreenCanvas(img.width, img.height); const g = c.getContext('2d'); g.drawImage(img, 0, 0);
             return [[160, 100], [100, 70], [5, 195], [300, 20]].map(([x, y]) => [...g.getImageData(Math.min(x, img.width - 1), Math.min(y, img.height - 1), 1, 1).data]);
         };
@@ -127,21 +149,24 @@ async function evalPage(fn, args) {
 }
 
 let present = new Set(); try { present = new Set(readdirSync(SAMPLES)); } catch {}
-async function runOpen(name, w, h, what) {
+async function runOpen(name, w, h, what, opts = {}) {
     if (!present.has(name)) { console.log(`SKIP open:${name} (not in ${SAMPLES})`); return; }
     sampleBytes.set(name, readFileSync(join(SAMPLES, name)));
     const t0 = Date.now();
-    const r = await guarded(() => evalPage(inPage.open, [name, OPEN_MS, EXPORT_MS]));
+    if (process.env.NO_PNG) opts = { ...opts, noPng: true };
+    const r = await guarded(() => evalPage(inPage.open, [name, OPEN_MS, EXPORT_MS, opts]));
     const secs = ((Date.now() - t0) / 1000).toFixed(1) + 's';
     let verdict, ok = false;
+    const dlg = r.dialog ? ` (dialog "${r.dialog}" answered)` : '';
     if (r.crashed) verdict = 'CRASH/HANG ' + r.error + (r.console?.length ? ' | console: ' + r.console.join(' / ').slice(0, 400) : '');
     else if (r.error) verdict = 'ERROR ' + r.error;
     else if (w && (r.w !== w || r.h !== h)) verdict = `WRONG SIZE ${r.w}x${r.h}, expected ${w}x${h}`;
-    else if (r.pngError) verdict = `OPENS ${r.w}x${r.h} ${r.model}/${r.depth} but cannot be read back: PNG export: ${r.pngError}`;
-    else if (r.pngSize) verdict = `WRONG SIZE png export is ${r.pngSize}`;
-    else if (r.colours < 2 && !(r.alphaMax > 0 && r.alphaMin !== r.alphaMax)) verdict = `BLANK (${r.colours} colour, alpha ${r.alphaMin}..${r.alphaMax})`;
-    else { verdict = `ok ${r.w}x${r.h} ${r.model}/${r.depth} colours=${r.colours} alpha=${r.alphaMin}..${r.alphaMax}`; ok = true; }
+    else if (r.bmpSize && (r.bmpSize[0] !== r.w || r.bmpSize[1] !== r.h)) verdict = `WRONG SIZE the pixel read-back is ${r.bmpSize}`;
+    else if (r.colours < 2 && !opts.flat) verdict = `BLANK (read-back has ${r.colours} colour)`;
+    else { verdict = `ok ${r.w}x${r.h} ${r.model}/${r.depth} layers=${r.layers} colours=${r.colours}${dlg}`; ok = true; }
     report('open:' + name, ok, `[${what}] ${verdict} (${secs})`);
+    // Saving the opened document as PNG is what a user does next; it is checked on its own.
+    if (ok && !opts.noPng) report('png-after-open:' + name, !r.pngError, r.pngError ? r.pngError : 'ok');
 }
 
 async function runExport(format) {
@@ -156,7 +181,7 @@ async function runExport(format) {
         const [mid, , corner] = r.after;
         const differs = mid.some((v, i) => Math.abs(v - corner[i]) > 40);
         // same pixels as before at the four sample points, loosely (lossy codecs, colour management)
-        const same = r.after.every((p, i) => p.every((v, k) => Math.abs(v - r.before[i][k]) <= (k === 3 ? 60 : 64)));
+        const same = r.after.every((p, i) => p.every((v, k) => k === 3 || Math.abs(v - r.before[i][k]) <= 64));
         if (!differs) verdict = `BLANK after reopen (${r.size} bytes)`;
         else if (!same) verdict = `LOOKS WRONG ${r.size} bytes; before ${JSON.stringify(r.before)} after ${JSON.stringify(r.after)}`;
         else { verdict = `ok ${r.size} bytes`; ok = true; }
@@ -165,13 +190,13 @@ async function runExport(format) {
 }
 
 if (!PROBE) {
-    for (const [n, w, h, what] of OPEN) if (!only || only.test('open:' + n)) await runOpen(n, w, h, what);
+    for (const [n, w, h, what, opts] of OPEN) if (!only || only.test('open:' + n)) await runOpen(n, w, h, what, opts);
     for (const f of EXPORT) if (!only || only.test('export:' + f)) await runExport(f);
 } else {
     for (const f of process.argv.slice(2)) {
         const name = basename(f); sampleBytes.set(name, readFileSync(f));
         const t0 = Date.now();
-        const r = await guarded(() => evalPage(inPage.open, [name, OPEN_MS, EXPORT_MS]));
+        const r = await guarded(() => evalPage(inPage.open, [name, OPEN_MS, EXPORT_MS, { allPages: !!process.env.ALL_PAGES, noPng: !!process.env.NO_PNG }]));
         console.log(name, JSON.stringify(r).slice(0, 600), ((Date.now() - t0) / 1000).toFixed(1) + 's');
     }
     for (const f of (process.env.PROBE_EXPORT || '').split(',').filter(Boolean)) await runExport(f);

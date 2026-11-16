@@ -86,7 +86,12 @@ export async function createWasmEngine(): Promise<Engine> {
                 for (const copy of manifest.copies) {
                     // The engine's bundled files are unpacked asynchronously and may not be there yet.
                     for (let tries = 0; ; tries++) {
-                        try { config.FS.writeFile(`${manifest.dir}/${copy.name}`, config.FS.readFile(copy.from)); break; }
+                        try {
+                            const to = `${manifest.dir}/${copy.name}`;
+                            config.FS.mkdirTree(to.slice(0, to.lastIndexOf('/')));
+                            config.FS.writeFile(to, config.FS.readFile(copy.from));
+                            break;
+                        }
                         catch (e) { if (tries > 1500) throw e; await new Promise(r => setTimeout(r, 20)); }
                     }
                 }
