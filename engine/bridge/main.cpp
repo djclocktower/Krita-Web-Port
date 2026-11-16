@@ -1685,6 +1685,7 @@ int main(int argc, char *argv[])
     auto lap = [&](const char *what) { startup[what] = t.restart(); };
     // Krita's own application class: parts of Krita cast qApp to it (e.g. the input manager).
     WebApplication app(QStringLiteral("krita-web"), argc, argv);
+    app.setApplicationDisplayName(QStringLiteral("Krita"));
     lap("applicationMs");
     // Preloaded files get "now" as their modification time on every page load, which would make
     // Krita think the bundle changed and re-import it. Pin it so a stored database stays valid.

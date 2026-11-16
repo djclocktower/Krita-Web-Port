@@ -68,7 +68,12 @@ public:
 class HeadlessIntegration : public QPlatformIntegration
 {
 public:
-    HeadlessIntegration() { QWindowSystemInterface::handleScreenAdded(new HeadlessScreen); }
+    HeadlessIntegration()
+    {
+        // Nothing here pumps a window-system queue, so events (new sizes, exposes, injected input) are delivered at once.
+        QWindowSystemInterface::setSynchronousWindowSystemEvents(true);
+        QWindowSystemInterface::handleScreenAdded(new HeadlessScreen);
+    }
     bool hasCapability(Capability cap) const override { return cap == ThreadedPixmaps || cap == MultipleWindows; }
     QPlatformWindow *createPlatformWindow(QWindow *window) const override { return new HeadlessWindow(window); }
     QPlatformBackingStore *createPlatformBackingStore(QWindow *window) const override { return new HeadlessBackingStore(window); }
