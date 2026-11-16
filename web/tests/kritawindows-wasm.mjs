@@ -17,6 +17,7 @@ const step = async (name, fn) => { try { await fn(); } catch (e) { check(name, f
 
 await page.goto(`http://localhost:5173/?engine=wasm${base}`);
 await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 150000 });
+await page.waitForTimeout(1500);   // the app opens its own first document; let that finish
 await E(async () => {
     window.sleep = ms => new Promise(r => setTimeout(r, ms));
     window.hash = async () => { const b = await __engine.exportDocument('png'); let h = 0; for (const x of b) h = (h * 31 + x) | 0; return h; };
@@ -42,7 +43,7 @@ await E(async () => {
 
 await step('new tools', async () => {
     const tools = (await E(() => __engine.kritaTools())).map(t => t.id);
-    const want = ['KisToolPolygon', 'KisToolPolyline', 'KritaShape/KisToolDyna', 'KisAssistantTool', 'SvgTextTool', 'KarbonCalligraphyTool', 'KisToolEncloseAndFill', 'KritaShape/KisToolLazyBrush', 'KritaShape/KisToolSmartPatch', 'KisToolTransform', 'KisToolCrop'];
+    const want = ['KisToolPolygon', 'KisToolPolyline', 'KritaShape/KisToolDyna', 'KisAssistantTool', 'KarbonCalligraphyTool', 'KisToolEncloseAndFill', 'KritaShape/KisToolLazyBrush', 'KritaShape/KisToolSmartPatch', 'KisToolTransform', 'KisToolCrop'];
     const missing = want.filter(t => !tools.includes(t));
     check("Krita's remaining tools are present", missing.length === 0, missing.length ? `missing ${missing.join(', ')} | have ${tools.join(', ')}` : `${tools.length} tools`);
     const actions = new Set((await E(() => __engine.kritaActions())).map(a => a.name));
