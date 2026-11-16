@@ -1,0 +1,2559 @@
+{
+ "totalWallS": 1800.09,
+ "results": [
+  {
+   "name": "TestCompositeOpInversion",
+   "built": true,
+   "ran": true,
+   "exit": null,
+   "passed": 507,
+   "failed": 0,
+   "skipped": 0,
+   "xfail": 0,
+   "xpass": 0,
+   "functions": [
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::initTestCase",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(normal)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(alphadarken)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(copy)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(erase)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(behind)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(destination-in)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(destination-atop)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(greater)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(overlay)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(grain_merge)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(grain_extract)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(hard mix)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(hard_mix_photoshop)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(hard_mix_softer_photoshop)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(geometric_mean)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(parallel)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(allanon)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(hard overlay)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(interpolation)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(interpolation 2x)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(penumbra a)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(penumbra b)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(penumbra c)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(penumbra d)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(screen)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(dodge)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(linear_dodge)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(lighten)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(hard_light)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(soft_light_ifs_illusions)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(soft_light_pegtop_delphi)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(soft_light_svg)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(soft_light)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(gamma_light)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(gamma_illumination)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(vivid_light)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(flat_light)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(pin_light)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(linear light)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(pnorm_a)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(pnorm_b)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(super_light)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(tint_ifs_illusions)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(fog_lighten_ifs_illusions)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(easy dodge)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(burn)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(linear_burn)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(darken)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(gamma_dark)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(shade_ifs_illusions)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(fog_darken_ifs_illusions)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(easy burn)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(add)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(subtract)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(inverse_subtract)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(multiply)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(divide)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(modulo)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(modulo_continuous)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(divisive_modulo)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(divisive_modulo_continuous)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(modulo_shift)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(modulo_shift_continuous)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(arc_tangent)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(diff)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(exclusion)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(equivalence)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(additive_subtractive)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(negation)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(xor)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(or)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(and)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(nand)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(nor)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(xnor)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(implication)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(not_implication)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(converse)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(not_converse)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(reflect)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(glow)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(freeze)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(heat)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(glow_heat)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(heat_glow)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(reflect_freeze)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(freeze_reflect)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(heat_glow_freeze_reflect_hybrid)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(dissolve)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::test(luminosity_sai)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testColorPairSampler",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testColorPairSamplerRGB",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(linear_burn_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(linear_burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hard_mix_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hard_mix_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hard_overlay_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hard_overlay_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dodge_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dodge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(vivid_light_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(vivid_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(pin_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(darken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(lighten_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(allanon_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dissolve_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(alphadarken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(destination-in_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(destination-atop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(erase_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(copy_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(greater_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(grain_merge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(grain_extract_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(exclusion_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(negation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(multiply_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(diff_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(screen_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(add_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(luminosity_sai_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(divide_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(inverse_subtract_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(subtract_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(soft_light_svg_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(soft_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hard_mix_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hard_mix_softer_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(arc_tangent_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hard_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(parallel_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(equivalence_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(geometric_mean_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(additive_subtractive_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(gamma_dark_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(gamma_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(gamma_illumination_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(tangent_normalmap_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(combine_normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hue_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(inc_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dec_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(luminize_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(inc_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dec_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(color_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hue_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(inc_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dec_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(inc_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dec_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(color_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hue_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(inc_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dec_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(inc_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dec_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(color_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(hue_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(inc_saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dec_saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(inc_value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(dec_value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(darker_color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(lighter_color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(lambert_lighting_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32ModesNaN(lambert_lighting_gamma2_2_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(linear_burn_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(linear_burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hard_mix_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hard_mix_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hard_overlay_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hard_overlay_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dodge_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dodge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(vivid_light_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(vivid_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(pin_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(darken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(lighten_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(allanon_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dissolve_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(alphadarken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(destination-in_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(destination-atop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(erase_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(copy_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(greater_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(grain_merge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(grain_extract_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(exclusion_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(negation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(multiply_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(diff_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(screen_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(add_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(luminosity_sai_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(divide_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(inverse_subtract_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(subtract_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(soft_light_svg_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(soft_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hard_mix_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hard_mix_softer_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(arc_tangent_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hard_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(parallel_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(equivalence_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(geometric_mean_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(additive_subtractive_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(gamma_dark_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(gamma_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(gamma_illumination_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(tangent_normalmap_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(combine_normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hue_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(inc_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dec_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(luminize_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(inc_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dec_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(color_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hue_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(inc_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dec_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(inc_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dec_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(color_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hue_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(inc_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dec_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(inc_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dec_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(color_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(hue_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(inc_saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dec_saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(inc_value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(dec_value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(darker_color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(lighter_color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(lambert_lighting_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testF32vsU16ConsistencyInSDR(lambert_lighting_gamma2_2_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(linear_burn_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(linear_burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(hard_mix_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(hard_overlay_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dodge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(vivid_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(pin_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(darken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(lighten_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(allanon_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dissolve_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(alphadarken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(destination-in_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(destination-atop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(erase_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(copy_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(greater_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(grain_merge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(grain_extract_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(exclusion_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(negation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(multiply_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(diff_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(screen_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(soft_light_svg_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(soft_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(hard_mix_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(hard_mix_softer_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(arc_tangent_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(hard_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(parallel_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(equivalence_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(geometric_mean_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(additive_subtractive_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(gamma_dark_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(gamma_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(gamma_illumination_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(tangent_normalmap_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(combine_normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(hue_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(inc_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dec_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(luminize_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(inc_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dec_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(color_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(hue_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(inc_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dec_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(inc_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dec_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(color_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(hue_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(inc_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dec_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(inc_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dec_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(color_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(hue_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(inc_saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dec_saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(inc_value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(dec_value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(darker_color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(lighter_color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(lambert_lighting_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictSdrRange(lambert_lighting_gamma2_2_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(linear_burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(hard_mix_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(hard_overlay_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dodge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(vivid_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(pin_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(darken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(lighten_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(allanon_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dissolve_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(alphadarken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(destination-in_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(destination-atop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(erase_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(copy_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(greater_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(grain_merge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(grain_extract_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(exclusion_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(negation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(soft_light_svg_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(soft_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(parallel_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(geometric_mean_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(additive_subtractive_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(gamma_dark_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(gamma_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(tangent_normalmap_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(combine_normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(hue_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(inc_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dec_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(luminize_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(inc_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dec_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(color_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(hue_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(inc_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dec_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(inc_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dec_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(color_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(hue_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(inc_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dec_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(inc_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dec_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(color_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(hue_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(inc_saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dec_saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(inc_value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(dec_value_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(darker_color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(lighter_color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(lambert_lighting_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesLooseSdrRange(lambert_lighting_gamma2_2_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(linear_burn_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(linear_burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(hard_mix_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(hard_mix_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(hard_overlay_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(hard_overlay_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(dodge_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(dodge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(vivid_light_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(vivid_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(soft_light_svg_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(soft_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(hard_mix_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(hard_mix_softer_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(hard_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(parallel_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(equivalence_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(geometric_mean_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(additive_subtractive_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(gamma_dark_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(gamma_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testSrcCannotMakeNegative(gamma_illumination_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(linear_burn_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(linear_burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hard_mix_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hard_mix_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hard_overlay_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hard_overlay_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(dodge_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(dodge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(vivid_light_hdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(vivid_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(pin_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(burn_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(darken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(lighten_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(allanon_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(dissolve_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(alphadarken_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(destination-in_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(destination-atop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(erase_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(copy_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(greater_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(grain_merge_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(grain_extract_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(exclusion_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(negation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(multiply_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(diff_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(screen_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(add_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(luminosity_sai_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(divide_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(soft_light_svg_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(soft_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hard_mix_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hard_mix_softer_photoshop_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(arc_tangent_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hard_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(parallel_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(equivalence_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(geometric_mean_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(additive_subtractive_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(gamma_dark_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(gamma_light_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(gamma_illumination_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(tangent_normalmap_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(combine_normal_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(color_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hue_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(inc_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(dec_saturation_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(luminize_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(inc_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(dec_luminosity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(color_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hue_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(inc_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(dec_saturation_hsi_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(inc_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(dec_intensity_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(color_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hue_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(inc_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(dec_saturation_hsl_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(inc_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(dec_lightness_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(color_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(hue_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(saturation_hsv_sdr)",
+     "msg": ""
+    },
+    {
+     "kind": "PASS",
+     "fn": "TestCompositeOpInversion::testPreservesStrictNegative(inc_saturation_hsv_sdr)",
+     "msg": ""
+    }
+   ],
+   "failures": [],
+   "status": "timeout (1800s)",
+   "wallMs": 1800014,
+   "fnPass": 10,
+   "fnFail": 0,
+   "fnSkip": 0
+  }
+ ]
+}
