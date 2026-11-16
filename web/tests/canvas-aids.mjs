@@ -351,14 +351,17 @@ if (part !== 'skip') {
     await page.locator('[data-krita-tool="KritaShape/KisToolBrush"]').click();
     const sizes = await page.evaluate(async () => {
         const out = [];
-        for (const p of (await __engine.presets()).slice(0, 25)) {
+        // Krita's own pixel brushes only: the MyPaint presets listed first paint too lightly for the darkness check below.
+        for (const p of (await __engine.presets()).filter(p => p.engine === 'paintbrush' && !/eraser|blend|smudge/i.test(p.name)).slice(0, 25)) {
             await __engine.selectPreset(p.id);
             out.push({ id: p.id, size: (await __engine.brushState()).size });
-            if (new Set(out.map(o => o.size)).size >= 2 && out.length >= 4) break;
+            // two of moderate size are enough: a 600 px airbrush overflows the measuring window below
+            const fit = out.filter(o => o.size <= 60); if (fit.some(o => Math.abs(o.size - fit[0].size) > 3)) break;
         }
         return out;
     });
-    const pair = [sizes[0], sizes.find(s => Math.abs(s.size - sizes[0].size) > 3)];
+    const fit = sizes.filter(s => s.size <= 60);
+    const pair = [fit[0], fit.find(s => Math.abs(s.size - fit[0].size) > 3)];
     check(!!pair[1], 'real engine has two presets with different sizes', JSON.stringify(sizes));
     check(await h.outline() === null, 'real engine: the page draws no brush outline for Krita tools (Krita draws its own; not applicable)', JSON.stringify(await h.outline()));
     if (pair[1]) {

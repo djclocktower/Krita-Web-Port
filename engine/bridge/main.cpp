@@ -1716,7 +1716,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             // Krita's canvas takes the page's zoom, rotation and scroll position, so tools size and place
             // their handles for what the user is looking at.
             QWidget *canvas = view->canvasBase()->canvasWidget();
-            viewportSize = QSize(p["width"].toInt(), p["height"].toInt());
+            viewportSize = QSize(qRound(p["width"].toDouble()), qRound(p["height"].toDouble()));   // toInt() gives 0 for a fractional CSS size
             const QSize grow = (viewportSize - canvas->size()).expandedTo(QSize(0, 0));
             if (!grow.isEmpty() || grow.width() > 0 || grow.height() > 0) {
                 window->resize(window->size() + grow);
