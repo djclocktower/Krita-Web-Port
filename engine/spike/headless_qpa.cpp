@@ -1,6 +1,7 @@
 // A minimal Qt platform plugin with no display, so Krita's core can run in a worker
 // thread instead of the browser's main thread (which must never block).
 #include <QImage>
+#include <private/qfreetypefontdatabase_p.h>
 #include <QMimeData>
 #include <qpa/qplatformbackingstore.h>
 #include <qpa/qplatformclipboard.h>
@@ -78,6 +79,8 @@ public:
     QPlatformWindow *createPlatformWindow(QWindow *window) const override { return new HeadlessWindow(window); }
     QPlatformBackingStore *createPlatformBackingStore(QWindow *window) const override { return new HeadlessBackingStore(window); }
     QAbstractEventDispatcher *createEventDispatcher() const override { return new QEventDispatcherWasm; }
+    // Reads the font files under QT_QPA_FONTDIR; the default database knows no fonts, so text came out as boxes.
+    QPlatformFontDatabase *fontDatabase() const override { static QFreeTypeFontDatabase fonts; return &fonts; }
     QPlatformClipboard *clipboard() const override { static HeadlessClipboard clipboard; return &clipboard; }
 };
 

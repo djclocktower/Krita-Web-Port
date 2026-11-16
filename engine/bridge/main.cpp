@@ -1678,6 +1678,7 @@ int main(int argc, char *argv[])
     EM_ASM({ self.addEventListener('error', function (e) { console.error('ENGINE STACK ' + (e.error && e.error.stack ? e.error.stack : e.message)); }); });
     qputenv("QT_QPA_PLATFORM", "kritaheadless");
     qputenv("FONTCONFIG_FILE", "/etc/fonts/fonts.conf");
+    qputenv("QT_QPA_FONTDIR", "/usr/share/fonts");
     QStandardPaths::setTestModeEnabled(true);
     QElapsedTimer t;
     t.start();
