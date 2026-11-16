@@ -36,6 +36,10 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QDockWidget>
+#include <KoDockRegistry.h>
+#include <KoDockFactoryBase.h>
+#include <KoCanvasObserverBase.h>
+#include <kis_mainwindow_observer.h>
 #include <kis_paintop_box.h>
 #include <KisSynchronizedConnection.h>
 #include <QDir>
@@ -256,22 +260,17 @@ public:
             dock->resize(300, 500);
             dock->show();
         }
-        // The Text Properties docker (QML) gets a window of its own the same way; the text tool's panel opens it.
-        if (auto *dock = window->findChild<QDockWidget *>("TextProperties")) {
-            dock->setTitleBarWidget(new QWidget(dock));
-            dock->setProperty("kwBare", true);
-            dock->setFloating(true);
-            dock->resize(320, 600);
-            dock->hide();
-        }
         windowTimer.setSingleShot(true);
         windowTimer.setInterval(30);
         connect(&windowTimer, &QTimer::timeout, this, &Engine::paintWindows);
         overlayTimer.setSingleShot(true);
         overlayTimer.setInterval(30);
         connect(&overlayTimer, &QTimer::timeout, this, &Engine::paintOverlay);
-        connect(KoToolManager::instance(), &KoToolManager::changedTool, this, [] {
-            emitEvent("kritaToolChanged", {{"id", KoToolManager::instance()->activeToolId()}});
+        connect(KoToolManager::instance(), &KoToolManager::changedTool, this, [this] {
+            const QString id = KoToolManager::instance()->activeToolId();
+            // The text tool's panel has a button that opens the Text Properties docker; it must exist by then.
+            if (id == "SvgTextTool") if (QDockWidget *dock = docker("TextProperties")) dock->hide();
+            emitEvent("kritaToolChanged", {{"id", id}});
         });
         if (toolOptions) trackWindow(toolOptions);
         manager = window->viewManager()->canvasResourceProvider()->resourceManager();
@@ -361,6 +360,30 @@ private:
     QSize viewportSize;
     QPointF viewportShift;                // where the page has image (0,0), minus where Krita's canvas managed to put it
 
+    /// Krita's dockers are built on first use (see KisMainWindow.cpp): building all of them at
+    /// start-up cost many seconds. Returns the dock, floating and without a title bar, or null.
+    QDockWidget *docker(const QString &id)
+    {
+        QDockWidget *dock = nullptr;
+        for (QDockWidget *d : window->dockWidgets()) if (d->objectName() == id) dock = d;
+        if (!dock) {
+            KoDockFactoryBase *factory = KoDockRegistry::instance()->value(id);
+            if (!factory) return nullptr;
+            dock = window->createDockWidget(factory);
+            if (!dock) return nullptr;
+            // what Krita does for every dock when the window and a view are set up
+            if (auto *observer = dynamic_cast<KoCanvasObserverBase *>(dock)) {
+                if (auto *mainObserver = dynamic_cast<KisMainwindowObserver *>(observer)) mainObserver->setViewManager(window->viewManager());
+                if (view && view->canvasBase()) observer->setObservedCanvas(view->canvasBase());
+            }
+        }
+        if (!dock->property("kwBare").toBool()) {
+            dock->setTitleBarWidget(new QWidget(dock));
+            dock->setProperty("kwBare", true);
+            dock->setFloating(true);
+        }
+        return dock;
+    }
     QJsonObject describe(QWidget *w) const
     {
         const QRect g = w->geometry();
@@ -1520,24 +1543,34 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
                            {"tracked", windows.size()}, {"mainWindow", QString("%1x%2").arg(window->width()).arg(window->height())}};
     }
     if (m == "krita.dockers") {
+        // ponytail: titles are a fixed English table, because a docker only knows its title once it is built.
+        static const QHash<QString, QString> titles{
+            {"AnimationCurvesDocker", "Animation Curves"}, {"ArrangeDocker", "Arrange"}, {"ArtisticColorSelector", "Artistic Color Selector"},
+            {"BrushHudDocker", "On-Canvas Brush Editor"}, {"ChannelDocker", "Channels"}, {"ColorSelectorNg", "Advanced Color Selector"},
+            {"CompositionDocker", "Compositions"}, {"DigitalMixer", "Digital Colors Mixer"}, {"GamutMask", "Gamut Masks"},
+            {"GridDocker", "Grid and Guides"}, {"HistogramDocker", "Histogram"}, {"History", "Undo History"}, {"KisLayerBox", "Layers"},
+            {"LogDocker", "Log Viewer"}, {"OnionSkinsDocker", "Onion Skins"}, {"OverviewDocker", "Overview"}, {"PaletteDocker", "Palette"},
+            {"PatternDocker", "Patterns"}, {"PresetDocker", "Brush Presets"}, {"PresetHistory", "Brush Preset History"},
+            {"Snapshot", "Snapshot Docker"}, {"SpecificColorSelector", "Specific Color Selector"}, {"StoryboardDocker", "Storyboard"},
+            {"SvgSymbolCollectionDocker", "Symbol Libraries"}, {"TasksetDocker", "Task Sets"}, {"TimelineDocker", "Animation Timeline"},
+            {"TouchDocker", "Touch Docker"}, {"TextProperties", "Text Properties"}, {"SmallColorSelector", "Small Color Selector"}};
         QJsonArray list;
-        for (QDockWidget *dock : window->dockWidgets())
-            if (dock != toolOptions)
-                list.append(QJsonObject{{"id", dock->objectName()}, {"title", dock->windowTitle().remove('&')}, {"visible", dock->isVisible() && dock->isFloating()}});
+        for (KoDockFactoryBase *factory : KoDockRegistry::instance()->sortedDockWidgetFactories()) {
+            QDockWidget *dock = nullptr;
+            for (QDockWidget *d : window->dockWidgets()) if (d->objectName() == factory->id()) dock = d;
+            list.append(QJsonObject{{"id", factory->id()}, {"title", dock ? dock->windowTitle().remove('&') : titles.value(factory->id(), factory->id())},
+                                    {"visible", dock && dock->isVisible() && dock->isFloating()}});
+        }
         return list;
     }
     if (m == "krita.showDocker") {
-        QDockWidget *dock = nullptr;
-        for (QDockWidget *d : window->dockWidgets()) if (d->objectName() == p["id"].toString()) dock = d;
-        if (!dock || dock == toolOptions) fail("Unknown docker: " + p["id"].toString());
-        if (p["visible"].toBool()) {
-            // On its own, without a title bar: the page gives it a panel and a title.
-            if (!dock->property("kwBare").toBool()) { dock->setTitleBarWidget(new QWidget(dock)); dock->setProperty("kwBare", true); }
-            dock->setFloating(true);
-            dock->show();
-        } else {
-            dock->hide();
+        if (!p["visible"].toBool()) {
+            for (QDockWidget *d : window->dockWidgets()) if (d->objectName() == p["id"].toString()) d->hide();
+            return QJsonValue();
         }
+        QDockWidget *dock = docker(p["id"].toString());
+        if (!dock || dock == toolOptions) fail("Unknown docker: " + p["id"].toString());
+        dock->show();
         return QJsonValue();
     }
     if (m == "krita.windows") {

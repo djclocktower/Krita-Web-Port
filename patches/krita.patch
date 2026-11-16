@@ -538,6 +538,28 @@ index 46efec3..9881fc9 100644
              found = true;
              break;
          }
+diff --git a/libs/ui/KisMainWindow.cpp b/libs/ui/KisMainWindow.cpp
+index d611b3a..590b6cc 100644
+--- a/libs/ui/KisMainWindow.cpp
++++ b/libs/ui/KisMainWindow.cpp
+@@ -423,12 +423,17 @@ KisMainWindow::KisMainWindow(QUuid uuid)
+         dockwidgetActions[toolbox->toggleViewAction()->text()] = toolbox->toggleViewAction();
+     }
+ 
++#ifndef __EMSCRIPTEN__
+     for (KoDockFactoryBase *factory : KoDockRegistry::instance()->sortedDockWidgetFactories()) {
+         QDockWidget *dw = createDockWidget(factory);
+         if (dw) {
+             dockwidgetActions[dw->toggleViewAction()->text()] = dw->toggleViewAction();
+         }
+     }
++#else
++    // In the browser nobody sees these docks until the page asks for one, and building all of them
++    // (some load QML) takes many seconds at start-up. The web bridge creates each on first use.
++#endif
+ 
+     if (d->toolOptionsDocker) {
+         dockwidgetActions[d->toolOptionsDocker->toggleViewAction()->text()] = d->toolOptionsDocker->toggleViewAction();
 diff --git a/libs/ui/KisView.cpp b/libs/ui/KisView.cpp
 index 08f964f..0248d1b 100644
 --- a/libs/ui/KisView.cpp
