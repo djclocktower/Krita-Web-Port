@@ -2,7 +2,9 @@ import { fit, resetRotation, rotateBy, toggleMirror, zoomBy, zoomTo } from '../c
 import type { Engine } from '../engine/protocol';
 import { panels, type Command } from '../panels';
 import { download } from '../dialogs/download';
+import { getSetting } from '../settings/store';
 import { app, report, type DialogId } from './state';
+import { applyWorkspace, BUILT_IN } from './workspaces';
 
 const DEG = Math.PI / 180;
 
@@ -70,6 +72,11 @@ export const shellCommands: Command[] = [
       run: e => e.setColors({ foreground: app.get().bg, background: app.get().fg }) },
     { id: 'tools.resetColors', title: 'Reset Colors', menu: 'Tools', shortcut: 'D',
       run: e => e.setColors({ foreground: { r: 0, g: 0, b: 0, a: 1 }, background: { r: 1, g: 1, b: 1, a: 1 } }) },
+    { id: 'settings.configure', title: 'Configure Krita…', menu: 'Settings', run: open('settings') },
+    // Window › Workspace: the menu union has no Window, so these live under Settings.
+    ...Object.keys(BUILT_IN).map(n => ({ id: `workspace.${n.toLowerCase()}`, title: `Workspace: ${n}`, menu: 'Settings' as const, run: () => applyWorkspace(n) })),
+    { id: 'workspace.manage', title: 'Workspace: Save and Manage…', menu: 'Settings', run: open('workspaces') },
+    { id: 'help.about', title: 'About Krita Web…', menu: 'Settings', run: open('about') },   // Help is not in the menu union either
 ];
 
 export const allCommands: Command[] = [...shellCommands, ...panels.flatMap(p => p.commands ?? [])];
@@ -80,4 +87,10 @@ export function isEnabled(c: Command): boolean {
     const needsDoc = ['Edit', 'Image', 'Layer', 'Select', 'Filter'].includes(c.menu) || (c.menu === 'File' && !['file.new', 'file.open', 'file.openRecent'].includes(c.id));
     if (needsDoc && !doc) return false;
     return c.id === 'edit.undo' ? history.canUndo : c.id === 'edit.redo' ? history.canRedo : c.id === 'image.trim' ? !!sel : true;
+}
+
+/** What the menus list: every command, plus a "Workspace: name" entry for each saved workspace (after the built-in ones). */
+export function menuCommands(): Command[] {
+    const saved = Object.keys(getSetting('workspaces')).map((n): Command => ({ id: `workspace.user.${n}`, title: `Workspace: ${n}`, menu: 'Settings', run: () => applyWorkspace(n) }));
+    return allCommands.flatMap(c => c.id === 'workspace.animation' ? [c, ...saved] : [c]);
 }

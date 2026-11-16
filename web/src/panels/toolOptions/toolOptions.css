@@ -11,3 +11,10 @@
 .tool-options button:disabled { color: var(--text-dim); }
 .tool-options button:focus-visible, .tool-options input:focus-visible, .tool-options select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .tool-options .buttons { display: flex; gap: var(--gap); }
+.tool-options .grid-opts { display: flex; flex-direction: column; gap: var(--gap); border-top: 1px solid var(--border); padding-top: var(--gap); }
+.tool-options .grid-opts > .row { grid-template-columns: 8em 1fr; }
+.tool-options .grid-opts input[type="number"], .tool-options .grid-opts input[type="color"] { width: 100%; min-width: 0; background: var(--panel-raised); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 2px 4px; }
+@media (pointer: coarse), (max-width: 1099px) {
+    .tool-options .grid-opts summary, .tool-options .grid-opts input, .tool-options .grid-opts .check { min-height: 40px; }
+    .tool-options .grid-opts .check { align-items: center; }
+}

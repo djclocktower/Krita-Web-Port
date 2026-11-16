@@ -14,6 +14,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QRegularExpression>
+#include <QThread>
 #include <QTimer>
 #include <QtPlugin>
 #include <emscripten.h>
@@ -22,6 +23,8 @@
 #include <KisApplication.h>
 #include <KisDocument.h>
 #include <KisMainWindow.h>
+#include <kis_canvas_resource_provider.h>
+#include <kis_node_manager.h>
 #include <KisView.h>
 #include <kis_canvas2.h>
 #include <kis_config.h>
@@ -174,8 +177,19 @@ public:
     Engine()
     {
         rgb8 = KoColorSpaceRegistry::instance()->rgb8();
-        manager = new KoCanvasResourceProvider(this);
-        KisViewManager::initializeResourceManager(manager);
+        // Krita's own main window, created once with no display. Its view manager owns the canvas
+        // resources (colours, brush preset, opacity) and the active layer, so the calls below and
+        // Krita's own tools and menu actions all see and change the same state.
+        KisConfig(false).disableOpenGL();
+        window = KisPart::instance()->createMainWindow();
+        window->resize(1600, 1000);
+        window->show();
+        manager = window->viewManager()->canvasResourceProvider()->resourceManager();
+        connect(window->viewManager()->nodeManager(), &KisNodeManager::sigNodeActivated, this, [this](KisNodeSP node) {
+            if (node == active || !doc) return;       // a Krita tool or action changed the active layer
+            active = node;
+            emitEvent("activeNodeChanged", {{"id", active ? QJsonValue(idOf(active)) : QJsonValue()}});
+        });
         setResource(KoCanvasResource::ForegroundColor, KoColor(Qt::black, rgb8));
         setResource(KoCanvasResource::BackgroundColor, KoColor(Qt::white, rgb8));
         setResource(KoCanvasResource::CurrentCompositeOp, COMPOSITE_OVER);
@@ -234,7 +248,7 @@ private:
     template <class T> void setResource(int key, const T &value) { manager->setResource(key, QVariant::fromValue(value)); }
     KisImageSP image() const { if (!doc) fail("No document is open"); return doc->image(); }
 
-    // --- Krita's own window and view (created on first use, then kept showing the current document)
+    // --- Krita's own window and the view showing the current document
     KisMainWindow *window = nullptr;
     QPointer<KisView> view;
     bool pointerInside = false;
@@ -243,45 +257,55 @@ private:
     KisView *kritaView()
     {
         image();
-        if (!window) {
-            KisConfig(false).disableOpenGL();
-            window = KisPart::instance()->createMainWindow();
-            window->resize(1600, 1000);
-            window->show();
-        }
-        if (!view || view->document() != doc) {
-            KisPart::instance()->addDocument(doc);
-            view = window->addViewAndNotifyLoadingCompleted(doc);
-            QCoreApplication::processEvents();
-            view->canvasController()->setZoom(KoZoomMode::ZOOM_CONSTANT, 1.0);
-            QCoreApplication::processEvents();
-        }
-        // No window system means no focus events, which is how Krita normally learns which view and
-        // canvas are current. Say so explicitly, or tool switching and input have no canvas to act on.
-        if (window->activeView() != view) {
-            window->setActiveView(view);
-            view->canvasBase()->canvasWidget()->setFocus();
-            QFocusEvent focusIn(QEvent::FocusIn);
-            QCoreApplication::sendEvent(view->canvasBase()->canvasWidget(), &focusIn);
-            QCoreApplication::processEvents();
-        }
+        if (!view) fail("Krita's view is not available");
         return view;
     }
-
-    /// Krita's tools and actions finish their work through queued events and strokes; let both drain.
-    void settle(int rounds = 4)
+    /// Shows `document` in Krita's window and makes it the current view. There is no window system,
+    /// so no focus events: Krita has to be told explicitly which view and canvas are current.
+    void showInWindow(KisDocument *document)
     {
-        for (int round = 0; round < rounds; round++) {
-            QCoreApplication::processEvents(QEventLoop::AllEvents, 20);
-            image()->waitForDone();
+        QPointer<KisView> oldView = view;
+        KisPart::instance()->addDocument(document);
+        view = window->addViewAndNotifyLoadingCompleted(document);
+        QCoreApplication::processEvents();
+        view->canvasController()->setZoom(KoZoomMode::ZOOM_CONSTANT, 1.0);
+        window->setActiveView(view);
+        view->canvasBase()->canvasWidget()->setFocus();
+        QFocusEvent focusIn(QEvent::FocusIn);
+        QCoreApplication::sendEvent(view->canvasBase()->canvasWidget(), &focusIn);
+        QCoreApplication::processEvents();
+        pointerInside = false;
+        if (oldView) {
+            if (oldView->document()) oldView->document()->setModified(false);   // or closing asks "save changes?" in a dialog nobody can see
+            oldView->closeView();
+            QCoreApplication::processEvents();
+        }
+    }
+
+    /// Krita's tools and actions finish through queued events and strokes. Run the event loop until
+    /// the image has been idle for a while (or a time limit passes), without ever blocking on a
+    /// stroke that is still open.
+    void settle(int quietMs = 150, int limitMs = 3000)
+    {
+        QElapsedTimer total, quiet;
+        total.start();
+        quiet.start();
+        while (total.elapsed() < limitMs) {
+            QCoreApplication::processEvents(QEventLoop::AllEvents, 10);
+            if (!doc || !doc->image()->isIdle()) quiet.restart();
+            else if (quiet.elapsed() >= quietMs) return;
+            QThread::msleep(2);
         }
     }
 
     // --- documents
     void adopt(KisDocument *document)
     {
-        if (doc) { doc->image()->disconnect(this); doc->undoStack()->disconnect(this); doc->deleteLater(); }
+        QPointer<KisDocument> oldDoc = doc;
+        if (doc) { doc->image()->disconnect(this); doc->undoStack()->disconnect(this); }
         previewTransaction.reset(); previewNode = nullptr; doc = document; stroke.clear();
+        showInWindow(doc);
+        if (oldDoc) oldDoc->deleteLater();
         KisImageSP img = doc->image();
         connect(img.data(), &KisImage::sigImageUpdated, this, [this](const QRect &rc) { pending |= rc; if (!flushTimer.isActive()) flushTimer.start(); });
         connect(img.data(), &KisImage::sigNodeAddedAsync, this, [this] { layersTimer.start(); });
@@ -294,6 +318,7 @@ private:
         for (KisNodeSP n = img->root()->lastChild(); n && !active; n = n->prevSibling())
             if (n->inherits("KisPaintLayer")) active = n;
         if (!active) active = img->root()->lastChild();
+        if (active) window->viewManager()->nodeManager()->slotNonUiActivatedNode(active);
         setResource(KoCanvasResource::CurrentKritaNode, active);
 
         emitEvent("documentChanged", {{"info", info()}});
@@ -378,6 +403,7 @@ private:
     void setActive(KisNodeSP node)
     {
         active = node;
+        if (active) window->viewManager()->nodeManager()->slotNonUiActivatedNode(active);
         setResource(KoCanvasResource::CurrentKritaNode, active);
         emitEvent("activeNodeChanged", {{"id", active ? QJsonValue(idOf(active)) : QJsonValue()}});
     }
@@ -1269,8 +1295,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
                                                      t == QEvent::MouseMove ? Qt::NoButton : Qt::LeftButton, t, mods);
             QWindowSystemInterface::sendWindowSystemEvents(QEventLoop::AllEvents);
             QCoreApplication::processEvents();
-            // ponytail: fixed settling time; replace with a completion signal from Krita's stroke system
-            if (t == QEvent::MouseButtonRelease) { settle(20); emitSelection(); }
+            if (t == QEvent::MouseButtonRelease) { settle(250); emitSelection(); }
             QJsonObject reply{{"widgetX", pos.x()}, {"widgetY", pos.y()}, {"seen", QJsonArray::fromStringList(recorder.seen)}};
             recorder.seen.clear();
             return reply;

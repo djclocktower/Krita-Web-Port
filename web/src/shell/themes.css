@@ -1,0 +1,11 @@
+/* Alternative values of the variables in src/ui/theme.css (Krita Dark is those values). */
+:root[data-theme="darker"] {
+    --bg: #1c1c1c; --panel: #242424; --panel-raised: #303030; --border: #111111; --text: #d4d4d4; --text-dim: #8c8c8c;
+}
+:root[data-theme="neutral"] {
+    --bg: #4a4a4a; --panel: #565656; --panel-raised: #676767; --border: #333333; --text: #f0f0f0; --text-dim: #c4c4c4; --accent: #7fd0ff;
+}
+:root[data-theme="light"] {
+    --bg: #e4e4e4; --panel: #f3f3f3; --panel-raised: #dcdcdc; --border: #b4b4b4; --text: #222222; --text-dim: #5a5a5a;
+    --accent: #1b74a8; --danger: #b8202f; color-scheme: light;
+}

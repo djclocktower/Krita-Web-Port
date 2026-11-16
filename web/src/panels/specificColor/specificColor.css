@@ -1,0 +1,27 @@
+.spc { display: flex; flex-direction: column; gap: var(--gap); padding: var(--gap); }
+.spc button, .spc input { font: inherit; color: var(--text); background: var(--panel-raised); border: 1px solid var(--border); border-radius: var(--radius); }
+.spc-head { display: flex; gap: var(--gap); align-items: center; }
+.spc-tabs { display: flex; flex: 1; gap: 2px; }
+.spc-tabs button { flex: 1; padding: 4px; cursor: pointer; }
+.spc-tabs button[aria-selected="true"], .spc-foot button[aria-pressed="true"] { border-color: var(--accent); }
+.spc-chip { width: 36px; height: 24px; border: 2px solid var(--border); border-radius: var(--radius); }
+.spc-row { display: grid; grid-template-columns: 22px 1fr 58px 16px; gap: var(--gap); align-items: center; }
+.spc-row label { color: var(--text-dim); font-size: 11px; }
+.spc-slider { -webkit-appearance: none; appearance: none; height: 16px; margin: 0; width: 100%; border: 1px solid var(--border); }
+.spc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 8px; height: 22px; border-radius: 2px; background: var(--text); border: 1px solid var(--border); }
+.spc-slider::-moz-range-thumb { width: 8px; height: 22px; border-radius: 2px; background: var(--text); border: 1px solid var(--border); }
+.spc-num { width: 100%; box-sizing: border-box; padding: 4px; }
+.spc-num.clamped { border-color: var(--danger); }
+.spc-unit { color: var(--text-dim); font-size: 11px; }
+.spc-warn { color: var(--danger); font-size: 11px; }
+.spc-foot { display: flex; gap: var(--gap); align-items: end; }
+.spc-foot label { flex: 1; display: flex; flex-direction: column; font-size: 11px; color: var(--text-dim); }
+.spc-foot input { padding: 4px; }
+.spc-foot button { padding: 4px 8px; cursor: pointer; }
+.spc :focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+@media (pointer: coarse), (max-width: 1099px) {
+    .spc-tabs button, .spc-foot button, .spc-foot input, .spc-num { min-height: 40px; }
+    .spc-slider { height: 40px; padding: 12px 0; background-clip: content-box; box-sizing: border-box; }
+    .spc-row { grid-template-columns: 22px 1fr 64px 16px; }
+}

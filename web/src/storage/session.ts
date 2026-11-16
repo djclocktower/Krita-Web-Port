@@ -1,6 +1,7 @@
 // Autosave, recovery and resource persistence, wrapped around the engine at the boundary:
 // `wrapEngine(engine)` returns a proxy that forwards everything and watches newDocument, openDocument and importResource.
 import type { DocumentInfo, Engine } from '../engine/protocol';
+import { getSetting, onSettingChange } from '../settings/store';
 import { reportError } from '../shell/errors';
 import { store } from '../shell/store';
 import * as db from './db';
@@ -8,8 +9,9 @@ import * as db from './db';
 // ---- timing (tests override these with ?asIdle=ms&asMax=ms)
 const q = new URLSearchParams(location.search);
 const ms = (key: string, dflt: number) => Number(q.get(key)) > 0 ? Number(q.get(key)) : dflt;
-const IDLE_MS = ms('asIdle', 3000);        // save this long after the last change
-const MAX_WAIT_MS = ms('asMax', 30000);    // ... but at most this long after the first unsaved change
+const idleMs = () => ms('asIdle', getSetting('autosaveSeconds') * 1000);    // save this long after the last change (setting)
+const maxWaitMs = () => ms('asMax', Math.max(30000, idleMs() * 10));        // ... but at most this long after the first unsaved change
+const autosaving = () => getSetting('autosave');
 const RETRY_MS = 500;                      // check again this soon while a pointer is down or an export runs
 const STUCK_MS = 60000;                    // a pointer "down" for longer than this is assumed lost
 const MAX_RECENT = 10;
@@ -37,7 +39,7 @@ function unavailableOnce(e: unknown) {
 function changed() {
     if (!dirty) firstAt = Date.now();
     dirty = true; version++;
-    schedule(Math.min(IDLE_MS, firstAt + MAX_WAIT_MS - Date.now()));
+    if (autosaving()) schedule(Math.min(idleMs(), firstAt + maxWaitMs() - Date.now()));
 }
 function schedule(wait: number) { clearTimeout(timer); timer = setTimeout(tick, Math.max(0, wait)); }
 function tick() {
@@ -92,7 +94,7 @@ async function saveOnce() {
     } catch (e) {
         saveState.set({ kind: 'error', reason: db.unavailable ? 'storage unavailable' : message(e) });
         unavailableOnce(e);
-        if (dirty && !db.unavailable) schedule(MAX_WAIT_MS);   // try again later, not in a tight loop
+        if (dirty && !db.unavailable && autosaving()) schedule(maxWaitMs());   // try again later, not in a tight loop
     }
 }
 
@@ -120,11 +122,14 @@ async function adopt(rec: db.DocRecord) {
 export function wrapEngine(engine: Engine): Engine {
     raw = engine;
     engine.on('historyChanged', h => { if (h.canUndo || h.canRedo) changed(); });
+    // Turning autosave off stops the timer; turning it on, or changing the interval, re-arms it for unsaved changes.
+    const rearm = () => { clearTimeout(timer); if (dirty && autosaving()) schedule(Math.min(idleMs(), firstAt + maxWaitMs() - Date.now())); };
+    onSettingChange('autosave', rearm); onSettingChange('autosaveSeconds', rearm);
     const w = window;
     const down = (e: PointerEvent) => void downs.set(e.pointerId, Date.now()), up = (e: PointerEvent) => void downs.delete(e.pointerId);
     w.addEventListener('pointerdown', down, true); w.addEventListener('pointerup', up, true); w.addEventListener('pointercancel', up, true);
-    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') void flush(); });
-    w.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && autosaving()) void flush(); });
+    w.addEventListener('beforeunload', e => { if (dirty && getSetting('confirmClose')) { e.preventDefault(); e.returnValue = ''; } });
 
     return new Proxy(engine, {
         get(t, k) {

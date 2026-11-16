@@ -127,3 +127,52 @@ dialog .primary { background: var(--accent); color: var(--bg); border-color: var
 .recent .meta b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: normal; }
 .recent .meta small { color: var(--text-dim); }
 .recent .empty { color: var(--text-dim); }
+
+/* Dock splitters (wide layout only): a thin line with a wider invisible hit area. */
+.splitter { position: relative; flex: none; background: var(--border); touch-action: none; }
+.splitter::after { content: ''; position: absolute; }
+.splitter-v { width: 4px; cursor: col-resize; }
+.splitter-v::after { inset: 0 -6px; }
+.splitter-h { height: 4px; cursor: row-resize; }
+.splitter-h::after { inset: -6px 0; }
+.splitter:hover, .splitter:focus-visible, .splitter:active { background: var(--accent); }
+@media (pointer: coarse) { .splitter-v::after { inset: 0 -14px; } .splitter-h::after { inset: -14px 0; } }
+
+/* Configure Krita… */
+dialog.cfg, dialog.about { width: min(720px, calc(100vw - 24px)); }
+dialog.cfg { height: min(680px, calc(100dvh - 24px)); }
+dialog.cfg[open] { display: flex; flex-direction: column; gap: var(--gap); }
+.cfg-tabs { display: flex; gap: 2px; overflow-x: auto; flex: none; border-bottom: 1px solid var(--border); }
+.cfg-tabs button { background: none; border-color: transparent; white-space: nowrap; flex: none; }
+.cfg-tabs button[aria-selected="true"] { background: var(--panel-raised); border-color: var(--accent); }
+.cfg-body { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: auto; }
+.cfg-page { display: flex; flex-direction: column; gap: var(--gap); align-items: flex-start; }
+.cfg-page label:not(.check) { display: flex; flex-direction: column; gap: 2px; }
+.cfg-page .color-row { flex-direction: row; align-items: center; gap: var(--gap); }
+.cfg-page .error { min-height: 1.4em; }
+dialog select { background: var(--panel-raised); border: 1px solid var(--border); border-radius: var(--radius); padding: 5px; }
+dialog input[type="color"] { padding: 0; width: 48px; height: 28px; }
+
+.sc { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: var(--gap); }
+.sc > input { flex: none; }
+.sc-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--gap); flex-wrap: wrap; color: var(--text-dim); }
+.sc-msg { flex: none; min-height: 0 !important; }
+.sc-conflict { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap); padding: 6px; border: 1px solid var(--accent); border-radius: var(--radius); background: var(--panel-raised); }
+.sc-conflict span { flex: 1 1 200px; }
+.sc-list { flex: 1; min-height: 120px; overflow: auto; overscroll-behavior: contain; touch-action: pan-y; }
+.sc-list h3 { margin: 8px 0 2px; font-size: 12px; color: var(--text-dim); text-transform: uppercase; }
+.sc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; padding: 2px 0; border-bottom: 1px solid var(--border); }
+.sc-title { flex: 1 1 160px; min-width: 0; }
+.sc-key { min-width: 110px; text-align: left; }
+.sc-key.edited { border-color: var(--accent); }
+.sc-row kbd { font: inherit; color: var(--text-dim); }
+@media (max-width: 1099px), (pointer: coarse) { .sc-row { padding: 4px 0; } .sc-key { flex: 1 1 110px; } .cfg-tabs button { min-height: 44px; } }
+
+.about dl { display: grid; grid-template-columns: max-content 1fr; gap: 2px 12px; margin: 0 0 var(--gap); }
+.about dt { color: var(--text-dim); } .about dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.about a { color: var(--accent); }
+.about h3 { margin: var(--gap) 0 2px; font-size: 13px; }
+.about-notices { list-style: none; margin: 0 0 var(--gap); padding: 0; max-height: 40dvh; overflow: auto; font-size: 12px; }
+.about-notices li { padding: 2px 0; border-bottom: 1px solid var(--border); }
+.about-notices span { color: var(--text-dim); }
+.recent li > b { flex: 1; min-width: 0; font-weight: normal; overflow: hidden; text-overflow: ellipsis; }

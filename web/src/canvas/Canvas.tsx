@@ -1,8 +1,11 @@
 import { useEffect, useRef } from 'preact/hooks';
 import type { DocumentInfo, Engine } from '../engine/protocol';
-import { attachPointer, updateCursor } from '../input/pointer';
+import { attachPointer, nav, updateCursor } from '../input/pointer';
 import { activeTool, onActiveToolChange, type ToolContext } from '../tools';
+import { aids, drawGrid, drawGuides, drawOutline, drawRulers, live, setDocName } from './aids';
+import { toggleCanvasOnly } from './canvasOnly';
 import { fit, matrix, setViewport, toScreen, view } from './view';
+import './canvasOnly.css';
 
 // The image is one quad: vertex ids give the corners, a 2x2 matrix + offset (CSS px) places it.
 const VS = `#version 300 es
@@ -70,6 +73,7 @@ export function Canvas({ engine }: { engine: Engine }) {
 
         const setDoc = (info: DocumentInfo | null) => {
             const s = view.get();
+            if (info) setDocName(info.name);
             if (!info) { if (tex) gl.deleteTexture(tex); tex = null; view.set({ docW: 0, docH: 0 }); }
             else if (!tex || info.width !== s.docW || info.height !== s.docH) {
                 // ponytail: one texture for the whole document, so it is capped at MAX_TEXTURE_SIZE per side; very large documents need tiled textures
@@ -88,7 +92,7 @@ export function Canvas({ engine }: { engine: Engine }) {
         };
 
         // Overlay: marching ants for the selection, then whatever the active tool draws.
-        let outline: number[][] = [], ants: Path2D | null = null, oraf = 0, outlineToken = 0;
+        let viewKey = '', outline: number[][] = [], ants: Path2D | null = null, oraf = 0, outlineToken = 0;
         const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
         const ctx: ToolContext = {
             engine, requestOverlay: () => { oraf ||= requestAnimationFrame(redraw); },
@@ -100,6 +104,7 @@ export function Canvas({ engine }: { engine: Engine }) {
             if (overlay.width !== W || overlay.height !== H) { overlay.width = W; overlay.height = H; }
             g.setTransform(dpr, 0, 0, dpr, 0, 0);
             g.clearRect(0, 0, s.w, s.h);
+            drawGrid(g); drawGuides(g);
             if (outline.length) {
                 if (!ants) {
                     ants = new Path2D();
@@ -114,6 +119,7 @@ export function Canvas({ engine }: { engine: Engine }) {
                 if (!still) ctx.requestOverlay();   // animate only while something is selected
             }
             g.save(); activeTool().drawOverlay?.(ctx, g); g.restore();
+            drawOutline(g, activeTool().id === 'brush' && !nav.space); drawRulers(g);
         }
         const setOutline = (next: number[][]) => { outline = next; ants = null; ctx.requestOverlay(); };
         const loadOutline = () => {
@@ -126,7 +132,12 @@ export function Canvas({ engine }: { engine: Engine }) {
 
         const offs = [
             engine.on('selectionChanged', b => { if (b) loadOutline(); else { outlineToken++; setOutline([]); } }),
-            view.sub(() => { ants = null; ctx.requestOverlay(); }),
+            view.sub(() => {   // the pointer moves often; only a change of the transform invalidates the ants path
+                const s = view.get(), k = [s.scale, s.rot, s.mirror, s.panX, s.panY, s.w, s.h, s.docW, s.docH].join();
+                if (k !== viewKey) { viewKey = k; ants = null; ctx.requestOverlay(); }
+            }),
+            aids.sub(ctx.requestOverlay),
+            engine.on('brushChanged', b => { if (!live.resizing) live.size = b.size; ctx.requestOverlay(); }),
             onActiveToolChange(toolChanged),
             attachPointer(ctx, el),
             engine.on('documentChanged', setDoc),
@@ -141,9 +152,11 @@ export function Canvas({ engine }: { engine: Engine }) {
         const ro = new ResizeObserver(() => { const r = box.current!.getBoundingClientRect(); setViewport(r.width, r.height); });
         ro.observe(box.current!);
         void engine.documentInfo().then(setDoc);
+        void engine.brushState().then(b => { if (!live.resizing) live.size = b.size; ctx.requestOverlay(); }, () => {});
         loadOutline();
         return () => { offs.forEach(f => f()); ro.disconnect(); cancelAnimationFrame(raf); cancelAnimationFrame(oraf); };
     }, [engine]);
     return <div class="stage" ref={box}><canvas class="view" ref={cv} aria-label="Canvas" />
-        <canvas class="overlay" ref={ov} aria-hidden="true" style="pointer-events: none" /></div>;
+        <canvas class="overlay" ref={ov} aria-hidden="true" style="pointer-events: none" />
+        <button type="button" class="canvas-only-exit" onClick={toggleCanvasOnly}>Exit canvas only</button></div>;
 }

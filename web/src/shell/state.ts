@@ -2,7 +2,7 @@ import type { BrushState, Color, DocumentInfo, Engine, HistoryState, Rect } from
 import { reportError } from './errors';
 import { store } from './store';
 
-export type DialogId = 'export' | 'scale' | 'resize' | 'rotate' | 'convert' | 'recent';
+export type DialogId = 'export' | 'scale' | 'resize' | 'rotate' | 'convert' | 'recent' | 'settings' | 'about' | 'workspaces';
 
 export const app = store({
     doc: null as DocumentInfo | null,

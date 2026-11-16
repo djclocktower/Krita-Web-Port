@@ -4,11 +4,17 @@ import { app, report } from '../shell/state';
 import { useStore } from '../shell/store';
 import { download } from './download';
 import { Modal, area, pixels } from './Modal';
+import { About } from './About';
 import { Recent } from './Recent';
+import { Settings } from './Settings';
+import { Workspaces } from './Workspaces';
 
 export function Dialogs({ engine }: { engine: Engine }) {
     const { dialog, doc } = useStore(app);
     if (dialog === 'recent') return <Recent />;
+    if (dialog === 'settings') return <Settings />;
+    if (dialog === 'about') return <About />;
+    if (dialog === 'workspaces') return <Workspaces />;
     if (!dialog || !doc) return null;
     return dialog === 'export' ? <Export engine={engine} /> : dialog === 'scale' ? <Scale engine={engine} />
         : dialog === 'resize' ? <Resize engine={engine} /> : dialog === 'rotate' ? <Rotate engine={engine} /> : <Convert engine={engine} />;

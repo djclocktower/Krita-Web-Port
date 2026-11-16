@@ -1,4 +1,5 @@
 // Keyboard shortcuts for every command, plus Space-to-navigate.
+import { zoomBy } from '../canvas/view';
 import type { Command } from '../panels';
 import { setActiveTool, tools } from '../tools';
 import { nav, updateCursor } from './pointer';
@@ -22,7 +23,10 @@ export function attachKeys(commands: Command[], run: (c: Command) => void): () =
             if (t.closest('button,summary')) return;   // let Space activate a focused button
             nav.space = true; cursor(); e.preventDefault(); return;
         }
-        const k = canon(e.ctrlKey || e.metaKey, e.altKey, e.shiftKey, e.key), c = byKey.get(k), tool = toolByKey.get(k);
+        if (e.key === 'Tab' && t !== document.body) return;   // Tab is Canvas Only only when no control has focus; otherwise it moves focus
+        const zoom = e.key === '+' || e.key === '=' ? 1.25 : e.key === '-' || e.key === '_' ? 0.8 : 0;   // with or without Ctrl
+        if (zoom && !e.altKey) { e.preventDefault(); zoomBy(zoom); return; }
+        const k = canon(e.ctrlKey || e.metaKey, e.altKey, e.shiftKey, e.code === 'Quote' ? "'" : e.key), c = byKey.get(k), tool = toolByKey.get(k);
         if (c) { e.preventDefault(); run(c); }
         else if (tool) { e.preventDefault(); setActiveTool(tool.id); }
     };

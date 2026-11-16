@@ -82,3 +82,7 @@ export const addResource = (name: string, bytes: Uint8Array) => tx(['resources']
 });
 /** In the order they were added. */
 export const listResources = () => tx(['resources'], 'readonly', t => wrap(t.objectStore('resources').getAll()) as Promise<ResourceRecord[]>);
+
+/** Small values kept in the `meta` store under their own key (the current-document pointer uses 'current'). */
+export const getMeta = <T>(key: string) => tx(['meta'], 'readonly', t => wrap(t.objectStore('meta').get(key)) as Promise<T | undefined>);
+export const putMeta = (key: string, value: unknown) => tx(['meta'], 'readwrite', async t => { t.objectStore('meta').put(value, key); });

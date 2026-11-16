@@ -49,7 +49,9 @@ function ColorPanel({ engine }: { engine: Engine }) {
             <div class="swatches">
                 {(['foreground', 'background'] as const).map(t => (
                     <button key={t} class="swatch" aria-pressed={target === t} aria-label={`Edit ${t} colour`}
-                        title={`${t} colour`} style={{ background: hex(t === 'foreground' ? fg : bg) }} onClick={() => setTarget(t)} />
+                        title={`${t} colour`} style={{ background: hex(t === 'foreground' ? fg : bg) }} onClick={() => setTarget(t)}>
+                        <span>{t === 'foreground' ? 'FG' : 'BG'}</span>
+                    </button>
                 ))}
             </div>
             <div class="fields">

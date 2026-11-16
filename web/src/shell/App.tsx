@@ -3,16 +3,21 @@ import { Canvas } from '../canvas/Canvas';
 import { view } from '../canvas/view';
 import type { Engine } from '../engine/protocol';
 import { attachKeys } from '../input/keys';
+import { effective, withShortcuts } from '../settings/shortcuts';
+import { loadSettings, useSetting, type Area } from '../settings/store';
 import { panels, type Command } from '../panels';
 import { hex, parseHex } from '../panels/color/hsv';
 import { Dialogs } from '../dialogs';
-import { allCommands, isEnabled } from './commands';
+import { applyAppearance } from './appearance';
+import { allCommands, isEnabled, menuCommands } from './commands';
 import { errors } from './errors';
 import { sheet, useLayout, useSheet, type Layout } from './layout';
 import { notice, restoreDocument, restoreResources, saveState, wrapEngine } from '../storage/session';
 import { app, report, trackEngine } from './state';
 import { useStore } from './store';
+import { DEFAULT_SIZE, setDock } from './workspaces';
 import './shell.css';
+import './themes.css';
 
 if (import.meta.env.DEV) (window as unknown as { __app: unknown }).__app = app;   // for tests
 
@@ -24,10 +29,13 @@ export function App({ engine: rawEngine }: { engine: Engine }) {
     const engine = useMemo(() => wrapEngine(rawEngine), [rawEngine]);   // stores imported resources, autosaves
     const [ready, setReady] = useState(false);
     const layout = useLayout();
+    const shortcuts = useSetting('shortcuts');
     const run = async (c: Command) => { if (!isEnabled(c)) return; try { await c.run(engine); } catch (e) { report(e); } };
+    useEffect(() => attachKeys(withShortcuts(allCommands, shortcuts), c => void run(c)), [engine, shortcuts]);   // the effective shortcuts
     useEffect(() => {
-        const offs = [trackEngine(engine), attachKeys(allCommands, c => void run(c))];
+        const offs = [trackEngine(engine)];
         (async () => {
+            await loadSettings(); applyAppearance();
             await restoreResources();   // before the panels mount, so the presets list includes them
             setReady(true);
             if (!(await engine.documentInfo()) && !(await restoreDocument())) await engine.newDocument(NEW_DOC);
@@ -88,10 +96,12 @@ function ErrorBanner() {
 
 function MenuBar({ run }: { run: (c: Command) => void }) {
     useStore(app);   // re-render when what is enabled changes
+    const shortcuts = useSetting('shortcuts'); useSetting('workspaces');
+    const commands = menuCommands();
     const [open, setOpen] = useState<string | null>(null);
     const viaKey = useRef(false);
     const bar = useRef<HTMLElement>(null);
-    const menus = MENUS.filter(m => allCommands.some(c => c.menu === m));
+    const menus = MENUS.filter(m => commands.some(c => c.menu === m));
 
     useEffect(() => {
         if (!open) return;
@@ -125,9 +135,9 @@ function MenuBar({ run }: { run: (c: Command) => void }) {
                         onPointerEnter={e => { if (open && e.pointerType === 'mouse') { viaKey.current = false; setOpen(m); } }}>{m}</button>
                     {open === m && (
                         <div class="menu-list" role="menu" aria-label={m}>
-                            {allCommands.filter(c => c.menu === m).map(c => (
+                            {commands.filter(c => c.menu === m).map(c => (
                                 <button role="menuitem" key={c.id} disabled={!isEnabled(c)} onClick={() => { setOpen(null); run(c); }}>
-                                    <span>{menuTitle(c)}</span>{c.shortcut && <kbd>{c.shortcut}</kbd>}
+                                    <span>{menuTitle(c)}</span>{effective(c, shortcuts) && <kbd>{effective(c, shortcuts)}</kbd>}
                                 </button>
                             ))}
                         </div>
@@ -176,7 +186,9 @@ function MobileBar({ run }: { run: (c: Command) => void }) {
     const sh = useSheet();
     const [open, setOpen] = useState(false);
     const [group, setGroup] = useState<string | null>(null);
-    const menus = MENUS.filter(m => allCommands.some(c => c.menu === m));
+    useSetting('workspaces');
+    const commands = menuCommands();
+    const menus = MENUS.filter(m => commands.some(c => c.menu === m));
     return (
         <div class="mobile-bar">
             <button class="menu-toggle" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>☰ Menu</button>
@@ -187,7 +199,7 @@ function MobileBar({ run }: { run: (c: Command) => void }) {
                     {menus.map(m => (
                         <div key={m}>
                             <button class="group" aria-expanded={group === m} onClick={() => setGroup(group === m ? null : m)}>{m}<span aria-hidden="true">{group === m ? '▾' : '▸'}</span></button>
-                            {group === m && allCommands.filter(c => c.menu === m).map(c => (
+                            {group === m && commands.filter(c => c.menu === m).map(c => (
                                 <button class="item" key={c.id} disabled={!isEnabled(c)} onClick={() => { setOpen(false); run(c); }}>
                                     <span>{menuTitle(c)}</span>
                                 </button>
@@ -205,18 +217,20 @@ function menuTitle(c: Command) {
     return c.id === 'edit.undo' && history.undoText ? `Undo ${history.undoText}` : c.id === 'edit.redo' && history.redoText ? `Redo ${history.redoText}` : c.title;
 }
 
-function Dock({ area, engine, layout }: { area: 'left' | 'right' | 'bottom'; engine: Engine; layout: Layout }) {
-    const list = panels.filter(p => p.area === area);
-    const [active, setActive] = useState(list[0]?.id);
-    const [open, setOpen] = useState(true);
+const shown = (id: string, visible: string[] | null) => !visible || visible.includes(id);
+
+function Dock({ area, engine, layout }: { area: Area; engine: Engine; layout: Layout }) {
+    const dl = useSetting('dockLayout');
+    const list = panels.filter(p => p.area === area && shown(p.id, dl.visible));
+    const { open, active, size } = dl.docks[area];
     const sh = useSheet();
     if (!list.length || layout === 'narrow') return null;
     const cur = list.find(p => p.id === active) ?? list[0];
-    const overlay = layout === 'medium', shown = overlay ? sh.open === area : open;
+    const overlay = layout === 'medium', visible = overlay ? sh.open === area : open;
     const tabs = (all: boolean) => (
         <div role="tablist" class="tabs">
             {(all ? list : [cur]).map(p => (
-                <button key={p.id} role="tab" aria-selected={p.id === cur.id} onClick={() => { setActive(p.id); if (!overlay) setOpen(true); }}>{p.title}</button>
+                <button key={p.id} role="tab" aria-selected={p.id === cur.id} onClick={() => setDock(area, overlay ? { active: p.id } : { active: p.id, open: true })}>{p.title}</button>
             ))}
         </div>
     );
@@ -224,34 +238,62 @@ function Dock({ area, engine, layout }: { area: 'left' | 'right' | 'bottom'; eng
     if (overlay) {
         return (
             <section class={`dock dock-${area}`} aria-label={`${area} panels`}>
-                <button class="handle" aria-expanded={shown} onClick={() => sheet.set({ open: shown ? null : area })}>{cur.title}</button>
-                {shown && <div class="sheet-body"><div class="dock-head">{tabs(true)}</div>{body}</div>}
+                <button class="handle" aria-expanded={visible} onClick={() => sheet.set({ open: visible ? null : area })}>{cur.title}</button>
+                {visible && <div class="sheet-body"><div class="dock-head">{tabs(true)}</div>{body}</div>}
             </section>
         );
     }
+    const splitter = open && <Splitter area={area} size={size} />;
     return (
-        <section class={`dock dock-${area}${open ? '' : ' collapsed'}`} aria-label={`${area} panels`}>
-            <div class="dock-head">
-                {tabs(open)}
-                <button class="collapse" aria-expanded={open} aria-label={`${open ? 'Collapse' : 'Expand'} ${cur.title}`}
-                    onClick={() => setOpen(!open)}>{open ? '▾' : '▸'}</button>
-            </div>
-            {open && body}
-        </section>
+        <>
+            {area !== 'left' && splitter}
+            <section class={`dock dock-${area}${open ? '' : ' collapsed'}`} aria-label={`${area} panels`}
+                style={open ? (area === 'bottom' ? { height: `${size}px` } : { width: `${size}px` }) : undefined}>
+                <div class="dock-head">
+                    {tabs(open)}
+                    <button class="collapse" aria-expanded={open} aria-label={`${open ? 'Collapse' : 'Expand'} ${cur.title}`}
+                        onClick={() => setDock(area, { open: !open })}>{open ? '▾' : '▸'}</button>
+                </div>
+                {open && body}
+            </section>
+            {area === 'left' && splitter}
+        </>
+    );
+}
+
+/** The edge between a dock and the canvas: drag it, or focus it and use the arrow keys; double-click resets. */
+function Splitter({ area, size }: { area: Area; size: number }) {
+    const bottom = area === 'bottom';
+    const drag = useRef<{ from: number; size: number } | null>(null);
+    const [min, max] = [bottom ? 80 : 140, Math.max(200, Math.round((bottom ? innerHeight : innerWidth) * (bottom ? 0.6 : 0.45)))];
+    const grow = area === 'left' ? 1 : -1;   // pointer movement along the axis that grows the dock: right for left, left for right, up for bottom
+    const set = (n: number) => setDock(area, { size: Math.round(Math.min(max, Math.max(min, n))) });
+    const pos = (e: PointerEvent) => bottom ? e.clientY : e.clientX;
+    const keyStep = (k: string) => (bottom ? { ArrowUp: 1, ArrowDown: -1 } : area === 'left' ? { ArrowRight: 1, ArrowLeft: -1 } : { ArrowLeft: 1, ArrowRight: -1 })[k as 'ArrowUp'];
+    return (
+        <div class={`splitter ${bottom ? 'splitter-h' : 'splitter-v'}`} role="separator" tabIndex={0} aria-label={`Resize ${area} dock`}
+            aria-orientation={bottom ? 'horizontal' : 'vertical'} aria-valuenow={size} aria-valuemin={min} aria-valuemax={max}
+            onPointerDown={e => { if (e.button) return; e.currentTarget.setPointerCapture(e.pointerId); drag.current = { from: pos(e), size }; }}
+            onPointerMove={e => { const d = drag.current; if (d) set(d.size + (bottom ? -1 : grow) * (pos(e) - d.from)); }}
+            onPointerUp={() => { drag.current = null; }} onPointerCancel={() => { drag.current = null; }}
+            onDblClick={() => set(DEFAULT_SIZE[area])}
+            onKeyDown={e => { const k = keyStep(e.key); if (k) { e.preventDefault(); set(size + k * (e.shiftKey ? 64 : 16)); } }} />
     );
 }
 
 /** Phone: every panel in one bottom sheet with a tab row. */
 function Sheet({ engine }: { engine: Engine }) {
     const sh = useSheet();
+    const { visible } = useSetting('dockLayout');
+    const list = panels.filter(p => shown(p.id, visible));
     const [active, setActive] = useState(panels[0]?.id);
-    if (sh.open === null || !panels.length) return null;
-    const cur = panels.find(p => p.id === active) ?? panels[0];
+    if (sh.open === null || !list.length) return null;
+    const cur = list.find(p => p.id === active) ?? list[0];
     return (
         <section id="panel-sheet" class="sheet-bottom" aria-label="Panels">
             <div class="dock-head">
                 <div role="tablist" class="tabs">
-                    {panels.map(p => <button key={p.id} role="tab" aria-selected={p.id === cur.id} onClick={() => setActive(p.id)}>{p.title}</button>)}
+                    {list.map(p => <button key={p.id} role="tab" aria-selected={p.id === cur.id} onClick={() => setActive(p.id)}>{p.title}</button>)}
                 </div>
                 <button aria-label="Close panels" onClick={() => sheet.set({ open: null })}>✕</button>
             </div>

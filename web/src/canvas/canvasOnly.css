@@ -1,0 +1,6 @@
+.canvas-only .splitter, .canvas-only .menubar, .canvas-only .mobile-bar, .canvas-only .toolbar, .canvas-only .dock, .canvas-only .statusbar,
+.canvas-only .menu-sheet, .canvas-only .sheet-bottom { display: none; }
+.canvas-only .app { grid-template-rows: minmax(0, 1fr); }
+.canvas-only-exit { display: none; position: absolute; top: var(--gap); right: var(--gap); z-index: 5; padding: 4px 10px; opacity: .8; }
+.canvas-only .canvas-only-exit { display: block; }
+@media (pointer: coarse), (max-width: 1099px) { .canvas-only-exit { min-height: 40px; min-width: 40px; } }

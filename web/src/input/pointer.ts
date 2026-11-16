@@ -1,4 +1,5 @@
 // Pointer Events -> the active tool, plus canvas navigation (pan, zoom, rotate, two-finger touch).
+import { aids, guideCancel, guideDown, guideMove, guideUp, live, outlineShown, resizeBrush, snap, SNAP_TOOLS } from '../canvas/aids';
 import { gesture, pan, rotateAbout, toImage, view, zoomAbout } from '../canvas/view';
 import type { StrokePoint } from '../engine/protocol';
 import { activeTool, type ToolContext } from '../tools';
@@ -7,7 +8,9 @@ import { activeTool, type ToolContext } from '../tools';
 export const nav = { space: false };
 
 /** The canvas shows the tool's cursor, or a hand while Space is held. */
-export const updateCursor = (cv: HTMLElement | null) => { if (cv) cv.style.cursor = nav.space ? 'grab' : activeTool().cursor ?? ''; };
+export const updateCursor = (cv: HTMLElement | null) => {
+    if (cv) cv.style.cursor = nav.space ? 'grab' : outlineShown(activeTool().id === 'brush') ? 'none' : activeTool().cursor ?? '';
+};
 
 export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => void {
     const local = (e: { clientX: number; clientY: number }) => {
@@ -15,7 +18,7 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         return { x: e.clientX - r.left, y: e.clientY - r.top };
     };
     const sample = (e: PointerEvent): StrokePoint => {
-        const p = toImage(local(e).x, local(e).y), pen = e.pointerType === 'pen';
+        const p0 = toImage(local(e).x, local(e).y), p = SNAP_TOOLS.has(activeTool().id) ? snap(p0) : p0, pen = e.pointerType === 'pen';
         return {
             x: p.x, y: p.y, pressure: pen ? e.pressure : 1, timeMs: e.timeStamp,
             ...(pen && { xTilt: e.tiltX, yTilt: e.tiltY, rotation: e.twist }),
@@ -24,7 +27,8 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
 
     const mods = (e: { shiftKey: boolean; ctrlKey: boolean; altKey: boolean }) => { ctx.modifiers = { shift: e.shiftKey, ctrl: e.ctrlKey, alt: e.altKey }; };
     const touches = new Map<number, { x: number; y: number }>();
-    let mode: 'none' | 'tool' | 'pan' | 'zoom' | 'rotate' | 'pinch' = 'none';
+    let mode: 'none' | 'tool' | 'pan' | 'zoom' | 'rotate' | 'pinch' | 'guide' | 'resize' = 'none';
+    let startSize = 0;
     let id = -1, last = { x: 0, y: 0 }, anchor = last, pinchPrev = { x: 0, y: 0, d: 1, a: 0 };
     const pinch = () => {
         const [p, q] = [...touches.values()];
@@ -37,8 +41,9 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         if (e.pointerType === 'touch') {
             touches.set(e.pointerId, l);
             if (touches.size === 2) {
+                if (mode === 'guide') guideCancel();
                 if (mode === 'tool') activeTool().onCancel?.(ctx);   // the first finger may have started a dab: a pinch leaves no mark
-                mode = 'pinch'; pinchPrev = pinch(); return;
+                mode = 'pinch'; live.hover = null; ctx.requestOverlay(); pinchPrev = pinch(); return;
             }
             if (touches.size > 2 || mode === 'pinch') return;
         } else if (mode !== 'none') return;
@@ -47,7 +52,12 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         id = e.pointerId; last = anchor = l;
         if (e.button === 1 || nav.space) { mode = e.ctrlKey ? 'zoom' : e.shiftKey ? 'rotate' : 'pan'; e.preventDefault(); return; }
         if (e.button !== 0) return;
+        if (guideDown(l, e.pointerType === 'touch')) { mode = 'guide'; live.hover = null; ctx.requestOverlay(); return; }
+        if (e.shiftKey && e.pointerType !== 'touch' && activeTool().id === 'brush') {   // Krita: Shift+drag resizes the brush
+            mode = 'resize'; live.resizing = true; startSize = live.size; live.hover = l; ctx.requestOverlay(); return;
+        }
         mode = 'tool';
+        if (e.pointerType === 'touch') { live.hover = l; ctx.requestOverlay(); }   // touch has no hover: the outline shows while a finger is down
         activeTool().onPointerDown(ctx, sample(e));
     };
     const move = (e: PointerEvent) => {
@@ -55,6 +65,11 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         mods(e);
         if (e.pointerType !== 'touch') view.set({ pointer: toImage(l.x, l.y) });
         if (touches.has(e.pointerId)) touches.set(e.pointerId, l);
+        if (e.pointerType !== 'touch' || e.pointerId === id) {
+            live.hover = mode === 'resize' ? anchor : mode === 'none' || mode === 'tool' ? l : null;
+            if (activeTool().id === 'brush' || aids.get().rulers) ctx.requestOverlay();   // the outline and the ruler marker follow the pointer, drawn from this event
+            updateCursor(cv);
+        }
         if (mode === 'pinch') {
             if (touches.size === 2) { const n = pinch(); gesture(pinchPrev, n, n.d / pinchPrev.d, n.a - pinchPrev.a); pinchPrev = n; }
             return;
@@ -63,7 +78,9 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         if (mode === 'tool') {
             const list = e.getCoalescedEvents?.() ?? [];
             activeTool().onPointerMove(ctx, (list.length ? list : [e]).map(sample));
-        } else if (mode === 'pan') pan(l.x - last.x, l.y - last.y);
+        } else if (mode === 'guide') guideMove(l);
+        else if (mode === 'resize') resizeBrush(ctx.engine, startSize, l.x - anchor.x);
+        else if (mode === 'pan') pan(l.x - last.x, l.y - last.y);
         else if (mode === 'zoom') zoomAbout(Math.exp(-(l.y - last.y) * 0.01), anchor.x, anchor.y);
         else if (mode === 'rotate') {
             const c = { x: view.get().w / 2, y: view.get().h / 2 };
@@ -77,7 +94,10 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         if (e.pointerId !== id) return;
         mods(e);
         if (mode === 'tool') activeTool().onPointerUp(ctx, sample(e));
+        else if (mode === 'guide') guideUp(local(e));
+        else if (mode === 'resize') live.resizing = false;
         mode = 'none';
+        if (e.pointerType === 'touch') { live.hover = null; ctx.requestOverlay(); }
     };
     const cancel = (e: PointerEvent) => {
         if (mode === 'tool' && e.pointerId === id) { activeTool().onCancel?.(ctx); mode = 'none'; } else up(e);
@@ -90,7 +110,7 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         const l = local(e), dy = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
         zoomAbout(Math.exp(-dy * (e.ctrlKey ? 0.01 : 0.001)), l.x, l.y);   // ctrl+wheel is also how browsers report a trackpad pinch
     };
-    const leave = () => view.set({ pointer: null });
+    const leave = () => { view.set({ pointer: null }); live.hover = null; ctx.requestOverlay(); };
     const noMenu = (e: Event) => e.preventDefault();
 
     cv.addEventListener('pointerdown', down);
