@@ -1476,6 +1476,12 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         QJsonObject res;
         res["selectedNodes"] = int(window->viewManager()->nodeManager()->selectedNodes().size());
         res["activeTool"] = KoToolManager::instance()->activeToolId();
+        KisNodeSP resNode = manager->resource(KoCanvasResource::CurrentKritaNode).value<KisNodeWSP>();
+        KisNodeSP mgrNode = window->viewManager()->nodeManager()->activeNode();
+        res["resourceNode"] = resNode ? resNode->name() : QString("(none)");
+        res["managerNode"] = mgrNode ? mgrNode->name() : QString("(none)");
+        res["bridgeNode"] = active ? active->name() : QString("(none)");
+        res["preset"] = manager->resource(KoCanvasResource::CurrentPaintOpPreset).value<KisPaintOpPresetSP>() ? "set" : "(none)";
         res["imageIdle"] = doc ? doc->image()->isIdle() : true;
         overlayShown = false; overlayHash = 0;
         paintOverlay();
