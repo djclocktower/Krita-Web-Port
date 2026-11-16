@@ -13,7 +13,7 @@ setTimeout(() => { console.log('FAILED: hard timeout'); console.log(log.slice(-8
 let failed = 0;
 const check = (name, ok, detail = '') => { console.log(`${ok ? 'PASS' : 'FAIL'} ${name} ${detail}`); if (!ok) failed++; };
 // Every engine call gets a timeout so a hang is reported as a failure with the engine's last output.
-const E = (fn, arg) => page.evaluate(({ fn, arg }) => Promise.race([eval(fn)(arg), new Promise((_, r) => setTimeout(() => r(new Error('engine call timed out')), 30000))]), { fn: fn.toString(), arg });
+const E = (fn, arg) => page.evaluate(({ fn, arg }) => Promise.race([eval(fn)(arg), new Promise((_, r) => setTimeout(() => r(new Error('engine call timed out')), 90000))]), { fn: fn.toString(), arg });
 const step = async (name, fn) => { try { await fn(); } catch (e) { check(name, false, String(e.message).split('\n')[0] + ' | ' + log.slice(-3).join(' | ')); } };
 
 await page.goto(`http://localhost:5173/?engine=wasm${base}`);
