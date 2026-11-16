@@ -76,3 +76,12 @@ Interface suites: see the end of this file.
   Show/Hide and repainted on update requests; `krita.viewport` sets Krita's zoom/pan/rotation and
   grows its window to fit; `paintOverlay` draws Krita's decorations into a picture and sends the used part.
 - Contract additions are at the end of `web/src/engine/protocol.ts`; the page side is `web/src/krita/`.
+
+## Interface suites against the promoted engine
+
+All pass, run one after another on one dev server: `phase1`, `phase2`, `phase3`, `phase4-shell`,
+`phase7` (mock and real-engine parts), `small-screens`, `panels-touch`, `settings`, `storage`,
+`panels2`, `krita-ui` (64 checks, mock with `?kritaMock=1`), `canvas-aids` (mock part),
+`filter-forms` (real engine), `brush-forms` (real engine, 997 setting edits painted, 0 failures),
+and `tsc --noEmit` is clean. Not run: `phase4-tools` and the real-engine part of `canvas-aids`
+(outdated, see above).
