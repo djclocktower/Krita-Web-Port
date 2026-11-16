@@ -257,7 +257,6 @@ public:
         connect(KoToolManager::instance(), &KoToolManager::changedTool, this, [] {
             emitEvent("kritaToolChanged", {{"id", KoToolManager::instance()->activeToolId()}});
         });
-        qApp->installEventFilter(this);
         if (toolOptions) trackWindow(toolOptions);
         manager = window->viewManager()->canvasResourceProvider()->resourceManager();
         connect(window->viewManager()->nodeManager(), &KisNodeManager::sigNodeActivated, this, [this](KisNodeSP node) {
@@ -424,10 +423,12 @@ private:
         emitEvent("kritaOverlay", {{"rect", QJsonObject{{"x", used.x()}, {"y", used.y()}, {"width", used.width()}, {"height", used.height()}}}},
                   QByteArray(reinterpret_cast<const char *>(part.constBits()), part.sizeInBytes()));
     }
-    bool eventFilter(QObject *o, QEvent *e) override
+public:
+    /// Sees every event before its receiver does (see WebApplication).
+    void watch(QObject *o, QEvent *e)
     {
         filterEvents++;
-        if (grabbing || !o->isWidgetType()) return false;
+        if (grabbing || !o->isWidgetType()) return;
         auto *w = static_cast<QWidget *>(o);
         if (e->type() == QEvent::Show && w->isWindow()) shows++;
         if (e->type() == QEvent::UpdateRequest) updateRequests++;
@@ -454,9 +455,10 @@ private:
         default:
             break;
         }
-        return false;
+        return;
     }
 
+private:
     KisView *kritaView()
     {
         image();
@@ -1612,6 +1614,19 @@ void __stack_chk_fail() { abort(); }
 
 static Engine *g_engine = nullptr;
 
+// Qt only runs application-wide event filters on what it considers the main thread, and here that is
+// the browser's (static initialisers run there) while Krita lives in a worker. notify() has no such rule.
+class WebApplication : public KisApplication
+{
+public:
+    using KisApplication::KisApplication;
+    bool notify(QObject *receiver, QEvent *event) override
+    {
+        if (g_engine) g_engine->watch(receiver, event);
+        return KisApplication::notify(receiver, event);
+    }
+};
+
 // The page writes each request as /tmp/kw-<seq>.json ({method, params}) and then calls this.
 // Going through the virtual filesystem needs nothing exported beyond this one function, and
 // request bytes (a file to open, a resource to import) travel the same way via params.__file.
@@ -1669,7 +1684,7 @@ int main(int argc, char *argv[])
     QJsonObject startup;
     auto lap = [&](const char *what) { startup[what] = t.restart(); };
     // Krita's own application class: parts of Krita cast qApp to it (e.g. the input manager).
-    KisApplication app(QStringLiteral("krita-web"), argc, argv);
+    WebApplication app(QStringLiteral("krita-web"), argc, argv);
     lap("applicationMs");
     // Preloaded files get "now" as their modification time on every page load, which would make
     // Krita think the bundle changed and re-import it. Pin it so a stored database stays valid.

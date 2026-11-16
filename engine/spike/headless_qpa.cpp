@@ -51,12 +51,26 @@ private:
     QMimeData *m_data = new QMimeData;
 };
 
+// Without a window system nobody confirms a new size or position, so the window does it itself;
+// otherwise widgets never learn that resize() or move() took effect.
+class HeadlessWindow : public QPlatformWindow
+{
+public:
+    using QPlatformWindow::QPlatformWindow;
+    void setGeometry(const QRect &rect) override
+    {
+        QPlatformWindow::setGeometry(rect);
+        QWindowSystemInterface::handleGeometryChange(window(), rect);
+        if (window()->isVisible()) QWindowSystemInterface::handleExposeEvent(window(), QRect(QPoint(), rect.size()));
+    }
+};
+
 class HeadlessIntegration : public QPlatformIntegration
 {
 public:
     HeadlessIntegration() { QWindowSystemInterface::handleScreenAdded(new HeadlessScreen); }
     bool hasCapability(Capability cap) const override { return cap == ThreadedPixmaps || cap == MultipleWindows; }
-    QPlatformWindow *createPlatformWindow(QWindow *window) const override { return new QPlatformWindow(window); }
+    QPlatformWindow *createPlatformWindow(QWindow *window) const override { return new HeadlessWindow(window); }
     QPlatformBackingStore *createPlatformBackingStore(QWindow *window) const override { return new HeadlessBackingStore(window); }
     QAbstractEventDispatcher *createEventDispatcher() const override { return new QEventDispatcherWasm; }
     QPlatformClipboard *clipboard() const override { static HeadlessClipboard clipboard; return &clipboard; }

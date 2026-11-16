@@ -33,6 +33,14 @@ target_link_libraries(kritaengine PRIVATE
     Qt6::Test Qt6::GuiPrivate Qt6::CorePrivate
     # static dependencies that KF6I18n and fontconfig do not propagate themselves
     ${CMAKE_PREFIX_PATH}/lib/libintl.a ${CMAKE_PREFIX_PATH}/lib/libexpat.a)
+# Static dependencies of the format and MyPaint plugins that their own CMake files do not list
+# (they assume shared libraries, which carry their dependencies themselves).
+foreach(_dep jxl jxl_threads jxl_cms hwy brotlienc brotlidec brotlicommon heif de265 aom KDcrawQt6 raw openjp2
+             poppler-qt6 poppler mypaint json-c lcms2 tiff jpeg png z)
+    if (EXISTS ${CMAKE_PREFIX_PATH}/lib/lib${_dep}.a)
+        target_link_libraries(kritaengine PRIVATE ${CMAKE_PREFIX_PATH}/lib/lib${_dep}.a)
+    endif()
+endforeach()
 
 set(_data ${CMAKE_SOURCE_DIR}/krita/data)
 # ponytail: font taken from the build machine; the real app ships its own font set.
