@@ -74,7 +74,7 @@ public:
         QWindowSystemInterface::setSynchronousWindowSystemEvents(true);
         QWindowSystemInterface::handleScreenAdded(new HeadlessScreen);
     }
-    bool hasCapability(Capability cap) const override { return cap == ThreadedPixmaps || cap == MultipleWindows; }
+    bool hasCapability(Capability cap) const override { return cap == ThreadedPixmaps || cap == MultipleWindows || QPlatformIntegration::hasCapability(cap); }   // the base grants NonFullScreenWindows, without which every resize is ignored
     QPlatformWindow *createPlatformWindow(QWindow *window) const override { return new HeadlessWindow(window); }
     QPlatformBackingStore *createPlatformBackingStore(QWindow *window) const override { return new HeadlessBackingStore(window); }
     QAbstractEventDispatcher *createEventDispatcher() const override { return new QEventDispatcherWasm; }
