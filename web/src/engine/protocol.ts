@@ -158,13 +158,17 @@ export interface KritaViewport {
 export interface KritaWindow {
     id: number;
     title: string;
-    kind: 'dialog' | 'popup' | 'toolOptions';
+    kind: 'dialog' | 'popup' | 'toolOptions' | 'docker';
+    /** For a docker: its id, as in kritaDockers(). */
+    docker?: string;
     /** While a modal window is open, input belongs to it alone. */
     modal: boolean;
     /** Position on Krita's virtual screen (pop-ups are placed relative to their parent window's x/y). */
     x: number; y: number; width: number; height: number;
     parent?: number;
 }
+/** One of Krita's own dockers. */
+export interface KritaDocker { id: string; title: string; visible: boolean }
 export interface KritaWindowInput {
     type: 'press' | 'move' | 'release' | 'wheel' | 'keydown' | 'keyup';
     /** Pointer position inside the window, in its pixels. */
@@ -349,6 +353,10 @@ export interface Engine {
     kritaViewport(viewport: KritaViewport): void;
     /** Krita windows currently open (the tool option panel is always one of them once a document is open). */
     kritaWindows(): Promise<KritaWindow[]>;
+    /** Krita's own dockers (Advanced Color Selector, Palette, Histogram, ...). A shown docker is a Krita window of kind 'docker'. */
+    kritaDockers(): Promise<KritaDocker[]>;
+    /** Shows or hides a docker; showing it produces a kritaWindow event with kind 'docker' and this id. */
+    showKritaDocker(id: string, visible: boolean): Promise<void>;
     /** Not awaited: order is preserved. */
     kritaWindowInput(id: number, event: KritaWindowInput): void;
     /** Asks the window to close, as its title-bar X would (the engine answers with kritaWindowClosed). */

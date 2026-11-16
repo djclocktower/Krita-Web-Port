@@ -219,6 +219,8 @@ export async function createWasmEngine(): Promise<Engine> {
         kritaKey: event => fire('krita.key', event),
         kritaViewport: viewport => fire('krita.viewport', viewport),
         kritaWindows: () => call('krita.windows'),
+        kritaDockers: () => call('krita.dockers'),
+        showKritaDocker: (id, visible) => call('krita.showDocker', { id, visible }),
         kritaWindowInput: (id, event) => fire('krita.windowInput', { id, ...event }),
         closeKritaWindow: id => call('krita.closeWindow', { id }),
         resizeKritaWindow: (id, width, height) => call('krita.resizeWindow', { id, width, height }),
