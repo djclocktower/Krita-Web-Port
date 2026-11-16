@@ -195,4 +195,41 @@ int main() {
 }
 EOF2
 
+run heif cxx -lheif -lde265 -laom <<'EOF2'
+#include <libheif/heif.h>
+#include <libde265/de265.h>
+#include <cstdio>
+#include <cstring>
+#include <vector>
+static heif_error wr(heif_context*, const void *d, size_t n, void *u) { auto *v = (std::vector<uint8_t>*)u; v->insert(v->end(), (const uint8_t*)d, (const uint8_t*)d + n); return {heif_error_Ok, heif_suberror_Unspecified, ""}; }
+int main() {
+    printf("heif %s, libde265 %s\n", heif_get_version(), de265_get_version());
+    /* capability query: HEVC decode (libde265) and AV1 decode+encode (libaom) */
+    if (!heif_have_decoder_for_format(heif_compression_HEVC)) return 1;
+    if (!heif_have_decoder_for_format(heif_compression_AV1)) return 2;
+    if (!heif_have_encoder_for_format(heif_compression_AV1)) return 3;
+    printf("HEVC encoder: %s\n", heif_have_encoder_for_format(heif_compression_HEVC) ? "yes" : "no");
+    /* real AVIF round trip: encode a flat RGB image with libaom, decode it again */
+    enum { W = 64, H = 64 };
+    heif_context *c = heif_context_alloc(); heif_encoder *enc;
+    if (heif_context_get_encoder_for_format(c, heif_compression_AV1, &enc).code) return 4;
+    heif_encoder_set_lossless(enc, 1);
+    heif_image *img; if (heif_image_create(W, H, heif_colorspace_RGB, heif_chroma_interleaved_RGB, &img).code) return 5;
+    if (heif_image_add_plane(img, heif_channel_interleaved, W, H, 8).code) return 6;
+    int stride; uint8_t *p = heif_image_get_plane(img, heif_channel_interleaved, &stride);
+    for (int y = 0; y < H; y++) for (int x = 0; x < W; x++) { p[y*stride+3*x] = 200; p[y*stride+3*x+1] = 100; p[y*stride+3*x+2] = 50; }
+    heif_image_handle *h; if (heif_context_encode_image(c, img, enc, NULL, &h).code) return 7;
+    std::vector<uint8_t> out; heif_writer w = {1, wr};
+    if (heif_context_write(c, &w, &out).code) return 8;
+    heif_context *c2 = heif_context_alloc();
+    if (heif_context_read_from_memory_without_copy(c2, out.data(), out.size(), NULL).code) return 9;
+    heif_image_handle *h2; if (heif_context_get_primary_image_handle(c2, &h2).code) return 10;
+    if (heif_image_handle_get_width(h2) != W) return 11;
+    heif_image *d; if (heif_decode_image(h2, &d, heif_colorspace_RGB, heif_chroma_interleaved_RGB, NULL).code) return 12;
+    const uint8_t *q = heif_image_get_plane_readonly(d, heif_channel_interleaved, &stride);
+    if (q[0] != 200 || q[1] != 100 || q[2] != 50) { printf("px %d %d %d\n", q[0], q[1], q[2]); return 13; }
+    printf("avif %zu bytes ok\n", out.size()); return 0;
+}
+EOF2
+
 rm -rf "$T"; [ $fail = 0 ] && echo "all checks passed"; exit $fail

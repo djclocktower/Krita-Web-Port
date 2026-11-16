@@ -1,0 +1,13 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index b7a1495..5d23245 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -27,7 +27,7 @@ ecm_setup_version(${LIBKDCRAW_LIB_VERSION}
+ 
+ kde_enable_exceptions()
+ 
+-add_library(KDcraw SHARED)
++add_library(KDcraw)
+ 
+ set_target_properties(KDcraw PROPERTIES
+     VERSION     ${KDCRAW_VERSION}

@@ -201,7 +201,19 @@ s_heif() { local KW_CFLAGS="-pthread -fexceptions"        # HEVC decode via libd
               -DWITH_OpenJPEG_DECODER=OFF -DWITH_OpenJPEG_ENCODER=OFF -DWITH_FFMPEG_DECODER=OFF -DWITH_LIBSHARPYUV=OFF \
               -DENABLE_MULTITHREADING_SUPPORT=ON -DENABLE_PARALLEL_TILE_DECODING=ON; }
 
-ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr json-c mypaint highway brotli jxl libde265 aom heif"
+s_libraw() { local KW_CFLAGS="-pthread -fexceptions"     # 0.22.1 + krita-deps-management's CMake patches (patches/dep-libraw.patch); no OpenMP/Jasper/RawSpeed
+             fetch_git libraw https://github.com/LibRaw/LibRaw.git 0.22.1
+             cm libraw -DENABLE_OPENMP=OFF -DENABLE_JASPER=OFF -DENABLE_LCMS=ON -DENABLE_EXAMPLES=OFF -DENABLE_RAWSPEED=OFF; }
+s_openjpeg() { local KW_CFLAGS="-pthread -fexceptions"
+               fetch_git openjpeg https://github.com/uclouvain/openjpeg.git v2.5.4
+               cm openjpeg -DBUILD_CODEC=OFF -DBUILD_JPIP=OFF -DBUILD_JAVA=OFF -DBUILD_DOC=OFF -DBUILD_STATIC_LIBS=ON \
+                  -DBUILD_PKGCONFIG_FILES=ON -DOPENJPEG_INSTALL_INCLUDE_DIR=include/; }
+# Qt6 libkdcraw (provides the KDcrawQt6 CMake package Krita's raw plugin links); only its static-library patch is needed
+s_kdcraw() { local KW_CFLAGS="-pthread -fexceptions"
+             fetch_git kdcraw https://invent.kde.org/graphics/libkdcraw.git v24.02.0
+             qcm kdcraw -DQT_MAJOR_VERSION=6; }
+
+ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr json-c mypaint highway brotli jxl libde265 aom heif libraw openjpeg kdcraw"
 for s in ${@:-$ALL}; do
     if [ -e "$KW/stamps/$s" ]; then echo "skip $s"; continue; fi
     echo "== $s"

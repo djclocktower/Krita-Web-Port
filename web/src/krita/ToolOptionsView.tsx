@@ -17,7 +17,7 @@ export function KritaToolOptions({ engine, w }: { engine: Engine; w: KritaWindow
             engine.resizeKritaWindow(w.id, width, height).catch(() => {});
         };
         const ro = new ResizeObserver(() => { clearTimeout(timer); timer = setTimeout(send, 120); });
-        ro.observe(box.current!); send();
+        ro.observe(box.current!);   // fires once at once, so the first size goes out after the panel has subscribed to the store
         return () => { ro.disconnect(); clearTimeout(timer); };
     }, [engine, w.id]);
     return <div class="krita-options" ref={box} style="overflow:auto"><KritaWindowView engine={engine} id={w.id} width={w.width} height={w.height} /></div>;

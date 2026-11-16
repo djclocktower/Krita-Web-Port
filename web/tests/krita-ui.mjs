@@ -244,6 +244,7 @@ await t.page.waitForTimeout(200);
 const tdc = await t.page.locator('.krita-dialog canvas').boundingBox();
 await t.page.touchscreen.tap(tdc.x + 50, tdc.y + 80);
 await t.page.waitForSelector('.krita-popup canvas', { timeout: 3000 }).then(() => check(true, 'a tap on a dialog is forwarded; the pop-up opens'), () => check(false, 'a tap on a dialog is forwarded; the pop-up opens'));
+await t.page.waitForTimeout(200);
 await t.page.touchscreen.tap(8, 8);
 await t.page.waitForTimeout(200);
 check(await t.page.locator('.krita-popup').count() === 0, 'a tap outside closes the pop-up');
