@@ -40,7 +40,7 @@ function(_kw_closure target out)      # transitive link dependencies that are re
     set(${out} ${seen} PARENT_SCOPE)
 endfunction()
 
-function(_kw_finish_test target)
+function(_kw_finish_test target srcdir bindir)
     # shared support library: display-less Qt platform + environment set-up
     if (NOT TARGET kwtestsupport)
         add_library(kwtestsupport STATIC ${_KW_SPIKE_DIR}/headless_qpa.cpp ${_KW_TESTS_DIR}/test_env.cpp)
@@ -51,7 +51,13 @@ function(_kw_finish_test target)
     # generated plugin imports
     set(_imports "#include <QtPlugin>\nQ_IMPORT_PLUGIN(HeadlessPlugin)\n")
     set(_plugin_targets "")
-    foreach (p IN LISTS KRITA_WEB_TEST_PLUGINS)
+    set(_deps "")
+    _kw_closure(${target} _deps)
+    set(_plugins "")
+    if (kritapigment IN_LIST _deps)      # only colour-aware tests need the colour engine
+        set(_plugins ${KRITA_WEB_TEST_PLUGINS})
+    endif()
+    foreach (p IN LISTS _plugins)
         string(REPLACE ":" ";" pp ${p})
         list(GET pp 0 _tg)
         list(GET pp 1 _cls)
@@ -60,10 +66,10 @@ function(_kw_finish_test target)
             string(APPEND _imports "Q_IMPORT_PLUGIN(${_cls})\n")
         endif()
     endforeach()
-    file(GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${target}_kwplugins.cpp CONTENT "${_imports}")
-    target_sources(${target} PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/${target}_kwplugins.cpp)
+    file(GENERATE OUTPUT ${bindir}/${target}_kwplugins.cpp CONTENT "${_imports}")
+    target_sources(${target} PRIVATE ${bindir}/${target}_kwplugins.cpp)
     target_link_libraries(${target} kwtestsupport ${_plugin_targets} Qt6::GuiPrivate Qt6::CorePrivate
-        ${CMAKE_PREFIX_PATH}/lib/libintl.a ${CMAKE_PREFIX_PATH}/lib/libexpat.a)
+        ${CMAKE_PREFIX_PATH}/lib/libintl.a ${CMAKE_PREFIX_PATH}/lib/libexpat.a ${CMAKE_PREFIX_PATH}/lib/libz.a)
 
     set(_all "")
     _kw_closure(${target} _all)
@@ -76,20 +82,20 @@ function(_kw_finish_test target)
     target_link_options(${target} PRIVATE -Wl,--no-whole-archive)
 
     set_target_properties(${target} PROPERTIES SUFFIX ".js")
-    target_link_options(${target} PRIVATE -fexceptions -sPROXY_TO_PTHREAD -sEXIT_RUNTIME=1
+    # -O0 at link time: skips the minutes-long wasm-opt pass (code is already compiled -O3; wasm-opt only reshapes it)
+    target_link_options(${target} PRIVATE -O0 -fexceptions -sPROXY_TO_PTHREAD -sEXIT_RUNTIME=1
         -sPTHREAD_POOL_SIZE=16 -sINITIAL_MEMORY=512MB -sALLOW_MEMORY_GROWTH=1 -sMAXIMUM_MEMORY=4GB)
     # virtual filesystem: this directory's test data and the shared test data, at their absolute build-time paths
-    foreach (d ${CMAKE_CURRENT_SOURCE_DIR}/data ${CMAKE_SOURCE_DIR}/sdk/tests/data)
+    foreach (d ${srcdir}/data ${CMAKE_SOURCE_DIR}/sdk/tests/data)
         if (IS_DIRECTORY ${d})
             target_link_options(${target} PRIVATE "SHELL:--preload-file ${d}@${d}")
         endif()
     endforeach()
     # FILES_OUTPUT_DIR must exist
-    file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/kw_keep "")
+    file(WRITE ${bindir}/kw_keep "")
     target_link_options(${target} PRIVATE
-        "SHELL:--preload-file ${CMAKE_CURRENT_BINARY_DIR}/kw_keep@${CMAKE_CURRENT_BINARY_DIR}/kw_keep"
+        "SHELL:--preload-file ${bindir}/kw_keep@${bindir}/kw_keep"
         "SHELL:--preload-file ${CMAKE_SOURCE_DIR}/krita/data/profiles@/share/krita/profiles"
-        "SHELL:--preload-file ${CMAKE_SOURCE_DIR}/krita/data/profiles@${CMAKE_SOURCE_DIR}/krita/data/profiles"
         "SHELL:--preload-file ${_KW_SPIKE_DIR}/fonts.conf@/etc/fonts/fonts.conf"
         "SHELL:--preload-file ${KRITA_WEB_FONT}@/usr/share/fonts/fallback.ttf")
     set_property(TARGET ${target} PROPERTY KW_UNIT_TEST TRUE)
@@ -99,6 +105,6 @@ function(add_executable name)
     _add_executable(${name} ${ARGN})
     if (BUILD_TESTING AND NOT "IMPORTED" IN_LIST ARGN AND NOT "ALIAS" IN_LIST ARGN
         AND CMAKE_CURRENT_SOURCE_DIR MATCHES "/tests?$" AND NOT CMAKE_CURRENT_SOURCE_DIR MATCHES "sdk/tests$")
-        cmake_language(EVAL CODE "cmake_language(DEFER CALL _kw_finish_test ${name})")   # DEFER would evaluate ${name} too late
+        cmake_language(EVAL CODE "cmake_language(DEFER DIRECTORY ${CMAKE_SOURCE_DIR} CALL _kw_finish_test ${name} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})")   # run at the end of the top level so plugin targets exist; DEFER would evaluate the variables too late
     endif()
 endfunction()

@@ -40,7 +40,7 @@ export function Shortcuts() {
         setMsg(''); set([[c, combo]]);
     };
     const key = (c: Command) => (e: KeyboardEvent) => {
-        if (rec?.id !== c.id) return;
+        if (rec?.id !== c.id || e.key === 'Tab') return;   // Tab moves focus on (which ends recording): never trap it
         e.preventDefault(); e.stopPropagation();   // also keeps Escape from closing the dialog
         if (e.key === 'Escape') { setRec(null); return setMsg(''); }
         if (e.key === 'Backspace' && !heldModifiers(e)) { setRec(null); setMsg(''); return set([[c, '']]); }

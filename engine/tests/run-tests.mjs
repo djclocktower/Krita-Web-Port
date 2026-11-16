@@ -52,15 +52,16 @@ async function runOne(name) {
     if (!file) { r.status = 'not built'; results.push(r); return; }
     r.built = true;
     const rel = file.slice(build.length).replace(/^\/+/, '');
+    const base = `http://localhost:${PORT}/${dirname(rel)}/__run_${name}.html`;   // same folder as the .js: it fetches .data and .wasm relative to the page
     const page = await browser.newPage();
     page.on('console', m => log.push(m.text()));
     page.on('pageerror', e => log.push('PAGEERROR ' + e.message));
-    await page.route(`http://localhost:${PORT}/__run_${name}.html`, route => route.fulfill({
+    await page.route(base, route => route.fulfill({
         status: 200, contentType: 'text/html', body: HTML('/' + rel, opt.args.split(' ').filter(Boolean)),
         headers: { 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Embedder-Policy': 'require-corp' } }));
     const t0 = Date.now();
     try {
-        await page.goto(`http://localhost:${PORT}/__run_${name}.html`);
+        await page.goto(base);
         await page.waitForFunction(() => window.__exit !== null || window.__abort, null, { timeout: opt.timeout * 1000, polling: 500 });
         r.exit = await page.evaluate(() => window.__exit);
         const ab = await page.evaluate(() => window.__abort);

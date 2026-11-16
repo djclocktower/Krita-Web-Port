@@ -1286,7 +1286,11 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             // genuine ("spontaneous") input; some tools cancel on events that are not.
             // Krita batches mouse moves on a short timer; let the pending ones land before a release ends the gesture.
             // (Events only: the tool's stroke is still open here, so waiting for the image to go idle would never return.)
-            if (t == QEvent::MouseButtonRelease) for (int i = 0; i < 3; i++) QCoreApplication::processEvents(QEventLoop::AllEvents, 20);
+            if (t == QEvent::MouseButtonRelease) {
+                QElapsedTimer flush;
+                flush.start();
+                while (flush.elapsed() < 40) { QCoreApplication::processEvents(); QThread::msleep(2); }   // processEvents alone returns at once
+            }
             const bool held = t == QEvent::MouseButtonPress || (t == QEvent::MouseMove && p["down"].toBool());
             QWindow *target = canvas->window()->windowHandle();
             if (!target) fail("Krita's window has no native handle");

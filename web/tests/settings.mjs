@@ -65,7 +65,7 @@ await scenario('keyboard shortcuts editor', async page => {
     await page.screenshot({ path: `${SHOTS}/shell-before.png` }).catch(() => {});
     await openSettings(page, 'Keyboard Shortcuts');
     check(await page.locator('.sc-row').count() > 50, 'the editor lists every command', `${await page.locator('.sc-row').count()}`);
-    const groups = await page.locator('.sc-list h3').allInnerTexts();
+    const groups = (await page.locator('.sc-list h3').allTextContents());
     check(['File', 'Edit', 'View', 'Image', 'Layer', 'Select', 'Tools'].every(g => groups.includes(g)) && groups.some(g => /Canvas shortcuts/.test(g)), 'grouped by menu, with a read-only canvas group', groups.join(','));
     check(await keyBtn(page, 'layer.duplicate').innerText() === 'Ctrl+J', 'panel commands are listed (Layer > Duplicate shows Ctrl+J)');
     await search(page, 'mirror');
