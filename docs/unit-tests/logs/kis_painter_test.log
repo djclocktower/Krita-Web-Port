@@ -1,0 +1,107 @@
+WARNING: QApplication was not created in the main() thread.
+
+krita.db.migration: Completed DB update step: "Create table version_information"
+
+krita.db.migration: Completed DB update step: "Create table storage_types"
+
+krita.db.migration: Completed DB update step: "Create table resource_types"
+
+krita.db.migration: Completed DB update step: "Create table storages"
+
+krita.db.migration: Completed DB update step: "Create table tags"
+
+krita.db.migration: Completed DB update step: "Create table resources"
+
+krita.db.migration: Completed DB update step: "Create table versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create table resource_tags"
+
+krita.db.migration: Completed DB update step: "Create table metadata"
+
+krita.db.migration: Completed DB update step: "Create table tags_storages"
+
+krita.db.migration: Completed DB update step: "Create table tag_translations"
+
+krita.db.migration: Completed DB update step: "Update metadata table constraints"
+
+krita.db.migration: Completed DB update step: "Create index for storages"
+
+krita.db.migration: Completed DB update step: "Create index for versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create index for tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources"
+
+krita.db.migration: Completed DB update step: "Create index for tag_translations"
+
+krita.db.migration: Completed DB update step: "Create index for resource_tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources_signature"
+
+krita.db.migration: Completed DB update step: "Create index for metadata_key"
+
+krita.db.migration: Completed DB update step: "Register storage type: Unknown"
+
+krita.db.migration: Completed DB update step: "Register storage type: Folder"
+
+krita.db.migration: Completed DB update step: "Register storage type: Bundle"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Brush Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Style Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Memory"
+
+krita.db.migration: Completed DB update step: "Register storage type: Font Storage"
+
+krita.db.migration: Completed DB update step: "Register resource type: fontfamilies"
+
+krita.db.migration: Completed DB update step: "Register resource type: gamutmasks"
+
+krita.db.migration: Completed DB update step: "Register resource type: gradients"
+
+krita.db.migration: Completed DB update step: "Register resource type: layerstyles"
+
+krita.db.migration: Completed DB update step: "Register resource type: paintoppresets"
+
+krita.db.migration: Completed DB update step: "Register resource type: palettes"
+
+krita.db.migration: Completed DB update step: "Register resource type: patterns"
+
+krita.db.migration: Completed DB update step: "Register resource type: symbols"
+
+krita.db.migration: Filled version table
+
+********* Start testing of KisPainterTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisPainterTest::initTestCase()
+QDEBUG : KisPainterTest::testSimpleBlt() "this.program"
+QWARN  : KisPainterTest::testSimpleBlt() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisPainterTest::testSimpleBlt() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisPainterTest::testSimpleBlt() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisPainterTest::testSimpleBlt()
+PASS   : KisPainterTest::testSelectionBltSelectionIrregular()
+QDEBUG : KisPainterTest::testPaintDeviceBltSelectionInverted() "this.program"
+PASS   : KisPainterTest::testPaintDeviceBltSelectionInverted()
+QDEBUG : KisPainterTest::testPaintDeviceBltSelectionIrregular() "this.program"
+PASS   : KisPainterTest::testPaintDeviceBltSelectionIrregular()
+QDEBUG : KisPainterTest::testPaintDeviceBltSelection() "this.program"
+QWARN  : KisPainterTest::testPaintDeviceBltSelection() krita.lib.pigment: Asking for nonexistent composite operation  "subtract" , returning  "normal"
+QWARN  : KisPainterTest::testPaintDeviceBltSelection() krita.lib.pigment: Asking for nonexistent composite operation  "subtract" , returning  "normal"
+PASS   : KisPainterTest::testPaintDeviceBltSelection()
+PASS   : KisPainterTest::testSelectionBltSelection()
+PASS   : KisPainterTest::testSimpleAlphaCopy()
+PASS   : KisPainterTest::testSelectionBitBltFixedSelection()
+PASS   : KisPainterTest::testSelectionBitBltEraseCompositeOp()
+PASS   : KisPainterTest::testBitBltOldData()
+PASS   : KisPainterTest::testMassiveBltFixedSingleTile()
+PASS   : KisPainterTest::testMassiveBltFixedMultiTile()
+PASS   : KisPainterTest::testMassiveBltFixedMultiTileWithOpacity()
+PASS   : KisPainterTest::testMassiveBltFixedMultiTileWithSelection()
+PASS   : KisPainterTest::testMassiveBltFixedCornerCases()
+PASS   : KisPainterTest::testOptimizedCopying()
+PASS   : KisPainterTest::cleanupTestCase()
+Totals: 18 passed, 0 failed, 0 skipped, 0 blacklisted, 4767ms
+********* Finished testing of KisPainterTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=7720ms

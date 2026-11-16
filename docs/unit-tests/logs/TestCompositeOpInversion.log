@@ -1,0 +1,203 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of TestCompositeOpInversion *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : TestCompositeOpInversion::initTestCase()
+QDEBUG : TestCompositeOpInversion::test(normal) "normal" max(error) = 1 mean(error) = 0.00331962
+PASS   : TestCompositeOpInversion::test(normal)
+QDEBUG : TestCompositeOpInversion::test(alphadarken) "alphadarken" max(error) = 1 mean(error) = 0.00839506
+PASS   : TestCompositeOpInversion::test(alphadarken)
+QDEBUG : TestCompositeOpInversion::test(copy) "copy" max(error) = 16 mean(error) = 0.490508
+PASS   : TestCompositeOpInversion::test(copy)
+QDEBUG : TestCompositeOpInversion::test(erase) "erase" max(error) = 0 mean(error) = 0
+PASS   : TestCompositeOpInversion::test(erase)
+QDEBUG : TestCompositeOpInversion::test(behind) "behind" max(error) = 12 mean(error) = 0.481866
+PASS   : TestCompositeOpInversion::test(behind)
+QDEBUG : TestCompositeOpInversion::test(destination-in) "destination-in" max(error) = 0 mean(error) = 0
+PASS   : TestCompositeOpInversion::test(destination-in)
+QDEBUG : TestCompositeOpInversion::test(destination-atop) "destination-atop" max(error) = 0 mean(error) = 0
+PASS   : TestCompositeOpInversion::test(destination-atop)
+QDEBUG : TestCompositeOpInversion::test(greater) "greater" max(error) = 14 mean(error) = 0.273416
+PASS   : TestCompositeOpInversion::test(greater)
+QDEBUG : TestCompositeOpInversion::test(overlay) "overlay" max(error) = 21 mean(error) = 0.735377
+PASS   : TestCompositeOpInversion::test(overlay)
+QDEBUG : TestCompositeOpInversion::test(grain_merge) "grain_merge" max(error) = 23 mean(error) = 0.868861
+PASS   : TestCompositeOpInversion::test(grain_merge)
+QDEBUG : TestCompositeOpInversion::test(grain_extract) "grain_extract" max(error) = 23 mean(error) = 0.830754
+PASS   : TestCompositeOpInversion::test(grain_extract)
+QDEBUG : TestCompositeOpInversion::test(hard mix) "hard mix" max(error) = 23 mean(error) = 0.789808
+PASS   : TestCompositeOpInversion::test(hard mix)
+QDEBUG : TestCompositeOpInversion::test(hard_mix_photoshop) "hard_mix_photoshop" max(error) = 255 mean(error) = 1.65982
+PASS   : TestCompositeOpInversion::test(hard_mix_photoshop)
+QDEBUG : TestCompositeOpInversion::test(hard_mix_softer_photoshop) "hard_mix_softer_photoshop" max(error) = 23 mean(error) = 0.781001
+PASS   : TestCompositeOpInversion::test(hard_mix_softer_photoshop)
+QDEBUG : TestCompositeOpInversion::test(geometric_mean) "geometric_mean" max(error) = 255 mean(error) = 8.08199
+PASS   : TestCompositeOpInversion::test(geometric_mean)
+QDEBUG : TestCompositeOpInversion::test(parallel) "parallel" max(error) = 255 mean(error) = 10.7655
+PASS   : TestCompositeOpInversion::test(parallel)
+QDEBUG : TestCompositeOpInversion::test(allanon) "allanon" max(error) = 20 mean(error) = 0.917984
+PASS   : TestCompositeOpInversion::test(allanon)
+QDEBUG : TestCompositeOpInversion::test(hard overlay) "hard overlay" max(error) = 255 mean(error) = 6.00244
+PASS   : TestCompositeOpInversion::test(hard overlay)
+QDEBUG : TestCompositeOpInversion::test(interpolation) "interpolation" max(error) = 20 mean(error) = 0.788313
+PASS   : TestCompositeOpInversion::test(interpolation)
+QDEBUG : TestCompositeOpInversion::test(interpolation 2x) "interpolation 2x" max(error) = 22 mean(error) = 0.781399
+PASS   : TestCompositeOpInversion::test(interpolation 2x)
+QDEBUG : TestCompositeOpInversion::test(penumbra a) "penumbra a" max(error) = 128 mean(error) = 6.74892
+PASS   : TestCompositeOpInversion::test(penumbra a)
+QDEBUG : TestCompositeOpInversion::test(penumbra b) "penumbra b" max(error) = 128 mean(error) = 6.71708
+PASS   : TestCompositeOpInversion::test(penumbra b)
+QDEBUG : TestCompositeOpInversion::test(penumbra c) "penumbra c" max(error) = 128 mean(error) = 7.21073
+PASS   : TestCompositeOpInversion::test(penumbra c)
+QDEBUG : TestCompositeOpInversion::test(penumbra d) "penumbra d" max(error) = 128 mean(error) = 7.17647
+PASS   : TestCompositeOpInversion::test(penumbra d)
+QDEBUG : TestCompositeOpInversion::test(screen) "screen" max(error) = 255 mean(error) = 21.1012
+PASS   : TestCompositeOpInversion::test(screen)
+QDEBUG : TestCompositeOpInversion::test(dodge) "dodge" max(error) = 254 mean(error) = 17.5404
+PASS   : TestCompositeOpInversion::test(dodge)
+QDEBUG : TestCompositeOpInversion::test(linear_dodge) "linear_dodge" max(error) = 255 mean(error) = 25.8532
+PASS   : TestCompositeOpInversion::test(linear_dodge)
+QDEBUG : TestCompositeOpInversion::test(lighten) "lighten" max(error) = 255 mean(error) = 16.4021
+PASS   : TestCompositeOpInversion::test(lighten)
+QDEBUG : TestCompositeOpInversion::test(hard_light) "hard_light" max(error) = 21 mean(error) = 0.755816
+PASS   : TestCompositeOpInversion::test(hard_light)
+QDEBUG : TestCompositeOpInversion::test(soft_light_ifs_illusions) "soft_light_ifs_illusions" max(error) = 33 mean(error) = 1.78012
+PASS   : TestCompositeOpInversion::test(soft_light_ifs_illusions)
+QDEBUG : TestCompositeOpInversion::test(soft_light_pegtop_delphi) "soft_light_pegtop_delphi" max(error) = 20 mean(error) = 0.709547
+PASS   : TestCompositeOpInversion::test(soft_light_pegtop_delphi)
+QDEBUG : TestCompositeOpInversion::test(soft_light_svg) "soft_light_svg" max(error) = 28 mean(error) = 1.64023
+PASS   : TestCompositeOpInversion::test(soft_light_svg)
+QDEBUG : TestCompositeOpInversion::test(soft_light) "soft_light" max(error) = 33 mean(error) = 1.71283
+PASS   : TestCompositeOpInversion::test(soft_light)
+QDEBUG : TestCompositeOpInversion::test(gamma_light) "gamma_light" max(error) = 239 mean(error) = 14.3271
+PASS   : TestCompositeOpInversion::test(gamma_light)
+QDEBUG : TestCompositeOpInversion::test(gamma_illumination) "gamma_illumination" max(error) = 239 mean(error) = 14.211
+PASS   : TestCompositeOpInversion::test(gamma_illumination)
+QDEBUG : TestCompositeOpInversion::test(vivid_light) "vivid_light" max(error) = 23 mean(error) = 0.768916
+PASS   : TestCompositeOpInversion::test(vivid_light)
+QDEBUG : TestCompositeOpInversion::test(flat_light) "flat_light" max(error) = 21 mean(error) = 0.722332
+PASS   : TestCompositeOpInversion::test(flat_light)
+QDEBUG : TestCompositeOpInversion::test(pin_light) "pin_light" max(error) = 21 mean(error) = 0.76262
+PASS   : TestCompositeOpInversion::test(pin_light)
+QDEBUG : TestCompositeOpInversion::test(linear light) "linear light" max(error) = 23 mean(error) = 0.788381
+PASS   : TestCompositeOpInversion::test(linear light)
+QDEBUG : TestCompositeOpInversion::test(pnorm_a) "pnorm_a" max(error) = 255 mean(error) = 19.5706
+PASS   : TestCompositeOpInversion::test(pnorm_a)
+QDEBUG : TestCompositeOpInversion::test(pnorm_b) "pnorm_b" max(error) = 255 mean(error) = 17.7425
+PASS   : TestCompositeOpInversion::test(pnorm_b)
+QDEBUG : TestCompositeOpInversion::test(super_light) "super_light" max(error) = 22 mean(error) = 0.752483
+PASS   : TestCompositeOpInversion::test(super_light)
+QDEBUG : TestCompositeOpInversion::test(tint_ifs_illusions) "tint_ifs_illusions" max(error) = 255 mean(error) = 29.8635
+PASS   : TestCompositeOpInversion::test(tint_ifs_illusions)
+QDEBUG : TestCompositeOpInversion::test(fog_lighten_ifs_illusions) "fog_lighten_ifs_illusions" max(error) = 255 mean(error) = 10.795
+PASS   : TestCompositeOpInversion::test(fog_lighten_ifs_illusions)
+QDEBUG : TestCompositeOpInversion::test(easy dodge) "easy dodge" max(error) = 255 mean(error) = 14.3782
+PASS   : TestCompositeOpInversion::test(easy dodge)
+QDEBUG : TestCompositeOpInversion::test(burn) "burn" max(error) = 254 mean(error) = 17.2394
+PASS   : TestCompositeOpInversion::test(burn)
+QDEBUG : TestCompositeOpInversion::test(linear_burn) "linear_burn" max(error) = 255 mean(error) = 25.4948
+PASS   : TestCompositeOpInversion::test(linear_burn)
+QDEBUG : TestCompositeOpInversion::test(darken) "darken" max(error) = 255 mean(error) = 16.1462
+PASS   : TestCompositeOpInversion::test(darken)
+... [67 lines trimmed] ...
+PASS   : TestCompositeOpInversion::test(freeze)
+QDEBUG : TestCompositeOpInversion::test(heat) "heat" max(error) = 224 mean(error) = 5.4593
+PASS   : TestCompositeOpInversion::test(heat)
+QDEBUG : TestCompositeOpInversion::test(glow_heat) "glow_heat" max(error) = 255 mean(error) = 1.6408
+PASS   : TestCompositeOpInversion::test(glow_heat)
+QDEBUG : TestCompositeOpInversion::test(heat_glow) "heat_glow" max(error) = 21 mean(error) = 0.742826
+PASS   : TestCompositeOpInversion::test(heat_glow)
+QDEBUG : TestCompositeOpInversion::test(reflect_freeze) "reflect_freeze" max(error) = 255 mean(error) = 1.63686
+PASS   : TestCompositeOpInversion::test(reflect_freeze)
+QDEBUG : TestCompositeOpInversion::test(freeze_reflect) "freeze_reflect" max(error) = 22 mean(error) = 0.717723
+PASS   : TestCompositeOpInversion::test(freeze_reflect)
+QDEBUG : TestCompositeOpInversion::test(heat_glow_freeze_reflect_hybrid) "heat_glow_freeze_reflect_hybrid" max(error) = 21 mean(error) = 0.884198
+PASS   : TestCompositeOpInversion::test(heat_glow_freeze_reflect_hybrid)
+QDEBUG : TestCompositeOpInversion::test(dissolve) "dissolve" max(error) = 0 mean(error) = 0
+PASS   : TestCompositeOpInversion::test(dissolve)
+QDEBUG : TestCompositeOpInversion::test(luminosity_sai) "luminosity_sai" max(error) = 255 mean(error) = 49.8212
+PASS   : TestCompositeOpInversion::test(luminosity_sai)
+PASS   : TestCompositeOpInversion::testColorPairSampler()
+QDEBUG : TestCompositeOpInversion::testColorPairSamplerRGB() sampler.numSamples() = 6912
+PASS   : TestCompositeOpInversion::testColorPairSamplerRGB()
+PASS   : TestCompositeOpInversion::testF32ModesNaN(linear_burn_hdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(linear_burn_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hard_mix_hdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hard_mix_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hard_overlay_hdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hard_overlay_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dodge_hdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dodge_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(vivid_light_hdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(vivid_light_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(pin_light_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(burn_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(darken_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(lighten_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(allanon_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dissolve_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(normal_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(alphadarken_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(destination-in_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(destination-atop_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(erase_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(copy_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(greater_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(grain_merge_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(grain_extract_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(exclusion_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(negation_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(multiply_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(diff_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(screen_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(add_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(luminosity_sai_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(divide_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(inverse_subtract_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(subtract_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(soft_light_svg_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(soft_light_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hard_mix_photoshop_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hard_mix_softer_photoshop_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(arc_tangent_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hard_light_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(parallel_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(equivalence_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(geometric_mean_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(additive_subtractive_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(gamma_dark_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(gamma_light_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(gamma_illumination_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(tangent_normalmap_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(combine_normal_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(color_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hue_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(saturation_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(inc_saturation_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dec_saturation_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(luminize_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(inc_luminosity_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dec_luminosity_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(color_hsi_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hue_hsi_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(saturation_hsi_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(inc_saturation_hsi_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dec_saturation_hsi_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(intensity_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(inc_intensity_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dec_intensity_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(color_hsl_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hue_hsl_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(saturation_hsl_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(inc_saturation_hsl_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dec_saturation_hsl_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(lightness_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(inc_lightness_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dec_lightness_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(color_hsv_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(hue_hsv_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(saturation_hsv_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(inc_saturation_hsv_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(dec_saturation_hsv_sdr)
+PASS   : TestCompositeOpInversion::testF32ModesNaN(value_sdr)
+--- exit=null status=timeout (300s) wall=300115ms

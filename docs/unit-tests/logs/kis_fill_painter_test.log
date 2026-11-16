@@ -1,0 +1,33 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisFillPainterTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisFillPainterTest::initTestCase()
+PASS   : KisFillPainterTest::testCreation()
+QWARN  : KisFillPainterTest::benchmarkFillPainter() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisFillPainterTest::benchmarkFillPainter() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisFillPainterTest::benchmarkFillPainter() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisFillPainterTest::benchmarkFillPainter()
+RESULT : KisFillPainterTest::benchmarkFillPainter():
+     188 msecs per iteration (total: 188, iterations: 1)
+PASS   : KisFillPainterTest::benchmarkFillPainterOffset()
+RESULT : KisFillPainterTest::benchmarkFillPainterOffset():
+     190 msecs per iteration (total: 190, iterations: 1)
+PASS   : KisFillPainterTest::benchmarkFillPainterOffsetCompositing()
+RESULT : KisFillPainterTest::benchmarkFillPainterOffsetCompositing():
+     13,752 msecs per iteration (total: 13,752, iterations: 1)
+PASS   : KisFillPainterTest::benchmarkFillingScanlineColor()
+RESULT : KisFillPainterTest::benchmarkFillingScanlineColor():
+     181 msecs per iteration (total: 181, iterations: 1)
+PASS   : KisFillPainterTest::benchmarkFillingScanlineSelection()
+RESULT : KisFillPainterTest::benchmarkFillingScanlineSelection():
+     900 msecs per iteration (total: 900, iterations: 1)
+PASS   : KisFillPainterTest::benchmarkFillingGapClosingSelection()
+RESULT : KisFillPainterTest::benchmarkFillingGapClosingSelection():
+     2,517 msecs per iteration (total: 2,517, iterations: 1)
+PASS   : KisFillPainterTest::testPatternFill()
+PASS   : KisFillPainterTest::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped, 0 blacklisted, 47230ms
+********* Finished testing of KisFillPainterTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=48995ms

@@ -1,0 +1,203 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisAlgebra2DTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisAlgebra2DTest::initTestCase()
+PASS   : KisAlgebra2DTest::testHalfPlane()
+PASS   : KisAlgebra2DTest::testOuterCircle()
+PASS   : KisAlgebra2DTest::testQuadraticEquation()
+PASS   : KisAlgebra2DTest::testIntersections()
+PASS   : KisAlgebra2DTest::testWeirdIntersections()
+PASS   : KisAlgebra2DTest::testMatrixDecomposition1()
+PASS   : KisAlgebra2DTest::testMatrixDecomposition2()
+QDEBUG : KisAlgebra2DTest::testMatrixDecomposition3() Entering "KisAlgebra2DTest::testMatrixDecomposition3()" t0.m33() = 1.53811 t0.determinant() = -46889.3
+QDEBUG : KisAlgebra2DTest::testMatrixDecomposition3() Entering "KisAlgebra2DTest::testMatrixDecomposition3()" QTransform(type=TxProject, 11=266.715 12=65.9483 13=0.153259 21=331.445 22=81.615 23=0.922963 31=500.68 32=363.222 33=1.53811)
+PASS   : KisAlgebra2DTest::testMatrixDecomposition3()
+PASS   : KisAlgebra2DTest::testDivisionWithFloor()
+RESULT : KisAlgebra2DTest::testDivisionWithFloor():
+     10 msecs per iteration (total: 85, iterations: 8)
+PASS   : KisAlgebra2DTest::testDrawEllipse()
+QDEBUG : KisAlgebra2DTest::testNullRectProcessing() lineRect = QRectF(10,10 100x0) lineRect.isValid() = false lineRect.isNull() = false
+XFAIL  : KisAlgebra2DTest::testNullRectProcessing() Qt's rectangle intersection operator doesn't work with line-rects
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tests/kis_algebra_2d_test.cpp(335)]
+PASS   : KisAlgebra2DTest::testNullRectProcessing()
+QCRITICAL: KisAlgebra2DTest::testLineIntersections() What I've got is QPointF(-1,5) 5.96046e-07 0
+PASS   : KisAlgebra2DTest::testLineIntersections()
+PASS   : KisAlgebra2DTest::testLineRectIntersectionsManual()
+PASS   : KisAlgebra2DTest::testLineRectIntersectionsRandom()
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the first case
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the first case
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+QCRITICAL: KisAlgebra2DTest::testLinePolygonIntersectionsManual() Checking the second case, with comparing the line
+... [173 lines trimmed] ...
+ -> LineTo(x=100, y=100)
+ -> LineTo(x=200, y=100)
+ -> LineTo(x=200, y=0)
+ -> LineTo(x=100, y=0)
+
+QCRITICAL: KisAlgebra2DTest::testMergingPainterPaths() (first | second).simplified() = QPainterPath: Element count=5
+ -> MoveTo(x=0, y=0)
+ -> LineTo(x=200, y=0)
+ -> LineTo(x=200, y=100)
+ -> LineTo(x=0, y=100)
+ -> LineTo(x=0, y=0)
+
+QCRITICAL: KisAlgebra2DTest::testMergingPainterPaths() (first | second.toReversed()).simplified() = QPainterPath: Element count=5
+ -> MoveTo(x=0, y=0)
+ -> LineTo(x=200, y=0)
+ -> LineTo(x=200, y=100)
+ -> LineTo(x=0, y=100)
+ -> LineTo(x=0, y=0)
+
+QCRITICAL: KisAlgebra2DTest::testMergingPainterPaths() shape1 | shape2 | gutter = QPainterPath: Element count=11
+ -> MoveTo(x=2302.6416666667, y=816.1541666667)
+ -> LineTo(x=3270.0000000000, y=809.9083333333)
+ -> LineTo(x=3270.0000000000, y=1567.3791666667)
+ -> LineTo(x=3072.6395905126, y=1572.7290581307)
+ -> LineTo(x=3073.0250000000, y=1625.8916666667)
+ -> LineTo(x=3077.9625000000, y=2307.0000000000)
+ -> LineTo(x=2427.4958333333, y=2307.0000000000)
+ -> LineTo(x=2148.4958333333, y=1650.9500000000)
+ -> LineTo(x=2730.0121775463, y=1635.1886471758)
+ -> LineTo(x=2702.6541666667, y=1582.7583333333)
+ -> LineTo(x=2302.6416666667, y=816.1541666667)
+
+QCRITICAL: KisAlgebra2DTest::testMergingPainterPaths() Is it really so incorrect>?  QPainterPath: Element count=11
+ -> MoveTo(x=3077.96, y=2307)
+ -> LineTo(x=2427.5, y=2307)
+ -> LineTo(x=2148.5, y=1650.95)
+ -> LineTo(x=2730.01, y=1635.19)
+ -> LineTo(x=2702.65, y=1582.76)
+ -> LineTo(x=2302.64, y=816.154)
+ -> LineTo(x=3270, y=809.908)
+ -> LineTo(x=3270, y=1567.38)
+ -> LineTo(x=3072.64, y=1572.73)
+ -> LineTo(x=3073.03, y=1625.89)
+ -> LineTo(x=3077.96, y=2307)
+
+PASS   : KisAlgebra2DTest::testMergingPainterPaths()
+PASS   : KisAlgebra2DTest::testFindTrianglePoint()
+PASS   : KisAlgebra2DTest::testTriangularMotion()
+QDEBUG : KisAlgebra2DTest::testElasticMotion() Entering "KisAlgebra2DTest::testElasticMotion()" newResultPoint = QPointF(100.454,100.246)
+PASS   : KisAlgebra2DTest::testElasticMotion()
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.5
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.25
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.75
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.125
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.625
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.375
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.875
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.0625
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.5625
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 0.3125
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 5
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 3
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 8
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 1
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 6
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 4
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 9
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 1
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 6
+QDEBUG : KisAlgebra2DTest::testHaltonSequence() 3
+PASS   : KisAlgebra2DTest::testHaltonSequence()
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRect(simple)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRect(non-full-rect)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRect(minus-one)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRect(simple-neg-rect)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRect(simple-neg-long-rect)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectHorizontal(simple)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectHorizontal(non-full-rect)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectHorizontal(minus-one)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectHorizontal(simple-neg-rect)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectHorizontal(simple-neg-long-rect)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectVertical(simple)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectVertical(non-full-rect)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectVertical(minus-one)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectVertical(simple-neg-rect)
+PASS   : KisAlgebra2DTest::testMultiplyWrappedRectVertical(simple-neg-long-rect)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(nearly rectangle)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(concave polygon)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(concave polygon 2)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(tangled polygon)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(untangled polygon)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(untangled polygon 2)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(tangled polygon ccw)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(untangled polygon ccw)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(untangled polygon 2 ccw)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(tangled polygon ccw, double start point)
+PASS   : KisAlgebra2DTest::testIsPolygonTrulyConvex(untangled polygon ccw, double start point)
+PASS   : KisAlgebra2DTest::cleanupTestCase()
+Totals: 76 passed, 0 failed, 0 skipped, 0 blacklisted, 398ms
+********* Finished testing of KisAlgebra2DTest *********
+--- exit=0 status=completed wall=2565ms

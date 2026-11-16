@@ -1,0 +1,39 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of TestKoColorSet *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : TestKoColorSet::initTestCase()
+PASS   : TestKoColorSet::testLoadGPL()
+PASS   : TestKoColorSet::testLoadRIFF()
+PASS   : TestKoColorSet::testLoadACT()
+PASS   : TestKoColorSet::testLoadPSP_PAL()
+PASS   : TestKoColorSet::testLoadACO()
+PASS   : TestKoColorSet::testLoadXML()
+PASS   : TestKoColorSet::testLoadKPL()
+PASS   : TestKoColorSet::testLoadSBZ(swatchbook.sbz)
+PASS   : TestKoColorSet::testLoadSBZ(sample_swatchbook.sbz)
+PASS   : TestKoColorSet::testLoadASE()
+PASS   : TestKoColorSet::testLoadACB()
+PASS   : TestKoColorSet::testLock()
+PASS   : TestKoColorSet::testColumnCount()
+PASS   : TestKoColorSet::testComment()
+PASS   : TestKoColorSet::testPaletteType()
+PASS   : TestKoColorSet::testAddSwatch()
+PASS   : TestKoColorSet::testRemoveSwatch()
+PASS   : TestKoColorSet::testAddGroup()
+PASS   : TestKoColorSet::testChangeGroupName()
+PASS   : TestKoColorSet::testMoveGroup()
+PASS   : TestKoColorSet::testRemoveGroup()
+PASS   : TestKoColorSet::testClear()
+PASS   : TestKoColorSet::testGetSwatchFromGroup()
+PASS   : TestKoColorSet::testIsGroupNameRow()
+PASS   : TestKoColorSet::testStartRowForNamedGroup()
+PASS   : TestKoColorSet::testGetClosestSwatchInfo()
+PASS   : TestKoColorSet::testGetGroup()
+PASS   : TestKoColorSet::testAllRows()
+PASS   : TestKoColorSet::testRowNumberInGroup()
+PASS   : TestKoColorSet::testGetColorGlobal()
+PASS   : TestKoColorSet::cleanupTestCase()
+Totals: 32 passed, 0 failed, 0 skipped, 0 blacklisted, 665ms
+********* Finished testing of TestKoColorSet *********
+--- exit=0 status=completed wall=2751ms

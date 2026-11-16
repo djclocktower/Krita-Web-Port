@@ -1,0 +1,20 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KoPatternTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KoPatternTest::initTestCase()
+PASS   : KoPatternTest::testCreation()
+QDEBUG : KoPatternTest::testRoundTripMd5() PNG Name: "test_pattern.png"
+QDEBUG : KoPatternTest::testRoundTripMd5() PNG Filename: "/home/user/Krita-Web-Port/krita/libs/image/tests/data//test_pattern.png"
+QDEBUG : KoPatternTest::testRoundTripMd5() PAT Name: "test_pattern.png"
+QDEBUG : KoPatternTest::testRoundTripMd5() PAT Filename: "test_pattern.pat"
+QDEBUG : KoPatternTest::testRoundTripMd5() PNG format QImage::Format_Grayscale8
+QDEBUG : KoPatternTest::testRoundTripMd5() PNG colorspace QColorSpace(QColorSpace::SRgb, QColorSpace::Primaries::SRgb, QColorSpace::TransferFunction::SRgb)
+QDEBUG : KoPatternTest::testRoundTripMd5() PAT format QImage::Format_ARGB32
+QDEBUG : KoPatternTest::testRoundTripMd5() PAT colorspace QColorSpace()
+PASS   : KoPatternTest::testRoundTripMd5()
+PASS   : KoPatternTest::cleanupTestCase()
+Totals: 4 passed, 0 failed, 0 skipped, 0 blacklisted, 153ms
+********* Finished testing of KoPatternTest *********
+user callback triggered after runtime exited or application aborted.  Ignoring.
+--- exit=0 status=completed wall=1978ms

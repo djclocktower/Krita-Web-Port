@@ -1,0 +1,17 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisCubicCurveTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisCubicCurveTest::initTestCase()
+PASS   : KisCubicCurveTest::testCreation()
+PASS   : KisCubicCurveTest::testCopy()
+PASS   : KisCubicCurveTest::testEdition()
+PASS   : KisCubicCurveTest::testComparison()
+PASS   : KisCubicCurveTest::testSerialization()
+PASS   : KisCubicCurveTest::testValue()
+PASS   : KisCubicCurveTest::testNull()
+PASS   : KisCubicCurveTest::testTransfer()
+PASS   : KisCubicCurveTest::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped, 0 blacklisted, 24ms
+********* Finished testing of KisCubicCurveTest *********
+--- exit=0 status=completed wall=2287ms

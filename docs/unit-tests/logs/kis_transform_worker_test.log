@@ -1,0 +1,94 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisTransformWorkerTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisTransformWorkerTest::initTestCase()
+QWARN  : KisTransformWorkerTest::testCreation() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTransformWorkerTest::testCreation() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTransformWorkerTest::testCreation() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisTransformWorkerTest::testCreation()
+PASS   : KisTransformWorkerTest::testMirrorX_Even()
+RESULT : KisTransformWorkerTest::testMirrorX_Even():
+     0 msecs per iteration (total: 0, iterations: 1)
+PASS   : KisTransformWorkerTest::testMirrorX_Odd()
+RESULT : KisTransformWorkerTest::testMirrorX_Odd():
+     0 msecs per iteration (total: 0, iterations: 1)
+PASS   : KisTransformWorkerTest::testMirrorY_Even()
+RESULT : KisTransformWorkerTest::testMirrorY_Even():
+     0 msecs per iteration (total: 0, iterations: 1)
+PASS   : KisTransformWorkerTest::testMirrorY_Odd()
+RESULT : KisTransformWorkerTest::testMirrorY_Odd():
+     0 msecs per iteration (total: 0, iterations: 1)
+PASS   : KisTransformWorkerTest::benchmarkMirrorX()
+RESULT : KisTransformWorkerTest::benchmarkMirrorX():
+     232 msecs per iteration (total: 232, iterations: 1)
+PASS   : KisTransformWorkerTest::benchmarkMirrorY()
+RESULT : KisTransformWorkerTest::benchmarkMirrorY():
+     294 msecs per iteration (total: 294, iterations: 1)
+QINFO  : KisTransformWorkerTest::testOffset() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testOffset()
+QINFO  : KisTransformWorkerTest::testMirrorTransactionX() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testMirrorTransactionX()
+QINFO  : KisTransformWorkerTest::testMirrorTransactionY() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testMirrorTransactionY()
+QINFO  : KisTransformWorkerTest::testIdentity() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testIdentity()
+QINFO  : KisTransformWorkerTest::testScaleUp() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testScaleUp()
+QINFO  : KisTransformWorkerTest::testXScaleUp() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testXScaleUp()
+QINFO  : KisTransformWorkerTest::testYScaleUp() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testYScaleUp()
+QINFO  : KisTransformWorkerTest::testScaleDown() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testScaleDown()
+QINFO  : KisTransformWorkerTest::testXScaleDown() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testXScaleDown()
+QINFO  : KisTransformWorkerTest::testYScaleDown() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testYScaleDown()
+QINFO  : KisTransformWorkerTest::testXShear() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testXShear()
+QINFO  : KisTransformWorkerTest::testYShear() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testYShear()
+QINFO  : KisTransformWorkerTest::testRotation() qt.gui.imageio: libpng warning: iCCP: too many profiles
+QINFO  : KisTransformWorkerTest::testRotation() qt.gui.imageio: libpng warning: iCCP: too many profiles
+QINFO  : KisTransformWorkerTest::testRotation() qt.gui.imageio: libpng warning: iCCP: too many profiles
+QINFO  : KisTransformWorkerTest::testRotation() qt.gui.imageio: libpng warning: iCCP: too many profiles
+QINFO  : KisTransformWorkerTest::testRotation() qt.gui.imageio: libpng warning: iCCP: too many profiles
+QINFO  : KisTransformWorkerTest::testRotation() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisTransformWorkerTest::testRotation()
+PASS   : KisTransformWorkerTest::testMatrices()
+PASS   : KisTransformWorkerTest::testRotationSpecialCases()
+PASS   : KisTransformWorkerTest::testScaleUp5times()
+PASS   : KisTransformWorkerTest::rotate90Left()
+PASS   : KisTransformWorkerTest::rotate90Right()
+PASS   : KisTransformWorkerTest::rotate180()
+PASS   : KisTransformWorkerTest::benchmarkScale()
+RESULT : KisTransformWorkerTest::benchmarkScale():
+     269 msecs per iteration (total: 269, iterations: 1)
+PASS   : KisTransformWorkerTest::benchmarkRotate()
+RESULT : KisTransformWorkerTest::benchmarkRotate():
+     338 msecs per iteration (total: 338, iterations: 1)
+PASS   : KisTransformWorkerTest::benchmarkRotate1Q()
+RESULT : KisTransformWorkerTest::benchmarkRotate1Q():
+     329 msecs per iteration (total: 329, iterations: 1)
+PASS   : KisTransformWorkerTest::benchmarkShear()
+RESULT : KisTransformWorkerTest::benchmarkShear():
+     200 msecs per iteration (total: 200, iterations: 1)
+PASS   : KisTransformWorkerTest::benchmarkScaleRotateShear()
+RESULT : KisTransformWorkerTest::benchmarkScaleRotateShear():
+     1,090 msecs per iteration (total: 1,090, iterations: 1)
+QWARN  : KisTransformWorkerTest::testPartialProcessing() QFSFileEngine::open: No file name specified
+QDEBUG : KisTransformWorkerTest::testPartialProcessing() Images have different sizes QSize(2162, 1874) QSize(0, 0)
+QDEBUG : KisTransformWorkerTest::testPartialProcessing() --- Wrong image: "single"
+PASS   : KisTransformWorkerTest::testPartialProcessing()
+PASS   : KisTransformWorkerTest::testXScaleUpPixelAlignment(35->36)
+PASS   : KisTransformWorkerTest::testXScaleUpPixelAlignment(35->37)
+PASS   : KisTransformWorkerTest::testXScaleUpPixelAlignment(35->43)
+PASS   : KisTransformWorkerTest::testXScaleUpPixelAlignment(35->32)
+PASS   : KisTransformWorkerTest::testXScaleUpPixelAlignment(35->15)
+PASS   : KisTransformWorkerTest::testXScaleUpPixelAlignment(35->17)
+PASS   : KisTransformWorkerTest::cleanupTestCase()
+Totals: 40 passed, 0 failed, 0 skipped, 0 blacklisted, 90547ms
+********* Finished testing of KisTransformWorkerTest *********
+program exited (with status: 0), but keepRuntimeAlive() is set (counter=20) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)
+--- exit=null status=completed (runtime did not exit) wall=97538ms

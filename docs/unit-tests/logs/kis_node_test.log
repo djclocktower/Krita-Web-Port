@@ -1,0 +1,15 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisNodeTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisNodeTest::initTestCase()
+PASS   : KisNodeTest::testCreation()
+PASS   : KisNodeTest::testOrdering()
+PASS   : KisNodeTest::testSetDirty()
+PASS   : KisNodeTest::testChildNodes()
+PASS   : KisNodeTest::propertiesStressTest()
+PASS   : KisNodeTest::graphStressTest()
+PASS   : KisNodeTest::cleanupTestCase()
+Totals: 8 passed, 0 failed, 0 skipped, 0 blacklisted, 13849ms
+********* Finished testing of KisNodeTest *********
+--- exit=0 status=completed wall=15691ms

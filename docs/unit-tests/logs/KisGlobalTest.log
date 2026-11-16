@@ -1,0 +1,26 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisGlobalTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisGlobalTest::initTestCase()
+PASS   : KisGlobalTest::testDeduplicateFileName(no_conflict)
+PASS   : KisGlobalTest::testDeduplicateFileName(one_conflict)
+PASS   : KisGlobalTest::testDeduplicateFileName(multiple_conflicts)
+PASS   : KisGlobalTest::testDeduplicateFileName(different_separator)
+PASS   : KisGlobalTest::testDeduplicateFileName(no_extension)
+PASS   : KisGlobalTest::testDeduplicateFileName(merge_existing_separator)
+PASS   : KisGlobalTest::testDeduplicateFileName(merge_empty_separator)
+PASS   : KisGlobalTest::testDeduplicateFileName(dont_merge_a_different_separator)
+PASS   : KisGlobalTest::testDeduplicateFileName(dot_as_separator)
+PASS   : KisGlobalTest::testDeduplicateFileName(merge_existing_separator_no_suffix)
+PASS   : KisGlobalTest::testDeduplicateFileName(merge_empty_separator_no_suffix)
+PASS   : KisGlobalTest::testDeduplicateFileName(dont_merge_a_different_separator_no_suffix)
+PASS   : KisGlobalTest::testDeduplicateFileName(dot_as_separator_no_suffix)
+PASS   : KisGlobalTest::testDeduplicateFileName(dot_as_separator_multiple_numbers)
+PASS   : KisGlobalTest::testDeduplicateFileName(weird_separator_with_a_dot)
+PASS   : KisGlobalTest::testDeduplicateFileName(name_with_a_dot_separator_with_a_dot)
+PASS   : KisGlobalTest::testDeduplicateFileName(name_with_a_dot_separator_without_a_dot)
+PASS   : KisGlobalTest::cleanupTestCase()
+Totals: 19 passed, 0 failed, 0 skipped, 0 blacklisted, 31ms
+********* Finished testing of KisGlobalTest *********
+--- exit=0 status=completed wall=1167ms

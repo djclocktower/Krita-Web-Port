@@ -1,0 +1,55 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisGbrBrushTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisGbrBrushTest::initTestCase()
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(731, 731) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_0_sc_1.11589_rot_4.36774_sub_0.0396497"
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(100, 100) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_1_sc_0.138808_rot_5.32813_sub_0.0930458"
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(197, 196) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_2_sc_0.297776_rot_3.49441_sub_0.257887"
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(725, 725) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_3_sc_1.18962_rot_1.78523_sub_0.0844737"
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(1366, 1366) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_4_sc_1.9686_rot_2.06573_sub_0.215214"
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(198, 198) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_5_sc_0.300892_rot_5.05728_sub_0.45672"
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(884, 884) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_6_sc_1.60658_rot_1.64769_sub_0.151128"
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(272, 272) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_7_sc_0.377162_rot_3.80419_sub_0.278687"
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(601, 601) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_8_sc_0.862418_rot_5.21804_sub_0.280337"
+QWARN  : KisGbrBrushTest::testImageGeneration() QFSFileEngine::open: No file name specified
+QDEBUG : KisGbrBrushTest::testImageGeneration() Images have different sizes QSize(624, 624) QSize(0, 0)
+QDEBUG : KisGbrBrushTest::testImageGeneration() --- Wrong image: "brush_9_sc_0.903374_rot_1.09466_sub_0.0158648"
+PASS   : KisGbrBrushTest::testImageGeneration()
+PASS   : KisGbrBrushTest::benchmarkPyramidCreation()
+RESULT : KisGbrBrushTest::benchmarkPyramidCreation():
+     21 msecs per iteration (total: 86, iterations: 4)
+PASS   : KisGbrBrushTest::benchmarkScaling()
+RESULT : KisGbrBrushTest::benchmarkScaling():
+     8.5 msecs per iteration (total: 68, iterations: 8)
+PASS   : KisGbrBrushTest::benchmarkRotation()
+RESULT : KisGbrBrushTest::benchmarkRotation():
+     16 msecs per iteration (total: 65, iterations: 4)
+PASS   : KisGbrBrushTest::benchmarkMaskScaling()
+RESULT : KisGbrBrushTest::benchmarkMaskScaling():
+     65 msecs per iteration (total: 65, iterations: 1)
+PASS   : KisGbrBrushTest::testPyramidLevelRounding()
+PASS   : KisGbrBrushTest::testPyramidDabTransform()
+PASS   : KisGbrBrushTest::testQPainterTransformationBorder()
+PASS   : KisGbrBrushTest::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped, 0 blacklisted, 5047ms
+********* Finished testing of KisGbrBrushTest *********
+--- exit=0 status=completed wall=6821ms

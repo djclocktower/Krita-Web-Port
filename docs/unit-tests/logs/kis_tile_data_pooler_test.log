@@ -1,0 +1,33 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisTileDataPoolerTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisTileDataPoolerTest::initTestCase()
+QWARN  : KisTileDataPoolerTest::testCycles() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTileDataPoolerTest::testCycles() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTileDataPoolerTest::testCycles() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QDEBUG : KisTileDataPoolerTest::testCycles() item->m_clonesStack.size() = 2 expectedClones = 0
+XFAIL  : KisTileDataPoolerTest::testCycles() The clonesStack's size is not as expected
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tiles3/tests/kis_tile_data_pooler_test.cpp(93)]
+QDEBUG : KisTileDataPoolerTest::testCycles() item->m_clonesStack.size() = 2 expectedClones = 0
+XFAIL  : KisTileDataPoolerTest::testCycles() The clonesStack's size is not as expected
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tiles3/tests/kis_tile_data_pooler_test.cpp(93)]
+QDEBUG : KisTileDataPoolerTest::testCycles() item->m_clonesStack.size() = 0 expectedClones = 1
+XFAIL  : KisTileDataPoolerTest::testCycles() The clonesStack's size is not as expected
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tiles3/tests/kis_tile_data_pooler_test.cpp(93)]
+QDEBUG : KisTileDataPoolerTest::testCycles() item->m_clonesStack.size() = 0 expectedClones = 1
+XFAIL  : KisTileDataPoolerTest::testCycles() The clonesStack's size is not as expected
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tiles3/tests/kis_tile_data_pooler_test.cpp(93)]
+QDEBUG : KisTileDataPoolerTest::testCycles() item->m_clonesStack.size() = 1 expectedClones = 2
+XFAIL  : KisTileDataPoolerTest::testCycles() The clonesStack's size is not as expected
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tiles3/tests/kis_tile_data_pooler_test.cpp(93)]
+QDEBUG : KisTileDataPoolerTest::testCycles() item->m_clonesStack.size() = 0 expectedClones = 1
+XFAIL  : KisTileDataPoolerTest::testCycles() The clonesStack's size is not as expected
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tiles3/tests/kis_tile_data_pooler_test.cpp(93)]
+PASS   : KisTileDataPoolerTest::testCycles()
+PASS   : KisTileDataPoolerTest::cleanupTestCase()
+Totals: 3 passed, 0 failed, 0 skipped, 0 blacklisted, 536ms
+********* Finished testing of KisTileDataPoolerTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+user callback triggered after runtime exited or application aborted.  Ignoring.
+--- exit=0 status=completed wall=2437ms

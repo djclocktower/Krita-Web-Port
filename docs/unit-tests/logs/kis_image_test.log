@@ -1,0 +1,239 @@
+WARNING: QApplication was not created in the main() thread.
+
+krita.db.migration: Completed DB update step: "Create table version_information"
+
+krita.db.migration: Completed DB update step: "Create table storage_types"
+
+krita.db.migration: Completed DB update step: "Create table resource_types"
+
+krita.db.migration: Completed DB update step: "Create table storages"
+
+krita.db.migration: Completed DB update step: "Create table tags"
+
+krita.db.migration: Completed DB update step: "Create table resources"
+
+krita.db.migration: Completed DB update step: "Create table versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create table resource_tags"
+
+krita.db.migration: Completed DB update step: "Create table metadata"
+
+krita.db.migration: Completed DB update step: "Create table tags_storages"
+
+krita.db.migration: Completed DB update step: "Create table tag_translations"
+
+krita.db.migration: Completed DB update step: "Update metadata table constraints"
+
+krita.db.migration: Completed DB update step: "Create index for storages"
+
+krita.db.migration: Completed DB update step: "Create index for versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create index for tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources"
+
+krita.db.migration: Completed DB update step: "Create index for tag_translations"
+
+krita.db.migration: Completed DB update step: "Create index for resource_tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources_signature"
+
+krita.db.migration: Completed DB update step: "Create index for metadata_key"
+
+krita.db.migration: Completed DB update step: "Register storage type: Unknown"
+
+krita.db.migration: Completed DB update step: "Register storage type: Folder"
+
+krita.db.migration: Completed DB update step: "Register storage type: Bundle"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Brush Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Style Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Memory"
+
+krita.db.migration: Completed DB update step: "Register storage type: Font Storage"
+
+krita.db.migration: Completed DB update step: "Register resource type: fontfamilies"
+
+krita.db.migration: Completed DB update step: "Register resource type: gamutmasks"
+
+krita.db.migration: Completed DB update step: "Register resource type: gradients"
+
+krita.db.migration: Completed DB update step: "Register resource type: layerstyles"
+
+krita.db.migration: Completed DB update step: "Register resource type: paintoppresets"
+
+krita.db.migration: Completed DB update step: "Register resource type: palettes"
+
+krita.db.migration: Completed DB update step: "Register resource type: patterns"
+
+krita.db.migration: Completed DB update step: "Register resource type: symbols"
+
+krita.db.migration: Filled version table
+
+********* Start testing of KisImageTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisImageTest::initTestCase()
+QWARN  : KisImageTest::layerTests() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisImageTest::layerTests() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisImageTest::layerTests() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisImageTest::layerTests()
+PASS   : KisImageTest::benchmarkCreation()
+RESULT : KisImageTest::benchmarkCreation():
+     1.7 msecs per iteration (total: 56, iterations: 32)
+PASS   : KisImageTest::testBlockLevelOfDetail()
+QWARN  : KisImageTest::testConvertImageColorSpace() krita.general: 
+QWARN  : KisImageTest::testConvertImageColorSpace() krita.general: WARNING: filter configuration has more than one user! Krita will probably crash soon!
+QWARN  : KisImageTest::testConvertImageColorSpace() krita.general: WARNING: this = 0x2a2ac34
+QWARN  : KisImageTest::testConvertImageColorSpace() krita.general: WARNING: m_filterConfiguration.data() = 0x2a38a10
+QWARN  : KisImageTest::testConvertImageColorSpace() krita.general: 
+PASS   : KisImageTest::testConvertImageColorSpace()
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-paint-rgb2gray-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-paint-rgb2gray-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-paint-rgb2gray-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-paint-rgb2gray-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-paint-gray2rgb-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-paint-gray2rgb-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-paint-gray2rgb-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-paint-gray2rgb-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-external-rgb2gray-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-external-rgb2gray-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-external-rgb2gray-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-external-rgb2gray-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-external-gray2rgb-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-external-gray2rgb-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-external-gray2rgb-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-external-gray2rgb-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-group-rgb2gray-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-group-rgb2gray-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-group-rgb2gray-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-group-rgb2gray-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-group-gray2rgb-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-group-gray2rgb-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-group-gray2rgb-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_src-group-gray2rgb-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-paint-rgb2gray-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-paint-rgb2gray-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-paint-rgb2gray-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-paint-rgb2gray-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-paint-gray2rgb-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-paint-gray2rgb-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-paint-gray2rgb-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-paint-gray2rgb-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-external-rgb2gray-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-external-rgb2gray-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-external-rgb2gray-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-external-rgb2gray-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-external-gray2rgb-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-external-gray2rgb-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-external-gray2rgb-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-external-gray2rgb-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-group-rgb2gray-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-group-rgb2gray-inheritAlpha)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-group-rgb2gray-alphaOnly)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-group-rgb2gray-firstChannel)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-group-gray2rgb-empty)
+PASS   : KisImageTest::testChannelFlagsAfterColorSpaceConversion(img_cs_dst-group-gray2rgb-inheritAlpha)
+... [288 lines trimmed] ...
+QWARN  : KisImageTest::testFlattenImage() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenImage() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testFlattenImage() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testFlattenImage() --- External image not found. Skipping... "00_initial"
+QWARN  : KisImageTest::testFlattenImage() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenImage() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenImage() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenImage() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testFlattenImage() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testFlattenImage() --- External image not found. Skipping... "00_initial"
+QWARN  : KisImageTest::testFlattenImage() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenImage() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenImage() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenImage() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testFlattenImage() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testFlattenImage() --- External image not found. Skipping... "00_initial"
+PASS   : KisImageTest::testFlattenImage()
+QWARN  : KisImageTest::testFlattenPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenPassThroughLayer() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testFlattenPassThroughLayer() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testFlattenPassThroughLayer() --- External image not found. Skipping... "00_initial"
+QWARN  : KisImageTest::testFlattenPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenPassThroughLayer() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testFlattenPassThroughLayer() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testFlattenPassThroughLayer() --- External image not found. Skipping... "00_initial"
+QWARN  : KisImageTest::testFlattenPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testFlattenPassThroughLayer() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testFlattenPassThroughLayer() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testFlattenPassThroughLayer() --- External image not found. Skipping... "01_group1_layerproj"
+PASS   : KisImageTest::testFlattenPassThroughLayer()
+QWARN  : KisImageTest::testMergeTwoPassThroughLayers() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergeTwoPassThroughLayers() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergeTwoPassThroughLayers() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergeTwoPassThroughLayers() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testMergeTwoPassThroughLayers() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testMergeTwoPassThroughLayers() --- External image not found. Skipping... "00_initial"
+QWARN  : KisImageTest::testMergeTwoPassThroughLayers() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergeTwoPassThroughLayers() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergeTwoPassThroughLayers() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergeTwoPassThroughLayers() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testMergeTwoPassThroughLayers() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testMergeTwoPassThroughLayers() --- External image not found. Skipping... "00_initial"
+PASS   : KisImageTest::testMergeTwoPassThroughLayers()
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testMergePaintOverPassThroughLayer() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testMergePaintOverPassThroughLayer() --- External image not found. Skipping... "00_initial"
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testMergePaintOverPassThroughLayer() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testMergePaintOverPassThroughLayer() --- External image not found. Skipping... "00_initial"
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePaintOverPassThroughLayer() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testMergePaintOverPassThroughLayer() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testMergePaintOverPassThroughLayer() --- External image not found. Skipping... "00_initial"
+PASS   : KisImageTest::testMergePaintOverPassThroughLayer()
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testMergePassThroughOverPaintLayer() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testMergePassThroughOverPaintLayer() --- External image not found. Skipping... "00_initial"
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testMergePassThroughOverPaintLayer() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testMergePassThroughOverPaintLayer() --- External image not found. Skipping... "00_initial"
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisImageTest::testMergePassThroughOverPaintLayer() QFSFileEngine::open: No file name specified
+QDEBUG : KisImageTest::testMergePassThroughOverPaintLayer() Images have different sizes QSize(512, 512) QSize(0, 0)
+QDEBUG : KisImageTest::testMergePassThroughOverPaintLayer() --- External image not found. Skipping... "00_initial"
+PASS   : KisImageTest::testMergePassThroughOverPaintLayer()
+QDEBUG : KisImageTest::testPaintOverlayMask() Dumping: "dd_0_00_initial.png.png"
+QDEBUG : KisImageTest::testPaintOverlayMask() Dumping: "dd_0_01_activated_00_image.png.png"
+QDEBUG : KisImageTest::testPaintOverlayMask() Dumping: "dd_0_01_activated_01_root_original.png.png"
+QDEBUG : KisImageTest::testPaintOverlayMask() Dumping: "dd_0_01_activated_02_root_projection.png.png"
+QDEBUG : KisImageTest::testPaintOverlayMask() Dumping: "dd_0_02_cloned_when_activated_00_image.png.png"
+QDEBUG : KisImageTest::testPaintOverlayMask() Dumping: "dd_0_02_cloned_when_activated_01_root_original.png.png"
+QDEBUG : KisImageTest::testPaintOverlayMask() Dumping: "dd_0_02_cloned_when_activated_02_root_projection.png.png"
+QDEBUG : KisImageTest::testPaintOverlayMask() Dumping: "dd_0_03_deactivated.png.png"
+PASS   : KisImageTest::testPaintOverlayMask()
+PASS   : KisImageTest::cleanupTestCase()
+Totals: 98 passed, 0 failed, 0 skipped, 0 blacklisted, 19963ms
+********* Finished testing of KisImageTest *********
+program exited (with status: 0), but keepRuntimeAlive() is set (counter=50) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)
+--- exit=null status=completed (runtime did not exit) wall=27838ms

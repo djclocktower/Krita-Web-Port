@@ -1,0 +1,44 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisCloneLayerTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisCloneLayerTest::initTestCase()
+QWARN  : KisCloneLayerTest::testCreation() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisCloneLayerTest::testCreation() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisCloneLayerTest::testCreation() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisCloneLayerTest::testCreation()
+PASS   : KisCloneLayerTest::testOriginalUpdates()
+PASS   : KisCloneLayerTest::testOriginalUpdatesOutOfBounds()
+PASS   : KisCloneLayerTest::testOriginalRefresh()
+PASS   : KisCloneLayerTest::testRemoveSourceLayer()
+PASS   : KisCloneLayerTest::testRemoveSourceLayerParent()
+PASS   : KisCloneLayerTest::testUndoingRemovingSource()
+PASS   : KisCloneLayerTest::testDuplicateGroup()
+PASS   : KisCloneLayerTest::testCyclingGroupLayer()
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(in-all-visible)
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(in-dst-hidden)
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(in-dst-parent-hidden)
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(in-dst-both-hidden)
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(in-src-hidden)
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(out-all-visible)
+QDEBUG : KisCloneLayerTest::testUpdatesWhileHidden(out-dst-hidden)  Different at QPoint(0,40) source 0 0 255 255 dest 0 0 0 0 fuzzy 0 fuzzyAlpha 0 ( 1 of 0 allowed )
+QDEBUG : KisCloneLayerTest::testUpdatesWhileHidden(out-dst-hidden) --- Wrong image: "40_c1_revealed"
+XFAIL  : KisCloneLayerTest::testUpdatesWhileHidden(out-dst-hidden) Will fix in the next release
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tests/kis_clone_layer_test.cpp(553)]
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(out-dst-hidden)
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(out-dst-parent-hidden)
+QDEBUG : KisCloneLayerTest::testUpdatesWhileHidden(out-dst-both-hidden)  Different at QPoint(0,40) source 0 0 255 255 dest 0 0 0 0 fuzzy 0 fuzzyAlpha 0 ( 1 of 0 allowed )
+QDEBUG : KisCloneLayerTest::testUpdatesWhileHidden(out-dst-both-hidden) --- Wrong image: "40_c1_revealed"
+XFAIL  : KisCloneLayerTest::testUpdatesWhileHidden(out-dst-both-hidden) Will fix in the next release
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tests/kis_clone_layer_test.cpp(553)]
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(out-dst-both-hidden)
+PASS   : KisCloneLayerTest::testUpdatesWhileHidden(out-src-hidden)
+PASS   : KisCloneLayerTest::testWithSourceUnderTransformMask()
+PASS   : KisCloneLayerTest::testWithSourceUnderTwoTransformMasks()
+PASS   : KisCloneLayerTest::testCloneOfGroupWithClones(no_blur)
+PASS   : KisCloneLayerTest::testCloneOfGroupWithClones(with_blur)
+PASS   : KisCloneLayerTest::cleanupTestCase()
+Totals: 25 passed, 0 failed, 0 skipped, 0 blacklisted, 2098ms
+********* Finished testing of KisCloneLayerTest *********
+program exited (with status: 0), but keepRuntimeAlive() is set (counter=2) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)
+--- exit=null status=completed (runtime did not exit) wall=9231ms

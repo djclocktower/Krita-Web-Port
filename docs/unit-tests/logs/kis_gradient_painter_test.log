@@ -1,0 +1,51 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisGradientPainterTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisGradientPainterTest::initTestCase()
+PASS   : KisGradientPainterTest::testSimplifyPath()
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRect() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRect() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRect() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRect() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRect() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRect() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRect() QFSFileEngine::open: No file name specified
+QDEBUG : KisGradientPainterTest::testShapedGradientPainterRect() Images have different sizes QSize(300, 300) QSize(0, 0)
+QDEBUG : KisGradientPainterTest::testShapedGradientPainterRect() --- External image not found. Skipping... "rect_shape"
+PASS   : KisGradientPainterTest::testShapedGradientPainterRect()
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRectPierced() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRectPierced() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRectPierced() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterRectPierced() QFSFileEngine::open: No file name specified
+QDEBUG : KisGradientPainterTest::testShapedGradientPainterRectPierced() Images have different sizes QSize(300, 300) QSize(0, 0)
+QDEBUG : KisGradientPainterTest::testShapedGradientPainterRectPierced() --- External image not found. Skipping... "rect_shape_pierced"
+PASS   : KisGradientPainterTest::testShapedGradientPainterRectPierced()
+QWARN  : KisGradientPainterTest::testShapedGradientPainterNonRegular() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterNonRegular() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterNonRegular() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterNonRegular() QFSFileEngine::open: No file name specified
+QDEBUG : KisGradientPainterTest::testShapedGradientPainterNonRegular() Images have different sizes QSize(300, 300) QSize(0, 0)
+QDEBUG : KisGradientPainterTest::testShapedGradientPainterNonRegular() --- External image not found. Skipping... "nonregular_shape"
+PASS   : KisGradientPainterTest::testShapedGradientPainterNonRegular()
+QWARN  : KisGradientPainterTest::testShapedGradientPainterNonRegularPierced() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterNonRegularPierced() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterNonRegularPierced() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testShapedGradientPainterNonRegularPierced() QFSFileEngine::open: No file name specified
+QDEBUG : KisGradientPainterTest::testShapedGradientPainterNonRegularPierced() Images have different sizes QSize(300, 300) QSize(0, 0)
+QDEBUG : KisGradientPainterTest::testShapedGradientPainterNonRegularPierced() --- External image not found. Skipping... "nonregular_shape_pierced"
+PASS   : KisGradientPainterTest::testShapedGradientPainterNonRegularPierced()
+PASS   : KisGradientPainterTest::testFindShapedExtremums()
+QWARN  : KisGradientPainterTest::testSplitDisjointPaths() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testSplitDisjointPaths() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testSplitDisjointPaths() krita.general: Environment variable "KRITA_UNITTESTS_DATA_DIR" is not set
+QWARN  : KisGradientPainterTest::testSplitDisjointPaths() QFSFileEngine::open: No file name specified
+QDEBUG : KisGradientPainterTest::testSplitDisjointPaths() Images have different sizes QSize(450, 250) QSize(0, 0)
+QDEBUG : KisGradientPainterTest::testSplitDisjointPaths() --- External image not found. Skipping... "disjoint_paths"
+PASS   : KisGradientPainterTest::testSplitDisjointPaths()
+PASS   : KisGradientPainterTest::testCachedStrategy()
+PASS   : KisGradientPainterTest::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped, 0 blacklisted, 656ms
+********* Finished testing of KisGradientPainterTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=2440ms

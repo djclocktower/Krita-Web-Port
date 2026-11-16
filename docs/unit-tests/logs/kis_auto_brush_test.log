@@ -1,0 +1,29 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisAutoBrushTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisAutoBrushTest::initTestCase()
+PASS   : KisAutoBrushTest::testCreation()
+QWARN  : KisAutoBrushTest::testMaskGeneration() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisAutoBrushTest::testMaskGeneration() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisAutoBrushTest::testMaskGeneration() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisAutoBrushTest::testMaskGeneration()
+QDEBUG : KisAutoBrushTest::testDabSize() "Identity"
+QDEBUG : KisAutoBrushTest::testDabSize() "Double"
+QDEBUG : KisAutoBrushTest::testDabSize() "Halve"
+QDEBUG : KisAutoBrushTest::testDabSize() "180 deg"
+QDEBUG : KisAutoBrushTest::testDabSize() "90 deg"
+QDEBUG : KisAutoBrushTest::testDabSize() "-90 deg"
+QDEBUG : KisAutoBrushTest::testDabSize() "45 deg"
+QDEBUG : KisAutoBrushTest::testDabSize() "2x, 45d"
+QDEBUG : KisAutoBrushTest::testDabSize() "0.5x, 45d"
+QDEBUG : KisAutoBrushTest::testDabSize() "0.5x, 45d"
+QDEBUG : KisAutoBrushTest::testDabSize() "0.5y"
+PASS   : KisAutoBrushTest::testDabSize()
+PASS   : KisAutoBrushTest::testCopyMasking()
+PASS   : KisAutoBrushTest::testClone()
+PASS   : KisAutoBrushTest::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped, 0 blacklisted, 415ms
+********* Finished testing of KisAutoBrushTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=2298ms

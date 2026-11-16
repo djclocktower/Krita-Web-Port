@@ -1,0 +1,34 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisFixedPaintDeviceTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisFixedPaintDeviceTest::initTestCase()
+PASS   : KisFixedPaintDeviceTest::testCreation()
+PASS   : KisFixedPaintDeviceTest::testSilly()
+PASS   : KisFixedPaintDeviceTest::testClear()
+QWARN  : KisFixedPaintDeviceTest::testFill() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisFixedPaintDeviceTest::testFill() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisFixedPaintDeviceTest::testFill() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisFixedPaintDeviceTest::testFill()
+PASS   : KisFixedPaintDeviceTest::testRoundtripQImageConversion()
+PASS   : KisFixedPaintDeviceTest::testBltFixed()
+QINFO  : KisFixedPaintDeviceTest::testBltFixedOpacity() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisFixedPaintDeviceTest::testBltFixedOpacity()
+PASS   : KisFixedPaintDeviceTest::testBltFixedSmall()
+PASS   : KisFixedPaintDeviceTest::testColorSpaceConversion()
+QINFO  : KisFixedPaintDeviceTest::testBltPerformance() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisFixedPaintDeviceTest::testBltPerformance()
+PASS   : KisFixedPaintDeviceTest::testMirroring(4, false, false)
+PASS   : KisFixedPaintDeviceTest::testMirroring(4, false, true)
+PASS   : KisFixedPaintDeviceTest::testMirroring(4, true, false)
+PASS   : KisFixedPaintDeviceTest::testMirroring(4, true, true)
+PASS   : KisFixedPaintDeviceTest::testMirroring(5, false, false)
+PASS   : KisFixedPaintDeviceTest::testMirroring(5, false, true)
+PASS   : KisFixedPaintDeviceTest::testMirroring(5, true, false)
+PASS   : KisFixedPaintDeviceTest::testMirroring(5, true, true)
+PASS   : KisFixedPaintDeviceTest::cleanupTestCase()
+Totals: 20 passed, 0 failed, 0 skipped, 0 blacklisted, 644ms
+********* Finished testing of KisFixedPaintDeviceTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+user callback triggered after runtime exited or application aborted.  Ignoring.
+--- exit=0 status=completed wall=2537ms

@@ -1,0 +1,33 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisTransformMaskTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisTransformMaskTest::initTestCase()
+FAIL!  : KisTransformMaskTest::testSafeTransform() Compared values are not the same
+   Actual   (fwdRect.toRect())     : QRect(10,403 274x211) (bottomright 283,613)
+   Expected (QRect(10,403,274,210)): QRect(10,403 274x210) (bottomright 283,612)
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tests/kis_transform_mask_test.cpp(70)]
+QINFO  : KisTransformMaskTest::testMaskOnPaintLayer() Skipping rendering test for being too long (and not having actual data)...
+PASS   : KisTransformMaskTest::testMaskOnPaintLayer()
+QINFO  : KisTransformMaskTest::testMaskOnCloneLayer() Skipping rendering test for being too long (and not having actual data)...
+PASS   : KisTransformMaskTest::testMaskOnCloneLayer()
+QINFO  : KisTransformMaskTest::testMaskOnCloneLayerWithOffset() Skipping rendering test for being too long (and not having actual data)...
+PASS   : KisTransformMaskTest::testMaskOnCloneLayerWithOffset()
+PASS   : KisTransformMaskTest::testSafeTransformUnity()
+FAIL!  : KisTransformMaskTest::testSafeTransformSingleVanishingPoint() Compared values are not the same
+   Actual   (fwdRect.toRect())      : QRect(629,648 971x199) (bottomright 1599,846)
+   Expected (QRect(629,648,972,199)): QRect(629,648 972x199) (bottomright 1600,846)
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tests/kis_transform_mask_test.cpp(182)]
+QINFO  : KisTransformMaskTest::testMultipleMasks() Skipping rendering test for being too long (and not having actual data)...
+PASS   : KisTransformMaskTest::testMultipleMasks()
+QINFO  : KisTransformMaskTest::testMaskWithOffset() Skipping rendering test for being too long (and not having actual data)...
+PASS   : KisTransformMaskTest::testMaskWithOffset()
+QWARN  : KisTransformMaskTest::testTransformHiddenPartsOfTheGroup() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTransformMaskTest::testTransformHiddenPartsOfTheGroup() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTransformMaskTest::testTransformHiddenPartsOfTheGroup() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisTransformMaskTest::testTransformHiddenPartsOfTheGroup()
+PASS   : KisTransformMaskTest::cleanupTestCase()
+Totals: 9 passed, 2 failed, 0 skipped, 0 blacklisted, 378ms
+********* Finished testing of KisTransformMaskTest *********
+program exited (with status: 2), but keepRuntimeAlive() is set (counter=1) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)
+--- exit=null status=completed (runtime did not exit) wall=7158ms

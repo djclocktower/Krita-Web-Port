@@ -1,0 +1,242 @@
+WARNING: QApplication was not created in the main() thread.
+
+krita.db.migration: Completed DB update step: "Create table version_information"
+
+krita.db.migration: Completed DB update step: "Create table storage_types"
+
+krita.db.migration: Completed DB update step: "Create table resource_types"
+
+krita.db.migration: Completed DB update step: "Create table storages"
+
+krita.db.migration: Completed DB update step: "Create table tags"
+
+krita.db.migration: Completed DB update step: "Create table resources"
+
+krita.db.migration: Completed DB update step: "Create table versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create table resource_tags"
+
+krita.db.migration: Completed DB update step: "Create table metadata"
+
+krita.db.migration: Completed DB update step: "Create table tags_storages"
+
+krita.db.migration: Completed DB update step: "Create table tag_translations"
+
+krita.db.migration: Completed DB update step: "Update metadata table constraints"
+
+krita.db.migration: Completed DB update step: "Create index for storages"
+
+krita.db.migration: Completed DB update step: "Create index for versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create index for tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources"
+
+krita.db.migration: Completed DB update step: "Create index for tag_translations"
+
+krita.db.migration: Completed DB update step: "Create index for resource_tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources_signature"
+
+krita.db.migration: Completed DB update step: "Create index for metadata_key"
+
+krita.db.migration: Completed DB update step: "Register storage type: Unknown"
+
+krita.db.migration: Completed DB update step: "Register storage type: Folder"
+
+krita.db.migration: Completed DB update step: "Register storage type: Bundle"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Brush Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Style Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Memory"
+
+krita.db.migration: Completed DB update step: "Register storage type: Font Storage"
+
+krita.db.migration: Completed DB update step: "Register resource type: fontfamilies"
+
+krita.db.migration: Completed DB update step: "Register resource type: gamutmasks"
+
+krita.db.migration: Completed DB update step: "Register resource type: gradients"
+
+krita.db.migration: Completed DB update step: "Register resource type: layerstyles"
+
+krita.db.migration: Completed DB update step: "Register resource type: paintoppresets"
+
+krita.db.migration: Completed DB update step: "Register resource type: palettes"
+
+krita.db.migration: Completed DB update step: "Register resource type: patterns"
+
+krita.db.migration: Completed DB update step: "Register resource type: symbols"
+
+krita.db.migration: Filled version table
+
+********* Start testing of KisPaintDeviceTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisPaintDeviceTest::initTestCase()
+QWARN  : KisPaintDeviceTest::testCreation() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisPaintDeviceTest::testCreation() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisPaintDeviceTest::testCreation() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisPaintDeviceTest::testCreation()
+PASS   : KisPaintDeviceTest::testStore()
+PASS   : KisPaintDeviceTest::testGeometry()
+PASS   : KisPaintDeviceTest::testClear()
+PASS   : KisPaintDeviceTest::testCrop()
+PASS   : KisPaintDeviceTest::testThumbnail()
+PASS   : KisPaintDeviceTest::testThumbnailDeviceWithOffset()
+PASS   : KisPaintDeviceTest::testCaching()
+PASS   : KisPaintDeviceTest::testRegion()
+PASS   : KisPaintDeviceTest::testPixel()
+PASS   : KisPaintDeviceTest::testRoundtripReadWrite()
+PASS   : KisPaintDeviceTest::testPlanarReadWrite()
+PASS   : KisPaintDeviceTest::testRoundtripConversion()
+PASS   : KisPaintDeviceTest::testFastBitBlt()
+PASS   : KisPaintDeviceTest::testMakeClone()
+QINFO  : KisPaintDeviceTest::testBltPerformance() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisPaintDeviceTest::testBltPerformance()
+PASS   : KisPaintDeviceTest::testColorSpaceConversion()
+PASS   : KisPaintDeviceTest::testDeviceDuplication()
+PASS   : KisPaintDeviceTest::testTranslate()
+QINFO  : KisPaintDeviceTest::testOpacity() qt.gui.imageio: libpng warning: iCCP: too many profiles
+PASS   : KisPaintDeviceTest::testOpacity()
+PASS   : KisPaintDeviceTest::testExactBoundsWeirdNullAlphaCase()
+PASS   : KisPaintDeviceTest::benchmarkExactBoundsNullDefaultPixel()
+RESULT : KisPaintDeviceTest::benchmarkExactBoundsNullDefaultPixel():
+     93 msecs per iteration (total: 93, iterations: 1)
+XFAIL  : KisPaintDeviceTest::testAmortizedExactBounds() Expecting the extent, we somehow get the fillrect
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tests/kis_paint_device_test.cpp(724)]
+XFAIL  : KisPaintDeviceTest::testAmortizedExactBounds() Expecting the fillRect, we somehow get the extent
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tests/kis_paint_device_test.cpp(731)]
+XFAIL  : KisPaintDeviceTest::testAmortizedExactBounds() Expecting the fillRect, we somehow get the extent
+   Loc: [/home/user/Krita-Web-Port/krita/libs/image/tests/kis_paint_device_test.cpp(738)]
+PASS   : KisPaintDeviceTest::testAmortizedExactBounds()
+PASS   : KisPaintDeviceTest::testNonDefaultPixelArea()
+PASS   : KisPaintDeviceTest::testExactBoundsNonTransparent()
+PASS   : KisPaintDeviceTest::testReadBytesWrapAround()
+PASS   : KisPaintDeviceTest::testWrappedRandomAccessor()
+PASS   : KisPaintDeviceTest::testWrappedHLineIterator()
+PASS   : KisPaintDeviceTest::testWrappedVLineIterator()
+PASS   : KisPaintDeviceTest::testWrappedHLineIteratorReadMoreThanBounds()
+PASS   : KisPaintDeviceTest::testWrappedVLineIteratorReadMoreThanBounds()
+PASS   : KisPaintDeviceTest::testMoveWrapAround()
+PASS   : KisPaintDeviceTest::testCacheState()
+PASS   : KisPaintDeviceTest::testLodTransform()
+QDEBUG : KisPaintDeviceTest::testLodDevice() dev->exactBounds() = QRect(50,50 30x30)
+QWARN  : KisPaintDeviceTest::testLodDevice() QFSFileEngine::open: No file name specified
+QDEBUG : KisPaintDeviceTest::testLodDevice() Images have different sizes QSize(100, 100) QSize(0, 0)
+QDEBUG : KisPaintDeviceTest::testLodDevice() --- Wrong image: "initial"
+QDEBUG : KisPaintDeviceTest::testLodDevice() dev->exactBounds() = QRect(25,25 15x15)
+QWARN  : KisPaintDeviceTest::testLodDevice() QFSFileEngine::open: No file name specified
+QDEBUG : KisPaintDeviceTest::testLodDevice() Images have different sizes QSize(100, 100) QSize(0, 0)
+QDEBUG : KisPaintDeviceTest::testLodDevice() --- Wrong image: "lod1"
+QDEBUG : KisPaintDeviceTest::testLodDevice() dev->exactBounds() = QRect(25,25 15x15)
+QWARN  : KisPaintDeviceTest::testLodDevice() QFSFileEngine::open: No file name specified
+QDEBUG : KisPaintDeviceTest::testLodDevice() Images have different sizes QSize(100, 100) QSize(0, 0)
+QDEBUG : KisPaintDeviceTest::testLodDevice() --- Wrong image: "lod1"
+QDEBUG : KisPaintDeviceTest::testLodDevice() dev->exactBounds() = QRect(12,12 8x8)
+... [81 lines trimmed] ...
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                 color_hsl err rate    0.97 var   17.63 max   57.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                       nor err rate    0.98 var  532.53 max  203.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                 color_hsv err rate    0.98 var  100.03 max  108.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op            inc_luminosity err rate    0.92 var   21.17 max   68.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                      tint err rate    0.92 var    0.78 max   13.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op            soft_light_svg err rate    0.97 var   14.46 max   47.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op            combine_normal err rate    0.99 var  351.35 max  230.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op hard_mix_softer_photoshop err rate    0.97 var  227.89 max  207.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                   bumpmap err rate    0.00 var    0.00 max    0.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                    divide err rate    0.98 var  448.73 max  224.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op        gamma_illumination err rate    0.97 var   66.00 max  163.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op             inc_lightness err rate    0.92 var   20.63 max   59.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                     color err rate    0.96 var   16.75 max   87.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op          interpolation 2x err rate    0.98 var   28.95 max   73.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                 lightness err rate    0.97 var   18.75 max   83.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op heat_glow_freeze_reflect_hybrid err rate    0.98 var   25.02 max   75.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op            inc_saturation err rate    0.97 var   64.08 max  137.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                penumbra a err rate    0.97 var   68.65 max  166.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op          inverse_subtract err rate    0.95 var   14.29 max   45.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                       xor err rate    0.99 var  588.04 max  218.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op            reflect_freeze err rate    0.97 var  247.94 max  254.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op              modulo_shift err rate    0.98 var  819.63 max  240.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                   hue_hsv err rate    0.98 var  113.04 max  128.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                   allanon err rate    0.97 var   14.92 max   53.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                 intensity err rate    0.95 var    9.17 max   83.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                  multiply err rate    0.92 var    0.76 max   13.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                penumbra c err rate    0.97 var   61.81 max  158.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                        in err rate    0.00 var    0.00 max    0.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op           divisive_modulo err rate    0.99 var 1069.47 max  244.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                  hard mix err rate    0.97 var  357.01 max  209.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op              linear_dodge err rate    0.95 var   14.10 max   51.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op             interpolation err rate    0.97 var   14.75 max   50.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op            freeze_reflect err rate    0.98 var   29.12 max   52.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                hard_light err rate    0.96 var   40.18 max   83.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                      xnor err rate    0.99 var  595.70 max  211.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op        dec_saturation_hsi err rate    0.97 var   12.99 max   78.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op        inc_saturation_hsv err rate    0.97 var   73.44 max  103.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                       out err rate    0.00 var    0.00 max    0.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op              hard overlay err rate    0.97 var   83.69 max  149.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op       shade_ifs_illusions err rate    0.95 var   10.66 max   43.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                   overlay err rate    0.97 var   41.02 max   90.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op              darker color err rate    0.95 var  104.79 max  176.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op               alphadarken err rate    0.96 var   62.99 max   60.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op         tangent_normalmap err rate    0.97 var   20.55 max   72.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                       and err rate    0.98 var  104.51 max  108.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op             lighter color err rate    0.95 var  108.49 max  202.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op      additive_subtractive err rate    0.98 var  155.84 max  154.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                 heat_glow err rate    0.98 var   28.34 max   54.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                  negation err rate    0.98 var  207.84 max  192.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                   hue_hsi err rate    0.98 var   87.16 max  126.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op               arc_tangent err rate    0.98 var  223.89 max  208.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                    freeze err rate    0.98 var  144.90 max  231.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                   pnorm_b err rate    0.96 var    6.93 max   31.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op            destination-in err rate    0.00 var    0.00 max    0.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                    normal err rate    0.67 var    0.24 max    4.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op             inc_intensity err rate    0.92 var   19.71 max   78.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op               vivid_light err rate    0.98 var  143.68 max  203.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                 color_hsi err rate    0.95 var    8.26 max   70.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op        hard_mix_photoshop err rate    0.94 var 1415.80 max  255.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op               super_light err rate    0.98 var   67.40 max  102.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                    behind err rate    0.75 var    0.49 max   11.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                  parallel err rate    0.97 var   15.00 max   39.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op divisive_modulo_continuous err rate    0.99 var  743.15 max  223.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                    screen err rate    0.92 var    0.80 max   15.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                easy dodge err rate    0.97 var   24.19 max  150.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                      burn err rate    0.97 var  105.61 max  178.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op            geometric_mean err rate    0.97 var   18.72 max   50.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op               linear_burn err rate    0.95 var   14.06 max   46.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op lambert_lighting_gamma2.2 err rate    0.96 var   33.82 max   91.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                flat_light err rate    0.97 var   59.22 max  189.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                       hue err rate    0.98 var   77.05 max  126.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                 pin_light err rate    0.98 var  110.69 max  119.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                 copy_blue err rate    0.99 var 1507.60 max  246.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op  soft_light_pegtop_delphi err rate    0.97 var   15.24 max   52.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op             dec_intensity err rate    0.92 var   19.79 max   65.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op          destination-atop err rate    0.98 var  699.79 max  227.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op         modulo_continuous err rate    0.98 var   98.49 max  134.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op  soft_light_ifs_illusions err rate    0.97 var   14.06 max   55.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                    modulo err rate    0.98 var  268.26 max  222.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                     erase err rate    0.00 var    0.00 max    0.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op        dec_saturation_hsl err rate    0.97 var   28.17 max   73.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op               equivalence err rate    0.98 var  228.54 max  168.00
+QDEBUG : KisPaintDeviceTest::testCompositionAssociativity() Errors for op                  copy_red err rate    0.99 var 1462.88 max  245.00
+PASS   : KisPaintDeviceTest::testCompositionAssociativity()
+QDEBUG : KisPaintDeviceTest::stressTestMemoryFragmentation() iteration 0
+QDEBUG : KisPaintDeviceTest::stressTestMemoryFragmentation() Iteration: 0
+QDEBUG : KisPaintDeviceTest::stressTestMemoryFragmentation() ========================================
+QDEBUG : KisPaintDeviceTest::stressTestMemoryFragmentation() iteration 1
+QDEBUG : KisPaintDeviceTest::stressTestMemoryFragmentation() Iteration: 1
+QDEBUG : KisPaintDeviceTest::stressTestMemoryFragmentation() ========================================
+QDEBUG : KisPaintDeviceTest::stressTestMemoryFragmentation() iteration 2
+QDEBUG : KisPaintDeviceTest::stressTestMemoryFragmentation() Iteration: 2
+QDEBUG : KisPaintDeviceTest::stressTestMemoryFragmentation() ========================================
+PASS   : KisPaintDeviceTest::stressTestMemoryFragmentation()
+PASS   : KisPaintDeviceTest::cleanupTestCase()
+Totals: 51 passed, 0 failed, 0 skipped, 0 blacklisted, 22125ms
+********* Finished testing of KisPaintDeviceTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+krita.general: Warning: some tiles have leaked:
+
+krita.general: 	Tiles in memory: 3850 
+ 	Total tiles: 3850
+
+--- exit=0 status=completed wall=25242ms

@@ -1,0 +1,45 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KoRgbU8ColorSpaceTester *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KoRgbU8ColorSpaceTester::initTestCase()
+PASS   : KoRgbU8ColorSpaceTester::testBasics()
+PASS   : KoRgbU8ColorSpaceTester::testMixColors()
+PASS   : KoRgbU8ColorSpaceTester::testMixColorsAverage()
+PASS   : KoRgbU8ColorSpaceTester::testCompositeOpsWithChannelFlags()
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() badPixelPos 1
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() opacity 128
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() oriS 128 128 128 129
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() oriD 12 12 12 0
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() expD 128 128 128 65
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() dst1 129 129 129 65
+FAIL!  : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() Failed to compose pixels
+   Loc: [/home/user/Krita-Web-Port/krita/libs/pigment/tests/KoRgbU8ColorSpaceTester.cpp(365)]
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() badPixelPos 10
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() opacity 128
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() oriS 128 128 128 129
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() oriD 12 12 12 0
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() expD 128 128 128 65
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() dst1 129 129 129 65
+FAIL!  : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() Failed to compose pixels
+   Loc: [/home/user/Krita-Web-Port/krita/libs/pigment/tests/KoRgbU8ColorSpaceTester.cpp(365)]
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() badPixelPos 1
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() opacity 128
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() oriS 128 128 128 0
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() oriD 12 12 12 0
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() expD 0 0 0 0
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() dst1 12 12 12 0
+FAIL!  : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() Failed to compose pixels
+   Loc: [/home/user/Krita-Web-Port/krita/libs/pigment/tests/KoRgbU8ColorSpaceTester.cpp(365)]
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() badPixelPos 10
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() opacity 128
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() oriS 128 128 128 0
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() oriD 12 12 12 0
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() expD 255 255 255 0
+QDEBUG : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() dst1 12 12 12 0
+FAIL!  : KoRgbU8ColorSpaceTester::testCompositeCopyDivisionByZero() Failed to compose pixels
+   Loc: [/home/user/Krita-Web-Port/krita/libs/pigment/tests/KoRgbU8ColorSpaceTester.cpp(365)]
+PASS   : KoRgbU8ColorSpaceTester::cleanupTestCase()
+Totals: 6 passed, 1 failed, 0 skipped, 0 blacklisted, 293ms
+********* Finished testing of KoRgbU8ColorSpaceTester *********
+--- exit=1 status=completed wall=2206ms

@@ -1,0 +1,20 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisPaintLayerTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisPaintLayerTest::initTestCase()
+QWARN  : KisPaintLayerTest::testProjection() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisPaintLayerTest::testProjection() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisPaintLayerTest::testProjection() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisPaintLayerTest::testProjection()
+PASS   : KisPaintLayerTest::testKeyframing()
+QDEBUG : KisPaintLayerTest::testLayerStyles() Dumping: "dd_0_00L_initial.png.png"
+QDEBUG : KisPaintLayerTest::testLayerStyles() Dumping: "dd_0_02P_styled.png.png"
+QDEBUG : KisPaintLayerTest::testLayerStyles() Dumping: "dd_0_03P_styled.png.png"
+QDEBUG : KisPaintLayerTest::testLayerStyles() Dumping: "dd_0_04P_partial.png.png"
+PASS   : KisPaintLayerTest::testLayerStyles()
+PASS   : KisPaintLayerTest::cleanupTestCase()
+Totals: 5 passed, 0 failed, 0 skipped, 0 blacklisted, 1084ms
+********* Finished testing of KisPaintLayerTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=2984ms

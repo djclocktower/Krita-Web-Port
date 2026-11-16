@@ -1,0 +1,53 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisConvolutionPainterTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisConvolutionPainterTest::initTestCase()
+QWARN  : KisConvolutionPainterTest::testIdentityConvolution() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisConvolutionPainterTest::testIdentityConvolution() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisConvolutionPainterTest::testIdentityConvolution() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisConvolutionPainterTest::testIdentityConvolution()
+PASS   : KisConvolutionPainterTest::testSymmConvolution()
+PASS   : KisConvolutionPainterTest::testAsymmAllChannels()
+PASS   : KisConvolutionPainterTest::testAsymmSkipRed()
+PASS   : KisConvolutionPainterTest::testAsymmSkipGreen()
+PASS   : KisConvolutionPainterTest::testAsymmSkipBlue()
+PASS   : KisConvolutionPainterTest::testAsymmSkipAlpha()
+PASS   : KisConvolutionPainterTest::benchmarkConvolution()
+PASS   : KisConvolutionPainterTest::testGaussianSpatial()
+QDEBUG : KisConvolutionPainterTest::testGaussianFFTW() Images have different sizes QSize(816, 800) QSize(860, 893)
+QDEBUG : KisConvolutionPainterTest::testGaussianFFTW() --- Wrong image: "test_gaussian_10_10_fftw.png"
+QDEBUG : KisConvolutionPainterTest::testGaussianFFTW() Images have different sizes QSize(816, 800) QSize(860, 893)
+QDEBUG : KisConvolutionPainterTest::testGaussianFFTW() --- Wrong image: "test_gaussian_15_15_fftw.png"
+PASS   : KisConvolutionPainterTest::testGaussianFFTW()
+PASS   : KisConvolutionPainterTest::testGaussianSmallSpatial()
+PASS   : KisConvolutionPainterTest::testGaussianSmallFFTW()
+QDEBUG : KisConvolutionPainterTest::testGaussianDetailsSpatial() Images have different sizes QSize(400, 1500) QSize(2000, 1500)
+QDEBUG : KisConvolutionPainterTest::testGaussianDetailsSpatial() --- Wrong image: "test_gaussian_10_10_spatial.png"
+QDEBUG : KisConvolutionPainterTest::testGaussianDetailsSpatial() Images have different sizes QSize(0, 0) QSize(2000, 1500)
+QDEBUG : KisConvolutionPainterTest::testGaussianDetailsSpatial() --- Wrong image: "test_gaussian_15_15_spatial.png"
+PASS   : KisConvolutionPainterTest::testGaussianDetailsSpatial()
+QDEBUG : KisConvolutionPainterTest::testGaussianDetailsFFTW() Images have different sizes QSize(400, 1500) QSize(2000, 1500)
+QDEBUG : KisConvolutionPainterTest::testGaussianDetailsFFTW() --- Wrong image: "test_gaussian_10_10_fftw.png"
+QDEBUG : KisConvolutionPainterTest::testGaussianDetailsFFTW() Images have different sizes QSize(0, 0) QSize(2000, 1500)
+QDEBUG : KisConvolutionPainterTest::testGaussianDetailsFFTW() --- Wrong image: "test_gaussian_15_15_fftw.png"
+PASS   : KisConvolutionPainterTest::testGaussianDetailsFFTW()
+QDEBUG : KisConvolutionPainterTest::testDilate()  Different at QPoint(46,2) source 0 0 0 255 dest 241 241 241 255 fuzzy 0 fuzzyAlpha 0 ( 1 of 0 allowed )
+QDEBUG : KisConvolutionPainterTest::testDilate() --- Wrong image: "dilate10"
+PASS   : KisConvolutionPainterTest::testDilate()
+QDEBUG : KisConvolutionPainterTest::testErode()  Different at QPoint(54,54) source 255 255 255 255 dest 0 0 0 255 fuzzy 0 fuzzyAlpha 0 ( 1 of 0 allowed )
+QDEBUG : KisConvolutionPainterTest::testErode() --- Wrong image: "erode5"
+PASS   : KisConvolutionPainterTest::testErode()
+QDEBUG : KisConvolutionPainterTest::testNormalMapSpatial() Elapsed time: 17 ms
+QDEBUG : KisConvolutionPainterTest::testNormalMapSpatial() Elapsed time: 17 ms
+QDEBUG : KisConvolutionPainterTest::testNormalMapSpatial() Elapsed time: 15 ms
+PASS   : KisConvolutionPainterTest::testNormalMapSpatial()
+QDEBUG : KisConvolutionPainterTest::testNormalMapFFTW() Elapsed time: 15 ms
+QDEBUG : KisConvolutionPainterTest::testNormalMapFFTW() Elapsed time: 11 ms
+QDEBUG : KisConvolutionPainterTest::testNormalMapFFTW() Elapsed time: 10 ms
+PASS   : KisConvolutionPainterTest::testNormalMapFFTW()
+PASS   : KisConvolutionPainterTest::cleanupTestCase()
+Totals: 20 passed, 0 failed, 0 skipped, 0 blacklisted, 33420ms
+********* Finished testing of KisConvolutionPainterTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=35883ms

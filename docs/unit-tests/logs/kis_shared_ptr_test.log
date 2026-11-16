@@ -1,0 +1,22 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisSharedPtrTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisSharedPtrTest::initTestCase()
+PASS   : KisSharedPtrTest::testRefTwoSharedPointersOneInstance()
+PASS   : KisSharedPtrTest::testCopy()
+PASS   : KisSharedPtrTest::testCopy2()
+PASS   : KisSharedPtrTest::testCopy0()
+PASS   : KisSharedPtrTest::testClear()
+PASS   : KisSharedPtrTest::testWeakSP()
+PASS   : KisSharedPtrTest::testBoolOnInvalidWeakPointer()
+PASS   : KisSharedPtrTest::testInvalidWeakSPAssignToSP()
+PASS   : KisSharedPtrTest::testInvalidWeakSPToSPCopy()
+PASS   : KisSharedPtrTest::testWeakSPAssignToWeakSP()
+PASS   : KisSharedPtrTest::testWeakSPToWeakSPCopy()
+PASS   : KisSharedPtrTest::testRestrictedPointer()
+PASS   : KisSharedPtrTest::testRestrictedPointerNoBackward()
+PASS   : KisSharedPtrTest::cleanupTestCase()
+Totals: 15 passed, 0 failed, 0 skipped, 0 blacklisted, 23ms
+********* Finished testing of KisSharedPtrTest *********
+--- exit=0 status=completed wall=2026ms

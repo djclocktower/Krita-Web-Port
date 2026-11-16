@@ -1,0 +1,14 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisPngBrushTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisPngBrushTest::initTestCase()
+PASS   : KisPngBrushTest::testLoading(bw-alpha-transp)
+PASS   : KisPngBrushTest::testLoading(bw-alpha-solid)
+PASS   : KisPngBrushTest::testLoading(bw-no-alpha-solid)
+PASS   : KisPngBrushTest::testLoading(color-alpha-solid)
+PASS   : KisPngBrushTest::testLoading(color-alpha-transp)
+PASS   : KisPngBrushTest::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped, 0 blacklisted, 79ms
+********* Finished testing of KisPngBrushTest *********
+--- exit=0 status=completed wall=1788ms

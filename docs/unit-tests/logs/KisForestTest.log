@@ -1,0 +1,36 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisForestTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisForestTest::initTestCase()
+PASS   : KisForestTest::testAddToRoot()
+PASS   : KisForestTest::testAddToRootChained()
+PASS   : KisForestTest::testAddToLeaf()
+PASS   : KisForestTest::testAddToLeafChained()
+PASS   : KisForestTest::testDFSIteration()
+PASS   : KisForestTest::testHierarchyIteration()
+PASS   : KisForestTest::testSiblingIteration()
+PASS   : KisForestTest::testCompositionIteration()
+PASS   : KisForestTest::testCompositionIterationSubtree()
+PASS   : KisForestTest::testSubtreeIteration()
+PASS   : KisForestTest::testSubtreeTailIteration()
+PASS   : KisForestTest::testEraseNode()
+PASS   : KisForestTest::testEraseSubtree()
+PASS   : KisForestTest::testEraseRange()
+PASS   : KisForestTest::testMoveSubtree()
+PASS   : KisForestTest::testReversedChildIteration()
+PASS   : KisForestTest::testConversionsFromEnd()
+PASS   : KisForestTest::testCopyForest()
+PASS   : KisForestTest::testSwapForest()
+PASS   : KisForestTest::testForestEmpty()
+PASS   : KisForestTest::testSiblingsOnEndIterator()
+PASS   : KisForestTest::testParentIterator()
+PASS   : KisForestTest::testConstChildIterators()
+PASS   : KisForestTest::testConstHierarchyIterators()
+PASS   : KisForestTest::testConstSubtreeIterators()
+PASS   : KisForestTest::testConstTailSubtreeIterators()
+PASS   : KisForestTest::testConstTailFreeStandingForestFunctions()
+PASS   : KisForestTest::cleanupTestCase()
+Totals: 29 passed, 0 failed, 0 skipped, 0 blacklisted, 25ms
+********* Finished testing of KisForestTest *********
+--- exit=0 status=completed wall=1186ms

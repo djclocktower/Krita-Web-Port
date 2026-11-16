@@ -1,0 +1,37 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisStrokesQueueTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisStrokesQueueTest::initTestCase()
+PASS   : KisStrokesQueueTest::testSequentialJobs()
+PASS   : KisStrokesQueueTest::testConcurrentSequentialBarrier()
+PASS   : KisStrokesQueueTest::testExclusiveStrokes()
+PASS   : KisStrokesQueueTest::testBarrierStrokeJobs()
+PASS   : KisStrokesQueueTest::testStrokesOverlapping()
+PASS   : KisStrokesQueueTest::testImmediateCancel()
+PASS   : KisStrokesQueueTest::testOpenedStrokeCounter()
+PASS   : KisStrokesQueueTest::testAsyncCancelWhileOpenedStroke()
+PASS   : KisStrokesQueueTest::testStrokesLevelOfDetail()
+PASS   : KisStrokesQueueTest::testStrokeWithMixedLodJobs()
+PASS   : KisStrokesQueueTest::testMultipleLevelOfDetailStrokes()
+PASS   : KisStrokesQueueTest::testMultipleLevelOfDetailAfterLegacy()
+PASS   : KisStrokesQueueTest::testMultipleLevelOfDetailMixedLegacy()
+PASS   : KisStrokesQueueTest::testCancelBetweenLodNStrokes()
+PASS   : KisStrokesQueueTest::testUFOVisitBetweenLodNStrokes()
+PASS   : KisStrokesQueueTest::testLodUndoBase()
+QDEBUG : KisStrokesQueueTest::testLodUndoBase2() Entering "TestUndoCommand::undo()"
+PASS   : KisStrokesQueueTest::testLodUndoBase2()
+PASS   : KisStrokesQueueTest::testMutatedJobs()
+QDEBUG : KisStrokesQueueTest::testUniquelyConcurrentJobs() "  test               CONCURRENT after      UNIQUELY_CONCURRENT allowed: 1 "
+QDEBUG : KisStrokesQueueTest::testUniquelyConcurrentJobs() "  test      UNIQUELY_CONCURRENT after      UNIQUELY_CONCURRENT allowed: 0 "
+QDEBUG : KisStrokesQueueTest::testUniquelyConcurrentJobs() "  test               SEQUENTIAL after      UNIQUELY_CONCURRENT allowed: 0 "
+QDEBUG : KisStrokesQueueTest::testUniquelyConcurrentJobs() "  test                  BARRIER after      UNIQUELY_CONCURRENT allowed: 0 "
+QDEBUG : KisStrokesQueueTest::testUniquelyConcurrentJobs() "  test      UNIQUELY_CONCURRENT after               CONCURRENT allowed: 1 "
+QDEBUG : KisStrokesQueueTest::testUniquelyConcurrentJobs() "  test      UNIQUELY_CONCURRENT after      UNIQUELY_CONCURRENT allowed: 0 "
+QDEBUG : KisStrokesQueueTest::testUniquelyConcurrentJobs() "  test      UNIQUELY_CONCURRENT after               SEQUENTIAL allowed: 0 "
+QDEBUG : KisStrokesQueueTest::testUniquelyConcurrentJobs() "  test      UNIQUELY_CONCURRENT after                  BARRIER allowed: 0 "
+PASS   : KisStrokesQueueTest::testUniquelyConcurrentJobs()
+PASS   : KisStrokesQueueTest::cleanupTestCase()
+Totals: 21 passed, 0 failed, 0 skipped, 0 blacklisted, 50ms
+********* Finished testing of KisStrokesQueueTest *********
+--- exit=0 status=completed wall=2212ms

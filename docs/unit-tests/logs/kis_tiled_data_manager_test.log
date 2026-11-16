@@ -1,0 +1,48 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisTiledDataManagerTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisTiledDataManagerTest::initTestCase()
+QWARN  : KisTiledDataManagerTest::testUndoingNewTiles() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTiledDataManagerTest::testUndoingNewTiles() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTiledDataManagerTest::testUndoingNewTiles() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisTiledDataManagerTest::testUndoingNewTiles()
+PASS   : KisTiledDataManagerTest::testPurgedAndEmptyTransactions()
+PASS   : KisTiledDataManagerTest::testUnversionedBitBlt()
+PASS   : KisTiledDataManagerTest::testVersionedBitBlt()
+PASS   : KisTiledDataManagerTest::testBitBltOldData()
+PASS   : KisTiledDataManagerTest::testBitBltRough()
+PASS   : KisTiledDataManagerTest::testTransactions()
+PASS   : KisTiledDataManagerTest::testPurgeHistory()
+PASS   : KisTiledDataManagerTest::testUndoSetDefaultPixel()
+PASS   : KisTiledDataManagerTest::benchmarkReadOnlyTileLazy()
+RESULT : KisTiledDataManagerTest::benchmarkReadOnlyTileLazy():
+     35 msecs per iteration (total: 35, iterations: 1)
+PASS   : KisTiledDataManagerTest::benchmarkSharedPointers()
+RESULT : KisTiledDataManagerTest::benchmarkSharedPointers():
+     319 msecs per iteration (total: 319, iterations: 1)
+PASS   : KisTiledDataManagerTest::benchmarkCOWNoPooler()
+RESULT : KisTiledDataManagerTest::benchmarkCOWNoPooler():
+     27 msecs per iteration (total: 27, iterations: 1)
+PASS   : KisTiledDataManagerTest::benchmarkCOWWithPooler()
+RESULT : KisTiledDataManagerTest::benchmarkCOWWithPooler():
+     21 msecs per iteration (total: 21, iterations: 1)
+PASS   : KisTiledDataManagerTest::stressTest()
+PASS   : KisTiledDataManagerTest::stressTestLazyCopying()
+PASS   : KisTiledDataManagerTest::stressTestExtentsColumn()
+QDEBUG : KisTiledDataManagerTest::benchmarkQRegion() compressed rects: rects.size() = 13392 --> region.rectCount() = 2322
+QDEBUG : KisTiledDataManagerTest::benchmarkQRegion() compression time: 160 ms
+PASS   : KisTiledDataManagerTest::benchmarkQRegion()
+QDEBUG : KisTiledDataManagerTest::benchmarkKisRegion() compressed rects: rects.size() = 13392 --> std::distance(rects.begin(), endIt) = 2322
+QDEBUG : KisTiledDataManagerTest::benchmarkKisRegion() compression time: 4 ms
+PASS   : KisTiledDataManagerTest::benchmarkKisRegion()
+QDEBUG : KisTiledDataManagerTest::benchmarkOverlappedKisRegion() deoverlapped rects: originalSize = 248688 --> rects.size() = 16126
+QDEBUG : KisTiledDataManagerTest::benchmarkOverlappedKisRegion() deoverlapping time: 80 ms
+QDEBUG : KisTiledDataManagerTest::benchmarkOverlappedKisRegion() compressed rects: region.rects().size() = 164
+QDEBUG : KisTiledDataManagerTest::benchmarkOverlappedKisRegion() compression time: 1 ms
+PASS   : KisTiledDataManagerTest::benchmarkOverlappedKisRegion()
+PASS   : KisTiledDataManagerTest::cleanupTestCase()
+Totals: 21 passed, 0 failed, 0 skipped, 0 blacklisted, 46279ms
+********* Finished testing of KisTiledDataManagerTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=48677ms

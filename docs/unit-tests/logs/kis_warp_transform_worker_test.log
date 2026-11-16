@@ -1,0 +1,34 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisWarpTransformWorkerTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisWarpTransformWorkerTest::initTestCase()
+QWARN  : KisWarpTransformWorkerTest::test() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisWarpTransformWorkerTest::test() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisWarpTransformWorkerTest::test() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisWarpTransformWorkerTest::test() QFSFileEngine::open: No file name specified
+QDEBUG : KisWarpTransformWorkerTest::test() Images have different sizes QSize(895, 906) QSize(0, 0)
+QDEBUG : KisWarpTransformWorkerTest::test() --- Wrong image: "tr"
+QWARN  : KisWarpTransformWorkerTest::test() QFSFileEngine::open: No file name specified
+QDEBUG : KisWarpTransformWorkerTest::test() Images have different sizes QSize(895, 906) QSize(0, 0)
+QDEBUG : KisWarpTransformWorkerTest::test() --- Wrong image: "tr"
+PASS   : KisWarpTransformWorkerTest::test()
+RESULT : KisWarpTransformWorkerTest::test():
+     484 msecs per iteration (total: 484, iterations: 1)
+QWARN  : KisWarpTransformWorkerTest::testQImage() QFSFileEngine::open: No file name specified
+QDEBUG : KisWarpTransformWorkerTest::testQImage() Images have different sizes QSize(894, 897) QSize(0, 0)
+QDEBUG : KisWarpTransformWorkerTest::testQImage() --- Wrong image: "tr"
+QWARN  : KisWarpTransformWorkerTest::testQImage() QFSFileEngine::open: No file name specified
+QDEBUG : KisWarpTransformWorkerTest::testQImage() Images have different sizes QSize(894, 897) QSize(0, 0)
+QDEBUG : KisWarpTransformWorkerTest::testQImage() --- Wrong image: "tr"
+PASS   : KisWarpTransformWorkerTest::testQImage()
+RESULT : KisWarpTransformWorkerTest::testQImage():
+     32 msecs per iteration (total: 32, iterations: 1)
+PASS   : KisWarpTransformWorkerTest::testGridSize()
+PASS   : KisWarpTransformWorkerTest::testBackwardInterpolatorExtrapolation()
+PASS   : KisWarpTransformWorkerTest::testNeedChangeRects()
+PASS   : KisWarpTransformWorkerTest::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped, 0 blacklisted, 2005ms
+********* Finished testing of KisWarpTransformWorkerTest *********
+program exited (with status: 0), but keepRuntimeAlive() is set (counter=4) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)
+--- exit=null status=completed (runtime did not exit) wall=9099ms

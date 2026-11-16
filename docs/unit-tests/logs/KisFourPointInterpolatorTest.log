@@ -1,0 +1,21 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisFourPointInterpolatorTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisFourPointInterpolatorTest::initTestCase()
+PASS   : KisFourPointInterpolatorTest::testForwardInterpolator()
+PASS   : KisFourPointInterpolatorTest::testBackwardInterpolatorXShear()
+PASS   : KisFourPointInterpolatorTest::testBackwardInterpolatorYShear()
+PASS   : KisFourPointInterpolatorTest::testBackwardInterpolatorXYShear()
+PASS   : KisFourPointInterpolatorTest::testBackwardInterpolatorRoundTrip()
+PASS   : KisFourPointInterpolatorTest::testBackwardInterpolatorUnevenlyShearedTetragon()
+PASS   : KisFourPointInterpolatorTest::testBackwardInterpolatorFoldedTetragon()
+QCRITICAL: KisFourPointInterpolatorTest::testBackwardInterpolatorSpecialCase() QPointF(151.182,184.424)
+PASS   : KisFourPointInterpolatorTest::testBackwardInterpolatorSpecialCase()
+QDEBUG : KisFourPointInterpolatorTest::testBackwardInterpolatorSpecialCaseSecond() Entering "KisFourPointInterpolatorTest::testBackwardInterpolatorSpecialCaseSecond()" srcPtJustBwd = QPointF(56,40)
+QDEBUG : KisFourPointInterpolatorTest::testBackwardInterpolatorSpecialCaseSecond() Entering "KisFourPointInterpolatorTest::testBackwardInterpolatorSpecialCaseSecond()" srcPt = QPointF(56,40)
+PASS   : KisFourPointInterpolatorTest::testBackwardInterpolatorSpecialCaseSecond()
+PASS   : KisFourPointInterpolatorTest::cleanupTestCase()
+Totals: 11 passed, 0 failed, 0 skipped, 0 blacklisted, 26ms
+********* Finished testing of KisFourPointInterpolatorTest *********
+--- exit=0 status=completed wall=2084ms

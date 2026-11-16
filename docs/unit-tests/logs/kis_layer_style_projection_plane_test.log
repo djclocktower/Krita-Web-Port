@@ -1,0 +1,239 @@
+WARNING: QApplication was not created in the main() thread.
+
+krita.db.migration: Completed DB update step: "Create table version_information"
+
+krita.db.migration: Completed DB update step: "Create table storage_types"
+
+krita.db.migration: Completed DB update step: "Create table resource_types"
+
+krita.db.migration: Completed DB update step: "Create table storages"
+
+krita.db.migration: Completed DB update step: "Create table tags"
+
+krita.db.migration: Completed DB update step: "Create table resources"
+
+krita.db.migration: Completed DB update step: "Create table versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create table resource_tags"
+
+krita.db.migration: Completed DB update step: "Create table metadata"
+
+krita.db.migration: Completed DB update step: "Create table tags_storages"
+
+krita.db.migration: Completed DB update step: "Create table tag_translations"
+
+krita.db.migration: Completed DB update step: "Update metadata table constraints"
+
+krita.db.migration: Completed DB update step: "Create index for storages"
+
+krita.db.migration: Completed DB update step: "Create index for versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create index for tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources"
+
+krita.db.migration: Completed DB update step: "Create index for tag_translations"
+
+krita.db.migration: Completed DB update step: "Create index for resource_tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources_signature"
+
+krita.db.migration: Completed DB update step: "Create index for metadata_key"
+
+krita.db.migration: Completed DB update step: "Register storage type: Unknown"
+
+krita.db.migration: Completed DB update step: "Register storage type: Folder"
+
+krita.db.migration: Completed DB update step: "Register storage type: Bundle"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Brush Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Style Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Memory"
+
+krita.db.migration: Completed DB update step: "Register storage type: Font Storage"
+
+krita.db.migration: Completed DB update step: "Register resource type: fontfamilies"
+
+krita.db.migration: Completed DB update step: "Register resource type: gamutmasks"
+
+krita.db.migration: Completed DB update step: "Register resource type: gradients"
+
+krita.db.migration: Completed DB update step: "Register resource type: layerstyles"
+
+krita.db.migration: Completed DB update step: "Register resource type: paintoppresets"
+
+krita.db.migration: Completed DB update step: "Register resource type: palettes"
+
+krita.db.migration: Completed DB update step: "Register resource type: patterns"
+
+krita.db.migration: Completed DB update step: "Register resource type: symbols"
+
+krita.db.migration: Filled version table
+
+********* Start testing of KisLayerStyleProjectionPlaneTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisLayerStyleProjectionPlaneTest::initTestCase()
+QWARN  : KisLayerStyleProjectionPlaneTest::testShadow() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisLayerStyleProjectionPlaneTest::testShadow() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisLayerStyleProjectionPlaneTest::testShadow() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_00L_initial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_01L_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_02L_recalculate_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_03P_apply_on_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_04L_clone_state_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_05P_apply_clone_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_06L_recalculate_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_07P_apply_recalculated_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_08L_mask_added.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_09_mask_added_recalculated.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_10P_apply_on_mask.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_11L_recalculate_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_12P_apply_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_13recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_14P_apply_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_15L_recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testShadow() Dumping: "shadow_0_16P_apply_half2.png.png"
+PASS   : KisLayerStyleProjectionPlaneTest::testShadow()
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_00L_initial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_01L_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_02L_recalculate_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_03P_apply_on_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_04L_clone_state_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_05P_apply_clone_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_06L_recalculate_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_07P_apply_recalculated_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_08L_mask_added.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_09_mask_added_recalculated.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_10P_apply_on_mask.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_11L_recalculate_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_12P_apply_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_13recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_14P_apply_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_15L_recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlow() Dumping: "glow_outer_1_16P_apply_half2.png.png"
+PASS   : KisLayerStyleProjectionPlaneTest::testGlow()
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_00L_initial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_01L_fill.png.png"
+QWARN  : KisLayerStyleProjectionPlaneTest::testGlowGradient() krita.general: KisLsUtils::applyFinalSelection: Gradient object is null! Skipping...
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_02L_recalculate_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_03P_apply_on_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_04L_clone_state_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_05P_apply_clone_after_copy.png.png"
+QWARN  : KisLayerStyleProjectionPlaneTest::testGlowGradient() krita.general: KisLsUtils::applyFinalSelection: Gradient object is null! Skipping...
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_06L_recalculate_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_07P_apply_recalculated_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_08L_mask_added.png.png"
+QWARN  : KisLayerStyleProjectionPlaneTest::testGlowGradient() krita.general: KisLsUtils::applyFinalSelection: Gradient object is null! Skipping...
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_09_mask_added_recalculated.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_10P_apply_on_mask.png.png"
+QWARN  : KisLayerStyleProjectionPlaneTest::testGlowGradient() krita.general: KisLsUtils::applyFinalSelection: Gradient object is null! Skipping...
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_11L_recalculate_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_12P_apply_partial.png.png"
+QWARN  : KisLayerStyleProjectionPlaneTest::testGlowGradient() krita.general: KisLsUtils::applyFinalSelection: Gradient object is null! Skipping...
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_13recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testGlowGradient() Dumping: "glow_outer_grad_2_14P_apply_half1.png.png"
+QWARN  : KisLayerStyleProjectionPlaneTest::testGlowGradient() krita.general: KisLsUtils::applyFinalSelection: Gradient object is null! Skipping...
+... [259 lines trimmed] ...
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_up_invert_texture_16_13recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_up_invert_texture_16_14P_apply_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_up_invert_texture_16_15L_recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_up_invert_texture_16_16P_apply_half2.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_00L_initial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_01L_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_02L_recalculate_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_03P_apply_on_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_04L_clone_state_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_05P_apply_clone_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_06L_recalculate_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_07P_apply_recalculated_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_08L_mask_added.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_09_mask_added_recalculated.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_10P_apply_on_mask.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_11L_recalculate_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_12P_apply_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_13recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_14P_apply_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_15L_recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_outer_down_17_16P_apply_half2.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_00L_initial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_01L_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_02L_recalculate_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_03P_apply_on_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_04L_clone_state_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_05P_apply_clone_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_06L_recalculate_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_07P_apply_recalculated_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_08L_mask_added.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_09_mask_added_recalculated.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_10P_apply_on_mask.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_11L_recalculate_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_12P_apply_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_13recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_14P_apply_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_15L_recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_emboss_up_18_16P_apply_half2.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_00L_initial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_01L_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_02L_recalculate_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_03P_apply_on_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_04L_clone_state_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_05P_apply_clone_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_06L_recalculate_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_07P_apply_recalculated_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_08L_mask_added.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_09_mask_added_recalculated.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_10P_apply_on_mask.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_11L_recalculate_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_12P_apply_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_13recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_14P_apply_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_15L_recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_19_16P_apply_half2.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_00L_initial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_01L_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_02L_recalculate_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_03P_apply_on_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_04L_clone_state_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_05P_apply_clone_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_06L_recalculate_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_07P_apply_recalculated_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_08L_mask_added.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_09_mask_added_recalculated.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_10P_apply_on_mask.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_11L_recalculate_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_12P_apply_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_13recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_14P_apply_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_15L_recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_down_20_16P_apply_half2.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_00L_initial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_01L_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_02L_recalculate_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_03P_apply_on_fill.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_04L_clone_state_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_05P_apply_clone_after_copy.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_06L_recalculate_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_07P_apply_recalculated_clone.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_08L_mask_added.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_09_mask_added_recalculated.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_10P_apply_on_mask.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_11L_recalculate_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_12P_apply_partial.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_13recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_14P_apply_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_15L_recalculate_half1.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBevel() Dumping: "bevel_pillow_up_soft_21_16P_apply_half2.png.png"
+PASS   : KisLayerStyleProjectionPlaneTest::testBevel()
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBlending() Dumping: "dd_0_00_layer.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBlending() Dumping: "dd_0_01_overlay.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBlending() Dumping: "dd_0_02_bg.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBlending() Dumping: "dd_0_03_result.png.png"
+QDEBUG : KisLayerStyleProjectionPlaneTest::testBlending() Dumping: "dd_0_04_knockout.png.png"
+PASS   : KisLayerStyleProjectionPlaneTest::testBlending()
+PASS   : KisLayerStyleProjectionPlaneTest::cleanupTestCase()
+Totals: 15 passed, 0 failed, 0 skipped, 0 blacklisted, 14552ms
+********* Finished testing of KisLayerStyleProjectionPlaneTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=18385ms

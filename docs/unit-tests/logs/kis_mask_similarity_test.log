@@ -1,0 +1,16 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisMaskSimilarityTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisMaskSimilarityTest::initTestCase()
+QDEBUG : KisMaskSimilarityTest::testCircleMask() "default" "Default"
+PASS   : KisMaskSimilarityTest::testCircleMask()
+PASS   : KisMaskSimilarityTest::testGaussCircleMask()
+PASS   : KisMaskSimilarityTest::testSoftCircleMask()
+PASS   : KisMaskSimilarityTest::testRectMask()
+PASS   : KisMaskSimilarityTest::testGaussRectMask()
+PASS   : KisMaskSimilarityTest::testSoftRectMask()
+PASS   : KisMaskSimilarityTest::cleanupTestCase()
+Totals: 8 passed, 0 failed, 0 skipped, 0 blacklisted, 518ms
+********* Finished testing of KisMaskSimilarityTest *********
+--- exit=0 status=completed wall=2472ms

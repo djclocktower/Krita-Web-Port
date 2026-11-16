@@ -1,0 +1,38 @@
+WARNING: QApplication was not created in the main() thread.
+
+krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+
+krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+
+krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+
+********* Start testing of KisNodeQueryPathTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisNodeQueryPathTest::initTestCase()
+PASS   : KisNodeQueryPathTest::testCurrentLayerFromRelativeString()
+PASS   : KisNodeQueryPathTest::testCurrentLayerFromAbsoluteString()
+PASS   : KisNodeQueryPathTest::testCurrentLayerFromAbsolutePath()
+PASS   : KisNodeQueryPathTest::testChild1LayerFromRelativeString()
+PASS   : KisNodeQueryPathTest::testChild1LayerFromAbsoluteString()
+PASS   : KisNodeQueryPathTest::testChild1LayerFromAbsolutePath()
+PASS   : KisNodeQueryPathTest::testChild2LayerFromRelativeString()
+PASS   : KisNodeQueryPathTest::testChild2LayerFromAbsoluteString()
+PASS   : KisNodeQueryPathTest::testChild2LayerFromAbsolutePath()
+PASS   : KisNodeQueryPathTest::testBrother1LayerFromRelativeString()
+PASS   : KisNodeQueryPathTest::testBrother1LayerFromAbsoluteString()
+PASS   : KisNodeQueryPathTest::testBrother1LayerFromAbsolutePath()
+PASS   : KisNodeQueryPathTest::testBrother2LayerFromRelativeString()
+PASS   : KisNodeQueryPathTest::testBrother2LayerFromAbsoluteString()
+PASS   : KisNodeQueryPathTest::testBrother2LayerFromAbsolutePath()
+PASS   : KisNodeQueryPathTest::testParentLayerFromRelativeString()
+PASS   : KisNodeQueryPathTest::testParentLayerFromAbsoluteString()
+PASS   : KisNodeQueryPathTest::testParentLayerFromAbsolutePath()
+PASS   : KisNodeQueryPathTest::testRootLayerFromRelativeString()
+PASS   : KisNodeQueryPathTest::testRootLayerFromAbsoluteString()
+PASS   : KisNodeQueryPathTest::testRootLayerFromAbsolutePath()
+PASS   : KisNodeQueryPathTest::testPathCompression()
+PASS   : KisNodeQueryPathTest::cleanupTestCase()
+Totals: 24 passed, 0 failed, 0 skipped, 0 blacklisted, 20ms
+********* Finished testing of KisNodeQueryPathTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=2342ms

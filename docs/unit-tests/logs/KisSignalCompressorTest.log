@@ -1,0 +1,134 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisSignalCompressorTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisSignalCompressorTest::initTestCase()
+QDEBUG : KisSignalCompressorTest::test() "timer 10 compressor 25 handler delay 0" cnt: 23 min: 20 max: 21 mean: 20.0435 var: 0.203931
+QDEBUG : KisSignalCompressorTest::test() "timer 11 compressor 25 handler delay 0" cnt: 22 min: 20 max: 30 mean: 20.9545 var: 2.86796
+QDEBUG : KisSignalCompressorTest::test() "timer 12 compressor 25 handler delay 0" cnt: 21 min: 20 max: 31 mean: 22.2857 var: 4.13052
+QDEBUG : KisSignalCompressorTest::test() "timer 13 compressor 25 handler delay 0" cnt: 20 min: 20 max: 31 mean: 23.1 var: 4.63573
+QDEBUG : KisSignalCompressorTest::test() "timer 14 compressor 25 handler delay 0" cnt: 22 min: 20 max: 34 mean: 22.1364 var: 4.2565
+QDEBUG : KisSignalCompressorTest::test() "timer 15 compressor 25 handler delay 0" cnt: 21 min: 20 max: 34 mean: 23.2381 var: 5.1631
+QDEBUG : KisSignalCompressorTest::test() "timer 16 compressor 25 handler delay 0" cnt: 20 min: 20 max: 31 mean: 24.05 var: 4.84226
+QDEBUG : KisSignalCompressorTest::test() "timer 17 compressor 25 handler delay 0" cnt: 19 min: 20 max: 31 mean: 24.5263 var: 5.21504
+QDEBUG : KisSignalCompressorTest::test() "timer 18 compressor 25 handler delay 0" cnt: 20 min: 20 max: 35 mean: 23.9 var: 5.30943
+QDEBUG : KisSignalCompressorTest::test() "timer 19 compressor 25 handler delay 0" cnt: 21 min: 20 max: 31 mean: 22 var: 4.01189
+QDEBUG : KisSignalCompressorTest::test() "timer 20 compressor 25 handler delay 0" cnt: 22 min: 20 max: 31 mean: 20.5455 var: 2.29084
+QDEBUG : KisSignalCompressorTest::test() "timer 21 compressor 25 handler delay 0" cnt: 22 min: 20 max: 21 mean: 20.0909 var: 0.28748
+QDEBUG : KisSignalCompressorTest::test() "timer 22 compressor 25 handler delay 0" cnt: 21 min: 20 max: 31 mean: 21.0476 var: 3.07797
+QDEBUG : KisSignalCompressorTest::test() "timer 23 compressor 25 handler delay 0" cnt: 20 min: 20 max: 31 mean: 22.3 var: 4.16053
+QDEBUG : KisSignalCompressorTest::test() "timer 24 compressor 25 handler delay 0" cnt: 19 min: 20 max: 30 mean: 23.3158 var: 4.55438
+QDEBUG : KisSignalCompressorTest::test() "timer 25 compressor 25 handler delay 0" cnt: 18 min: 20 max: 31 mean: 24.5 var: 5.03598
+QDEBUG : KisSignalCompressorTest::test() "timer 26 compressor 25 handler delay 0" cnt: 18 min: 20 max: 31 mean: 25.1111 var: 5.11956
+QDEBUG : KisSignalCompressorTest::test() "timer 27 compressor 25 handler delay 0" cnt: 17 min: 20 max: 31 mean: 26.2353 var: 5.23033
+QDEBUG : KisSignalCompressorTest::test() "timer 28 compressor 25 handler delay 0" cnt: 16 min: 20 max: 31 mean: 27.8125 var: 4.53071
+QDEBUG : KisSignalCompressorTest::test() "timer 29 compressor 25 handler delay 0" cnt: 16 min: 20 max: 31 mean: 28.4375 var: 4.0769
+QDEBUG : KisSignalCompressorTest::test() "timer 30 compressor 25 handler delay 0" cnt: 15 min: 21 max: 31 mean: 30.0667 var: 2.46216
+QDEBUG : KisSignalCompressorTest::test() "timer 31 compressor 25 handler delay 0" cnt: 15 min: 21 max: 31 mean: 29.8667 var: 2.41845
+QDEBUG : KisSignalCompressorTest::test() "timer 32 compressor 25 handler delay 0" cnt: 14 min: 30 max: 41 mean: 31.5714 var: 2.79577
+QDEBUG : KisSignalCompressorTest::test() "timer 33 compressor 25 handler delay 0" cnt: 14 min: 30 max: 41 mean: 32 var: 3.70328
+QDEBUG : KisSignalCompressorTest::test() "timer 34 compressor 25 handler delay 0" cnt: 13 min: 30 max: 41 mean: 33.6154 var: 4.93868
+QDEBUG : KisSignalCompressorTest::test() "timer 35 compressor 25 handler delay 0" cnt: 13 min: 30 max: 41 mean: 34.5385 var: 5.12333
+QDEBUG : KisSignalCompressorTest::test() "timer 36 compressor 25 handler delay 0" cnt: 12 min: 30 max: 41 mean: 35.8333 var: 5.17741
+QDEBUG : KisSignalCompressorTest::test() "timer 37 compressor 25 handler delay 0" cnt: 12 min: 30 max: 42 mean: 36.9167 var: 5.18746
+QDEBUG : KisSignalCompressorTest::test() "timer 38 compressor 25 handler delay 0" cnt: 12 min: 30 max: 41 mean: 37.4167 var: 4.92372
+QDEBUG : KisSignalCompressorTest::test() "timer 39 compressor 25 handler delay 0" cnt: 11 min: 30 max: 42 mean: 39.1818 var: 4.10804
+QDEBUG : KisSignalCompressorTest::test() "timer 40 compressor 25 handler delay 0" cnt: 11 min: 31 max: 41 mean: 40 var: 2.86039
+QDEBUG : KisSignalCompressorTest::test() "timer 41 compressor 25 handler delay 0" cnt: 11 min: 30 max: 51 mean: 39.9091 var: 5.46816
+QDEBUG : KisSignalCompressorTest::test() "timer 42 compressor 25 handler delay 0" cnt: 10 min: 40 max: 41 mean: 40.8 var: 0.4
+QDEBUG : KisSignalCompressorTest::test() "timer 43 compressor 25 handler delay 0" cnt: 10 min: 40 max: 51 mean: 41.9 var: 3.04795
+QDEBUG : KisSignalCompressorTest::test() "timer 44 compressor 25 handler delay 0" cnt: 10 min: 41 max: 51 mean: 44 var: 4.58258
+QDEBUG : KisSignalCompressorTest::test() "timer 45 compressor 25 handler delay 0" cnt: 9 min: 40 max: 52 mean: 44.3333 var: 4.96655
+QDEBUG : KisSignalCompressorTest::test() "timer 46 compressor 25 handler delay 0" cnt: 9 min: 41 max: 51 mean: 45.4444 var: 4.96904
+QDEBUG : KisSignalCompressorTest::test() "timer 47 compressor 25 handler delay 0" cnt: 9 min: 40 max: 54 mean: 46.8889 var: 5.56666
+QDEBUG : KisSignalCompressorTest::test() "timer 48 compressor 25 handler delay 0" cnt: 9 min: 41 max: 51 mean: 47.6667 var: 4.71405
+QDEBUG : KisSignalCompressorTest::test() "timer 49 compressor 25 handler delay 0" cnt: 9 min: 41 max: 51 mean: 48.7778 var: 4.1574
+PASS   : KisSignalCompressorTest::test()
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 0" cnt: 47 min: 10 max: 10 mean: 10 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 1" cnt: 42 min: 11 max: 12 mean: 11.0238 var: 0.152455
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 2" cnt: 39 min: 12 max: 12 mean: 12 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 3" cnt: 36 min: 13 max: 13 mean: 13 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 4" cnt: 33 min: 14 max: 14 mean: 14 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 5" cnt: 31 min: 15 max: 15 mean: 15 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 6" cnt: 29 min: 16 max: 17 mean: 16.0345 var: 0.182466
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 7" cnt: 27 min: 17 max: 17 mean: 17 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 8" cnt: 26 min: 18 max: 18 mean: 18 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 9" cnt: 24 min: 19 max: 20 mean: 19.0417 var: 0.199826
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 10" cnt: 23 min: 20 max: 24 mean: 20.3478 var: 0.865206
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 11" cnt: 22 min: 21 max: 21 mean: 21 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 12" cnt: 21 min: 22 max: 24 mean: 22.0952 var: 0.425918
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 13" cnt: 20 min: 23 max: 23 mean: 23 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 14" cnt: 19 min: 24 max: 24 mean: 24 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 15" cnt: 19 min: 25 max: 26 mean: 25.0526 var: 0.223297
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 16" cnt: 18 min: 26 max: 27 mean: 26.0556 var: 0.229061
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 17" cnt: 17 min: 27 max: 27 mean: 27 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 18" cnt: 17 min: 28 max: 28 mean: 28 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 19" cnt: 16 min: 29 max: 31 mean: 29.125 var: 0.484123
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 20" cnt: 15 min: 30 max: 30 mean: 30 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 21" cnt: 15 min: 31 max: 33 mean: 31.1333 var: 0.498888
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 22" cnt: 14 min: 32 max: 33 mean: 32.0714 var: 0.257539
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 23" cnt: 14 min: 33 max: 34 mean: 33.0714 var: 0.257539
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 24" cnt: 14 min: 34 max: 34 mean: 34 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 25" cnt: 13 min: 35 max: 35 mean: 35 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 26" cnt: 13 min: 36 max: 38 mean: 36.1538 var: 0.532939
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 27" cnt: 12 min: 37 max: 37 mean: 37 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 28" cnt: 12 min: 38 max: 44 mean: 38.6667 var: 1.69967
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 29" cnt: 12 min: 39 max: 39 mean: 39 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerPrecise() "timer 6 compressor 10 handler delay 30" cnt: 12 min: 40 max: 40 mean: 40 var: 0
+PASS   : KisSignalCompressorTest::testSlowHandlerPrecise()
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 0" cnt: 46 min: 10 max: 12 mean: 10.0435 var: 0.291661
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 1" cnt: 42 min: 11 max: 11 mean: 11 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 2" cnt: 38 min: 12 max: 12 mean: 12 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 3" cnt: 36 min: 13 max: 13 mean: 13 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 4" cnt: 33 min: 14 max: 16 mean: 14.0909 var: 0.378485
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 5" cnt: 31 min: 15 max: 15 mean: 15 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 6" cnt: 29 min: 16 max: 17 mean: 16.0345 var: 0.182466
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 7" cnt: 27 min: 17 max: 17 mean: 17 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 8" cnt: 26 min: 18 max: 18 mean: 18 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 9" cnt: 24 min: 19 max: 19 mean: 19 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 10" cnt: 23 min: 20 max: 20 mean: 20 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 11" cnt: 22 min: 21 max: 22 mean: 21.0455 var: 0.208299
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 12" cnt: 21 min: 22 max: 22 mean: 22 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 13" cnt: 20 min: 23 max: 23 mean: 23 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 14" cnt: 19 min: 24 max: 26 mean: 24.1579 var: 0.488085
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 15" cnt: 19 min: 25 max: 25 mean: 25 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 16" cnt: 18 min: 26 max: 26 mean: 26 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 17" cnt: 17 min: 27 max: 29 mean: 27.1176 var: 0.470588
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 18" cnt: 17 min: 28 max: 28 mean: 28 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 19" cnt: 16 min: 29 max: 29 mean: 29 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 20" cnt: 15 min: 30 max: 30 mean: 30 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 21" cnt: 15 min: 31 max: 32 mean: 31.0667 var: 0.249444
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 22" cnt: 14 min: 32 max: 32 mean: 32 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 23" cnt: 14 min: 33 max: 33 mean: 33 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 24" cnt: 14 min: 34 max: 34 mean: 34 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 25" cnt: 13 min: 35 max: 35 mean: 35 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 26" cnt: 13 min: 36 max: 36 mean: 36 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 27" cnt: 12 min: 37 max: 37 mean: 37 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 28" cnt: 12 min: 38 max: 38 mean: 38 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 29" cnt: 12 min: 39 max: 39 mean: 39 var: 0
+QDEBUG : KisSignalCompressorTest::testSlowHandlerAdditive() "timer 6 compressor 10 handler delay 30" cnt: 12 min: 40 max: 40 mean: 40 var: 0
+PASS   : KisSignalCompressorTest::testSlowHandlerAdditive()
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 1" cnt: 46 min: 10 max: 10 mean: 10 var: 0
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 3" cnt: 46 min: 10 max: 10 mean: 10 var: 0
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 6" cnt: 46 min: 10 max: 10 mean: 10 var: 0
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 9" cnt: 46 min: 10 max: 10 mean: 10 var: 0
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 12" cnt: 23 min: 20 max: 21 mean: 20.2609 var: 0.439109
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 15" cnt: 23 min: 20 max: 21 mean: 20.2174 var: 0.412471
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 18" cnt: 24 min: 20 max: 21 mean: 20.125 var: 0.330719
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 21" cnt: 16 min: 31 max: 31 mean: 31 var: 0
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 24" cnt: 16 min: 31 max: 31 mean: 31 var: 0
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 27" cnt: 16 min: 31 max: 31 mean: 31 var: 0
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 30" cnt: 16 min: 31 max: 31 mean: 31 var: 0
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 33" cnt: 16 min: 31 max: 31 mean: 31 var: 0
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 36" cnt: 16 min: 29 max: 31 mean: 30.875 var: 0.484123
+QDEBUG : KisSignalCompressorTest::testIdleChecks() "timer 5 compressor 50 idle check 5 idle delay 39" cnt: 16 min: 31 max: 31 mean: 31 var: 0
+PASS   : KisSignalCompressorTest::testIdleChecks()
+PASS   : KisSignalCompressorTest::testDestructionAfterEmit(active_direct)
+PASS   : KisSignalCompressorTest::testDestructionAfterEmit(inactive_direct)
+PASS   : KisSignalCompressorTest::testDestructionAfterEmit(active_queued)
+PASS   : KisSignalCompressorTest::testDestructionAfterEmit(inactive_queued)
+PASS   : KisSignalCompressorTest::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped, 0 blacklisted, 92862ms
+********* Finished testing of KisSignalCompressorTest *********
+program exited (with status: 0), but keepRuntimeAlive() is set (counter=468) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)
+--- exit=null status=completed (runtime did not exit) wall=99013ms

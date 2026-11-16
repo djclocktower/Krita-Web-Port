@@ -1,0 +1,98 @@
+WARNING: QApplication was not created in the main() thread.
+
+krita.db.migration: Completed DB update step: "Create table version_information"
+
+krita.db.migration: Completed DB update step: "Create table storage_types"
+
+krita.db.migration: Completed DB update step: "Create table resource_types"
+
+krita.db.migration: Completed DB update step: "Create table storages"
+
+krita.db.migration: Completed DB update step: "Create table tags"
+
+krita.db.migration: Completed DB update step: "Create table resources"
+
+krita.db.migration: Completed DB update step: "Create table versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create table resource_tags"
+
+krita.db.migration: Completed DB update step: "Create table metadata"
+
+krita.db.migration: Completed DB update step: "Create table tags_storages"
+
+krita.db.migration: Completed DB update step: "Create table tag_translations"
+
+krita.db.migration: Completed DB update step: "Update metadata table constraints"
+
+krita.db.migration: Completed DB update step: "Create index for storages"
+
+krita.db.migration: Completed DB update step: "Create index for versioned_resources"
+
+krita.db.migration: Completed DB update step: "Create index for tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources"
+
+krita.db.migration: Completed DB update step: "Create index for tag_translations"
+
+krita.db.migration: Completed DB update step: "Create index for resource_tags"
+
+krita.db.migration: Completed DB update step: "Create index for resources_signature"
+
+krita.db.migration: Completed DB update step: "Create index for metadata_key"
+
+krita.db.migration: Completed DB update step: "Register storage type: Unknown"
+
+krita.db.migration: Completed DB update step: "Register storage type: Folder"
+
+krita.db.migration: Completed DB update step: "Register storage type: Bundle"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Brush Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Adobe Style Library"
+
+krita.db.migration: Completed DB update step: "Register storage type: Memory"
+
+krita.db.migration: Completed DB update step: "Register storage type: Font Storage"
+
+krita.db.migration: Completed DB update step: "Register resource type: fontfamilies"
+
+krita.db.migration: Completed DB update step: "Register resource type: gamutmasks"
+
+krita.db.migration: Completed DB update step: "Register resource type: gradients"
+
+krita.db.migration: Completed DB update step: "Register resource type: layerstyles"
+
+krita.db.migration: Completed DB update step: "Register resource type: paintoppresets"
+
+krita.db.migration: Completed DB update step: "Register resource type: palettes"
+
+krita.db.migration: Completed DB update step: "Register resource type: patterns"
+
+krita.db.migration: Completed DB update step: "Register resource type: symbols"
+
+krita.db.migration: Filled version table
+
+********* Start testing of KisSelectionTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisSelectionTest::initTestCase()
+PASS   : KisSelectionTest::testGrayColorspaceConversion()
+PASS   : KisSelectionTest::testGrayColorspaceOverComposition()
+QWARN  : KisSelectionTest::testSelectionComponents() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisSelectionTest::testSelectionComponents() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisSelectionTest::testSelectionComponents() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisSelectionTest::testSelectionComponents()
+QDEBUG : KisSelectionTest::testSelectionActions() Entering "KritaUtils::tryCloseTornSubpathsAfterIntersection()" poly.isClosed() = true
+PASS   : KisSelectionTest::testSelectionActions()
+PASS   : KisSelectionTest::testInvertSelection()
+PASS   : KisSelectionTest::testInvertSelectionSemi()
+PASS   : KisSelectionTest::testCopy()
+PASS   : KisSelectionTest::testSelectionExactBounds()
+PASS   : KisSelectionTest::testSetParentNodeAfterCreation()
+PASS   : KisSelectionTest::testSetParentNodeBeforeCreation()
+PASS   : KisSelectionTest::testOutlineGeneration()
+PASS   : KisSelectionTest::cleanupTestCase()
+Totals: 13 passed, 0 failed, 0 skipped, 0 blacklisted, 212ms
+********* Finished testing of KisSelectionTest *********
+program exited (with status: 0), but keepRuntimeAlive() is set (counter=1) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=3243ms

@@ -1,0 +1,43 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisTransactionTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisTransactionTest::initTestCase()
+QWARN  : KisTransactionTest::testUndo() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTransactionTest::testUndo() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisTransactionTest::testUndo() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisTransactionTest::testUndo()
+PASS   : KisTransactionTest::testRedo()
+PASS   : KisTransactionTest::testDeviceMove()
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_00_f0_w20.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_01_f0_b20.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_02_f0_b21_stroke.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_03_f10_b0_switched.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_04_f10_b22_stroke.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_05_f10_b0_undone.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_06_f0_b21_undone.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_07_f10_b0_undone_x2.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_08_f0_b20_undone_x2.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_09_f0_o27_move.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_10_f10_b0_undone_x3.png.png"
+QDEBUG : KisTransactionTest::testUndoWithUnswitchedFrames() Dumping: "dd_0_11_f0_b20_undone_x3.png.png"
+PASS   : KisTransactionTest::testUndoWithUnswitchedFrames()
+PASS   : KisTransactionTest::testTransactionWrapperFactory()
+QDEBUG : KisTransactionTest::testInterstrokeData() Entering "TestInterstrokeData::beginTransaction()" value = 0
+QDEBUG : KisTransactionTest::testInterstrokeData() Entering "*TestInterstrokeData::endTransaction()" value = 10 m_savedValue = 0
+QDEBUG : KisTransactionTest::testInterstrokeData() Entering "TestInterstrokeData::beginTransaction()" value = 10
+QDEBUG : KisTransactionTest::testInterstrokeData() Entering "*TestInterstrokeData::endTransaction()" value = 20 m_savedValue = 10
+QDEBUG : KisTransactionTest::testInterstrokeData() Entering "TestInterstrokeData::beginTransaction()" value = 0
+QDEBUG : KisTransactionTest::testInterstrokeData() Entering "*TestInterstrokeData::endTransaction()" value = 30 m_savedValue = 0
+PASS   : KisTransactionTest::testInterstrokeData()
+QDEBUG : KisTransactionTest::testInterstrokeDataWithUnswitchedFrames() Dumping: "dd_0_00_f0_w20.png.png"
+QDEBUG : KisTransactionTest::testInterstrokeDataWithUnswitchedFrames() Entering "TestInterstrokeData::beginTransaction()" value = 0
+QDEBUG : KisTransactionTest::testInterstrokeDataWithUnswitchedFrames() Entering "*TestInterstrokeData::endTransaction()" value = 30 m_savedValue = 0
+QDEBUG : KisTransactionTest::testInterstrokeDataWithUnswitchedFrames() Entering "TestInterstrokeData::beginTransaction()" value = 0
+QDEBUG : KisTransactionTest::testInterstrokeDataWithUnswitchedFrames() Entering "*TestInterstrokeData::endTransaction()" value = 40 m_savedValue = 0
+PASS   : KisTransactionTest::testInterstrokeDataWithUnswitchedFrames()
+PASS   : KisTransactionTest::cleanupTestCase()
+Totals: 9 passed, 0 failed, 0 skipped, 0 blacklisted, 387ms
+********* Finished testing of KisTransactionTest *********
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+--- exit=0 status=completed wall=2697ms

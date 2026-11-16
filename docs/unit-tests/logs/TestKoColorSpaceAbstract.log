@@ -1,0 +1,31 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of TestKoColorSpaceAbstract *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : TestKoColorSpaceAbstract::initTestCase()
+PASS   : TestKoColorSpaceAbstract::testMixColorsOpU8()
+PASS   : TestKoColorSpaceAbstract::testMixColorsOpF32()
+PASS   : TestKoColorSpaceAbstract::testMixColorsOpU8NoAlpha()
+PASS   : TestKoColorSpaceAbstract::testMixColorsOpU8NoAlphaLinear()
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->cmyk (full))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->cmyk (full, explicit))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->cmyk (blue))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->cmyk (green))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->cmyk (red))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(cmyk->rgb (full))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(cmyk->rgb (full, explicit))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(cmyk->rgb (cyan))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(cmyk->rgb (magenta))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(cmyk->rgb (yellow))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(cmyk->rgb (black))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(cmyk->rgb (black, no-alpha))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->cmyk (blue, no-alpha))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->alpha (full))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->alpha (full, explicit))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->alpha (transp source))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->alpha (alpha locked))
+PASS   : TestKoColorSpaceAbstract::testBitBltCrossColorSpaceWithChannelFlags(rgb->alpha (colors locked))
+PASS   : TestKoColorSpaceAbstract::cleanupTestCase()
+Totals: 24 passed, 0 failed, 0 skipped, 0 blacklisted, 515ms
+********* Finished testing of TestKoColorSpaceAbstract *********
+--- exit=0 status=completed wall=1996ms

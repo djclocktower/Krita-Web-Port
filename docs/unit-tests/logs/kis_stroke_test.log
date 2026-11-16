@@ -1,0 +1,15 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisStrokeTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisStrokeTest::initTestCase()
+PASS   : KisStrokeTest::testRegularStroke()
+PASS   : KisStrokeTest::testCancelStrokeCase1()
+PASS   : KisStrokeTest::testCancelStrokeCase2and3()
+PASS   : KisStrokeTest::testCancelStrokeCase5()
+PASS   : KisStrokeTest::testCancelStrokeCase4()
+PASS   : KisStrokeTest::testCancelStrokeCase6()
+PASS   : KisStrokeTest::cleanupTestCase()
+Totals: 8 passed, 0 failed, 0 skipped, 0 blacklisted, 13ms
+********* Finished testing of KisStrokeTest *********
+--- exit=0 status=completed wall=1783ms

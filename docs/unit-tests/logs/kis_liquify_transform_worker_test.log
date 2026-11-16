@@ -1,0 +1,75 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisLiquifyTransformWorkerTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisLiquifyTransformWorkerTest::initTestCase()
+QWARN  : KisLiquifyTransformWorkerTest::testPoints() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisLiquifyTransformWorkerTest::testPoints() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisLiquifyTransformWorkerTest::testPoints() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisLiquifyTransformWorkerTest::testPoints() QFSFileEngine::open: No file name specified
+QDEBUG : KisLiquifyTransformWorkerTest::testPoints() Images have different sizes QSize(1120, 888) QSize(0, 0)
+QDEBUG : KisLiquifyTransformWorkerTest::testPoints() --- Wrong image: "unity"
+QWARN  : KisLiquifyTransformWorkerTest::testPoints() QFSFileEngine::open: No file name specified
+QDEBUG : KisLiquifyTransformWorkerTest::testPoints() Images have different sizes QSize(1120, 888) QSize(0, 0)
+QDEBUG : KisLiquifyTransformWorkerTest::testPoints() --- Wrong image: "unity"
+PASS   : KisLiquifyTransformWorkerTest::testPoints()
+RESULT : KisLiquifyTransformWorkerTest::testPoints():
+     2 msecs per iteration (total: 2, iterations: 1)
+QWARN  : KisLiquifyTransformWorkerTest::testPointsQImage() QFSFileEngine::open: No file name specified
+QDEBUG : KisLiquifyTransformWorkerTest::testPointsQImage() Images have different sizes QSize(1117, 877) QSize(0, 0)
+QDEBUG : KisLiquifyTransformWorkerTest::testPointsQImage() --- Wrong image: "refDevice"
+QWARN  : KisLiquifyTransformWorkerTest::testPointsQImage() QFSFileEngine::open: No file name specified
+QDEBUG : KisLiquifyTransformWorkerTest::testPointsQImage() Images have different sizes QSize(1127, 887) QSize(0, 0)
+QDEBUG : KisLiquifyTransformWorkerTest::testPointsQImage() --- Wrong image: "resultImage"
+PASS   : KisLiquifyTransformWorkerTest::testPointsQImage()
+QWARN  : KisLiquifyTransformWorkerTest::testIdentityTransform() QFSFileEngine::open: No file name specified
+QDEBUG : KisLiquifyTransformWorkerTest::testIdentityTransform() Images have different sizes QSize(13, 23) QSize(0, 0)
+QDEBUG : KisLiquifyTransformWorkerTest::testIdentityTransform() --- Wrong image: "identity"
+PASS   : KisLiquifyTransformWorkerTest::testIdentityTransform()
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "whole image"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_mask_config.zip"
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(whole image)
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "just small part inside"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_small_change_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_small_change_mask_config.zip"
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside)
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image with bg) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "whole image with bg"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image with bg) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image with bg) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_mask_config.zip"
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(whole image with bg)
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside with bg) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "just small part inside with bg"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside with bg) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_small_change_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside with bg) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_small_change_mask_config.zip"
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside with bg)
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(16bit) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "16bit"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(16bit) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_16bit_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(16bit) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_16bit_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(16bit) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" src = expDev, dst = dstDev
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(16bit)
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(16bit small change) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "16bit small change"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(16bit small change) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_16bit_small_change_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(16bit small change) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_16bit_small_change_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(16bit small change) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" src = expDev, dst = dstDev
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(16bit small change)
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image, qimage) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "whole image, qimage"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image, qimage) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image, qimage) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_mask_config.zip"
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(whole image, qimage)
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside, qimage) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "just small part inside, qimage"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside, qimage) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_small_change_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside, qimage) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_small_change_mask_config.zip"
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside, qimage)
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image with bg, qimage) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "whole image with bg, qimage"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image with bg, qimage) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(whole image with bg, qimage) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_mask_config.zip"
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(whole image with bg, qimage)
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside with bg, qimage) Entering "KisLiquifyTransformWorkerTest::testMaskRendering()" tname = "just small part inside with bg, qimage"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside with bg, qimage) Entering "*getWorkerFromXml()" filename = "liquify_mask_rendering/liquify_mask_rendering_small_change_mask_config.zip"
+QDEBUG : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside with bg, qimage) Entering "*getWorkerFromXml()" filename = "/home/user/Krita-Web-Port/krita/libs/image/tests/data//liquify_mask_rendering/liquify_mask_rendering_small_change_mask_config.zip"
+PASS   : KisLiquifyTransformWorkerTest::testMaskRendering(just small part inside with bg, qimage)
+PASS   : KisLiquifyTransformWorkerTest::cleanupTestCase()
+Totals: 15 passed, 0 failed, 0 skipped, 0 blacklisted, 17246ms
+********* Finished testing of KisLiquifyTransformWorkerTest *********
+program exited (with status: 0), but keepRuntimeAlive() is set (counter=1) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)
+--- exit=null status=completed (runtime did not exit) wall=24609ms

@@ -1,0 +1,17 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisMaskGeneratorTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisMaskGeneratorTest::initTestCase()
+PASS   : KisMaskGeneratorTest::testCircleSerialisation()
+PASS   : KisMaskGeneratorTest::testSquareSerialisation()
+PASS   : KisMaskGeneratorTest::testCopyCtorCircle()
+PASS   : KisMaskGeneratorTest::testCopyCtorRect()
+PASS   : KisMaskGeneratorTest::testCopyCtorCurveCircle()
+PASS   : KisMaskGeneratorTest::testCopyCtorCurveRect()
+PASS   : KisMaskGeneratorTest::testCopyCtorGaussCircle()
+PASS   : KisMaskGeneratorTest::testCopyCtorGaussRect()
+PASS   : KisMaskGeneratorTest::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped, 0 blacklisted, 42ms
+********* Finished testing of KisMaskGeneratorTest *********
+--- exit=0 status=completed wall=1749ms

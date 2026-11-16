@@ -1,0 +1,20 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisGroupLayerTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisGroupLayerTest::initTestCase()
+QWARN  : KisGroupLayerTest::testProjection() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisGroupLayerTest::testProjection() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+QWARN  : KisGroupLayerTest::testProjection() krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
+PASS   : KisGroupLayerTest::testProjection()
+PASS   : KisGroupLayerTest::testRemoveAndUndo()
+PASS   : KisGroupLayerTest::cleanupTestCase()
+Totals: 4 passed, 0 failed, 0 skipped, 0 blacklisted, 351ms
+********* Finished testing of KisGroupLayerTest *********
+program exited (with status: 0), but keepRuntimeAlive() is set (counter=1) due to an async operation, so halting execution but not exiting the runtime or preventing further async execution (you can use emscripten_force_exit, if you want to force a true shutdown)
+Blocking on the main thread is very dangerous, see https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread
+QObject::killTimer: Timers cannot be stopped from another thread
+
+QObject::~QObject: Timers cannot be stopped from another thread
+
+--- exit=0 status=completed wall=3159ms

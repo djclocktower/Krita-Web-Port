@@ -1,0 +1,13 @@
+WARNING: QApplication was not created in the main() thread.
+
+********* Start testing of KisCubicSplineTest *********
+Config: Using QtTest library 6.8.3, Qt 6.8.3 (wasm-little_endian-ilp32 static release build; by Clang 19.0.0git (https:/github.com/llvm/llvm-project 34ba90745fa55777436a2429a51a3799c83c6d4c)), wasm unknown
+PASS   : KisCubicSplineTest::initTestCase()
+PASS   : KisCubicSplineTest::testComparisonLegacyNew1()
+PASS   : KisCubicSplineTest::testComparisonLegacyNew2()
+PASS   : KisCubicSplineTest::testComparisonLegacyNew3()
+PASS   : KisCubicSplineTest::testComparisonLegacyNew4()
+PASS   : KisCubicSplineTest::cleanupTestCase()
+Totals: 6 passed, 0 failed, 0 skipped, 0 blacklisted, 23ms
+********* Finished testing of KisCubicSplineTest *********
+--- exit=0 status=completed wall=1860ms
