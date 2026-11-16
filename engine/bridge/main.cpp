@@ -344,6 +344,7 @@ private:
     QPointer<QWidget> toolOptions;
     QTimer windowTimer, overlayTimer;
     int nextWindowId = 1, filterEvents = 0, shows = 0, updateRequests = 0;
+    QStringList trace;
     bool grabbing = false, overlayShown = false;
     size_t overlayHash = 0;
     QSize viewportSize;
@@ -441,6 +442,10 @@ public:
             const QString text = qApp->property("kritaWebMessage").toString();     // Krita's on-canvas messages
             if (!text.isEmpty()) emitEvent("kritaMessage", {{"text", text}});
         }
+        if (e->type() == QEvent::MouseMove || e->type() == QEvent::MouseButtonPress || e->type() == QEvent::MouseButtonRelease
+            || e->type() == QEvent::WindowBlocked || e->type() == QEvent::WindowUnblocked || e->type() == QEvent::WindowDeactivate
+            || e->type() == QEvent::WindowActivate || e->type() == QEvent::UngrabMouse || e->type() == QEvent::GrabMouse)
+            trace << QString("%1>%2%3").arg(int(e->type())).arg(o->metaObject()->className(), o->isWindowType() ? "(win)" : "");
         if (grabbing || !o->isWidgetType()) return;
         auto *w = static_cast<QWidget *>(o);
         if (e->type() == QEvent::Show && w->isWindow()) shows++;
@@ -1632,7 +1637,13 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             QWindowSystemInterface::sendWindowSystemEvents(QEventLoop::AllEvents);
             QCoreApplication::processEvents();
             if (t == QEvent::MouseButtonRelease) { gestureOpen = false; settle(250); emitSelection(); }
-            QJsonObject reply{{"widgetX", pos.x()}, {"widgetY", pos.y()}, {"seen", QJsonArray::fromStringList(recorder.seen)}};
+            QJsonObject reply{{"widgetX", pos.x()}, {"widgetY", pos.y()}, {"seen", QJsonArray::fromStringList(recorder.seen)},
+                              {"trace", QJsonArray::fromStringList(trace)}, {"modal", QApplication::activeModalWidget() ? QApplication::activeModalWidget()->metaObject()->className() : ""},
+                              {"popup", QApplication::activePopupWidget() ? QApplication::activePopupWidget()->metaObject()->className() : ""},
+                              {"grabber", QWidget::mouseGrabber() ? QWidget::mouseGrabber()->metaObject()->className() : ""},
+                              {"under", QApplication::widgetAt(canvas->mapToGlobal(pos).toPoint()) ? QApplication::widgetAt(canvas->mapToGlobal(pos).toPoint())->metaObject()->className() : ""},
+                              {"canvasEnabled", canvas->isEnabled() && canvas->isVisible()}};
+            trace.clear();
             recorder.seen.clear();
             return reply;
         }
