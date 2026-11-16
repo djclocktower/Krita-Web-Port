@@ -369,7 +369,7 @@ private:
         if (!dock) {
             KoDockFactoryBase *factory = KoDockRegistry::instance()->value(id);
             if (!factory) return nullptr;
-            dock = window->createDockWidget(factory);
+            dock = window->createDockWidgetOnDemand(factory);
             if (!dock) return nullptr;
             // what Krita does for every dock when the window and a view are set up
             if (auto *observer = dynamic_cast<KoCanvasObserverBase *>(dock)) {

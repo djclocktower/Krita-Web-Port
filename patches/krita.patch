@@ -560,6 +560,24 @@ index d611b3a..590b6cc 100644
  
      if (d->toolOptionsDocker) {
          dockwidgetActions[d->toolOptionsDocker->toggleViewAction()->text()] = d->toolOptionsDocker->toggleViewAction();
+diff --git a/libs/ui/KisMainWindow.h b/libs/ui/KisMainWindow.h
+index d351fa7..945f2b7 100644
+--- a/libs/ui/KisMainWindow.h
++++ b/libs/ui/KisMainWindow.h
+@@ -463,6 +463,13 @@ private:
+      */
+     QDockWidget* createDockWidget(KoDockFactoryBase* factory);
+ 
++#ifdef __EMSCRIPTEN__
++public:
++    /// The web build creates dockers on first use instead of all at start-up; its bridge calls this.
++    QDockWidget *createDockWidgetOnDemand(KoDockFactoryBase *factory) { return createDockWidget(factory); }
++private:
++#endif
++
+     bool openDocumentInternal(const QString &path, KisMainWindow::OpenFlags f = KisMainWindow::OpenFlags());
+ 
+     void saveWindowSettings();
 diff --git a/libs/ui/KisView.cpp b/libs/ui/KisView.cpp
 index 08f964f..0248d1b 100644
 --- a/libs/ui/KisView.cpp
