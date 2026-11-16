@@ -1047,6 +1047,21 @@ index 1d18b52..b5ce92b 100644
  
  Plugin::Plugin(QObject *parent, const QVariantList &)
      : QObject(parent)
+diff --git a/plugins/tools/svgtexttool/CMakeLists.txt b/plugins/tools/svgtexttool/CMakeLists.txt
+index 1a74341..2856f45 100644
+--- a/plugins/tools/svgtexttool/CMakeLists.txt
++++ b/plugins/tools/svgtexttool/CMakeLists.txt
+@@ -69,3 +69,10 @@ target_link_libraries(krita_tool_svgtext_static
+ target_link_libraries(krita_tool_svgtext PRIVATE krita_tool_svgtext_static)
+ 
+ install(TARGETS krita_tool_svgtext DESTINATION ${KRITA_PLUGIN_INSTALL_DIR})
++
++if (EMSCRIPTEN)
++    # Linked statically next to the flake tools plugin, whose plugin class is also called "Plugin".
++    target_compile_definitions(krita_tool_svgtext PRIVATE Plugin=SvgTextToolPlugin)
++    # The build machine's rcc would compress with zstd, which Qt for WebAssembly cannot read.
++    set_target_properties(krita_tool_svgtext PROPERTIES AUTORCC_OPTIONS "--no-zstd")
++endif()
 diff --git a/plugins/tools/svgtexttool/Plugin.cpp b/plugins/tools/svgtexttool/Plugin.cpp
 index ebe31b3..0ca0fad 100644
 --- a/plugins/tools/svgtexttool/Plugin.cpp
