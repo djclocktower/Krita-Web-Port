@@ -1525,7 +1525,9 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         res["resourceNode"] = resNode ? resNode->name() : QString("(none)");
         res["managerNode"] = mgrNode ? mgrNode->name() : QString("(none)");
         res["bridgeNode"] = active ? active->name() : QString("(none)");
-        res["preset"] = manager->resource(KoCanvasResource::CurrentPaintOpPreset).value<KisPaintOpPresetSP>() ? "set" : "(none)";
+        KisPaintOpPresetSP cur = manager->resource(KoCanvasResource::CurrentPaintOpPreset).value<KisPaintOpPresetSP>();
+        res["preset"] = cur ? QString("%1 size=%2").arg(cur->name()).arg(cur->settings()->paintOpSize()) : QString("(none)");
+        res["sizeResource"] = manager->resource(KoCanvasResource::Size).toDouble();
         res["imageIdle"] = doc ? doc->image()->isIdle() : true;
         overlayShown = false; overlayHash = 0;
         paintOverlay();
