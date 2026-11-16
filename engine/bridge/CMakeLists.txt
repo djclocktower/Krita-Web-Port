@@ -6,7 +6,23 @@ target_compile_definitions(kritaengine PRIVATE QT_STATICPLUGIN)
 target_include_directories(kritaengine PRIVATE ${CMAKE_SOURCE_DIR}/sdk/tests ${CMAKE_BINARY_DIR})
 # Krita's own file-type database (the krita executable embeds it the same way); without it .kra is "a zip"
 qt_add_resources(_bridge_rcc ${CMAKE_SOURCE_DIR}/krita/data/mime-database/mime-database.qrc
-    ${CMAKE_BINARY_DIR}/krita/krita.qrc)   # the main window's menu and toolbar layout
+    ${CMAKE_BINARY_DIR}/krita/krita.qrc    # the main window's menu and toolbar layout
+    # Krita's icons and cursors, as the krita executable embeds them: its dialogs and panels are drawn here.
+    ${CMAKE_SOURCE_DIR}/krita/pics/Breeze-dark/breeze-dark-icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/pics/Breeze-light/breeze-light-icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/pics/layerbox/layerbox-icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/pics/layers/layers-icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/pics/misc-light/misc-light-icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/pics/misc-dark/misc-dark-icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/pics/paintops/paintops-icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/pics/tools/SVG/16/tools-svg-16-icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/pics/tool_transform/tool-transform-icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/pics/svg/svg-icons.qrc
+    ${CMAKE_SOURCE_DIR}/libs/flake/flake.qrc
+    ${CMAKE_SOURCE_DIR}/libs/widgets/kritawidgets.qrc
+    ${CMAKE_SOURCE_DIR}/pics/icons.qrc
+    ${CMAKE_SOURCE_DIR}/krita/data/cursors/cursors.qrc
+    ${CMAKE_SOURCE_DIR}/krita/data/gamutmasks/gamutmasks.qrc)
 target_sources(kritaengine PRIVATE ${_bridge_rcc})
 
 # Krita's libraries and plugins register things from static initialisers and embedded Qt resources.
@@ -53,6 +69,7 @@ target_link_options(kritaengine PRIVATE
     "SHELL:--preload-file ${_data}/profiles@/share/krita/profiles"
     "SHELL:--preload-file ${_data}/actions@/share/krita/actions"
     "SHELL:--preload-file ${CMAKE_SOURCE_DIR}/plugins/paintops/mypaint/brushes@/share/krita/paintoppresets"   # MyPaint presets
+    "SHELL:--preload-file ${_data}/themes@/share/krita/color-schemes"   # Krita's colour themes (dark by default)
     "SHELL:--preload-file ${_data}/input@/share/krita/input"   # which button or gesture does what on the canvas
     "SHELL:--preload-file ${_data}/bundles/Krita_4_Default_Resources.bundle@/share/krita/bundles/Krita_4_Default_Resources.bundle"
     "SHELL:--preload-file ${_spike}/fonts.conf@/etc/fonts/fonts.conf"

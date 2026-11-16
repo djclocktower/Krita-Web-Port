@@ -36,6 +36,8 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QDockWidget>
+#include <brushengine/kis_paintop_registry.h>
+#include <kis_canvas_decoration.h>
 #include <QPainter>
 #include <QSet>
 #include <kis_canvas_widget_base.h>
@@ -348,8 +350,9 @@ private:
         const QRect g = w->geometry();
         const bool popup = w->windowType() == Qt::Popup;
         QJsonObject o{{"id", windows.value(w)}, {"title", w->windowTitle()}, {"modal", w->isModal()},
-                      {"kind", w == toolOptions ? "toolOptions" : popup ? "popup" : "dialog"},
+                      {"kind", w == toolOptions ? "toolOptions" : qobject_cast<QDockWidget *>(w) ? "docker" : popup ? "popup" : "dialog"},
                       {"x", g.x()}, {"y", g.y()}, {"width", g.width()}, {"height", g.height()}};
+        if (qobject_cast<QDockWidget *>(w) && w != toolOptions) o["docker"] = w->objectName();
         QWidget *parent = w->parentWidget() ? w->parentWidget()->window() : nullptr;
         if (parent && windows.contains(parent)) o["parent"] = windows.value(parent);
         return o;
@@ -477,6 +480,8 @@ private:
         view->canvasController()->setZoom(KoZoomMode::ZOOM_CONSTANT, 1.0);
         window->setActiveView(view);
         view->canvasBase()->canvasWidget()->setFocus();
+        // The page draws the selection outline itself (from selectionOutline()); Krita's would double it in the overlay.
+        if (KisCanvasDecorationSP ants = view->canvasBase()->decoration("selection")) ants->setVisible(false);
         QFocusEvent focusIn(QEvent::FocusIn);
         QCoreApplication::sendEvent(view->canvasBase()->canvasWidget(), &focusIn);
         QCoreApplication::processEvents();
@@ -1444,6 +1449,27 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         return QJsonObject{{"topLevel", tops}, {"filterEvents", filterEvents}, {"shows", shows}, {"updateRequests", updateRequests},
                            {"tracked", windows.size()}, {"mainWindow", QString("%1x%2").arg(window->width()).arg(window->height())}};
     }
+    if (m == "krita.dockers") {
+        QJsonArray list;
+        for (QDockWidget *dock : window->dockWidgets())
+            if (dock != toolOptions)
+                list.append(QJsonObject{{"id", dock->objectName()}, {"title", dock->windowTitle().remove('&')}, {"visible", dock->isVisible() && dock->isFloating()}});
+        return list;
+    }
+    if (m == "krita.showDocker") {
+        QDockWidget *dock = nullptr;
+        for (QDockWidget *d : window->dockWidgets()) if (d->objectName() == p["id"].toString()) dock = d;
+        if (!dock || dock == toolOptions) fail("Unknown docker: " + p["id"].toString());
+        if (p["visible"].toBool()) {
+            // On its own, without a title bar: the page gives it a panel and a title.
+            if (!dock->property("kwBare").toBool()) { dock->setTitleBarWidget(new QWidget(dock)); dock->setProperty("kwBare", true); }
+            dock->setFloating(true);
+            dock->show();
+        } else {
+            dock->hide();
+        }
+        return QJsonValue();
+    }
     if (m == "krita.windows") {
         QJsonArray list;
         for (auto it = windows.constBegin(); it != windows.constEnd(); ++it) list.append(describe(it.key()));
@@ -1698,6 +1724,10 @@ int main(int argc, char *argv[])
     // Krita think the bundle changed and re-import it. Pin it so a stored database stays valid.
     const struct utimbuf pinned = {1700000000, 1700000000};
     utime("/share/krita/bundles/Krita_4_Default_Resources.bundle", &pinned);
+    // Brush engine plugins register their own preset file types (MyPaint's .myb); that has to
+    // happen before the resource folders are scanned, or those presets are never found.
+    KisPaintOpRegistry::instance();
+    lap("brushEnginesMs");
     registerResources();
     lap("resourcesMs");
     g_engine = new Engine;

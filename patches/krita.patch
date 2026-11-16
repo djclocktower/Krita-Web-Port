@@ -723,6 +723,32 @@ index 2725af0..56a65c8 100644
              e->accept();
              return true;
  
+diff --git a/plugins/dockers/artisticcolorselector/artisticcolorselector_plugin.cpp b/plugins/dockers/artisticcolorselector/artisticcolorselector_plugin.cpp
+index cc844b5..6b5a792 100644
+--- a/plugins/dockers/artisticcolorselector/artisticcolorselector_plugin.cpp
++++ b/plugins/dockers/artisticcolorselector/artisticcolorselector_plugin.cpp
+@@ -12,7 +12,7 @@
+ #include <KoDockFactoryBase.h>
+ #include <KoDockRegistry.h>
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(PaletteDockPluginFactory, "krita_artisticcolorselector.json", registerPlugin<ArtisticColorSelectorPlugin>();)
++K_PLUGIN_FACTORY_WITH_JSON(ArtisticColorSelectorPluginFactory, "krita_artisticcolorselector.json", registerPlugin<ArtisticColorSelectorPlugin>();)
+ 
+ class ArtisticColorSelectorDockFactory: public KoDockFactoryBase
+ {
+diff --git a/plugins/dockers/brushhud/brushhuddocker.cpp b/plugins/dockers/brushhud/brushhuddocker.cpp
+index 5ab6341..53d0b13 100644
+--- a/plugins/dockers/brushhud/brushhuddocker.cpp
++++ b/plugins/dockers/brushhud/brushhuddocker.cpp
+@@ -13,7 +13,7 @@
+ #include <KoDockRegistry.h>
+ 
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(PresetDockerPluginFactory, "krita_brushhud.json", registerPlugin<BrushHudDockerPlugin>();)
++K_PLUGIN_FACTORY_WITH_JSON(BrushHudPluginFactory, "krita_brushhud.json", registerPlugin<BrushHudDockerPlugin>();)
+ 
+ class BrushHudDockerDockFactory : public KoDockFactoryBase {
+ public:
 diff --git a/plugins/dockers/svgcollectiondocker/Plugin.cpp b/plugins/dockers/svgcollectiondocker/Plugin.cpp
 index 6bca124..524a05b 100644
 --- a/plugins/dockers/svgcollectiondocker/Plugin.cpp
