@@ -186,7 +186,22 @@ s_jxl() { local KW_CFLAGS="-pthread -fexceptions"   # same options as krita-deps
              -DJPEGXL_ENABLE_DOXYGEN=OFF -DJPEGXL_ENABLE_MANPAGES=OFF -DJPEGXL_ENABLE_PLUGINS=OFF -DJPEGXL_ENABLE_OPENEXR=OFF \
              -DJPEGXL_ENABLE_TRANSCODE_JPEG=ON -DJPEGXL_ENABLE_BOXES=ON -DJPEGXL_ENABLE_WASM_THREADS=ON; }
 
-ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr json-c mypaint highway brotli jxl"
+s_libde265() { local KW_CFLAGS="-pthread -fexceptions"   # x86 SSE paths are not selected for wasm; plain C++ decoder
+               fetch_git libde265 https://github.com/strukturag/libde265.git v1.0.16
+               cm libde265 -DENABLE_SDL=OFF -DENABLE_DECODER=OFF -DENABLE_ENCODER=OFF; }
+s_aom() { local KW_CFLAGS="-pthread -fexceptions"         # AV1 decode + encode for AVIF; generic C target, no asm/intrinsics
+          fetch_git aom https://aomedia.googlesource.com/aom v3.13.3
+          cm aom -DAOM_TARGET_CPU=generic -DCONFIG_RUNTIME_CPU_DETECT=0 -DCONFIG_PIC=1 -DCONFIG_MULTITHREAD=1 -DENABLE_NASM=OFF -DENABLE_EXAMPLES=OFF \
+             -DENABLE_TESTS=OFF -DENABLE_TESTDATA=OFF -DENABLE_TOOLS=OFF -DENABLE_DOCS=OFF -DCONFIG_WEBM_IO=0 -DENABLE_WERROR=OFF; }
+s_heif() { local KW_CFLAGS="-pthread -fexceptions"        # HEVC decode via libde265, AV1 decode+encode via libaom; no HEVC encoder (x265 not built)
+           fetch_git heif https://github.com/strukturag/libheif.git v1.21.2
+           cm heif -DWITH_EXAMPLES=OFF -DWITH_EXAMPLE_HEIF_THUMB=OFF -DWITH_EXAMPLE_HEIF_VIEW=OFF -DWITH_GDK_PIXBUF=OFF -DBUILD_DOCUMENTATION=OFF \
+              -DENABLE_PLUGIN_LOADING=OFF -DWITH_LIBDE265=ON -DWITH_X265=OFF -DWITH_X264=OFF -DWITH_OpenH264_DECODER=OFF -DWITH_DAV1D=OFF \
+              -DWITH_AOM_DECODER=ON -DWITH_AOM_ENCODER=ON -DWITH_RAV1E=OFF -DWITH_SvtEnc=OFF -DWITH_JPEG_DECODER=OFF -DWITH_JPEG_ENCODER=OFF \
+              -DWITH_OpenJPEG_DECODER=OFF -DWITH_OpenJPEG_ENCODER=OFF -DWITH_FFMPEG_DECODER=OFF -DWITH_LIBSHARPYUV=OFF \
+              -DENABLE_MULTITHREADING_SUPPORT=ON -DENABLE_PARALLEL_TILE_DECODING=ON; }
+
+ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr json-c mypaint highway brotli jxl libde265 aom heif"
 for s in ${@:-$ALL}; do
     if [ -e "$KW/stamps/$s" ]; then echo "skip $s"; continue; fi
     echo "== $s"

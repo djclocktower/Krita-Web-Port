@@ -44,6 +44,7 @@ export function startKrita(engine: Engine): () => void {
         engine.on('kritaCursor', cursor => krita.set({ cursor })),
     ];
     void sync();
-    engine.kritaWindows().then(ws => krita.set({ windows: ws.reduce(upsert, krita.get().windows) }), () => {});
+    // events that arrived while this list was on its way are newer than it
+    engine.kritaWindows().then(ws => krita.set({ windows: ws.reduce((l, w) => l.some(x => x.id === w.id) ? l : upsert(l, w), krita.get().windows) }), () => {});
     return () => { offs.forEach(f => f()); current = null; };
 }
