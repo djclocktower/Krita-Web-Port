@@ -36,6 +36,7 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QDockWidget>
+#include <kis_paintop_box.h>
 #include <KisSynchronizedConnection.h>
 #include <QDir>
 #include <KisResourceLoaderRegistry.h>
@@ -874,9 +875,14 @@ private:
     void selectPreset(KisPaintOpPresetSP source, const QString &id)
     {
         if (!source) fail("Unknown preset: " + id);
-        // a private copy, so editing the brush does not rewrite the stored resource
-        KisPaintOpPresetSP copy = source->clone().dynamicCast<KisPaintOpPreset>();
-        setResource(KoCanvasResource::CurrentPaintOpPreset, copy);
+        // Through Krita's brush toolbar, as picking a preset in Krita does. It keeps its own record of
+        // the current preset per input device and puts it back when input arrives; setting the canvas
+        // resource behind its back made Krita's tools paint with the previously chosen preset.
+        if (KisPaintopBox *box = window ? window->viewManager()->paintOpBox() : nullptr) {
+            box->resourceSelected(source);
+        } else {
+            setResource(KoCanvasResource::CurrentPaintOpPreset, source->clone().dynamicCast<KisPaintOpPreset>());
+        }
         presetId = id;
         emitBrush();
     }

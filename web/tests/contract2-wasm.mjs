@@ -216,7 +216,7 @@ await step('formats', async () => {
     });
     for (const format of ['psd', 'ora']) check(`${format}: round trip keeps pixels and layers`, r[format].same && r[format].layers, JSON.stringify(r[format]));
     for (const format of ['tga', 'bmp', 'png']) check(`${format}: round trip keeps pixels (flattened)`, r[format].same === true, JSON.stringify(r[format]));
-    check('tiff: export is refused cleanly (known crash in the TIFF writer)', /does not work/.test(r.tiff.error ?? ''), JSON.stringify(r.tiff));
+    check('tiff: round trip keeps pixels', r.tiff.same && r.tiff.dims === '200x150', JSON.stringify(r.tiff));
     check('webp: lossless-enough round trip opens at the same size', !r.webp.error && r.webp.dims === '200x150', JSON.stringify(r.webp));
     check('gif: exports and reopens at the same size', !r.gif.error && r.gif.dims === '200x150', JSON.stringify(r.gif));
     check('exr: exports and reopens at the same size', !r.exr.error && r.exr.dims === '200x150', JSON.stringify(r.exr));
