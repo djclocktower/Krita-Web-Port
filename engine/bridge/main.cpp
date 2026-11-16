@@ -472,6 +472,18 @@ public:
     }
 
 private:
+    /// Like KisImage::waitForDone(), but without asking the running tool to finish: lets queued work
+    /// drain and returns even if a tool (transform, move) still holds its stroke open.
+    void waitQuiet()
+    {
+        KisImageSP img = image();
+        QElapsedTimer t;
+        t.start();
+        while (!img->isIdle() && (img->hasUpdatesRunning() || t.elapsed() < 40) && t.elapsed() < 10000) {
+            QCoreApplication::processEvents();
+            QThread::msleep(1);
+        }
+    }
     KisView *kritaView()
     {
         image();
@@ -890,10 +902,11 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         // Anything else goes by its file extension through Krita's own file-type table.
         const QString mime = mimes.contains(format) ? QString::fromLatin1(mimes.value(format)) : KisMimeDatabase::mimeTypeForSuffix(format);
         if (mime.isEmpty()) fail("Unsupported format: " + format);
-        // Krita's TIFF writer calls a missing function in this build and takes the engine down; refuse until that is fixed.
-        if (format == "tiff") fail("TIFF export does not work in this build yet");
         if (!KisImportExportManager::supportedMimeTypes(KisImportExportManager::Export).contains(mime)) fail("This build of the engine cannot write ." + format + " files");
-        image()->waitForDone();
+        waitQuiet();
+        // A tool that keeps its stroke open (transform, move) has the image mid-change; saving now would
+        // store that half-way state, and waiting would force the tool to finish. Krita postpones autosave the same way.
+        if (!image()->isIdle()) fail("The image is busy with a tool. Finish or cancel it, then save again.");
         const QString path = "/tmp/export." + format;
         if (!doc->exportDocumentSync(path, mime.toLatin1())) fail(doc->errorMessage().isEmpty() ? "Export failed" : doc->errorMessage());
         QFile f(path);
@@ -997,7 +1010,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
     if (m == "nodeThumbnail") {
         KisNodeSP n = need(p["id"].toString());
         const int size = qBound(8, p["size"].toInt(64), 1024);
-        image()->waitForDone();
+        waitQuiet();
         out = toPng(n->createThumbnail(size, size, Qt::KeepAspectRatio));
         return QJsonValue();
     }

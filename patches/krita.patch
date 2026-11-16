@@ -538,6 +538,19 @@ index 767bc9b..c914f69 100644
  
  target_sources(kritaui
    PRIVATE
+diff --git a/libs/ui/KisImportExportFilter.cpp b/libs/ui/KisImportExportFilter.cpp
+index 46efec3..9881fc9 100644
+--- a/libs/ui/KisImportExportFilter.cpp
++++ b/libs/ui/KisImportExportFilter.cpp
+@@ -181,7 +181,7 @@ QString KisImportExportFilter::verify(const QString &fileName) const
+     QByteArray ba = f.read(std::min(f.size(), (qint64)1000));
+     bool found = false;
+     for(int i = 0; i < ba.size(); ++i) {
+-        if (ba.at(i) > 0) {
++        if (ba.at(i) != 0) {   // char is signed: bytes of 128 and above compared as negative, so a bright image looked empty
+             found = true;
+             break;
+         }
 diff --git a/libs/ui/KisView.cpp b/libs/ui/KisView.cpp
 index 08f964f..0248d1b 100644
 --- a/libs/ui/KisView.cpp
@@ -852,7 +865,7 @@ index 0ce98d5..cb607e8 100644
  exrImport::exrImport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
  {
 diff --git a/plugins/impex/heif/HeifExport.cpp b/plugins/impex/heif/HeifExport.cpp
-index 737bb7a..7f46735 100644
+index 737bb7a..0e7bd32 100644
 --- a/plugins/impex/heif/HeifExport.cpp
 +++ b/plugins/impex/heif/HeifExport.cpp
 @@ -49,7 +49,7 @@ using heif::Error;
@@ -864,6 +877,22 @@ index 737bb7a..7f46735 100644
  
  HeifExport::HeifExport(QObject *parent, const QVariantList &) : KisImportExportFilter(parent)
  {
+@@ -221,12 +221,9 @@ KisImportExportErrorCode HeifExport::convert(KisDocument *document, QIODevice *i
+         // --- use standard HEVC encoder
+ 
+ 
+-        heif::Encoder encoder(heif_compression_HEVC);
+-
+-
+-        if (mimeType() == "image/avif") {
+-            encoder = heif::Encoder(heif_compression_AV1);
+-        }
++        // Ask only for the encoder this file type needs: constructing the HEVC one throws when the
++        // library was built without it, which made AVIF export fail too.
++        heif::Encoder encoder(mimeType() == "image/avif" ? heif_compression_AV1 : heif_compression_HEVC);
+ 
+ 
+         encoder.set_lossy_quality(quality);
 diff --git a/plugins/impex/heif/HeifImport.cpp b/plugins/impex/heif/HeifImport.cpp
 index 2b94243..6d6c7ac 100644
 --- a/plugins/impex/heif/HeifImport.cpp

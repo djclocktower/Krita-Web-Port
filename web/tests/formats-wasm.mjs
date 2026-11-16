@@ -17,7 +17,7 @@ await page.goto(`http://localhost:5173/?engine=wasm${base}`);
 await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 150000 });
 await page.waitForTimeout(1500);
 
-for (const format of ['jxl', 'avif', 'krz', 'webp', 'exr']) {
+for (const format of ['jxl', 'avif', 'krz', 'webp', 'exr', 'tiff']) {
     const r = await page.evaluate(async format => {
         const within = (p, ms, what) => Promise.race([p, new Promise((_, r) => setTimeout(() => r(new Error(what + ' did not return')), ms))]);
         try {
