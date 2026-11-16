@@ -370,6 +370,12 @@ export function createMockEngine(): Engine {
             record('Change Filter Settings'); node.config = clone(config); changed(false);
         },
         ...extra.methods,
+        // Krita's own actions and tools exist only in Krita's engine.
+        async kritaActions() { return []; },
+        async kritaTools() { return []; },
+        async triggerKritaAction(name) { throw new Error(`"${name}" needs Krita's engine; the mock engine has no Krita actions`); },
+        async setKritaTool(id) { throw new Error(`"${id}" needs Krita's engine; the mock engine has no Krita tools`); },
+        kritaPointer() { /* nothing to drive */ },
     };
     return engine;
 }

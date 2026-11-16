@@ -209,7 +209,7 @@ public:
     // While a stroke is open the image is busy, and many handlers wait for it to go idle. A request
     // that waits would block the queue that the stroke's own endStroke arrives on, deadlocking the
     // engine. So everything except the stroke itself is held until the stroke ends, then run in order.
-    bool strokeOpen() const { return bool(stroke); }
+    bool strokeOpen() const { return bool(stroke) || gestureOpen; }
     bool hasDeferred() const { return !deferred.isEmpty(); }
     void defer(std::function<void()> request) { deferred.append(std::move(request)); }
     void runDeferred()
@@ -252,6 +252,7 @@ private:
     KisMainWindow *window = nullptr;
     QPointer<KisView> view;
     bool pointerInside = false;
+    bool gestureOpen = false;     // between a press and its release on Krita's canvas
     EventRecorder recorder;
     QPointer<QWidget> recorded;
     KisView *kritaView()
@@ -1239,6 +1240,13 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
                                {"canvasWidget", view->canvasBase()->canvasWidget()->metaObject()->className()},
                                {"canvasSize", QString("%1x%2").arg(view->canvasBase()->canvasWidget()->width()).arg(view->canvasBase()->canvasWidget()->height())}};
         }
+        if (m == "krita.tools") {
+            QJsonArray list;
+            for (KoToolAction *t : KoToolManager::instance()->toolActionList())
+                list.append(QJsonObject{{"id", t->id()}, {"name", t->toolTip()}, {"section", t->section()}, {"shortcut", t->shortcut().toString()},
+                                        {"active", t->id() == KoToolManager::instance()->activeToolId()}});
+            return list;
+        }
         if (m == "krita.actions") {
             QJsonArray list;
             for (QAction *a : window->actionCollection()->actions())
@@ -1295,11 +1303,21 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             QWindow *target = canvas->window()->windowHandle();
             if (!target) fail("Krita's window has no native handle");
             const QPointF local = canvas->mapTo(canvas->window(), pos);
-            QWindowSystemInterface::handleMouseEvent(target, local, canvas->mapToGlobal(pos), held ? Qt::LeftButton : Qt::NoButton,
-                                                     t == QEvent::MouseMove ? Qt::NoButton : Qt::LeftButton, t, mods);
+            if (p.contains("pressure")) {
+                // A pen: delivered as a tablet event, which is Krita's main input path (pressure, tilt, rotation).
+                QWindowSystemInterface::handleTabletEvent(target, local, canvas->mapToGlobal(pos), int(QInputDevice::DeviceType::Stylus),
+                                                          int(QPointingDevice::PointerType::Pen), held ? Qt::LeftButton : Qt::NoButton,
+                                                          held ? qBound(0.0, p["pressure"].toDouble(), 1.0) : 0.0,
+                                                          qRound(p["xTilt"].toDouble()), qRound(p["yTilt"].toDouble()), 0.0,
+                                                          p["rotation"].toDouble(), 0, 1, mods);
+            } else {
+                QWindowSystemInterface::handleMouseEvent(target, local, canvas->mapToGlobal(pos), held ? Qt::LeftButton : Qt::NoButton,
+                                                         t == QEvent::MouseMove ? Qt::NoButton : Qt::LeftButton, t, mods);
+            }
+            if (t == QEvent::MouseButtonPress) gestureOpen = true;
             QWindowSystemInterface::sendWindowSystemEvents(QEventLoop::AllEvents);
             QCoreApplication::processEvents();
-            if (t == QEvent::MouseButtonRelease) { settle(250); emitSelection(); }
+            if (t == QEvent::MouseButtonRelease) { gestureOpen = false; settle(250); emitSelection(); }
             QJsonObject reply{{"widgetX", pos.x()}, {"widgetY", pos.y()}, {"seen", QJsonArray::fromStringList(recorder.seen)}};
             recorder.seen.clear();
             return reply;
@@ -1332,7 +1350,7 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
     const QString m = envelope["method"].toString();
     const QJsonObject params = envelope["params"].toObject();
     QMetaObject::invokeMethod(g_engine, [id, m, params] {
-      const bool strokeCall = m == "beginStroke" || m == "continueStroke" || m == "endStroke";
+      const bool strokeCall = m == "beginStroke" || m == "continueStroke" || m == "endStroke" || m == "krita.pointer";
       auto run = [id, m, params] {
         QJsonObject reply{{"id", id}};
         QByteArray data, out;

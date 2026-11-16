@@ -124,6 +124,20 @@ export interface GradientOptions {
 
 export interface ColorSpaceInfo { model: string; modelName: string; depth: string; depthName: string; profiles: string[] }
 
+/** One of Krita's own menu actions (there are several hundred). */
+export interface KritaAction { name: string; text: string; shortcut: string; enabled: boolean; checkable: boolean; checked: boolean }
+/** One of Krita's own canvas tools. */
+export interface KritaTool { id: string; name: string; section: string; shortcut: string; active: boolean }
+/** A pointer event for Krita's own canvas, in image pixels. Give `pressure` for a pen (it is then delivered as a tablet event). */
+export interface KritaPointer {
+    type: 'press' | 'move' | 'release';
+    x: number; y: number;
+    /** For 'move': whether the button or pen tip is down. */
+    down?: boolean;
+    pressure?: number; xTilt?: number; yTilt?: number; rotation?: number;
+    shift?: boolean; ctrl?: boolean; alt?: boolean;
+}
+
 export interface AnimationState {
     framesPerSecond: number;
     /** Playback range, inclusive. */
@@ -262,4 +276,14 @@ export interface Engine {
     moveKeyframe(id: NodeId, from: number, to: number): Promise<void>;
     /** Onion skins show neighbouring frames faintly on this node while drawing. */
     setOnionSkin(id: NodeId, enabled: boolean): Promise<void>;
+
+    // --- Krita's own actions and tools. These run Krita's real menu commands and canvas tools on the
+    // same document, colours, brush and active layer as every call above. Only Krita's engine has
+    // them: the mock lists none and rejects the rest.
+    kritaActions(): Promise<KritaAction[]>;
+    triggerKritaAction(name: string): Promise<void>;
+    kritaTools(): Promise<KritaTool[]>;
+    setKritaTool(id: string): Promise<void>;
+    /** Not awaited: order is preserved. Other requests are held while a press is down, like strokes. */
+    kritaPointer(event: KritaPointer): void;
 }

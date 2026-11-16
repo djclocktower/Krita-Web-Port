@@ -10,6 +10,8 @@ set(_KW_SPIKE_DIR ${CMAKE_CURRENT_LIST_DIR}/../spike)
 set(KRITA_WEB_FONT /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf CACHE FILEPATH "Fallback font to bundle")
 # Plugins every test gets: "<cmake target>:<Qt plugin class>". The colour engine is needed by anything that makes a colour space.
 set(KRITA_WEB_TEST_PLUGINS "kritalcmsengine:PluginFactory" CACHE STRING "Static plugins linked into every test")
+# Tests that compile library sources into themselves clash with a whole-archive link (duplicate symbols).
+set(KRITA_WEB_NO_WHOLE_ARCHIVE TestColorConversionSystem CACHE STRING "Tests linked without whole-archive")
 # Krita libraries kept whole (static initialisers and embedded resources); only those a test really depends on are used.
 set(_KW_WHOLE kritaversion kritaglobal kritaplugin kritastore kritaresources kritacommand kritawidgetutils
     kritamultiarch kritapigment kritaflake kritawidgets kritaresourcewidgets kritametadata
@@ -43,13 +45,15 @@ endfunction()
 function(_kw_finish_test target srcdir bindir)
     # shared support library: display-less Qt platform + environment set-up
     if (NOT TARGET kwtestsupport)
-        add_library(kwtestsupport STATIC ${_KW_SPIKE_DIR}/headless_qpa.cpp ${_KW_TESTS_DIR}/test_env.cpp)
+        add_library(kwtestsupport STATIC ${_KW_SPIKE_DIR}/headless_qpa.cpp)
         set_target_properties(kwtestsupport PROPERTIES AUTOMOC ON)
         target_link_libraries(kwtestsupport PRIVATE Qt6::Gui Qt6::GuiPrivate Qt6::CorePrivate)
         target_compile_definitions(kwtestsupport PRIVATE QT_STATICPLUGIN)
     endif()
     # generated plugin imports
-    set(_imports "#include <QtPlugin>\nQ_IMPORT_PLUGIN(HeadlessPlugin)\n")
+    set(_imports "#include <QtPlugin>\n#include <stdlib.h>\nQ_IMPORT_PLUGIN(HeadlessPlugin)\n")
+    # runs before main(): select the display-less Qt platform and the fontconfig file
+    string(APPEND _imports "namespace { struct KwEnv { KwEnv() { setenv(\"QT_QPA_PLATFORM\", \"kritaheadless\", 1); setenv(\"FONTCONFIG_FILE\", \"/etc/fonts/fonts.conf\", 1); } } kwEnv; }\n")
     set(_plugin_targets "")
     set(_deps "")
     _kw_closure(${target} _deps)
@@ -72,7 +76,9 @@ function(_kw_finish_test target srcdir bindir)
         ${CMAKE_PREFIX_PATH}/lib/libintl.a ${CMAKE_PREFIX_PATH}/lib/libexpat.a ${CMAKE_PREFIX_PATH}/lib/libz.a)
 
     set(_all "")
-    _kw_closure(${target} _all)
+    if (NOT target IN_LIST KRITA_WEB_NO_WHOLE_ARCHIVE)
+        _kw_closure(${target} _all)
+    endif()
     target_link_options(${target} PRIVATE -Wl,--whole-archive)
     foreach (l IN LISTS _KW_WHOLE)
         if (l IN_LIST _all)

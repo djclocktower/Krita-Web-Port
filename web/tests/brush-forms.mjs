@@ -143,7 +143,7 @@ await page.getByLabel('Search settings').fill('');
 // Sweep: every described ranged setting at min and max, every choice, on the first preset of each engine; paint after each.
 const sweepFailures = [];
 // Engine-side crash: Gradient Map texturing mode makes the wasm engine trap ("null function") on the first stroke.
-const ENGINE_BUGS = ['Texture/Pattern/TexturingMode=3'];
+const ENGINE_BUGS = [];   // the Gradient Map texturing crash was fixed in the engine
 const FULL = process.env.FULL === '1';
 const t0 = Date.now(), budget = Number(process.env.BUDGET_MS ?? 25 * 60000);
 let sweeps = 0;

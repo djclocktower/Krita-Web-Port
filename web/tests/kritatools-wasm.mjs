@@ -88,6 +88,22 @@ await step('tools', async () => {
         await K('tool', { id: 'KritaFill/KisToolFill' });
         await drag([{ x: 500, y: 50 }]);
         o.fill = (await hash()) !== h3;
+        // Pen input through the contract: the same stroke at light and at full pressure must differ.
+        await __engine.setKritaTool('KritaShape/KisToolBrush');
+        const pen = async pressure => {
+            const before = await hash();
+            __engine.kritaPointer({ type: 'move', x: 40, y: 200, pressure: 0 });
+            __engine.kritaPointer({ type: 'press', x: 40, y: 200, pressure });
+            for (let i = 1; i <= 12; i++) __engine.kritaPointer({ type: 'move', down: true, x: 40 + i * 40, y: 200 + 10 * Math.sin(i), pressure, xTilt: 20, yTilt: -10 });
+            __engine.kritaPointer({ type: 'release', x: 520, y: 200, pressure: 0 });
+            const after = await hash();
+            await __engine.triggerKritaAction('edit_undo');
+            return { painted: after !== before, undone: (await hash()) === before, after };
+        };
+        const light = await pen(0.15), full = await pen(1);
+        o.pen = light.painted && full.painted; o.penUndo = light.undone && full.undone; o.penPressure = light.after !== full.after;
+        o.toolList = (await __engine.kritaTools()).filter(t => t.active).map(t => t.id).join(',');
+        o.actionCount = (await __engine.kritaActions()).length;
         o.badTool = await K('tool', { id: 'NoSuchTool' }).then(() => 'ok', e => e.message);
         return o;
     });
@@ -99,6 +115,10 @@ await step('tools', async () => {
     check("Krita's fill tool", r.fill);
     check("Krita's line tool", r.line);
     check("Krita's rectangle tool", r.rectShape);
+    check('pen strokes through the contract paint', r.pen);
+    check('pen strokes are undone by Krita\'s undo', r.penUndo);
+    check('pen pressure changes the stroke', r.penPressure);
+    check('tools and actions are listed through the contract', r.toolList === 'KritaShape/KisToolBrush' && r.actionCount > 300, `${r.toolList} ${r.actionCount}`);
     check('unknown tool is refused', r.badTool !== 'ok', r.badTool);
 });
 check('no page errors', errors.length === 0, errors.slice(0, 3).join(' | '));

@@ -204,5 +204,11 @@ export async function createWasmEngine(): Promise<Engine> {
         removeKeyframe: (id, time) => call('removeKeyframe', { id, time }),
         moveKeyframe: (id, from, to) => call('moveKeyframe', { id, from, to }),
         setOnionSkin: (id, enabled) => call('setOnionSkin', { id, enabled }),
+
+        kritaActions: () => call('krita.actions'),
+        triggerKritaAction: name => call('krita.trigger', { name }),
+        kritaTools: () => call('krita.tools'),
+        setKritaTool: id => call('krita.tool', { id }),
+        kritaPointer: event => fire('krita.pointer', event),
     };
 }

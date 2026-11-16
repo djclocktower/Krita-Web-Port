@@ -62,11 +62,17 @@ async function runOne(name) {
     const t0 = Date.now();
     try {
         await page.goto(base);
-        await page.waitForFunction(() => window.__exit !== null || window.__abort, null, { timeout: opt.timeout * 1000, polling: 500 });
-        r.exit = await page.evaluate(() => window.__exit);
-        const ab = await page.evaluate(() => window.__abort);
+        // done = the runtime exited, aborted, or QTest printed its closing line (some tests leave timers running and never exit)
+        let finishedAt = 0;
+        for (;;) {
+            if (Date.now() - t0 > opt.timeout * 1000) throw new Error('Timeout');
+            const st = await page.evaluate(() => ({ exit: window.__exit, abort: window.__abort || null }));
+            if (st.exit !== null || st.abort) { r.exit = st.exit; r.abort = st.abort; break; }
+            if (log.some(l => /^\*{9} Finished testing/.test(l))) { finishedAt ||= Date.now(); if (Date.now() - finishedAt > 5000) break; }
+            await new Promise(res => setTimeout(res, 250));
+        }
         r.ran = true;
-        r.status = ab ? 'crashed (abort: ' + ab.slice(0, 120) + ')' : 'completed';
+        r.status = r.abort ? 'crashed (abort: ' + String(r.abort).slice(0, 120) + ')' : (r.exit === null ? 'completed (runtime did not exit)' : 'completed');
         await new Promise(res => setTimeout(res, 300));   // let late console messages arrive
     } catch (e) {
         r.status = /Timeout/.test(e.message) ? `timeout (${opt.timeout}s)` : 'error: ' + e.message.slice(0, 120);
@@ -96,13 +102,21 @@ async function runOne(name) {
         if (t) r.totals = { passed: +t[1], failed: +t[2], skipped: +t[3] };
     }
     // QTest runs each function once without data tags: count unique function names for per-function figures
-    r.uniqueFunctions = new Set(r.functions.map(f => f.fn.replace(/\(.*$/, ''))).size;
-    if (r.ran && !r.totals && r.status === 'completed') r.status = 'exited without QTest totals';
+    const byFn = new Map();       // a function is FAIL if any of its data rows failed, else SKIP if any skipped, else PASS
+    for (const f of r.functions) {
+        const k = f.fn.replace(/\(.*$/, ''); const cur = byFn.get(k) ?? 'PASS';
+        const rank = { 'PASS': 0, 'XFAIL': 0, 'SKIP': 1, 'XPASS': 1, 'FAIL!': 2 };
+        byFn.set(k, (rank[f.kind] ?? 0) > (rank[cur] ?? 0) ? f.kind : cur);
+    }
+    r.fnPass = [...byFn.values()].filter(k => k === 'PASS' || k === 'XFAIL').length;
+    r.fnFail = [...byFn.values()].filter(k => k === 'FAIL!').length;
+    r.fnSkip = [...byFn.values()].filter(k => k === 'SKIP' || k === 'XPASS').length;
+    if (r.ran && !r.totals && r.status.startsWith('completed')) r.status = 'exited without QTest totals';
     let text = log;
     if (text.length > 200) text = [...log.slice(0, 100), `... [${log.length - 200} lines trimmed] ...`, ...log.slice(-100)];
     writeFileSync(join(out, 'logs', name + '.log'), text.join('\n') + `\n--- exit=${r.exit} status=${r.status} wall=${r.wallMs}ms\n`);
     results.push(r);
-    console.log(`${name.padEnd(34)} ${r.status.padEnd(14)} exit=${r.exit} pass=${r.passed} fail=${r.failed} skip=${r.skipped} ${(r.wallMs / 1000).toFixed(1)}s`);
+    console.log(`${name.padEnd(34)} ${r.status.padEnd(14)} exit=${r.exit} rows pass/fail/skip=${r.passed}/${r.failed}/${r.skipped} functions=${r.fnPass}/${r.fnFail}/${r.fnSkip} ${(r.wallMs / 1000).toFixed(1)}s`);
 }
 
 const queue = [...names];
@@ -110,8 +124,8 @@ const t0 = Date.now();
 await Promise.all(Array.from({ length: opt.jobs }, async () => { while (queue.length) await runOne(queue.shift()); }));
 results.sort((a, b) => a.name.localeCompare(b.name));
 writeFileSync(join(out, 'results.json'), JSON.stringify({ totalWallS: (Date.now() - t0) / 1000, results }, null, 1));
-const sum = k => results.reduce((a, r) => a + r[k], 0);
-console.log(`TOTAL ${results.length} executables, built ${results.filter(r => r.built).length}, ran ${results.filter(r => r.ran).length}; pass=${sum('passed')} fail=${sum('failed')} skip=${sum('skipped')}; ${((Date.now() - t0) / 1000).toFixed(0)}s`);
+const sum = k => results.reduce((a, r) => a + (r[k] ?? 0), 0);
+console.log(`TOTAL ${results.length} executables, built ${results.filter(r => r.built).length}, ran ${results.filter(r => r.ran).length}; QTest rows pass/fail/skip=${sum('passed')}/${sum('failed')}/${sum('skipped')}, functions=${sum('fnPass')}/${sum('fnFail')}/${sum('fnSkip')}; ${((Date.now() - t0) / 1000).toFixed(0)}s`);
 await Promise.race([browser.close(), new Promise(r => setTimeout(r, 5000))]);
 server.kill();
 process.exit(0);
