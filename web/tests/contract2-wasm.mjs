@@ -20,6 +20,7 @@ await page.goto(`http://localhost:5173/?engine=wasm${base}`);
 await page.waitForFunction(() => window.__engine, null, { timeout: 150000 });
 // The app creates its own document on start; let that finish so it cannot replace ours.
 await page.waitForFunction(() => __engine.documentInfo().then(Boolean), null, { timeout: 60000 });
+await page.waitForTimeout(2500);
 await page.waitForTimeout(1500);
 await E(async () => {
     window.hash = async () => { const b = await __engine.exportDocument('png'); let h = 0; for (const x of b) h = (h * 31 + x) | 0; return h; };

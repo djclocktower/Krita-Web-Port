@@ -15,6 +15,9 @@ const step = async (name, fn) => { try { await fn(); } catch (e) { check(name, f
 const t0 = Date.now();
 await page.goto('http://localhost:5173/?engine=wasm');
 await page.waitForFunction(() => window.__engine, null, { timeout: 150000 });
+// The app creates its own document on start; let that finish so it cannot replace the test's.
+await page.waitForFunction(() => __engine.documentInfo().then(Boolean), null, { timeout: 60000 });
+await page.waitForTimeout(2500);
 console.log(`engine ready after ${Date.now() - t0} ms`);
 // A hash of the composited image, via PNG export.
 await E(() => { window.hash = async () => { const b = await __engine.exportDocument('png'); let h = 0; for (const x of b) h = (h * 31 + x) | 0; return h; }; });
