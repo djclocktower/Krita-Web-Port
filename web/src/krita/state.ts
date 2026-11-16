@@ -36,7 +36,7 @@ export function startKrita(engine: Engine): () => void {
     const offs = [
         engine.on('documentChanged', () => { void sync(); void syncDockers(); }),   // the real engine may only list tools once a document is open
         engine.on('kritaToolChanged', id => krita.set({ active: id, page: false })),
-        engine.on('kritaWindow', w => { krita.set({ windows: upsert(krita.get().windows, w) }); if (w.kind === 'docker') void syncDockers(); }),
+        engine.on('kritaWindow', w => { const isNew = !krita.get().windows.some(x => x.id === w.id); krita.set({ windows: upsert(krita.get().windows, w) }); if (isNew && w.kind === 'docker') void syncDockers(); }),
         engine.on('kritaWindowClosed', id => {
             const was = krita.get().windows.find(w => w.id === id);
             pictures.delete(id); if (was?.kind === 'docker') void syncDockers();

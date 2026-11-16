@@ -6,8 +6,9 @@ import * as db from '../storage/db';
 
 export type ThemeId = 'dark' | 'darker' | 'neutral' | 'light';
 export type Area = 'left' | 'right' | 'bottom';
-/** open: expanded; active: selected panel id; size: width (left, right) or height (bottom) in px. */
-export interface DockState { open: boolean; active: string | null; size: number }
+/** open: expanded; active: selected panel id; size: width (left, right) or height (bottom) in px;
+ *  stacked: panels shown one above the other instead of as tabs (wide layout, only while they are all the dock has). */
+export interface DockState { open: boolean; active: string | null; size: number; stacked?: string[] }
 /** visible: ids of the panels shown, null for all. */
 export interface DockLayout { visible: string[] | null; docks: Record<Area, DockState> }
 
@@ -27,7 +28,7 @@ export interface Settings {
 
 export const DEFAULT_DOCKS: DockLayout = {
     visible: null,
-    docks: { left: { open: true, active: null, size: 240 }, right: { open: true, active: null, size: 260 }, bottom: { open: true, active: null, size: 180 } },
+    docks: { left: { open: true, active: null, size: 240, stacked: ['toolbox', 'toolOptions'] }, right: { open: true, active: null, size: 260 }, bottom: { open: true, active: null, size: 180 } },
 };
 
 export const DEFAULTS: Settings = {

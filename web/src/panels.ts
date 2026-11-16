@@ -22,6 +22,8 @@ export interface Panel {
     order?: number;
     component: ComponentType<{ engine: Engine }>;
     commands?: Command[];
+    /** Panels that can be closed (Krita's dockers) get a close button on their tab. */
+    close?: (engine: Engine) => void;
 }
 
 const modules = import.meta.glob<{ default: Panel }>('./panels/*/index.tsx', { eager: true });

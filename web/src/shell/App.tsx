@@ -5,10 +5,12 @@ import type { Engine } from '../engine/protocol';
 import { attachKeys } from '../input/keys';
 import { effective, withShortcuts } from '../settings/shortcuts';
 import { loadSettings, useSetting, type Area } from '../settings/store';
-import { panels, type Command } from '../panels';
+import { type Command, type Panel } from '../panels';
+import { usePanels } from '../krita/dockers';
 import { hex, parseHex } from '../panels/color/hsv';
 import { Dialogs } from '../dialogs';
 import { KritaUI } from '../krita/Windows';
+import { krita } from '../krita/state';
 import { applyAppearance } from './appearance';
 import { allCommands, isEnabled, menuCommands } from './commands';
 import { errors } from './errors';
@@ -97,7 +99,7 @@ function ErrorBanner() {
 }
 
 function MenuBar({ run }: { run: (c: Command) => void }) {
-    useStore(app);   // re-render when what is enabled changes
+    useStore(app); useStore(krita);   // re-render when what is enabled changes, or the Krita dockers do
     const shortcuts = useSetting('shortcuts'); useSetting('workspaces');
     const commands = menuCommands();
     const [open, setOpen] = useState<string | null>(null);
@@ -184,7 +186,7 @@ function Toolbar({ engine }: { engine: Engine }) {
 
 /** Phone: the menu bar is one button that opens a full-height list; the same bar opens the panel sheet. */
 function MobileBar({ run }: { run: (c: Command) => void }) {
-    const { doc } = useStore(app);
+    const { doc } = useStore(app); useStore(krita);
     const sh = useSheet();
     const [open, setOpen] = useState(false);
     const [group, setGroup] = useState<string | null>(null);
@@ -219,20 +221,24 @@ function menuTitle(c: Command) {
     return c.id === 'edit.undo' && history.undoText ? `Undo ${history.undoText}` : c.id === 'edit.redo' && history.redoText ? `Redo ${history.redoText}` : c.title;
 }
 
-const shown = (id: string, visible: string[] | null) => !visible || visible.includes(id);
+const shown = (p: Panel, visible: string[] | null) => !!p.close || !visible || visible.includes(p.id);   // an opened Krita docker is always shown
 
 function Dock({ area, engine, layout }: { area: Area; engine: Engine; layout: Layout }) {
     const dl = useSetting('dockLayout');
-    const list = panels.filter(p => p.area === area && shown(p.id, dl.visible));
-    const { open, active, size } = dl.docks[area];
+    const all = usePanels();
+    const list = all.filter(p => p.area === area && shown(p, dl.visible));
+    const { open, active, size, stacked } = dl.docks[area];
     const sh = useSheet();
     if (!list.length || layout === 'narrow') return null;
     const cur = list.find(p => p.id === active) ?? list[0];
     const overlay = layout === 'medium', visible = overlay ? sh.open === area : open;
-    const tabs = (all: boolean) => (
+    const tabs = (showAll: boolean) => (
         <div role="tablist" class="tabs">
-            {(all ? list : [cur]).map(p => (
-                <button key={p.id} role="tab" aria-selected={p.id === cur.id} onClick={() => setDock(area, overlay ? { active: p.id } : { active: p.id, open: true })}>{p.title}</button>
+            {(showAll ? list : [cur]).map(p => (
+                <span class="tab" key={p.id}>
+                    <button role="tab" aria-selected={p.id === cur.id} onClick={() => setDock(area, overlay ? { active: p.id } : { active: p.id, open: true })}>{p.title}</button>
+                    {p.close && <button class="tab-close" aria-label={`Close ${p.title}`} onClick={() => p.close!(engine)}>✕</button>}
+                </span>
             ))}
         </div>
     );
@@ -245,6 +251,8 @@ function Dock({ area, engine, layout }: { area: Area; engine: Engine; layout: La
             </section>
         );
     }
+    // ponytail: stacking needs every panel of the dock in the stack (no mix of stack and tabs); the stacked panels keep role=tabpanel for the tests and assistive tech that look for it
+    const stack = list.filter(p => stacked?.includes(p.id)), isStack = stack.length >= 2 && stack.length === list.length;
     const splitter = open && <Splitter area={area} size={size} />;
     return (
         <>
@@ -252,11 +260,13 @@ function Dock({ area, engine, layout }: { area: Area; engine: Engine; layout: La
             <section class={`dock dock-${area}${open ? '' : ' collapsed'}`} aria-label={`${area} panels`}
                 style={open ? (area === 'bottom' ? { height: `${size}px` } : { width: `${size}px` }) : undefined}>
                 <div class="dock-head">
-                    {tabs(open)}
+                    {isStack ? <span class="stack-label">{list.map(p => p.title).join(' · ')}</span> : tabs(open)}
                     <button class="collapse" aria-expanded={open} aria-label={`${open ? 'Collapse' : 'Expand'} ${cur.title}`}
                         onClick={() => setDock(area, { open: !open })}>{open ? '▾' : '▸'}</button>
                 </div>
-                {open && body}
+                {open && (isStack
+                    ? list.map((p, i) => <div key={p.id} class={`dock-body stack-item${i ? '' : ' stack-first'}`} role="tabpanel" aria-label={p.title}><p.component engine={engine} /></div>)
+                    : body)}
             </section>
             {area === 'left' && splitter}
         </>
@@ -287,15 +297,20 @@ function Splitter({ area, size }: { area: Area; size: number }) {
 function Sheet({ engine }: { engine: Engine }) {
     const sh = useSheet();
     const { visible } = useSetting('dockLayout');
-    const list = panels.filter(p => shown(p.id, visible));
-    const [active, setActive] = useState(panels[0]?.id);
+    const list = usePanels().filter(p => shown(p, visible));
+    const [active, setActive] = useState<string>();
     if (sh.open === null || !list.length) return null;
     const cur = list.find(p => p.id === active) ?? list[0];
     return (
         <section id="panel-sheet" class="sheet-bottom" aria-label="Panels">
             <div class="dock-head">
                 <div role="tablist" class="tabs">
-                    {list.map(p => <button key={p.id} role="tab" aria-selected={p.id === cur.id} onClick={() => setActive(p.id)}>{p.title}</button>)}
+                    {list.map(p => (
+                        <span class="tab" key={p.id}>
+                            <button role="tab" aria-selected={p.id === cur.id} onClick={() => setActive(p.id)}>{p.title}</button>
+                            {p.close && <button class="tab-close" aria-label={`Close ${p.title}`} onClick={() => p.close!(engine)}>✕</button>}
+                        </span>
+                    ))}
                 </div>
                 <button aria-label="Close panels" onClick={() => sheet.set({ open: null })}>✕</button>
             </div>

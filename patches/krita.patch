@@ -723,6 +723,19 @@ index 2725af0..56a65c8 100644
              e->accept();
              return true;
  
+diff --git a/plugins/dockers/artisticcolorselector/CMakeLists.txt b/plugins/dockers/artisticcolorselector/CMakeLists.txt
+index c4552dd..7ef720b 100644
+--- a/plugins/dockers/artisticcolorselector/CMakeLists.txt
++++ b/plugins/dockers/artisticcolorselector/CMakeLists.txt
+@@ -14,3 +14,8 @@ ki18n_wrap_ui(kritaartisticcolorselector_SOURCES
+ kis_add_library(kritaartisticcolorselector MODULE ${kritaartisticcolorselector_SOURCES})
+ target_link_libraries(kritaartisticcolorselector kritaui)
+ install(TARGETS kritaartisticcolorselector DESTINATION ${KRITA_PLUGIN_INSTALL_DIR})
++
++if (EMSCRIPTEN)
++    # Linked statically next to the advanced colour selector, which has a class of the same name.
++    target_compile_definitions(kritaartisticcolorselector PRIVATE KisColorSelector=KisArtisticColorSelector)
++endif()
 diff --git a/plugins/dockers/artisticcolorselector/artisticcolorselector_plugin.cpp b/plugins/dockers/artisticcolorselector/artisticcolorselector_plugin.cpp
 index cc844b5..6b5a792 100644
 --- a/plugins/dockers/artisticcolorselector/artisticcolorselector_plugin.cpp
@@ -749,6 +762,19 @@ index 5ab6341..53d0b13 100644
  
  class BrushHudDockerDockFactory : public KoDockFactoryBase {
  public:
+diff --git a/plugins/dockers/svgcollectiondocker/CMakeLists.txt b/plugins/dockers/svgcollectiondocker/CMakeLists.txt
+index 4407a34..29e2e72 100644
+--- a/plugins/dockers/svgcollectiondocker/CMakeLists.txt
++++ b/plugins/dockers/svgcollectiondocker/CMakeLists.txt
+@@ -15,3 +15,8 @@ kis_add_library(kritasvgcollectiondocker MODULE ${calligradockers_SRCS})
+ target_link_libraries(kritasvgcollectiondocker kritawidgets kritaui)
+ 
+ install(TARGETS kritasvgcollectiondocker DESTINATION ${KRITA_PLUGIN_INSTALL_DIR})
++
++if (EMSCRIPTEN)
++    # Linked statically next to other plugins whose plugin class is also called "Plugin".
++    target_compile_definitions(kritasvgcollectiondocker PRIVATE Plugin=SvgCollectionDockerPlugin)
++endif()
 diff --git a/plugins/dockers/svgcollectiondocker/Plugin.cpp b/plugins/dockers/svgcollectiondocker/Plugin.cpp
 index 6bca124..524a05b 100644
 --- a/plugins/dockers/svgcollectiondocker/Plugin.cpp

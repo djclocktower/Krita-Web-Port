@@ -22,7 +22,8 @@ const open = async (touch = false) => {
     return { ctx, page };
 };
 const log = (page, k) => page.evaluate(k => JSON.parse(JSON.stringify(__engine.__kritaLog[k])), k);
-const tab = n => page.getByRole('tab', { name: n }).click();
+// Toolbox and Tool Options are stacked in the default workspace (no tabs); a tabbed layout still needs the click.
+const tab = async n => { const t = page.getByRole('tab', { name: n }); if (await t.count()) await t.click(); };
 const settle = page => page.waitForTimeout(150);
 
 const { ctx, page } = await open();
@@ -41,7 +42,7 @@ const tools = await page.locator('[data-krita-tool]').evaluateAll(b => b.map(x =
 check(tools.length === 4, 'toolbox lists the 4 Krita tools (Pan and Zoom hidden)', tools.map(t => t.id));
 check(tools[0].label === 'Freehand Brush Tool' && tools[0].title.includes('(B)'), 'name is the tooltip, shortcut appended', tools[0]);
 check(tools[0].pressed === 'true', 'the engine-active tool is pressed', tools[0]);
-check(tools.some(t => t.text), 'tools without a page icon get a letter fallback', tools.map(t => t.text));
+check(await page.locator('[data-krita-tool] .kicon').count() === 4 && !await page.locator('[data-krita-tool] .letters').count(), "every Krita tool has Krita's icon, no letter fallback", tools.map(t => t.text));
 check(await page.locator('.toolbox .section').count() >= 5, 'tools grouped by section plus the page View group');
 check(await page.getByRole('button', { name: 'Pan', exact: true }).count() === 1, "the page's own Pan stays in the toolbox");
 

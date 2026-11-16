@@ -17,4 +17,7 @@
 .krita-search li.off { color: var(--text-dim); opacity: 0.55; cursor: default; }
 .krita-search li.hint { color: var(--text-dim); cursor: default; }
 .krita-search kbd { color: var(--text-dim); }
-.krita-options { display: block; max-width: 100%; }
+.krita-options { position: relative; flex: 1 1 0; min-height: 120px; max-width: 100%; overflow: auto; }
+.krita-options-pic { position: absolute; left: 0; top: 0; }
+/* Crisp pictures: a canvas shown at its own size is never smoothed. */
+.krita-win { image-rendering: pixelated; }

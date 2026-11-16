@@ -3,6 +3,7 @@ import type { Engine } from '../engine/protocol';
 import { panels, type Command } from '../panels';
 import { download } from '../dialogs/download';
 import { openActionSearch } from '../krita/ActionSearch';
+import { dockerCommands } from '../krita/dockers';
 import { krita } from '../krita/state';
 import { getSetting } from '../settings/store';
 import { app, report, type DialogId } from './state';
@@ -96,5 +97,5 @@ export function isEnabled(c: Command): boolean {
 /** What the menus list: every command, plus a "Workspace: name" entry for each saved workspace (after the built-in ones). */
 export function menuCommands(): Command[] {
     const saved = Object.keys(getSetting('workspaces')).map((n): Command => ({ id: `workspace.user.${n}`, title: `Workspace: ${n}`, menu: 'Settings', run: () => applyWorkspace(n) }));
-    return allCommands.flatMap(c => c.id === 'workspace.animation' ? [c, ...saved] : [c]);
+    return [...allCommands.flatMap(c => c.id === 'workspace.animation' ? [c, ...saved] : [c]), ...dockerCommands()];
 }

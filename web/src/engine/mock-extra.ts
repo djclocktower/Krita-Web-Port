@@ -322,11 +322,11 @@ export function createMockExtra(ctx: Context) {
 // ---- A fake of Krita's own tools, windows and actions, only with ?kritaMock=1 (the real ones need Krita's engine).
 // It exists so the interface and its tests can see the traffic: tools that draw squares, an option window that
 // paints a recognisable picture, an action that opens a modal dialog (with a pop-up), an overlay after each pointer event.
-import type { KritaAction, KritaPointer, KritaTool, KritaViewport, KritaWindow, KritaWindowInput } from './protocol';
+import type { KritaAction, KritaDocker, KritaPointer, KritaTool, KritaViewport, KritaWindow, KritaWindowInput } from './protocol';
 
 type KritaMethods = Pick<Engine, 'kritaActions' | 'triggerKritaAction' | 'kritaTools' | 'setKritaTool' | 'kritaPointer' | 'kritaKey' | 'kritaViewport'
-    | 'kritaWindows' | 'kritaWindowInput' | 'closeKritaWindow' | 'resizeKritaWindow'>;
-export interface KritaLog { pointers: KritaPointer[]; keys: unknown[]; viewports: KritaViewport[]; windowInputs: (KritaWindowInput & { id: number })[]; tools: string[]; actions: string[]; resizes: [number, number, number][] }
+    | 'kritaWindows' | 'kritaDockers' | 'showKritaDocker' | 'kritaWindowInput' | 'closeKritaWindow' | 'resizeKritaWindow'>;
+export interface KritaLog { pointers: KritaPointer[]; keys: unknown[]; viewports: KritaViewport[]; windowInputs: (KritaWindowInput & { id: number })[]; tools: string[]; actions: string[]; resizes: [number, number, number][]; dockers: [string, boolean][] }
 
 const MOCK_TOOLS: Omit<KritaTool, 'active'>[] = [
     { id: 'KritaShape/KisToolBrush', name: 'Freehand Brush Tool', section: 'Freehand', shortcut: 'B' },
@@ -342,10 +342,11 @@ const MOCK_ACTIONS: KritaAction[] = [
     { name: 'mock_fill_layer', text: 'Fill Layer Red', shortcut: '', enabled: true, checkable: false, checked: false },
 ];
 const DIALOG = 2, POPUP = 3, OPTIONS = 1;
+const MOCK_DOCKERS = [{ id: 'mockPalette', title: 'Mock Palette', win: 10, tint: '#225577' }, { id: 'mockHistogram', title: 'Mock Histogram', win: 11, tint: '#557722' }];
 const TINT = ['#334455', '#553344', '#445533', '#554433', '#335544', '#443355'];
 
 export function createMockKrita(ctx: Context): { methods: KritaMethods; log: KritaLog } {
-    const log: KritaLog = { pointers: [], keys: [], viewports: [], windowInputs: [], tools: [], actions: [], resizes: [] };
+    const log: KritaLog = { pointers: [], keys: [], viewports: [], windowInputs: [], tools: [], actions: [], resizes: [], dockers: [] };
     let active = MOCK_TOOLS[0].id, viewport: KritaViewport | null = null, checked = false, start: { x: number; y: number } | null = null;
     const windows = new Map<number, KritaWindow>();
     const later = (f: () => void) => { setTimeout(f, 0); };
@@ -366,6 +367,10 @@ export function createMockKrita(ctx: Context): { methods: KritaMethods; log: Kri
             fill(0, 0, w.width, w.height, hex('#2244aa'));
             fill(20, 60, 100, 100, [255, 255, 0]);     // opens the pop-up
             fill(120, 60, 180, 100, [0, 255, 0]);      // OK
+        } else if (w.kind === 'docker') {
+            fill(0, 0, w.width, w.height, hex(MOCK_DOCKERS.find(d => d.win === id)!.tint));
+            fill(w.width - 4, 0, w.width, w.height, [255, 255, 255]);        // right edge: the width
+            fill(0, w.height - 4, w.width, w.height, [255, 255, 255]);      // bottom edge: the height
         } else fill(0, 0, w.width, w.height, hex('#ff8800'));
         ctx.emit('kritaWindowPaint', id, w.width, w.height, px);
     };
@@ -436,6 +441,14 @@ export function createMockKrita(ctx: Context): { methods: KritaMethods; log: Kri
                 if ((e.y ?? 0) >= 60 && (e.y ?? 0) < 100 && (e.x ?? 0) >= 20 && (e.x ?? 0) < 100) { const d = windows.get(DIALOG)!; open({ id: POPUP, title: '', kind: 'popup', modal: false, parent: DIALOG, x: d.x + 20, y: d.y + 100, width: 80, height: 60 }); }
                 else if ((e.x ?? 0) >= 120 && (e.y ?? 0) >= 60) close(DIALOG);
             } else if (e.type === 'keydown' && e.key === 'Escape' && (id === POPUP || id === DIALOG)) close(id);
+        },
+        async kritaDockers(): Promise<KritaDocker[]> { return MOCK_DOCKERS.map(d => ({ id: d.id, title: d.title, visible: windows.has(d.win) })); },
+        async showKritaDocker(id, visible) {
+            const d = MOCK_DOCKERS.find(x => x.id === id);
+            if (!d) throw new Error(`Unknown Krita docker: ${id}`);
+            log.dockers.push([id, visible]);
+            if (!visible) close(d.win);
+            else if (!windows.has(d.win)) open({ id: d.win, title: d.title, kind: 'docker', docker: id, modal: false, x: 0, y: 0, width: 200, height: 150 });
         },
         async closeKritaWindow(id) { if (id !== OPTIONS) close(id); },
         async resizeKritaWindow(id, width, height) {
