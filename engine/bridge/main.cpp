@@ -36,6 +36,7 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QDockWidget>
+#include <KisSynchronizedConnection.h>
 #include <QDir>
 #include <KisResourceLoaderRegistry.h>
 #include <KisResourceLoader.h>
@@ -1676,9 +1677,21 @@ class WebApplication : public KisApplication
 {
 public:
     using KisApplication::KisApplication;
+    // Krita holds back its "synchronized" signals (a layer was added, a node got its shape, ...) while
+    // an event handler is itself running an event loop, and delivers them once control is back at
+    // the top. On the desktop a menu command runs at the top; here every request from the page is
+    // an event whose handler pumps the loop while it waits, so those signals would only arrive
+    // after the request had finished, too late for the request itself (layer activation failed,
+    // the transform tool never got its layer). One level inside a request counts as the top.
+    static inline int depth = 0;            // nesting of notify() on Krita's thread
+    static inline int requestDepth = -1;    // depth at which the current page request is being handled
     bool notify(QObject *receiver, QEvent *event) override
     {
+        if (QThread::currentThread() != thread()) return KisApplication::notify(receiver, event);
         if (g_engine) g_engine->watch(receiver, event);
+        struct Level { Level() { depth++; } ~Level() { depth--; } } level;
+        if (event->type() == KisSynchronizedConnectionBase::eventType() && depth > 1 && depth == requestDepth + 1)
+            return QApplication::notify(receiver, event);
         return KisApplication::notify(receiver, event);
     }
 };
@@ -1716,7 +1729,10 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
         else if (reply.contains("error")) emitEvent("error", {{"message", reply["error"]}, {"method", m}});
       };
       if (!strokeCall && (g_engine->strokeOpen() || g_engine->hasDeferred())) { g_engine->defer(run); return; }
+      const int outer = WebApplication::requestDepth;
+      WebApplication::requestDepth = WebApplication::depth;
       run();
+      WebApplication::requestDepth = outer;
       if (strokeCall) g_engine->runDeferred();
     }, Qt::QueuedConnection);
 }

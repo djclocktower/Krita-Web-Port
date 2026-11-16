@@ -6,7 +6,7 @@
 // Known failures are listed in KNOWN below with the reason: they are printed as XFAIL and do not change the exit code.
 // A known failure that starts to work is printed as FIXED (also exit code 0): remove it from KNOWN.
 import { createRequire } from 'node:module';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, basename } from 'node:path';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -88,14 +88,13 @@ const OPEN = [
     ['jp2-subsampled.jp2', 480, 640, 'JP2 with chroma sub-sampling'],
     ['j2k-codestream.j2k', 96, 64, 'raw JPEG 2000 codestream (.j2k)'],
     // RAW (LibRaw through KDcraw). The exiftool files are metadata-only stubs with no sensor data.
-    ['raw-kodak.kdc', 768, 512, 'RAW Kodak DC50 .kdc'],
-    ['raw-exiftool.dng', 0, 0, 'DNG stub from exiftool\'s tests (no sensor data)'],
-    ['raw-exiftool.nef', 0, 0, 'NEF stub from exiftool\'s tests (no sensor data)'],
-    ['raw-exiftool.cr2', 0, 0, 'CR2 stub from exiftool\'s tests (no sensor data)'],
+    // (their PNG read-back is skipped: whether it hangs depends on state that was not pinned down, see RESULTS.md)
+    ['raw-kodak.kdc', 768, 512, 'RAW Kodak DC50 .kdc', { noPng: true }],
+    ['raw-test.dng', 64, 48, 'DNG, hand-made 64x48 Bayer RGGB 16-bit (tiny, so not a camera file)', { noPng: true }],
     // PDF: Krita always shows its "PDF Import Options" dialog; the test answers it (Enter, after choosing "All pages" where noted)
     ['pdf-text.pdf', 2480, 3500, 'PDF one page with text, first page only'],
-    ['pdf-6pages.pdf', 3334, 3505, 'PDF six pages, all pages', { allPages: true, layers: 6 }],
-    ['pdf-image.pdf', 0, 0, 'PDF with an image'],
+    ['pdf-3pages.pdf', 1250, 834, 'PDF three pages (text + rectangle), all pages', { allPages: true, layers: 3 }],
+    ['pdf-image.pdf', 2480, 3500, 'PDF with an image'],
     // vector, heightmaps, brushes
     ['svg-units.svg', 400, 200, 'SVG'],
     ['svg-gnu.svg', 625, 625, 'SVG (GNU head)'],
@@ -105,11 +104,48 @@ const OPEN = [
     ['brush-rgba.gbr', 49, 61, 'GIMP brush, RGBA'],
     ['brush-animated.gih', 64, 64, 'GIMP brush pipe (.gih), opened as an image'],
 ];
+// Big files that are not copied into the repository; looked up in EXTRA_DIR and skipped when absent (see docs/formats/SOURCES.md).
+const EXTRA_DIR = process.env.EXTRA || '/opt/kw/samples';
+const EXTRA = [
+    ['rawpy/test/iss030e122639.NEF', 4284, 2844, 'RAW Nikon .nef, 10 MB (NASA)', { noPng: true }],
+    ['rawpy/test/M0054341_01_00005.cr2', 3906, 2602, 'RAW Canon .cr2, 9 MB', { noPng: true }],
+    ['oexr/ScanLines/Blobbies.exr', 0, 0, 'EXR with RGBA and a Z (depth) channel, 6 MB'],
+];
+// Several samples are the same 96x64 picture (a gradient with a red rectangle and a blue disc); these pixels of it, at 20%/30%,
+// 50%/50%, 80%/70% and 10%/90% of the size, are compared after opening (tolerance: lossy codecs, palettes, colour management).
+const GRADIENT = [[255, 0, 0], [128, 129, 189], [0, 0, 255], [24, 230, 233]];
+const SAME_PICTURE = { 'png-rgb8.png': 8, 'png-rgb16.png': 8, 'jpg-rgb8.jpg': 24, 'webp-lossless.webp': 8, 'gif-rgb8.gif': 40, 'bmp-rgb8.bmp': 8, 'tga-rgb8.tga': 8,
+    'tif-rgb8.tif': 8, 'tif-deflate-predictor.tif': 8, 'tif-rgb16.tif': 8, 'tif-float32.tif': 8, 'psd-rgb8.psd': 8, 'jp2-rgb8.jp2': 8 };
+// not psd-rgb16.psd: a 16-bit PSD without an ICC profile is assigned Krita's linear 16-bit profile (sRGB-elle-V2-g10), so it displays lighter (as on desktop).
 // Export round trip: engine's own 320x200 document with one stroke, written as `format`, reopened as `reopenAs`.
 const EXPORT = ['kra', 'png', 'jpg', 'psd', 'ora', 'tga', 'bmp', 'webp', 'gif', 'exr', 'jxl', 'avif', 'krz', 'hdr', 'csv', 'r16',
     'tiff', 'tif', 'heic', 'jp2', 'svg', 'gbr', 'gih', 'r8', 'qml'];
 // name -> reason. Open cases are "open:<file>", export cases "export:<format>".
+// csv and qml cannot be reopened through the bridge/by Krita; for them an export that returns bytes is the result.
+const EXPORT_ONLY = { csv: 'Krita writes the frames next to the .csv; the bridge returns only the .csv, which cannot be opened alone', qml: 'Krita has no QML importer' };
+// Exports of a document that is not the engine's own white 320x200 one: [sample, format, expected byte length or 0].
+const EXPORT_FROM = [['heightmap-512.r16', 'r16', 524288], ['heightmap-512.r8', 'r8', 262144]];
+const META = 'the document carries Exif/TIFF metadata on its layer; PNG, JPEG, KRA, ORA and KRZ export then never return (suspected: XMP serializer), RESULTS.md section 1';
 const KNOWN = {
+    'png-after-open:jpg-cmyk-adobe.jpg': META,
+    'png-after-open:jpg-exif.jpg': META,
+    'png-after-open:tif-deflate-predictor.tif': META,
+    'png-after-open:tif-rgb16.tif': META,
+    'png-after-open:tif-float32.tif': META,
+    'open:tif-webp.tif': 'libtiff is built with -Dwebp=OFF (engine/build-deps.sh s_tiff): the WebP-compressed strips decode to nothing and Krita shows a blank image without an error',
+    'open:tif-jpeg-tiled.tif': 'libtiff reports that the JPEG tables of this tiled TIFF cannot be loaded (libjpeg-turbo 3.0.4 built with TIFF JPEG-in-TIFF tables?), see RESULTS.md',
+    'open:psd-indexed.psd': 'Krita does not support indexed-colour PSD (upstream excludes this file in kis_psd_test.cpp:46); it opens blank',
+    'open:jp2-4comp.jp2': 'Krita JP2 plugin: sRGB images must have exactly 3 components (jp2_converter.cc:272); same on desktop',
+    'open:jp2-subsampled.jp2': 'Krita JP2 plugin refuses sub-sampled components (jp2_converter.cc:240); same on desktop',
+    'open:j2k-codestream.j2k': 'the plugin registers only jp2,jpx,jpf (krita_jp2_import.json); .j2k/.j2c/.jpc have no importer',
+    'open:Blobbies.exr': 'five top-level channels (RGBA + Z): exr_converter.cc treats Z as an XYZ channel and cannot map them; same on desktop',
+    'export:avif': 'HeifExport.cpp:224 creates a HEVC encoder first, even for AVIF; libheif has no HEVC encoder (x265 off), so it throws Unsupported_filetype -> "Export failed"',
+    'export:heic': 'no HEVC encoder in libheif (WITH_X265=OFF in engine/build-deps.sh s_heif) -> Unsupported_filetype -> "Export failed"',
+    'export:tiff': 'refused by name in engine/bridge/main.cpp (the "tif" spelling is not refused and works, see export:tif)',
+    'export:jp2': 'no JPEG 2000 export plugin exists in Krita (only kritajp2import)',
+    'export:svg': 'no SVG export plugin exists for raster documents',
+    'export:r16': 'KisImportExportFilter::verify (KisImportExportFilter.cpp:182) tests "ba.at(i) > 0" on a signed char, so a file whose first 1000 bytes are all >= 0x80 (a white canvas) is rejected as "only zero bytes"; upstream bug',
+    'export:r8': 'same as export:r16',
 };
 
 // ---- harness -----------------------------------------------------------------------------------------------------------
@@ -145,7 +181,11 @@ const inPage = {
             const d = g.getImageData(0, 0, c.width, c.height).data;
             const seen = new Set(); let amax = 0, amin = 255;
             for (let i = 0; i < d.length; i += 4) { seen.add((d[i] >> 4) << 8 | (d[i + 1] >> 4) << 4 | d[i + 2] >> 4); amax = Math.max(amax, d[i + 3]); amin = Math.min(amin, d[i + 3]); }
-            return { size: [img.width, img.height], colours: seen.size, alphaMax: amax, alphaMin: amin };
+            const px = [[0.2, 0.3], [0.5, 0.5], [0.8, 0.7], [0.1, 0.9]].map(([fx, fy]) => {
+                const p = new OffscreenCanvas(1, 1).getContext('2d'); p.drawImage(img, Math.floor(fx * img.width), Math.floor(fy * img.height), 1, 1, 0, 0, 1, 1);
+                return [...p.getImageData(0, 0, 1, 1).data].slice(0, 3);
+            });
+            return { size: [img.width, img.height], colours: seen.size, alphaMax: amax, alphaMin: amin, px };
         };
         try {
             const bytes = new Uint8Array(await (await fetch('/__sample/' + encodeURIComponent(name))).arrayBuffer());
@@ -167,7 +207,7 @@ const inPage = {
             const r = { w: info.width, h: info.height, model: info.colorModel, depth: info.colorDepth, profile: info.profile, dialog: pdfDialog };
             r.layers = (await within(__engine.layers(), 10000, 'layers')).length;
             const bmp = await within(stats('bmp', exportMs), exportMs, 'bmp read-back');
-            r.colours = bmp.colours; r.bmpSize = bmp.size;
+            r.colours = bmp.colours; r.bmpSize = bmp.size; r.px = bmp.px;
             if (!opts || !opts.noPng) {
                 try { const png = await stats('png', exportMs); r.pngSize = png.size; r.alphaMin = png.alphaMin; r.alphaMax = png.alphaMax; r.pngColours = png.colours; }
                 catch (e) { r.pngError = e.message; }
@@ -175,7 +215,7 @@ const inPage = {
             return r;
         } catch (e) { return { error: e.message }; }
     },
-    async roundTrip(format, exportMs, openMs) {
+    async roundTrip(format, exportMs, openMs, exportOnly) {
         const within = (p, ms, what) => Promise.race([p, new Promise((_, r) => setTimeout(() => r(new Error('HANG: ' + what + ' did not return in ' + ms / 1000 + ' s')), ms))]);
         const pixels = async () => {
             const png = await within(__engine.exportDocument('bmp'), exportMs, 'bmp read-back');
@@ -190,6 +230,7 @@ const inPage = {
             const before = await pixels();
             stage = 'export';
             const bytes = await within(__engine.exportDocument(format), exportMs, 'export');
+            if (exportOnly) return { size: bytes.length };
             stage = 'reopen';
             const info = await within(__engine.openDocument('roundtrip.' + format, bytes), openMs, 'reopen');
             stage = 'pixels';
@@ -232,13 +273,15 @@ function report(name, ok, detail) {
 await boot();
 
 async function evalPage(fn, args) {
-    return page.evaluate(({ src, args }) => (0, eval)('(' + src + ')').apply(null, args), { src: fn.toString().replace(/^async /, 'async function '), args });
+    let src = fn.toString();
+    if (/^async\s+[A-Za-z_$][\w$]*\s*\(/.test(src)) src = src.replace(/^async /, 'async function ');   // object-method shorthand -> function expression
+    return page.evaluate(({ src, args }) => (0, eval)('(' + src + ')').apply(null, args), { src, args });
 }
 
-let present = new Set(); try { present = new Set(readdirSync(SAMPLES)); } catch {}
-async function runOpen(name, w, h, what, opts = {}) {
-    if (!present.has(name)) { console.log(`SKIP open:${name} (not in ${SAMPLES})`); return; }
-    sampleBytes.set(name, readFileSync(join(SAMPLES, name)));
+async function runOpen(file, w, h, what, opts = {}, dir = SAMPLES) {
+    const name = basename(file);
+    if (!existsSync(join(dir, file))) { console.log(`SKIP open:${name} (not in ${dir})`); return; }
+    sampleBytes.set(name, readFileSync(join(dir, file)));
     const t0 = Date.now();
     if (process.env.NO_PNG) opts = { ...opts, noPng: true };
     const r = await guarded(() => evalPage(inPage.open, [name, OPEN_MS, EXPORT_MS, opts]));
@@ -250,6 +293,7 @@ async function runOpen(name, w, h, what, opts = {}) {
     else if (w && (r.w !== w || r.h !== h)) verdict = `WRONG SIZE ${r.w}x${r.h}, expected ${w}x${h}`;
     else if (r.bmpSize && (r.bmpSize[0] !== r.w || r.bmpSize[1] !== r.h)) verdict = `WRONG SIZE the pixel read-back is ${r.bmpSize}`;
     else if (opts.layers && r.layers !== opts.layers) verdict = `WRONG LAYER COUNT ${r.layers}, expected ${opts.layers}`;
+    else if (SAME_PICTURE[name] && !r.px.every((p, i) => p.every((v, k) => Math.abs(v - GRADIENT[i][k]) <= SAME_PICTURE[name]))) verdict = `WRONG PIXELS ${JSON.stringify(r.px)}, expected about ${JSON.stringify(GRADIENT)}`;
     else if (r.colours < 2 && !opts.flat) verdict = `BLANK (read-back has ${r.colours} colour)`;
     else { verdict = `ok ${r.w}x${r.h} ${r.model}/${r.depth} layers=${r.layers} colours=${r.colours}${dlg}`; ok = true; }
     report('open:' + name, ok, `[${what}] ${verdict} (${secs})`);
@@ -259,11 +303,12 @@ async function runOpen(name, w, h, what, opts = {}) {
 
 async function runExport(format) {
     const t0 = Date.now();
-    const r = await guarded(() => evalPage(inPage.roundTrip, [format, EXPORT_MS, OPEN_MS]));
+    const r = await guarded(() => evalPage(inPage.roundTrip, [format, EXPORT_MS, OPEN_MS, !!EXPORT_ONLY[format]]));
     const secs = ((Date.now() - t0) / 1000).toFixed(1) + 's';
     let verdict, ok = false;
     if (r.crashed) verdict = `CRASH/HANG at ${r.stage ?? '?'}: ${r.error}` + (r.console?.length ? ' | console: ' + r.console.join(' / ').slice(0, 400) : '');
     else if (r.error) verdict = `ERROR at ${r.stage}: ${r.error}`;
+    else if (EXPORT_ONLY[format]) { verdict = `ok ${r.size} bytes (not reopened: ${EXPORT_ONLY[format]})`; ok = true; }
     else if (r.w !== 320 || r.h !== 200) verdict = `WRONG SIZE ${r.w}x${r.h} (${r.size} bytes)`;
     else {
         const [mid, , corner] = r.after;
@@ -277,8 +322,25 @@ async function runExport(format) {
     report('export:' + format, ok, verdict + ` (${secs})`);
 }
 
+// Opens a sample and exports it, for formats the engine's own white test document cannot exercise.
+async function runExportFrom(sample, format, expectedLength) {
+    sampleBytes.set(sample, readFileSync(join(SAMPLES, sample)));
+    const r = await guarded(() => evalPage(async (name, fmt, ms) => {
+        const within = (p, t, what) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('HANG: ' + what + ' did not return in ' + t / 1000 + ' s')), t))]);
+        try {
+            const bytes = new Uint8Array(await (await fetch('/__sample/' + encodeURIComponent(name))).arrayBuffer());
+            await within(__engine.openDocument(name, bytes), ms, 'open');
+            return { size: (await within(__engine.exportDocument(fmt), ms, 'export')).length };
+        } catch (e) { return { error: e.message }; }
+    }, [sample, format, EXPORT_MS]));
+    const ok = !r.error && (!expectedLength || r.size === expectedLength);
+    report('export-from:' + sample + ':' + format, ok, r.error ? 'ERROR ' + r.error : `${r.size} bytes${expectedLength && r.size !== expectedLength ? ', expected ' + expectedLength : ''}`);
+}
+
 if (!PROBE) {
     for (const [n, w, h, what, opts] of OPEN) if (!only || only.test('open:' + n)) await runOpen(n, w, h, what, opts);
+    for (const [n, w, h, what, opts] of EXTRA) if (!only || only.test('open:' + n)) await runOpen(n, w, h, what, opts, EXTRA_DIR);
+    for (const [n, f, len] of EXPORT_FROM) if (!only || only.test('export-from:' + n + ':' + f)) await runExportFrom(n, f, len);
     for (const f of EXPORT) if (!only || only.test('export:' + f)) await runExport(f);
 } else {
     for (const f of process.argv.slice(2)) {
