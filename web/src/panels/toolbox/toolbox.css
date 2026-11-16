@@ -5,3 +5,4 @@
 .toolbox .section { display: flex; flex-wrap: wrap; gap: var(--gap); width: 100%; }
 .toolbox .section + .section { padding-top: var(--gap); border-top: 1px solid var(--border); }
 .toolbox .letters { font-size: 12px; font-weight: 600; }
+.toolbox .kicon { width: 22px; height: 22px; background: currentColor; -webkit-mask: var(--kicon) center / contain no-repeat; mask: var(--kicon) center / contain no-repeat; }

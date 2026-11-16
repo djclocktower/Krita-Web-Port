@@ -1,5 +1,5 @@
 // What the page knows about Krita's own tools and windows. Filled by startKrita() from the engine's events.
-import type { Engine, KritaTool, KritaWindow } from '../engine/protocol';
+import type { Engine, KritaDocker, KritaTool, KritaWindow } from '../engine/protocol';
 import { store } from '../shell/store';
 
 export const krita = store({
@@ -7,6 +7,7 @@ export const krita = store({
     active: '',                    // id of Krita's active tool
     page: false,                   // the page's own Pan or Zoom is active instead of a Krita tool
     windows: [] as KritaWindow[],
+    dockers: [] as KritaDocker[],  // Krita's own dockers (empty on engines without them)
     cursor: '',                    // CSS cursor Krita wants over the canvas
 });
 /** Krita's tools drive the canvas (pointer, keys, overlay, viewport). */
@@ -31,11 +32,16 @@ export function startKrita(engine: Engine): () => void {
         const tools = list.filter(t => !HIDDEN.test(t.id));
         krita.set({ tools, active: list.find(t => t.active)?.id ?? krita.get().active });
     }, () => {});
+    const syncDockers = () => engine.kritaDockers().then(dockers => krita.set({ dockers }), () => {});
     const offs = [
-        engine.on('documentChanged', () => { void sync(); }),   // the real engine may only list tools once a document is open
+        engine.on('documentChanged', () => { void sync(); void syncDockers(); }),   // the real engine may only list tools once a document is open
         engine.on('kritaToolChanged', id => krita.set({ active: id, page: false })),
-        engine.on('kritaWindow', w => krita.set({ windows: upsert(krita.get().windows, w) })),
-        engine.on('kritaWindowClosed', id => { pictures.delete(id); krita.set({ windows: krita.get().windows.filter(w => w.id !== id) }); }),
+        engine.on('kritaWindow', w => { krita.set({ windows: upsert(krita.get().windows, w) }); if (w.kind === 'docker') void syncDockers(); }),
+        engine.on('kritaWindowClosed', id => {
+            const was = krita.get().windows.find(w => w.id === id);
+            pictures.delete(id); if (was?.kind === 'docker') void syncDockers();
+            krita.set({ windows: krita.get().windows.filter(w => w.id !== id) });
+        }),
         engine.on('kritaWindowPaint', (id, w, h, px) => {
             const img = new ImageData(new Uint8ClampedArray(px), w, h);   // px is only valid during this call
             pictures.set(id, img);
@@ -43,7 +49,7 @@ export function startKrita(engine: Engine): () => void {
         }),
         engine.on('kritaCursor', cursor => krita.set({ cursor })),
     ];
-    void sync();
+    void sync(); void syncDockers();
     // events that arrived while this list was on its way are newer than it
     engine.kritaWindows().then(ws => krita.set({ windows: ws.reduce((l, w) => l.some(x => x.id === w.id) ? l : upsert(l, w), krita.get().windows) }), () => {});
     return () => { offs.forEach(f => f()); current = null; };

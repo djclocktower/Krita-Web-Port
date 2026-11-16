@@ -1,6 +1,7 @@
 import { aids, rulersOn } from '../../canvas/aids';
 import { isCanvasOnly, toggleCanvasOnly } from '../../canvas/canvasOnly';
 import type { Command, Panel } from '../../panels';
+import { kritaToolIcon } from '../../krita/icons';
 import { krita, kritaEngine } from '../../krita/state';
 import { report } from '../../shell/state';
 import { useStore } from '../../shell/store';
@@ -8,16 +9,11 @@ import { setActiveTool, tools } from '../../tools';
 import { useActiveTool } from '../../tools/shared';
 import './toolbox.css';
 
-// Icons of the page's own tools reused for the Krita tools they match (by the end of Krita's tool id); the rest show letters.
-const ICON_OF: Record<string, string> = {
-    KisToolBrush: 'brush', KisToolSelectRectangular: 'selectRect', KisToolSelectElliptical: 'selectEllipse', KisToolSelectPolygonal: 'selectPolygon',
-    KisToolSelectContiguous: 'selectSimilar', KisToolFill: 'fill', KisToolGradient: 'gradient', KisToolCrop: 'crop',
-};
 const letters = (name: string) => name.split(/[\s/&]+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
 
 function KritaToolbox() {
     const k = useStore(krita), page = useActiveTool();
-    const sections = [...new Set(k.tools.map(t => t.section))];
+    const sections = [...new Set(k.tools.map(t => t.section))].sort();   // Krita's sections start with a rank ("0 Krita/Shape")
     const pick = (id: string) => {
         krita.set({ page: false, active: id });
         kritaEngine()?.setKritaTool(id).catch(report);
@@ -27,11 +23,11 @@ function KritaToolbox() {
             {sections.map(s => (
                 <div class="section" role="group" aria-label={s || 'Tools'} key={s}>
                     {k.tools.filter(t => t.section === s).map(t => {
-                        const own = tools.find(x => x.id === ICON_OF[t.id.split('/').pop()!]);
+                        const icon = kritaToolIcon(t.id);
                         return (
                             <button key={t.id} type="button" data-krita-tool={t.id} aria-label={t.name} aria-pressed={!k.page && k.active === t.id}
                                 aria-keyshortcuts={t.shortcut || undefined} title={t.shortcut ? `${t.name} (${t.shortcut})` : t.name} onClick={() => pick(t.id)}
-                                {...(own ? { dangerouslySetInnerHTML: { __html: own.icon } } : { children: <span class="letters" aria-hidden="true">{letters(t.name)}</span> })} />
+                                {...(icon ? { children: <span class="kicon" aria-hidden="true" style={`--kicon:url(${icon})`} /> } : { children: <span class="letters" aria-hidden="true">{letters(t.name)}</span> })} />
                         );
                     })}
                 </div>
