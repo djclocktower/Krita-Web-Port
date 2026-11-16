@@ -136,6 +136,47 @@ export interface KritaPointer {
     down?: boolean;
     pressure?: number; xTilt?: number; yTilt?: number; rotation?: number;
     shift?: boolean; ctrl?: boolean; alt?: boolean;
+    /** Default 'left'. Right opens Krita's pop-up palette or a tool's context menu (as a Krita window). */
+    button?: 'left' | 'right' | 'middle';
+}
+
+/** How the page is showing the image, so Krita's tools draw their handles and guides to match. */
+export interface KritaViewport {
+    /** Canvas element size in CSS pixels. */
+    width: number; height: number;
+    /** Screen pixels per image pixel. */
+    zoom: number;
+    /** Where image pixel (0,0) lands in the canvas element, in CSS pixels (before rotation). */
+    offsetX: number; offsetY: number;
+    rotation?: number; mirror?: boolean;
+}
+
+/**
+ * One of Krita's own windows: a dialog, a pop-up (menu, combo list, pop-up palette) or the active
+ * tool's option panel. The engine paints them; the page shows the picture and forwards input.
+ */
+export interface KritaWindow {
+    id: number;
+    title: string;
+    kind: 'dialog' | 'popup' | 'toolOptions';
+    /** While a modal window is open, input belongs to it alone. */
+    modal: boolean;
+    /** Position on Krita's virtual screen (pop-ups are placed relative to their parent window's x/y). */
+    x: number; y: number; width: number; height: number;
+    parent?: number;
+}
+export interface KritaWindowInput {
+    type: 'press' | 'move' | 'release' | 'wheel' | 'keydown' | 'keyup';
+    /** Pointer position inside the window, in its pixels. */
+    x?: number; y?: number;
+    button?: 'left' | 'right' | 'middle';
+    /** For 'move': whether a button is held. */
+    down?: boolean;
+    /** Wheel movement in pixels (positive = scroll down). */
+    deltaY?: number;
+    /** KeyboardEvent.key and the text it types, if any. */
+    key?: string; text?: string;
+    shift?: boolean; ctrl?: boolean; alt?: boolean;
 }
 
 export interface AnimationState {
@@ -162,6 +203,20 @@ export interface EngineEvents {
     historyChanged: (state: HistoryState) => void;
     brushChanged: (state: BrushState) => void;
     colorChanged: (foreground: Color, background: Color) => void;
+    /** Krita switched tools (by request, shortcut or action). */
+    kritaToolChanged: (id: string) => void;
+    /**
+     * What the active Krita tool draws over the image (handles, outlines, guides, assistants), as
+     * straight-alpha RGBA8 the size of the last kritaViewport(), valid only during the call. `pixels` is null when there is nothing to draw.
+     */
+    kritaOverlay: (width: number, height: number, pixels: Uint8Array | null) => void;
+    /** A Krita window opened, moved, resized or changed title. */
+    kritaWindow: (window: KritaWindow) => void;
+    /** New picture of a Krita window: straight-alpha RGBA8, width * height * 4 bytes, valid only during the call. */
+    kritaWindowPaint: (id: number, width: number, height: number, pixels: Uint8Array) => void;
+    kritaWindowClosed: (id: number) => void;
+    /** Krita's cursor over the canvas or a Krita window changed: a CSS cursor name. */
+    kritaCursor: (cursor: string) => void;
 }
 
 export interface Engine {
@@ -286,4 +341,16 @@ export interface Engine {
     setKritaTool(id: string): Promise<void>;
     /** Not awaited: order is preserved. Other requests are held while a press is down, like strokes. */
     kritaPointer(event: KritaPointer): void;
+    /** A key for Krita's canvas (Enter/Escape to finish or cancel a tool, modifiers, Krita shortcuts). Not awaited. */
+    kritaKey(event: { type: 'keydown' | 'keyup'; key: string; text?: string; shift?: boolean; ctrl?: boolean; alt?: boolean }): void;
+    /** Call whenever zoom, pan, rotation or canvas size changes while a Krita tool is active. Not awaited. */
+    kritaViewport(viewport: KritaViewport): void;
+    /** Krita windows currently open (the tool option panel is always one of them once a document is open). */
+    kritaWindows(): Promise<KritaWindow[]>;
+    /** Not awaited: order is preserved. */
+    kritaWindowInput(id: number, event: KritaWindowInput): void;
+    /** Asks the window to close, as its title-bar X would (the engine answers with kritaWindowClosed). */
+    closeKritaWindow(id: number): Promise<void>;
+    /** Gives a window the size the page has room for (the tool option panel follows its dock). */
+    resizeKritaWindow(id: number, width: number, height: number): Promise<void>;
 }

@@ -59,6 +59,12 @@ export async function createWasmEngine(): Promise<Engine> {
             case 'selectionChanged': emit('selectionChanged', msg.bounds ?? null); break;
             case 'animationChanged': emit('animationChanged', msg.state); break;
             case 'keyframesChanged': emit('keyframesChanged', msg.id); break;
+            case 'kritaToolChanged': emit('kritaToolChanged', msg.id); break;
+            case 'kritaOverlay': emit('kritaOverlay', msg.width, msg.height, bytes ?? null); break;
+            case 'kritaWindow': emit('kritaWindow', msg.window); break;
+            case 'kritaWindowPaint': if (bytes) emit('kritaWindowPaint', msg.id, msg.width, msg.height, bytes); break;
+            case 'kritaWindowClosed': emit('kritaWindowClosed', msg.id); break;
+            case 'kritaCursor': emit('kritaCursor', msg.cursor); break;
             case 'error': console.error(`Engine error in ${String(msg.method)}: ${String(msg.message)}`); break;
         }
     }
@@ -210,5 +216,11 @@ export async function createWasmEngine(): Promise<Engine> {
         kritaTools: () => call('krita.tools'),
         setKritaTool: id => call('krita.tool', { id }),
         kritaPointer: event => fire('krita.pointer', event),
+        kritaKey: event => fire('krita.key', event),
+        kritaViewport: viewport => fire('krita.viewport', viewport),
+        kritaWindows: () => call('krita.windows'),
+        kritaWindowInput: (id, event) => fire('krita.windowInput', { id, ...event }),
+        closeKritaWindow: id => call('krita.closeWindow', { id }),
+        resizeKritaWindow: (id, width, height) => call('krita.resizeWindow', { id, width, height }),
     };
 }

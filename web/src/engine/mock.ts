@@ -376,6 +376,9 @@ export function createMockEngine(): Engine {
         async triggerKritaAction(name) { throw new Error(`"${name}" needs Krita's engine; the mock engine has no Krita actions`); },
         async setKritaTool(id) { throw new Error(`"${id}" needs Krita's engine; the mock engine has no Krita tools`); },
         kritaPointer() { /* nothing to drive */ },
+        kritaKey() {}, kritaViewport() {}, kritaWindowInput() {},
+        async kritaWindows() { return []; },
+        async closeKritaWindow() {}, async resizeKritaWindow() {},
     };
     return engine;
 }
