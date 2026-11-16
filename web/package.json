@@ -6,7 +6,7 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && rm -rf dist/engine-dev",
     "check": "tsc --noEmit",
     "test": "node --test tests/"
   },
