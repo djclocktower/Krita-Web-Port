@@ -105,7 +105,9 @@ s_kguiaddons()    { kf kguiaddons -DWITH_WAYLAND=OFF -DWITH_X11=OFF -DUSE_DBUS=O
 s_kcolorscheme()  { kf kcolorscheme; }
 
 s_exiv2() { fetch_git exiv2 https://github.com/Exiv2/exiv2.git v0.28.3
-            cm exiv2 -DEXIV2_BUILD_SAMPLES=OFF -DEXIV2_BUILD_EXIV2_COMMAND=OFF -DEXIV2_ENABLE_INIH=OFF -DEXIV2_ENABLE_BROTLI=OFF \
+            # -fexceptions: Exiv2 and its bundled XMP toolkit throw and catch internally. Without it the
+            # catch blocks are compiled out and a routine internal exception aborts every save of a document with metadata.
+            cm exiv2 -DCMAKE_CXX_FLAGS="$KW_CFLAGS -fexceptions" -DEXIV2_BUILD_SAMPLES=OFF -DEXIV2_BUILD_EXIV2_COMMAND=OFF -DEXIV2_ENABLE_INIH=OFF -DEXIV2_ENABLE_BROTLI=OFF \
                -DEXIV2_ENABLE_NLS=OFF -DEXIV2_ENABLE_WEBREADY=OFF -DEXIV2_ENABLE_XMP=ON -DEXIV2_ENABLE_BMFF=OFF; }
 mes() { # name [meson options...]   (Meson project)
     local n=$1; shift; rm -rf "$KW/build/$n"
