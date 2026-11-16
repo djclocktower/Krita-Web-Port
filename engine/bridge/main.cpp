@@ -36,6 +36,7 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QDockWidget>
+#include <cxxabi.h>
 #include <KisSynchronizedConnection.h>
 #include <QDir>
 #include <KisResourceLoaderRegistry.h>
@@ -1772,7 +1773,8 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
             reply["error"] = QString::fromUtf8(e.what());
         } catch (...) {
             // Anything else (a library throwing its own type) must still answer, or the page waits forever.
-            reply["error"] = QString("The engine hit an unexpected error in %1").arg(m);
+            const std::type_info *type = abi::__cxa_current_exception_type();
+            reply["error"] = QString("The engine hit an unexpected error in %1 (%2)").arg(m, type ? type->name() : "unknown type");
         }
         if (id) post(reply, out);                  // id 0 = fire-and-forget (stroke samples)
         else if (reply.contains("error")) emitEvent("error", {{"message", reply["error"]}, {"method", m}});
