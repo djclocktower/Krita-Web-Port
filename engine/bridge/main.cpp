@@ -1770,7 +1770,7 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
             reply["error"] = f.message;
         } catch (const std::exception &e) {
             reply["error"] = QString::fromUtf8(e.what());
-         catch (...) {
+        } catch (...) {
             // Anything else (a library throwing its own type) must still answer, or the page waits forever.
             reply["error"] = QString("The engine hit an unexpected error in %1").arg(m);
         }
