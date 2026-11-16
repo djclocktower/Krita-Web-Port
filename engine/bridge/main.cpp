@@ -487,17 +487,22 @@ public:
     }
 
 private:
-    /// Like KisImage::waitForDone(), but without asking the running tool to finish: lets queued work
-    /// drain and returns even if a tool (transform, move) still holds its stroke open.
-    void waitQuiet()
+    /// Like KisImage::waitForDone(), but without asking a tool that keeps its stroke open (transform,
+    /// move) to finish. Returns false if such a tool still has the image busy.
+    // ponytail: goes by the active tool's id and a 250 ms grace period; asking Krita's stroke queue
+    // whether a stroke is open would be exact, but that needs a new accessor on KisImage.
+    bool waitQuiet()
     {
         KisImageSP img = image();
+        const QString tool = KoToolManager::instance()->activeToolId();
+        if (tool != "KisToolTransform" && tool != "KritaTransform/KisToolMove") { img->waitForDone(); return true; }
         QElapsedTimer t;
         t.start();
-        while (!img->isIdle() && (img->hasUpdatesRunning() || t.elapsed() < 40) && t.elapsed() < 10000) {
+        while (!img->isIdle() && t.elapsed() < 250) {
             QCoreApplication::processEvents();
-            QThread::msleep(1);
+            QThread::msleep(2);
         }
+        return img->isIdle();
     }
     KisView *kritaView()
     {
@@ -918,10 +923,9 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         const QString mime = mimes.contains(format) ? QString::fromLatin1(mimes.value(format)) : KisMimeDatabase::mimeTypeForSuffix(format);
         if (mime.isEmpty()) fail("Unsupported format: " + format);
         if (!KisImportExportManager::supportedMimeTypes(KisImportExportManager::Export).contains(mime)) fail("This build of the engine cannot write ." + format + " files");
-        waitQuiet();
         // A tool that keeps its stroke open (transform, move) has the image mid-change; saving now would
         // store that half-way state, and waiting would force the tool to finish. Krita postpones autosave the same way.
-        if (!image()->isIdle()) fail("The image is busy with a tool. Finish or cancel it, then save again.");
+        if (!waitQuiet()) fail("The image is busy with a tool. Finish or cancel it, then save again.");
         const QString path = "/tmp/export." + format;
         if (!doc->exportDocumentSync(path, mime.toLatin1())) fail(doc->errorMessage().isEmpty() ? "Export failed" : doc->errorMessage());
         QFile f(path);
