@@ -110,6 +110,74 @@ index 2dfcd10..a6c48dd 100644
  
        list(FIND _x86_aliases "${_processor}" _has_x86)
        list(FIND _amd64_aliases "${_processor}" _has_amd64)
+diff --git a/libs/global/KisBezierPatchParamSpaceUtils.h b/libs/global/KisBezierPatchParamSpaceUtils.h
+index 9321631..7527218 100644
+--- a/libs/global/KisBezierPatchParamSpaceUtils.h
++++ b/libs/global/KisBezierPatchParamSpaceUtils.h
+@@ -93,7 +93,7 @@ struct Range
+     }
+ };
+ 
+-QDebug operator<<(QDebug dbg, const Range &r)
++inline QDebug operator<<(QDebug dbg, const Range &r)
+ {
+     dbg.nospace() << "Range(" << r.start << ", " << r.end << ")";
+ 
+diff --git a/libs/image/kis_filter_weights_applicator.h b/libs/image/kis_filter_weights_applicator.h
+index c562543..1119bd0 100644
+--- a/libs/image/kis_filter_weights_applicator.h
++++ b/libs/image/kis_filter_weights_applicator.h
+@@ -19,13 +19,13 @@
+ namespace tmp {
+     template <class iter> iter createIterator(KisPaintDeviceSP dev, qint32 start, qint32 lineNum, qint32 len);
+ 
+-    template <> KisHLineIteratorSP createIterator <KisHLineIteratorSP>
++    template <> inline KisHLineIteratorSP createIterator <KisHLineIteratorSP>
+     (KisPaintDeviceSP dev, qint32 start, qint32 lineNum, qint32 len)
+     {
+         return dev->createHLineIteratorNG(start, lineNum, len);
+     }
+ 
+-    template <> KisVLineIteratorSP createIterator <KisVLineIteratorSP>
++    template <> inline KisVLineIteratorSP createIterator <KisVLineIteratorSP>
+     (KisPaintDeviceSP dev, qint32 start, qint32 lineNum, qint32 len)
+     {
+         return dev->createVLineIteratorNG(lineNum, start, len);
+diff --git a/libs/image/kis_fixed_point_maths.h b/libs/image/kis_fixed_point_maths.h
+index 1b26f02..c29abb6 100644
+--- a/libs/image/kis_fixed_point_maths.h
++++ b/libs/image/kis_fixed_point_maths.h
+@@ -126,7 +126,7 @@ inline KisFixedPoint operator-(KisFixedPoint x) {
+     return x;
+ }
+ 
+-QDebug operator<<(QDebug dbg, const KisFixedPoint &v) {
++inline QDebug operator<<(QDebug dbg, const KisFixedPoint &v) {
+     dbg.nospace() << v.toFloat() << " (d = " << v.d << ")";
+     return dbg.space();
+ }
+diff --git a/libs/image/lazybrush/kis_lazy_fill_graph.h b/libs/image/lazybrush/kis_lazy_fill_graph.h
+index d63161d..0a5fbe0 100644
+--- a/libs/image/lazybrush/kis_lazy_fill_graph.h
++++ b/libs/image/lazybrush/kis_lazy_fill_graph.h
+@@ -996,7 +996,7 @@ namespace boost {
+     };
+ }
+ 
+-QDebug operator<<(QDebug dbg, const KisLazyFillGraph::vertex_descriptor &v) {
++inline QDebug operator<<(QDebug dbg, const KisLazyFillGraph::vertex_descriptor &v) {
+     const QString type =
+         v.type == KisLazyFillGraph::vertex_descriptor::NORMAL ? "normal" :
+         v.type == KisLazyFillGraph::vertex_descriptor::LABEL_A ? "label_A" :
+@@ -1006,7 +1006,7 @@ QDebug operator<<(QDebug dbg, const KisLazyFillGraph::vertex_descriptor &v) {
+     return dbg.space();
+ }
+ 
+-QDebug operator<<(QDebug dbg, const KisLazyFillGraph::edge_descriptor &e) {
++inline QDebug operator<<(QDebug dbg, const KisLazyFillGraph::edge_descriptor &e) {
+     KisLazyFillGraph::vertex_descriptor src = e.first;
+     KisLazyFillGraph::vertex_descriptor dst = e.second;
+ 
 diff --git a/libs/koplugin/KoJsonTrader.cpp b/libs/koplugin/KoJsonTrader.cpp
 index c197f52..ad15e2e 100644
 --- a/libs/koplugin/KoJsonTrader.cpp
@@ -235,6 +303,37 @@ index 409f0a5..eef6f7a 100644
          QMutex *m_mutex = 0;
      };
  
+diff --git a/libs/pigment/KoColorConversionSystem_p.h b/libs/pigment/KoColorConversionSystem_p.h
+index 0839390..53443a0 100644
+--- a/libs/pigment/KoColorConversionSystem_p.h
++++ b/libs/pigment/KoColorConversionSystem_p.h
+@@ -111,7 +111,7 @@ struct KoColorConversionSystem::Node : boost::equality_comparable<KoColorConvers
+ 
+ Q_DECLARE_TYPEINFO(KoColorConversionSystem::Node, Q_MOVABLE_TYPE);
+ 
+-QDebug operator<<(QDebug dbg, const KoColorConversionSystem::Node &node)
++inline QDebug operator<<(QDebug dbg, const KoColorConversionSystem::Node &node)
+ {
+     dbg.nospace() << "Node(" << node.modelId << ", " << node.depthId << ", " << node.profileName << ")";
+     return dbg.space();
+@@ -177,7 +177,7 @@ struct KoColorConversionSystem::NodeKey
+ };
+ Q_DECLARE_TYPEINFO(KoColorConversionSystem::NodeKey, Q_MOVABLE_TYPE);
+ 
+-QDebug operator<<(QDebug dbg, const KoColorConversionSystem::NodeKey &key)
++inline QDebug operator<<(QDebug dbg, const KoColorConversionSystem::NodeKey &key)
+ {
+     dbg.nospace() << "NodeKey(" << key.modelId << ", " << key.depthId << ", " << key.profileName << ")";
+     return dbg.space();
+@@ -316,7 +316,7 @@ inline QDebug operator<<(QDebug dbg, const KoColorConversionSystem::Path &path)
+ typedef QHash<KoColorConversionSystem::Node*, KoColorConversionSystem::Path > Node2PathHash;
+ 
+ 
+-uint qHash(const KoColorConversionSystem::NodeKey &key)
++inline uint qHash(const KoColorConversionSystem::NodeKey &key)
+ {
+     return qHash(key.modelId) + qHash(key.depthId);
+ }
 diff --git a/libs/ui/CMakeLists.txt b/libs/ui/CMakeLists.txt
 index 767bc9b..c914f69 100644
 --- a/libs/ui/CMakeLists.txt
@@ -711,6 +810,19 @@ index b867552..f1d222c 100644
  {
      QString msg("%1: %2");
  
+diff --git a/plugins/metadata/xmp/kis_xmp_plugin.cpp b/plugins/metadata/xmp/kis_xmp_plugin.cpp
+index bb85466..f6e6e41 100644
+--- a/plugins/metadata/xmp/kis_xmp_plugin.cpp
++++ b/plugins/metadata/xmp/kis_xmp_plugin.cpp
+@@ -14,7 +14,7 @@
+ 
+ #include "kis_xmp_io.h"
+ 
+-K_PLUGIN_FACTORY_WITH_JSON(KisIptcIOPluginFactory, "kritaxmp.json", registerPlugin<KisXmpPlugin>();)
++K_PLUGIN_FACTORY_WITH_JSON(KisXmpIOPluginFactory, "kritaxmp.json", registerPlugin<KisXmpPlugin>();)
+ 
+ KisXmpPlugin::KisXmpPlugin(QObject *parent, const QVariantList &)
+     : QObject(parent)
 diff --git a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h b/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h
 index e69dea2..9b13c0e 100644
 --- a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h

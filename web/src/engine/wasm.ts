@@ -60,7 +60,7 @@ export async function createWasmEngine(): Promise<Engine> {
             case 'animationChanged': emit('animationChanged', msg.state); break;
             case 'keyframesChanged': emit('keyframesChanged', msg.id); break;
             case 'kritaToolChanged': emit('kritaToolChanged', msg.id); break;
-            case 'kritaOverlay': emit('kritaOverlay', msg.width, msg.height, bytes ?? null); break;
+            case 'kritaOverlay': emit('kritaOverlay', msg.rect, bytes ?? null); break;
             case 'kritaWindow': emit('kritaWindow', msg.window); break;
             case 'kritaWindowPaint': if (bytes) emit('kritaWindowPaint', msg.id, msg.width, msg.height, bytes); break;
             case 'kritaWindowClosed': emit('kritaWindowClosed', msg.id); break;

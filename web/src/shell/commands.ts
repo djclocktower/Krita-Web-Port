@@ -2,6 +2,8 @@ import { fit, resetRotation, rotateBy, toggleMirror, zoomBy, zoomTo } from '../c
 import type { Engine } from '../engine/protocol';
 import { panels, type Command } from '../panels';
 import { download } from '../dialogs/download';
+import { openActionSearch } from '../krita/ActionSearch';
+import { krita } from '../krita/state';
 import { getSetting } from '../settings/store';
 import { app, report, type DialogId } from './state';
 import { applyWorkspace, BUILT_IN } from './workspaces';
@@ -76,6 +78,7 @@ export const shellCommands: Command[] = [
     // Window › Workspace: the menu union has no Window, so these live under Settings.
     ...Object.keys(BUILT_IN).map(n => ({ id: `workspace.${n.toLowerCase()}`, title: `Workspace: ${n}`, menu: 'Settings' as const, run: () => applyWorkspace(n) })),
     { id: 'workspace.manage', title: 'Workspace: Save and Manage…', menu: 'Settings', run: open('workspaces') },
+    { id: 'help.actions', title: 'Search Krita Actions…', menu: 'Settings', shortcut: 'Ctrl+Enter', run: openActionSearch },   // Help is not in the menu union either
     { id: 'help.about', title: 'About Krita Web…', menu: 'Settings', run: open('about') },   // Help is not in the menu union either
 ];
 
@@ -86,6 +89,7 @@ export function isEnabled(c: Command): boolean {
     const { doc, history, sel } = app.get();
     const needsDoc = ['Edit', 'Image', 'Layer', 'Select', 'Filter'].includes(c.menu) || (c.menu === 'File' && !['file.new', 'file.open', 'file.openRecent'].includes(c.id));
     if (needsDoc && !doc) return false;
+    if (c.id === 'help.actions') return krita.get().tools.length > 0;   // only Krita's engine has actions
     return c.id === 'edit.undo' ? history.canUndo : c.id === 'edit.redo' ? history.canRedo : c.id === 'image.trim' ? !!sel : true;
 }
 

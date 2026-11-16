@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'preact/hooks';
-import type { DocumentInfo, Engine } from '../engine/protocol';
+import type { DocumentInfo, Engine, Rect } from '../engine/protocol';
 import { attachPointer, nav, updateCursor } from '../input/pointer';
-import { activeTool, onActiveToolChange, type ToolContext } from '../tools';
+import { krita, kritaOn } from '../krita/state';
+import { activeTool, isBrush, onActiveToolChange, type ToolContext } from '../tools';
 import { aids, drawGrid, drawGuides, drawOutline, drawRulers, live, setDocName } from './aids';
 import { toggleCanvasOnly } from './canvasOnly';
 import { fit, matrix, setViewport, toScreen, view } from './view';
@@ -33,8 +34,9 @@ export function Canvas({ engine }: { engine: Engine }) {
     const box = useRef<HTMLDivElement>(null);
     const cv = useRef<HTMLCanvasElement>(null);
     const ov = useRef<HTMLCanvasElement>(null);
+    const kov = useRef<HTMLCanvasElement>(null);
     useEffect(() => {
-        const el = cv.current!, overlay = ov.current!, g = overlay.getContext('2d')!;
+        const el = cv.current!, overlay = ov.current!, g = overlay.getContext('2d')!, kg = kov.current!.getContext('2d')!;
         // preserveDrawingBuffer so the tests (and screenshots) can read the canvas back
         const gl = el.getContext('webgl2', { preserveDrawingBuffer: true, antialias: false });
         if (!gl) { box.current!.textContent = 'WebGL2 is not available in this browser.'; return; }
@@ -118,8 +120,8 @@ export function Canvas({ engine }: { engine: Engine }) {
                 g.setLineDash([]);
                 if (!still) ctx.requestOverlay();   // animate only while something is selected
             }
-            g.save(); activeTool().drawOverlay?.(ctx, g); g.restore();
-            drawOutline(g, activeTool().id === 'brush' && !nav.space); drawRulers(g);
+            if (!kritaOn()) { g.save(); activeTool().drawOverlay?.(ctx, g); g.restore(); }
+            drawOutline(g, isBrush() && !nav.space); drawRulers(g);
         }
         const setOutline = (next: number[][]) => { outline = next; ants = null; ctx.requestOverlay(); };
         const loadOutline = () => {
@@ -130,7 +132,36 @@ export function Canvas({ engine }: { engine: Engine }) {
         const toolChanged = () => { tool.onCancel?.(ctx); tool = activeTool(); updateCursor(el); ctx.requestOverlay(); };
         updateCursor(el);
 
+        // Krita's tool overlay: a picture the size of the canvas element, drawn under the page's own aids.
+        const kritaOverlay = (r: Rect, px: Uint8Array | null) => {
+            const k = kov.current!, { w, h } = view.get();
+            if (k.width !== w || k.height !== h) { k.width = w; k.height = h; } else kg.clearRect(0, 0, w, h);   // each event replaces the whole overlay
+            if (!px) return;
+            // ponytail: the picture is in CSS pixels and is stretched over the element, so it is soft on high-density screens
+            kg.putImageData(new ImageData(new Uint8ClampedArray(px), r.width, r.height), r.x, r.y);
+        };
+        // One kritaViewport per animation frame, and only when something in it changed.
+        let vraf = 0, sent = '';
+        const sendViewport = () => {
+            vraf = 0;
+            const s = view.get();
+            if (!kritaOn() || !s.w || !s.h) return;
+            const key = [s.w, s.h, s.scale, s.panX, s.panY, s.rot, s.mirror, s.docW, s.docH].join();
+            if (key === sent) return;
+            sent = key;
+            const o = toScreen(0, 0);   // where image pixel (0,0) lands, after rotation and mirroring
+            engine.kritaViewport({ width: s.w, height: s.h, zoom: s.scale, offsetX: o.x, offsetY: o.y, rotation: s.rot * 180 / Math.PI, mirror: s.mirror });
+        };
+        const viewportSoon = () => { vraf ||= requestAnimationFrame(sendViewport); };
+        const kritaChanged = () => {
+            if (!kritaOn()) { kritaOverlay({ x: 0, y: 0, width: 0, height: 0 }, null); sent = ''; } else viewportSoon();
+            updateCursor(el); ctx.requestOverlay();
+        };
+
         const offs = [
+            krita.sub(kritaChanged),
+            view.sub(viewportSoon),
+            engine.on('kritaOverlay', (r, px) => { if (kritaOn() || !px) kritaOverlay(r, px); }),
             engine.on('selectionChanged', b => { if (b) loadOutline(); else { outlineToken++; setOutline([]); } }),
             view.sub(() => {   // the pointer moves often; only a change of the transform invalidates the ants path
                 const s = view.get(), k = [s.scale, s.rot, s.mirror, s.panX, s.panY, s.w, s.h, s.docW, s.docH].join();
@@ -151,12 +182,14 @@ export function Canvas({ engine }: { engine: Engine }) {
         ];
         const ro = new ResizeObserver(() => { const r = box.current!.getBoundingClientRect(); setViewport(r.width, r.height); });
         ro.observe(box.current!);
+        viewportSoon();
         void engine.documentInfo().then(setDoc);
         void engine.brushState().then(b => { if (!live.resizing) live.size = b.size; ctx.requestOverlay(); }, () => {});
         loadOutline();
-        return () => { offs.forEach(f => f()); ro.disconnect(); cancelAnimationFrame(raf); cancelAnimationFrame(oraf); };
+        return () => { offs.forEach(f => f()); ro.disconnect(); cancelAnimationFrame(raf); cancelAnimationFrame(oraf); cancelAnimationFrame(vraf); };
     }, [engine]);
     return <div class="stage" ref={box}><canvas class="view" ref={cv} aria-label="Canvas" />
+        <canvas class="krita-overlay" ref={kov} aria-hidden="true" style="pointer-events: none" />
         <canvas class="overlay" ref={ov} aria-hidden="true" style="pointer-events: none" />
         <button type="button" class="canvas-only-exit" onClick={toggleCanvasOnly}>Exit canvas only</button></div>;
 }

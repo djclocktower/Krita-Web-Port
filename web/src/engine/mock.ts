@@ -5,7 +5,7 @@ import type {
     BlendMode, BrushState, Color, ConfigDescription, DocumentInfo, Engine, EngineEvents, ExportFormat, FilterInfo,
     HistoryState, LayerNode, NodeId, NodeType, Preset, PropertyValue, Rect, StrokePoint,
 } from './protocol';
-import { createMockExtra } from './mock-extra';
+import { createMockExtra, createMockKrita } from './mock-extra';
 
 export type Pixels = Uint8ClampedArray;
 export interface MockNode extends LayerNode { children: MockNode[]; pixels?: Pixels; config?: Record<string, PropertyValue> }
@@ -380,5 +380,10 @@ export function createMockEngine(): Engine {
         async kritaWindows() { return []; },
         async closeKritaWindow() {}, async resizeKritaWindow() {},
     };
+    // ?kritaMock=1 adds a fake of Krita's own tools and windows (the log is for tests: __engine.__kritaLog)
+    if (typeof location !== 'undefined' && new URLSearchParams(location.search).has('kritaMock')) {
+        const k = createMockKrita({ doc, record, changed, emit, find, walk, tree: () => tree, setTree: t => { tree = t; }, activeId: () => activeId, colors: () => ({ foreground, background }), composite });
+        Object.assign(engine, k.methods, { __kritaLog: k.log });
+    }
     return engine;
 }

@@ -2,6 +2,8 @@ import type { Panel } from '../../panels';
 import type { Engine } from '../../engine/protocol';
 import { aids } from '../../canvas/aids';
 import { useStore } from '../../shell/store';
+import { krita } from '../../krita/state';
+import { KritaToolOptions } from '../../krita/ToolOptionsView';
 import { useActiveTool } from '../../tools/shared';
 import './toolOptions.css';
 
@@ -27,7 +29,16 @@ function GridOptions() {
 }
 
 function ToolOptions({ engine }: { engine: Engine }) {
-    const tool = useActiveTool(), Options = tool.options;
+    const tool = useActiveTool(), Options = tool.options, k = useStore(krita);
+    if (k.tools.length && !k.page) {   // Krita's tool is active: show its own option panel
+        const w = k.windows.find(x => x.kind === 'toolOptions');
+        return (
+            <div class="tool-options" aria-label="Krita tool options" role="group">
+                {w ? <KritaToolOptions engine={engine} w={w} /> : <p class="hint">No tool options yet.</p>}
+                <GridOptions />
+            </div>
+        );
+    }
     return (
         <div class="tool-options" aria-label={`${tool.title} options`} role="group">
             {Options ? <Options engine={engine} /> : <p class="hint">{tool.title} has no options.</p>}

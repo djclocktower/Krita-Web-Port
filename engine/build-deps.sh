@@ -12,6 +12,7 @@ fetch_git() { # name url ref; applies patches/<name>.patch when present
     [ -d "$KW/src/$1" ] && return 0
     git -c advice.detachedHead=false clone -q --depth 1 --branch "$3" "$2" "$KW/src/$1" || return 1
     [ ! -f "$ROOT/patches/$1.patch" ] || git -C "$KW/src/$1" apply "$ROOT/patches/$1.patch"
+    [ ! -f "$ROOT/patches/dep-$1.patch" ] || git -C "$KW/src/$1" apply "$ROOT/patches/dep-$1.patch"
 }
 fetch_tar() { # name url
     if [ ! -d "$KW/src/$1" ]; then
@@ -156,7 +157,36 @@ s_openexr() { fetch_git openexr https://github.com/AcademySoftwareFoundation/ope
                  -DOPENEXR_INSTALL_TOOLS=OFF -DOPENEXR_INSTALL_PKG_CONFIG=ON -DOPENEXR_ENABLE_THREADING=ON -DOPENEXR_BUILD_PYTHON=OFF \
                  -DOPENEXR_FORCE_INTERNAL_IMATH=OFF -DOPENEXR_FORCE_INTERNAL_DEFLATE=OFF -DBUILD_TESTING=OFF -DOPENEXR_IS_SUBPROJECT=OFF; }
 
-ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr"
+# --- plugin libraries: MyPaint, JPEG XL, HEIF/AVIF, RAW, JPEG 2000 (versions follow krita-deps-management ext_*) ---
+# Built without -msimd128 and without hand-written asm; each step overrides KW_CFLAGS for itself.
+s_json-c() { local KW_CFLAGS="-pthread -fexceptions"
+             fetch_git json-c https://github.com/json-c/json-c.git json-c-0.18-20240915
+             cm json-c -DDISABLE_WERROR=ON -DBUILD_APPS=OFF -DBUILD_STATIC_LIBS=ON -DDISABLE_EXTRA_LIBS=ON -DDISABLE_THREAD_LOCAL_STORAGE=ON; }
+s_mypaint() { local KW_CFLAGS="-pthread -fexceptions"
+              # Krita uses the 1.6.1 release tarball + CMake patches; the git tag lacks the generated headers, so make them here.
+              # patches/dep-mypaint.patch = krita-deps-management's 0001..0006 minus the generated config.h hunk, static instead of SHARED.
+              fetch_git mypaint https://github.com/mypaint/libmypaint.git v1.6.1 || return 1
+              local m="$KW/src/mypaint"
+              (cd "$m" && python3 generate.py mypaint-brush-settings-gen.h brushsettings-gen.h) || return 1
+              printf '#define MYPAINT_CONFIG_USE_GLIB 0\n#define HAVE_GETTEXT 0\n#define PACKAGE_VERSION "1.6.1"\n' >"$m/config.h"
+              cm mypaint; }
+
+s_highway() { local KW_CFLAGS="-pthread -fexceptions"   # no -msimd128: Highway falls back to its scalar EMU128 target
+              fetch_git highway https://github.com/google/highway.git 1.3.0
+              cm highway -DHWY_ENABLE_TESTS=OFF -DHWY_ENABLE_EXAMPLES=OFF -DHWY_ENABLE_CONTRIB=OFF; }
+s_brotli() { local KW_CFLAGS="-pthread -fexceptions"
+             fetch_git brotli https://github.com/google/brotli.git v1.2.1
+             cm brotli -DBROTLI_DISABLE_TESTS=ON; }
+s_jxl() { local KW_CFLAGS="-pthread -fexceptions"   # same options as krita-deps-management ext_jpegxl, plus system highway/brotli/lcms2
+          fetch_git jxl https://github.com/libjxl/libjxl.git v0.11.2
+          cm jxl -DJPEGXL_VERSION=0.11.2 -DJPEGXL_FORCE_SYSTEM_HWY=ON -DJPEGXL_FORCE_SYSTEM_BROTLI=ON -DJPEGXL_FORCE_SYSTEM_LCMS2=ON \
+             -DJPEGXL_STATIC=ON -DJPEGXL_BUNDLE_LIBPNG=OFF -DJPEGXL_ENABLE_BENCHMARK=OFF -DJPEGXL_ENABLE_COVERAGE=OFF -DJPEGXL_ENABLE_EXAMPLES=OFF \
+             -DJPEGXL_ENABLE_FUZZERS=OFF -DJPEGXL_ENABLE_JNI=OFF -DJPEGXL_ENABLE_SJPEG=OFF -DJPEGXL_ENABLE_SKCMS=OFF \
+             -DJPEGXL_ENABLE_TOOLS=OFF -DJPEGXL_ENABLE_VIEWERS=OFF -DJPEGXL_ENABLE_JPEGLI=OFF -DJPEGXL_ENABLE_JPEGLI_LIBJPEG=OFF \
+             -DJPEGXL_ENABLE_DOXYGEN=OFF -DJPEGXL_ENABLE_MANPAGES=OFF -DJPEGXL_ENABLE_PLUGINS=OFF -DJPEGXL_ENABLE_OPENEXR=OFF \
+             -DJPEGXL_ENABLE_TRANSCODE_JPEG=ON -DJPEGXL_ENABLE_BOXES=ON -DJPEGXL_ENABLE_WASM_THREADS=ON; }
+
+ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr json-c mypaint highway brotli jxl"
 for s in ${@:-$ALL}; do
     if [ -e "$KW/stamps/$s" ]; then echo "skip $s"; continue; fi
     echo "== $s"

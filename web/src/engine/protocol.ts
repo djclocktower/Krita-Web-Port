@@ -146,7 +146,7 @@ export interface KritaViewport {
     width: number; height: number;
     /** Screen pixels per image pixel. */
     zoom: number;
-    /** Where image pixel (0,0) lands in the canvas element, in CSS pixels (before rotation). */
+    /** Where image pixel (0,0) lands in the canvas element, in CSS pixels, after rotation and mirroring. */
     offsetX: number; offsetY: number;
     rotation?: number; mirror?: boolean;
 }
@@ -206,10 +206,12 @@ export interface EngineEvents {
     /** Krita switched tools (by request, shortcut or action). */
     kritaToolChanged: (id: string) => void;
     /**
-     * What the active Krita tool draws over the image (handles, outlines, guides, assistants), as
-     * straight-alpha RGBA8 the size of the last kritaViewport(), valid only during the call. `pixels` is null when there is nothing to draw.
+     * What the active Krita tool draws over the image (handles, outlines, guides, assistants). `rect`
+     * is the part of the canvas element (CSS pixels, same frame as the last kritaViewport()) that has
+     * anything in it; `pixels` is straight-alpha RGBA8 for that rect, valid only during the call.
+     * Each event replaces the whole previous overlay; `pixels` null means there is nothing to draw.
      */
-    kritaOverlay: (width: number, height: number, pixels: Uint8Array | null) => void;
+    kritaOverlay: (rect: Rect, pixels: Uint8Array | null) => void;
     /** A Krita window opened, moved, resized or changed title. */
     kritaWindow: (window: KritaWindow) => void;
     /** New picture of a Krita window: straight-alpha RGBA8, width * height * 4 bytes, valid only during the call. */

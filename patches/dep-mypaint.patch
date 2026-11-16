@@ -1,0 +1,208 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+new file mode 100644
+index 0000000..7d5f8ad
+--- /dev/null
++++ b/CMakeLists.txt
+@@ -0,0 +1,97 @@
++cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
++
++project(libmypaint
++    VERSION "1.6.1"
++    HOMEPAGE_URL "https://github.com/mypaint/libmypaint"
++)
++
++LIST (APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}")
++
++find_package(ECM 5.22 REQUIRED NOMODULE)
++set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
++include(CMakePackageConfigHelpers)
++include(KDEInstallDirs)
++
++find_package(JsonC)
++
++include_directories(SYSTEM ${JSONC_INCLUDE_DIRS})
++
++set(mypaint_SOURCES
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-brush-settings.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-symmetry.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/fifo.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/helpers.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/tilemap.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/operationqueue.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-rectangle.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-fixed-tiled-surface.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-mapping.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/rng-double.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-brush.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-surface.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/brushmodes.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-matrix.c
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-tiled-surface.c
++)
++
++set(mypaint_HEADERS
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-brush.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/tiled-surface-private.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/fifo.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/rng-double.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-rectangle.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-config.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-tiled-surface.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/config.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-mapping.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/brushsettings-gen.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-symmetry.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/tilemap.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/operationqueue.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-matrix.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/helpers.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-brush-settings-gen.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-glib-compat.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/brushmodes.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-fixed-tiled-surface.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-brush-settings.h
++    ${CMAKE_CURRENT_SOURCE_DIR}/mypaint-surface.h
++)
++
++
++add_library(mypaint ${mypaint_SOURCES} ${mypaint_HEADERS})
++target_link_libraries(mypaint PRIVATE ${JSONC_LIBRARIES})
++if(MSVC)
++    set_property(TARGET mypaint PROPERTY WINDOWS_EXPORT_ALL_SYMBOLS ON)
++endif()
++set_property(TARGET mypaint PROPERTY C_STANDARD 11)
++install(TARGETS mypaint
++    EXPORT libmypaintTargets
++    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
++    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
++    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
++) 
++install(FILES ${mypaint_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libmypaint)
++
++if(JsonC_FOUND)
++    set(PKG_CONFIG_REQUIRES "json-c")
++else()
++    set(PKG_CONFIG_REQUIRES "")
++endif()
++configure_file("libmypaint.pc.in" "libmypaint.pc" @ONLY)
++install(FILES "${CMAKE_CURRENT_BINARY_DIR}/libmypaint.pc"
++    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
++
++configure_package_config_file(
++    "libmypaint-config.cmake.in" "libmypaint-config.cmake"
++    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/libmypaint
++    PATH_VARS CMAKE_INSTALL_PREFIX CMAKE_INSTALL_LIBDIR CMAKE_INSTALL_INCLUDEDIR)
++write_basic_package_version_file(libmypaint-config-version.cmake
++    COMPATIBILITY SameMinorVersion)
++install(FILES "${CMAKE_CURRENT_BINARY_DIR}/libmypaint-config-version.cmake"
++    "${CMAKE_CURRENT_BINARY_DIR}/libmypaint-config.cmake"
++    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/libmypaint)
++
++install(EXPORT libmypaintTargets DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/libmypaint)
+diff --git a/FindJsonC.cmake b/FindJsonC.cmake
+new file mode 100644
+index 0000000..f97daf2
+--- /dev/null
++++ b/FindJsonC.cmake
+@@ -0,0 +1,31 @@
++#For finding JsonC library in the system
++
++
++find_path(LIBJSONC_INCLUDE_DIR
++    NAMES json_config.h
++    /usr/include
++    /usr/local/include
++    /sw/include
++    /opt/local/include
++    ${MYPAINT_PKGCONF_INCLUDE_DIRS}
++    ${MYPAINT_PKGCONF_INCLUDEDIR}
++    PATH_SUFFIXES json-c
++)
++
++#message("XXXX" ${LIBJSONC_INCLUDE_DIR})
++
++find_library(LIBJSONC_LIBRARY
++    NAMES libjson-c json-c
++    HINTS ${JSONC_PKGCONF_LIBRARY_DIRS} ${JSONC_PKGCONF_LIBDIR}
++    DOC "Libraries to link against for json support"
++)
++
++#message("YYYY" ${LIBJSONC_LIBRARY})
++
++string(REGEX MATCH "(.*)/libjson.so" LIBJSONC_LIBRARIES ${LIBJSONC_LIBRARY})
++
++set(JSONC_LIBRARIES ${LIBJSONC_LIBRARY})
++set(JSONC_INCLUDE_DIRS ${LIBJSONC_INCLUDE_DIR})
++set(JSONC_FOUND ${JSONC_PKGCONF_FOUND})
++set(JSONC_VERSION ${JSONCl_PKGCONF_VERSION})
++
+diff --git a/libmypaint-config.cmake.in b/libmypaint-config.cmake.in
+new file mode 100644
+index 0000000..752d388
+--- /dev/null
++++ b/libmypaint-config.cmake.in
+@@ -0,0 +1,11 @@
++@PACKAGE_INIT@
++
++set(libmypaint_VERSION @libmypaint_VERSION@)
++
++set_and_check(libmypaint_DIR @PACKAGE_CMAKE_INSTALL_PREFIX@)
++set_and_check(libmypaint_LIBRARY_DIRS @PACKAGE_CMAKE_INSTALL_LIBDIR@)
++set_and_check(libmypaint_INCLUDE_DIRS @PACKAGE_CMAKE_INSTALL_INCLUDEDIR@)
++
++include("${CMAKE_CURRENT_LIST_DIR}/libmypaintTargets.cmake")
++
++set(libmypaint_FOUND TRUE)
+diff --git a/libmypaint.pc.in b/libmypaint.pc.in
+index cdd8a24..bd3367d 100644
+--- a/libmypaint.pc.in
++++ b/libmypaint.pc.in
+@@ -1,12 +1,12 @@
+-prefix=@prefix@
+-exec_prefix=@exec_prefix@
+-libdir=@libdir@
+-includedir=@includedir@
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=${prefix}
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+ 
+-Name: @PACKAGE_NAME@
+-Description: MyPaint's brushstroke rendering library (@LIBMYPAINT_VERSION_FULL@)
+-URL: @PACKAGE_URL@
+-Version: @LIBMYPAINT_VERSION@
++Name: @PROJECT_NAME@
++Description: MyPaint's brushstroke rendering library (@libmypaint_VERSION@)
++URL: @libmypaint_HOMEPAGE_URL@
++Version: @libmypaint_VERSION@
+ Requires: @PKG_CONFIG_REQUIRES@
+ Cflags: -I${includedir}/libmypaint
+ Libs: -L${libdir} -lmypaint @OPENMP_CFLAGS@
+diff --git a/mypaint-brush-settings.c b/mypaint-brush-settings.c
+index b352cec..2e3b1fe 100644
+--- a/mypaint-brush-settings.c
++++ b/mypaint-brush-settings.c
+@@ -21,15 +21,15 @@
+ #include <string.h>
+ #include <assert.h>
+ 
+-#ifdef HAVE_GETTEXT
+-  #include <libintl.h>
+-  #define N_(String) (String)
+-  #define  _(String) gettext (String)
+-#else
++//#ifdef HAVE_GETTEXT
++//  #include <libintl.h>
++//  #define N_(String) (String)
++//  #define  _(String) gettext (String)
++//#else
+   #define dgettext(Domain,String) (String)
+   #define N_(String) (String)
+   #define  _(String) (String)
+-#endif // HAVE_GETTEXT
++//#endif // HAVE_GETTEXT
+ 
+ #include <float.h>
+ 

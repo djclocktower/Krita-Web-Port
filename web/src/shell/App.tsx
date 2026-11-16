@@ -8,6 +8,7 @@ import { loadSettings, useSetting, type Area } from '../settings/store';
 import { panels, type Command } from '../panels';
 import { hex, parseHex } from '../panels/color/hsv';
 import { Dialogs } from '../dialogs';
+import { KritaUI } from '../krita/Windows';
 import { applyAppearance } from './appearance';
 import { allCommands, isEnabled, menuCommands } from './commands';
 import { errors } from './errors';
@@ -64,6 +65,7 @@ export function App({ engine: rawEngine }: { engine: Engine }) {
             <ErrorBanner />
             <NewDialog engine={engine} />
             <Dialogs engine={engine} />
+            <KritaUI engine={engine} />
         </div>
     );
 }

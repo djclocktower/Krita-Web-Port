@@ -318,3 +318,131 @@ export function createMockExtra(ctx: Context) {
         },
     };
 }
+
+// ---- A fake of Krita's own tools, windows and actions, only with ?kritaMock=1 (the real ones need Krita's engine).
+// It exists so the interface and its tests can see the traffic: tools that draw squares, an option window that
+// paints a recognisable picture, an action that opens a modal dialog (with a pop-up), an overlay after each pointer event.
+import type { KritaAction, KritaPointer, KritaTool, KritaViewport, KritaWindow, KritaWindowInput } from './protocol';
+
+type KritaMethods = Pick<Engine, 'kritaActions' | 'triggerKritaAction' | 'kritaTools' | 'setKritaTool' | 'kritaPointer' | 'kritaKey' | 'kritaViewport'
+    | 'kritaWindows' | 'kritaWindowInput' | 'closeKritaWindow' | 'resizeKritaWindow'>;
+export interface KritaLog { pointers: KritaPointer[]; keys: unknown[]; viewports: KritaViewport[]; windowInputs: (KritaWindowInput & { id: number })[]; tools: string[]; actions: string[]; resizes: [number, number, number][] }
+
+const MOCK_TOOLS: Omit<KritaTool, 'active'>[] = [
+    { id: 'KritaShape/KisToolBrush', name: 'Freehand Brush Tool', section: 'Freehand', shortcut: 'B' },
+    { id: 'KisToolSelectRectangular', name: 'Rectangular Selection Tool', section: 'Select', shortcut: 'Ctrl+R' },
+    { id: 'KisToolTransform', name: 'Transform Tool', section: 'Transform', shortcut: 'Ctrl+T' },
+    { id: 'KritaShape/KisToolLine', name: 'Line Tool', section: 'Shape', shortcut: '' },
+    { id: 'PanTool', name: 'Pan Tool', section: 'Navigation', shortcut: '' },
+    { id: 'ZoomTool', name: 'Zoom Tool', section: 'Navigation', shortcut: '' },
+];
+const MOCK_ACTIONS: KritaAction[] = [
+    { name: 'mock_open_dialog', text: 'Open &Mock Dialog…', shortcut: '', enabled: true, checkable: false, checked: false },
+    { name: 'mock_disabled', text: 'Disabled Thing', shortcut: 'Ctrl+D', enabled: false, checkable: false, checked: false },
+    { name: 'mock_fill_layer', text: 'Fill Layer Red', shortcut: '', enabled: true, checkable: false, checked: false },
+];
+const DIALOG = 2, POPUP = 3, OPTIONS = 1;
+const TINT = ['#334455', '#553344', '#445533', '#554433', '#335544', '#443355'];
+
+export function createMockKrita(ctx: Context): { methods: KritaMethods; log: KritaLog } {
+    const log: KritaLog = { pointers: [], keys: [], viewports: [], windowInputs: [], tools: [], actions: [], resizes: [] };
+    let active = MOCK_TOOLS[0].id, viewport: KritaViewport | null = null, checked = false, start: { x: number; y: number } | null = null;
+    const windows = new Map<number, KritaWindow>();
+    const later = (f: () => void) => { setTimeout(f, 0); };
+
+    const picture = (id: number) => {
+        const w = windows.get(id);
+        if (!w) return;
+        const px = new Uint8Array(w.width * w.height * 4);
+        const hex = (s: string) => [1, 3, 5].map(i => parseInt(s.slice(i, i + 2), 16));
+        const fill = (x0: number, y0: number, x1: number, y1: number, c: number[]) => {
+            for (let y = Math.max(0, y0); y < Math.min(w.height, y1); y++) for (let x = Math.max(0, x0); x < Math.min(w.width, x1); x++) px.set([...c, 255], (y * w.width + x) * 4);
+        };
+        if (id === OPTIONS) {
+            fill(0, 0, w.width, w.height, hex(TINT[MOCK_TOOLS.findIndex(t => t.id === active)]));   // the colour says which tool
+            fill(10, 10, 30, 30, checked ? [0, 255, 0] : [255, 0, 0]);                              // a checkbox: click it
+            fill(w.width - 4, 0, w.width, w.height, [255, 255, 255]);                              // a bar at the right edge: shows the size
+        } else if (id === DIALOG) {
+            fill(0, 0, w.width, w.height, hex('#2244aa'));
+            fill(20, 60, 100, 100, [255, 255, 0]);     // opens the pop-up
+            fill(120, 60, 180, 100, [0, 255, 0]);      // OK
+        } else fill(0, 0, w.width, w.height, hex('#ff8800'));
+        ctx.emit('kritaWindowPaint', id, w.width, w.height, px);
+    };
+    const open = (w: KritaWindow) => { windows.set(w.id, w); ctx.emit('kritaWindow', w); later(() => picture(w.id)); };
+    const close = (id: number) => {
+        if (!windows.delete(id)) return;
+        ctx.emit('kritaWindowClosed', id);
+        if (id === DIALOG) close(POPUP);
+    };
+    const options = (): KritaWindow => windows.get(OPTIONS) ?? { id: OPTIONS, title: 'Tool Options', kind: 'toolOptions', modal: false, x: 0, y: 0, width: 240, height: 200 };
+
+    // A 9x9 magenta square at the pointer.
+    const overlay = (x: number, y: number) => {
+        const z = viewport?.zoom ?? 1, cx = Math.round(x * z + (viewport?.offsetX ?? 0)), cy = Math.round(y * z + (viewport?.offsetY ?? 0));   // ponytail: ignores rotation and mirror
+        const px = new Uint8Array(9 * 9 * 4);
+        for (let i = 0; i < 81; i++) px.set([255, 0, 255, 255], i * 4);
+        ctx.emit('kritaOverlay', { x: cx - 4, y: cy - 4, width: 9, height: 9 }, px);
+    };
+    const target = () => { const id = ctx.activeId(); return id ? ctx.find(id).node.pixels : undefined; };
+    const dab = (x: number, y: number) => {
+        const px = target(), { width, height } = ctx.doc(), c = ctx.colors().foreground;
+        if (!px) return;
+        for (let j = -2; j <= 2; j++) for (let i = -2; i <= 2; i++) {
+            const X = Math.floor(x) + i, Y = Math.floor(y) + j;
+            if (X >= 0 && Y >= 0 && X < width && Y < height) px.set([c.r * 255, c.g * 255, c.b * 255, 255], (Y * width + X) * 4);
+        }
+    };
+
+    const methods: KritaMethods = {
+        async kritaActions() { return MOCK_ACTIONS.map(a => ({ ...a })); },
+        async triggerKritaAction(name) {
+            log.actions.push(name);
+            if (name === 'mock_open_dialog') open({ id: DIALOG, title: 'Mock Dialog', kind: 'dialog', modal: true, x: 100, y: 100, width: 200, height: 120 });
+            else if (name === 'mock_fill_layer') {
+                const px = target(), { width, height } = ctx.doc();
+                if (px) { ctx.record('Fill Layer Red'); for (let i = 0; i < width * height; i++) px.set([255, 0, 0, 255], i * 4); ctx.changed(false); }
+            } else throw new Error(`"${name}" is not enabled`);
+        },
+        async kritaTools() { return MOCK_TOOLS.map(t => ({ ...t, active: t.id === active })); },
+        async setKritaTool(id) {
+            if (!MOCK_TOOLS.some(t => t.id === id)) throw new Error(`Unknown Krita tool: ${id}`);
+            log.tools.push(id); active = id; start = null;
+            ctx.emit('kritaToolChanged', id); ctx.emit('kritaOverlay', { x: 0, y: 0, width: 0, height: 0 }, null);
+            ctx.emit('kritaCursor', id.endsWith('Brush') ? 'crosshair' : 'cell');
+            later(() => picture(OPTIONS));
+        },
+        kritaPointer(e) {
+            log.pointers.push(e);
+            const brush = active.endsWith('KisToolBrush'), line = active.endsWith('KisToolLine');
+            if (e.type === 'press') { start = { x: e.x, y: e.y }; if (brush) { ctx.record('Krita Brush'); dab(e.x, e.y); ctx.changed(false); } }
+            else if (e.type === 'move' && e.down && brush) { dab(e.x, e.y); ctx.changed(false); }
+            else if (e.type === 'release' && line && start) {
+                ctx.record('Krita Line');
+                const n = Math.ceil(Math.hypot(e.x - start.x, e.y - start.y));
+                for (let i = 0; i <= n; i++) dab(start.x + (e.x - start.x) * i / (n || 1), start.y + (e.y - start.y) * i / (n || 1));
+                ctx.changed(false);
+            }
+            if (e.type === 'release') start = null;
+            overlay(e.x, e.y);
+        },
+        kritaKey(e) { log.keys.push(e); },
+        kritaViewport(v) { log.viewports.push(v); viewport = v; },
+        async kritaWindows() { open(options()); return [...windows.values()]; },
+        kritaWindowInput(id, e) {
+            log.windowInputs.push({ id, ...e });
+            if (id === OPTIONS && e.type === 'press' && (e.x ?? 99) < 40 && (e.y ?? 99) < 40) { checked = !checked; picture(OPTIONS); }
+            else if (id === DIALOG && e.type === 'press') {
+                if ((e.y ?? 0) >= 60 && (e.y ?? 0) < 100 && (e.x ?? 0) >= 20 && (e.x ?? 0) < 100) { const d = windows.get(DIALOG)!; open({ id: POPUP, title: '', kind: 'popup', modal: false, parent: DIALOG, x: d.x + 20, y: d.y + 100, width: 80, height: 60 }); }
+                else if ((e.x ?? 0) >= 120 && (e.y ?? 0) >= 60) close(DIALOG);
+            } else if (e.type === 'keydown' && e.key === 'Escape' && (id === POPUP || id === DIALOG)) close(id);
+        },
+        async closeKritaWindow(id) { if (id !== OPTIONS) close(id); },
+        async resizeKritaWindow(id, width, height) {
+            log.resizes.push([id, width, height]);
+            const w = windows.get(id); if (!w) return;
+            windows.set(id, { ...w, width, height }); ctx.emit('kritaWindow', windows.get(id)!); later(() => picture(id));
+        },
+    };
+    return { methods, log };
+}

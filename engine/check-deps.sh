@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 # Compiles and runs one small program per image library (jpeg tiff webp gif exr) under node.
-# Usage: engine/check-deps.sh      Exit status is non-zero if any check fails.
+# Usage: engine/check-deps.sh [name ...]   (no args = all checks)   Exit status is non-zero if any check fails.
 source "$(dirname "$0")/env.sh" 2>/dev/null
-T=$(mktemp -d); P=$PREFIX
+ONLY="$*"; T=$(mktemp -d); P=$PREFIX
 F="-pthread -sPROXY_TO_PTHREAD -sEXIT_RUNTIME=1 -sALLOW_MEMORY_GROWTH -O1 -I$P/include -I$P/include/OpenEXR -I$P/include/Imath -L$P/lib"
 fail=0
 run() { # name lang libs  (source on stdin)
     local n=$1 lang=$2 cc=emcc ext=c; shift 2
+    [ -n "${ONLY:-}" ] && [[ " $ONLY " != *" $n "* ]] && return
     [ "$lang" = cxx ] && cc=em++ && ext=cpp
     cat >"$T/$n.$ext"
     if $cc $KW_CFLAGS -fexceptions $F "$T/$n.$ext" -o "$T/$n.js" "$@" >"$T/$n.log" 2>&1 && node "$T/$n.js" >>"$T/$n.log" 2>&1
@@ -127,5 +128,71 @@ int main() {
     puts("exr ok"); return 0;
 }
 EOF
+
+run mypaint c -lmypaint -ljson-c -lm <<'EOF2'
+#include <libmypaint/mypaint-brush.h>
+#include <libmypaint/mypaint-fixed-tiled-surface.h>
+#include <stdio.h>
+#include <string.h>
+int main(void) {
+    MyPaintBrush *b = mypaint_brush_new();
+    /* json-c path: parse a brush definition (Krita's MyPaint op does this for every .myb) */
+    const char *json = "{\"version\":3,\"settings\":{\"radius_logarithmic\":{\"base_value\":1.5,\"inputs\":{}}}}";
+    if (!mypaint_brush_from_string(b, json)) return 1;
+    float r = mypaint_brush_get_base_value(b, MYPAINT_BRUSH_SETTING_RADIUS_LOGARITHMIC);
+    if (r < 1.49f || r > 1.51f) { printf("radius %f\n", r); return 2; }
+    /* draw one dab on a real surface so the tiled-surface/brush maths actually runs */
+    MyPaintFixedTiledSurface *s = mypaint_fixed_tiled_surface_new(64, 64);
+    mypaint_brush_new_stroke(b);
+    mypaint_surface_begin_atomic((MyPaintSurface*)s);
+    mypaint_brush_stroke_to(b, (MyPaintSurface*)s, 20, 20, 0.5f, 0, 0, 0.1);
+    mypaint_brush_stroke_to(b, (MyPaintSurface*)s, 40, 40, 0.5f, 0, 0, 0.1);
+    MyPaintRectangle r2; mypaint_surface_end_atomic((MyPaintSurface*)s, &r2);
+    mypaint_surface_unref((MyPaintSurface*)s); mypaint_brush_unref(b);
+    puts("mypaint ok"); return 0;
+}
+EOF2
+run jxl cxx -ljxl_threads -ljxl -ljxl_cms -llcms2 -lhwy -lbrotlienc -lbrotlidec -lbrotlicommon <<'EOF2'
+#include <jxl/encode.h>
+#include <jxl/encode_cxx.h>
+#include <jxl/decode.h>
+#include <jxl/thread_parallel_runner.h>
+#include <cstdio>
+#include <vector>
+int main() {
+    enum { W = 24, H = 16 };
+    std::vector<uint8_t> px(W*H*4), out;
+    for (int i = 0; i < W*H; i++) { px[4*i] = i; px[4*i+1] = 3*i; px[4*i+2] = 255 - i; px[4*i+3] = 255; }
+    void *runner = JxlThreadParallelRunnerCreate(NULL, 2);              /* real pthreads */
+    JxlEncoder *e = JxlEncoderCreate(NULL);
+    JxlEncoderSetParallelRunner(e, JxlThreadParallelRunner, runner);
+    JxlBasicInfo bi; JxlEncoderInitBasicInfo(&bi);
+    bi.xsize = W; bi.ysize = H; bi.bits_per_sample = 8; bi.num_color_channels = 3; bi.num_extra_channels = 1; bi.alpha_bits = 8; bi.uses_original_profile = JXL_TRUE;
+    if (JxlEncoderSetBasicInfo(e, &bi)) return 1;
+    JxlColorEncoding ce; JxlColorEncodingSetToSRGB(&ce, JXL_FALSE);
+    if (JxlEncoderSetColorEncoding(e, &ce)) return 2;
+    JxlEncoderFrameSettings *fs = JxlEncoderFrameSettingsCreate(e, NULL);
+    JxlEncoderSetFrameLossless(fs, JXL_TRUE);
+    JxlPixelFormat pf = { 4, JXL_TYPE_UINT8, JXL_NATIVE_ENDIAN, 0 };
+    if (JxlEncoderAddImageFrame(fs, &pf, px.data(), px.size())) return 3;
+    JxlEncoderCloseInput(e);
+    out.resize(4096); uint8_t *next = out.data(); size_t avail = out.size();
+    JxlEncoderStatus st; while ((st = JxlEncoderProcessOutput(e, &next, &avail)) == JXL_ENC_NEED_MORE_OUTPUT) { size_t o = next - out.data(); out.resize(out.size()*2); next = out.data() + o; avail = out.size() - o; }
+    if (st != JXL_ENC_SUCCESS) return 4;
+    out.resize(next - out.data());
+    JxlDecoder *d = JxlDecoderCreate(NULL);
+    JxlDecoderSetParallelRunner(d, JxlThreadParallelRunner, runner);
+    JxlDecoderSubscribeEvents(d, JXL_DEC_BASIC_INFO | JXL_DEC_FULL_IMAGE);
+    JxlDecoderSetInput(d, out.data(), out.size()); JxlDecoderCloseInput(d);
+    std::vector<uint8_t> dec(W*H*4); bool got = false;
+    for (;;) { JxlDecoderStatus r = JxlDecoderProcessInput(d);
+        if (r == JXL_DEC_BASIC_INFO) { JxlBasicInfo b; JxlDecoderGetBasicInfo(d, &b); if (b.xsize != W || b.ysize != H) return 5; }
+        else if (r == JXL_DEC_NEED_IMAGE_OUT_BUFFER) { if (JxlDecoderSetImageOutBuffer(d, &pf, dec.data(), dec.size())) return 6; }
+        else if (r == JXL_DEC_FULL_IMAGE) got = true;
+        else if (r == JXL_DEC_SUCCESS) break; else return 7; }
+    if (!got || dec != px) return 8;                                         /* lossless: exact */
+    printf("jxl %u bytes, lib 0x%x ok\n", (unsigned)out.size(), JxlEncoderVersion()); return 0;
+}
+EOF2
 
 rm -rf "$T"; [ $fail = 0 ] && echo "all checks passed"; exit $fail

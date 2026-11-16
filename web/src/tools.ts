@@ -3,6 +3,7 @@
 // overlay (marquee, gradient line, crop frame) in screen space. Tools never import each other.
 import type { ComponentType } from 'preact';
 import type { Engine, Point, StrokePoint } from './engine/protocol';
+import { krita, kritaOn } from './krita/state';
 
 /** A pointer sample in image pixels, with the pen data the device reported. */
 export type ToolPoint = StrokePoint;
@@ -44,8 +45,12 @@ export const tools: Tool[] = Object.values(modules).map(m => m.default).sort((a,
 let activeId = 'brush';
 const listeners = new Set<() => void>();
 export const activeTool = () => tools.find(t => t.id === activeId) ?? tools[0];
+/** The page's own freehand brush is the active tool (not while Krita's tools drive the canvas). */
+export const isBrush = () => !kritaOn() && activeTool().id === 'brush';
 export function setActiveTool(id: string) {
-    if (id === activeId || !tools.some(t => t.id === id)) return;
+    if (!tools.some(t => t.id === id)) return;
+    if (krita.get().tools.length && !krita.get().page) krita.set({ page: true });   // a page tool (Pan, Zoom) takes over from Krita's
+    if (id === activeId) return;
     activeId = id;
     listeners.forEach(l => l());
 }

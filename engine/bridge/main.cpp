@@ -34,6 +34,11 @@
 #include <kis_canvas_controller.h>
 #include <kis_coordinates_converter.h>
 #include <QMouseEvent>
+#include <QApplication>
+#include <QDockWidget>
+#include <QPainter>
+#include <QSet>
+#include <kis_canvas_widget_base.h>
 #include <QPointer>
 #include <kactioncollection.h>
 #include <KisImportExportManager.h>
@@ -139,6 +144,57 @@ static void emitEvent(const char *name, QJsonObject fields = QJsonObject(), cons
 static QAtomicInt g_updatesInFlight;
 
 struct Failure { QString message; };
+
+/// KeyboardEvent.key -> Qt::Key
+static int qtKey(const QString &key)
+{
+    static const QHash<QString, int> names{
+        {"Enter", Qt::Key_Return}, {"Escape", Qt::Key_Escape}, {"Backspace", Qt::Key_Backspace}, {"Delete", Qt::Key_Delete},
+        {"Tab", Qt::Key_Tab}, {"ArrowLeft", Qt::Key_Left}, {"ArrowRight", Qt::Key_Right}, {"ArrowUp", Qt::Key_Up},
+        {"ArrowDown", Qt::Key_Down}, {"Home", Qt::Key_Home}, {"End", Qt::Key_End}, {"PageUp", Qt::Key_PageUp},
+        {"PageDown", Qt::Key_PageDown}, {"Insert", Qt::Key_Insert}, {"Shift", Qt::Key_Shift}, {"Control", Qt::Key_Control},
+        {"Alt", Qt::Key_Alt}, {"Meta", Qt::Key_Meta}, {" ", Qt::Key_Space}};
+    if (names.contains(key)) return names[key];
+    if (key.size() == 1) return key.at(0).toUpper().unicode();
+    bool ok = false;
+    const int f = key.mid(1).toInt(&ok);
+    return key.startsWith('F') && ok ? Qt::Key_F1 + f - 1 : Qt::Key_unknown;
+}
+
+static const char *cssCursor(Qt::CursorShape shape)
+{
+    switch (shape) {
+    case Qt::ArrowCursor: return "default";
+    case Qt::IBeamCursor: return "text";
+    case Qt::SizeVerCursor: return "ns-resize";
+    case Qt::SizeHorCursor: return "ew-resize";
+    case Qt::SizeBDiagCursor: return "nesw-resize";
+    case Qt::SizeFDiagCursor: return "nwse-resize";
+    case Qt::SizeAllCursor: return "move";
+    case Qt::BlankCursor: return "none";
+    case Qt::PointingHandCursor: return "pointer";
+    case Qt::ForbiddenCursor: return "not-allowed";
+    case Qt::OpenHandCursor: return "grab";
+    case Qt::ClosedHandCursor: return "grabbing";
+    case Qt::WaitCursor: return "wait";
+    case Qt::BusyCursor: return "progress";
+    default: return "crosshair";   // ponytail: Krita's picture cursors are not sent; the page shows a crosshair
+    }
+}
+
+static Qt::KeyboardModifiers modifiers(const QJsonObject &p)
+{
+    Qt::KeyboardModifiers mods;
+    if (p["shift"].toBool()) mods |= Qt::ShiftModifier;
+    if (p["ctrl"].toBool()) mods |= Qt::ControlModifier;
+    if (p["alt"].toBool()) mods |= Qt::AltModifier;
+    return mods;
+}
+static Qt::MouseButton mouseButton(const QJsonObject &p)
+{
+    const QString b = p["button"].toString();
+    return b == "right" ? Qt::RightButton : b == "middle" ? Qt::MiddleButton : Qt::LeftButton;
+}
 [[noreturn]] static void fail(const QString &message) { throw Failure{message}; }
 
 static QByteArray toPng(const QImage &image)
@@ -184,6 +240,25 @@ public:
         window = KisPart::instance()->createMainWindow();
         window->resize(1600, 1000);
         window->show();
+        // Krita's tool option panel becomes a window of its own, so the page can show it in its dock.
+        if (auto *dock = window->findChild<QDockWidget *>("sharedtooldocker")) {
+            toolOptions = dock;
+            dock->setTitleBarWidget(new QWidget(dock));
+            dock->setFloating(true);
+            dock->resize(300, 500);
+            dock->show();
+        }
+        windowTimer.setSingleShot(true);
+        windowTimer.setInterval(30);
+        connect(&windowTimer, &QTimer::timeout, this, &Engine::paintWindows);
+        overlayTimer.setSingleShot(true);
+        overlayTimer.setInterval(30);
+        connect(&overlayTimer, &QTimer::timeout, this, &Engine::paintOverlay);
+        connect(KoToolManager::instance(), &KoToolManager::changedTool, this, [] {
+            emitEvent("kritaToolChanged", {{"id", KoToolManager::instance()->activeToolId()}});
+        });
+        qApp->installEventFilter(this);
+        if (toolOptions) trackWindow(toolOptions);
         manager = window->viewManager()->canvasResourceProvider()->resourceManager();
         connect(window->viewManager()->nodeManager(), &KisNodeManager::sigNodeActivated, this, [this](KisNodeSP node) {
             if (node == active || !doc) return;       // a Krita tool or action changed the active layer
@@ -255,6 +330,130 @@ private:
     bool gestureOpen = false;     // between a press and its release on Krita's canvas
     EventRecorder recorder;
     QPointer<QWidget> recorded;
+    // --- Krita's own windows (dialogs, pop-ups, the tool option panel). Nothing displays them here,
+    // so the page shows their picture and sends back the input.
+    QHash<QWidget *, int> windows;
+    QHash<QWidget *, size_t> painted;     // hash of the picture last sent
+    QSet<QWidget *> dirtyWindows;
+    QPointer<QWidget> toolOptions;
+    QTimer windowTimer, overlayTimer;
+    int nextWindowId = 1;
+    bool grabbing = false, overlayShown = false;
+    size_t overlayHash = 0;
+    QSize viewportSize;
+    QPointF viewportShift;                // where the page has image (0,0), minus where Krita's canvas managed to put it
+
+    QJsonObject describe(QWidget *w) const
+    {
+        const QRect g = w->geometry();
+        const bool popup = w->windowType() == Qt::Popup;
+        QJsonObject o{{"id", windows.value(w)}, {"title", w->windowTitle()}, {"modal", w->isModal()},
+                      {"kind", w == toolOptions ? "toolOptions" : popup ? "popup" : "dialog"},
+                      {"x", g.x()}, {"y", g.y()}, {"width", g.width()}, {"height", g.height()}};
+        QWidget *parent = w->parentWidget() ? w->parentWidget()->window() : nullptr;
+        if (parent && windows.contains(parent)) o["parent"] = windows.value(parent);
+        return o;
+    }
+    void trackWindow(QWidget *w)
+    {
+        if (!windows.contains(w)) {
+            windows[w] = nextWindowId++;
+            connect(w, &QObject::destroyed, this, [this, w] { dropWindow(w); });
+        }
+        emitEvent("kritaWindow", {{"window", describe(w)}});
+        dirtyWindows << w;
+        if (!windowTimer.isActive()) windowTimer.start();
+    }
+    void dropWindow(QWidget *w)
+    {
+        if (!windows.contains(w)) return;
+        emitEvent("kritaWindowClosed", {{"id", windows.take(w)}});
+        dirtyWindows.remove(w);
+        painted.remove(w);
+    }
+    void paintWindows()
+    {
+        const QSet<QWidget *> list = dirtyWindows;
+        dirtyWindows.clear();
+        grabbing = true;
+        for (QWidget *w : list) {
+            if (!windows.contains(w) || !w->isVisible()) continue;
+            const QImage img = w->grab().toImage().convertToFormat(QImage::Format_RGBA8888);
+            const size_t hash = qHashBits(img.constBits(), img.sizeInBytes());
+            if (painted.value(w) == hash && painted.contains(w)) continue;      // a widget that repaints itself identically
+            painted[w] = hash;
+            emitEvent("kritaWindowPaint", {{"id", windows.value(w)}, {"width", img.width()}, {"height", img.height()}},
+                      QByteArray(reinterpret_cast<const char *>(img.constBits()), img.sizeInBytes()));
+        }
+        grabbing = false;
+    }
+    /// What Krita draws over the image: the tool's handles and outlines, assistants, guides.
+    void paintOverlay()
+    {
+        if (!view || !view->canvasBase() || viewportSize.isEmpty()) return;
+        auto *base = dynamic_cast<KisCanvasWidgetBase *>(view->canvasBase()->canvasWidget());
+        if (!base) return;
+        QImage img(viewportSize, QImage::Format_ARGB32_Premultiplied);
+        img.fill(Qt::transparent);
+        {
+            QPainter gc(&img);
+            gc.translate(viewportShift);
+            grabbing = true;
+            base->drawDecorations(gc, QRect(QPoint(), viewportSize).translated(-viewportShift.toPoint()));
+            grabbing = false;
+        }
+        // Only the part that has anything in it travels to the page.
+        QRect used;
+        for (int y = 0; y < img.height(); y++) {
+            const quint32 *line = reinterpret_cast<const quint32 *>(img.constScanLine(y));
+            int first = -1, last = -1;
+            for (int x = 0; x < img.width(); x++) if (line[x]) { if (first < 0) first = x; last = x; }
+            if (first >= 0) used |= QRect(first, y, last - first + 1, 1);
+        }
+        if (used.isEmpty()) {
+            if (overlayShown) emitEvent("kritaOverlay");
+            overlayShown = false;
+            overlayHash = 0;
+            return;
+        }
+        const QImage part = img.copy(used).convertToFormat(QImage::Format_RGBA8888);
+        const size_t hash = qHashBits(part.constBits(), part.sizeInBytes(), size_t(used.x() * 7919 + used.y()));
+        if (overlayShown && hash == overlayHash) return;
+        overlayShown = true;
+        overlayHash = hash;
+        emitEvent("kritaOverlay", {{"rect", QJsonObject{{"x", used.x()}, {"y", used.y()}, {"width", used.width()}, {"height", used.height()}}}},
+                  QByteArray(reinterpret_cast<const char *>(part.constBits()), part.sizeInBytes()));
+    }
+    bool eventFilter(QObject *o, QEvent *e) override
+    {
+        if (grabbing || !o->isWidgetType()) return false;
+        auto *w = static_cast<QWidget *>(o);
+        switch (e->type()) {
+        case QEvent::Show:
+            if (w->isWindow() && w != window && w->windowType() != Qt::ToolTip && w->windowType() != Qt::Desktop) trackWindow(w);
+            break;
+        case QEvent::Hide:
+            dropWindow(w);
+            break;
+        case QEvent::Resize:
+        case QEvent::Move:
+        case QEvent::WindowTitleChange:
+            if (windows.contains(w)) trackWindow(w);
+            break;
+        case QEvent::UpdateRequest:
+            if (windows.contains(w)) { dirtyWindows << w; if (!windowTimer.isActive()) windowTimer.start(); }
+            else if (w == window && !overlayTimer.isActive()) overlayTimer.start();
+            break;
+        case QEvent::CursorChange:
+            if (view && view->canvasBase() && w == view->canvasBase()->canvasWidget())
+                emitEvent("kritaCursor", {{"cursor", cssCursor(w->cursor().shape())}});
+            break;
+        default:
+            break;
+        }
+        return false;
+    }
+
     KisView *kritaView()
     {
         image();
@@ -1230,6 +1429,40 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
     // ---- Krita's own main window, view, actions and tools, with no display.
     // ponytail: the hand-written handlers above and this path both edit the document; the plan is
     // to move tools and menu commands onto this path and retire the hand-written ones.
+    if (m == "krita.windows") {
+        QJsonArray list;
+        for (auto it = windows.constBegin(); it != windows.constEnd(); ++it) list.append(describe(it.key()));
+        return list;
+    }
+    if (m == "krita.closeWindow" || m == "krita.resizeWindow" || m == "krita.windowInput") {
+        QWidget *w = windows.key(p["id"].toInt(), nullptr);
+        if (!w) return QJsonValue();          // it closed while the request was on its way
+        if (m == "krita.closeWindow") { w->close(); return QJsonValue(); }
+        if (m == "krita.resizeWindow") { w->resize(qMax(50, p["width"].toInt()), qMax(50, p["height"].toInt())); return QJsonValue(); }
+        QWindow *target = w->windowHandle();
+        if (!target) return QJsonValue();
+        const QString type = p["type"].toString();
+        const QPointF local(p["x"].toDouble(), p["y"].toDouble());
+        const QPointF global = w->mapToGlobal(local);
+        const Qt::KeyboardModifiers mods = modifiers(p);
+        const Qt::MouseButton button = mouseButton(p);
+        if (type == "keydown" || type == "keyup") {
+            QWindowSystemInterface::handleKeyEvent(target, type == "keyup" ? QEvent::KeyRelease : QEvent::KeyPress, qtKey(p["key"].toString()), mods,
+                                                   p.contains("text") ? p["text"].toString() : p["key"].toString().size() == 1 ? p["key"].toString() : QString());
+        } else if (type == "wheel") {
+            const int dy = -qRound(p["deltaY"].toDouble());
+            QWindowSystemInterface::handleWheelEvent(target, local, global, QPoint(0, dy), QPoint(0, dy * 120 / 100), mods);
+        } else {
+            const bool press = type == "press", release = type == "release";
+            if (press && w->windowType() != Qt::Popup) QWindowSystemInterface::handleFocusWindowChanged(target);
+            QWindowSystemInterface::handleMouseEvent(target, local, global, press || (!release && p["down"].toBool()) ? button : Qt::NoButton,
+                                                     press || release ? button : Qt::NoButton,
+                                                     press ? QEvent::MouseButtonPress : release ? QEvent::MouseButtonRelease : QEvent::MouseMove, mods);
+        }
+        QWindowSystemInterface::sendWindowSystemEvents(QEventLoop::AllEvents);
+        QCoreApplication::processEvents();
+        return QJsonValue();
+    }
     if (m.startsWith("krita.")) {
         KisView *view = kritaView();
         if (m == "krita.info") {
@@ -1280,10 +1513,8 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             const QPointF pos = view->canvasBase()->coordinatesConverter()->imageToWidget(QPointF(p["x"].toDouble(), p["y"].toDouble()));
             const QString type = p["type"].toString();
             const QEvent::Type t = type == "press" ? QEvent::MouseButtonPress : type == "release" ? QEvent::MouseButtonRelease : QEvent::MouseMove;
-            Qt::KeyboardModifiers mods;
-            if (p["shift"].toBool()) mods |= Qt::ShiftModifier;
-            if (p["ctrl"].toBool()) mods |= Qt::ControlModifier;
-            if (p["alt"].toBool()) mods |= Qt::AltModifier;
+            const Qt::KeyboardModifiers mods = modifiers(p);
+            const Qt::MouseButton button = mouseButton(p);
             if (recorded != canvas) { canvas->installEventFilter(&recorder); recorded = canvas; }
             if (!pointerInside) {     // Krita ignores input until the pointer has entered the canvas
                 QEnterEvent enter(pos, pos, canvas->mapToGlobal(pos));
@@ -1311,16 +1542,48 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
                                                           qRound(p["xTilt"].toDouble()), qRound(p["yTilt"].toDouble()), 0.0,
                                                           p["rotation"].toDouble(), 0, 1, mods);
             } else {
-                QWindowSystemInterface::handleMouseEvent(target, local, canvas->mapToGlobal(pos), held ? Qt::LeftButton : Qt::NoButton,
-                                                         t == QEvent::MouseMove ? Qt::NoButton : Qt::LeftButton, t, mods);
+                QWindowSystemInterface::handleMouseEvent(target, local, canvas->mapToGlobal(pos), held ? button : Qt::NoButton,
+                                                         t == QEvent::MouseMove ? Qt::NoButton : button, t, mods);
             }
-            if (t == QEvent::MouseButtonPress) gestureOpen = true;
+            if (t == QEvent::MouseButtonPress) { gestureOpen = true; QWindowSystemInterface::handleFocusWindowChanged(target); }
             QWindowSystemInterface::sendWindowSystemEvents(QEventLoop::AllEvents);
             QCoreApplication::processEvents();
             if (t == QEvent::MouseButtonRelease) { gestureOpen = false; settle(250); emitSelection(); }
             QJsonObject reply{{"widgetX", pos.x()}, {"widgetY", pos.y()}, {"seen", QJsonArray::fromStringList(recorder.seen)}};
             recorder.seen.clear();
             return reply;
+        }
+        if (m == "krita.key") {
+            QWindowSystemInterface::handleKeyEvent(window->windowHandle(), p["type"].toString() == "keyup" ? QEvent::KeyRelease : QEvent::KeyPress,
+                                                   qtKey(p["key"].toString()), modifiers(p),
+                                                   p.contains("text") ? p["text"].toString() : p["key"].toString().size() == 1 ? p["key"].toString() : QString());
+            QWindowSystemInterface::sendWindowSystemEvents(QEventLoop::AllEvents);
+            QCoreApplication::processEvents();
+            return QJsonValue();
+        }
+        if (m == "krita.viewport") {
+            // Krita's canvas takes the page's zoom, rotation and scroll position, so tools size and place
+            // their handles for what the user is looking at.
+            QWidget *canvas = view->canvasBase()->canvasWidget();
+            viewportSize = QSize(p["width"].toInt(), p["height"].toInt());
+            const QSize grow = (viewportSize - canvas->size()).expandedTo(QSize(0, 0));
+            if (!grow.isEmpty() || grow.width() > 0 || grow.height() > 0) {
+                window->resize(window->size() + grow);
+                QCoreApplication::processEvents();
+            }
+            auto *controller = dynamic_cast<KisCanvasController *>(view->canvasController());
+            if (!controller) fail("Krita's canvas controller is not available");
+            const auto *converter = view->canvasBase()->coordinatesConverter();
+            controller->mirrorCanvas(p["mirror"].toBool());
+            const qreal turn = p["rotation"].toDouble() - controller->rotation();
+            if (!qFuzzyIsNull(turn)) controller->rotateCanvas(turn);
+            controller->setZoom(KoZoomMode::ZOOM_CONSTANT, p["zoom"].toDouble(1.0));
+            const QPointF want(p["offsetX"].toDouble(), p["offsetY"].toDouble());
+            controller->pan((converter->imageToWidget(QPointF(0, 0)) - want).toPoint());
+            viewportShift = want - converter->imageToWidget(QPointF(0, 0));
+            overlayTimer.start();
+            return QJsonObject{{"shiftX", viewportShift.x()}, {"shiftY", viewportShift.y()},
+                               {"canvas", QString("%1x%2").arg(canvas->width()).arg(canvas->height())}};
         }
         fail("Unknown method: " + m);
     }
@@ -1350,7 +1613,8 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
     const QString m = envelope["method"].toString();
     const QJsonObject params = envelope["params"].toObject();
     QMetaObject::invokeMethod(g_engine, [id, m, params] {
-      const bool strokeCall = m == "beginStroke" || m == "continueStroke" || m == "endStroke" || m == "krita.pointer";
+      const bool strokeCall = m == "beginStroke" || m == "continueStroke" || m == "endStroke" || m == "krita.pointer"
+                              || m == "krita.key" || m == "krita.viewport" || m == "krita.windowInput";
       auto run = [id, m, params] {
         QJsonObject reply{{"id", id}};
         QByteArray data, out;
