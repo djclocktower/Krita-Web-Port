@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b5f826f..ddf49e3 100644
+index b5f826f..bf8f52a 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -84,6 +84,20 @@ endif()
+@@ -84,6 +84,35 @@ endif()
  
  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
  
@@ -12,7 +12,22 @@ index b5f826f..ddf49e3 100644
 +    function(add_library name)
 +        set(args ${ARGN})
 +        list(TRANSFORM args REPLACE "^(SHARED|MODULE)$" "STATIC")
-+        _add_library(${name} ${args})
++        # A file format's import and export plugins usually compile the same converter sources.
++        # As two shared libraries that is fine; in one binary every symbol would be defined twice.
++        # Compile the shared sources once, in whichever of the pair is declared first.
++        set(_twin "")
++        if (name MATCHES "^(.*)export$")
++            set(_twin "${CMAKE_MATCH_1}import")
++        elseif (name MATCHES "^(.*)import$")
++            set(_twin "${CMAKE_MATCH_1}export")
++        endif()
++        if (_twin AND TARGET ${_twin})
++            get_target_property(_twin_sources ${_twin} SOURCES)
++            list(REMOVE_ITEM args ${_twin_sources})
++        else()
++            set(_twin "")
++        endif()
++        _add_library(${name} ${args})   # the twin is linked into the final binary alongside it
 +        if ("MODULE" IN_LIST ARGN)
 +            # plugins become Qt static plugins; KoJsonTrader lists them via QPluginLoader::staticPlugins()
 +            target_compile_definitions(${name} PRIVATE QT_STATICPLUGIN)
@@ -23,7 +38,7 @@ index b5f826f..ddf49e3 100644
  if (APPLE)
      add_subdirectory(packaging/macos)
  
-@@ -902,7 +916,7 @@ if (Qt${QT_MAJOR_VERSION}QuickWidgets_FOUND)
+@@ -902,7 +931,7 @@ if (Qt${QT_MAJOR_VERSION}QuickWidgets_FOUND)
  endif()
  
  
@@ -32,7 +47,7 @@ index b5f826f..ddf49e3 100644
      if (QT_MAJOR_VERSION STREQUAL "5")
          find_package(Qt${QT_MAJOR_VERSION} ${MIN_QT_VERSION} REQUIRED X11Extras)
      endif()
-@@ -1243,7 +1257,9 @@ set_package_properties(TIFF PROPERTIES
+@@ -1243,7 +1272,9 @@ set_package_properties(TIFF PROPERTIES
      URL "http://www.libtiff.org"
      TYPE OPTIONAL
      PURPOSE "Required by the Krita TIFF filter")
@@ -43,7 +58,7 @@ index b5f826f..ddf49e3 100644
  configure_file(config-tiff.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-tiff.h)
  
  find_package(JPEG)
-@@ -1678,13 +1694,22 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
+@@ -1678,13 +1709,22 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
  add_subdirectory(sdk/tests)
  
  add_subdirectory(libs)
@@ -666,6 +681,36 @@ index b27ae5d..2ff95fe 100644
  
  namespace RGBE
  {
+diff --git a/plugins/impex/tiff/kis_tiff_logger.h b/plugins/impex/tiff/kis_tiff_logger.h
+index b867552..f1d222c 100644
+--- a/plugins/impex/tiff/kis_tiff_logger.h
++++ b/plugins/impex/tiff/kis_tiff_logger.h
+@@ -15,7 +15,7 @@
+ 
+ #include <kis_debug.h>
+ 
+-QString formatVarArgs(const char *fmt, va_list args)
++inline QString formatVarArgs(const char *fmt, va_list args)
+ {
+     int size = 4096;
+     QByteArray buf(size, 0);
+@@ -43,14 +43,14 @@ QString formatVarArgs(const char *fmt, va_list args)
+     }
+ }
+ 
+-void KisTiffErrorHandler(const char *module, const char *fmt, va_list args)
++inline void KisTiffErrorHandler(const char *module, const char *fmt, va_list args)
+ {
+     QString msg("%1: %2");
+ 
+     errFile << msg.arg(module, formatVarArgs(fmt, args));
+ }
+ 
+-void KisTiffWarningHandler(const char *module, const char *fmt, va_list args)
++inline void KisTiffWarningHandler(const char *module, const char *fmt, va_list args)
+ {
+     QString msg("%1: %2");
+ 
 diff --git a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h b/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h
 index e69dea2..9b13c0e 100644
 --- a/plugins/paintops/libpaintop/kis_paintop_plugin_utils.h

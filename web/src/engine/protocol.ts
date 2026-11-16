@@ -102,7 +102,7 @@ export interface ConfigDescription {
 
 export interface HistoryState { canUndo: boolean; canRedo: boolean; undoText: string; redoText: string }
 
-export type ExportFormat = 'kra' | 'png' | 'jpg' | 'psd' | 'ora' | 'tga' | 'bmp';
+export type ExportFormat = 'kra' | 'png' | 'jpg' | 'psd' | 'ora' | 'tga' | 'bmp' | 'webp' | 'gif' | 'exr';
 
 /** How a new selection combines with the existing one. */
 export type SelectionMode = 'replace' | 'add' | 'subtract' | 'intersect';

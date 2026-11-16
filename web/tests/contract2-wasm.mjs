@@ -141,7 +141,7 @@ await step('colour spaces', async () => {
         return o;
     });
     check('colour spaces listed', r.count >= 10, `${r.count}: ${r.models}`);
-    check('RGB depths', ['U8', 'U16', 'F32'].every(d => r.depths.split(',').includes(d)), r.depths);   // F16 needs OpenEXR, not built yet
+    check('RGB depths', ['U8', 'U16', 'F16', 'F32'].every(d => r.depths.split(',').includes(d)), r.depths);
     check('profiles listed', r.profiles >= 1, `${r.profiles}`);
     check('convert to RGBA U16 and paint', r.u16.startsWith('RGBA U16') && r.paintU16, r.u16);
     for (const [k, want] of [['f32', 'RGBA F32'], ['gray', 'GRAYA U8'], ['cmyk', 'CMYKA U8'], ['lab', 'LABA U16']]) check(`convert to ${want}`, r[k].startsWith(want), r[k]);
@@ -200,7 +200,7 @@ await step('formats', async () => {
         await e.addNode({ type: 'paint', name: 'second' });
         e.beginStroke({ x: 20, y: 120, pressure: 1, timeMs: 0 }); e.continueStroke([{ x: 180, y: 20, pressure: 1, timeMs: 20 }]); e.endStroke();
         const h0 = await pixelHash(); const names = (await e.layers()).map(n => n.name).join('|');
-        for (const format of ['psd', 'ora', 'tga', 'bmp', 'png', 'jpg']) {
+        for (const format of ['psd', 'ora', 'tga', 'bmp', 'png', 'tiff', 'webp', 'gif', 'exr', 'jpg']) {
             try {
                 const bytes = await e.exportDocument(format);
                 const info = await e.openDocument('file.' + format, bytes);
@@ -215,7 +215,11 @@ await step('formats', async () => {
     });
     for (const format of ['psd', 'ora']) check(`${format}: round trip keeps pixels and layers`, r[format].same && r[format].layers, JSON.stringify(r[format]));
     for (const format of ['tga', 'bmp', 'png']) check(`${format}: round trip keeps pixels (flattened)`, r[format].same === true, JSON.stringify(r[format]));
-    check('jpg export is refused with a clear message (no JPEG library built yet)', /cannot write/.test(r.jpg.error ?? ''), JSON.stringify(r.jpg));
+    check('tiff: export is refused cleanly (known crash in the TIFF writer)', /does not work/.test(r.tiff.error ?? ''), JSON.stringify(r.tiff));
+    check('webp: lossless-enough round trip opens at the same size', !r.webp.error && r.webp.dims === '200x150', JSON.stringify(r.webp));
+    check('gif: exports and reopens at the same size', !r.gif.error && r.gif.dims === '200x150', JSON.stringify(r.gif));
+    check('exr: exports and reopens at the same size', !r.exr.error && r.exr.dims === '200x150', JSON.stringify(r.exr));
+    check('jpg: exports a JPEG and reopens at the same size', !r.jpg.error && r.jpg.magic[0] === 255 && r.jpg.magic[1] === 216 && r.jpg.dims === '200x150', JSON.stringify(r.jpg));
 });
 check('no page errors', errors.length === 0, errors.slice(0, 3).join(' | '));
 console.log(failed ? `${failed} FAILED` : 'all passed');

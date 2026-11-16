@@ -119,6 +119,8 @@ export async function createWasmEngine(): Promise<Engine> {
             send(id, method, params, options.bytes);
         });
     const bytes = (method: string, params: object) => call<Uint8Array>(method, params, { wantsBytes: true });
+    // For engine spikes and debugging in the dev server: call a bridge method that is not in the contract yet.
+    if (import.meta.env.DEV) (window as unknown as { __engineCall: typeof call }).__engineCall = call;
     const fire = (method: string, params: object) => send(0, method, params);
 
     return {

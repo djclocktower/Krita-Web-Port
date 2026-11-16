@@ -1,7 +1,9 @@
 // A minimal Qt platform plugin with no display, so Krita's core can run in a worker
 // thread instead of the browser's main thread (which must never block).
 #include <QImage>
+#include <QMimeData>
 #include <qpa/qplatformbackingstore.h>
+#include <qpa/qplatformclipboard.h>
 #include <qpa/qplatformintegration.h>
 #include <qpa/qplatformintegrationplugin.h>
 #include <qpa/qplatformscreen.h>
@@ -31,6 +33,24 @@ private:
     QImage m_image;
 };
 
+// Qt's default clipboard returns a null QMimeData while nothing has been copied; Krita (like most
+// applications) assumes a real platform, where it is never null. Keep an empty one instead.
+// ponytail: in-process only; bridging to the browser clipboard hangs off this class later.
+class HeadlessClipboard : public QPlatformClipboard
+{
+public:
+    QMimeData *mimeData(QClipboard::Mode) override { return m_data; }
+    void setMimeData(QMimeData *data, QClipboard::Mode mode) override
+    {
+        if (data != m_data) { delete m_data; m_data = data ? data : new QMimeData; }
+        emitChanged(mode);
+    }
+    bool supportsMode(QClipboard::Mode mode) const override { return mode == QClipboard::Clipboard; }
+    bool ownsMode(QClipboard::Mode) const override { return true; }
+private:
+    QMimeData *m_data = new QMimeData;
+};
+
 class HeadlessIntegration : public QPlatformIntegration
 {
 public:
@@ -39,6 +59,7 @@ public:
     QPlatformWindow *createPlatformWindow(QWindow *window) const override { return new QPlatformWindow(window); }
     QPlatformBackingStore *createPlatformBackingStore(QWindow *window) const override { return new HeadlessBackingStore(window); }
     QAbstractEventDispatcher *createEventDispatcher() const override { return new QEventDispatcherWasm; }
+    QPlatformClipboard *clipboard() const override { static HeadlessClipboard clipboard; return &clipboard; }
 };
 
 class HeadlessPlugin : public QPlatformIntegrationPlugin

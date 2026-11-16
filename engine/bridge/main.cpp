@@ -19,12 +19,19 @@
 #include <emscripten.h>
 #include <utime.h>
 
+#include <KisApplication.h>
 #include <KisDocument.h>
 #include <KisMainWindow.h>
 #include <KisView.h>
 #include <kis_canvas2.h>
 #include <kis_config.h>
 #include <KoToolManager.h>
+#include <KoZoomMode.h>
+#include <qpa/qwindowsysteminterface.h>
+#include <kis_canvas_controller.h>
+#include <kis_coordinates_converter.h>
+#include <QMouseEvent>
+#include <QPointer>
 #include <kactioncollection.h>
 #include <KisImportExportManager.h>
 #include <KisPart.h>
@@ -142,6 +149,24 @@ static QByteArray toPng(const QImage &image)
 
 // ---------------------------------------------------------------------------------------- the engine
 
+/// Records the mouse events a widget receives (spike diagnostics).
+class EventRecorder : public QObject
+{
+public:
+    QStringList seen;
+    bool eventFilter(QObject *, QEvent *e) override
+    {
+        if (e->type() == QEvent::MouseButtonPress || e->type() == QEvent::MouseButtonRelease || e->type() == QEvent::MouseMove) {
+            auto *m = static_cast<QMouseEvent *>(e);
+            seen << QString("%1@%2,%3 b%4 %5").arg(e->type() == QEvent::MouseButtonPress ? "press" : e->type() == QEvent::MouseButtonRelease ? "release" : "move")
+                        .arg(qRound(m->position().x())).arg(qRound(m->position().y())).arg(int(m->buttons())).arg(e->spontaneous() ? "spont" : "synth");
+        } else if (e->type() == QEvent::Enter || e->type() == QEvent::Leave || e->type() == QEvent::FocusOut || e->type() == QEvent::FocusIn) {
+            seen << (e->type() == QEvent::Enter ? "enter" : e->type() == QEvent::Leave ? "leave" : e->type() == QEvent::FocusOut ? "focusOut" : "focusIn");
+        }
+        return false;
+    }
+};
+
 class Engine : public QObject
 {
     Q_OBJECT
@@ -208,6 +233,49 @@ private:
 
     template <class T> void setResource(int key, const T &value) { manager->setResource(key, QVariant::fromValue(value)); }
     KisImageSP image() const { if (!doc) fail("No document is open"); return doc->image(); }
+
+    // --- Krita's own window and view (created on first use, then kept showing the current document)
+    KisMainWindow *window = nullptr;
+    QPointer<KisView> view;
+    bool pointerInside = false;
+    EventRecorder recorder;
+    QPointer<QWidget> recorded;
+    KisView *kritaView()
+    {
+        image();
+        if (!window) {
+            KisConfig(false).disableOpenGL();
+            window = KisPart::instance()->createMainWindow();
+            window->resize(1600, 1000);
+            window->show();
+        }
+        if (!view || view->document() != doc) {
+            KisPart::instance()->addDocument(doc);
+            view = window->addViewAndNotifyLoadingCompleted(doc);
+            QCoreApplication::processEvents();
+            view->canvasController()->setZoom(KoZoomMode::ZOOM_CONSTANT, 1.0);
+            QCoreApplication::processEvents();
+        }
+        // No window system means no focus events, which is how Krita normally learns which view and
+        // canvas are current. Say so explicitly, or tool switching and input have no canvas to act on.
+        if (window->activeView() != view) {
+            window->setActiveView(view);
+            view->canvasBase()->canvasWidget()->setFocus();
+            QFocusEvent focusIn(QEvent::FocusIn);
+            QCoreApplication::sendEvent(view->canvasBase()->canvasWidget(), &focusIn);
+            QCoreApplication::processEvents();
+        }
+        return view;
+    }
+
+    /// Krita's tools and actions finish their work through queued events and strokes; let both drain.
+    void settle(int rounds = 4)
+    {
+        for (int round = 0; round < rounds; round++) {
+            QCoreApplication::processEvents(QEventLoop::AllEvents, 20);
+            image()->waitForDone();
+        }
+    }
 
     // --- documents
     void adopt(KisDocument *document)
@@ -571,9 +639,12 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
     if (m == "exportDocument") {
         const QString format = p["format"].toString();
         static const QHash<QString, const char *> mimes = {{"kra", "application/x-krita"}, {"png", "image/png"}, {"jpg", "image/jpeg"},
-            {"psd", "image/vnd.adobe.photoshop"}, {"ora", "image/openraster"}, {"tga", "image/x-tga"}, {"bmp", "image/bmp"}};
+            {"psd", "image/vnd.adobe.photoshop"}, {"ora", "image/openraster"}, {"tga", "image/x-tga"}, {"bmp", "image/bmp"},
+            {"tiff", "image/tiff"}, {"webp", "image/webp"}, {"gif", "image/gif"}, {"exr", "image/x-exr"}};
         const char *mime = mimes.value(format, nullptr);
         if (!mime) fail("Unsupported format: " + format);
+        // Krita's TIFF writer calls a missing function in this build and takes the engine down; refuse until that is fixed.
+        if (format == "tiff") fail("TIFF export does not work in this build yet");
         if (!KisImportExportManager::supportedMimeTypes(KisImportExportManager::Export).contains(mime)) fail("This build of the engine cannot write ." + format + " files");
         image()->waitForDone();
         const QString path = "/tmp/export." + format;
@@ -1129,28 +1200,94 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         paint->setOnionSkinEnabled(p["enabled"].toBool());
         return QJsonValue();
     }
-    // ---- spike: Krita's own main window, view and tools, with no display
-    if (m == "spike.mainWindow") {
-        QJsonObject o;
-        KisConfig(false).disableOpenGL();
-        KisMainWindow *window = KisPart::instance()->createMainWindow();
-        o["window"] = bool(window);
-        o["actions"] = int(window->actionCollection()->count());
-        if (doc) {
-            KisPart::instance()->addDocument(doc);
-            KisView *view = window->addViewAndNotifyLoadingCompleted(doc);
-            o["view"] = bool(view);
-            o["canvasWidget"] = view && view->canvasBase() && view->canvasBase()->canvasWidget() ? view->canvasBase()->canvasWidget()->metaObject()->className() : "none";
+    // ---- Krita's own main window, view, actions and tools, with no display.
+    // ponytail: the hand-written handlers above and this path both edit the document; the plan is
+    // to move tools and menu commands onto this path and retire the hand-written ones.
+    if (m.startsWith("krita.")) {
+        KisView *view = kritaView();
+        if (m == "krita.info") {
+            QStringList tools;
+            for (KoToolAction *t : KoToolManager::instance()->toolActionList()) tools << t->id();
+            return QJsonObject{{"actions", int(window->actionCollection()->count())}, {"tools", QJsonArray::fromStringList(tools)},
+                               {"activeTool", KoToolManager::instance()->activeToolId()},
+                               {"canvasWidget", view->canvasBase()->canvasWidget()->metaObject()->className()},
+                               {"canvasSize", QString("%1x%2").arg(view->canvasBase()->canvasWidget()->width()).arg(view->canvasBase()->canvasWidget()->height())}};
         }
-        QStringList tools;
-        for (KoToolAction *t : KoToolManager::instance()->toolActionList()) tools << t->id();
-        o["tools"] = QJsonArray::fromStringList(tools);
-        return o;
+        if (m == "krita.actions") {
+            QJsonArray list;
+            for (QAction *a : window->actionCollection()->actions())
+                list.append(QJsonObject{{"name", a->objectName()}, {"text", a->text().remove('&')}, {"shortcut", a->shortcut().toString()},
+                                        {"enabled", a->isEnabled()}, {"checkable", a->isCheckable()}, {"checked", a->isChecked()}});
+            return list;
+        }
+        if (m == "krita.trigger") {
+            QAction *a = window->actionCollection()->action(p["name"].toString());
+            if (!a) fail("Unknown action: " + p["name"].toString());
+            if (!a->isEnabled()) fail("Action is not available right now: " + p["name"].toString());
+            a->trigger();
+            settle();
+            emitSelection();
+            return QJsonValue();
+        }
+        if (m == "krita.tool") {
+            KoToolManager::instance()->switchToolRequested(p["id"].toString());
+            QCoreApplication::processEvents();
+            bool known = false;
+            for (KoToolAction *t : KoToolManager::instance()->toolActionList()) known = known || t->id() == p["id"].toString();
+            if (!known) fail("Unknown tool: " + p["id"].toString());
+            KoToolManager::instance()->switchToolRequested(p["id"].toString());
+            QCoreApplication::processEvents();
+            if (KoToolManager::instance()->activeToolId() != p["id"].toString()) fail("Could not switch to tool " + p["id"].toString());
+            return QJsonValue();
+        }
+        if (m == "krita.pointer") {
+            // A pointer event in image pixels, delivered to Krita's canvas widget exactly as a mouse would be.
+            QWidget *canvas = view->canvasBase()->canvasWidget();
+            const QPointF pos = view->canvasBase()->coordinatesConverter()->imageToWidget(QPointF(p["x"].toDouble(), p["y"].toDouble()));
+            const QString type = p["type"].toString();
+            const QEvent::Type t = type == "press" ? QEvent::MouseButtonPress : type == "release" ? QEvent::MouseButtonRelease : QEvent::MouseMove;
+            Qt::KeyboardModifiers mods;
+            if (p["shift"].toBool()) mods |= Qt::ShiftModifier;
+            if (p["ctrl"].toBool()) mods |= Qt::ControlModifier;
+            if (p["alt"].toBool()) mods |= Qt::AltModifier;
+            if (recorded != canvas) { canvas->installEventFilter(&recorder); recorded = canvas; }
+            if (!pointerInside) {     // Krita ignores input until the pointer has entered the canvas
+                QEnterEvent enter(pos, pos, canvas->mapToGlobal(pos));
+                QCoreApplication::sendEvent(canvas, &enter);
+                pointerInside = true;
+            }
+            // Injected through the window-system interface, as a real platform would, so Krita sees
+            // genuine ("spontaneous") input; some tools cancel on events that are not.
+            // Krita batches mouse moves on a short timer; let the pending ones land before a release ends the gesture.
+            // (Events only: the tool's stroke is still open here, so waiting for the image to go idle would never return.)
+            if (t == QEvent::MouseButtonRelease) for (int i = 0; i < 3; i++) QCoreApplication::processEvents(QEventLoop::AllEvents, 20);
+            const bool held = t == QEvent::MouseButtonPress || (t == QEvent::MouseMove && p["down"].toBool());
+            QWindow *target = canvas->window()->windowHandle();
+            if (!target) fail("Krita's window has no native handle");
+            const QPointF local = canvas->mapTo(canvas->window(), pos);
+            QWindowSystemInterface::handleMouseEvent(target, local, canvas->mapToGlobal(pos), held ? Qt::LeftButton : Qt::NoButton,
+                                                     t == QEvent::MouseMove ? Qt::NoButton : Qt::LeftButton, t, mods);
+            QWindowSystemInterface::sendWindowSystemEvents(QEventLoop::AllEvents);
+            QCoreApplication::processEvents();
+            // ponytail: fixed settling time; replace with a completion signal from Krita's stroke system
+            if (t == QEvent::MouseButtonRelease) { settle(20); emitSelection(); }
+            QJsonObject reply{{"widgetX", pos.x()}, {"widgetY", pos.y()}, {"seen", QJsonArray::fromStringList(recorder.seen)}};
+            recorder.seen.clear();
+            return reply;
+        }
+        fail("Unknown method: " + m);
     }
     fail("Unknown method: " + m);
 }
 
 // ---------------------------------------------------------------------------------------- from the page
+
+// Exiv2's build turns on the stack protector, whose two runtime symbols Emscripten's libc lacks.
+// ponytail: provided here; rebuild Exiv2 without -fstack-protector to drop them.
+extern "C" {
+uintptr_t __stack_chk_guard = 0x595e9fbd;
+void __stack_chk_fail() { abort(); }
+}
 
 static Engine *g_engine = nullptr;
 
@@ -1200,6 +1337,8 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_ack()
 
 int main(int argc, char *argv[])
 {
+    // Uncaught errors in this worker reach the page without a stack; log it here first.
+    EM_ASM({ self.addEventListener('error', function (e) { console.error('ENGINE STACK ' + (e.error && e.error.stack ? e.error.stack : e.message)); }); });
     qputenv("QT_QPA_PLATFORM", "kritaheadless");
     qputenv("FONTCONFIG_FILE", "/etc/fonts/fonts.conf");
     QStandardPaths::setTestModeEnabled(true);
@@ -1207,7 +1346,8 @@ int main(int argc, char *argv[])
     t.start();
     QJsonObject startup;
     auto lap = [&](const char *what) { startup[what] = t.restart(); };
-    QApplication app(argc, argv);
+    // Krita's own application class: parts of Krita cast qApp to it (e.g. the input manager).
+    KisApplication app(QStringLiteral("krita-web"), argc, argv);
     lap("applicationMs");
     // Preloaded files get "now" as their modification time on every page load, which would make
     // Krita think the bundle changed and re-import it. Pin it so a stored database stays valid.
