@@ -285,6 +285,8 @@ public:
     }
 
     QJsonValue handle(const QString &m, const Params &p, const QByteArray &data, QByteArray &out);
+    QStringList recentMethods;      // for krita.debug: what the page asked for lately
+    void noteMethod(const QString &m) { if (m != "krita.debug") { recentMethods << m; if (recentMethods.size() > 60) recentMethods.removeFirst(); } }
     Q_INVOKABLE void flushPending() { flushImage(); }
 
     // While a stroke is open the image is busy, and many handlers wait for it to go idle. A request
@@ -1476,6 +1478,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         QJsonObject res;
         res["selectedNodes"] = int(window->viewManager()->nodeManager()->selectedNodes().size());
         res["activeTool"] = KoToolManager::instance()->activeToolId();
+        res["recentMethods"] = recentMethods.join(" ");
         KisNodeSP resNode = manager->resource(KoCanvasResource::CurrentKritaNode).value<KisNodeWSP>();
         KisNodeSP mgrNode = window->viewManager()->nodeManager()->activeNode();
         res["resourceNode"] = resNode ? resNode->name() : QString("(none)");
@@ -1749,6 +1752,7 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
             f.remove();
         }
         try {
+            g_engine->noteMethod(m);
             reply["result"] = g_engine->handle(m, params, data, out);
         } catch (const Failure &f) {
             reply["error"] = f.message;
