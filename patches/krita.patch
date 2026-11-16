@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index b5f826f..d0acf9c 100644
+index b5f826f..13827c0 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -84,6 +84,35 @@ endif()
@@ -89,13 +89,16 @@ index b5f826f..d0acf9c 100644
      endmacro()
  
      macro(ko_compile_for_all_implementations _objs _src)
-@@ -1678,13 +1726,22 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
+@@ -1678,13 +1726,25 @@ include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}
  add_subdirectory(sdk/tests)
  
  add_subdirectory(libs)
 -add_subdirectory(qmlmodules)
 +if (NOT EMSCRIPTEN)
 +    add_subdirectory(qmlmodules)
++else()
++    # The widget wrapper only (the text tool needs it); Krita's QML component module is not built yet.
++    add_subdirectory(qmlmodules/widgets)
 +endif()
  add_subdirectory(plugins)
  if (BUILD_TESTING)
