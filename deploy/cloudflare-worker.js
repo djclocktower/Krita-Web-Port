@@ -32,7 +32,8 @@ const ISOLATION = {
 function reply(body, init, extra) {
     const headers = new Headers(init.headers);
     for (const [k, v] of Object.entries({ ...ISOLATION, ...extra })) headers.set(k, v);
-    return new Response(body, { status: init.status, headers });
+    // encodeBody 'manual': the body is already Brotli bytes; without it the runtime would compress it a second time.
+    return new Response(body, { status: init.status, headers, encodeBody: 'manual' });
 }
 
 // Hashed build output never changes. Everything else (index.html and the engine, whose file names carry
@@ -87,7 +88,9 @@ export default {
     fetch(request, env) {
         const { pathname } = new URL(request.url);
         if (pathname === '/krita' || pathname.startsWith('/krita/')) return serveKrita(request, env);
-        // The rest of the site: static-assets binding if there is one, otherwise the zone's origin server.
-        return env.ASSETS ? env.ASSETS.fetch(request) : fetch(request);
+        // The rest of the site: a Workers static-assets binding if there is one. With nothing behind this Worker, 404.
+        // (If this Worker is a Route in front of an origin server, use `return fetch(request);` here instead. Not the
+        // default: on a Worker with no origin, fetch(request) calls the Worker itself and loops until the runtime gives up.)
+        return env.ASSETS ? env.ASSETS.fetch(request) : new Response('Not found', { status: 404 });
     },
 };
