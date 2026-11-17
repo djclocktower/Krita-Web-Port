@@ -1,0 +1,14 @@
+diff --git a/gmic-qt/src/Updater.cpp b/gmic-qt/src/Updater.cpp
+index 59cda7c..418ca35 100644
+--- a/gmic-qt/src/Updater.cpp
++++ b/gmic-qt/src/Updater.cpp
+@@ -74,6 +74,9 @@ void Updater::startUpdate(int ageLimit, int timeout, bool useNetwork)
+   prependOfficialSourceIfRelevant(sources);
+   SHOW(sources);
+   _errorMessages.clear();
++#ifdef _GMIC_QT_DISABLE_UPDATES_
++  useNetwork = false; // the engine has no network: only the filters embedded in the binary and local files are used
++#endif
+   _networkAccessManager = new QNetworkAccessManager(this);
+   connect(_networkAccessManager, &QNetworkAccessManager::finished, this, &Updater::onNetworkReplyFinished);
+   _someNetworkUpdatesAchieved = false;

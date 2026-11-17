@@ -437,7 +437,9 @@ async function runTools() {
                         if (w) { const pa = S.paint.get(w.id); s.optionWindow = { id: w.id, width: w.width, height: w.height, picture: S.pixHash(w.id), solid: pa?.solid, total: pa ? pa.width * pa.height : 0, title: w.title }; if (pa) { const set = new Set(); for (let i = 0; i < pa.px.length; i += 4 * 29) set.add((pa.px[i] << 16) | (pa.px[i + 1] << 8) | pa.px[i + 2]); s.optionWindow.distinctColours = set.size; } s.png = S.png(w.id); }
                         else s.optionWindow = null;
                     }
+                    s.overlayTrace = [S.overlays];
                     const before = await S.snap('x');
+                    s.overlayTrace.push(S.overlays);
                     S.msgs.length = 0; S.overlayPx = 0; S.overlays = 0; S.imgUpd = 0; S.tools.length = 0;
                     const g = G[id] ?? G.drag;
                     const t0 = performance.now();

@@ -1,0 +1,46 @@
+diff -u a/engine/bridge/CMakeLists.txt b/engine/bridge/CMakeLists.txt
+--- a/engine/bridge/CMakeLists.txt	2026-11-17 07:46:51.461155495 +0000
++++ b/engine/bridge/CMakeLists.txt	2026-11-17 07:46:51.478960718 +0000
+@@ -58,6 +58,13 @@
+     endif()
+ endforeach()
+ 
++# G'MIC (core and FFTW) live in their own prefix, so that Krita's own FindFFTW3 does not pick FFTW up
++foreach(_dep gmic fftw3f fftw3)
++    if (KRITA_WEB_GMIC_PREFIX AND EXISTS ${KRITA_WEB_GMIC_PREFIX}/lib/lib${_dep}.a)
++        target_link_libraries(kritaengine PRIVATE ${KRITA_WEB_GMIC_PREFIX}/lib/lib${_dep}.a)
++    endif()
++endforeach()
++
+ set(_data ${CMAKE_SOURCE_DIR}/krita/data)
+ # ponytail: font taken from the build machine; the real app ships its own font set.
+ set(KRITA_WEB_FONT /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf CACHE FILEPATH "Fallback font to bundle")
+diff -u a/engine/bridge/plugin-targets.txt b/engine/bridge/plugin-targets.txt
+--- a/engine/bridge/plugin-targets.txt	2026-11-17 07:46:51.461184822 +0000
++++ b/engine/bridge/plugin-targets.txt	2026-11-17 07:46:51.478960718 +0000
+@@ -1 +1 @@
+-kritahatchingpaintop kritafilterop kritagridpaintop kritacolorsmudgepaintop kritaexperimentpaintop kritasketchpaintop kritaspraypaintop kritacurvepaintop kritatangentnormalpaintop kritaroundmarkerpaintop kritaparticlepaintop kritahairypaintop kritadeformpaintop kritasmalltilesfilter kritadodgeburn kritapropagatecolors kritaasccdl kritaimageenhancement kritawavefilter kritablurfilter kritagaussianhighpassfilter kritagradientmap kritaunsharpfilter kritaindexcolors kritalevelfilter kritaoilpaintfilter kritaconvolutionfilters kritaposterize kritaembossfilter kritaedgedetection kritaresettransparent kritathreshold kritarandompickfilter kritacolorsfilters kritaraindropsfilter kritafastcolortransferfilter kritaroundcornersfilter kritahalftone kritapalettize kritanormalize kritaextensioncolorsfilters kritanoisefilter kritaphongbumpmap kritaconvertheighttonormalmap kritapixelizefilter kritamultigridpatterngenerator kritacolorgenerator kritapatterngenerator kritagradientgenerator kritascreentonegenerator kritasimplexnoisegenerator kritapngimport kritapngexport kritakraexport kritaexample kritapsdimport kritapsdexport kritaoraimport kritaoraexport kritatgaexport kritatgaimport kritaqimageioexport kritaqimageioimport kritasvgimport kritabrushexport kritabrushimport kritaheightmapimport kritadefaulttools krita_flaketools kritaselectiontools kritatooltransform kritatoolcrop kritajpegimport kritajpegexport kritatiffimport kritatiffexport kritawebpimport kritawebpexport kritagifexport kritagifimport kritaexrimport kritaexrexport kritatoolpolygon kritatoolpolyline kritatooldyna kritatoolencloseandfill kritatoollazybrush kritatoolKnife kritatoolSmartPatch krita_karbontools kritaassistanttool krita_shape_image krita_shape_paths krita_colorspaces_extensions kritaclonesarray kritacolorrange kritacolorspaceconversion kritaimagesplit kritalayergroupswitcher kritalayersplit kritametadataeditor kritamodifyselection kritaoffsetimage kritaresourcemanager kritarotateimage kritaseparatechannels kritashearimage kritawaveletdecompose kritacsvexport kritacsvimport kritakrzexport kritargbeexport kritargbeimport kritaspriterexport kritaqmlexport kritaheightmapexport kritaiptc kritaexif kritaxmp kritamypaintop_static kritamypaintop kritajxlimport kritajxlexport kritaheifimport kritaheifexport krita_raw_import kritajp2import kritapdfimport kritaqmlwidgets krita_tool_svgtext_static krita_tool_svgtext kritacolorselectorng kritaanimationdocker_static kritaanimationdocker kritaarrangedocker kritaartisticcolorselector kritabrushhud kritachanneldocker kritacompositiondocker kritadigitalmixer kritagamutmask kritagriddocker kritahistogramdocker kritahistorydocker kritalayerdocker_static kritalayerdocker kritalogdocker kritaoverviewdocker kritapalettedocker kritapatterndocker kritapresetdocker kritapresethistory kritasmallcolorselector kritasnapshotdocker kritaspecificcolorselector kritastoryboarddocker_static kritastoryboarddocker kritasvgcollectiondocker kritatasksetdocker kritatouchdocker kritaqmlcomponents kritatextproperties
+\ No newline at end of file
++kritahatchingpaintop kritafilterop kritagridpaintop kritacolorsmudgepaintop kritaexperimentpaintop kritasketchpaintop kritaspraypaintop kritacurvepaintop kritatangentnormalpaintop kritaroundmarkerpaintop kritaparticlepaintop kritahairypaintop kritadeformpaintop kritasmalltilesfilter kritadodgeburn kritapropagatecolors kritaasccdl kritaimageenhancement kritawavefilter kritablurfilter kritagaussianhighpassfilter kritagradientmap kritaunsharpfilter kritaindexcolors kritalevelfilter kritaoilpaintfilter kritaconvolutionfilters kritaposterize kritaembossfilter kritaedgedetection kritaresettransparent kritathreshold kritarandompickfilter kritacolorsfilters kritaraindropsfilter kritafastcolortransferfilter kritaroundcornersfilter kritahalftone kritapalettize kritanormalize kritaextensioncolorsfilters kritanoisefilter kritaphongbumpmap kritaconvertheighttonormalmap kritapixelizefilter kritamultigridpatterngenerator kritacolorgenerator kritapatterngenerator kritagradientgenerator kritascreentonegenerator kritasimplexnoisegenerator kritapngimport kritapngexport kritakraexport kritaexample kritapsdimport kritapsdexport kritaoraimport kritaoraexport kritatgaexport kritatgaimport kritaqimageioexport kritaqimageioimport kritasvgimport kritabrushexport kritabrushimport kritaheightmapimport kritadefaulttools krita_flaketools kritaselectiontools kritatooltransform kritatoolcrop kritajpegimport kritajpegexport kritatiffimport kritatiffexport kritawebpimport kritawebpexport kritagifexport kritagifimport kritaexrimport kritaexrexport kritatoolpolygon kritatoolpolyline kritatooldyna kritatoolencloseandfill kritatoollazybrush kritatoolKnife kritatoolSmartPatch krita_karbontools kritaassistanttool krita_shape_image krita_shape_paths krita_colorspaces_extensions kritaclonesarray kritacolorrange kritacolorspaceconversion kritaimagesplit kritalayergroupswitcher kritalayersplit kritametadataeditor kritamodifyselection kritaoffsetimage kritaresourcemanager kritarotateimage kritaseparatechannels kritashearimage kritawaveletdecompose kritacsvexport kritacsvimport kritakrzexport kritargbeexport kritargbeimport kritaspriterexport kritaqmlexport kritaheightmapexport kritaiptc kritaexif kritaxmp kritamypaintop_static kritamypaintop kritajxlimport kritajxlexport kritaheifimport kritaheifexport krita_raw_import kritajp2import kritapdfimport kritaqmlwidgets krita_tool_svgtext_static krita_tool_svgtext kritacolorselectorng kritaanimationdocker_static kritaanimationdocker kritaarrangedocker kritaartisticcolorselector kritabrushhud kritachanneldocker kritacompositiondocker kritadigitalmixer kritagamutmask kritagriddocker kritahistogramdocker kritahistorydocker kritalayerdocker_static kritalayerdocker kritalogdocker kritaoverviewdocker kritapalettedocker kritapatterndocker kritapresetdocker kritapresethistory kritasmallcolorselector kritasnapshotdocker kritaspecificcolorselector kritastoryboarddocker_static kritastoryboarddocker kritasvgcollectiondocker kritatasksetdocker kritatouchdocker kritaqmlcomponents kritatextproperties kritaqmic kritagmicqt
+\ No newline at end of file
+diff -u a/engine/bridge/plugins.inc b/engine/bridge/plugins.inc
+--- a/engine/bridge/plugins.inc	2026-11-17 07:46:51.461203744 +0000
++++ b/engine/bridge/plugins.inc	2026-11-17 07:46:51.478960718 +0000
+@@ -156,3 +156,5 @@
+ Q_IMPORT_PLUGIN(TasksetDockerPluginFactory)
+ Q_IMPORT_PLUGIN(TouchDockerPluginFactory)
+ Q_IMPORT_PLUGIN(TextPropertiesPluginFactory)
++Q_IMPORT_PLUGIN(QMicFactory)
++Q_IMPORT_PLUGIN(KritaGmicPluginFactory)
+diff -u a/engine/build-krita.sh b/engine/build-krita.sh
+--- a/engine/build-krita.sh	2026-11-17 07:46:51.462914899 +0000
++++ b/engine/build-krita.sh	2026-11-17 07:46:51.479213207 +0000
+@@ -21,7 +21,7 @@
+         -DCMAKE_TOOLCHAIN_FILE="$QT_WASM/lib/cmake/Qt6/qt.toolchain.cmake" -DQT_HOST_PATH="$QT_HOST" \
+         -DCMAKE_INSTALL_PREFIX="$KW/krita-install" -DCMAKE_PREFIX_PATH="$PREFIX" -DCMAKE_FIND_ROOT_PATH="$PREFIX" \
+         -DBUILD_WITH_QT6=ON -DALLOW_UNSTABLE=QT6 -DBUILD_SHARED_LIBS=OFF -DBUILD_TESTING=${BUILD_TESTING:-OFF} \
+-        -DKF_IGNORE_PLATFORM_CHECK=ON -DENABLE_UPDATERS=OFF -DKRITA_ENABLE_PCH=OFF -DKRITA_WEB_SPIKE_DIR="$ROOT/engine/spike" -DKRITA_WEB_BRIDGE_DIR="$ROOT/engine/bridge" -DKRITA_WEB_PREFIX="$PREFIX" -DKRITA_WEB_PROFILING=${KW_PROFILING:-OFF} -DKRITA_WEB_LINK_MAP=${KW_LINK_MAP:-OFF} -DKRITA_WEB_WASMFS=${KW_WASMFS:-OFF} \
++        -DKF_IGNORE_PLATFORM_CHECK=ON -DENABLE_UPDATERS=OFF -DKRITA_ENABLE_PCH=OFF -DKRITA_WEB_SPIKE_DIR="$ROOT/engine/spike" -DKRITA_WEB_BRIDGE_DIR="$ROOT/engine/bridge" -DKRITA_WEB_PREFIX="$PREFIX" -DKRITA_WEB_GMIC_DIR="$KW/src/gmic" -DKRITA_WEB_GMIC_PREFIX="$KW/prefix-gmic" -DKRITA_WEB_PROFILING=${KW_PROFILING:-OFF} -DKRITA_WEB_LINK_MAP=${KW_LINK_MAP:-OFF} -DKRITA_WEB_WASMFS=${KW_WASMFS:-OFF} \
+         "-DKRITA_WEB_PLUGIN_TARGETS=$(tr ' ' ';' < "$ROOT/engine/bridge/plugin-targets.txt")" \
+         -DKRITA_QT_HAS_ENTER_LEAVE_PATCH=OFF -DKRITA_QT_HAS_UNBALANCED_KEY_PRESS_RELEASE_PATCH=OFF \
+         -DKRITA_QT_HAS_UPDATE_COMPRESSION_PATCH=OFF \
