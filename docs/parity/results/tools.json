@@ -2579,5 +2579,88 @@
   "optionBlank": true,
   "optionSameAsPrevious": false,
   "outcome": "crash"
+ },
+ "KisToolCrop": {
+  "id": "KisToolCrop",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 580,
+    "picture": "2035520314:138240:240x576",
+    "solid": 138240,
+    "total": 138240,
+    "title": "Tool Options",
+    "distinctColours": 106
+   },
+   "gestureMs": 611,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [
+    "Width: 220 px\nHeight: 160 px",
+    "X: 0 px\nY: 0 px",
+    "X: 0 px\nY: 0 px"
+   ],
+   "imageUpdates": 0,
+   "hashes": [
+    730054537,
+    730054537,
+    730054537
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 702,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [
+    "Width: 220 px\nHeight: 160 px"
+   ],
+   "imageUpdates": 1,
+   "hashes": [
+    730054537,
+    730054537,
+    730054537
+   ],
+   "alive": true
+  },
+  "name": "Crop Tool",
+  "section": "2 Krita/Transform",
+  "file": "tools/KisToolCrop.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "message"
  }
 }
