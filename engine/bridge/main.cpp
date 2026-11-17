@@ -1805,6 +1805,14 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
     const QString m = envelope["method"].toString();
     const QJsonObject params = envelope["params"].toObject();
     QMetaObject::invokeMethod(g_engine, [id, m, params] {
+     // One request at a time. Handlers pump the event loop while they wait for Krita, and that would
+     // start the next request inside the current one: a fast pen sends the next press while the last
+     // release is still settling, and a few levels of that left the engine stuck. The exception is
+     // while one of Krita's modal dialogs is open: the action that opened it is still waiting inside
+     // its handler, and the dialog's input has to get through.
+     static int running = 0;
+     static QList<std::function<void()>> waiting;
+     auto dispatch = [id, m, params] {
       const bool strokeCall = m == "beginStroke" || m == "continueStroke" || m == "endStroke" || m == "krita.pointer"
                               || m == "krita.key" || m == "krita.viewport" || m == "krita.windowInput";
       auto run = [id, m, params] {
@@ -1835,6 +1843,17 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
       run();
       WebApplication::requestDepth = outer;
       if (strokeCall) g_engine->runDeferred();
+     };
+     if (running > 0 && !QApplication::activeModalWidget()) { waiting.append(dispatch); return; }
+     running++;
+     dispatch();
+     running--;
+     while (running == 0 && !waiting.isEmpty()) {
+         auto next = waiting.takeFirst();
+         running++;
+         next();
+         running--;
+     }
     }, Qt::QueuedConnection);
 }
 
