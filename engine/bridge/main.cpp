@@ -549,6 +549,8 @@ public:
         auto *w = static_cast<QWidget *>(o);
         if (e->type() == QEvent::Show && w->isWindow()) shows++;
         if (e->type() == QEvent::UpdateRequest) updateRequests++;
+        if (w->isWindow() && w->inherits("QDialog") && e->type() != QEvent::UpdateRequest && e->type() != QEvent::Paint)   // KWDEBUG
+            fprintf(stderr, "KWDBG %s ev=%d %dx%d state=%d min=%dx%d max=%dx%d resized=%d spont=%d\n", w->metaObject()->className(), int(e->type()), w->width(), w->height(), int(w->windowState()), w->minimumWidth(), w->minimumHeight(), w->maximumWidth(), w->maximumHeight(), w->testAttribute(Qt::WA_Resized), e->spontaneous());
         switch (e->type()) {
         case QEvent::Show:
             if (w->isWindow() && w != window && w->windowType() != Qt::ToolTip && w->windowType() != Qt::Desktop) trackWindow(w);
