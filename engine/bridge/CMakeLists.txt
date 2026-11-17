@@ -75,6 +75,11 @@ target_link_options(kritaengine PRIVATE
     "SHELL:--preload-file ${_spike}/fonts.conf@/etc/fonts/fonts.conf"
     "SHELL:--preload-file ${KRITA_WEB_FONT}@/usr/share/fonts/fallback.ttf")
 
+# -DKRITA_WEB_WASMFS=ON keeps the in-memory file system inside the engine instead of on the page's thread, so
+# file reads from Krita's thread (its resource database, bundles, settings) stop being blocking round trips.
+if (KRITA_WEB_WASMFS)
+    target_link_options(kritaengine PRIVATE -sWASMFS)
+endif()
 # -DKRITA_WEB_LINK_MAP=ON writes kritaengine.map next to the build: which library every byte of the binary came from.
 if (KRITA_WEB_LINK_MAP)
     target_link_options(kritaengine PRIVATE -Wl,-Map=${CMAKE_BINARY_DIR}/kritaengine.map)
