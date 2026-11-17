@@ -17065,7 +17065,7 @@
  },
  "window": {
   "fixture": "base",
-  "ms": 164,
+  "ms": 163,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17074,6 +17074,9 @@
    "selection": false,
    "history": false,
    "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
    "enabledSet": false,
    "checked": false
   },
@@ -17092,7 +17095,11 @@
   ],
   "outcome": "no visible effect",
   "text": "Window",
-  "when": "2026-11-17T04:13:11.187Z"
+  "when": "2026-11-17T06:22:52.858Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:13:11.187Z"
+  }
  },
  "style_menu": {
   "fixture": "base",
