@@ -1836,6 +1836,12 @@ int main(int argc, char *argv[])
 {
     // Uncaught errors in this worker reach the page without a stack; log it here first.
     EM_ASM({ self.addEventListener('error', function (e) { console.error('ENGINE STACK ' + (e.error && e.error.stack ? e.error.stack : e.message)); }); });
+    // Qt's and Krita's log lines each cost a synchronous round trip to the page's thread (that is
+    // where the console is). Only errors are kept unless the page asks for the full log (?engineLog=1).
+    if (!MAIN_THREAD_EM_ASM_INT({ return Module.kwLog ? 1 : 0; }))
+        qInstallMessageHandler([](QtMsgType type, const QMessageLogContext &, const QString &message) {
+            if (type == QtCriticalMsg || type == QtFatalMsg) fprintf(stderr, "%s\n", qPrintable(message));
+        });
     qputenv("QT_QPA_PLATFORM", "kritaheadless");
     qputenv("QT_QUICK_BACKEND", "software");           // QML panels (QQuickWidget) render to an image; the platform has no GL
     qputenv("FONTCONFIG_FILE", "/etc/fonts/fonts.conf");

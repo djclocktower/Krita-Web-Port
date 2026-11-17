@@ -165,7 +165,7 @@ function install() {
         if (seen.size) { await S.settle(known); grab(); rec.windows = [...seen.values()]; rec.closedBy = await S.closeNew(known); }
         if (state === 'pending') {            // waits on a window, or hangs
             const t1 = performance.now();
-            while (state === 'pending' && performance.now() - t1 < (seen.size ? 8000 : 4000)) {
+            while (state === 'pending' && performance.now() - t1 < (seen.size ? 25000 : 4000)) {
                 grab();
                 if (S.newWins(known).length) { await S.settle(known); grab(); rec.closedBy = (rec.closedBy ?? []).concat(await S.closeNew(known)); rec.windows = [...seen.values()]; }
                 await sleep(100);

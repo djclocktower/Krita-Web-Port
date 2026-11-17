@@ -3572,9 +3572,23 @@
  },
  "edit_selection": {
   "fixture": "base",
-  "state": "pending",
-  "hang": true,
-  "error": "PAGE_TIMEOUT",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
   "enabled": true,
   "enabledIn": [
    "base",
@@ -3583,21 +3597,13 @@
    "mask",
    "anim"
   ],
-  "console": [
-   "QPainter::setRenderHint: Painter must be active to set rendering hints",
-   "QPainter::restore: Unbalanced save/restore",
-   "SAFE ASSERT (krita): \"g_sanityDefaultFormatIsSet\" in file /home/user/Krita-Web-Port/krita/libs/ui/opengl/kis_opengl.cpp, line 141",
-   "This plugin does not support createPlatformOpenGLContext!",
-   "WARNING: Level of Detail functionality is available only with openGL + GLSL 1.3 support",
-   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!"
-  ],
-  "outcome": "hang",
+  "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T04:29:57.297Z",
+  "when": "2026-11-17T05:30:32.234Z",
   "previous": {
-   "outcome": "crash",
-   "error": "page.evaluate: Target page, context or browser has been closed",
-   "when": "2026-11-17T02:58:41.679Z"
+   "outcome": "hang",
+   "error": "PAGE_TIMEOUT",
+   "when": "2026-11-17T04:29:57.297Z"
   }
  },
  "convert_to_vector_selection": {
@@ -13813,28 +13819,9 @@
  },
  "save_incremental_version": {
   "fixture": "base",
-  "ms": 161,
-  "windows": [
-   {
-    "id": 2,
-    "title": "Saving As",
-    "kind": "dialog",
-    "width": 908,
-    "height": 421,
-    "modal": true,
-    "picture": "-1054784567:382268:908x421",
-    "file": "actions/save_incremental_version__Saving_As.png"
-   }
-  ],
-  "closedBy": [
-   "Escape"
-  ],
-  "pending": true,
-  "alive": true,
   "state": "pending",
-  "needReload": true,
-  "hang": true,
-  "note": "call never returned; engine still answered",
+  "crash": true,
+  "error": "page.evaluate: Execution context was destroyed, most likely because of a navigation.",
   "enabled": true,
   "enabledIn": [
    "base",
@@ -13844,19 +13831,19 @@
    "anim"
   ],
   "console": [
-   "Numeric mode unsupported in the posix collation implementation",
-   "This plugin does not support propagateSizeHints()",
-   "This plugin does not support propagateSizeHints()",
-   "Case insensitive sorting unsupported in the posix collation implementation",
-   "Numeric mode unsupported in the posix collation implementation",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
    "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!"
   ],
-  "outcome": "hang",
+  "outcome": "crash",
   "text": "",
-  "when": "2026-11-17T04:51:24.240Z",
+  "when": "2026-11-17T05:31:27.873Z",
   "previous": {
-   "outcome": "opened dialog",
-   "when": "2026-11-17T03:42:35.964Z"
+   "outcome": "hang",
+   "when": "2026-11-17T04:51:24.240Z"
   }
  },
  "save_incremental_backup": {
@@ -15151,7 +15138,7 @@
  },
  "file_save": {
   "fixture": "base",
-  "ms": 205,
+  "ms": 164,
   "windows": [
    {
     "id": 2,
@@ -15160,7 +15147,7 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "1499309820:382268:908x421",
+    "picture": "-1054784567:382268:908x421",
     "file": "actions/save_incremental_version__Saving_As.png"
    }
   ],
@@ -15193,11 +15180,15 @@
   ],
   "outcome": "opened dialog",
   "text": "Save",
-  "when": "2026-11-17T04:02:48.294Z"
+  "when": "2026-11-17T05:07:50.677Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:02:48.294Z"
+  }
  },
  "file_save_as": {
   "fixture": "base",
-  "ms": 182,
+  "ms": 162,
   "windows": [
    {
     "id": 2,
@@ -15206,7 +15197,7 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "1499309820:382268:908x421",
+    "picture": "-1054784567:382268:908x421",
     "file": "actions/save_incremental_version__Saving_As.png"
    }
   ],
@@ -15239,11 +15230,15 @@
   ],
   "outcome": "opened dialog",
   "text": "Save As…",
-  "when": "2026-11-17T04:03:26.181Z"
+  "when": "2026-11-17T05:08:37.734Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:03:26.181Z"
+  }
  },
  "file_import_animation": {
   "fixture": "base",
-  "ms": 47,
+  "ms": 45,
   "windows": [
    {
     "id": 2,
@@ -15285,11 +15280,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:04:04.770Z"
+  "when": "2026-11-17T05:09:12.379Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:04:04.770Z"
+  }
  },
  "file_import_video_animation": {
   "fixture": "base",
-  "ms": 45,
+  "ms": 58,
   "windows": [
    {
     "id": 2,
@@ -15300,16 +15299,6 @@
     "modal": true,
     "picture": "923537041:51500:500x103",
     "file": "actions/file_import_video_animation__Krita.png"
-   },
-   {
-    "id": 3,
-    "title": "Import Video Animation",
-    "kind": "dialog",
-    "width": 592,
-    "height": 660,
-    "modal": true,
-    "picture": null,
-    "file": null
    }
   ],
   "closedBy": [
@@ -15342,15 +15331,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:38:53.529Z",
+  "when": "2026-11-17T05:09:49.107Z",
   "previous": {
-   "outcome": "hang",
-   "when": "2026-11-17T04:37:04.331Z"
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:38:53.529Z"
   }
  },
  "render_animation": {
   "fixture": "anim",
-  "ms": 135,
+  "ms": 112,
   "windows": [
    {
     "id": 2,
@@ -15388,7 +15377,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:05:30.854Z"
+  "when": "2026-11-17T05:10:26.069Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:05:30.854Z"
+  }
  },
  "render_animation_again": {
   "fixture": "anim",
@@ -15419,7 +15412,7 @@
  },
  "file_close_all": {
   "fixture": "base",
-  "ms": 92,
+  "ms": 61,
   "windows": [
    {
     "id": 2,
@@ -15461,11 +15454,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:06:45.037Z"
+  "when": "2026-11-17T05:11:04.808Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:06:45.037Z"
+  }
  },
  "file_import_file": {
   "fixture": "base",
-  "ms": 132,
+  "ms": 175,
   "windows": [
    {
     "id": 2,
@@ -15475,7 +15472,7 @@
     "height": 421,
     "modal": true,
     "picture": "516960519:382268:908x421",
-    "file": "actions/import_layer_from_file__Import_Image.png"
+    "file": "actions/import_layer_as_transparency_mask__Import_Image.png"
    }
   ],
   "closedBy": [
@@ -15507,11 +15504,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:07:19.981Z"
+  "when": "2026-11-17T05:11:50.366Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:07:19.981Z"
+  }
  },
  "file_export_file": {
   "fixture": "base",
-  "ms": 219,
+  "ms": 161,
   "windows": [
    {
     "id": 2,
@@ -15520,7 +15521,7 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "1969253452:382268:908x421",
+    "picture": "777248749:382268:908x421",
     "file": "actions/file_export_file__Exporting.png"
    }
   ],
@@ -15553,7 +15554,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:07:54.954Z"
+  "when": "2026-11-17T05:12:39.566Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:07:54.954Z"
+  }
  },
  "file_export_advanced": {
   "fixture": "base",
@@ -15566,7 +15571,7 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "1969253452:382268:908x421",
+    "picture": "777248749:382268:908x421",
     "file": "actions/file_export_file__Exporting.png"
    }
   ],
@@ -15599,11 +15604,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:08:31.768Z"
+  "when": "2026-11-17T05:13:24.726Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:08:31.768Z"
+  }
  },
  "file_documentinfo": {
   "fixture": "base",
-  "ms": 86,
+  "ms": 81,
   "windows": [
    {
     "id": 2,
@@ -15645,7 +15654,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:09:07.376Z"
+  "when": "2026-11-17T05:14:02.271Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:09:07.376Z"
+  }
  },
  "theme_menu": {
   "fixture": "base",
@@ -15711,7 +15724,7 @@
  },
  "reset_configurations": {
   "fixture": "base",
-  "ms": 50,
+  "ms": 42,
   "windows": [
    {
     "id": 2,
@@ -15753,7 +15766,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:10:55.284Z"
+  "when": "2026-11-17T05:14:41.244Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:10:55.284Z"
+  }
  },
  "view_detached_canvas": {
   "fixture": "base",
@@ -16036,7 +16053,7 @@
  },
  "view_newwindow": {
   "fixture": "base",
-  "ms": 1395,
+  "ms": 1251,
   "windows": [
    {
     "id": 3,
@@ -16078,11 +16095,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:17:18.733Z"
+  "when": "2026-11-17T05:15:23.517Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:17:18.733Z"
+  }
  },
  "file_close": {
   "fixture": "base",
-  "ms": 51,
+  "ms": 44,
   "windows": [
    {
     "id": 2,
@@ -16124,11 +16145,15 @@
   ],
   "outcome": "opened dialog",
   "text": "Close",
-  "when": "2026-11-17T04:17:49.324Z"
+  "when": "2026-11-17T05:15:58.219Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:17:49.324Z"
+  }
  },
  "file_sessions": {
   "fixture": "base",
-  "ms": 41,
+  "ms": 54,
   "windows": [
    {
     "id": 2,
@@ -16170,11 +16195,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:18:18.059Z"
+  "when": "2026-11-17T05:16:34.971Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:18:18.059Z"
+  }
  },
  "command_bar_open": {
   "fixture": "base",
-  "ms": 48,
+  "ms": 40,
   "windows": [
    {
     "id": 2,
@@ -16183,7 +16212,7 @@
     "width": 666,
     "height": 500,
     "modal": false,
-    "picture": "-260737368:333000:666x500",
+    "picture": "1689005353:333000:666x500",
     "file": "actions/command_bar_open__.png"
    }
   ],
@@ -16216,11 +16245,15 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T04:18:47.726Z"
+  "when": "2026-11-17T05:17:18.892Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T04:18:47.726Z"
+  }
  },
  "options_configure": {
   "fixture": "base",
-  "ms": 690,
+  "ms": 857,
   "windows": [
    {
     "id": 2,
@@ -16236,22 +16269,12 @@
   "closedBy": [
    "Escape"
   ],
+  "pending": true,
   "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "enabledSet": true,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 0,
-  "imageUpdates": 0,
-  "enabledAfter": true,
+  "state": "pending",
+  "needReload": true,
+  "hang": true,
+  "note": "call never returned; engine still answered",
   "enabled": true,
   "enabledIn": [
    "base",
@@ -16260,9 +16283,21 @@
    "mask",
    "anim"
   ],
-  "outcome": "opened dialog",
+  "console": [
+   "This plugin does not support createPlatformOpenGLContext!",
+   "This plugin does not support propagateSizeHints()",
+   "This plugin does not support setting window opacity",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "SAFE ASSERT (krita): \"g_sanityDefaultFormatIsSet\" in file /home/user/Krita-Web-Port/krita/libs/ui/opengl/kis_opengl.cpp, line 141",
+   "This plugin does not support createPlatformOpenGLContext!"
+  ],
+  "outcome": "hang",
   "text": "Configure Krita...",
-  "when": "2026-11-17T04:19:19.476Z"
+  "when": "2026-11-17T05:19:21.242Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:19:19.476Z"
+  }
  },
  "expanding_spacer_0": {
   "fixture": "base",
@@ -16390,7 +16425,7 @@
  },
  "switch_application_language": {
   "fixture": "base",
-  "ms": 213,
+  "ms": 245,
   "windows": [
    {
     "id": 2,
@@ -16432,11 +16467,15 @@
   ],
   "outcome": "opened dialog",
   "text": "Switch Application Language...",
-  "when": "2026-11-17T04:21:57.810Z"
+  "when": "2026-11-17T05:19:59.153Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:21:57.810Z"
+  }
  },
  "help_about_app": {
   "fixture": "base",
-  "ms": 61,
+  "ms": 47,
   "windows": [
    {
     "id": 2,
@@ -16478,11 +16517,15 @@
   ],
   "outcome": "opened dialog",
   "text": "About Krita",
-  "when": "2026-11-17T04:22:28.860Z"
+  "when": "2026-11-17T05:20:33.851Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:22:28.860Z"
+  }
  },
  "help_about_kde": {
   "fixture": "base",
-  "ms": 97,
+  "ms": 54,
   "windows": [
    {
     "id": 2,
@@ -16524,7 +16567,11 @@
   ],
   "outcome": "opened dialog",
   "text": "About KDE",
-  "when": "2026-11-17T04:22:59.001Z"
+  "when": "2026-11-17T05:21:09.254Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:22:59.001Z"
+  }
  },
  "mainToolBar": {
   "fixture": "base",

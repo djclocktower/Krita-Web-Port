@@ -746,6 +746,69 @@ index ec69d45..4578158 100644
  }
  
  QString KisFFMpegWrapper::configuredFFMpegLocation()
+diff --git a/libs/ui/canvas/kis_prescaled_projection.cpp b/libs/ui/canvas/kis_prescaled_projection.cpp
+index f1df7fe..8d14fc2 100644
+--- a/libs/ui/canvas/kis_prescaled_projection.cpp
++++ b/libs/ui/canvas/kis_prescaled_projection.cpp
+@@ -180,6 +180,10 @@ void KisPrescaledProjection::notifyCanvasStateChanged(const KisCanvasState &stat
+ 
+ void KisPrescaledProjection::viewportMoved(const QPointF &offset)
+ {
++#ifdef __EMSCRIPTEN__   // see updateCache()
++    Q_UNUSED(offset);
++    return;
++#endif
+     // FIXME: \|/
+     if (m_d->prescaledQImage.isNull()) return;
+     if (offset.isNull()) return;
+@@ -261,7 +265,9 @@ KisUpdateInfoSP KisPrescaledProjection::updateCache(const QRect &dirtyImageRect)
+     if (croppedImageRect.isEmpty()) return new KisPPUpdateInfo();
+ 
+     KisPPUpdateInfoSP info = getInitialUpdateInformation(croppedImageRect);
++#ifndef __EMSCRIPTEN__   // the web page draws the image itself; Krita's own on-screen copy is never seen
+     m_d->projectionBackend->updateCache(croppedImageRect);
++#endif
+ 
+     return info;
+ }
+@@ -277,14 +283,19 @@ void KisPrescaledProjection::recalculateCache(KisUpdateInfoSP info)
+ 
+     fillInUpdateInformation(rawViewRect, ppInfo);
+ 
++#ifndef __EMSCRIPTEN__   // see updateCache()
+     m_d->projectionBackend->recalculateCache(ppInfo);
+ 
+     if(!info->dirtyViewportRect().isEmpty())
+         updateScaledImage(ppInfo);
++#endif
+ }
+ 
+ void KisPrescaledProjection::preScale()
+ {
++#ifdef __EMSCRIPTEN__   // see updateCache()
++    return;
++#endif
+     if (!m_d->image) return;
+ 
+     m_d->prescaledQImage.fill(0);
+diff --git a/libs/ui/canvas/kis_qpainter_canvas.cpp b/libs/ui/canvas/kis_qpainter_canvas.cpp
+index 558545d..f2e178b 100644
+--- a/libs/ui/canvas/kis_qpainter_canvas.cpp
++++ b/libs/ui/canvas/kis_qpainter_canvas.cpp
+@@ -92,6 +92,13 @@ void KisQPainterCanvas::paintEvent(QPaintEvent * ev)
+     KisImageWSP image = canvas()->image();
+     if (image == 0) return;
+ 
++#ifdef __EMSCRIPTEN__
++    // Nothing shows this widget in the browser: the page draws the image, and the web bridge
++    // asks for the decorations (tool handles, guides) separately.
++    Q_UNUSED(ev);
++    return;
++#endif
++
+     setAutoFillBackground(false);
+ 
+     QPainter gc(this);
 diff --git a/libs/ui/kis_paintop_box.cc b/libs/ui/kis_paintop_box.cc
 index 043a865..83b4c49 100644
 --- a/libs/ui/kis_paintop_box.cc

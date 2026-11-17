@@ -82,6 +82,8 @@ export async function createWasmEngine(): Promise<Engine> {
     // builds it once; here it is put in place before the engine starts. Without it the engine still
     // works, it just builds the database itself.
     const config = {} as Module & Record<string, unknown>;
+    // The engine's debug log is off by default (each line blocks the engine on this thread); ?engineLog=1 turns it on.
+    config.kwLog = new URLSearchParams(location.search).has('engineLog');
     const restoreResourceCache = () => {
         config.addRunDependency('resource-cache');
         (async () => {
