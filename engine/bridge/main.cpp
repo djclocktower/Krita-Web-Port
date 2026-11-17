@@ -1845,7 +1845,10 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
       WebApplication::requestDepth = outer;
       if (strokeCall) g_engine->runDeferred();
      };
-     if (running > 0 && !QApplication::activeModalWidget()) { waiting.append(dispatch); return; }
+     // Requests aimed at one of Krita's windows always go through: a dialog's input can arrive just
+     // before Qt counts the dialog as modal, and queued it would wait on the request that is waiting on the dialog.
+     const bool windowCall = m == "krita.windowInput" || m == "krita.closeWindow" || m == "krita.resizeWindow" || m == "krita.windows";
+     if (running > 0 && !windowCall && !QApplication::activeModalWidget()) { waiting.append(dispatch); return; }
      running++;
      dispatch();
      running--;

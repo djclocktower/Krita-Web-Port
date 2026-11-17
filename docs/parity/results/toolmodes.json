@@ -29,5 +29,85 @@
    "intersect": true
   },
   "alive": true
+ },
+ "KisToolTransformPerspective": {
+  "name": "KisToolTransformPerspective",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "1064773453:187200:260x720",
+  "overlayDuring": 4,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": true
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformPerspective.png"
+ },
+ "KisToolTransformWarp": {
+  "name": "KisToolTransformWarp",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "-875778023:187200:260x720",
+  "overlayDuring": 3,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": true
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformWarp.png"
+ },
+ "KisToolTransformCage": {
+  "name": "KisToolTransformCage",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "1295348769:187200:260x720",
+  "overlayDuring": 4,
+  "changed": {
+   "image": true,
+   "history": false,
+   "selection": false
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformCage.png"
+ },
+ "KisToolTransformLiquify": {
+  "name": "KisToolTransformLiquify",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "-320393878:187200:260x720",
+  "overlayDuring": 3,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": false
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformLiquify.png"
+ },
+ "KisToolTransformMesh": {
+  "name": "KisToolTransformMesh",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "1828763478:187200:260x720",
+  "overlayDuring": 3,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": true
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformMesh.png"
  }
 }

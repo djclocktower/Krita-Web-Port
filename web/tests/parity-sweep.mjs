@@ -323,7 +323,9 @@ async function runDockers() {
                 if (!w) { o.noWindow = true; o.windows = [...S.win.values()].map(S.winRec); return o; }
                 await S.sleep(800);
                 w = S.win.get(w.id) ?? w;
-                o.window = S.winRec(w); const pa = S.paint.get(w.id); o.paintEvents = pa?.n; o.solid = pa?.solid; o.total = pa ? pa.width * pa.height : 0; o.picture = S.pixHash(w.id);
+                o.window = S.winRec(w);   // the size Krita gave it
+                await S.race(__engine.resizeKritaWindow(w.id, 320, 420), 5000); await S.sleep(900);   // the page gives a docker the room of its panel
+                w = S.win.get(w.id) ?? w; o.resized = { width: w.width, height: w.height }; const pa = S.paint.get(w.id); o.paintEvents = pa?.n; o.solid = pa?.solid; o.total = pa ? pa.width * pa.height : 0; o.picture = S.pixHash(w.id);
                 // sample colours: is it more than one flat colour?
                 if (pa) { const set = new Set(); for (let i = 0; i < pa.px.length; i += 4 * 37) set.add((pa.px[i] << 16) | (pa.px[i + 1] << 8) | pa.px[i + 2]); o.distinctColours = set.size; }
                 o.png = S.png(w.id);

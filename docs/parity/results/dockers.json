@@ -1,0 +1,476 @@
+{
+ "LogDocker": {
+  "id": "LogDocker",
+  "callReturned": "ok",
+  "openMs": 352,
+  "window": {
+   "id": 2,
+   "title": "Log Viewer",
+   "kind": "docker",
+   "width": 260,
+   "height": 227,
+   "modal": false,
+   "docker": "LogDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 1,
+  "solid": 59020,
+  "total": 59020,
+  "picture": "-696362804:59020:260x227",
+  "distinctColours": 5,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/LogDocker.png",
+  "title": "Log Viewer",
+  "outcome": "opens, repaints on click"
+ },
+ "AnimationCurvesDocker": {
+  "id": "AnimationCurvesDocker",
+  "callReturned": "ok",
+  "openMs": 352,
+  "window": {
+   "id": 3,
+   "title": "Animation Curves",
+   "kind": "docker",
+   "width": 516,
+   "height": 195,
+   "modal": false,
+   "docker": "AnimationCurvesDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "312892593:134400:320x420",
+  "distinctColours": 46,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/AnimationCurvesDocker.png",
+  "title": "Animation Curves",
+  "outcome": "opens, no repaint on click"
+ },
+ "ArrangeDocker": {
+  "id": "ArrangeDocker",
+  "callReturned": "ok",
+  "openMs": 302,
+  "window": {
+   "id": 4,
+   "title": "Arrange",
+   "kind": "docker",
+   "width": 260,
+   "height": 100,
+   "modal": false,
+   "docker": "ArrangeDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "1083392715:134400:320x420",
+  "distinctColours": 38,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/ArrangeDocker.png",
+  "title": "Arrange",
+  "outcome": "opens, no repaint on click"
+ },
+ "ArtisticColorSelector": {
+  "id": "ArtisticColorSelector",
+  "callReturned": "ok",
+  "openMs": 410,
+  "window": {
+   "id": 5,
+   "title": "Artistic Color Selector",
+   "kind": "docker",
+   "width": 200,
+   "height": 101,
+   "modal": false,
+   "docker": "ArtisticColorSelector"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "-512829501:134400:320x420",
+  "distinctColours": 375,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/ArtisticColorSelector.png",
+  "title": "Artistic Color Selector",
+  "outcome": "opens, repaints on click"
+ },
+ "BrushHudDocker": {
+  "id": "BrushHudDocker",
+  "callReturned": "ok",
+  "openMs": 507,
+  "window": {
+   "id": 6,
+   "title": "On-Canvas Brush Editor",
+   "kind": "docker",
+   "width": 240,
+   "height": 118,
+   "modal": false,
+   "docker": "BrushHudDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "695933835:134400:320x420",
+  "distinctColours": 79,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/BrushHudDocker.png",
+  "title": "On-Canvas Brush Editor",
+  "outcome": "opens, no repaint on click"
+ },
+ "ChannelDocker": {
+  "id": "ChannelDocker",
+  "callReturned": "ok",
+  "openMs": 479,
+  "window": {
+   "id": 7,
+   "title": "Channels",
+   "kind": "docker",
+   "width": 260,
+   "height": 195,
+   "modal": false,
+   "docker": "ChannelDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 1,
+  "solid": 50700,
+  "total": 50700,
+  "picture": "1308514976:50700:260x195",
+  "distinctColours": 15,
+  "repaintsAfterClick": 2,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/ChannelDocker.png",
+  "title": "Channels",
+  "outcome": "opens, repaints on click"
+ },
+ "ColorSelectorNg": {
+  "id": "ColorSelectorNg",
+  "callReturned": "ok",
+  "openMs": 456,
+  "window": {
+   "id": 8,
+   "title": "Advanced Color Selector",
+   "kind": "docker",
+   "width": 200,
+   "height": 100,
+   "modal": false,
+   "docker": "ColorSelectorNg"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "396545012:134400:320x420",
+  "distinctColours": 1157,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/ColorSelectorNg.png",
+  "title": "Advanced Color Selector",
+  "outcome": "opens, repaints on click"
+ },
+ "CompositionDocker": {
+  "id": "CompositionDocker",
+  "callReturned": "ok",
+  "openMs": 2265,
+  "window": {
+   "id": 2,
+   "title": "Compositions",
+   "kind": "docker",
+   "width": 288,
+   "height": 221,
+   "modal": false,
+   "docker": "CompositionDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "-1908076560:134400:320x420",
+  "distinctColours": 16,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/CompositionDocker.png",
+  "title": "Compositions",
+  "outcome": "opens, no repaint on click"
+ },
+ "DigitalMixer": {
+  "id": "DigitalMixer",
+  "callReturned": "ok",
+  "openMs": 358,
+  "window": {
+   "id": 3,
+   "title": "Digital Colors Mixer",
+   "kind": "docker",
+   "width": 312,
+   "height": 167,
+   "modal": false,
+   "docker": "DigitalMixer"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "1986345542:134400:320x420",
+  "distinctColours": 794,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/DigitalMixer.png",
+  "title": "Digital Colors Mixer",
+  "outcome": "opens, no repaint on click"
+ },
+ "GamutMask": {
+  "id": "GamutMask",
+  "callReturned": "ok",
+  "openMs": 506,
+  "window": {
+   "id": 4,
+   "title": "Gamut Masks",
+   "kind": "docker",
+   "width": 260,
+   "height": 275,
+   "modal": false,
+   "docker": "GamutMask"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "-2068692797:134400:320x420",
+  "distinctColours": 45,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/GamutMask.png",
+  "title": "Gamut Masks",
+  "outcome": "opens, no repaint on click"
+ },
+ "GridDocker": {
+  "id": "GridDocker",
+  "callReturned": "ok",
+  "openMs": 362,
+  "window": {
+   "id": 5,
+   "title": "Grid and Guides",
+   "kind": "docker",
+   "width": 315,
+   "height": 539,
+   "modal": false,
+   "docker": "GridDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "-98340267:134400:320x420",
+  "distinctColours": 102,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [
+   {
+    "id": 6,
+    "title": "",
+    "kind": "popup",
+    "width": 83,
+    "height": 74,
+    "modal": false
+   }
+  ],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/GridDocker.png",
+  "title": "Grid and Guides",
+  "outcome": "opens, repaints on click"
+ },
+ "HistogramDocker": {
+  "id": "HistogramDocker",
+  "callReturned": "ok",
+  "openMs": 404,
+  "window": {
+   "id": 7,
+   "title": "Histogram",
+   "kind": "docker",
+   "width": 200,
+   "height": 100,
+   "modal": false,
+   "docker": "HistogramDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 3,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "412110926:134400:320x420",
+  "distinctColours": 14,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/HistogramDocker.png",
+  "title": "Histogram",
+  "outcome": "opens, no repaint on click"
+ },
+ "History": {
+  "id": "History",
+  "callReturned": "ok",
+  "openMs": 353,
+  "window": {
+   "id": 8,
+   "title": "Undo History",
+   "kind": "docker",
+   "width": 258,
+   "height": 193,
+   "modal": false,
+   "docker": "History"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "989894240:134400:320x420",
+  "distinctColours": 72,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/History.png",
+  "title": "Undo History",
+  "outcome": "opens, repaints on click"
+ },
+ "KisLayerBox": {
+  "id": "KisLayerBox",
+  "callReturned": "ok",
+  "openMs": 452,
+  "window": {
+   "id": 9,
+   "title": "Layers",
+   "kind": "docker",
+   "width": 308,
+   "height": 291,
+   "modal": false,
+   "docker": "KisLayerBox"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 89628,
+  "total": 89628,
+  "picture": "-351675367:89628:308x291",
+  "distinctColours": 87,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/KisLayerBox.png",
+  "title": "Layers",
+  "outcome": "opens, repaints on click"
+ },
+ "OnionSkinsDocker": {
+  "id": "OnionSkinsDocker",
+  "callReturned": "ok",
+  "openMs": 460,
+  "window": {
+   "id": 10,
+   "title": "Onion Skins",
+   "kind": "docker",
+   "width": 569,
+   "height": 362,
+   "modal": false,
+   "docker": "OnionSkinsDocker"
+  },
+  "resized": {
+   "width": 338,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 141960,
+  "total": 141960,
+  "picture": "732977996:141960:338x420",
+  "distinctColours": 113,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/OnionSkinsDocker.png",
+  "title": "Onion Skins",
+  "outcome": "opens, repaints on click"
+ }
+}
