@@ -16687,7 +16687,7 @@
  },
  "file_new": {
   "fixture": "base",
-  "ms": 148,
+  "ms": 189,
   "windows": [
    {
     "id": 2,
@@ -16696,8 +16696,8 @@
     "width": 505,
     "height": 270,
     "modal": true,
-    "picture": null,
-    "file": null
+    "picture": "-1081109856:136350:505x270",
+    "file": "actions/file_new__Create_new_document.png"
    }
   ],
   "closedBy": [
@@ -16733,11 +16733,11 @@
   ],
   "outcome": "opened dialog",
   "text": "New",
-  "when": "2026-11-17T11:01:12.635Z"
+  "when": "2026-11-17T11:01:13.306Z"
  },
  "file_open": {
   "fixture": "base",
-  "ms": 267,
+  "ms": 293,
   "windows": [
    {
     "id": 2,
@@ -16747,7 +16747,7 @@
     "height": 421,
     "modal": true,
     "picture": "-2037133868:382268:908x421",
-    "file": "actions/file_open__Open_Images.png"
+    "file": "actions/import_layer_as_paint_layer__Import_Image.png"
    }
   ],
   "closedBy": [
@@ -16783,11 +16783,11 @@
   ],
   "outcome": "opened dialog",
   "text": "Open…",
-  "when": "2026-11-17T11:02:07.639Z"
+  "when": "2026-11-17T11:02:11.662Z"
  },
  "file_quit": {
   "fixture": "base",
-  "ms": 224,
+  "ms": 47,
   "windows": [
    {
     "id": 2,
@@ -16833,11 +16833,11 @@
   ],
   "outcome": "opened dialog",
   "text": "Quit",
-  "when": "2026-11-17T11:02:57.440Z"
+  "when": "2026-11-17T11:03:00.319Z"
  },
  "options_configure_toolbars": {
   "fixture": "base",
-  "ms": 52,
+  "ms": 127,
   "windows": [
    {
     "id": 2,
@@ -16883,11 +16883,11 @@
   ],
   "outcome": "opened dialog",
   "text": "Configure Toolbars…",
-  "when": "2026-11-17T11:03:50.763Z"
+  "when": "2026-11-17T11:03:49.771Z"
  },
  "fullscreen": {
   "fixture": "base",
-  "ms": 167,
+  "ms": 166,
   "alive": true,
   "state": "done",
   "diff": {
@@ -16918,7 +16918,7 @@
   ],
   "outcome": "changed layers/selection/history/view",
   "text": "Full Screen Mode",
-  "when": "2026-11-17T11:04:33.834Z"
+  "when": "2026-11-17T11:04:31.853Z"
  },
  "file_open_recent": {
   "fixture": "base",
@@ -16926,11 +16926,11 @@
   "enabledIn": [],
   "outcome": "disabled",
   "text": "Open Recent",
-  "when": "2026-11-17T11:05:13.893Z"
+  "when": "2026-11-17T11:05:08.188Z"
  },
  "file_save": {
   "fixture": "base",
-  "ms": 206,
+  "ms": 310,
   "windows": [
    {
     "id": 2,
@@ -16939,8 +16939,8 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "1499309820:382268:908x421",
-    "file": "actions/file_save__Saving_As.png"
+    "picture": "-1054784567:382268:908x421",
+    "file": "actions/save_incremental_backup__Saving_As.png"
    }
   ],
   "closedBy": [
@@ -16974,13 +16974,18 @@
    "mask",
    "anim"
   ],
+  "attempts": [
+   "hang",
+   "opened dialog"
+  ],
+  "reproduced": false,
   "outcome": "opened dialog",
   "text": "Save",
-  "when": "2026-11-17T11:06:07.158Z"
+  "when": "2026-11-17T11:07:10.856Z"
  },
  "file_save_as": {
   "fixture": "base",
-  "ms": 214,
+  "ms": 253,
   "windows": [
    {
     "id": 2,
@@ -16989,8 +16994,8 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "-1054784567:382268:908x421",
-    "file": "actions/file_save_as__Saving_As.png"
+    "picture": "1499309820:382268:908x421",
+    "file": "actions/save_incremental_version__Saving_As.png"
    }
   ],
   "closedBy": [
@@ -17026,11 +17031,11 @@
   ],
   "outcome": "opened dialog",
   "text": "Save As…",
-  "when": "2026-11-17T11:07:11.576Z"
+  "when": "2026-11-17T11:08:15.697Z"
  },
  "file_import_animation": {
   "fixture": "base",
-  "ms": 136,
+  "ms": 62,
   "windows": [
    {
     "id": 2,
@@ -17076,11 +17081,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T11:07:58.772Z"
+  "when": "2026-11-17T11:09:04.006Z"
  },
  "file_import_video_animation": {
   "fixture": "base",
-  "ms": 64,
+  "ms": 109,
   "windows": [
    {
     "id": 2,
@@ -17137,11 +17142,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T11:08:47.838Z"
+  "when": "2026-11-17T11:09:54.395Z"
  },
  "render_animation": {
   "fixture": "anim",
-  "ms": 171,
+  "ms": 137,
   "windows": [
    {
     "id": 2,
@@ -17183,11 +17188,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T11:09:33.308Z"
+  "when": "2026-11-17T11:10:41.158Z"
  },
  "render_animation_again": {
   "fixture": "anim",
-  "ms": 111,
+  "ms": 180,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17214,11 +17219,11 @@
   ],
   "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T11:10:20.652Z"
+  "when": "2026-11-17T11:11:33.362Z"
  },
  "file_close_all": {
   "fixture": "base",
-  "ms": 81,
+  "ms": 64,
   "windows": [
    {
     "id": 2,
@@ -17264,11 +17269,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T11:11:08.191Z"
+  "when": "2026-11-17T11:12:19.172Z"
  },
  "file_import_file": {
   "fixture": "base",
-  "ms": 351,
+  "ms": 265,
   "windows": [
    {
     "id": 2,
@@ -17277,8 +17282,8 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "-2037133868:382268:908x421",
-    "file": "actions/file_open__Open_Images.png"
+    "picture": "516960519:382268:908x421",
+    "file": "actions/import_layer_from_file__Import_Image.png"
    }
   ],
   "closedBy": [
@@ -17314,11 +17319,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T11:12:02.660Z"
+  "when": "2026-11-17T11:13:10.459Z"
  },
  "file_export_file": {
   "fixture": "base",
-  "ms": 473,
+  "ms": 283,
   "windows": [
    {
     "id": 2,
@@ -17327,57 +17332,7 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "1969253452:382268:908x421",
-    "file": "actions/file_export_file__Exporting.png"
-   }
-  ],
-  "closedBy": [
-   "Escape"
-  ],
-  "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "colors": false,
-   "brush": false,
-   "animation": false,
-   "activeNode": false,
-   "enabledSet": false,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 0,
-  "imageUpdates": 0,
-  "enabledAfter": true,
-  "enabled": true,
-  "enabledIn": [
-   "base",
-   "vector",
-   "group",
-   "mask",
-   "anim"
-  ],
-  "outcome": "opened dialog",
-  "text": "",
-  "when": "2026-11-17T11:13:04.509Z"
- },
- "file_export_advanced": {
-  "fixture": "base",
-  "ms": 267,
-  "windows": [
-   {
-    "id": 2,
-    "title": "Exporting",
-    "kind": "dialog",
-    "width": 908,
-    "height": 421,
-    "modal": true,
-    "picture": "1969253452:382268:908x421",
+    "picture": "777248749:382268:908x421",
     "file": "actions/file_export_file__Exporting.png"
    }
   ],
@@ -17419,11 +17374,61 @@
   "reproduced": false,
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T11:14:57.561Z"
+  "when": "2026-11-17T11:15:11.860Z"
+ },
+ "file_export_advanced": {
+  "fixture": "base",
+  "ms": 281,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Exporting",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "777248749:382268:908x421",
+    "file": "actions/file_export_file__Exporting.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T11:16:18.629Z"
  },
  "file_documentinfo": {
   "fixture": "base",
-  "ms": 89,
+  "ms": 81,
   "windows": [
    {
     "id": 2,
@@ -17469,11 +17474,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T11:15:48.721Z"
+  "when": "2026-11-17T11:17:06.916Z"
  },
  "theme_menu": {
   "fixture": "base",
-  "ms": 161,
+  "ms": 167,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17504,11 +17509,11 @@
   ],
   "outcome": "no visible effect",
   "text": "Themes",
-  "when": "2026-11-17T11:16:38.947Z"
+  "when": "2026-11-17T11:17:52.684Z"
  },
  "view_toggledockers": {
   "fixture": "base",
-  "ms": 161,
+  "ms": 165,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17539,11 +17544,11 @@
   ],
   "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T11:17:26.735Z"
+  "when": "2026-11-17T11:18:40.229Z"
  },
  "reset_configurations": {
   "fixture": "base",
-  "ms": 93,
+  "ms": 46,
   "windows": [
    {
     "id": 2,
@@ -17589,7 +17594,7 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T11:18:12.919Z"
+  "when": "2026-11-17T11:19:25.881Z"
  },
  "view_detached_canvas": {
   "fixture": "base",
@@ -17624,11 +17629,11 @@
   ],
   "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T11:19:01.929Z"
+  "when": "2026-11-17T11:20:07.765Z"
  },
  "view_toggledockertitlebars": {
   "fixture": "base",
-  "ms": 181,
+  "ms": 161,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17659,7 +17664,7 @@
   ],
   "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T11:19:45.381Z"
+  "when": "2026-11-17T11:20:47.323Z"
  },
  "settings_dockers_menu": {
   "fixture": "base",
@@ -17694,11 +17699,11 @@
   ],
   "outcome": "no visible effect",
   "text": "Dockers",
-  "when": "2026-11-17T11:20:22.321Z"
+  "when": "2026-11-17T11:21:45.935Z"
  },
  "window": {
   "fixture": "base",
-  "ms": 164,
+  "ms": 162,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17729,41 +17734,6 @@
   ],
   "outcome": "no visible effect",
   "text": "Window",
-  "when": "2026-11-17T11:21:10.957Z"
- },
- "style_menu": {
-  "fixture": "base",
-  "ms": 161,
-  "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "colors": false,
-   "brush": false,
-   "animation": false,
-   "activeNode": false,
-   "enabledSet": false,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 0,
-  "imageUpdates": 0,
-  "enabledAfter": true,
-  "enabled": true,
-  "enabledIn": [
-   "base",
-   "vector",
-   "group",
-   "mask",
-   "anim"
-  ],
-  "outcome": "no visible effect",
-  "text": "Styles",
-  "when": "2026-11-17T11:22:03.421Z"
+  "when": "2026-11-17T11:22:35.789Z"
  }
 }
