@@ -13,4 +13,6 @@ try {
     console.error(e);
     document.getElementById('app')!.innerHTML = '<p style="color:#dedede;font:16px sans-serif;margin:2em;max-width:40em"></p>';
     document.querySelector('#app p')!.textContent = `Krita Web could not start: ${e instanceof Error ? e.message : e}`;
+} finally {
+    document.getElementById('boot')?.remove();
 }
