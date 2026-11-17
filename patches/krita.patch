@@ -871,6 +871,62 @@ index 043a865..83b4c49 100644
      TabletToolMap::iterator toolData = m_tabletToolMap.find(inputDevice);
  
      //qDebug() << "slotInputDeviceChanged()" << inputDevice.device() << inputDevice.uniqueTabletId();
+diff --git a/libs/widgetutils/KoFileDialog.cpp b/libs/widgetutils/KoFileDialog.cpp
+index d4ad079..641971b 100644
+--- a/libs/widgetutils/KoFileDialog.cpp
++++ b/libs/widgetutils/KoFileDialog.cpp
+@@ -65,6 +65,8 @@ public:
+     QString mimeType;
+ };
+ 
++std::function<QStringList(int, const QString &, const QStringList &, const QString &)> KoFileDialog::webHook;
++
+ KoFileDialog::KoFileDialog(QWidget *parent,
+                            KoFileDialog::DialogType type,
+                            const QString &dialogName)
+@@ -261,6 +263,11 @@ void KoFileDialog::createFileDialog()
+ QString KoFileDialog::filename()
+ {
+     QString url;
++    if (webHook) {
++        url = webHook(d->type, d->caption, d->filterList, d->proposedFileName).value(0);
++        if (!url.isEmpty()) d->mimeType = KisMimeDatabase::mimeTypeForFile(url, d->type != KoFileDialog::SaveFile);
++        return url;
++    }
+     createFileDialog();
+ 
+ #ifdef Q_OS_ANDROID
+@@ -373,6 +380,7 @@ QStringList KoFileDialog::filenames()
+ {
+     QStringList urls;
+ 
++    if (webHook) return webHook(d->type, d->caption, d->filterList, d->proposedFileName);
+     createFileDialog();
+     if (d->fileDialog->exec() == QDialog::Accepted) {
+         urls = d->fileDialog->selectedFiles();
+diff --git a/libs/widgetutils/KoFileDialog.h b/libs/widgetutils/KoFileDialog.h
+index 9fcf3c5..1dc470a 100644
+--- a/libs/widgetutils/KoFileDialog.h
++++ b/libs/widgetutils/KoFileDialog.h
+@@ -11,6 +11,7 @@
+ 
+ #include <QFileDialog>
+ #include <QString>
++#include <functional>
+ #include <QStringList>
+ 
+ 
+@@ -23,6 +24,10 @@ class KRITAWIDGETUTILS_EXPORT KoFileDialog : public QObject
+     Q_OBJECT
+ 
+ public:
++    /// Web build: when set, replaces the file dialog. Gets (type, caption, name filters, proposed file name)
++    /// and returns the chosen paths (empty = cancelled). The page's own file picker answers it.
++    static std::function<QStringList(int, const QString &, const QStringList &, const QString &)> webHook;
++
+     enum DialogType {
+         OpenFile,
+         OpenFiles,
 diff --git a/libs/widgetutils/xmlgui/kbugreport.cpp b/libs/widgetutils/xmlgui/kbugreport.cpp
 index 29c94d4..4cc0ae9 100644
 --- a/libs/widgetutils/xmlgui/kbugreport.cpp

@@ -379,7 +379,7 @@ export function createMockEngine(): Engine {
         kritaKey() {}, kritaViewport() {}, kritaWindowInput() {},
         async kritaWindows() { return []; },
         async kritaDockers() { return []; }, async showKritaDocker() {},
-        async closeKritaWindow() {}, async resizeKritaWindow() {},
+        async closeKritaWindow() {}, async resizeKritaWindow() {}, async answerKritaFileDialog() {},
     };
     // ?kritaMock=1 adds a fake of Krita's own tools and windows (the log is for tests: __engine.__kritaLog)
     if (typeof location !== 'undefined' && new URLSearchParams(location.search).has('kritaMock')) {

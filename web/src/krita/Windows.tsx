@@ -1,7 +1,8 @@
 // Krita's dialogs and pop-ups, floating over the page. The tool option window is embedded in the Tool Options panel instead.
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { useUiMode } from '../mobile/mode';
-import type { Engine, KritaWindow } from '../engine/protocol';
+import type { Engine, KritaFileDialog, KritaWindow } from '../engine/protocol';
+import { download } from '../dialogs/download';
 import { report } from '../shell/state';
 import { useStore } from '../shell/store';
 import { ActionSearch } from './ActionSearch';
@@ -124,11 +125,42 @@ function TouchDialog({ engine, w }: { engine: Engine; w: KritaWindow }) {
     );
 }
 
+/** Krita asked for a file. The browser only opens its picker from a click, so this asks for that click. */
+function FileDialog({ engine, r, done }: { engine: Engine; r: KritaFileDialog; done: () => void }) {
+    const exts = [...new Set(r.filters.flatMap(f => [...f.matchAll(/\*\.([\w.]+)/g)].map(m => m[1].toLowerCase())))];
+    const [name, setName] = useState(r.name || `untitled.${exts[0] ?? 'kra'}`);
+    const answer = (files: { name: string; bytes?: Uint8Array }[]) => { done(); engine.answerKritaFileDialog(r.id, files).catch(report); };
+    const known = !exts.length || exts.some(e => name.toLowerCase().endsWith('.' + e));
+    return (<>
+        <div class="krita-backdrop" style="z-index:935" />
+        <form class="krita-dialog krita-file" role="dialog" aria-modal aria-label={r.caption || 'File'} style="left:50%;top:50%;transform:translate(-50%,-50%)"
+            onSubmit={e => { e.preventDefault(); if (r.save) answer([{ name: known ? name : `${name}.${exts[0]}` }]); }}
+            onKeyDown={e => { if (e.key === 'Escape') answer([]); e.stopPropagation(); }}>
+            <div class="krita-title"><span>{r.caption || (r.save ? 'Save' : 'Open')}</span></div>
+            {r.save
+                ? <label>File name <input autofocus value={name} onInput={e => setName(e.currentTarget.value)} /></label>
+                : <input type="file" autofocus multiple={r.multiple} accept={exts.map(e => '.' + e).join(',')}
+                    onChange={async e => {
+                        const files = [...(e.currentTarget.files ?? [])];
+                        if (files.length) answer(await Promise.all(files.map(async f => ({ name: f.name, bytes: new Uint8Array(await f.arrayBuffer()) }))));
+                    }} />}
+            {r.save && exts.length > 0 && <small>Formats: {exts.slice(0, 12).join(', ')}{exts.length > 12 ? ', …' : ''}</small>}
+            <div class="krita-file-btns">
+                {r.save && <button type="submit">Save</button>}
+                <button type="button" onClick={() => answer([])}>Cancel</button>
+            </div>
+        </form>
+    </>);
+}
+
 export function KritaUI({ engine }: { engine: Engine }) {
     useEffect(() => startKrita(engine), [engine]);
     const { windows } = useStore(krita);
     const touch = useUiMode() !== 'desktop';
     const [pos, setPos] = useState<Record<number, Pos>>({});
+    const [files, setFiles] = useState<KritaFileDialog[]>([]);
+    useEffect(() => engine.on('kritaFileDialog', r => setFiles(f => [...f, r])), [engine]);
+    useEffect(() => engine.on('kritaDownload', download), [engine]);
     const dialogs = windows.filter(w => w.kind === 'dialog'), popups = windows.filter(w => w.kind === 'popup');
     const top = useRef<KritaWindow | undefined>();
     top.current = popups[popups.length - 1];
@@ -147,6 +179,7 @@ export function KritaUI({ engine }: { engine: Engine }) {
         {dialogs.some(d => d.modal) && <div class="krita-backdrop" onPointerDown={() => document.querySelector<HTMLElement>('.krita-dialog canvas')?.focus()} />}
         {dialogs.map(d => touch ? <TouchDialog key={d.id} engine={engine} w={d} /> : <Dialog key={d.id} engine={engine} w={d} pos={pos[d.id]} setPos={p => setPos(o => ({ ...o, [d.id]: p }))} />)}
         {popups.map(p => <Popup key={p.id} engine={engine} w={p} parent={windows.find(x => x.id === p.parent)} touch={touch} />)}
+        {files[0] && <FileDialog key={files[0].id} engine={engine} r={files[0]} done={() => setFiles(f => f.slice(1))} />}
         <ActionSearch engine={engine} />
     </>);
 }

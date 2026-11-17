@@ -66,6 +66,11 @@ foreach(_dep gmic fftw3f fftw3)
 endforeach()
 
 set(_data ${CMAKE_SOURCE_DIR}/krita/data)
+# Krita installs every .action file (names, shortcuts, checkable, activation conditions) into one folder; gather them the same way.
+file(GLOB_RECURSE _action_files ${CMAKE_SOURCE_DIR}/krita/*.action ${CMAKE_SOURCE_DIR}/plugins/*.action ${CMAKE_SOURCE_DIR}/libs/*.action)
+list(FILTER _action_files EXCLUDE REGEX "/python/|android|dbexplorer|spensettings")
+file(REMOVE_RECURSE ${CMAKE_BINARY_DIR}/kw-actions)
+file(COPY ${_action_files} DESTINATION ${CMAKE_BINARY_DIR}/kw-actions)
 # ponytail: font taken from the build machine; the real app ships its own font set.
 set(KRITA_WEB_FONT /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf CACHE FILEPATH "Fallback font to bundle")
 target_link_options(kritaengine PRIVATE
@@ -74,7 +79,7 @@ target_link_options(kritaengine PRIVATE
     -sPTHREAD_POOL_SIZE=16 -sINITIAL_MEMORY=512MB -sALLOW_MEMORY_GROWTH=1 -sMAXIMUM_MEMORY=4GB
     -sEXPORTED_FUNCTIONS=_main,_malloc,_free,_kw_request,_kw_ack
     "SHELL:--preload-file ${_data}/profiles@/share/krita/profiles"
-    "SHELL:--preload-file ${_data}/actions@/share/krita/actions"
+    "SHELL:--preload-file ${CMAKE_BINARY_DIR}/kw-actions@/share/krita/actions"
     "SHELL:--preload-file ${CMAKE_SOURCE_DIR}/plugins/paintops/mypaint/brushes@/share/krita/paintoppresets"   # MyPaint presets
     "SHELL:--preload-file ${_data}/themes@/share/krita/color-schemes"   # Krita's colour themes (dark by default)
     "SHELL:--preload-file ${_data}/input@/share/krita/input"   # which button or gesture does what on the canvas

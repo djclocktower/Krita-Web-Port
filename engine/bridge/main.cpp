@@ -16,6 +16,10 @@
 #include <QRegularExpression>
 #include <QThread>
 #include <QTimer>
+#include <QEventLoop>
+#include <QFileInfo>
+#include <QDateTime>
+#include <KoFileDialog.h>
 #include <QtPlugin>
 #include <emscripten.h>
 #include <utime.h>
@@ -273,6 +277,11 @@ public:
             dock->resize(300, 500);
             dock->show();
         }
+        KoFileDialog::webHook = [this](int type, const QString &caption, const QStringList &filters, const QString &proposed) {
+            return fileDialog(type, caption, filters, proposed);
+        };
+        saveTimer.setInterval(700);
+        connect(&saveTimer, &QTimer::timeout, this, &Engine::checkSavedFiles);
         windowTimer.setSingleShot(true);
         windowTimer.setInterval(30);
         connect(&windowTimer, &QTimer::timeout, this, &Engine::paintWindows);
@@ -366,6 +375,49 @@ private:
     QSet<QWidget *> dirtyWindows;
     QPointer<QWidget> toolOptions;
     QTimer windowTimer, overlayTimer;
+    // Krita's file dialogs are answered by the page (see fileDialog); files Krita then writes are sent back as downloads.
+    QHash<int, QEventLoop *> fileLoops;
+    QHash<int, QStringList> fileResults;
+    QHash<int, bool> fileSaves;
+    struct Stamp { qint64 size = -1; QDateTime time; bool operator==(const Stamp &o) const { return size == o.size && time == o.time; } };
+    QHash<QString, QPair<Stamp, Stamp>> savedFiles;   // path -> (last seen, last sent)
+    QTimer saveTimer;
+    int nextFileDialog = 1;
+    bool gesturePen = false;
+
+    QStringList fileDialog(int type, const QString &caption, const QStringList &filters, const QString &proposed)
+    {
+        if (type == KoFileDialog::OpenDirectory || type == KoFileDialog::ImportDirectory) {
+            // ponytail: no folder picking; needs the File System Access API (Chromium only) if it is ever wanted.
+            emitEvent("kritaMessage", {{"text", "Choosing a folder is not available in the web version"}});
+            return {};
+        }
+        const int id = nextFileDialog++;
+        const bool save = type == KoFileDialog::SaveFile;
+        QEventLoop loop;
+        fileLoops[id] = &loop;
+        fileSaves[id] = save;
+        emitEvent("kritaFileDialog", {{"id", id}, {"save", save}, {"multiple", type == KoFileDialog::OpenFiles || type == KoFileDialog::ImportFiles},
+                                      {"caption", caption}, {"filters", QJsonArray::fromStringList(filters)}, {"name", QFileInfo(proposed).fileName()}});
+        loop.exec();
+        fileLoops.remove(id);
+        fileSaves.remove(id);
+        return fileResults.take(id);
+    }
+    void checkSavedFiles()
+    {
+        for (auto it = savedFiles.begin(); it != savedFiles.end(); ++it) {
+            const QFileInfo info(it.key());
+            if (!info.exists()) continue;
+            const Stamp now{info.size(), info.lastModified()};
+            // sent once the file has stopped changing for one tick
+            if (now == it->first && !(now == it->second)) {
+                QFile f(it.key());
+                if (f.open(QIODevice::ReadOnly)) { emitEvent("kritaDownload", {{"name", info.fileName()}}, f.readAll()); it->second = now; }
+            }
+            it->first = now;
+        }
+    }
     int nextWindowId = 1, filterEvents = 0, shows = 0, updateRequests = 0;
     QStringList trace;
     bool grabbing = false, overlayShown = false;
@@ -1593,6 +1645,28 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         windowTimer.start();
         return list;
     }
+    if (m == "krita.fileGive") {            // one picked file, ahead of krita.fileDialogDone
+        QDir().mkpath("/tmp/kw-pick");
+        QFile f("/tmp/kw-pick/" + QFileInfo(p["name"].toString()).fileName());
+        if (!f.open(QIODevice::WriteOnly)) fail("Could not store the file");
+        f.write(data);
+        return QJsonValue();
+    }
+    if (m == "krita.fileDialogDone") {      // names: the files given (open) or the one name to save as; empty = cancelled
+        const int id = p["id"].toInt();
+        if (!fileLoops.contains(id)) return QJsonValue();
+        QStringList paths;
+        const bool save = fileSaves.value(id);
+        if (save) QDir().mkpath("/tmp/kw-save");
+        for (const QJsonValue &n : p["names"].toArray()) {
+            const QString path = (save ? "/tmp/kw-save/" : "/tmp/kw-pick/") + QFileInfo(n.toString()).fileName();
+            paths << path;
+            if (save) { QFile::remove(path); savedFiles[path] = {}; saveTimer.start(); }
+        }
+        fileResults[id] = paths;
+        fileLoops[id]->quit();
+        return QJsonValue();
+    }
     if (m == "krita.closeWindow" || m == "krita.resizeWindow" || m == "krita.windowInput") {
         QWidget *w = windows.key(p["id"].toInt(), nullptr);
         if (!w) return QJsonValue();          // it closed while the request was on its way
@@ -1696,11 +1770,14 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             QWindow *target = canvas->window()->windowHandle();
             if (!target) fail("Krita's window has no native handle");
             const QPointF local = canvas->mapTo(canvas->window(), pos);
-            if (p.contains("pressure")) {
+            // A gesture stays with the device that started it: a pen press ended by a mouse release (or the
+            // other way round) left Krita's shape tools waiting for a release that never matched.
+            if (t == QEvent::MouseButtonPress || !gestureOpen) gesturePen = p.contains("pressure");
+            if (gesturePen) {
                 // A pen: delivered as a tablet event, which is Krita's main input path (pressure, tilt, rotation).
                 QWindowSystemInterface::handleTabletEvent(target, local, canvas->mapToGlobal(pos), int(QInputDevice::DeviceType::Stylus),
                                                           int(QPointingDevice::PointerType::Pen), held ? Qt::LeftButton : Qt::NoButton,
-                                                          held ? qBound(0.0, p["pressure"].toDouble(), 1.0) : 0.0,
+                                                          held ? qBound(0.0, p["pressure"].toDouble(1.0), 1.0) : 0.0,
                                                           qRound(p["xTilt"].toDouble()), qRound(p["yTilt"].toDouble()), 0.0,
                                                           p["rotation"].toDouble(), 0, 1, mods);
             } else {
@@ -1860,7 +1937,8 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
      };
      // Requests aimed at one of Krita's windows always go through: a dialog's input can arrive just
      // before Qt counts the dialog as modal, and queued it would wait on the request that is waiting on the dialog.
-     const bool windowCall = m == "krita.windowInput" || m == "krita.closeWindow" || m == "krita.resizeWindow" || m == "krita.windows";
+     const bool windowCall = m == "krita.windowInput" || m == "krita.closeWindow" || m == "krita.resizeWindow" || m == "krita.windows"
+                             || m == "krita.fileGive" || m == "krita.fileDialogDone";
      if (running > 0 && !windowCall && !QApplication::activeModalWidget()) { waiting.append(dispatch); return; }
      running++;
      dispatch();

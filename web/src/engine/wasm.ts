@@ -1,7 +1,7 @@
 // Krita's real core (engine/bridge), loaded from /engine/ and driven through protocol.ts.
 // Requests are JSON; bytes travel as files in the engine's virtual filesystem (requests) or as a
 // view into its memory (replies and image updates).
-import type { Engine, EngineEvents } from './protocol';
+import type { Engine, EngineEvents, KritaFileDialog } from './protocol';
 
 interface Module {
     _kw_request(id: number, seq: number): void;
@@ -70,6 +70,8 @@ export async function createWasmEngine(): Promise<Engine> {
             case 'kritaWindowPaint': if (bytes) emit('kritaWindowPaint', msg.id, msg.width, msg.height, bytes); break;
             case 'kritaWindowClosed': emit('kritaWindowClosed', msg.id); break;
             case 'kritaMessage': emit('kritaMessage', msg.text); break;
+            case 'kritaFileDialog': emit('kritaFileDialog', msg as unknown as KritaFileDialog); break;
+            case 'kritaDownload': if (bytes) emit('kritaDownload', msg.name, bytes.slice()); break;
             case 'kritaCursor': emit('kritaCursor', msg.cursor); break;
             case 'error': console.error(`Engine error in ${String(msg.method)}: ${String(msg.message)}`); break;
         }
@@ -232,6 +234,10 @@ export async function createWasmEngine(): Promise<Engine> {
         kritaKey: event => fire('krita.key', event),
         kritaViewport: viewport => fire('krita.viewport', viewport),
         kritaWindows: () => call('krita.windows'),
+        answerKritaFileDialog: async (id, files) => {
+            for (const f of files) if (f.bytes) await call('krita.fileGive', { name: f.name }, { bytes: f.bytes });
+            await call('krita.fileDialogDone', { id, names: files.map(f => f.name) });
+        },
         kritaDockers: () => call('krita.dockers'),
         showKritaDocker: (id, visible) => call('krita.showDocker', { id, visible }),
         kritaWindowInput: (id, event) => fire('krita.windowInput', { id, ...event }),

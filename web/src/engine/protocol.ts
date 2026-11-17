@@ -225,6 +225,10 @@ export interface EngineEvents {
     kritaWindowClosed: (id: number) => void;
     /** One of Krita's short on-canvas messages ("Cannot transform locked layers", zoom level, ...). */
     kritaMessage: (text: string) => void;
+    /** Krita wants a file from the visitor (or a name to save as); answer with answerKritaFileDialog. */
+    kritaFileDialog: (request: KritaFileDialog) => void;
+    /** A file Krita wrote in answer to a save dialog (and every later save to the same name). */
+    kritaDownload: (name: string, bytes: Uint8Array) => void;
     /** Krita's cursor over the canvas or a Krita window changed: a CSS cursor name. */
     kritaCursor: (cursor: string) => void;
 }
@@ -365,6 +369,11 @@ export interface Engine {
     kritaWindowInput(id: number, event: KritaWindowInput): void;
     /** Asks the window to close, as its title-bar X would (the engine answers with kritaWindowClosed). */
     closeKritaWindow(id: number): Promise<void>;
+    /** Answers a kritaFileDialog: the picked files, a File with only a name to save as, or [] to cancel. */
+    answerKritaFileDialog(id: number, files: { name: string; bytes?: Uint8Array }[]): Promise<void>;
     /** Gives a window the size the page has room for (the tool option panel follows its dock). */
     resizeKritaWindow(id: number, width: number, height: number): Promise<void>;
 }
+
+/** filters are Qt name filters such as "PNG image (*.png)". */
+export interface KritaFileDialog { id: number; save: boolean; multiple: boolean; caption: string; filters: string[]; name: string }
