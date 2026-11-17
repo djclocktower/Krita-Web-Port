@@ -472,5 +472,408 @@
   "file": "dockers/OnionSkinsDocker.png",
   "title": "Onion Skins",
   "outcome": "opens, repaints on click"
+ },
+ "OverviewDocker": {
+  "id": "OverviewDocker",
+  "callReturned": "ok",
+  "openMs": 352,
+  "window": {
+   "id": 2,
+   "title": "Overview",
+   "kind": "docker",
+   "width": 200,
+   "height": 112,
+   "modal": false,
+   "docker": "OverviewDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 4,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "-790700838:134400:320x420",
+  "distinctColours": 128,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/OverviewDocker.png",
+  "title": "Overview",
+  "outcome": "opens, no repaint on click"
+ },
+ "PaletteDocker": {
+  "id": "PaletteDocker",
+  "callReturned": "ok",
+  "openMs": 463,
+  "window": {
+   "id": 3,
+   "title": "Palette",
+   "kind": "docker",
+   "width": 286,
+   "height": 264,
+   "modal": false,
+   "docker": "PaletteDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "-1877954397:134400:320x420",
+  "distinctColours": 39,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/PaletteDocker.png",
+  "title": "Palette",
+  "outcome": "opens, no repaint on click"
+ },
+ "PatternDocker": {
+  "id": "PatternDocker",
+  "callReturned": "ok",
+  "openMs": 611,
+  "window": {
+   "id": 4,
+   "title": "Patterns",
+   "kind": "docker",
+   "width": 260,
+   "height": 313,
+   "modal": false,
+   "docker": "PatternDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 3,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "2116631239:134400:320x420",
+  "distinctColours": 369,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/PatternDocker.png",
+  "title": "Patterns",
+  "outcome": "opens, no repaint on click"
+ },
+ "PresetDocker": {
+  "id": "PresetDocker",
+  "callReturned": "ok",
+  "openMs": 611,
+  "window": {
+   "id": 5,
+   "title": "Brush Presets",
+   "kind": "docker",
+   "width": 741,
+   "height": 100,
+   "modal": false,
+   "docker": "PresetDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "837463632:134400:320x420",
+  "distinctColours": 577,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/PresetDocker.png",
+  "title": "Brush Presets",
+  "outcome": "opens, repaints on click"
+ },
+ "PresetHistory": {
+  "id": "PresetHistory",
+  "callReturned": "ok",
+  "openMs": 356,
+  "window": {
+   "id": 6,
+   "title": "Brush Preset History",
+   "kind": "docker",
+   "width": 258,
+   "height": 193,
+   "modal": false,
+   "docker": "PresetHistory"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "1051363137:134400:320x420",
+  "distinctColours": 32,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/PresetHistory.png",
+  "title": "Brush Preset History",
+  "outcome": "opens, repaints on click"
+ },
+ "Snapshot": {
+  "id": "Snapshot",
+  "callReturned": "ok",
+  "openMs": 412,
+  "window": {
+   "id": 7,
+   "title": "Snapshot Docker",
+   "kind": "docker",
+   "width": 260,
+   "height": 224,
+   "modal": false,
+   "docker": "Snapshot"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "-491034400:134400:320x420",
+  "distinctColours": 6,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/Snapshot.png",
+  "title": "Snapshot Docker",
+  "outcome": "opens, no repaint on click"
+ },
+ "SpecificColorSelector": {
+  "id": "SpecificColorSelector",
+  "callReturned": "ok",
+  "openMs": 354,
+  "window": {
+   "id": 8,
+   "title": "Specific Color Selector",
+   "kind": "docker",
+   "width": 272,
+   "height": 202,
+   "modal": false,
+   "docker": "SpecificColorSelector"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "1821007783:134400:320x420",
+  "distinctColours": 367,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/SpecificColorSelector.png",
+  "title": "Specific Color Selector",
+  "outcome": "opens, no repaint on click"
+ },
+ "StoryboardDocker": {
+  "id": "StoryboardDocker",
+  "callReturned": "ok",
+  "openMs": 405,
+  "window": {
+   "id": 9,
+   "title": "Storyboard",
+   "kind": "docker",
+   "width": 265,
+   "height": 196,
+   "modal": false,
+   "docker": "StoryboardDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "1270733412:134400:320x420",
+  "distinctColours": 23,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/StoryboardDocker.png",
+  "title": "Storyboard",
+  "outcome": "opens, no repaint on click"
+ },
+ "SvgSymbolCollectionDocker": {
+  "id": "SvgSymbolCollectionDocker",
+  "callReturned": "ok",
+  "openMs": 352,
+  "window": {
+   "id": 2,
+   "title": "Symbol Libraries",
+   "kind": "docker",
+   "width": 260,
+   "height": 226,
+   "modal": false,
+   "docker": "SvgSymbolCollectionDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "916435553:134400:320x420",
+  "distinctColours": 21,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/SvgSymbolCollectionDocker.png",
+  "title": "Symbol Libraries",
+  "outcome": "opens, no repaint on click"
+ },
+ "TasksetDocker": {
+  "id": "TasksetDocker",
+  "callReturned": "ok",
+  "openMs": 372,
+  "window": {
+   "id": 3,
+   "title": "Task Sets",
+   "kind": "docker",
+   "width": 323,
+   "height": 224,
+   "modal": false,
+   "docker": "TasksetDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "25400699:134400:320x420",
+  "distinctColours": 7,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/TasksetDocker.png",
+  "title": "Task Sets",
+  "outcome": "opens, no repaint on click"
+ },
+ "TextProperties": {
+  "id": "TextProperties",
+  "callReturned": "ok",
+  "openMs": 8240,
+  "window": {
+   "id": 4,
+   "title": "Text Properties",
+   "kind": "docker",
+   "width": 200,
+   "height": 101,
+   "modal": false,
+   "docker": "TextProperties"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "-907824261:134400:320x420",
+  "distinctColours": 125,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/TextProperties.png",
+  "title": "Text Properties",
+  "outcome": "opens, repaints on click"
+ },
+ "TimelineDocker": {
+  "id": "TimelineDocker",
+  "callReturned": "ok",
+  "openMs": 505,
+  "window": {
+   "id": 5,
+   "title": "Animation Timeline",
+   "kind": "docker",
+   "width": 258,
+   "height": 193,
+   "modal": false,
+   "docker": "TimelineDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "-716167320:134400:320x420",
+  "distinctColours": 62,
+  "repaintsAfterClick": 1,
+  "changedAfterClick": true,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/TimelineDocker.png",
+  "title": "Animation Timeline",
+  "outcome": "opens, repaints on click"
+ },
+ "TouchDocker": {
+  "id": "TouchDocker",
+  "callReturned": "ok",
+  "openMs": 409,
+  "window": {
+   "id": 6,
+   "title": "Touch Docker",
+   "kind": "docker",
+   "width": 200,
+   "height": 258,
+   "modal": false,
+   "docker": "TouchDocker"
+  },
+  "resized": {
+   "width": 320,
+   "height": 420
+  },
+  "paintEvents": 2,
+  "solid": 134400,
+  "total": 134400,
+  "picture": "1836335595:134400:320x420",
+  "distinctColours": 21,
+  "repaintsAfterClick": 0,
+  "changedAfterClick": false,
+  "popupsAfterClick": [],
+  "aliveAfter": true,
+  "hidden": true,
+  "file": "dockers/TouchDocker.png",
+  "title": "Touch Docker",
+  "outcome": "opens, no repaint on click"
  }
 }

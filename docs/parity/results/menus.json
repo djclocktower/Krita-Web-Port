@@ -1,8 +1,8 @@
 {
  "rows": [
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_new",
    "from": "krita/krita/krita5.xmlgui",
    "text": "New",
@@ -10,6 +10,7 @@
    "pageMenu": "File > New…",
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -17,8 +18,8 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_open",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Open…",
@@ -26,6 +27,7 @@
    "pageMenu": "File > Open…",
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -33,8 +35,8 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_open_recent",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Open Recent",
@@ -42,6 +44,7 @@
    "pageMenu": "File > Open Recent…",
    "viaSearch": true,
    "outcome": "disabled",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -49,8 +52,8 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_save",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Save",
@@ -58,6 +61,7 @@
    "pageMenu": "File > Save as .kra",
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -65,8 +69,8 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_save_as",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Save As…",
@@ -74,6 +78,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -81,8 +86,8 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_reload_file",
    "from": "krita/krita/krita5.xmlgui",
    "text": "file_reload_file",
@@ -90,18 +95,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_sessions",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Sessions...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -109,15 +116,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_import_file",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Open existing Document as Untitled Document...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -125,15 +133,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_export_file",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Export...",
    "inEngine": true,
    "pageMenu": "File > Export…",
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -141,15 +150,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_export_advanced",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Export Advanced...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -157,8 +167,8 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_export_pdf",
    "from": "krita/krita/krita5.xmlgui",
    "text": "file_export_pdf",
@@ -166,18 +176,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_import_animation",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Import animation frames...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -185,15 +197,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_import_video_animation",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Import video animation...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -201,15 +214,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "render_animation",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Render Animation...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -217,15 +231,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "save_incremental_version",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Save Incremental Version",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -233,15 +248,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "save_incremental_backup",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Save Incremental Backup",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -249,15 +265,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "create_template",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Create Template From Image...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -265,15 +282,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "create_copy",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Create Copy From Current Image",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -281,15 +299,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_documentinfo",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Document Information",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -297,8 +316,8 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_close",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Close",
@@ -306,6 +325,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -313,15 +333,16 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_close_all",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Close All",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -329,8 +350,8 @@
    }
   },
   {
-   "menu": "&File",
-   "path": "&File",
+   "menu": "File",
+   "path": "File",
    "action": "file_quit",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Quit",
@@ -338,6 +359,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -345,8 +367,8 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_undo",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Undo ",
@@ -354,6 +376,7 @@
    "pageMenu": "Edit > Undo",
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -361,8 +384,8 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_redo",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Redo ",
@@ -370,6 +393,7 @@
    "pageMenu": "Edit > Redo",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -377,8 +401,8 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_cut",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Cut",
@@ -386,6 +410,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -393,8 +418,8 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_copy",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Copy",
@@ -402,6 +427,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -409,15 +435,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "cut_sharp",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Cut (sharp)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -425,15 +452,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "copy_sharp",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Copy (sharp)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -441,15 +469,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "copy_merged",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Copy merged",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -457,15 +486,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "copy_layer_style",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Copy Layer Style",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -473,8 +503,8 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_paste",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Paste",
@@ -482,6 +512,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -489,15 +520,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "paste_at",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Paste at Cursor",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -505,15 +537,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "paste_into",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Paste into Active Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "10",
@@ -521,15 +554,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "paste_new",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Paste into New Image",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -537,15 +571,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "paste_as_reference",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Paste as Reference Image",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -553,15 +588,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "paste_shape_style",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Paste Shape Style",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -569,15 +605,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "paste_layer_style",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Paste Layer Style",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -585,15 +622,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "clear",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Clear",
    "inEngine": true,
    "pageMenu": "Edit > Clear",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -601,15 +639,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "fill_selection_foreground_color",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Fill with Foreground Color",
    "inEngine": true,
    "pageMenu": "Edit > Fill with Foreground Color",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -617,15 +656,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "fill_selection_background_color",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Fill with Background Color",
    "inEngine": true,
    "pageMenu": "Edit > Fill with Background Color",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -633,15 +673,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "fill_selection_pattern",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Fill with Pattern",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -649,15 +690,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit > Fill Special",
+   "menu": "Edit",
+   "path": "Edit > Fill Special",
    "action": "fill_selection_foreground_color_opacity",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Fill with Foreground Color (Opacity)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -665,15 +707,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit > Fill Special",
+   "menu": "Edit",
+   "path": "Edit > Fill Special",
    "action": "fill_selection_background_color_opacity",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Fill with Background Color (Opacity)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -681,15 +724,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit > Fill Special",
+   "menu": "Edit",
+   "path": "Edit > Fill Special",
    "action": "fill_selection_pattern_opacity",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Fill with Pattern (Opacity)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -697,15 +741,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "stroke_shapes",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Stroke selected shapes",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -713,15 +758,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "stroke_selection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Stroke Selection...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -729,8 +775,8 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "delete",
    "from": "krita/krita/krita5.xmlgui",
    "text": "delete",
@@ -738,18 +784,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/plugins/tools/svgtexttool/tests/SvgTextCursorTest.cpp",
    "definition": null
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "sample_screen_color",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "&Sample Screen Color",
+   "text": "Sample Screen Color",
    "inEngine": false,
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/samplescreencolor/KisSampleScreenColor.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -757,15 +805,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "sample_screen_color_real_canvas",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "&Sample Screen Color (Sample Real Canvas)",
+   "text": "Sample Screen Color (Sample Real Canvas)",
    "inEngine": false,
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/samplescreencolor/KisSampleScreenColor.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -773,8 +822,8 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "revert",
    "from": "krita/krita/krita5.xmlgui",
    "text": "revert",
@@ -782,18 +831,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_show_canvas_only",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Canvas Only",
    "inEngine": true,
    "pageMenu": "View > Canvas Only",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -801,8 +852,8 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "fullscreen",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Full Screen Mode",
@@ -810,6 +861,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -817,15 +869,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_detached_canvas",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Detach Canvas",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -833,15 +886,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "wrap_around_mode",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Wrap Around Mode",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -849,15 +903,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > Wrap Around Mode Direction",
+   "menu": "View",
+   "path": "View > Wrap Around Mode Direction",
    "action": "wrap_around_hv_axis",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Wrap Around Both Directions",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -865,15 +920,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > Wrap Around Mode Direction",
+   "menu": "View",
+   "path": "View > Wrap Around Mode Direction",
    "action": "wrap_around_h_axis",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Wrap Around Horizontally",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -881,15 +937,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > Wrap Around Mode Direction",
+   "menu": "View",
+   "path": "View > Wrap Around Mode Direction",
    "action": "wrap_around_v_axis",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Wrap Around Vertically",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -897,15 +954,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "level_of_detail_mode",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Instant Preview Mode",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -913,15 +971,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "softProof",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Soft Proofing",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -929,15 +988,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "gamutCheck",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Out of Gamut Warnings",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -945,8 +1005,8 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "view_zoom_in",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Zoom In",
@@ -954,6 +1014,7 @@
    "pageMenu": "View > Zoom In",
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -961,8 +1022,8 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "view_zoom_out",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Zoom Out",
@@ -970,6 +1031,7 @@
    "pageMenu": "View > Zoom Out",
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -977,15 +1039,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "zoom_to_100pct",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Zoom to 100%",
    "inEngine": true,
    "pageMenu": "View > Zoom to 100%",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -993,15 +1056,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "zoom_to_fit",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Fit to View",
    "inEngine": true,
    "pageMenu": "View > Fit Page",
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1009,15 +1073,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "zoom_to_fit_width",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Fit to View Width",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1025,15 +1090,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "zoom_to_fit_height",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Fit to View Height",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1041,15 +1107,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "rotate_canvas_right",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Canvas Right",
    "inEngine": true,
    "pageMenu": "View > Rotate Clockwise",
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1057,15 +1124,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "rotate_canvas_left",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Canvas Left",
    "inEngine": true,
    "pageMenu": "View > Rotate Counterclockwise",
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1073,15 +1141,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "reset_canvas_rotation",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Reset Canvas Rotation",
    "inEngine": true,
    "pageMenu": "View > Reset Rotation",
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1089,8 +1158,8 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "mirror_canvas",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Mirror View",
@@ -1098,6 +1167,7 @@
    "pageMenu": "View > Mirror View",
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1105,8 +1175,8 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "mirror_canvas_around_cursor",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Mirror View Around Cursor",
@@ -1114,6 +1184,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1121,8 +1192,8 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "mirror_canvas_around_canvas",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Mirror View Around Canvas",
@@ -1130,6 +1201,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1137,15 +1209,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Zoom, Rotate, and Mirror",
+   "menu": "View",
+   "path": "View > Zoom, Rotate, and Mirror",
    "action": "reset_display",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Reset Display",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1153,15 +1226,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_print_size",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "View Print Size",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1169,15 +1243,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_ruler",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Rulers",
    "inEngine": true,
-   "pageMenu": null,
+   "pageMenu": "View > Show Rulers",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1185,15 +1260,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "rulers_track_mouse",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rulers Track Pointer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1201,15 +1277,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_show_guides",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Guides",
    "inEngine": true,
-   "pageMenu": null,
+   "pageMenu": "View > ✓ Show Guides",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1217,15 +1294,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_lock_guides",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Lock Guides",
    "inEngine": true,
-   "pageMenu": null,
+   "pageMenu": "View > Lock Guides",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1233,15 +1311,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "showStatusBar",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Status Bar",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1249,15 +1328,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_grid",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Grid",
    "inEngine": true,
-   "pageMenu": null,
+   "pageMenu": "View > Show Grid",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1265,15 +1345,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_pixel_grid",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Pixel Grid",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1000",
@@ -1281,15 +1362,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_to_guides",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap to Guides",
    "inEngine": true,
-   "pageMenu": null,
+   "pageMenu": "View > Snap To Guides",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1297,15 +1379,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_to_grid",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap To Grid",
    "inEngine": true,
-   "pageMenu": null,
+   "pageMenu": "View > Snap To Grid",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1313,15 +1396,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_to_pixel",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap Pixel",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1329,15 +1413,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_orthogonal",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap Orthogonal",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1345,15 +1430,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_node",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap Node",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1361,15 +1447,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_extension",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap Extension",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1377,15 +1464,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_intersection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap Intersection",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1393,15 +1481,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_bounding_box",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap Bounding Box",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1409,15 +1498,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_image_bounds",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap Image Bounds",
    "inEngine": true,
-   "pageMenu": null,
+   "pageMenu": "View > Snap To Image Bounds",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1425,15 +1515,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View > &Snap To",
+   "menu": "View",
+   "path": "View > Snap To",
    "action": "view_snap_image_center",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Snap Image Center",
    "inEngine": true,
-   "pageMenu": null,
+   "pageMenu": "View > Snap To Image Center",
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -1441,15 +1532,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_toggle_painting_assistants",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Painting Assistants",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1457,15 +1549,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_toggle_assistant_previews",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Assistant Previews",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1473,15 +1566,16 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_toggle_reference_images",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Reference Images",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1489,8 +1583,8 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_palette_action_menu",
    "from": "krita/krita/krita5.xmlgui",
    "text": "view_palette_action_menu",
@@ -1498,11 +1592,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/ui/KisMainWindow.h",
    "definition": null
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "refresh_canvas",
    "from": "krita/krita/krita5.xmlgui",
    "text": "refresh_canvas",
@@ -1510,18 +1605,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "image_properties",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Properties...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1529,15 +1626,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "image_color",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Image Background Color and Transparency...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1545,15 +1643,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "imagecolorspaceconversion",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert Image Color Space...",
    "inEngine": true,
    "pageMenu": "Image > Convert Image Color Space…",
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1561,8 +1660,8 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "duplicate_image",
    "from": "krita/krita/krita5.xmlgui",
    "text": "duplicate_image",
@@ -1570,18 +1669,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "trim_to_image",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Trim to Image Size",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1589,15 +1690,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "resizeimagetolayer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Trim to Current Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1605,15 +1707,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "resizeimagetoselection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Trim to Selection",
    "inEngine": true,
    "pageMenu": "Image > Trim to Current Selection",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1621,15 +1724,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "purge_unused_image_data",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Purge Unused Image Data",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1637,15 +1741,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "imagesize",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Scale Image To New Size...",
    "inEngine": true,
    "pageMenu": "Image > Scale Image To New Size…",
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1653,8 +1758,8 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "imageresolution",
    "from": "krita/krita/krita5.xmlgui",
    "text": "imageresolution",
@@ -1662,18 +1767,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "canvassize",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Resize Canvas...",
    "inEngine": true,
    "pageMenu": "Image > Resize Canvas…",
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1681,15 +1788,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image > &Rotate",
+   "menu": "Image",
+   "path": "Image > Rotate",
    "action": "rotateimage",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Image...",
    "inEngine": true,
    "pageMenu": "Image > Rotate Image › Custom…",
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1697,15 +1805,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image > &Rotate",
+   "menu": "Image",
+   "path": "Image > Rotate",
    "action": "rotateImageCW90",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Image 90° to the Right",
    "inEngine": true,
    "pageMenu": "Image > Rotate Image › 90° Right",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1713,15 +1822,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image > &Rotate",
+   "menu": "Image",
+   "path": "Image > Rotate",
    "action": "rotateImageCCW90",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Image 90° to the Left",
    "inEngine": true,
    "pageMenu": "Image > Rotate Image › 90° Left",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1729,15 +1839,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image > &Rotate",
+   "menu": "Image",
+   "path": "Image > Rotate",
    "action": "rotateImage180",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Image 180°",
    "inEngine": true,
    "pageMenu": "Image > Rotate Image › 180°",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1745,15 +1856,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "shearimage",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Shear Image...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1761,15 +1873,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "mirrorImageHorizontal",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Mirror Image Horizontally",
    "inEngine": true,
    "pageMenu": "Image > Mirror Image Horizontally",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1777,15 +1890,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "mirrorImageVertical",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Mirror Image Vertically",
    "inEngine": true,
    "pageMenu": "Image > Mirror Image Vertically",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1793,15 +1907,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "offsetimage",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Offset Image...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1809,15 +1924,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "imagesplit",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Image Split",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1825,15 +1941,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "waveletdecompose",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Wavelet Decompose ...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -1841,15 +1958,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image",
+   "menu": "Image",
+   "path": "Image",
    "action": "separate",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Separate Image...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1857,15 +1975,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "cut_layer_clipboard",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Cut Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1873,15 +1992,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "copy_layer_clipboard",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Copy Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1889,15 +2009,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "paste_layer_from_clipboard",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Paste Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1905,15 +2026,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_paint_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Paint Layer",
    "inEngine": true,
    "pageMenu": "Layer > New Paint Layer",
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1921,15 +2043,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_group_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Group Layer",
    "inEngine": true,
    "pageMenu": "Layer > New Group Layer",
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1937,15 +2060,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_clone_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Clone Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1953,15 +2077,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_shape_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Vector Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1969,15 +2094,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_adjustment_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Filter Layer...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -1985,15 +2111,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_fill_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Fill Layer...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "crash",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2001,15 +2128,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_file_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add File Layer...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2017,15 +2145,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_transparency_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Transparency Mask",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2033,15 +2162,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_filter_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Filter Mask...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2049,15 +2179,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_colorize_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Colorize Mask",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2065,15 +2196,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_transform_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Transform Mask",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2081,15 +2213,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "add_new_selection_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Add Local Selection",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2097,15 +2230,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "new_from_visible",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "New Layer From Visible",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2113,15 +2247,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "duplicatelayer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Duplicate Layer or Mask",
    "inEngine": true,
    "pageMenu": "Layer > Duplicate Layer or Mask",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2129,15 +2264,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "cut_selection_to_new_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Cut Selection to New Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2145,15 +2281,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &New",
+   "menu": "Layer",
+   "path": "Layer > New",
    "action": "copy_selection_to_new_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Copy Selection to New Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2161,15 +2298,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Import/Export",
+   "menu": "Layer",
+   "path": "Layer > Import/Export",
    "action": "save_node_as_image",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Save Layer/Mask...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2177,15 +2315,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Import/Export",
+   "menu": "Layer",
+   "path": "Layer > Import/Export",
    "action": "save_vector_node_to_svg",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Save Vector Layer as SVG...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2193,15 +2332,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Import/Export",
+   "menu": "Layer",
+   "path": "Layer > Import/Export",
    "action": "save_groups_as_images",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Save Group Layers...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2209,15 +2349,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Import/Export",
+   "menu": "Layer",
+   "path": "Layer > Import/Export",
    "action": "import_layer_from_file",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Import Layer...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2225,15 +2366,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Import/Export > Import",
+   "menu": "Layer",
+   "path": "Layer > Import/Export > Import",
    "action": "import_layer_as_paint_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "as Paint Layer...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2241,15 +2383,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Import/Export > Import",
+   "menu": "Layer",
+   "path": "Layer > Import/Export > Import",
    "action": "import_layer_as_transparency_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "as Transparency Mask...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2257,15 +2400,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Import/Export > Import",
+   "menu": "Layer",
+   "path": "Layer > Import/Export > Import",
    "action": "import_layer_as_filter_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "as Filter Mask...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2273,15 +2417,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Import/Export > Import",
+   "menu": "Layer",
+   "path": "Layer > Import/Export > Import",
    "action": "import_layer_as_selection_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "as Selection Mask...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2289,15 +2434,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Convert",
+   "menu": "Layer",
+   "path": "Layer > Convert",
    "action": "convert_to_paint_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert to Paint Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2305,15 +2451,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Convert",
+   "menu": "Layer",
+   "path": "Layer > Convert",
    "action": "convert_to_transparency_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert to Transparency Mask",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2321,15 +2468,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Convert",
+   "menu": "Layer",
+   "path": "Layer > Convert",
    "action": "convert_to_filter_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert to Filter Mask...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "hang",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2337,15 +2485,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Convert",
+   "menu": "Layer",
+   "path": "Layer > Convert",
    "action": "convert_to_selection_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert to Selection Mask",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2353,15 +2502,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Convert",
+   "menu": "Layer",
+   "path": "Layer > Convert",
    "action": "convert_to_file_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert to File Layer...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2369,15 +2519,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Convert",
+   "menu": "Layer",
+   "path": "Layer > Convert",
    "action": "convert_group_to_animated",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert Group to Animated Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2385,15 +2536,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Convert",
+   "menu": "Layer",
+   "path": "Layer > Convert",
    "action": "layercolorspaceconversion",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert Layer Color Space...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2401,15 +2553,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Select",
+   "menu": "Layer",
+   "path": "Layer > Select",
    "action": "select_all_layers",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "All Layers",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2417,15 +2570,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Select",
+   "menu": "Layer",
+   "path": "Layer > Select",
    "action": "select_visible_layers",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Visible Layers",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2433,15 +2587,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Select",
+   "menu": "Layer",
+   "path": "Layer > Select",
    "action": "select_invisible_layers",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Invisible Layers",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2449,15 +2604,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Select",
+   "menu": "Layer",
+   "path": "Layer > Select",
    "action": "select_locked_layers",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Locked Layers",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2465,15 +2621,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Select",
+   "menu": "Layer",
+   "path": "Layer > Select",
    "action": "select_unlocked_layers",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Unlocked Layers",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2481,15 +2638,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Group",
+   "menu": "Layer",
+   "path": "Layer > Group",
    "action": "create_quick_group",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Quick Group",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2497,15 +2655,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Group",
+   "menu": "Layer",
+   "path": "Layer > Group",
    "action": "create_quick_clipping_group",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Quick Clipping Group",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2513,15 +2672,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Group",
+   "menu": "Layer",
+   "path": "Layer > Group",
    "action": "quick_ungroup",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Quick Ungroup",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2529,15 +2689,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Transform",
+   "menu": "Layer",
+   "path": "Layer > Transform",
    "action": "layersize",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Scale Layers to new Size...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2545,15 +2706,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Transform",
+   "menu": "Layer",
+   "path": "Layer > Transform",
    "action": "mirrorNodeX",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Mirror Layers Horizontally",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2561,15 +2723,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Transform",
+   "menu": "Layer",
+   "path": "Layer > Transform",
    "action": "mirrorNodeY",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Mirror Layers Vertically",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2577,15 +2740,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Transform > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Transform > Rotate",
    "action": "rotatelayer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Layers...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2593,15 +2757,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Transform > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Transform > Rotate",
    "action": "rotateLayerCW90",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Layers 90° to the Right",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2609,15 +2774,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Transform > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Transform > Rotate",
    "action": "rotateLayerCCW90",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Layers 90° to the Left",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2625,15 +2791,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Transform > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Transform > Rotate",
    "action": "rotateLayer180",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate Layers 180°",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2641,15 +2808,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Transform",
+   "menu": "Layer",
+   "path": "Layer > Transform",
    "action": "shearlayer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Shear Layers...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2657,15 +2825,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > &Transform",
+   "menu": "Layer",
+   "path": "Layer > Transform",
    "action": "offsetlayer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Offset Layers...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2673,15 +2842,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > Transform &All Layers",
+   "menu": "Layer",
+   "path": "Layer > Transform All Layers",
    "action": "mirrorAllNodesX",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Mirror All Layers Horizontally",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2689,15 +2859,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > Transform &All Layers",
+   "menu": "Layer",
+   "path": "Layer > Transform All Layers",
    "action": "mirrorAllNodesY",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Mirror All Layers Vertically",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2705,15 +2876,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > Transform &All Layers",
+   "menu": "Layer",
+   "path": "Layer > Transform All Layers",
    "action": "scaleAllLayers",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Scale All Layers to new Size...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2721,15 +2893,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > Transform &All Layers > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Transform All Layers > Rotate",
    "action": "rotateAllLayers",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate All Layers...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2737,15 +2910,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > Transform &All Layers > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Transform All Layers > Rotate",
    "action": "rotateAllLayersCW90",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate All Layers 90° to the Right",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2753,15 +2927,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > Transform &All Layers > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Transform All Layers > Rotate",
    "action": "rotateAllLayersCCW90",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate All Layers 90° to the Left",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2769,15 +2944,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > Transform &All Layers > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Transform All Layers > Rotate",
    "action": "rotateAllLayers180",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Rotate All Layers 180°",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2785,15 +2961,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > Transform &All Layers",
+   "menu": "Layer",
+   "path": "Layer > Transform All Layers",
    "action": "shearAllLayers",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Shear All Layers...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2801,15 +2978,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > S&plit > S&plit Alpha",
+   "menu": "Layer",
+   "path": "Layer > Split > Split Alpha",
    "action": "split_alpha_into_mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Alpha into Mask",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "10",
@@ -2817,15 +2995,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > S&plit > S&plit Alpha",
+   "menu": "Layer",
+   "path": "Layer > Split > Split Alpha",
    "action": "split_alpha_write",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Write as Alpha",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "crash",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2833,15 +3012,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > S&plit > S&plit Alpha",
+   "menu": "Layer",
+   "path": "Layer > Split > Split Alpha",
    "action": "split_alpha_save_merged",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Save Merged...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "crash",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2849,15 +3029,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > S&plit",
+   "menu": "Layer",
+   "path": "Layer > Split",
    "action": "layersplit",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Split Layer...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2865,15 +3046,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer > S&plit",
+   "menu": "Layer",
+   "path": "Layer > Split",
    "action": "clones_array",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Clones Array...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2881,15 +3063,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "EditLayerMetaData",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Edit metadata...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -2897,15 +3080,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "histogram",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "&Histogram...",
+   "text": "Histogram...",
    "inEngine": false,
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action",
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2913,8 +3097,8 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "merge_layer",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Merge with Layer Below",
@@ -2922,6 +3106,7 @@
    "pageMenu": "Layer > Merge with Layer Below",
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2929,15 +3114,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "flatten_layer",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Flatten Layer",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2945,8 +3131,8 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "merge_all_shape_layers",
    "from": "krita/krita/krita5.xmlgui",
    "text": "merge_all_shape_layers",
@@ -2954,18 +3140,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "flatten_image",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Flatten image",
    "inEngine": true,
    "pageMenu": "Image > Flatten Image",
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -2973,8 +3161,8 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "merge_selected_layers",
    "from": "krita/krita/krita5.xmlgui",
    "text": "merge_selected_layers",
@@ -2982,18 +3170,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "layer_style",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Layer Style...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -3001,15 +3191,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "select_all",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Select All",
    "inEngine": true,
    "pageMenu": "Select > Select All",
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3017,15 +3208,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "deselect",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Deselect",
    "inEngine": true,
    "pageMenu": "Select > Deselect",
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3033,15 +3225,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "reselect",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Reselect",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3049,15 +3242,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "invert_selection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Invert Selection",
    "inEngine": true,
    "pageMenu": "Select > Invert Selection",
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3065,15 +3259,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "selectionscale",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Scale...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3081,15 +3276,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "edit_selection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Edit Selection",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3097,15 +3293,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "convert_to_vector_selection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert to Vector Selection",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3113,15 +3310,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "convert_to_raster_selection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert to Raster Selection",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3129,15 +3327,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "convert_shapes_to_vector_selection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert Shapes to Vector Selection",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3145,15 +3344,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "convert_selection_to_shape",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Convert to Shape",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3161,8 +3361,8 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "feather",
    "from": "krita/krita/krita5.xmlgui",
    "text": "feather",
@@ -3170,11 +3370,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/plugins/tools/tool_enclose_and_fill/KisToolEncloseAndFill.cpp",
    "definition": null
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "similar",
    "from": "krita/krita/krita5.xmlgui",
    "text": "similar",
@@ -3182,18 +3383,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "toggle_display_selection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Display Selection",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3201,15 +3404,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "show-global-selection-mask",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "&Show Global Selection Mask",
+   "text": "Show Global Selection Mask",
    "inEngine": false,
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/ui/tool/kis_selection_tool_helper.cpp, krita/krita/krita.action",
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3217,15 +3421,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "colorrange",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Select from Color Range...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3233,15 +3438,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select > Select &Opaque",
+   "menu": "Select",
+   "path": "Select > Select Opaque",
    "action": "selectopaque",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Select Opaque (Replace)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3249,15 +3455,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select > Select &Opaque",
+   "menu": "Select",
+   "path": "Select > Select Opaque",
    "action": "selectopaque_add",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Select Opaque (Add)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3265,15 +3472,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select > Select &Opaque",
+   "menu": "Select",
+   "path": "Select > Select Opaque",
    "action": "selectopaque_subtract",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Select Opaque (Subtract)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3281,15 +3489,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select > Select &Opaque",
+   "menu": "Select",
+   "path": "Select > Select Opaque",
    "action": "selectopaque_intersect",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Select Opaque (Intersect)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3297,15 +3506,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "featherselection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Feather Selection...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3313,15 +3523,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "growselection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Grow Selection...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3329,15 +3540,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "shrinkselection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Shrink Selection...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3345,15 +3557,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "borderselection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Border Selection...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3361,15 +3574,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "smoothselection",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Smooth",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -3377,15 +3591,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "enable_sap",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Enable Selection Actions Bar",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3393,15 +3608,16 @@
    }
   },
   {
-   "menu": "&Select",
-   "path": "&Select",
+   "menu": "Select",
+   "path": "Select",
    "action": "configure_sap",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Configure selection actions bar",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "disabled",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3409,15 +3625,16 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "filter_apply_again",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Apply Filter Again",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3425,15 +3642,16 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "filter_apply_reprompt",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Apply Filter Again (Reprompt)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3441,8 +3659,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "filter_gallery",
    "from": "krita/krita/krita5.xmlgui",
    "text": "filter_gallery",
@@ -3450,11 +3668,12 @@
    "pageMenu": "Filter > Filters…",
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "adjust_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Adjust",
@@ -3462,6 +3681,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3469,8 +3689,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "artistic_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Artistic",
@@ -3478,6 +3698,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3485,8 +3706,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "blur_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Blur",
@@ -3494,6 +3715,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3501,8 +3723,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "color_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Colors",
@@ -3510,6 +3732,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3517,8 +3740,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "decor_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "decor_filters",
@@ -3526,11 +3749,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "edge_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Edge Detection",
@@ -3538,6 +3762,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3545,8 +3770,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "emboss_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Emboss",
@@ -3554,6 +3779,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3561,8 +3787,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "enhance_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Enhance",
@@ -3570,6 +3796,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3577,8 +3804,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "map_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Map",
@@ -3586,6 +3813,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3593,8 +3821,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "nonphotorealistic_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "nonphotorealistic_filters",
@@ -3602,11 +3830,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "other_filters",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Other",
@@ -3614,6 +3843,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3621,8 +3851,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "QMic",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Start G'MIC-Qt",
@@ -3630,6 +3860,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/kritamenu.action, krita/plugins/extensions/qmic/QMic.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -3637,8 +3868,8 @@
    }
   },
   {
-   "menu": "Filte&r",
-   "path": "Filte&r",
+   "menu": "Filter",
+   "path": "Filter",
    "action": "QMicAgain",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Re-apply the last G'MIC filter",
@@ -3646,6 +3877,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/kritamenu.action, krita/plugins/extensions/qmic/QMic.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -3653,8 +3885,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "options_configure",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Configure Krita...",
@@ -3662,6 +3894,7 @@
    "pageMenu": "Settings > Configure Krita…",
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3669,8 +3902,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "change_interface_scale",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Change Interface Scale...",
@@ -3678,6 +3911,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/ui/KisMainWindow.cpp, krita/krita/kritamenu_android.action",
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3685,8 +3919,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "manage_bundles",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Manage Resource Libraries...",
@@ -3694,6 +3928,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3701,8 +3936,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "manage_resources",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Manage Resources...",
@@ -3710,6 +3945,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3717,8 +3953,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "manage_supporter_bundles",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Get More Resources...",
@@ -3726,6 +3962,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/ui/KisMainWindow.cpp, krita/krita/kritamenu_android.action",
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3733,8 +3970,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "manage_donations",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Manage Supporter Benefits...",
@@ -3742,6 +3979,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/ui/KisMainWindow.cpp, krita/krita/kritamenu_android.action",
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3749,8 +3987,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "manage_subscriptions",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Manage Subscriptions...",
@@ -3758,6 +3996,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/ui/KisMainWindow.cpp, krita/krita/kritamenu_android.action",
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3765,8 +4004,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "options_configure_toolbars",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Configure Toolbars…",
@@ -3774,6 +4013,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3781,15 +4021,16 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "lock_toolbars",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Lock Toolbars",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3797,15 +4038,16 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "view_toggledockers",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Show Dockers",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -3813,8 +4055,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "settings_dockers_menu",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Dockers",
@@ -3822,6 +4064,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3829,8 +4072,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "theme_menu",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Themes",
@@ -3838,6 +4081,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3845,8 +4089,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "style_menu",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Styles",
@@ -3854,6 +4098,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3861,8 +4106,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "switch_application_language",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Switch Application Language...",
@@ -3870,6 +4115,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3877,8 +4123,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "settings_active_author",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Active Author Profile",
@@ -3886,6 +4132,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3893,15 +4140,16 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "reset_configurations",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "",
+   "text": "Reset All Settings",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3909,8 +4157,8 @@
    }
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "help_contents",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Krita Handbook",
@@ -3918,6 +4166,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "no visible effect",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -3925,8 +4174,8 @@
    }
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "help_whats_this",
    "from": "krita/krita/krita5.xmlgui",
    "text": "help_whats_this",
@@ -3934,11 +4183,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/widgetutils/config/kstandardaction_p.h",
    "definition": null
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "help_show_tip",
    "from": "krita/krita/krita5.xmlgui",
    "text": "help_show_tip",
@@ -3946,18 +4196,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "help_report_bug",
    "from": "krita/krita/krita5.xmlgui",
-   "text": "&Report Bug...",
+   "text": "Report Bug...",
    "inEngine": false,
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/widgetutils/config/kstandardaction_p.h, krita/krita/kritamenu.action",
    "definition": {
     "category": "",
     "conditions": "",
@@ -3965,8 +4217,8 @@
    }
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "buginfo",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Show Krita log for bug reports.",
@@ -3974,6 +4226,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/buginfo/buginfo.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -3981,8 +4234,8 @@
    }
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "sysinfo",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Show system information for bug reports.",
@@ -3990,6 +4243,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/buginfo/buginfo.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -3997,8 +4251,8 @@
    }
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "color_management_report",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Show color management information",
@@ -4006,6 +4260,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/buginfo/buginfo.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -4013,8 +4268,8 @@
    }
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "logcatdump",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Show Android log for bug reports.",
@@ -4022,6 +4277,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/buginfo/buginfo.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -4029,8 +4285,8 @@
    }
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "crashlog",
    "from": "krita/krita/krita5.xmlgui",
    "text": "Show crash log for bug reports.",
@@ -4038,6 +4294,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/buginfo/buginfo.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -4045,8 +4302,8 @@
    }
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "help_about_app",
    "from": "krita/krita/krita5.xmlgui",
    "text": "About Krita",
@@ -4054,6 +4311,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -4061,8 +4319,8 @@
    }
   },
   {
-   "menu": "&Help",
-   "path": "&Help",
+   "menu": "Help",
+   "path": "Help",
    "action": "help_about_kde",
    "from": "krita/krita/krita5.xmlgui",
    "text": "About KDE",
@@ -4070,6 +4328,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "",
@@ -4081,11 +4340,12 @@
    "path": "Layer",
    "action": "layersize",
    "from": "krita/libs/ui/imagesize/imagesize.xmlgui",
-   "text": "",
+   "text": "Scale Layers to new Size...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -4102,6 +4362,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/buginfo/buginfo.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -4118,6 +4379,7 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/buginfo/buginfo.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -4125,15 +4387,16 @@
    }
   },
   {
-   "menu": "La&yer",
-   "path": "La&yer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "clones_array",
    "from": "krita/plugins/extensions/clonesarray/clonesarray.xmlgui",
-   "text": "",
+   "text": "Clones Array...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -4145,11 +4408,12 @@
    "path": "Select",
    "action": "selectopaque",
    "from": "krita/plugins/extensions/colorrange/colorrange.xmlgui",
-   "text": "",
+   "text": "Select Opaque (Replace)",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "100",
@@ -4157,15 +4421,16 @@
    }
   },
   {
-   "menu": "La&yer",
-   "path": "La&yer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "layercolorspaceconversion",
    "from": "krita/plugins/extensions/colorspaceconversion/colorspaceconversion.xmlgui",
-   "text": "",
+   "text": "Convert Layer Color Space...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -4177,11 +4442,12 @@
    "path": "Tools",
    "action": "dbexplorer",
    "from": "krita/plugins/extensions/dbexplorer/dbexplorer.xmlgui",
-   "text": "&Explore Resources Cache Database...",
+   "text": "Explore Resources Cache Database...",
    "inEngine": false,
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/plugins/extensions/dbexplorer/dbexplorer.action, krita/plugins/extensions/dbexplorer/DbExplorer.cpp",
    "definition": {
     "category": "",
     "conditions": "0",
@@ -4189,15 +4455,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "layersplit",
    "from": "krita/plugins/extensions/layersplit/layersplit.xmlgui",
-   "text": "",
+   "text": "Split Layer...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -4205,15 +4472,16 @@
    }
   },
   {
-   "menu": "La&yer",
-   "path": "La&yer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "offsetlayer",
    "from": "krita/plugins/extensions/offsetimage/offsetimage.xmlgui",
-   "text": "",
+   "text": "Offset Layers...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -4221,8 +4489,8 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit > &Resources",
+   "menu": "Edit",
+   "path": "Edit > Resources",
    "action": "import",
    "from": "krita/plugins/extensions/resourcemanager/resourcemanager.xmlgui",
    "text": "import",
@@ -4230,11 +4498,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit > &Resources",
+   "menu": "Edit",
+   "path": "Edit > Resources",
    "action": "createbundle",
    "from": "krita/plugins/extensions/resourcemanager/resourcemanager.xmlgui",
    "text": "createbundle",
@@ -4242,11 +4511,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit > &Resources",
+   "menu": "Edit",
+   "path": "Edit > Resources",
    "action": "managebundles",
    "from": "krita/plugins/extensions/resourcemanager/resourcemanager.xmlgui",
    "text": "managebundles",
@@ -4254,18 +4524,20 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "only in the xmlgui (dangling in Krita too)",
    "definition": null
   },
   {
-   "menu": "&Image",
-   "path": "&Image > &Rotate",
+   "menu": "Image",
+   "path": "Image > Rotate",
    "action": "mirrorImageHorizontal",
    "from": "krita/plugins/extensions/rotateimage/rotateimage.xmlgui",
-   "text": "",
+   "text": "Mirror Image Horizontally",
    "inEngine": true,
    "pageMenu": "Image > Mirror Image Horizontally",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -4273,15 +4545,16 @@
    }
   },
   {
-   "menu": "&Image",
-   "path": "&Image > &Rotate",
+   "menu": "Image",
+   "path": "Image > Rotate",
    "action": "mirrorImageVertical",
    "from": "krita/plugins/extensions/rotateimage/rotateimage.xmlgui",
-   "text": "",
+   "text": "Mirror Image Vertically",
    "inEngine": true,
    "pageMenu": "Image > Mirror Image Vertically",
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -4289,15 +4562,16 @@
    }
   },
   {
-   "menu": "La&yer",
-   "path": "La&yer > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Rotate",
    "action": "rotatelayer",
    "from": "krita/plugins/extensions/rotateimage/rotateimage.xmlgui",
-   "text": "",
+   "text": "Rotate Layers...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -4305,15 +4579,16 @@
    }
   },
   {
-   "menu": "La&yer",
-   "path": "La&yer > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Rotate",
    "action": "rotateLayerCW90",
    "from": "krita/plugins/extensions/rotateimage/rotateimage.xmlgui",
-   "text": "",
+   "text": "Rotate Layers 90° to the Right",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -4321,15 +4596,16 @@
    }
   },
   {
-   "menu": "La&yer",
-   "path": "La&yer > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Rotate",
    "action": "rotateLayerCCW90",
    "from": "krita/plugins/extensions/rotateimage/rotateimage.xmlgui",
-   "text": "",
+   "text": "Rotate Layers 90° to the Left",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -4337,15 +4613,16 @@
    }
   },
   {
-   "menu": "La&yer",
-   "path": "La&yer > &Rotate",
+   "menu": "Layer",
+   "path": "Layer > Rotate",
    "action": "rotateLayer180",
    "from": "krita/plugins/extensions/rotateimage/rotateimage.xmlgui",
-   "text": "",
+   "text": "Rotate Layers 180°",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -4353,15 +4630,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "sample_screen_color",
    "from": "krita/plugins/extensions/samplescreencolor/samplescreencolor.xmlgui",
-   "text": "&Sample Screen Color",
+   "text": "Sample Screen Color",
    "inEngine": false,
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/samplescreencolor/KisSampleScreenColor.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -4369,15 +4647,16 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "sample_screen_color_real_canvas",
    "from": "krita/plugins/extensions/samplescreencolor/samplescreencolor.xmlgui",
-   "text": "&Sample Screen Color (Sample Real Canvas)",
+   "text": "Sample Screen Color (Sample Real Canvas)",
    "inEngine": false,
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/krita/krita.action, krita/plugins/extensions/samplescreencolor/KisSampleScreenColor.cpp",
    "definition": {
     "category": "",
     "conditions": "",
@@ -4385,15 +4664,16 @@
    }
   },
   {
-   "menu": "La&yer",
-   "path": "La&yer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "shearlayer",
    "from": "krita/plugins/extensions/shearimage/shearimage.xmlgui",
-   "text": "",
+   "text": "Shear Layers...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -4401,15 +4681,16 @@
    }
   },
   {
-   "menu": "&Layer",
-   "path": "&Layer",
+   "menu": "Layer",
+   "path": "Layer",
    "action": "waveletdecompose",
    "from": "krita/plugins/extensions/waveletdecompose/waveletdecompose.xmlgui",
-   "text": "",
+   "text": "Wavelet Decompose ...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "opened dialog",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "1",
@@ -4417,8 +4698,8 @@
    }
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_select_all",
    "from": "krita/plugins/tools/svgtexttool/svgtexttool.xmlgui",
    "text": "edit_select_all",
@@ -4426,11 +4707,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/widgetutils/config/kstandardaction_p.h",
    "definition": null
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_deselect",
    "from": "krita/plugins/tools/svgtexttool/svgtexttool.xmlgui",
    "text": "edit_deselect",
@@ -4438,11 +4720,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/widgetutils/config/kstandardaction_p.h",
    "definition": null
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_find",
    "from": "krita/plugins/tools/svgtexttool/svgtexttool.xmlgui",
    "text": "edit_find",
@@ -4450,11 +4733,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/widgetutils/config/kstandardaction_p.h",
    "definition": null
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_find_next",
    "from": "krita/plugins/tools/svgtexttool/svgtexttool.xmlgui",
    "text": "edit_find_next",
@@ -4462,11 +4746,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/widgetutils/config/kstandardaction_p.h",
    "definition": null
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_find_prev",
    "from": "krita/plugins/tools/svgtexttool/svgtexttool.xmlgui",
    "text": "edit_find_prev",
@@ -4474,11 +4759,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/widgetutils/config/kstandardaction_p.h",
    "definition": null
   },
   {
-   "menu": "&Edit",
-   "path": "&Edit",
+   "menu": "Edit",
+   "path": "Edit",
    "action": "edit_replace",
    "from": "krita/plugins/tools/svgtexttool/svgtexttool.xmlgui",
    "text": "edit_replace",
@@ -4486,11 +4772,12 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/libs/widgetutils/config/kstandardaction_p.h",
    "definition": null
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_zoom_out",
    "from": "krita/plugins/tools/svgtexttool/svgtexttool.xmlgui",
    "text": "Zoom Out",
@@ -4498,6 +4785,7 @@
    "pageMenu": "View > Zoom Out",
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -4505,8 +4793,8 @@
    }
   },
   {
-   "menu": "&View",
-   "path": "&View",
+   "menu": "View",
+   "path": "View",
    "action": "view_zoom_in",
    "from": "krita/plugins/tools/svgtexttool/svgtexttool.xmlgui",
    "text": "Zoom In",
@@ -4514,6 +4802,7 @@
    "pageMenu": "View > Zoom In",
    "viaSearch": true,
    "outcome": "message",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -4521,8 +4810,8 @@
    }
   },
   {
-   "menu": "Setti&ngs",
-   "path": "Setti&ngs",
+   "menu": "Settings",
+   "path": "Settings",
    "action": "svg_settings",
    "from": "krita/plugins/tools/svgtexttool/svgtexttool.xmlgui",
    "text": "Settings...",
@@ -4530,194 +4819,11 @@
    "pageMenu": null,
    "viaSearch": false,
    "outcome": null,
+   "definedIn": "krita/plugins/tools/svgtexttool/SvgTextEditor.cpp, krita/plugins/tools/svgtexttool/SvgTextTool.action",
    "definition": {
     "category": "",
     "conditions": "",
     "flags": ""
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Colors",
-   "action": "krita_filter_minimize",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Minimize Channel",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Colors",
-   "action": "krita_filter_fastcoloroverlay",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Fast Color Overlay...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": null
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_crosschannel",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Cross-channel adjustment curves...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Enhance",
-   "action": "krita_filter_mean removal",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Mean Removal",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_burn",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Burn...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Artistic",
-   "action": "krita_filter_posterize",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Posterize...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Artistic",
-   "action": "krita_filter_oilpaint",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Oilpaint...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "opened dialog",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Edge Detection",
-   "action": "krita_filter_edge detection",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Edge Detection...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": null
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss laplascian",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss (Laplacian)",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Other",
-   "action": "krita_filter_randompick",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Random Pick...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Blur",
-   "action": "krita_filter_blur",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Blur...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Colors",
-   "action": "krita_filter_propagatecolors",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Propagate Colors...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
    }
   },
   {
@@ -4730,86 +4836,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed layers/selection/history/view",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Enhance",
-   "action": "krita_filter_gaussiannoisereducer",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Gaussian Noise Reduction...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_gradientmap",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Gradient Map...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Blur",
-   "action": "krita_filter_lens blur",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Lens Blur...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_invert",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Invert",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss horizontal and vertical",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss Horizontal  Vertical",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -4819,393 +4846,14 @@
   {
    "menu": "Filter",
    "path": "Filter > Colors",
-   "action": "krita_filter_maximize",
+   "action": "krita_filter_minimize",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Maximize Channel",
+   "text": "Minimize Channel",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Other",
-   "action": "krita_filter_resettransparent",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Reset Transparent",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definition": null
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_threshold",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Threshold...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Edge Detection",
-   "action": "krita_filter_height to normal",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Height to Normal Map...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Colors",
-   "action": "krita_filter_colortoalpha",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Color to Alpha...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_levels",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Levels...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Edge Detection",
-   "action": "krita_filter_gaussianhighpass",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Gaussian High Pass...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Artistic",
-   "action": "krita_filter_halftone",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Halftone...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_colorbalance",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Color Balance...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_dodge",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Dodge...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_phongbumpmap",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Phong Bumpmap...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss horizontal only",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss Horizontal Only",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss with Variable Depth...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Blur",
-   "action": "krita_filter_gaussian blur",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Gaussian Blur...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_palettize",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Palettize...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_perchannel",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Color Adjustment curves...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_desaturate",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Desaturate...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Artistic",
-   "action": "krita_filter_pixelize",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Pixelize...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_autocontrast",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Auto Contrast",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Enhance",
-   "action": "krita_filter_waveletnoisereducer",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Wavelet Noise Reducer...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Other",
-   "action": "krita_filter_noise",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Random Noise...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Other",
-   "action": "krita_filter_wave",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Wave...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_normalize",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Normalize",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Enhance",
-   "action": "krita_filter_sharpen",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Sharpen",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss all directions",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss in All Directions",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -5222,6 +4870,54 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Colors",
+   "action": "krita_filter_fastcoloroverlay",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Fast Color Overlay...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": null
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Enhance",
+   "action": "krita_filter_sharpen",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Sharpen",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Colors",
+   "action": "krita_filter_colortoalpha",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Color to Alpha...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -5231,13 +4927,14 @@
   {
    "menu": "Filter",
    "path": "Filter > Adjust",
-   "action": "krita_filter_hsvadjustment",
+   "action": "krita_filter_desaturate",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "HSV Adjustment...",
+   "text": "Desaturate...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
+   "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -5246,14 +4943,79 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Enhance",
-   "action": "krita_filter_unsharp",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_dodge",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Unsharp Mask...",
+   "text": "Dodge...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss horizontal only",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss Horizontal Only",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Edge Detection",
+   "action": "krita_filter_gaussianhighpass",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Gaussian High Pass...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Other",
+   "action": "krita_filter_resettransparent",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Reset Transparent",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": null
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_crosschannel",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Cross-channel adjustment curves...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -5263,13 +5025,31 @@
   {
    "menu": "Filter",
    "path": "Filter > Artistic",
-   "action": "krita_filter_indexcolors",
+   "action": "krita_filter_halftone",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Index Colors...",
+   "text": "Halftone...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Artistic",
+   "action": "krita_filter_posterize",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Posterize...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -5286,6 +5066,7 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -5294,14 +5075,66 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_roundcorners",
+   "path": "Filter > Artistic",
+   "action": "krita_filter_indexcolors",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Round Corners...",
+   "text": "Index Colors...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Artistic",
+   "action": "krita_filter_oilpaint",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Oilpaint...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "opened dialog",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Colors",
+   "action": "krita_filter_maximize",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Maximize Channel",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Other",
+   "action": "krita_filter_noise",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Random Noise...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -5311,13 +5144,14 @@
   {
    "menu": "Filter",
    "path": "Filter > Blur",
-   "action": "krita_filter_motion blur",
+   "action": "krita_filter_gaussian blur",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Motion Blur...",
+   "text": "Gaussian Blur...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -5334,6 +5168,228 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Edge Detection",
+   "action": "krita_filter_height to normal",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Height to Normal Map...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_levels",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Levels...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_colorbalance",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Color Balance...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_hsvadjustment",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "HSV Adjustment...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Blur",
+   "action": "krita_filter_blur",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Blur...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Blur",
+   "action": "krita_filter_motion blur",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Motion Blur...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Enhance",
+   "action": "krita_filter_mean removal",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Mean Removal",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Enhance",
+   "action": "krita_filter_unsharp",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Unsharp Mask...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Other",
+   "action": "krita_filter_wave",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Wave...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Map",
+   "action": "krita_filter_gradientmap",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Gradient Map...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Map",
+   "action": "krita_filter_phongbumpmap",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Phong Bumpmap...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Enhance",
+   "action": "krita_filter_waveletnoisereducer",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Wavelet Noise Reducer...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Map",
+   "action": "krita_filter_palettize",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Palettize...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",
@@ -5350,6 +5406,292 @@
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_burn",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Burn...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss with Variable Depth...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_perchannel",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Color Adjustment curves...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Enhance",
+   "action": "krita_filter_gaussiannoisereducer",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Gaussian Noise Reduction...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Map",
+   "action": "krita_filter_roundcorners",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Round Corners...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Edge Detection",
+   "action": "krita_filter_edge detection",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Edge Detection...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": null
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Colors",
+   "action": "krita_filter_propagatecolors",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Propagate Colors...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss laplascian",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss (Laplacian)",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Artistic",
+   "action": "krita_filter_pixelize",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Pixelize...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Map",
+   "action": "krita_filter_normalize",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Normalize",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Blur",
+   "action": "krita_filter_lens blur",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Lens Blur...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_threshold",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Threshold...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss all directions",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss in All Directions",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Other",
+   "action": "krita_filter_randompick",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Random Pick...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss horizontal and vertical",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss Horizontal  Vertical",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_autocontrast",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Auto Contrast",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_invert",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Invert",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
    "definition": {
     "category": "",
     "conditions": "0",

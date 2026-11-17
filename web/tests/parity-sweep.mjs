@@ -9,6 +9,7 @@
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -87,7 +88,7 @@ async function install() {
             colors: JSON.stringify(await S.race(__engine.colors(), 5000, 'x')),
             brush: JSON.stringify(await S.race(__engine.brushState(), 5000, 'x')),
             anim: JSON.stringify(await S.race(__engine.animation(), 5000, 'x')),
-            active: JSON.stringify(await S.race(__engine.activeNode(), 5000, 'x')) + JSON.stringify(await S.race(__engine.activeNode().then(id => id && __engine.keyframes(id)), 5000, 'x')),
+            active: JSON.stringify(await S.race(__engine.activeNode(), 5000, 'x')) + JSON.stringify(await S.race(__engine.activeNode().then(id => id && __engine.keyframes(id)).catch(() => 'no such node'), 5000, 'x')),
             acts: acts.map(a => (a.enabled ? 1 : 0) + '' + (a.checked ? 1 : 0)).join(''),
             checked: me ? me.checked : null, enabled: me ? me.enabled : null,
         };
@@ -158,9 +159,24 @@ async function install() {
         let last = sig(), still = 0;
         for (let i = 0; i < 40 && still < 5; i++) { await sleep(150); const c = sig(); still = c === last ? still + 1 : 0; last = c; }
     };
-    S.runAction = async ({ name, fixture, timeout }) => {
+    /** Puts a tool in the state its own actions need: a shape on a vector layer, a selected shape, a text object, a pending polygon. */
+    S.VECTOR_TOOLS = ['InteractionTool', 'PathTool', 'SvgTextTool', 'KritaShape/KisToolKnife', 'KarbonCalligraphyTool'];
+    S.context = async tool => {
+        const pt = (type, x, y, extra = {}) => __engine.kritaPointer({ type, x, y, ...extra });
+        const drag = async (a, b) => { pt('move', a.x, a.y); await sleep(15); pt('press', a.x, a.y); await sleep(20); for (let i = 1; i <= 10; i++) { pt('move', a.x + (b.x - a.x) * i / 10, a.y + (b.y - a.y) * i / 10, { down: true }); await sleep(15); } pt('release', b.x, b.y); await sleep(300); };
+        const click = async (x, y) => { pt('move', x, y); await sleep(15); pt('press', x, y); await sleep(30); pt('release', x, y); await sleep(200); };
+        await __engineCall('krita.viewport', { width: 900, height: 700, zoom: 1, offsetX: 50, offsetY: 50 });
+        if (['InteractionTool', 'PathTool'].includes(tool)) { await __engine.setKritaTool('KritaShape/KisToolRectangle'); await sleep(500); await drag({ x: 70, y: 70 }, { x: 200, y: 160 }); await sleep(500); }
+        await __engine.setKritaTool(tool); await sleep(900);
+        if (tool === 'PathTool' || tool === 'InteractionTool') await click(70, 110);
+        if (tool === 'SvgTextTool') { await drag({ x: 60, y: 60 }, { x: 260, y: 140 }); await sleep(600); for (const ch of 'Hi') { __engine.kritaKey({ type: 'keydown', key: ch, text: ch }); __engine.kritaKey({ type: 'keyup', key: ch }); await sleep(30); } }
+        if (tool === 'KisToolSelectPolygonal') { await click(60, 60); await click(200, 60); await click(200, 150); }
+        await sleep(500);
+    };
+    S.runAction = async ({ name, fixture, timeout, tool }) => {
         const rec = { fixture };
         await S.setup(fixture);
+        if (tool) { await S.context(tool); rec.context = tool; }
         const before = await S.snap(name);
         const known = new Set(S.win.keys());
         S.msgs.length = 0; S.tools.length = 0; S.overlayPx = 0; S.imgUpd = 0;
@@ -289,7 +305,51 @@ async function runActions() {
     await batchRun(normal, process.env.ISOLATE ? 1 : 60);
     // dangerous ones: each in its own page, last
     for (const name of danger) await batchRun([name], 1);
+    if (!process.env.NODISABLED) await runDisabledRetry(results, record, launch);
     if (browser) { await browser.close(); browser = null; page = null; }
+}
+
+// Actions that were disabled everywhere belong to a tool (object_* to the shape manipulation tool, svg_* to the text tool ...):
+// activate each tool in the state it needs, see which of them become enabled, and run those in that context.
+const VECTOR_TOOLS = ['InteractionTool', 'PathTool', 'SvgTextTool', 'KritaShape/KisToolKnife', 'KarbonCalligraphyTool'];
+async function runDisabledRetry(results, record, launchFresh) {
+    const inv = JSON.parse(fs.readFileSync(path.join(RES, 'inventory.json'), 'utf8'));
+    const names = Object.entries(results).filter(([n, v]) => v.outcome === 'disabled' && (!ONLY || ONLY.test(n)) && !v.contextTried).map(([n]) => n);
+    if (!names.length) return;
+    console.log(`disabled actions: ${names.length}; trying them with each tool active`);
+    const ctxMap = {};
+    let i = 0;
+    for (const t of inv.tools) {
+        if (i++ % 10 === 0) await launchFresh();
+        let en;
+        try {
+            en = await inPage(async ({ tool }) => {
+                await S.setup(S.VECTOR_TOOLS.includes(tool) ? 'vector' : 'base');
+                await S.context(tool);
+                return (await __engine.kritaActions()).filter(a => a.enabled).map(a => a.name);
+            }, { tool: t.id }, 60000);
+        } catch (e) { console.log('context ' + t.id + ' failed: ' + String(e.message).slice(0, 80)); await launchFresh(); continue; }
+        for (const n of en) if (names.includes(n)) (ctxMap[n] ??= []).push(t.id);
+    }
+    save('disabled-context.json', ctxMap);
+    console.log(`${Object.keys(ctxMap).length} of ${names.length} become enabled with a tool active`);
+    for (const [n, v] of Object.entries(results)) if (names.includes(n)) { v.contextTried = true; if (!ctxMap[n]) v.contextNote = 'still disabled with every tool active'; }
+    save('actions.json', results);
+    const todo = Object.keys(ctxMap);
+    let since = 1e9;
+    for (const n of todo) {
+        const tool = ctxMap[n][0];
+        if (since >= 25) { await launchFresh(); since = 0; }
+        since++;
+        let r;
+        try { r = await inPage(o => S.runAction(o), { name: n, fixture: VECTOR_TOOLS.includes(tool) ? 'vector' : 'base', tool, timeout: 9000 }, 90000); }
+        catch (e) { r = { state: 'pending', [gone(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) }; since = 1e9; }
+        if (r.needReload) { since = 1e9; r.hang = true; }
+        r.enabled = true; r.enabledIn = ['with tool ' + ctxMap[n].join(', ')]; r.contexts = ctxMap[n];
+        record(n, r);
+        results[n].contextTried = true;
+    }
+    save('actions.json', results);
 }
 
 async function writeInventory() {
@@ -366,8 +426,10 @@ function writeReport() {
     const count = (o, f) => { const c = {}; for (const v of Object.values(o)) c[f(v)] = (c[f(v)] ?? 0) + 1; return Object.entries(c).sort((a, b) => b[1] - a[1]); };
     const esc = t => String(t ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
     const tbl = (head, rows) => rows.length ? `| ${head.join(' | ')} |\n|${head.map(() => '---').join('|')}|\n${rows.map(r => `| ${r.map(esc).join(' | ')} |`).join('\n')}\n` : '_none_\n';
+    const defs = parseActionFiles();
     const menuOf = {}; for (const r of M.rows ?? []) (menuOf[r.action] ??= []).push(r.path);
-    const txt = n => (inv.actions.find(a => a.name === n)?.text ?? '').replace(/&(?!&)/g, '') || (M.rows?.find(r => r.action === n)?.text ?? '');
+    const txt = n => (inv.actions.find(a => a.name === n)?.text ?? '').replace(/&(?!&)/g, '') || (M.rows?.find(r => r.action === n)?.text ?? '') || defs[n]?.text || '';
+    const cond = n => [defs[n]?.activationConditions && 'cond ' + defs[n].activationConditions, defs[n]?.activationFlags && 'flags ' + defs[n].activationFlags].filter(Boolean).join(' ');
     let o = `# Krita parity sweep report\n\nGenerated ${new Date().toISOString()} by \`web/tests/parity-sweep.mjs\` from \`docs/parity/results/*.json\` (engine in \`web/public/engine\`, Chromium + swiftshader).\n\n`;
     o += `## Headline counts\n\n### Actions (${Object.keys(A).length} of ${inv.actions.length} swept)\n\n${tbl(['outcome', 'count'], count(A, v => v.outcome))}\n`;
     o += `### Tools (${Object.keys(Tl).length} of ${inv.tools.length})\n\n${tbl(['outcome (raster + vector gestures)', 'count'], count(Tl, v => v.outcome))}\nTool option window: ${Object.values(Tl).filter(t => t.optionBlank).length} blank, ${Object.values(Tl).filter(t => t.optionSameAsPrevious).length} identical to the previous tool's.\n\n`;
@@ -378,9 +440,9 @@ function writeReport() {
     o += `\n## A2. Actions that opened a dialog or popup (picture saved)\n\n`;
     o += tbl(['action', 'text', 'window title', 'size', 'closed by', 'returned', 'picture'], Object.entries(A).filter(([, v]) => v.windows?.length).flatMap(([n, v]) => v.windows.map(w => [n, txt(n), `${w.kind}: ${w.title}`, `${w.width}x${w.height}${w.modal ? ' modal' : ''}`, (v.closedBy ?? []).join(','), v.state, w.file ?? ''])));
     o += `\n## A3. Actions that were enabled but had no visible effect\n\n`;
-    o += tbl(['action', 'text', 'menu', 'fixture', 'definition (.action)'], Object.entries(A).filter(([, v]) => v.outcome === 'no visible effect').map(([n, v]) => [n, txt(n), (menuOf[n] ?? ['-']).join('; '), v.fixture, M.rows?.find(r => r.action === n)?.definition?.category ?? '']));
+    o += tbl(['action', 'text (from .action file when the engine has none)', 'menu', 'fixture', 'activation in .action'], Object.entries(A).filter(([, v]) => v.outcome === 'no visible effect').map(([n, v]) => [n, txt(n), (menuOf[n] ?? ['-']).join('; '), v.fixture, cond(n)]));
     o += `\n## A4. Actions disabled in every fixture (base, vector layer, group, mask, animated)\n\n`;
-    o += tbl(['action', 'text', 'menu'], Object.entries(A).filter(([, v]) => v.outcome === 'disabled').map(([n]) => [n, txt(n), (menuOf[n] ?? ['-']).join('; ')]));
+    o += tbl(['action', 'text', 'menu', 'activation in .action'], Object.entries(A).filter(([, v]) => v.outcome === 'disabled').map(([n]) => [n, txt(n), (menuOf[n] ?? ['-']).join('; '), cond(n)]));
     o += `\n## A5. Every action\n\n`;
     o += tbl(['action', 'text', 'fixture', 'outcome', 'detail'], Object.entries(A).map(([n, v]) => [n, txt(n), v.fixture, v.outcome, [v.windows?.map(w => w.title).join('/'), v.messages?.join('/'), v.error, v.diff && Object.entries(v.diff).filter(([, x]) => x).map(([k]) => k).join('+')].filter(Boolean).join(' ; ')]));
     o += `\n## T1. Tools\n\n`;
@@ -398,7 +460,7 @@ function writeReport() {
         o += `\n## M2. Menu entries the page lacks, prioritised (works first, core menus first)\n\n`;
         o += tbl(['priority', 'Krita menu path', 'text', 'action', 'engine outcome'], [...missing].sort((a, b) => order(a) - order(b)).map(r => [order(r) < 10 ? 'add' : 'add after engine fix / check', r.path, r.text, r.action, r.outcome ?? '?']));
         o += `\n## M3. Krita menu entries whose action is not in this engine's action list\n\n`;
-        o += tbl(['Krita menu path', 'text', 'action', 'source'], M.rows.filter(r => !r.inEngine).map(r => [r.path, r.text, r.action, r.from]));
+        o += tbl(['Krita menu path', 'text', 'action', 'menu file', 'defined in Krita source'], M.rows.filter(r => !r.inEngine).map(r => [r.path, r.text, r.action, r.from, r.definedIn]));
         o += `\n## M4. Dockers (Settings > Dockers in Krita)\n\n`;
         o += tbl(['docker', 'title', 'page menu'], M.dockerRows.map(r => [r.docker, r.title, r.pageMenu ?? '-']));
         o += `\n## M5. The page's own menu commands\n\n`;
@@ -623,7 +685,7 @@ async function runToolModes() {
 }
 
 // ---------------------------------------------------------------------------------------------- menus
-const strip = t => t.replace(/&amp;/g, '\u0001').replace(/&(?!&)/g, '').replace(/\u0001/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+const strip = t => t.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/&&/g, '\u0001').replace(/&/g, '').replace(/\u0001/g, '&');   // XML entities, then Qt's & accelerator marker (&& is a literal &)
 function parseXmlgui(xml) {
     xml = xml.replace(/<!--[\s\S]*?-->/g, '');
     const out = [], stack = [];
@@ -688,7 +750,7 @@ async function runMenus() {
     const have = new Set(inv.actions.map(a => a.name));
     for (const f of live.filters) { const act = `krita_filter_${f.id}`; const cat = /_filters$/.test(f.category) ? f.category : `${f.category.toLowerCase()}_filters`; entries.push({ menu: 'Filter', path: `Filter > ${inv.actions.find(a => a.name === cat)?.text?.replace(/&/g, '') ?? f.category}`, action: act, from: 'built in code (KisFilterManager) from filters()' }); }
     const defs = parseActionFiles();
-    const text = n => inv.actions.find(a => a.name === n)?.text?.replace(/&(?!&)/g, '') ?? defs[n]?.text ?? n;
+    const text = n => inv.actions.find(a => a.name === n)?.text?.replace(/&(?!&)/g, '') || defs[n]?.text || n;
     const pageActions = new Map(); for (const c of live.cmds) { const a = PAGE_TO_KRITA[c.id]; if (a) pageActions.set(a, c); }
     const actionsRes = load('actions.json');
     const rows = entries.map(e => ({
@@ -697,6 +759,7 @@ async function runMenus() {
         pageMenu: pageActions.get(e.action) ? `${pageActions.get(e.action).menu} > ${pageActions.get(e.action).title}` : null,
         viaSearch: have.has(e.action),
         outcome: actionsRes[e.action]?.outcome ?? null,
+        definedIn: (have.has(e.action) || /^(Next|Previous|Select) /.test(e.action)) ? null : (() => { try { return execFileSync('grep', ['-rlF', '--include=*.cpp', '--include=*.h', '--include=*.action', '--include=*.qml', '-e', `"${e.action}"`, path.join(ROOT, 'krita')], { encoding: 'utf8' }).split('\n').filter(Boolean).slice(0, 2).map(f => path.relative(ROOT, f)).join(', ') || 'only in the xmlgui (dangling in Krita too)'; } catch { return 'only in the xmlgui (dangling in Krita too)'; } })(),
         definition: defs[e.action] ? { category: defs[e.action].category, conditions: defs[e.action].activationConditions, flags: defs[e.action].activationFlags } : null,
     }));
     const dockerRows = inv.dockers.map(d => ({ docker: d.id, title: d.title, pageMenu: live.cmds.find(c => c.id === `krita.docker.${d.id}`) ? `Settings > Krita Dockers > ${d.title}` : null }));
