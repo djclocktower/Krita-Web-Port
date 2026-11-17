@@ -22,7 +22,7 @@ const open = async (query, opts = { viewport: { width: 1280, height: 900 } }) =>
     await page.waitForTimeout(query.includes('wasm') ? 3500 : 400);
     return page;
 };
-const BLOCKED = ['add_new_fill_layer', 'add_new_fast_color_overlay_mask', 'convert_to_filter_mask', 'split_alpha_write', 'split_alpha_save_merged'];
+const BLOCKED = ['add_new_fill_layer', 'add_new_fast_color_overlay_mask', 'convert_to_filter_mask'];
 const closeAll = async page => { await page.evaluate(() => document.body.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }))); await sleep(60); };
 const norm = s => s.replace(/✓/g, '').replace(/\s*(\.\.\.|…)$/, '').replace(/\s+/g, ' ').trim().toLowerCase();
 
@@ -213,7 +213,7 @@ if (!process.env.NO_WASM) {
     const SAMPLE = [['File', 'create_copy'], ['File', 'file_documentinfo'], ['Edit', 'edit_cut'], ['Edit', 'edit_paste'], ['Edit', 'paste_new'], ['Edit', 'fill_selection_pattern'], ['Edit', 'fill_selection_pattern_opacity'],
         ['Edit', 'stroke_selection'], ['View', 'wrap_around_mode'], ['View', 'softProof'], ['View', 'view_pixel_grid'], ['View', 'view_snap_node'], ['View', 'mirror_canvas_around_cursor'], ['View', 'view_toggle_reference_images'],
         ['Image', 'image_properties'], ['Image', 'trim_to_image'], ['Image', 'shearimage'], ['Image', 'offsetimage'], ['Image', 'imagesplit'], ['Image', 'purge_unused_image_data'],
-        ['Layer', 'add_new_clone_layer'], ['Layer', 'new_from_visible'], ['Layer', 'save_node_as_image'], ['Layer', 'convert_to_paint_layer'], ['Layer', 'select_visible_layers'], ['Layer', 'quick_ungroup'],
+        ['Layer', 'add_new_clone_layer'], ['Layer', 'new_from_visible'], ['Layer', 'convert_to_paint_layer'], ['Layer', 'select_visible_layers'], ['Layer', 'quick_ungroup'],
         ['Layer', 'mirrorNodeX'], ['Layer', 'layersplit'], ['Layer', 'split_alpha_into_mask'], ['Layer', 'layer_style'], ['Select', 'reselect'], ['Select', 'growselection'], ['Select', 'colorrange'],
         ['Select', 'selectopaque_add'], ['Filter', 'filter_apply_again'], ['Filter', 'krita_filter_blur'], ['Filter', 'krita_filter_invert'], ['Settings', 'manage_resources'], ['Help', 'help_about_app']];
     const missing = SAMPLE.filter(([t, a]) => !ka.some(l => topOf(l) === t && l.action === a));

@@ -115,7 +115,7 @@ dialog .primary { background: var(--accent); color: var(--bg); border-color: var
 
 /* Touch: nothing is smaller than 40 px on narrow and medium screens or with a coarse pointer. */
 @media (max-width: 1099px), (pointer: coarse) {
-    button, select, input[type="color"], input[type="number"], input[type="text"] { min-height: 40px; min-width: 40px; }
+    button, select, input[type="color"], input[type="number"], input[type="text"], input[type="search"], input:not([type]), input[type="checkbox"], input[type="radio"] { min-height: 40px; min-width: 40px; }
     input[type="range"] { min-height: 40px; }
     input[type="color"].swatch { width: 44px; height: 40px; }
     input[type="checkbox"] { width: 22px; height: 22px; }

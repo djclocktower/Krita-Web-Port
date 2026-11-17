@@ -46,7 +46,7 @@ async function launch1() {
     await page.goto(URL_);
     await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 180000 });
     await sleep(3000);
-    await page.evaluate(install);
+    await inPage(install, null, 60000);
 }
 /** Runs fn(arg) in the page; a page that does not answer within `ms` counts as dead. */
 async function inPage(fn, arg, ms = 90000) {
