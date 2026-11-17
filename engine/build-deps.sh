@@ -225,7 +225,20 @@ s_poppler() { local KW_CFLAGS="-pthread -fexceptions"    # Qt6 wrapper only (PDF
                   -DENABLE_BOOST=OFF -DENABLE_LIBOPENJPEG=none -DENABLE_NSS3=OFF -DENABLE_GPGME=OFF -DENABLE_LIBCURL=OFF -DENABLE_LCMS=ON -DENABLE_LIBTIFF=ON -DRUN_GPERF_IF_PRESENT=OFF \
                   -DBUILD_GTK_TESTS=OFF -DBUILD_QT5_TESTS=OFF -DBUILD_QT6_TESTS=OFF -DBUILD_CPP_TESTS=OFF -DBUILD_MANUAL_TESTS=OFF; }
 
-ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr json-c mypaint highway brotli jxl libde265 aom heif libraw openjpeg kdcraw poppler"
+# --- G'MIC (Filter > Start G'MIC-Qt). FFTW and G'MIC go into their own prefix: in the main one Krita's
+# own find_package(FFTW3) would pick FFTW up and switch on code paths this build has not been tested with.
+GP=$KW/prefix-gmic
+s_fftw() { fetch_git fftw https://salsa.debian.org/science-team/fftw3.git upstream/3.3.10
+           for p in d f; do local b=$KW/build/fftw-$p; rm -rf $b; mkdir -p $b; ( cd $b
+               emconfigure $KW/src/fftw/configure --prefix=$GP --disable-shared --enable-static --disable-fortran --disable-doc \
+                   --with-our-malloc16=no $( [ $p = f ] && echo --enable-float ) CFLAGS="$KW_CFLAGS -O2" &&
+               emmake make -j2 && emmake make install ) >$KW/build/fftw-$p.log 2>&1 || return 1; done
+           rm -rf $GP/lib/cmake $GP/bin; }
+s_gmic() { fetch_git gmic https://github.com/vanyossi/gmic.git v3.7.2.2   # applies patches/dep-gmic.patch
+           git -C $KW/src/gmic apply "$ROOT/patches/dep-gmic-qt.patch"
+           GP=$GP "$ROOT/engine/gmic/gmic-core.sh" -O1; }   # needs about 5 GB of free memory for about 4 minutes
+
+ALL="zlib png freetype harfbuzz boost eigen immer zug lager xsimd ecm expat lcms2 unibreak intl quazip ki18n kconfig kcoreaddons kcodecs kwidgetsaddons kitemviews kcompletion kguiaddons kcolorscheme exiv2 fontconfig fribidi gsl jpeg tiff webp giflib imath openexr json-c mypaint highway brotli jxl libde265 aom heif libraw openjpeg kdcraw poppler fftw gmic"
 for s in ${@:-$ALL}; do
     if [ -e "$KW/stamps/$s" ]; then echo "skip $s"; continue; fi
     echo "== $s"

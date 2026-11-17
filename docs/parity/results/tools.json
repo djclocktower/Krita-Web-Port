@@ -691,5 +691,179 @@
   "optionBlank": false,
   "optionSameAsPrevious": false,
   "outcome": "overlay only"
+ },
+ "KritaShape/KisToolEllipse": {
+  "id": "KritaShape/KisToolEllipse",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 260,
+    "height": 720,
+    "picture": "1051298195:187200:260x720",
+    "solid": 187200,
+    "total": 187200,
+    "title": "Tool Options",
+    "distinctColours": 115
+   },
+   "overlayTrace": [
+    4,
+    4
+   ],
+   "gestureMs": 452,
+   "overlayDuring": {
+    "events": 5,
+    "withPixels": 5,
+    "last": {
+     "rect": {
+      "height": 22,
+      "width": 22,
+      "x": 369,
+      "y": 319
+     }
+    }
+   },
+   "overlayAfterGesture": 5,
+   "changed": {
+    "image": true,
+    "colors": false,
+    "docinfo": false,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [
+    "Width: 0 px\nHeight: 0 px",
+    "Width: 20 px\nHeight: 15 px",
+    "Width: 40 px\nHeight: 30 px",
+    "Width: 60 px\nHeight: 45 px",
+    "Width: 80 px\nHeight: 60 px",
+    "Width: 120 px\nHeight: 90 px",
+    "Width: 140 px\nHeight: 105 px",
+    "Width: 160 px\nHeight: 120 px",
+    "Width: 180 px\nHeight: 135 px",
+    "Width: 200 px\nHeight: 150 px"
+   ],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    1922696072,
+    1922696072
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "overlayTrace": [
+    7,
+    7
+   ],
+   "gestureMs": 452,
+   "overlayDuring": {
+    "events": 5,
+    "withPixels": 5,
+    "last": {
+     "rect": {
+      "height": 22,
+      "width": 22,
+      "x": 369,
+      "y": 319
+     }
+    }
+   },
+   "overlayAfterGesture": 5,
+   "changed": {
+    "image": true,
+    "colors": false,
+    "docinfo": false,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [
+    "Width: 0 px\nHeight: 0 px",
+    "Width: 20 px\nHeight: 15 px",
+    "Width: 40 px\nHeight: 30 px",
+    "Width: 60 px\nHeight: 45 px",
+    "Width: 80 px\nHeight: 60 px",
+    "Width: 100 px\nHeight: 75 px",
+    "Width: 160 px\nHeight: 120 px",
+    "Width: 180 px\nHeight: 135 px",
+    "Width: 200 px\nHeight: 150 px"
+   ],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    341657640,
+    341657640
+   ],
+   "alive": true
+  },
+  "pen": {
+   "scenario": "pen",
+   "overlayTrace": [
+    7,
+    7
+   ],
+   "gestureMs": 443,
+   "overlayDuring": {
+    "events": 3,
+    "withPixels": 3,
+    "last": {
+     "rect": {
+      "height": 22,
+      "width": 22,
+      "x": 369,
+      "y": 319
+     }
+    }
+   },
+   "overlayAfterGesture": 3,
+   "changed": {
+    "image": true,
+    "colors": false,
+    "docinfo": false,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [
+    "Width: 0 px\nHeight: 0 px",
+    "Width: 20 px\nHeight: 15 px",
+    "Width: 80 px\nHeight: 60 px",
+    "Width: 100 px\nHeight: 75 px",
+    "Width: 160 px\nHeight: 120 px",
+    "Width: 180 px\nHeight: 135 px",
+    "Width: 200 px\nHeight: 150 px"
+   ],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    1922696072,
+    1922696072
+   ],
+   "alive": true
+  },
+  "name": "Ellipse Tool",
+  "section": "0 Krita/Shape",
+  "file": "tools/KritaShape_KisToolEllipse.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed image/history"
  }
 }
