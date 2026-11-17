@@ -17735,5 +17735,230 @@
   "outcome": "no visible effect",
   "text": "Window",
   "when": "2026-11-17T11:22:35.789Z"
+ },
+ "style_menu": {
+  "fixture": "base",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Styles",
+  "when": "2026-11-17T11:23:26.985Z"
+ },
+ "windows_cascade": {
+  "fixture": "base",
+  "ms": 173,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T11:24:14.135Z"
+ },
+ "windows_tile": {
+  "fixture": "base",
+  "ms": 173,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T11:25:04.570Z"
+ },
+ "windows_next": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T11:25:52.752Z"
+ },
+ "windows_previous": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T11:26:30.277Z"
+ },
+ "view_newwindow": {
+  "fixture": "base",
+  "ms": 1585,
+  "windows": [
+   {
+    "id": 3,
+    "title": "",
+    "kind": "dialog",
+    "width": 1280,
+    "height": 720,
+    "modal": false,
+    "picture": "1418844849:921600:1280x720",
+    "file": "actions/view_newwindow__.png"
+   }
+  ],
+  "closedBy": [
+   "closeKritaWindow"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T11:27:07.758Z"
  }
 }
