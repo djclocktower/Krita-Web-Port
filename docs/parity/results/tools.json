@@ -865,5 +865,183 @@
   "optionBlank": false,
   "optionSameAsPrevious": false,
   "outcome": "changed image/history"
+ },
+ "KisToolSelectRectangular": {
+  "id": "KisToolSelectRectangular",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 260,
+    "height": 720,
+    "picture": "-920198542:187200:260x720",
+    "solid": 187200,
+    "total": 187200,
+    "title": "Tool Options",
+    "distinctColours": 97
+   },
+   "overlayTrace": [
+    4,
+    4
+   ],
+   "gestureMs": 454,
+   "overlayDuring": {
+    "events": 5,
+    "withPixels": 4,
+    "last": {
+     "rect": {
+      "height": 158,
+      "width": 207,
+      "x": 174,
+      "y": 173
+     }
+    }
+   },
+   "overlayAfterGesture": 4,
+   "changed": {
+    "image": false,
+    "colors": false,
+    "docinfo": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [
+    "Width: 0 px\nHeight: 0 px",
+    "Width: 20 px\nHeight: 15 px",
+    "Width: 40 px\nHeight: 30 px",
+    "Width: 60 px\nHeight: 45 px",
+    "Width: 80 px\nHeight: 60 px",
+    "Width: 100 px\nHeight: 75 px",
+    "Width: 120 px\nHeight: 90 px",
+    "Width: 140 px\nHeight: 105 px",
+    "Width: 160 px\nHeight: 120 px",
+    "Width: 180 px\nHeight: 135 px",
+    "Width: 200 px\nHeight: 150 px"
+   ],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "overlayTrace": [
+    7,
+    7
+   ],
+   "gestureMs": 454,
+   "overlayDuring": {
+    "events": 4,
+    "withPixels": 3,
+    "last": {
+     "rect": {
+      "height": 158,
+      "width": 207,
+      "x": 174,
+      "y": 173
+     }
+    }
+   },
+   "overlayAfterGesture": 3,
+   "changed": {
+    "image": false,
+    "colors": false,
+    "docinfo": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [
+    "Width: 0 px\nHeight: 0 px",
+    "Width: 20 px\nHeight: 15 px",
+    "Width: 40 px\nHeight: 30 px",
+    "Width: 60 px\nHeight: 45 px",
+    "Width: 80 px\nHeight: 60 px",
+    "Width: 100 px\nHeight: 75 px",
+    "Width: 120 px\nHeight: 90 px",
+    "Width: 140 px\nHeight: 105 px",
+    "Width: 180 px\nHeight: 135 px",
+    "Width: 200 px\nHeight: 150 px"
+   ],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "pen": {
+   "scenario": "pen",
+   "overlayTrace": [
+    6,
+    6
+   ],
+   "gestureMs": 525,
+   "overlayDuring": {
+    "events": 4,
+    "withPixels": 3,
+    "last": {
+     "rect": {
+      "height": 158,
+      "width": 207,
+      "x": 174,
+      "y": 173
+     }
+    }
+   },
+   "overlayAfterGesture": 3,
+   "changed": {
+    "image": false,
+    "colors": false,
+    "docinfo": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [
+    "Width: 0 px\nHeight: 0 px",
+    "Width: 20 px\nHeight: 15 px",
+    "Width: 60 px\nHeight: 45 px",
+    "Width: 80 px\nHeight: 60 px",
+    "Width: 100 px\nHeight: 75 px",
+    "Width: 140 px\nHeight: 105 px",
+    "Width: 160 px\nHeight: 120 px",
+    "Width: 180 px\nHeight: 135 px",
+    "Width: 200 px\nHeight: 150 px"
+   ],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Rectangular Selection Tool",
+  "section": "5 Krita/Select",
+  "file": "tools/KisToolSelectRectangular.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed selection/history"
  }
 }
