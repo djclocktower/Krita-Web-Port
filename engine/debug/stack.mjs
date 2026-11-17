@@ -16,7 +16,7 @@ client.on('Target.receivedMessageFromTarget', e => {
 });
 const sendTo = (sessionId, method, params = {}) => client.send('Target.sendMessageToTarget', { sessionId, message: JSON.stringify({ id: nextId++, method, params }) }).catch(() => {});
 await client.send('Target.setAutoAttach', { autoAttach: true, waitForDebuggerOnStart: false, flatten: false });
-await page.goto('http://localhost:5173/?engine=wasm&engineBase=/engine-dev/');
+await page.goto(`http://localhost:5173/?engine=wasm&engineBase=${process.env.EB ?? "/engine-dev/"}`);
 await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 200000 });
 await page.waitForTimeout(1500);
 const done = page.evaluate(async code => { const sleep = ms => new Promise(r => setTimeout(r, ms)); return await eval(code)(sleep); }, process.argv[2]).then(r => console.log('RETURNED', JSON.stringify(r).slice(0, 500)), e => console.log('ERR', e.message.slice(0, 200)));

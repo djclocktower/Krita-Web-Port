@@ -9,7 +9,7 @@ const page = await browser.newPage();
 const log = [];
 page.on('pageerror', e => log.push('PAGEERROR ' + e.message));
 page.on('console', m => { const t = m.text().trim(); if (t && !/migration|vite|kf\.i18n|RAM|start-up|instantiated/.test(t)) log.push(t.slice(0, 300)); });
-setTimeout(() => { console.log('FAILED: hard timeout'); console.log(log.slice(-12).join('\n')); process.exit(2); }, 280000);
+setTimeout(() => { console.log('FAILED: hard timeout'); console.log(log.slice(-12).join('\n')); process.exit(2); }, 420000);
 let failed = 0;
 const check = (name, ok, detail = '') => { console.log(`${ok ? 'PASS' : 'FAIL'} ${name} ${detail}`); if (!ok) failed++; };
 const E = (fn, arg) => page.evaluate(({ fn, arg }) => Promise.race([eval(fn)(arg), new Promise((_, r) => setTimeout(() => r(new Error('engine call timed out')), 60000))]), { fn: fn.toString(), arg });
@@ -137,6 +137,65 @@ await step('dialog', async () => {
     check('dialog is modal and painted', r.dialog.modal && r.paint && r.paint.solid > 5000, `${r.dialog.title} ${r.dialog.width}x${r.dialog.height} ${JSON.stringify(r.paint)}`);
     check('engine still answers while the dialog is open', r.infoWhileOpen === 600, String(r.infoWhileOpen));
     check('Escape closes it and the action returns', r.closed && r.done === true, `closed ${r.closed} done ${r.done}`);
+});
+
+await step('action definitions', async () => {
+    const a = await E(() => __engine.kritaActions());
+    const blank = a.filter(x => !x.text).length;
+    check('actions have their texts', blank < a.length / 10, `${blank} of ${a.length} blank`);
+    const split = a.filter(x => /split_alpha_(write|save_merged)/.test(x.name));
+    check('activation conditions apply (split alpha is off on a paint layer)', split.length === 2 && split.every(x => !x.enabled), JSON.stringify(split.map(x => [x.name, x.enabled])));
+});
+
+// Opens a dialog through an action, reports it, closes it with Escape.
+const dialogOf = action => E(async action => {
+    const o = {}, before = new Set(W.windows.keys());
+    let done = false;
+    const pending = __engine.triggerKritaAction(action).then(() => { done = true; }, e => { done = 'error: ' + e.message; });
+    await sleep(2500);
+    const dialog = [...W.windows.values()].filter(w => !before.has(w.id) && w.kind === 'dialog').pop();
+    o.dialog = dialog ?? null; o.done0 = done;
+    if (!dialog) return o;
+    o.answers = await Promise.race([__engine.documentInfo().then(i => i.width), sleep(5000).then(() => 'no answer')]);
+    __engine.kritaWindowInput(dialog.id, { type: 'keydown', key: 'Escape' }); __engine.kritaWindowInput(dialog.id, { type: 'keyup', key: 'Escape' });
+    await Promise.race([pending, sleep(8000)]);
+    o.closed = W.closed.includes(dialog.id); o.done = done;
+    return o;
+}, action);
+
+await step('dialogs that used to break', async () => {
+    for (const [action, minW, minH] of [['options_configure', 600, 400], ['file_documentinfo', 400, 300], ['add_new_fill_layer', 300, 200], ['convert_to_filter_mask', 300, 200]]) {
+        const r = await dialogOf(action);
+        check(`${action}: dialog has its real size`, Boolean(r.dialog) && r.dialog.width >= minW && r.dialog.height >= minH, JSON.stringify(r.dialog ?? r.done0));
+        if (r.dialog) check(`${action}: engine answers, Escape closes`, r.answers === 600 && r.closed && r.done === true, JSON.stringify({ answers: r.answers, closed: r.closed, done: r.done }));
+    }
+});
+
+await step('file dialogs go to the page', async () => {
+    const r = await E(async () => {
+        const o = {}, reqs = [], downloads = [];
+        __engine.on('kritaFileDialog', q => reqs.push(q)); __engine.on('kritaDownload', (n, b) => downloads.push([n, b.length]));
+        const png = await __engine.exportDocument('png');
+        const count = async () => { const f = l => l.reduce((n, x) => n + 1 + f(x.children ?? []), 0); return f(await __engine.layers()); };
+        const n0 = await count();
+        let done = false;
+        let p = __engine.triggerKritaAction('import_layer_from_file').then(() => { done = true; }, e => { done = e.message; });
+        await sleep(1500);
+        o.asked = reqs.length === 1 && !reqs[0].save;
+        if (reqs[0]) await __engine.answerKritaFileDialog(reqs[0].id, [{ name: 'in.png', bytes: png }]);
+        await Promise.race([p, sleep(10000)]);
+        o.imported = done; o.added = (await count()) - n0;
+        done = false;
+        p = __engine.triggerKritaAction('file_open').then(() => { done = true; }, e => { done = e.message; });
+        await sleep(1500);
+        if (reqs[1]) await __engine.answerKritaFileDialog(reqs[1].id, []);
+        await Promise.race([p, sleep(8000)]);
+        o.cancelled = done; o.width = (await __engine.documentInfo()).width;
+        return o;
+    });
+    check('import layer asks the page for a file', r.asked, JSON.stringify(r));
+    check('the picked file becomes a layer', r.imported === true && r.added === 1, JSON.stringify(r));
+    check('cancelling Open returns', r.cancelled === true && r.width === 600, JSON.stringify(r));
 });
 
 console.log(failed ? `${failed} FAILED` : 'ALL PASSED');

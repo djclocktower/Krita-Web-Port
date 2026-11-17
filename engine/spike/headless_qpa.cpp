@@ -61,9 +61,18 @@ public:
     void setGeometry(const QRect &rect) override
     {
         QPlatformWindow::setGeometry(rect);
+        // A hidden window only remembers its geometry. Reporting it at once (events are synchronous here) let
+        // QDialog's move-before-show push the window's not-yet-updated size (100x30) back into the dialog.
+        if (!window()->isVisible()) return;
         QWindowSystemInterface::handleGeometryChange(window(), rect);
         if (window()->isVisible()) QWindowSystemInterface::handleExposeEvent(window(), QRect(QPoint(), rect.size()));
     }
+    void setVisible(bool visible) override
+    {
+        if (visible) QWindowSystemInterface::handleGeometryChange(window(), geometry());
+        QPlatformWindow::setVisible(visible);
+    }
+    void propagateSizeHints() override {}   // nothing enforces them here; the base class only warns
 };
 
 class HeadlessIntegration : public QPlatformIntegration

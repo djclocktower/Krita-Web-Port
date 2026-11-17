@@ -549,8 +549,6 @@ public:
         auto *w = static_cast<QWidget *>(o);
         if (e->type() == QEvent::Show && w->isWindow()) shows++;
         if (e->type() == QEvent::UpdateRequest) updateRequests++;
-        if (w->isWindow() && e->type() == QEvent::Resize && e->spontaneous() && w->width() == 100 && w->height() == 30)   // KWDEBUG
-            EM_ASM({ Error.stackTraceLimit = 60; console.error('KWDBG shrink ' + new Error().stack); });
         switch (e->type()) {
         case QEvent::Show:
             if (w->isWindow() && w != window && w->windowType() != Qt::ToolTip && w->windowType() != Qt::Desktop) trackWindow(w);
@@ -582,11 +580,21 @@ private:
     /// move) to finish. Returns false if such a tool still has the image busy.
     // ponytail: goes by the active tool's id and a 250 ms grace period; asking Krita's stroke queue
     // whether a stroke is open would be exact, but that needs a new accessor on KisImage.
+    /// KisImage::waitForDone(), except while one of Krita's modal dialogs is open: a dialog with a live preview
+    /// (Add Fill Layer) keeps the image busy, and a page request that waited for it never returned.
+    static void waitDone(KisImageSP img)
+    {
+        if (!QApplication::activeModalWidget()) { img->waitForDone(); return; }
+        QElapsedTimer t;
+        t.start();
+        while (!img->isIdle() && t.elapsed() < 250) { QCoreApplication::processEvents(); QThread::msleep(2); }
+        if (!img->isIdle()) fail("Krita is busy with an open dialog");
+    }
     bool waitQuiet()
     {
         KisImageSP img = image();
         const QString tool = KoToolManager::instance()->activeToolId();
-        if (tool != "KisToolTransform" && tool != "KritaTransform/KisToolMove") { img->waitForDone(); return true; }
+        if (tool != "KisToolTransform" && tool != "KritaTransform/KisToolMove") { waitDone(img); return true; }
         QElapsedTimer t;
         t.start();
         while (!img->isIdle() && t.elapsed() < 250) {
@@ -785,7 +793,7 @@ private:
                                                                 {"subtract", SELECTION_SUBTRACT}, {"intersect", SELECTION_INTERSECT}};
         if (!actions.contains(mode)) fail("Unknown selection mode: " + mode);
         KisImageSP img = image();
-        img->waitForDone();
+        waitDone(img);
         KisSelectionSP next = new KisSelection(new KisDefaultBounds(img), toQShared(new KisImageResolutionProxy(img)));
         KisSelectionSP current = img->globalSelection();
         if (current && mode != "replace") next->pixelSelection()->applySelection(current->pixelSelection(), SELECTION_REPLACE);
@@ -793,7 +801,7 @@ private:
         next->pixelSelection()->invalidateOutlineCache();
         if (next->selectedExactRect().isEmpty()) { if (current) img->undoAdapter()->addCommand(new KisDeselectGlobalSelectionCommand(img)); }
         else img->undoAdapter()->addCommand(new KisSetGlobalSelectionCommand(img, next));
-        img->waitForDone();
+        waitDone(img);
         emitSelection();
     }
     /// A pixel selection with a shape painted into it, antialiased, the way Krita's selection tools do.
@@ -820,7 +828,7 @@ private:
     {
         KisPaintDeviceSP device = paintTarget();
         KisImageSP img = image();
-        img->waitForDone();
+        waitDone(img);
         img->barrierLock();
         KisTransaction transaction(text, device);
         edit(device, img->globalSelection());
@@ -830,7 +838,7 @@ private:
     }
     QJsonValue afterResize()
     {
-        image()->waitForDone();
+        waitDone(image());
         if (active && !find(idOf(active))) setActive(image()->root()->lastChild());
         emitEvent("documentChanged", {{"info", info()}});
         emitSelection();
@@ -856,7 +864,7 @@ private:
     {
         if (!node->paintDevice()) fail("Only layers with pixels can be animated");
         KisImageSP img = image();
-        img->waitForDone();
+        waitDone(img);
         KisKeyframeChannel *channel = node->getKeyframeChannel(KisKeyframeChannel::Raster.id(), true);
         if (!channel) fail("This layer cannot be animated");
         KisProcessingApplicator::runSingleCommandStroke(img, new KisCommandUtils::LambdaCommand(text, [channel, edit]() -> KUndo2Command * {
@@ -864,7 +872,7 @@ private:
             edit(channel, cmd);
             return cmd;
         }), KisStrokeJobData::BARRIER, KisStrokeJobData::EXCLUSIVE);
-        img->waitForDone();
+        waitDone(img);
         node->setDirty();
         emitEvent("keyframesChanged", {{"id", idOf(node)}});
     }
@@ -932,7 +940,7 @@ private:
     void clearPreview()
     {
         if (!previewTransaction) return;
-        image()->waitForDone();
+        waitDone(image());
         previewTransaction->revert();
         previewTransaction.reset();
         if (previewNode) previewNode->setDirty();
@@ -990,7 +998,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         d->setFileBatchMode(true);
         const KoColor bg = p.contains("background") ? colorFrom(p["background"].toObject()) : KoColor(Qt::white, rgb8);
         if (!d->newImage(p["name"].toString("Untitled"), w, h, rgb8, bg, KisConfig::RASTER_LAYER, 1, QString(), 300.0 / 72.0)) fail("Could not create the document");
-        d->image()->waitForDone();
+        waitDone(d->image());
         adopt(d);
         return info();
     }
@@ -1002,7 +1010,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         KisDocument *d = KisPart::instance()->createDocument();
         d->setFileBatchMode(true);
         if (!d->openPath(path, KisDocument::DontAddToRecent)) { const QString e = d->errorMessage(); d->deleteLater(); fail(e.isEmpty() ? "Could not open " + p["fileName"].toString() : e); }
-        d->image()->waitForDone();
+        waitDone(d->image());
         adopt(d);
         return info();
     }
@@ -1093,7 +1101,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         if (!layer || !layer->prevSibling() || !qobject_cast<KisLayer *>(layer->prevSibling().data())) fail("There is no layer below to merge into");
         KisNodeSP below = layer->prevSibling();
         image()->mergeDown(layer, nullptr);
-        image()->waitForDone();
+        waitDone(image());
         setActive(find(idOf(below)) ? below : KisNodeSP(image()->root()->lastChild()));
         return QJsonValue();
     }
@@ -1171,10 +1179,10 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
     if (m == "brushState") return brushJson();
     if (m == "colors") return QJsonObject{{"foreground", colorJson(manager->foregroundColor())}, {"background", colorJson(manager->backgroundColor())}};
     if (m == "undo" || m == "redo") {
-        image()->waitForDone();
+        waitDone(image());
         m == "undo" ? doc->undoStack()->undo() : doc->undoStack()->redo();
         if (active && !find(idOf(active))) setActive(image()->root()->lastChild());
-        image()->waitForDone();
+        waitDone(image());
         // an undone step may have been a resize, a selection or a keyframe edit
         emitEvent("documentChanged", {{"info", info()}});
         emitSelection();
@@ -1274,7 +1282,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         if (!filter) fail("Unknown filter: " + id);
         KisFilterConfigurationSP cfg = filterConfig(id, p["config"].toObject())->cloneWithResourcesSnapshot();
         KisImageSP img = image();
-        img->waitForDone();
+        waitDone(img);
         img->barrierLock();
         const QRect rc = img->bounds();
         KisTransaction transaction(kundo2_i18n("Filter: %1", filter->name()), device);
@@ -1295,7 +1303,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         if (!filter) fail("Unknown filter: " + id);
         KisFilterConfigurationSP cfg = filterConfig(id, p["config"].toObject())->cloneWithResourcesSnapshot();
         KisImageSP img = image();
-        img->waitForDone();
+        waitDone(img);
         img->barrierLock();
         previewTransaction.reset(new KisTransaction(device));
         filter->process(device, img->bounds(), cfg);
@@ -1324,7 +1332,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
     if (m == "selectAll") { KisPixelSelectionSP all = new KisPixelSelection(new KisDefaultBounds(image())); all->select(image()->bounds()); select(all, "replace"); return QJsonValue(); }
     if (m == "deselect") {
         if (image()->globalSelection()) image()->undoAdapter()->addCommand(new KisDeselectGlobalSelectionCommand(image()));
-        image()->waitForDone();
+        waitDone(image());
         emitSelection();
         return QJsonValue();
     }
@@ -1361,7 +1369,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         // ponytail: contiguous only; Krita's "similar colour" (non-contiguous) selection is a separate tool
         if (!options["contiguous"].toBool(true)) fail("Selecting similar colours across the whole image is not supported yet");
         KisImageSP img = image();
-        img->waitForDone();
+        waitDone(img);
         KisPaintDeviceSP source = options["sampleMerged"].toBool() ? img->projection() : paintTarget();
         KisFillPainter filler(source);
         filler.setWidth(img->width());
@@ -1478,13 +1486,13 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         KisProcessingApplicator applicator(img, img->root(), KisProcessingApplicator::RECURSIVE, KisImageSignalVector(), kundo2_i18n("Mirror Image"));
         applicator.applyVisitor(new KisMirrorProcessingVisitor(img->bounds(), axis == "horizontal" ? Qt::Horizontal : Qt::Vertical), KisStrokeJobData::CONCURRENT);
         applicator.end();
-        img->waitForDone();
+        waitDone(img);
         emitSelection();
         return QJsonValue();
     }
     if (m == "flattenImage") {
         image()->flatten(active);
-        image()->waitForDone();
+        waitDone(image());
         setActive(image()->root()->lastChild());
         return QJsonValue();
     }
@@ -1527,7 +1535,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         if (start != a->documentPlaybackRange().start() || end != a->documentPlaybackRange().end()) a->setDocumentRange(KisTimeSpan::fromTimeToTime(start, end));
         if (st.contains("currentTime")) {
             a->requestTimeSwitchNonGUI(frameFrom(st["currentTime"]));
-            image()->waitForDone();
+            waitDone(image());
         }
         emitEvent("animationChanged", {{"state", animationJson()}});
         return QJsonValue();
