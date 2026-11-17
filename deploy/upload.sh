@@ -9,6 +9,7 @@ set -euo pipefail
 site=$(cd "${1:?site dir}" && pwd); bucket=${2:?bucket}; shift 2
 q=${BR_QUALITY:-11}
 tmp=$(mktemp -d); trap 'rm -rf "$tmp"' EXIT
+export WRANGLER_LOG=error
 wr() { ${WRANGLER:-npx --yes wrangler@4} "$@"; }   # WRANGLER=path overrides the binary
 
 type_of() {
@@ -26,7 +27,7 @@ put() { # put <key> <file> <encoding|''>
 cd "$site"
 find krita -type f ! -name index.html -print0 | sort -z | while IFS= read -r -d '' f; do
   if [ "$(stat -c %s "$f")" -ge 1048576 ]; then
-    node -e 'const z=require("zlib"),fs=require("fs");const[,,i,o,q]=process.argv;
+    node -e 'const z=require("zlib"),fs=require("fs");const[i,o,q]=process.argv.slice(1);
       fs.writeFileSync(o,z.brotliCompressSync(fs.readFileSync(i),{params:{[z.constants.BROTLI_PARAM_QUALITY]:+q,[z.constants.BROTLI_PARAM_LGWIN]:24}}))' "$f" "$tmp/c" "$q"
     put "$f" "$tmp/c" br "$@"
   else

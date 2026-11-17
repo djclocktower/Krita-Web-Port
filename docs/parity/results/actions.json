@@ -4430,5 +4430,640 @@
   "outcome": "hang",
   "text": "",
   "when": "2026-11-17T03:05:18.222Z"
+ },
+ "layer_style": {
+  "fixture": "base",
+  "ms": 509,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Layer Styles – Krita",
+    "kind": "dialog",
+    "width": 818,
+    "height": 744,
+    "modal": true,
+    "picture": "-1936480463:608592:818x744",
+    "file": "actions/layer_style__Layer_Styles_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 2,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:09:17.751Z"
+ },
+ "copy_layer_style": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:09:29.488Z"
+ },
+ "paste_layer_style": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:09:34.080Z"
+ },
+ "mirrorNodeX": {
+  "fixture": "base",
+  "ms": 257,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:09:44.365Z"
+ },
+ "mirrorNodeY": {
+  "fixture": "base",
+  "ms": 255,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:09:54.937Z"
+ },
+ "mirrorAllNodesX": {
+  "fixture": "base",
+  "ms": 245,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:09:58.400Z"
+ },
+ "mirrorAllNodesY": {
+  "fixture": "base",
+  "ms": 241,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:10:24.405Z"
+ },
+ "activateNextLayer": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:10:36.129Z"
+ },
+ "activateNextSiblingLayer": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:10:50.756Z"
+ },
+ "activatePreviousLayer": {
+  "fixture": "base",
+  "ms": 3555,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:10:57.405Z"
+ },
+ "activatePreviousSiblingLayer": {
+  "fixture": "base",
+  "ms": 4043,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:11:04.166Z"
+ },
+ "switchToPreviouslyActiveNode": {
+  "fixture": "base",
+  "ms": 3376,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:11:10.095Z"
+ },
+ "duplicatelayer": {
+  "fixture": "base",
+  "ms": 2776,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:11:17.709Z"
+ },
+ "copy_layer_clipboard": {
+  "fixture": "base",
+  "ms": 164,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:11:30.801Z"
+ },
+ "cut_layer_clipboard": {
+  "fixture": "base",
+  "ms": 205,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:11:33.502Z"
+ },
+ "paste_layer_from_clipboard": {
+  "fixture": "base",
+  "ms": 234,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:11:36.749Z"
+ },
+ "create_quick_group": {
+  "fixture": "group",
+  "ms": 1277,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:11:50.718Z"
+ },
+ "create_quick_clipping_group": {
+  "fixture": "group",
+  "ms": 770,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:11:57.593Z"
+ },
+ "quick_ungroup": {
+  "fixture": "group",
+  "ms": 479,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:12:05.209Z"
+ },
+ "select_all_layers": {
+  "fixture": "base",
+  "ms": 181,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:12:14.581Z"
  }
 }

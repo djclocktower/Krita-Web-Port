@@ -49,7 +49,8 @@ async function inPage(fn, arg, ms = 90000) {
         return await Promise.race([page.evaluate(fn, arg), new Promise((_, rej) => { timer = setTimeout(() => rej(new Error('PAGE_TIMEOUT')), ms); })]);
     } finally { clearTimeout(timer); }
 }
-const isDead = e => crashed || page.isClosed() || /PAGE_TIMEOUT|closed|crash|Target/i.test(String(e?.message));
+const gone = e => crashed || page.isClosed() || /closed|crash|Target|Execution context|navigation/i.test(String(e?.message));
+const isDead = e => gone(e) || /PAGE_TIMEOUT/.test(String(e?.message));
 
 // ---------------------------------------------------------------------------------------------- page helpers
 function install() {
@@ -236,7 +237,7 @@ async function runActions() {
         let sinceLaunch = 1e9;
         for (const name of names) {
             if (sinceLaunch >= perBatch || !page || page.isClosed() || crashed) { await launch(); sinceLaunch = 0; enabledBy = null; }
-            if (!enabledBy) { enabledBy = {}; for (const f of fixtures) enabledBy[f] = await inPage(k => S.enabledMap(k), f, 60000); }
+            if (!enabledBy) { for (let k = 0; k < 3 && !enabledBy; k++) { try { enabledBy = {}; for (const f of fixtures) enabledBy[f] = await inPage(k => S.enabledMap(k), f, 60000); } catch (e) { enabledBy = null; console.log('enabled map failed, relaunching: ' + String(e.message).slice(0, 80)); await launch(); } } sinceLaunch = 0; }
             const a = inv.actions.find(x => x.name === name);
             const pref = FIXTURE_HINT.find(([re]) => re.test(name))?.[1];
             const order = [pref, ...fixtures].filter(Boolean);
@@ -247,7 +248,7 @@ async function runActions() {
             consoleTail.length = 0; pageErrors.length = 0;
             let r;
             try { r = await inPage(o => S.runAction(o), { name, fixture, timeout: 9000 }, 75000); }
-            catch (e) { r = { fixture, state: 'pending', [isDead(e) && (crashed || page.isClosed() || /crash|closed|Target/i.test(e.message)) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) }; sinceLaunch = 1e9; }
+            catch (e) { r = { fixture, state: 'pending', [gone(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) }; sinceLaunch = 1e9; }
             if (r.needReload) { sinceLaunch = 1e9; if (!r.alive) r.hang = true; else r.hang = true, r.note = 'call never returned; engine still answered'; }
             r.enabled = true; r.enabledIn = enabledIn;
             if (pageErrors.length) r.pageErrors = pageErrors.slice(0, 3);

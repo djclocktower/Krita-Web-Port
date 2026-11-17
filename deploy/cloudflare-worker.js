@@ -75,7 +75,8 @@ export async function serveKrita(request, env) {
     }
     if (!('body' in object)) return reply(null, { status: 304, headers });   // precondition said "not modified"
     let status = 200;
-    if (object.range) {
+    // (workerd fills in object.range even when the request had no Range header, so check the header too.)
+    if (request.headers.has('Range') && object.range) {
         const { suffix, offset = Math.max(0, object.size - (suffix ?? 0)), length = object.size - offset } = object.range;
         headers.set('Content-Range', `bytes ${offset}-${offset + length - 1}/${object.size}`);
         status = 206;
