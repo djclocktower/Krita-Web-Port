@@ -15,7 +15,7 @@ const open = async (touch = false) => {
     const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, hasTouch: touch });
     const page = await ctx.newPage();
     page.on('pageerror', e => errors.push(e.message));
-    await page.goto(BASE + '?kritaMock=1');
+    await page.goto(BASE + '?kritaMock=1&ui=desktop');
     await page.waitForFunction(() => window.__engine && window.__view && /\d+\s*[x×]\s*\d+/.test(document.querySelector('.status-doc')?.textContent ?? ''), null, { timeout: 60000 });
     await page.waitForSelector('[data-krita-tool]');
     await page.waitForTimeout(300);

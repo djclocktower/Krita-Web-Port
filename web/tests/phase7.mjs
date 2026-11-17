@@ -25,7 +25,7 @@ const errors = [];
 page.on('pageerror', e => errors.push(e.message));
 
 const open = async (url) => {
-    await page.goto(url);
+    await page.goto(url + (url.includes('?') ? '&' : '?') + 'ui=desktop');
     await page.waitForFunction(() => window.__engine);
     const tab = page.locator('[role=tab]:has-text("Timeline")');
     if (await tab.count()) await tab.first().click();
@@ -279,7 +279,7 @@ check(errors.length === 0, 'no uncaught page errors (mock)', errors.join(' | '))
 
 // --- real engine: the panel drives Krita's own animation
 errors.length = 0;
-await page.goto(new globalThis.URL('?engine=wasm', URL).href);
+await page.goto(new globalThis.URL('?engine=wasm&ui=desktop', URL).href);
 await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 60000 });
 const tab = page.locator('[role=tab]:has-text("Timeline")');
 if (await tab.count()) await tab.first().click();

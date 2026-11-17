@@ -9,6 +9,8 @@ import { type Command, type Panel } from '../panels';
 import { usePanels } from '../krita/dockers';
 import { hex, parseHex } from '../panels/color/hsv';
 import { Dialogs } from '../dialogs';
+import { MobileShell } from '../mobile/MobileShell';
+import { newDocDefaults, refreshMode, useUiMode } from '../mobile/mode';
 import { KritaUI } from '../krita/Windows';
 import { krita } from '../krita/state';
 import { applyAppearance } from './appearance';
@@ -17,6 +19,7 @@ import { errors } from './errors';
 import { sheet, useLayout, useSheet, type Layout } from './layout';
 import { notice, restoreDocument, restoreResources, saveState, wrapEngine } from '../storage/session';
 import { app, report, trackEngine } from './state';
+import { Toast } from './toast';
 import { useStore } from './store';
 import { DEFAULT_SIZE, setDock } from './workspaces';
 import './shell.css';
@@ -26,29 +29,41 @@ if (import.meta.env.DEV) (window as unknown as { __app: unknown }).__app = app; 
 
 const MENUS = ['File', 'Edit', 'View', 'Image', 'Layer', 'Select', 'Filter', 'Tools', 'Settings'] as const;
 
-const NEW_DOC = { width: 1600, height: 1200, name: 'Untitled' };
 
 export function App({ engine: rawEngine }: { engine: Engine }) {
     const engine = useMemo(() => wrapEngine(rawEngine), [rawEngine]);   // stores imported resources, autosaves
     const [ready, setReady] = useState(false);
-    const layout = useLayout();
+    const layout = useLayout(), mode = useUiMode();
     const shortcuts = useSetting('shortcuts');
     const run = async (c: Command) => { if (!isEnabled(c)) return; try { await c.run(engine); } catch (e) { report(e); } };
     useEffect(() => attachKeys(withShortcuts(allCommands, shortcuts), c => void run(c)), [engine, shortcuts]);   // the effective shortcuts
     useEffect(() => {
         const offs = [trackEngine(engine)];
         (async () => {
-            await loadSettings(); applyAppearance();
+            await loadSettings(); applyAppearance(); refreshMode();   // the saved interface choice is known now
             await restoreResources();   // before the panels mount, so the presets list includes them
             setReady(true);
-            if (!(await engine.documentInfo()) && !(await restoreDocument())) await engine.newDocument(NEW_DOC);
+            if (!(await engine.documentInfo()) && !(await restoreDocument())) await engine.newDocument(newDocDefaults());
             app.set({ doc: await engine.documentInfo() });
             // The engine has no getters for brush and colours; setting them to themselves makes it announce them.
             await engine.setColors({}); await engine.setBrush({});
         })().catch(report);
         return () => offs.forEach(f => f());
     }, [engine]);
-    if (!ready) return <div class={`app app-${layout}`} />;
+    if (!ready) return <div class={`app app-${mode === 'desktop' ? layout : mode}`} />;
+    if (mode !== 'desktop') {   // phone and tablet: the touch interface, with the same dialogs and Krita windows
+        return (
+            <div class={`app app-${mode}`}>
+                <MobileShell engine={engine} run={run} mode={mode} />
+                <Notice engine={engine} />
+                <ErrorBanner />
+                <NewDialog engine={engine} />
+                <Dialogs engine={engine} />
+                <KritaUI engine={engine} />
+                <Toast engine={engine} />
+            </div>
+        );
+    }
     return (
         <div class={`app app-${layout}`}>
             {layout === 'narrow' ? <MobileBar run={run} /> : <MenuBar run={run} />}
@@ -68,6 +83,7 @@ export function App({ engine: rawEngine }: { engine: Engine }) {
             <NewDialog engine={engine} />
             <Dialogs engine={engine} />
             <KritaUI engine={engine} />
+            <Toast engine={engine} />
         </div>
     );
 }
@@ -81,7 +97,7 @@ function Notice({ engine }: { engine: Engine }) {
     return (
         <div class="banner notice" role="status">
             <span>Restored {restored.name} from {clock(restored.at)}</span>
-            <button onClick={() => { close(); engine.newDocument(NEW_DOC).catch(report); }}>Start new instead</button>
+            <button onClick={() => { close(); engine.newDocument(newDocDefaults()).catch(report); }}>Start new instead</button>
             <button aria-label="Dismiss notice" onClick={close}>✕</button>
         </div>
     );
@@ -364,8 +380,8 @@ function NewDialog({ engine }: { engine: Engine }) {
             <form noValidate onSubmit={submit}>
                 <h2 id="new-title">New Document</h2>
                 <label>Name <input name="name" type="text" defaultValue="Untitled" /></label>
-                <label>Width (px) <input name="w" type="number" defaultValue={1600} aria-invalid={!!err} aria-describedby="new-err" /></label>
-                <label>Height (px) <input name="h" type="number" defaultValue={1200} aria-invalid={!!err} aria-describedby="new-err" /></label>
+                <label>Width (px) <input name="w" type="number" defaultValue={newDocDefaults().width} aria-invalid={!!err} aria-describedby="new-err" /></label>
+                <label>Height (px) <input name="h" type="number" defaultValue={newDocDefaults().height} aria-invalid={!!err} aria-describedby="new-err" /></label>
                 <p id="new-err" class="error" role="alert">{err}</p>
                 <div class="buttons">
                     <button type="button" onClick={() => app.set({ newOpen: false })}>Cancel</button>

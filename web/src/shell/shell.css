@@ -184,3 +184,9 @@ dialog input[type="color"] { padding: 0; width: 48px; height: 28px; }
 .dock-head .tab { display: inline-flex; }
 .dock-head .tab-close { padding: 0 6px; color: var(--text-dim); }
 @media (pointer: coarse) { .dock-head .tab-close { min-width: 36px; min-height: 36px; } }
+
+/* Toast: Krita's on-canvas messages. Above the status bar on desktop; mobile.css lifts it above the tool strip. */
+.toast { position: fixed; z-index: 60; left: 50%; bottom: calc(40px + env(safe-area-inset-bottom)); transform: translateX(-50%); max-width: min(90vw, 560px);
+    padding: 6px 14px; background: var(--panel); color: var(--text); border: 1px solid var(--accent); border-radius: var(--radius); box-shadow: 0 4px 12px var(--border);
+    pointer-events: none; overflow-wrap: anywhere; text-align: center; }
+.toast[hidden] { display: none; }

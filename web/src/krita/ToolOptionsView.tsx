@@ -1,11 +1,14 @@
 // A Krita window (the tool option panel, or a docker) embedded in a dock. The window is resized to the box it sits in.
 import { useEffect, useRef } from 'preact/hooks';
 import type { Engine, KritaWindow } from '../engine/protocol';
+import { useUiMode } from '../mobile/mode';
+import { KeyboardButton } from './Keyboard';
 import { KritaWindowView } from './WindowView';
 import './krita.css';
 
 export function KritaToolOptions({ engine, w }: { engine: Engine; w: KritaWindow }) {
     const box = useRef<HTMLDivElement>(null);
+    const touch = useUiMode() !== 'desktop';
     useEffect(() => {
         let timer: ReturnType<typeof setTimeout> | undefined, last = '';
         // The box takes its size from the dock (flex: 1) and its picture is absolutely positioned, so the picture cannot change the
@@ -20,5 +23,10 @@ export function KritaToolOptions({ engine, w }: { engine: Engine; w: KritaWindow
         ro.observe(box.current!);   // fires once at once, so the first size goes out after the panel has subscribed to the store
         return () => { ro.disconnect(); clearTimeout(timer); };
     }, [engine, w.id]);
-    return <div class="krita-options" ref={box}><div class="krita-options-pic"><KritaWindowView engine={engine} id={w.id} width={w.width} height={w.height} /></div></div>;
+    return (
+        <div class="krita-options" ref={box}>
+            <div class="krita-options-pic"><KritaWindowView engine={engine} id={w.id} width={w.width} height={w.height} twoFingerWheel={touch} /></div>
+            {touch && <div class="kb-corner"><KeyboardButton send={ev => engine.kritaWindowInput(w.id, ev)} /></div>}
+        </div>
+    );
 }

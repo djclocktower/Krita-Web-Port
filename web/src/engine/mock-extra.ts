@@ -339,6 +339,7 @@ const MOCK_TOOLS: Omit<KritaTool, 'active'>[] = [
 const MOCK_ACTIONS: KritaAction[] = [
     { name: 'mock_open_dialog', text: 'Open &Mock Dialog…', shortcut: '', enabled: true, checkable: false, checked: false },
     { name: 'mock_disabled', text: 'Disabled Thing', shortcut: 'Ctrl+D', enabled: false, checkable: false, checked: false },
+    { name: 'mock_message', text: 'Show Mock Message', shortcut: '', enabled: true, checkable: false, checked: false },
     { name: 'mock_fill_layer', text: 'Fill Layer Red', shortcut: '', enabled: true, checkable: false, checked: false },
 ];
 const DIALOG = 2, POPUP = 3, OPTIONS = 1;
@@ -404,6 +405,7 @@ export function createMockKrita(ctx: Context): { methods: KritaMethods; log: Kri
         async triggerKritaAction(name) {
             log.actions.push(name);
             if (name === 'mock_open_dialog') open({ id: DIALOG, title: 'Mock Dialog', kind: 'dialog', modal: true, x: 100, y: 100, width: 200, height: 120 });
+            else if (name === 'mock_message') { ctx.emit('kritaMessage', 'Zoom: 150%'); ctx.emit('kritaMessage', 'Hello from Krita'); }
             else if (name === 'mock_fill_layer') {
                 const px = target(), { width, height } = ctx.doc();
                 if (px) { ctx.record('Fill Layer Red'); for (let i = 0; i < width * height; i++) px.set([255, 0, 0, 255], i * 4); ctx.changed(false); }

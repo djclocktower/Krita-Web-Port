@@ -3,7 +3,12 @@ import { aids, guideCancel, guideDown, guideMove, guideUp, live, outlineShown, r
 import { gesture, pan, rotateAbout, toImage, view, zoomAbout } from '../canvas/view';
 import type { KritaPointer, StrokePoint } from '../engine/protocol';
 import { kritaOn, krita } from '../krita/state';
+import { getSetting } from '../settings/store';
+import { showToast } from '../shell/toast';
 import { activeTool, isBrush, type ToolContext } from '../tools';
+import { loupe, palmDown, pen, sampleCanvas, touchMods } from './touch';
+
+const LONG_PRESS_MS = 450, TAP_MS = 400, SLOP = 8;   // a finger that stays within SLOP CSS px is "still"
 
 /** Set by the keyboard handler while Space is held. */
 export const nav = { space: false };
@@ -30,15 +35,21 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
     const kp = (e: PointerEvent, type: KritaPointer['type'], down: boolean, button: 'left' | 'right'): KritaPointer => {
         const l = local(e), p = toImage(l.x, l.y);
         return {
-            type, x: p.x, y: p.y, down, button, shift: e.shiftKey, ctrl: e.ctrlKey, alt: e.altKey,
+            type, x: p.x, y: p.y, down, button, shift: e.shiftKey || touchMods.get().shift, ctrl: e.ctrlKey || touchMods.get().ctrl, alt: e.altKey || touchMods.get().alt,
             ...(e.pointerType === 'pen' && { pressure: e.pressure, xTilt: e.tiltX, yTilt: e.tiltY, rotation: e.twist }),
         };
     };
     let krButton: 'left' | 'right' = 'left';
 
-    const mods = (e: { shiftKey: boolean; ctrlKey: boolean; altKey: boolean }) => { ctx.modifiers = { shift: e.shiftKey, ctrl: e.ctrlKey, alt: e.altKey }; };
+    const mods = (e: { shiftKey: boolean; ctrlKey: boolean; altKey: boolean }) => { const t = touchMods.get(); ctx.modifiers = { shift: e.shiftKey || t.shift, ctrl: e.ctrlKey || t.ctrl, alt: e.altKey || t.alt }; };
     const touches = new Map<number, { x: number; y: number }>();
-    let mode: 'none' | 'tool' | 'krita' | 'pan' | 'zoom' | 'rotate' | 'pinch' | 'guide' | 'resize' = 'none';
+    // 'pending': one finger is down and has not moved yet, so it may still become a long-press colour pick, a tap, or one finger of a gesture.
+    // 'pick': long-press colour picker (the loupe follows the finger). 'palm': a finger ignored because a pen was seen a moment ago.
+    let mode: 'none' | 'tool' | 'krita' | 'pan' | 'zoom' | 'rotate' | 'pinch' | 'guide' | 'resize' | 'pending' | 'pick' | 'palm' = 'none';
+    let idType = '';   // pointerType of the pointer that owns the current gesture
+    let pend: { e: PointerEvent; timer: ReturnType<typeof setTimeout> } | null = null;
+    let tap: { t: number; n: number; moved: boolean; from: Map<number, { x: number; y: number }> } | null = null;   // a two- or three-finger tap candidate
+    const dropPending = () => { if (pend) { clearTimeout(pend.timer); pend = null; } };
     let startSize = 0;
     let id = -1, last = { x: 0, y: 0 }, anchor = last, pinchPrev = { x: 0, y: 0, d: 1, a: 0 };
     const pinch = () => {
@@ -46,38 +57,69 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         return { x: (p.x + q.x) / 2, y: (p.y + q.y) / 2, d: Math.hypot(q.x - p.x, q.y - p.y) || 1, a: Math.atan2(q.y - p.y, q.x - p.x) };
     };
 
-    const down = (e: PointerEvent) => {
+    /** A press that is really one finger's (or a mouse's, a pen's) tool stroke. */
+    const start = (e: PointerEvent) => {
         const l = local(e);
         mods(e);
-        if (e.pointerType === 'touch') {
-            touches.set(e.pointerId, l);
-            if (touches.size === 2) {
-                if (mode === 'guide') guideCancel();
-                if (mode === 'krita') ctx.engine.kritaPointer(kp(e, 'release', false, krButton));   // ponytail: Krita has no cancel, so a pinch ends the stroke where the first finger was
-                if (mode === 'tool') activeTool().onCancel?.(ctx);   // the first finger may have started a dab: a pinch leaves no mark
-                mode = 'pinch'; live.hover = null; ctx.requestOverlay(); pinchPrev = pinch(); return;
-            }
-            if (touches.size > 2 || mode === 'pinch') return;
-        } else if (mode !== 'none') return;
         (document.activeElement as HTMLElement | null)?.blur();   // so Space and Enter go to the canvas, not to the last button used
         cv.setPointerCapture(e.pointerId);
-        id = e.pointerId; last = anchor = l;
+        id = e.pointerId; idType = e.pointerType; last = anchor = l;
         if (e.button === 1 || nav.space) { mode = e.ctrlKey ? 'zoom' : e.shiftKey ? 'rotate' : 'pan'; e.preventDefault(); return; }
-        if (e.button !== 0 && !(e.button === 2 && kritaOn())) return;   // a right button reaches Krita's tools (pop-up palette, context menu)
+        if (e.button !== 0 && !(e.button === 2 && kritaOn())) { mode = 'none'; return; }   // a right button reaches Krita's tools (pop-up palette, context menu)
         if (e.button === 0 && guideDown(l, e.pointerType === 'touch')) { mode = 'guide'; live.hover = null; ctx.requestOverlay(); return; }
         if (kritaOn()) { mode = 'krita'; krButton = e.button === 2 ? 'right' : 'left'; ctx.engine.kritaPointer(kp(e, 'press', true, krButton)); return; }
-        if (e.shiftKey && e.pointerType !== 'touch' && isBrush()) {   // Krita: Shift+drag resizes the brush
+        if ((e.shiftKey || touchMods.get().shift) && e.pointerType !== 'touch' && isBrush()) {   // Krita: Shift+drag resizes the brush
             mode = 'resize'; live.resizing = true; startSize = live.size; live.hover = l; ctx.requestOverlay(); return;
         }
         mode = 'tool';
         if (e.pointerType === 'touch') { live.hover = l; ctx.requestOverlay(); }   // touch has no hover: the outline shows while a finger is down
         activeTool().onPointerDown(ctx, sample(e));
     };
+    const pickAt = (x: number, y: number) => { loupe.set({ on: true, x, y, color: sampleCanvas(cv, x, y) }); };
+    const down = (e: PointerEvent) => {
+        const l = local(e);
+        mods(e);
+        if (e.pointerType === 'pen') pen.last = performance.now();
+        if (e.pointerType === 'touch') {
+            if (idType === 'pen' && mode !== 'none' && mode !== 'palm') return;   // a hand resting while the pen draws
+            touches.set(e.pointerId, l);
+            if (touches.size === 2) {
+                dropPending();   // the first finger had not started anything yet: a pinch leaves no mark
+                if (mode === 'guide') guideCancel();
+                if (mode === 'krita') ctx.engine.kritaPointer(kp(e, 'release', false, krButton));   // ponytail: Krita has no cancel, so a pinch ends the stroke where the first finger was
+                if (mode === 'tool') activeTool().onCancel?.(ctx);   // the first finger may have started a dab: a pinch leaves no mark
+                if (mode === 'pick') loupe.set({ on: false });
+                mode = 'pinch'; live.hover = null; ctx.requestOverlay(); pinchPrev = pinch();
+                tap = { t: e.timeStamp, n: 2, moved: false, from: new Map(touches) };
+                return;
+            }
+            if (touches.size > 2) { if (tap) { tap.n = Math.max(tap.n, touches.size); tap.from.set(e.pointerId, l); } return; }
+            if (mode === 'pinch') return;
+            if (mode === 'none' && palmDown(e.timeStamp)) { mode = 'palm'; id = e.pointerId; idType = 'touch'; return; }   // a palm next to the pen: ignored, but two fingers still pan and zoom
+            if (mode !== 'none') return;
+            // Wait to see what this finger does: a long hold picks a colour, anything else starts the tool where the finger went down.
+            id = e.pointerId; idType = 'touch'; last = anchor = l; mode = 'pending';
+            pend = { e, timer: setTimeout(() => {
+                const p = pend; if (!p) return;
+                pend = null; mode = 'pick'; cv.setPointerCapture(p.e.pointerId);
+                navigator.vibrate?.(15);
+                pickAt(p.e.clientX, p.e.clientY);
+            }, LONG_PRESS_MS) };
+            return;
+        } else if (mode === 'palm') mode = 'none';   // the pen or mouse takes over from an ignored palm
+        else if (mode !== 'none') return;
+        start(e);
+    };
     const move = (e: PointerEvent) => {
         const l = local(e);
         mods(e);
+        if (e.pointerType === 'pen') pen.last = performance.now();
         if (e.pointerType !== 'touch') view.set({ pointer: toImage(l.x, l.y) });
         if (touches.has(e.pointerId)) touches.set(e.pointerId, l);
+        if (mode === 'pending' && e.pointerId === id) {
+            if (Math.hypot(l.x - anchor.x, l.y - anchor.y) < SLOP) return;
+            const p = pend!.e; dropPending(); mode = 'none'; start(p);   // it moved: the stroke began where the finger went down
+        } else if (mode === 'pick') { if (e.pointerId === id) pickAt(e.clientX, e.clientY); return; }
         if (e.pointerType !== 'touch' || e.pointerId === id) {
             live.hover = mode === 'resize' ? anchor : mode === 'none' || mode === 'tool' ? l : null;
             if (isBrush() || aids.get().rulers) ctx.requestOverlay();   // the outline and the ruler marker follow the pointer, drawn from this event
@@ -85,6 +127,7 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         }
         if (mode === 'none' && e.pointerType !== 'touch' && kritaOn()) ctx.engine.kritaPointer(kp(e, 'move', false, 'left'));   // hover
         if (mode === 'pinch') {
+            if (tap && !tap.moved) for (const [k, p] of touches) { const f = tap.from.get(k); if (f && Math.hypot(p.x - f.x, p.y - f.y) > SLOP * 1.5) tap.moved = true; }
             if (touches.size === 2) { const n = pinch(); gesture(pinchPrev, n, n.d / pinchPrev.d, n.a - pinchPrev.a); pinchPrev = n; }
             return;
         }
@@ -107,8 +150,24 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
     };
     const up = (e: PointerEvent) => {
         touches.delete(e.pointerId);
-        if (mode === 'pinch') { if (!touches.size) mode = 'none'; return; }
+        if (mode === 'pinch') {
+            if (touches.size) return;
+            mode = 'none';
+            const t = tap; tap = null;
+            if (t && !t.moved && e.timeStamp - t.t < TAP_MS && e.type === 'pointerup' && getSetting('touchGestures')) {   // two-finger tap undoes, three-finger tap redoes
+                const redo = t.n >= 3;
+                (redo ? ctx.engine.redo() : ctx.engine.undo()).then(() => showToast(redo ? 'Redo' : 'Undo'), () => {});
+            }
+            return;
+        }
         if (e.pointerId !== id) return;
+        if (mode === 'pending') { const p = pend!.e; dropPending(); mode = 'none'; start(p); if (mode === 'none') return; }   // a tap: press and release at the same spot
+        if (mode === 'pick') {
+            const c = sampleCanvas(cv, e.clientX, e.clientY);
+            if (c) void ctx.engine.setColors({ foreground: c });
+            loupe.set({ on: false }); mode = 'none'; return;
+        }
+        if (mode === 'palm') { mode = 'none'; return; }
         mods(e);
         if (mode === 'tool') activeTool().onPointerUp(ctx, sample(e));
         else if (mode === 'krita') ctx.engine.kritaPointer(kp(e, 'release', false, krButton));
@@ -118,6 +177,9 @@ export function attachPointer(ctx: ToolContext, cv: HTMLCanvasElement): () => vo
         if (e.pointerType === 'touch') { live.hover = null; ctx.requestOverlay(); }
     };
     const cancel = (e: PointerEvent) => {
+        if (e.pointerId === id && (mode === 'pending' || mode === 'pick' || mode === 'palm')) {   // the system took the touch (a swipe from the edge, a palm): nothing to commit
+            touches.delete(e.pointerId); dropPending(); loupe.set({ on: false }); mode = 'none'; return;
+        }
         if (mode === 'tool' && e.pointerId === id) { activeTool().onCancel?.(ctx); mode = 'none'; } else up(e);
     };
     const key = (e: KeyboardEvent) => {

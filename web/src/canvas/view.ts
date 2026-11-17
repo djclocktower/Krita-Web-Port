@@ -11,6 +11,11 @@ export const view = store({
 const v = view.get;
 let needFit = false;
 
+/** Device pixels per CSS pixel the canvas backing stores use: the screen's, capped on phones and tablets. */
+let dprCap = Infinity;
+export const canvasDpr = () => Math.min(devicePixelRatio, dprCap);
+export const setDprCap = (cap: number) => { if (cap !== dprCap) { dprCap = cap; view.set({}); } };   // view.set({}) makes every canvas redraw
+
 /** Linear part of the map: screen = (a*dx + c*dy, b*dx + d*dy) + centre, with (dx, dy) relative to the image centre. */
 export function matrix() {
     const { scale, rot, mirror } = v(), cos = Math.cos(rot), sin = Math.sin(rot), f = mirror ? -1 : 1;

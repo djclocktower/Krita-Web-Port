@@ -17,7 +17,7 @@ async function open(w, h, query = '', touch = false) {
     const context = await browser.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2, ...(touch ? { hasTouch: true, isMobile: true } : {}) });
     const page = await context.newPage();
     page.on('pageerror', e => errors.push(e.message));
-    await page.goto(URL + query);
+    await page.goto(URL + query + (query.includes('?') || URL.includes('?') ? '&' : '?') + 'ui=desktop');
     await page.waitForFunction(() => window.__engine && window.__view && document.querySelector('.status-doc')?.textContent.match(/\d+ × \d+/), null, { timeout: 120000 });
     await page.waitForTimeout(500);
     return page;

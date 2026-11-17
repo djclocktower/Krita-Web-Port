@@ -34,7 +34,7 @@ export function Settings() {
     );
 }
 
-function Check({ k, label }: { k: 'autosave' | 'confirmClose'; label: string }) {
+function Check({ k, label }: { k: 'autosave' | 'confirmClose' | 'touchGestures'; label: string }) {
     const v = useSetting(k);
     return <label class="check"><input type="checkbox" checked={v} onChange={e => setSetting(k, e.currentTarget.checked)} /> {label}</label>;
 }
@@ -83,7 +83,13 @@ function Display() {
             {color('canvasBorder', 'Canvas border colour')}
             {color('checkerA', 'Checkerboard colour 1')}
             {color('checkerB', 'Checkerboard colour 2')}
-            <Reset keys={['theme', 'canvasBorder', 'checkerA', 'checkerB']} />
+            <label>Interface layout
+                <select value={useSetting('uiMode')} onChange={e => setSetting('uiMode', e.currentTarget.value as S['uiMode'])}>
+                    <option value="auto">Automatic (from this device)</option><option value="desktop">Desktop</option><option value="tablet">Tablet</option><option value="phone">Phone</option>
+                </select>
+            </label>
+            <Check k="touchGestures" label="Two-finger tap undoes, three-finger tap redoes" />
+            <Reset keys={['theme', 'canvasBorder', 'checkerA', 'checkerB', 'uiMode', 'touchGestures']} />
         </div>
     );
 }

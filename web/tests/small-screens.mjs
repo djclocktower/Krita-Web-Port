@@ -16,7 +16,7 @@ async function open(width, height) {
     const context = await browser.newContext({ viewport: { width, height }, hasTouch: true, isMobile: true, deviceScaleFactor: 2 });
     const page = await context.newPage();
     page.on('pageerror', e => errors.push(e.message));
-    await page.goto(URL);
+    await page.goto(URL + (URL.includes('?') ? '&' : '?') + 'ui=desktop');   // these suites test the desktop layout's narrow and medium fallbacks (mobile.mjs tests the touch interface)
     await page.waitForFunction(() => document.querySelector('.status-doc')?.textContent.includes('1600 × 1200'));
     await page.waitForTimeout(300);
     return page;

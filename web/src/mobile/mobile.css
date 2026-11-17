@@ -1,0 +1,122 @@
+/* Phone and tablet interfaces (see MobileShell.tsx). Everything here is under .m-root or .app-phone / .app-tablet, so desktop is untouched. */
+.app.app-phone, .app.app-tablet { display: block; }
+.app-phone .toolbar, .app-tablet .toolbar { display: none; }
+.m-root { display: flex; flex-direction: column; height: 100%; min-height: 0; min-width: 0; position: relative; }
+
+/* Nothing smaller than 44 px, inside the shell, the sheets and every dialog. */
+.app-phone :is(button, select, summary, [role=tab], input:not([type=range], [type=checkbox], [type=radio], [type=hidden])),
+.app-tablet :is(button, select, summary, [role=tab], input:not([type=range], [type=checkbox], [type=radio], [type=hidden])) { min-height: 44px; min-width: 44px; }
+.app-phone input[type=range], .app-tablet input[type=range] { min-height: 44px; }
+.app-phone input[type=checkbox], .app-tablet input[type=checkbox] { width: 24px; height: 24px; }
+.app-phone label.check, .app-tablet label.check, .app-phone label:has(> input[type=checkbox]), .app-tablet label:has(> input[type=checkbox]) { min-height: 44px; display: flex; align-items: center; gap: 8px; }
+.app-phone .kb-input, .app-tablet .kb-input { min-height: 0; min-width: 0; }
+.app-phone input, .app-tablet input { font-size: 16px; }   /* iOS zooms into smaller fields */
+
+.m-top { display: flex; align-items: center; gap: 2px; flex: none; padding: 2px 4px; background: var(--panel); border-bottom: 1px solid var(--border); position: relative; z-index: 20; }
+.m-top .doc-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; color: var(--text-dim); }
+.m-btn, .m-tool { display: grid; place-items: center; flex: none; width: 44px; height: 44px; padding: 0; color: var(--text); background: none; border: 1px solid transparent; border-radius: 8px; }
+.m-btn[aria-pressed="true"], .m-tool[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: var(--panel-raised); }
+.m-btn:disabled { opacity: .35; }
+.m-icon { display: grid; place-items: center; pointer-events: none; }
+.m-icon svg { display: block; }
+.m-tool .kicon { width: 24px; height: 24px; background: currentColor; -webkit-mask: var(--kicon) center / contain no-repeat; mask: var(--kicon) center / contain no-repeat; }
+.m-tool .letters { font-size: 12px; font-weight: 600; }
+.m-swatch { width: 26px; height: 26px; border: 2px solid var(--text); border-radius: 50%; box-shadow: 0 0 0 1px var(--border); }
+
+.m-body { flex: 1; display: flex; min-height: 0; min-width: 0; position: relative; }
+.m-phone.m-portrait .m-body { flex-direction: column; }
+.m-stage { position: relative; flex: 1; display: flex; min-width: 0; min-height: 0; }
+
+/* Tool strip: a row under the canvas (phone portrait), a column beside it (phone landscape, tablet). More tools and Tool options stay pinned at the end. */
+.m-strip { flex: none; display: flex; background: var(--panel); border-top: 1px solid var(--border); padding-bottom: env(safe-area-inset-bottom); }
+.m-strip-scroll { flex: 1; min-width: 0; min-height: 0; display: flex; overflow: auto; scrollbar-width: none; overscroll-behavior: contain; touch-action: pan-x pan-y; }
+.m-strip-scroll::-webkit-scrollbar { display: none; }
+.m-strip-end { flex: none; display: flex; border-left: 1px solid var(--border); }
+.m-tablet .m-strip, .m-phone.m-landscape .m-strip { flex-direction: column; order: -1; border-top: 0; border-right: 1px solid var(--border); padding-bottom: 0; }
+.m-tablet .m-strip-scroll, .m-phone.m-landscape .m-strip-scroll { flex-direction: column; }
+.m-tablet .m-strip-end, .m-phone.m-landscape .m-strip-end { flex-direction: column; border-left: 0; border-top: 1px solid var(--border); }
+.m-rail { flex: none; order: 2; display: flex; flex-direction: column; gap: 2px; padding: 2px; background: var(--panel); border-left: 1px solid var(--border); overflow-y: auto; }
+.m-tablet .m-side.pinned { order: 1; }
+
+/* Brush size (left edge) and opacity (right edge), for a thumb. The track is 44 px wide so it is easy to hit; it never covers the middle of the canvas. */
+.m-slider { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 48px; height: min(280px, 56%); display: flex; flex-direction: column; align-items: center; pointer-events: none; }
+.m-slider.left { left: 2px; } .m-slider.right { right: 2px; }
+.m-track { position: relative; flex: 1; width: 44px; min-height: 0; pointer-events: auto; touch-action: none; border-radius: 22px; background: color-mix(in srgb, var(--panel) 70%, transparent); border: 1px solid var(--border); }
+.m-fill { position: absolute; left: 50%; bottom: 0; width: 8px; margin-left: -4px; border-radius: 4px; background: var(--accent); opacity: .7; pointer-events: none; }
+.m-thumb { position: absolute; left: -1px; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; font-size: 11px; font-style: normal; font-weight: 600;
+    color: var(--text); background: var(--panel); border: 2px solid var(--accent); pointer-events: none; }
+.m-slider.drag .m-thumb { background: var(--panel-raised); }
+.m-track:focus-visible { outline: 2px solid var(--accent); }
+.m-cap { margin-top: 2px; font-size: 10px; color: var(--text); text-shadow: 0 0 3px var(--bg), 0 0 3px var(--bg); }
+
+.m-float { position: absolute; top: 6px; right: 6px; z-index: 4; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; pointer-events: none; }
+.m-float > * { pointer-events: auto; background: color-mix(in srgb, var(--panel) 90%, transparent); }
+.m-float button { min-width: 44px; min-height: 44px; font-size: 18px; border: 1px solid var(--border); border-radius: 8px; }
+.m-float .m-apply { color: #4cd964; border-color: #4cd964; }
+.m-float .m-cancel { color: var(--danger); border-color: var(--danger); }
+.m-float .m-mod { font-size: 14px; padding: 0 10px; }
+.m-float button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+
+/* Sheets */
+.m-sheet { position: absolute; z-index: 10; display: flex; flex-direction: column; min-height: 0; background: var(--panel); border: 1px solid var(--border); box-shadow: 0 -4px 16px rgba(0, 0, 0, .45); }
+.m-bottom { left: 0; right: 0; bottom: 0; height: 46%; border-radius: 14px 14px 0 0; transition: height .15s ease-out; }
+.m-bottom.expanded { height: 94%; }
+.m-phone.m-landscape .m-bottom { left: auto; width: min(520px, 64%); height: 80%; }
+.m-phone.m-landscape .m-bottom.expanded { height: 100%; }
+.m-sheet-head { display: flex; align-items: center; gap: 4px; flex: none; padding: 0 4px 0 12px; touch-action: none; border-bottom: 1px solid var(--border); }
+.m-sheet-head h2 { margin: 0; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.m-handle { flex: 1; display: grid; place-items: center; border: 0; background: none; touch-action: none; }
+.m-handle i { display: block; width: 44px; height: 5px; border-radius: 3px; background: var(--text-dim); }
+.m-sheet-head .m-close, .m-sheet-head .m-pin { border: 0; background: none; }
+.m-sheet-body { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; touch-action: pan-y; display: flex; flex-direction: column; }
+.m-sheet-body > * { flex: none; }
+.m-sheet-body > .krita-docker, .m-sheet-body > .tool-options { flex: 1 1 auto; }
+.m-tabs { display: flex; flex: none; gap: 2px; overflow-x: auto; border-bottom: 1px solid var(--border); scrollbar-width: none; }
+.m-tabs .tab { display: inline-flex; flex: none; }
+.m-tabs button { background: none; border-color: transparent; white-space: nowrap; }
+.m-tabs button[aria-selected="true"] { background: var(--panel-raised); border-color: var(--accent); }
+.m-list { list-style: none; margin: 0; padding: 4px; display: flex; flex-direction: column; gap: 4px; }
+.m-list button, .m-toolrow { width: 100%; text-align: left; }
+.m-toolgrid { list-style: none; margin: 0; padding: 6px; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+.m-toolrow { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 4px 8px; color: var(--text); }
+.m-toolrow[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.m-toolrow .kicon { flex: none; width: 24px; height: 24px; background: currentColor; -webkit-mask: var(--kicon) center / contain no-repeat; mask: var(--kicon) center / contain no-repeat; }
+.m-toolrow .letters { width: 24px; text-align: center; font-size: 12px; font-weight: 600; }
+.m-toolrow .m-icon { width: 24px; }
+.m-toolrow span:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.m-doc { padding: 4px 10px 12px; gap: 6px; }
+.m-doc h3 { margin: 8px 0 0; font-size: 12px; text-transform: uppercase; color: var(--text-dim); }
+.m-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.m-field { display: flex; flex-direction: column; gap: 2px; }
+.m-side { top: 0; bottom: 0; right: 0; width: min(360px, 70%); border-radius: 0; box-shadow: -4px 0 16px rgba(0, 0, 0, .45); }
+.m-side.left { right: auto; left: 0; }
+.m-side.pinned { position: static; flex: none; width: 340px; box-shadow: none; border-width: 0 0 0 1px; }
+.m-sheet .tool-options, .m-sheet .krita-docker { min-height: 0; }
+.m-sheet .krita-options { min-height: 200px; }
+
+/* Menu */
+.m-menu-wrap { position: fixed; inset: 0; z-index: 40; background: rgba(0, 0, 0, .45); }
+.m-menu { position: absolute; inset: 0; display: flex; flex-direction: column; background: var(--panel); padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
+.m-tablet .m-menu { inset: 56px auto 12px 12px; width: min(560px, 92vw); border: 1px solid var(--border); border-radius: 10px; }
+.m-menu-head { display: flex; gap: 4px; padding: 6px; flex: none; border-bottom: 1px solid var(--border); }
+.m-menu-head input { flex: 1; min-width: 0; background: var(--panel-raised); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 10px; }
+.m-menu-head .m-close { border: 0; background: none; }
+.m-menu-list { flex: 1; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; }
+.m-menu-list button { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 12px; min-height: 48px; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; background: none; text-align: left; }
+.m-menu-list .group { background: var(--panel-raised); }
+.m-menu-list .item { padding-left: 20px; }
+.m-menu-list kbd { color: var(--text-dim); font: inherit; flex: none; }
+.m-menu-list small { color: var(--text-dim); }
+.m-menu-list .hint, .m-menu-list .hint-row { padding: 10px 14px; color: var(--text-dim); }
+
+.m-loupe { position: fixed; z-index: 50; width: 92px; height: 92px; margin-left: -46px; border: 2px solid #fff; border-radius: 50%; overflow: hidden; pointer-events: none; box-shadow: 0 2px 10px rgba(0, 0, 0, .6); background: #888; }
+.m-loupe canvas { width: 88px; height: 88px; display: block; }
+.m-loupe-color { position: absolute; left: 50%; bottom: 8px; width: 34px; height: 14px; margin-left: -17px; border: 2px solid #fff; border-radius: 4px; box-shadow: 0 0 0 1px #000; }
+
+/* Messages and banners sit above the tool strip (phone portrait) or the screen edge. */
+.app-phone .toast, .app-tablet .toast { bottom: calc(66px + env(safe-area-inset-bottom)); }
+.app-phone .banner, .app-tablet .banner { bottom: calc(72px + env(safe-area-inset-bottom)); }
+.app-phone .banner.notice, .app-tablet .banner.notice { bottom: calc(124px + env(safe-area-inset-bottom)); }
+@media (orientation: landscape) { .app-phone .toast { bottom: 12px; } .app-phone .banner { bottom: 8px; } .app-phone .banner.notice { bottom: 60px; } }
+.app-phone dialog, .app-tablet dialog { max-width: calc(100vw - 16px); }
+.app-phone .canvas-only-exit, .app-tablet .canvas-only-exit { top: 8px; left: 8px; right: auto; }

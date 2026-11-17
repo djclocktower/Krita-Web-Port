@@ -1,7 +1,7 @@
 // Canvas aids: brush outline cursor, rulers, grid, guides and snapping. State is in memory only.
 import type { Engine, Point } from '../engine/protocol';
 import { store } from '../shell/store';
-import { toImage, toScreen, view } from './view';
+import { canvasDpr, toImage, toScreen, view } from './view';
 
 export const RULER = 20;   // ruler thickness in CSS px
 export const aids = store({
@@ -14,7 +14,7 @@ export const aids = store({
 export const live = { hover: null as Point | null, size: 12, resizing: false };
 
 const bump = () => aids.set({ rev: aids.get().rev + 1 });
-const dpr = () => devicePixelRatio;
+const dpr = () => canvasDpr();
 const rotated = () => { const r = view.get().rot; return Math.abs(Math.sin(r)) > 1e-6 || Math.cos(r) < 0; };
 /** Rulers are axis-aligned to the screen, so they are hidden while the view is rotated. */
 export const rulersOn = () => aids.get().rulers && !rotated();

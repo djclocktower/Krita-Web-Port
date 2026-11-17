@@ -5,7 +5,7 @@ import { krita, kritaOn } from '../krita/state';
 import { activeTool, isBrush, onActiveToolChange, type ToolContext } from '../tools';
 import { aids, drawGrid, drawGuides, drawOutline, drawRulers, live, setDocName } from './aids';
 import { toggleCanvasOnly } from './canvasOnly';
-import { fit, matrix, setViewport, toScreen, view } from './view';
+import { canvasDpr, fit, matrix, setViewport, toScreen, view } from './view';
 import './canvasOnly.css';
 
 // The image is one quad: vertex ids give the corners, a 2x2 matrix + offset (CSS px) places it.
@@ -52,7 +52,7 @@ export function Canvas({ engine }: { engine: Engine }) {
         let tex: WebGLTexture | null = null, raf = 0, nearest: boolean | null = null;
         const draw = () => {
             raf = 0;
-            const s = view.get(), dpr = devicePixelRatio, W = Math.round(s.w * dpr), H = Math.round(s.h * dpr);
+            const s = view.get(), dpr = canvasDpr(), W = Math.round(s.w * dpr), H = Math.round(s.h * dpr);
             if (el.width !== W || el.height !== H) { el.width = W; el.height = H; }
             gl.viewport(0, 0, W, H);
             gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
@@ -102,7 +102,7 @@ export function Canvas({ engine }: { engine: Engine }) {
         };
         function redraw() {
             oraf = 0;
-            const s = view.get(), dpr = devicePixelRatio, W = Math.round(s.w * dpr), H = Math.round(s.h * dpr);
+            const s = view.get(), dpr = canvasDpr(), W = Math.round(s.w * dpr), H = Math.round(s.h * dpr);
             if (overlay.width !== W || overlay.height !== H) { overlay.width = W; overlay.height = H; }
             g.setTransform(dpr, 0, 0, dpr, 0, 0);
             g.clearRect(0, 0, s.w, s.h);

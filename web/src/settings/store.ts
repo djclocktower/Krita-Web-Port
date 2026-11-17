@@ -24,7 +24,11 @@ export interface Settings {
     dockLayout: DockLayout;
     workspace: string;                // name of the workspace last switched to
     workspaces: Record<string, DockLayout>;   // user-saved ones; the built-ins live in shell/workspaces.ts
+    uiMode: UiModeSetting;            // 'auto' decides from the device (src/mobile/mode.ts); ?ui= in the URL beats it
+    touchGestures: boolean;           // two-finger tap = undo, three-finger tap = redo
+    pinnedSheet: string;              // tablet: the side sheet kept open beside the canvas ('' for none)
 }
+export type UiModeSetting = 'auto' | 'desktop' | 'tablet' | 'phone';
 
 export const DEFAULT_DOCKS: DockLayout = {
     visible: null,
@@ -35,6 +39,7 @@ export const DEFAULTS: Settings = {
     autosave: true, autosaveSeconds: 3, confirmClose: true,
     theme: 'dark', canvasBorder: '#1e1e1e', checkerA: '#ffffff', checkerB: '#c0c0c0',
     shortcuts: {}, dockLayout: DEFAULT_DOCKS, workspace: 'Default', workspaces: {},
+    uiMode: 'auto', touchGestures: true, pinnedSheet: '',
 };
 export const THEMES: [ThemeId, string][] = [['dark', 'Krita Dark'], ['darker', 'Krita Darker'], ['neutral', 'Krita Neutral'], ['light', 'Krita Light']];
 
@@ -102,6 +107,7 @@ export function loadSettings(): Promise<void> {
                     if (k in stored && typeof stored[k] === typeof DEFAULTS[k] && stored[k] !== null) next[k] = stored[k];
                 }
                 if (!THEMES.some(([t]) => t === next.theme)) next.theme = DEFAULTS.theme;
+                if (!['auto', 'desktop', 'tablet', 'phone'].includes(next.uiMode as string)) next.uiMode = 'auto';
                 const okLayout = (l: any) => ['left', 'right', 'bottom'].every(a => typeof l?.docks?.[a]?.size === 'number');
                 if (!okLayout(next.dockLayout)) next.dockLayout = structuredClone(DEFAULT_DOCKS);
                 next.workspaces = Object.fromEntries(Object.entries(next.workspaces as object).filter(([, l]) => okLayout(l)));

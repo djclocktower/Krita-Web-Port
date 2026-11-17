@@ -28,7 +28,7 @@ async function scenario(name, fn, { init, ...opts } = {}) {
 }
 
 const load = async (page, query = '') => {
-    await page.goto(`${BASE}/?${query}`);
+    await page.goto(`${BASE}/?${query}&ui=desktop`);
     await page.waitForFunction(() => /\d+ × \d+ px/.test(document.querySelector('.status-doc')?.textContent ?? ''), null, { timeout: 60000 });
     await page.waitForTimeout(200);
 };

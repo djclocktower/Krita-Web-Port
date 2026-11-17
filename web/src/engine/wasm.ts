@@ -27,6 +27,11 @@ function loadScript(src: string): Promise<void> {
 
 export async function createWasmEngine(): Promise<Engine> {
     if (!crossOriginIsolated) throw new Error('The page is not cross-origin isolated, which the engine needs for threads.');
+    // WebKitGTK/WPE report crossOriginIsolated but hide SharedArrayBuffer (a JSC option that is off there); the engine then dies in a worker with no message.
+    if (typeof SharedArrayBuffer === 'undefined') throw new Error('This browser does not provide SharedArrayBuffer, which the engine needs for threads. Try a recent Chrome, Edge, Firefox or Safari.');
+    // The engine is built with WebAssembly SIMD and has no fallback (func returning v128: i32.const 0, i8x16.splat, i8x16.popcnt).
+    if (!WebAssembly.validate(new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 96, 0, 1, 123, 3, 2, 1, 0, 10, 10, 1, 8, 0, 65, 0, 253, 15, 253, 98, 11])))
+        throw new Error('This browser does not support WebAssembly SIMD, which the engine needs. Update the browser.');
     const handlers: { [K in keyof EngineEvents]?: Set<(...args: never[]) => void> } = {};
     const pending = new Map<number, { resolve: (v: unknown) => void; reject: (e: Error) => void; wantsBytes: boolean }>();
     let nextId = 1;

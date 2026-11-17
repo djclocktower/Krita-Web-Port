@@ -21,3 +21,19 @@
 .krita-options-pic { position: absolute; left: 0; top: 0; }
 /* Crisp pictures: a canvas shown at its own size is never smoothed. */
 .krita-win { image-rendering: pixelated; }
+
+/* Touch devices: dialogs are screen-filling sheets (the picture is fitted and can be zoomed); every Krita window has a keyboard button. */
+.krita-dialog.touch { left: 0; right: 0; bottom: 0; top: calc(env(safe-area-inset-top) + 8px); max-width: none; max-height: none; overflow: hidden; border-radius: 10px 10px 0 0; transform: none; }
+.krita-dialog.touch .krita-title { cursor: default; min-height: 48px; padding-left: 12px; }
+.krita-dialog.touch .krita-title > span:first-child { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.krita-title-btns { display: flex; gap: 2px; }
+.krita-title button, .kb-btn { min-width: 44px; min-height: 44px; }
+.krita-scroll { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; display: flex; padding-bottom: env(safe-area-inset-bottom); }
+.krita-fit { margin: auto; flex: none; }
+.krita-win.scaled { image-rendering: auto; }
+.krita-zoom { position: absolute; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom)); display: flex; gap: 2px; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); opacity: .95; }
+.krita-zoom button { min-width: 44px; min-height: 44px; border: 0; background: none; }
+.krita-zoom button[aria-pressed="true"] { color: var(--accent); }
+.kb-btn { background: var(--panel-raised); border: 1px solid var(--border); border-radius: var(--radius); font-size: 20px; line-height: 1; padding: 0; }
+.kb-input { position: fixed; left: 0; top: 0; width: 1px; height: 1px; opacity: 0; border: 0; padding: 0; pointer-events: none; font-size: 16px; }
+.kb-corner { position: absolute; right: 2px; top: 2px; z-index: 2; opacity: .9; }
