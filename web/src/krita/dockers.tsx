@@ -37,10 +37,11 @@ export function usePanels(): Panel[] {
 
 const isOpen = (docker: string) => krita.get().windows.some(w => w.kind === 'docker' && w.docker === docker);
 
-/** "Krita Dockers › Title" menu entries (the menus have no nested submenus; the ✓ marks the open ones). */
+/** One entry per Krita docker for the Settings > Dockers submenu (see menus.ts; the check mark marks the open ones). */
+export const isDockerOpen = (c: Command) => isOpen(c.id.replace('krita.docker.', ''));
 export function dockerCommands(): Command[] {
     return krita.get().dockers.map(d => ({
-        id: `krita.docker.${d.id}`, menu: 'Settings' as const, title: `${isOpen(d.id) ? '✓ ' : ''}Krita Dockers › ${d.title}`,
+        id: `krita.docker.${d.id}`, menu: 'Settings' as const, title: d.title,
         run: async (e: Engine) => {
             const show = !isOpen(d.id);
             if (show) setDock('right', { active: dockerPanelId(d.id), open: true });

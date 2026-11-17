@@ -4828,27 +4828,10 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_asc-cdl",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Slope, Offset, Power...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
    "path": "Filter > Colors",
-   "action": "krita_filter_minimize",
+   "action": "krita_filter_colortransfer",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Minimize Channel",
+   "text": "Color Transfer...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -4862,10 +4845,125 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Colors",
-   "action": "krita_filter_colortransfer",
+   "path": "Filter > Other",
+   "action": "krita_filter_wave",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Color Transfer...",
+   "text": "Wave...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss horizontal and vertical",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss Horizontal  Vertical",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Other",
+   "action": "krita_filter_resettransparent",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Reset Transparent",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": null
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss with Variable Depth...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Artistic",
+   "action": "krita_filter_raindrops",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Raindrops...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Artistic",
+   "action": "krita_filter_oilpaint",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Oilpaint...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "opened dialog",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Colors",
+   "action": "krita_filter_propagatecolors",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Propagate Colors...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_autocontrast",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Auto Contrast",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -4893,128 +4991,13 @@
   {
    "menu": "Filter",
    "path": "Filter > Enhance",
-   "action": "krita_filter_sharpen",
+   "action": "krita_filter_gaussiannoisereducer",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Sharpen",
+   "text": "Gaussian Noise Reduction...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
    "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Colors",
-   "action": "krita_filter_colortoalpha",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Color to Alpha...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_desaturate",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Desaturate...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_dodge",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Dodge...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss horizontal only",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss Horizontal Only",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Edge Detection",
-   "action": "krita_filter_gaussianhighpass",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Gaussian High Pass...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Other",
-   "action": "krita_filter_resettransparent",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Reset Transparent",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definedIn": null,
-   "definition": null
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_crosschannel",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Cross-channel adjustment curves...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
    "definedIn": null,
    "definition": {
     "category": "",
@@ -5058,299 +5041,10 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Artistic",
-   "action": "krita_filter_raindrops",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Raindrops...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Artistic",
-   "action": "krita_filter_indexcolors",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Index Colors...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Artistic",
-   "action": "krita_filter_oilpaint",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Oilpaint...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "opened dialog",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
    "path": "Filter > Colors",
-   "action": "krita_filter_maximize",
+   "action": "krita_filter_minimize",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Maximize Channel",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Other",
-   "action": "krita_filter_noise",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Random Noise...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Blur",
-   "action": "krita_filter_gaussian blur",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Gaussian Blur...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_smalltiles",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Small Tiles...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Edge Detection",
-   "action": "krita_filter_height to normal",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Height to Normal Map...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_levels",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Levels...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_colorbalance",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Color Balance...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_hsvadjustment",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "HSV Adjustment...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Blur",
-   "action": "krita_filter_blur",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Blur...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Blur",
-   "action": "krita_filter_motion blur",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Motion Blur...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Enhance",
-   "action": "krita_filter_mean removal",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Mean Removal",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Enhance",
-   "action": "krita_filter_unsharp",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Unsharp Mask...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Other",
-   "action": "krita_filter_wave",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Wave...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_gradientmap",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Gradient Map...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_phongbumpmap",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Phong Bumpmap...",
+   "text": "Minimize Channel",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -5381,10 +5075,10 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_palettize",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_crosschannel",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Palettize...",
+   "text": "Cross-channel adjustment curves...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -5398,10 +5092,27 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss vertical only",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_levels",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss Vertical Only",
+   "text": "Levels...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_invert",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Invert",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -5432,125 +5143,10 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss with Variable Depth...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_perchannel",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Color Adjustment curves...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
    "path": "Filter > Enhance",
-   "action": "krita_filter_gaussiannoisereducer",
+   "action": "krita_filter_unsharp",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Gaussian Noise Reduction...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Map",
-   "action": "krita_filter_roundcorners",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Round Corners...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed layers/selection/history/view",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Edge Detection",
-   "action": "krita_filter_edge detection",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Edge Detection...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": null
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Colors",
-   "action": "krita_filter_propagatecolors",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Propagate Colors...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss laplascian",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss (Laplacian)",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Artistic",
-   "action": "krita_filter_pixelize",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Pixelize...",
+   "text": "Unsharp Mask...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -5581,10 +5177,27 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Blur",
-   "action": "krita_filter_lens blur",
+   "path": "Filter > Map",
+   "action": "krita_filter_palettize",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Lens Blur...",
+   "text": "Palettize...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Other",
+   "action": "krita_filter_noise",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Random Noise...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -5598,27 +5211,10 @@
   },
   {
    "menu": "Filter",
-   "path": "Filter > Adjust",
-   "action": "krita_filter_threshold",
+   "path": "Filter > Enhance",
+   "action": "krita_filter_mean removal",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Threshold...",
-   "inEngine": true,
-   "pageMenu": null,
-   "viaSearch": true,
-   "outcome": "changed image",
-   "definedIn": null,
-   "definition": {
-    "category": "",
-    "conditions": "0",
-    "flags": "10000"
-   }
-  },
-  {
-   "menu": "Filter",
-   "path": "Filter > Emboss",
-   "action": "krita_filter_emboss all directions",
-   "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss in All Directions",
+   "text": "Mean Removal",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -5649,10 +5245,312 @@
   },
   {
    "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_colorbalance",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Color Balance...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_desaturate",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Desaturate...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Artistic",
+   "action": "krita_filter_indexcolors",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Index Colors...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Colors",
+   "action": "krita_filter_maximize",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Maximize Channel",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Map",
+   "action": "krita_filter_phongbumpmap",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Phong Bumpmap...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Blur",
+   "action": "krita_filter_lens blur",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Lens Blur...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
    "path": "Filter > Emboss",
-   "action": "krita_filter_emboss horizontal and vertical",
+   "action": "krita_filter_emboss horizontal only",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Emboss Horizontal  Vertical",
+   "text": "Emboss Horizontal Only",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Enhance",
+   "action": "krita_filter_sharpen",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Sharpen",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Blur",
+   "action": "krita_filter_gaussian blur",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Gaussian Blur...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss vertical only",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss Vertical Only",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Blur",
+   "action": "krita_filter_blur",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Blur...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Edge Detection",
+   "action": "krita_filter_edge detection",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Edge Detection...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": null
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Colors",
+   "action": "krita_filter_colortoalpha",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Color to Alpha...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss all directions",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss in All Directions",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Map",
+   "action": "krita_filter_gradientmap",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Gradient Map...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Blur",
+   "action": "krita_filter_motion blur",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Motion Blur...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Map",
+   "action": "krita_filter_smalltiles",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Small Tiles...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Map",
+   "action": "krita_filter_roundcorners",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Round Corners...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Artistic",
+   "action": "krita_filter_pixelize",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Pixelize...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -5667,9 +5565,9 @@
   {
    "menu": "Filter",
    "path": "Filter > Adjust",
-   "action": "krita_filter_autocontrast",
+   "action": "krita_filter_threshold",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Auto Contrast",
+   "text": "Threshold...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -5684,9 +5582,111 @@
   {
    "menu": "Filter",
    "path": "Filter > Adjust",
-   "action": "krita_filter_invert",
+   "action": "krita_filter_asc-cdl",
    "from": "built in code (KisFilterManager) from filters()",
-   "text": "Invert",
+   "text": "Slope, Offset, Power...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_dodge",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Dodge...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_perchannel",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Color Adjustment curves...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Emboss",
+   "action": "krita_filter_emboss laplascian",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Emboss (Laplacian)",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Adjust",
+   "action": "krita_filter_hsvadjustment",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "HSV Adjustment...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed layers/selection/history/view",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Edge Detection",
+   "action": "krita_filter_height to normal",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Height to Normal Map...",
+   "inEngine": true,
+   "pageMenu": null,
+   "viaSearch": true,
+   "outcome": "changed image",
+   "definedIn": null,
+   "definition": {
+    "category": "",
+    "conditions": "0",
+    "flags": "10000"
+   }
+  },
+  {
+   "menu": "Filter",
+   "path": "Filter > Edge Detection",
+   "action": "krita_filter_gaussianhighpass",
+   "from": "built in code (KisFilterManager) from filters()",
+   "text": "Gaussian High Pass...",
    "inEngine": true,
    "pageMenu": null,
    "viaSearch": true,
@@ -6116,169 +6116,169 @@
   },
   {
    "id": "krita.docker.LogDocker",
-   "title": "Krita Dockers › Log Viewer",
+   "title": "Log Viewer",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.AnimationCurvesDocker",
-   "title": "Krita Dockers › Animation Curves",
+   "title": "Animation Curves",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.ArrangeDocker",
-   "title": "Krita Dockers › Arrange",
+   "title": "Arrange",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.ArtisticColorSelector",
-   "title": "Krita Dockers › Artistic Color Selector",
+   "title": "Artistic Color Selector",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.BrushHudDocker",
-   "title": "Krita Dockers › On-Canvas Brush Editor",
+   "title": "On-Canvas Brush Editor",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.ChannelDocker",
-   "title": "Krita Dockers › Channels",
+   "title": "Channels",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.ColorSelectorNg",
-   "title": "Krita Dockers › Advanced Color Selector",
+   "title": "Advanced Color Selector",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.CompositionDocker",
-   "title": "Krita Dockers › Compositions",
+   "title": "Compositions",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.DigitalMixer",
-   "title": "Krita Dockers › Digital Colors Mixer",
+   "title": "Digital Colors Mixer",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.GamutMask",
-   "title": "Krita Dockers › Gamut Masks",
+   "title": "Gamut Masks",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.GridDocker",
-   "title": "Krita Dockers › Grid and Guides",
+   "title": "Grid and Guides",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.HistogramDocker",
-   "title": "Krita Dockers › Histogram",
+   "title": "Histogram",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.History",
-   "title": "Krita Dockers › Undo History",
+   "title": "Undo History",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.KisLayerBox",
-   "title": "Krita Dockers › Layers",
+   "title": "Layers",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.OnionSkinsDocker",
-   "title": "Krita Dockers › Onion Skins",
+   "title": "Onion Skins",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.OverviewDocker",
-   "title": "Krita Dockers › Overview",
+   "title": "Overview",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.PaletteDocker",
-   "title": "Krita Dockers › Palette",
+   "title": "Palette",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.PatternDocker",
-   "title": "Krita Dockers › Patterns",
+   "title": "Patterns",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.PresetDocker",
-   "title": "Krita Dockers › Brush Presets",
+   "title": "Brush Presets",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.PresetHistory",
-   "title": "Krita Dockers › Brush Preset History",
+   "title": "Brush Preset History",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.Snapshot",
-   "title": "Krita Dockers › Snapshot Docker",
+   "title": "Snapshot Docker",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.SpecificColorSelector",
-   "title": "Krita Dockers › Specific Color Selector",
+   "title": "Specific Color Selector",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.StoryboardDocker",
-   "title": "Krita Dockers › Storyboard",
+   "title": "Storyboard",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.SvgSymbolCollectionDocker",
-   "title": "Krita Dockers › Symbol Libraries",
+   "title": "Symbol Libraries",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.TasksetDocker",
-   "title": "Krita Dockers › Task Sets",
+   "title": "Task Sets",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.TextProperties",
-   "title": "Krita Dockers › Text Properties",
+   "title": "Text Properties",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.TimelineDocker",
-   "title": "Krita Dockers › Animation Timeline",
+   "title": "Animation Timeline",
    "menu": "Settings",
    "shortcut": null
   },
   {
    "id": "krita.docker.TouchDocker",
-   "title": "Krita Dockers › Touch Docker",
+   "title": "Touch Docker",
    "menu": "Settings",
    "shortcut": null
   }

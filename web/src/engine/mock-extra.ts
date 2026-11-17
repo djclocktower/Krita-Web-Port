@@ -341,7 +341,15 @@ const MOCK_ACTIONS: KritaAction[] = [
     { name: 'mock_disabled', text: 'Disabled Thing', shortcut: 'Ctrl+D', enabled: false, checkable: false, checked: false },
     { name: 'mock_message', text: 'Show Mock Message', shortcut: '', enabled: true, checkable: false, checked: false },
     { name: 'mock_fill_layer', text: 'Fill Layer Red', shortcut: '', enabled: true, checkable: false, checked: false },
+    // a few real names, so the page's Krita menus (menus.generated.ts) have something to show with ?kritaMock=1
+    { name: 'edit_cut', text: 'Cu&t', shortcut: 'Ctrl+X', enabled: true, checkable: false, checked: false },
+    { name: 'copy_merged', text: 'Copy merged', shortcut: '', enabled: false, checkable: false, checked: false },
+    { name: 'wrap_around_mode', text: 'Wrap Around Mode', shortcut: 'W', enabled: true, checkable: true, checked: false },
+    { name: 'select_all_layers', text: 'All Layers', shortcut: '', enabled: true, checkable: false, checked: false },
+    { name: 'fill_selection_pattern_opacity', text: 'Fill with Pattern (Opacity)', shortcut: '', enabled: true, checkable: false, checked: false },
+    { name: 'add_new_fill_layer', text: 'Add Fill Layer...', shortcut: '', enabled: true, checkable: false, checked: false },   // a BLOCKED action: the menu must not offer it
 ];
+const MOCK_PLAIN = new Set(['edit_cut', 'select_all_layers', 'fill_selection_pattern_opacity', 'add_new_fill_layer']);   // trigger and do nothing but log
 const DIALOG = 2, POPUP = 3, OPTIONS = 1;
 const MOCK_DOCKERS = [{ id: 'mockPalette', title: 'Mock Palette', win: 10, tint: '#225577' }, { id: 'mockHistogram', title: 'Mock Histogram', win: 11, tint: '#557722' }];
 const TINT = ['#334455', '#553344', '#445533', '#554433', '#335544', '#443355'];
@@ -409,7 +417,9 @@ export function createMockKrita(ctx: Context): { methods: KritaMethods; log: Kri
             else if (name === 'mock_fill_layer') {
                 const px = target(), { width, height } = ctx.doc();
                 if (px) { ctx.record('Fill Layer Red'); for (let i = 0; i < width * height; i++) px.set([255, 0, 0, 255], i * 4); ctx.changed(false); }
-            } else throw new Error(`"${name}" is not enabled`);
+            } else if (MOCK_PLAIN.has(name)) { /* logged above */ }
+            else if (name === 'wrap_around_mode') { const a = MOCK_ACTIONS.find(x => x.name === name)!; a.checked = !a.checked; }
+            else throw new Error(`"${name}" is not enabled`);
         },
         async kritaTools() { return MOCK_TOOLS.map(t => ({ ...t, active: t.id === active })); },
         async setKritaTool(id) {

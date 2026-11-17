@@ -20,6 +20,13 @@ button[aria-pressed="true"], button[aria-selected="true"] { border-color: var(--
 .menu-list button { display: flex; justify-content: space-between; gap: 24px; border: 0; border-radius: 0; background: none; text-align: left; min-height: 32px; }
 .menu-list button:hover:not(:disabled), .menu-list button:focus-visible { background: var(--panel-raised); }
 .menu-list kbd { color: var(--text-dim); font: inherit; }
+.menu-list button:disabled { color: var(--text-dim); opacity: .55; cursor: default; }
+.menu-list button { white-space: nowrap; align-items: center; }
+.menu-list .menu-sub { display: flex; flex-direction: column; }
+.menu-list[role=menu] .menu-sub > button[aria-expanded="true"] { background: var(--panel-raised); }
+.menu-list.sub { position: fixed; z-index: 20; }   /* beside its parent item; see Sub in menus.tsx */
+.menu-sep { height: 1px; margin: 3px 0; background: var(--border); flex: none; }
+.menu-check { display: inline-block; width: 1.2em; }
 
 .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap) 16px; padding: 4px var(--gap); background: var(--panel); border-bottom: 1px solid var(--border); }
 .toolbar label { display: flex; align-items: center; gap: var(--gap); }

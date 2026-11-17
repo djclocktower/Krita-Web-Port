@@ -2596,6 +2596,22 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
+   "name": "QMic",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "QMicAgain",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
    "name": "imagesplit",
    "shortcut": "",
    "text": ""
@@ -2860,55 +2876,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "ZoomTool",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KarbonCalligraphyTool",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "calligraphy_increase_width",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "calligraphy_decrease_width",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "calligraphy_increase_angle",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "calligraphy_decrease_angle",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolSelectOutline",
+   "name": "KritaShape/KisToolRectangle",
    "shortcut": "",
    "text": ""
   },
@@ -2963,8 +2931,176 @@
   {
    "checkable": false,
    "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolSmartPatch",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "PathTool",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-corner",
+   "shortcut": "",
+   "text": "Corner point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-smooth",
+   "shortcut": "",
+   "text": "Smooth point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-symmetric",
+   "shortcut": "",
+   "text": "Symmetric Point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-curve",
+   "shortcut": "",
+   "text": "Make curve point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-line",
+   "shortcut": "",
+   "text": "Make line point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathsegment-line",
+   "shortcut": "F",
+   "text": "Segment to Line"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathsegment-curve",
+   "shortcut": "Shift+C",
+   "text": "Segment to Curve"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-insert",
+   "shortcut": "Ins",
+   "text": "Insert point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-remove",
+   "shortcut": "Backspace",
+   "text": "Remove point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "path-break-point",
+   "shortcut": "",
+   "text": "Break at point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "path-break-segment",
+   "shortcut": "",
+   "text": "Break at segment"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "path-break-selection",
+   "shortcut": "Ctrl+B",
+   "text": "Break at selection"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-join",
+   "shortcut": "J",
+   "text": "Join with segment"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-merge",
+   "shortcut": "",
+   "text": "Merge points"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "convert-to-path",
+   "shortcut": "P",
+   "text": "To Path"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolPolyline",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "undo_polygon_selection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
    "enabled": false,
    "name": "selection_tool_mode_add",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolDyna",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectElliptical",
    "shortcut": "",
    "text": ""
   },
@@ -2996,7 +3132,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "PanTool",
+   "name": "KritaSelected/KisToolColorSampler",
    "shortcut": "",
    "text": ""
   },
@@ -3004,7 +3140,47 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "InteractionTool",
+   "name": "KisToolEncloseAndFill",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolPencil",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolPolygon",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectPolygonal",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectSimilar",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "ToolReferenceImages",
    "shortcut": "",
    "text": ""
   },
@@ -3039,134 +3215,6 @@
    "name": "object_order_back",
    "shortcut": "Ctrl+Shift+[",
    "text": "Send to Back"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_align_horizontal_left",
-   "shortcut": "",
-   "text": "Align Left"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_align_horizontal_center",
-   "shortcut": "",
-   "text": "Horizontally Center"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_align_horizontal_right",
-   "shortcut": "",
-   "text": "Align Right"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_align_vertical_top",
-   "shortcut": "",
-   "text": "Align Top"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_align_vertical_center",
-   "shortcut": "",
-   "text": "Vertically Center"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_align_vertical_bottom",
-   "shortcut": "",
-   "text": "Align Bottom"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_distribute_horizontal_left",
-   "shortcut": "",
-   "text": "Distribute Left"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_distribute_horizontal_center",
-   "shortcut": "",
-   "text": "Distribute Centers Horizontally"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_distribute_horizontal_right",
-   "shortcut": "",
-   "text": "Distribute Right"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_distribute_horizontal_gaps",
-   "shortcut": "",
-   "text": "Distribute Horizontal Gap"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_distribute_vertical_top",
-   "shortcut": "",
-   "text": "Distribute Top"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_distribute_vertical_center",
-   "shortcut": "",
-   "text": "Distribute Centers Vertically"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_distribute_vertical_bottom",
-   "shortcut": "",
-   "text": "Distribute Bottom"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_distribute_vertical_gaps",
-   "shortcut": "",
-   "text": "Distribute Vertical Gap"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_group",
-   "shortcut": "",
-   "text": "Group"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_ungroup",
-   "shortcut": "",
-   "text": "Ungroup"
   },
   {
    "checkable": false,
@@ -3219,168 +3267,8 @@
   {
    "checkable": false,
    "checked": false,
-   "enabled": false,
-   "name": "object_unite",
-   "shortcut": "",
-   "text": "Unite"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_intersect",
-   "shortcut": "",
-   "text": "Intersect"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_subtract",
-   "shortcut": "",
-   "text": "Subtract"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "object_split",
-   "shortcut": "",
-   "text": "Split"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "text_type_preformatted",
-   "shortcut": "",
-   "text": "Convert Text To Preformatted"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "text_type_pre_positioned",
-   "shortcut": "",
-   "text": "Convert Text To Pre-positioned"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "text_type_inline_wrap",
-   "shortcut": "",
-   "text": "Convert Text To Inline Wrapped"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "add_shape_to_flow_area",
-   "shortcut": "",
-   "text": "Flow Text in Shape"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "subtract_shape_from_flow_area",
-   "shortcut": "",
-   "text": "Subtract Shape from Text Chain"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "put_text_on_path",
-   "shortcut": "",
-   "text": "Put Text On Path"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "remove_shapes_from_text_flow",
-   "shortcut": "",
-   "text": "Remove Shapes from Text Chain"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "flow_shape_type_toggle",
-   "shortcut": "",
-   "text": "Toggle Flow Shape Type"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "flow_shape_order_back",
-   "shortcut": "",
-   "text": "Set Flow Shape as Last"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "flow_shape_order_earlier",
-   "shortcut": "",
-   "text": "Move Shape Earlier In Chain."
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "flow_shape_order_later",
-   "shortcut": "",
-   "text": "Move Shape Later In Chain."
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "flow_shape_order_front",
-   "shortcut": "",
-   "text": "Set Shape As First In Chain"
-  },
-  {
-   "checkable": false,
-   "checked": false,
    "enabled": true,
-   "name": "KritaShape/KisToolEllipse",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolSelectRectangular",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KritaShape/KisToolLine",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KritaShape/KisToolKnife",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisAssistantTool",
+   "name": "KisToolPath",
    "shortcut": "",
    "text": ""
   },
@@ -3395,8 +3283,8 @@
   {
    "checkable": false,
    "checked": false,
-   "enabled": false,
-   "name": "undo_polygon_selection",
+   "enabled": true,
+   "name": "KritaFill/KisToolFill",
    "shortcut": "",
    "text": ""
   },
@@ -3404,23 +3292,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KisToolSelectContiguous",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolSelectSimilar",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolTransform",
+   "name": "KritaTransform/KisToolMove",
    "shortcut": "",
    "text": ""
   },
@@ -3489,62 +3361,6 @@
    "text": "Move right more"
   },
   {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolTransformFree",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolTransformPerspective",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolTransformWarp",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolTransformCage",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolTransformLiquify",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolTransformMesh",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KritaTransform/KisToolMove",
-   "shortcut": "",
-   "text": ""
-  },
-  {
    "checkable": true,
    "checked": false,
    "enabled": false,
@@ -3556,7 +3372,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KisToolPolygon",
+   "name": "KritaShape/KisToolEllipse",
    "shortcut": "",
    "text": ""
   },
@@ -3564,14 +3380,14 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KritaShape/KisToolBrush",
+   "name": "KritaShape/KisToolMultiBrush",
    "shortcut": "",
    "text": ""
   },
   {
    "checkable": false,
    "checked": false,
-   "enabled": true,
+   "enabled": false,
    "name": "set_no_brush_smoothing",
    "shortcut": "",
    "text": ""
@@ -3579,7 +3395,7 @@
   {
    "checkable": false,
    "checked": false,
-   "enabled": true,
+   "enabled": false,
    "name": "set_simple_brush_smoothing",
    "shortcut": "",
    "text": ""
@@ -3587,7 +3403,7 @@
   {
    "checkable": false,
    "checked": false,
-   "enabled": true,
+   "enabled": false,
    "name": "set_weighted_brush_smoothing",
    "shortcut": "",
    "text": ""
@@ -3595,7 +3411,7 @@
   {
    "checkable": false,
    "checked": false,
-   "enabled": true,
+   "enabled": false,
    "name": "set_stabilizer_brush_smoothing",
    "shortcut": "",
    "text": ""
@@ -3603,7 +3419,7 @@
   {
    "checkable": false,
    "checked": false,
-   "enabled": true,
+   "enabled": false,
    "name": "set_pixel_perfect_smoothing",
    "shortcut": "",
    "text": ""
@@ -3611,7 +3427,7 @@
   {
    "checkable": false,
    "checked": false,
-   "enabled": true,
+   "enabled": false,
    "name": "toggle_assistant",
    "shortcut": "",
    "text": ""
@@ -3620,7 +3436,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KritaShape/KisToolDyna",
+   "name": "KritaShape/KisToolKnife",
    "shortcut": "",
    "text": ""
   },
@@ -3628,23 +3444,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KisToolPath",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KritaSelected/KisToolColorSampler",
-   "shortcut": "",
-   "text": ""
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": true,
-   "name": "KisToolPencil",
+   "name": "KisToolSelectContiguous",
    "shortcut": "",
    "text": ""
   },
@@ -3820,6 +3620,30 @@
    "checkable": false,
    "checked": false,
    "enabled": false,
+   "name": "text_type_preformatted",
+   "shortcut": "",
+   "text": "Convert Text To Preformatted"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "text_type_pre_positioned",
+   "shortcut": "",
+   "text": "Convert Text To Pre-positioned"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "text_type_inline_wrap",
+   "shortcut": "",
+   "text": "Convert Text To Inline Wrapped"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
    "name": "svg_type_setting_move_selection_start_down_1_px",
    "shortcut": "",
    "text": ""
@@ -3868,7 +3692,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KritaShape/KisToolLazyBrush",
+   "name": "PanTool",
    "shortcut": "",
    "text": ""
   },
@@ -3876,7 +3700,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KisToolSelectElliptical",
+   "name": "KritaShape/KisToolLine",
    "shortcut": "",
    "text": ""
   },
@@ -3884,7 +3708,15 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "ToolReferenceImages",
+   "name": "KisAssistantTool",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "ZoomTool",
    "shortcut": "",
    "text": ""
   },
@@ -3900,7 +3732,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KritaShape/KisToolMultiBrush",
+   "name": "KisToolSelectRectangular",
    "shortcut": "",
    "text": ""
   },
@@ -3908,7 +3740,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KisToolEncloseAndFill",
+   "name": "KisToolSelectOutline",
    "shortcut": "",
    "text": ""
   },
@@ -3916,33 +3748,241 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KritaShape/KisToolMeasure",
+   "name": "InteractionTool",
    "shortcut": "",
    "text": ""
   },
   {
    "checkable": false,
    "checked": false,
-   "enabled": true,
-   "name": "KritaFill/KisToolFill",
+   "enabled": false,
+   "name": "object_align_horizontal_left",
    "shortcut": "",
-   "text": ""
+   "text": "Align Left"
   },
   {
    "checkable": false,
    "checked": false,
-   "enabled": true,
-   "name": "KisToolSelectPolygonal",
+   "enabled": false,
+   "name": "object_align_horizontal_center",
    "shortcut": "",
-   "text": ""
+   "text": "Horizontally Center"
   },
   {
    "checkable": false,
    "checked": false,
-   "enabled": true,
-   "name": "KritaShape/KisToolRectangle",
+   "enabled": false,
+   "name": "object_align_horizontal_right",
    "shortcut": "",
-   "text": ""
+   "text": "Align Right"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_align_vertical_top",
+   "shortcut": "",
+   "text": "Align Top"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_align_vertical_center",
+   "shortcut": "",
+   "text": "Vertically Center"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_align_vertical_bottom",
+   "shortcut": "",
+   "text": "Align Bottom"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_horizontal_left",
+   "shortcut": "",
+   "text": "Distribute Left"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_horizontal_center",
+   "shortcut": "",
+   "text": "Distribute Centers Horizontally"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_horizontal_right",
+   "shortcut": "",
+   "text": "Distribute Right"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_horizontal_gaps",
+   "shortcut": "",
+   "text": "Distribute Horizontal Gap"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_vertical_top",
+   "shortcut": "",
+   "text": "Distribute Top"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_vertical_center",
+   "shortcut": "",
+   "text": "Distribute Centers Vertically"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_vertical_bottom",
+   "shortcut": "",
+   "text": "Distribute Bottom"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_vertical_gaps",
+   "shortcut": "",
+   "text": "Distribute Vertical Gap"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_group",
+   "shortcut": "",
+   "text": "Group"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_ungroup",
+   "shortcut": "",
+   "text": "Ungroup"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_unite",
+   "shortcut": "",
+   "text": "Unite"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_intersect",
+   "shortcut": "",
+   "text": "Intersect"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_subtract",
+   "shortcut": "",
+   "text": "Subtract"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_split",
+   "shortcut": "",
+   "text": "Split"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "add_shape_to_flow_area",
+   "shortcut": "",
+   "text": "Flow Text in Shape"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "subtract_shape_from_flow_area",
+   "shortcut": "",
+   "text": "Subtract Shape from Text Chain"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "put_text_on_path",
+   "shortcut": "",
+   "text": "Put Text On Path"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "remove_shapes_from_text_flow",
+   "shortcut": "",
+   "text": "Remove Shapes from Text Chain"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_type_toggle",
+   "shortcut": "",
+   "text": "Toggle Flow Shape Type"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_order_back",
+   "shortcut": "",
+   "text": "Set Flow Shape as Last"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_order_earlier",
+   "shortcut": "",
+   "text": "Move Shape Earlier In Chain."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_order_later",
+   "shortcut": "",
+   "text": "Move Shape Later In Chain."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_order_front",
+   "shortcut": "",
+   "text": "Set Shape As First In Chain"
   },
   {
    "checkable": false,
@@ -3956,7 +3996,71 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KritaShape/KisToolSmartPatch",
+   "name": "KisToolTransform",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformFree",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformPerspective",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformWarp",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformCage",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformLiquify",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformMesh",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolLazyBrush",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolBrush",
    "shortcut": "",
    "text": ""
   },
@@ -3972,7 +4076,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "KisToolPolyline",
+   "name": "KritaShape/KisToolMeasure",
    "shortcut": "",
    "text": ""
   },
@@ -3980,7 +4084,7 @@
    "checkable": false,
    "checked": false,
    "enabled": true,
-   "name": "PathTool",
+   "name": "KarbonCalligraphyTool",
    "shortcut": "",
    "text": ""
   },
@@ -3988,121 +4092,33 @@
    "checkable": false,
    "checked": false,
    "enabled": false,
-   "name": "pathpoint-corner",
+   "name": "calligraphy_increase_width",
    "shortcut": "",
-   "text": "Corner point"
+   "text": ""
   },
   {
    "checkable": false,
    "checked": false,
    "enabled": false,
-   "name": "pathpoint-smooth",
+   "name": "calligraphy_decrease_width",
    "shortcut": "",
-   "text": "Smooth point"
+   "text": ""
   },
   {
    "checkable": false,
    "checked": false,
    "enabled": false,
-   "name": "pathpoint-symmetric",
+   "name": "calligraphy_increase_angle",
    "shortcut": "",
-   "text": "Symmetric Point"
+   "text": ""
   },
   {
    "checkable": false,
    "checked": false,
    "enabled": false,
-   "name": "pathpoint-curve",
+   "name": "calligraphy_decrease_angle",
    "shortcut": "",
-   "text": "Make curve point"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "pathpoint-line",
-   "shortcut": "",
-   "text": "Make line point"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "pathsegment-line",
-   "shortcut": "F",
-   "text": "Segment to Line"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "pathsegment-curve",
-   "shortcut": "Shift+C",
-   "text": "Segment to Curve"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "pathpoint-insert",
-   "shortcut": "Ins",
-   "text": "Insert point"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "pathpoint-remove",
-   "shortcut": "Backspace",
-   "text": "Remove point"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "path-break-point",
-   "shortcut": "",
-   "text": "Break at point"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "path-break-segment",
-   "shortcut": "",
-   "text": "Break at segment"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "path-break-selection",
-   "shortcut": "Ctrl+B",
-   "text": "Break at selection"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "pathpoint-join",
-   "shortcut": "J",
-   "text": "Join with segment"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "pathpoint-merge",
-   "shortcut": "",
-   "text": "Merge points"
-  },
-  {
-   "checkable": false,
-   "checked": false,
-   "enabled": false,
-   "name": "convert-to-path",
-   "shortcut": "P",
-   "text": "To Path"
+   "text": ""
   },
   {
    "checkable": false,
@@ -4492,85 +4508,89 @@
  "tools": [
   {
    "active": false,
-   "id": "ZoomTool",
-   "name": "Zoom",
-   "section": "navigation",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KarbonCalligraphyTool",
-   "name": "Calligraphy",
-   "section": "main",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KisToolSelectOutline",
-   "name": "Freehand Selection Tool",
-   "section": "5 Krita/Select",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "PanTool",
-   "name": "Pan Tool",
-   "section": "navigation",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "InteractionTool",
-   "name": "Select Shapes Tool",
-   "section": "main",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KritaShape/KisToolEllipse",
-   "name": "Ellipse Tool",
+   "id": "KritaShape/KisToolRectangle",
+   "name": "Rectangle Tool",
+   "priority": 2,
    "section": "0 Krita/Shape",
    "shortcut": ""
   },
   {
    "active": false,
-   "id": "KisToolSelectRectangular",
-   "name": "Rectangular Selection Tool",
-   "section": "5 Krita/Select",
-   "shortcut": "Ctrl+R"
-  },
-  {
-   "active": false,
-   "id": "KritaShape/KisToolLine",
-   "name": "Line Tool",
-   "section": "0 Krita/Shape",
+   "id": "KritaShape/KisToolSmartPatch",
+   "name": "Smart Patch Tool",
+   "priority": 4,
+   "section": "3 Krita/Fill",
    "shortcut": ""
   },
   {
    "active": false,
-   "id": "KritaShape/KisToolKnife",
-   "name": "Comic Panel Editing Tool",
+   "id": "PathTool",
+   "name": "Edit Shapes Tool",
+   "priority": 2,
    "section": "main",
    "shortcut": ""
   },
   {
    "active": false,
-   "id": "KisAssistantTool",
-   "name": "Assistant Tool",
-   "section": "4 Krita/View",
+   "id": "KisToolPolyline",
+   "name": "Polyline Tool: Shift-mouseclick ends the polyline.",
+   "priority": 5,
+   "section": "0 Krita/Shape",
    "shortcut": ""
   },
   {
    "active": false,
-   "id": "KisToolSelectMagnetic",
-   "name": "Magnetic Selection Tool",
+   "id": "KritaShape/KisToolDyna",
+   "name": "Dynamic Brush Tool",
+   "priority": 10,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectElliptical",
+   "name": "Elliptical Selection Tool",
+   "priority": 1,
    "section": "5 Krita/Select",
+   "shortcut": "J"
+  },
+  {
+   "active": false,
+   "id": "KritaSelected/KisToolColorSampler",
+   "name": "Color Sampler Tool",
+   "priority": 2,
+   "section": "3 Krita/Fill",
+   "shortcut": "P"
+  },
+  {
+   "active": false,
+   "id": "KisToolEncloseAndFill",
+   "name": "Enclose and Fill Tool",
+   "priority": 15,
+   "section": "3 Krita/Fill",
    "shortcut": ""
   },
   {
    "active": false,
-   "id": "KisToolSelectContiguous",
-   "name": "Contiguous Selection Tool",
+   "id": "KisToolPencil",
+   "name": "Freehand Path Tool",
+   "priority": 9,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolPolygon",
+   "name": "Polygon Tool: Shift-mouseclick ends the polygon.",
+   "priority": 4,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectPolygonal",
+   "name": "Polygonal Selection Tool",
+   "priority": 2,
    "section": "5 Krita/Select",
    "shortcut": ""
   },
@@ -4578,6 +4598,159 @@
    "active": false,
    "id": "KisToolSelectSimilar",
    "name": "Similar Color Selection Tool",
+   "priority": 5,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "ToolReferenceImages",
+   "name": "Reference Images Tool",
+   "priority": 2,
+   "section": "4 Krita/View",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolPath",
+   "name": "Bezier Curve Tool: Shift-mouseclick ends the curve.",
+   "priority": 7,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectMagnetic",
+   "name": "Magnetic Selection Tool",
+   "priority": 8,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaFill/KisToolFill",
+   "name": "Fill Tool",
+   "priority": 14,
+   "section": "3 Krita/Fill",
+   "shortcut": "F"
+  },
+  {
+   "active": false,
+   "id": "KritaTransform/KisToolMove",
+   "name": "Move Tool",
+   "priority": 3,
+   "section": "2 Krita/Transform",
+   "shortcut": "T"
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolEllipse",
+   "name": "Ellipse Tool",
+   "priority": 3,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolMultiBrush",
+   "name": "Multibrush Tool",
+   "priority": 11,
+   "section": "0 Krita/Shape",
+   "shortcut": "Q"
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolKnife",
+   "name": "Comic Panel Editing Tool",
+   "priority": 7,
+   "section": "main",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectContiguous",
+   "name": "Contiguous Selection Tool",
+   "priority": 4,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "SvgTextTool",
+   "name": "SVG Text Tool",
+   "priority": 1,
+   "section": "main",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "PanTool",
+   "name": "Pan Tool",
+   "priority": 2,
+   "section": "navigation",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolLine",
+   "name": "Line Tool",
+   "priority": 1,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisAssistantTool",
+   "name": "Assistant Tool",
+   "priority": 0,
+   "section": "4 Krita/View",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "ZoomTool",
+   "name": "Zoom",
+   "priority": 0,
+   "section": "navigation",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaFill/KisToolGradient",
+   "name": "Gradient Tool",
+   "priority": 1,
+   "section": "3 Krita/Fill",
+   "shortcut": "G"
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectRectangular",
+   "name": "Rectangular Selection Tool",
+   "priority": 0,
+   "section": "5 Krita/Select",
+   "shortcut": "Ctrl+R"
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectOutline",
+   "name": "Freehand Selection Tool",
+   "priority": 3,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "InteractionTool",
+   "name": "Select Shapes Tool",
+   "priority": 0,
+   "section": "main",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectPath",
+   "name": "Bezier Curve Selection Tool",
+   "priority": 6,
    "section": "5 Krita/Select",
    "shortcut": ""
   },
@@ -4585,167 +4758,47 @@
    "active": false,
    "id": "KisToolTransform",
    "name": "Transform a layer or a selection",
+   "priority": 2,
    "section": "2 Krita/Transform",
    "shortcut": "Ctrl+T"
   },
   {
    "active": false,
-   "id": "KritaTransform/KisToolMove",
-   "name": "Move Tool",
-   "section": "2 Krita/Transform",
-   "shortcut": "T"
-  },
-  {
-   "active": false,
-   "id": "KisToolPolygon",
-   "name": "Polygon Tool: Shift-mouseclick ends the polygon.",
-   "section": "0 Krita/Shape",
+   "id": "KritaShape/KisToolLazyBrush",
+   "name": "Colorize Mask Editing Tool",
+   "priority": 3,
+   "section": "3 Krita/Fill",
    "shortcut": ""
   },
   {
    "active": true,
    "id": "KritaShape/KisToolBrush",
    "name": "Freehand Brush Tool",
+   "priority": 0,
    "section": "0 Krita/Shape",
    "shortcut": "B"
   },
   {
    "active": false,
-   "id": "KritaShape/KisToolDyna",
-   "name": "Dynamic Brush Tool",
-   "section": "0 Krita/Shape",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KisToolPath",
-   "name": "Bezier Curve Tool: Shift-mouseclick ends the curve.",
-   "section": "0 Krita/Shape",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KritaSelected/KisToolColorSampler",
-   "name": "Color Sampler Tool",
-   "section": "3 Krita/Fill",
-   "shortcut": "P"
-  },
-  {
-   "active": false,
-   "id": "KisToolPencil",
-   "name": "Freehand Path Tool",
-   "section": "0 Krita/Shape",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "SvgTextTool",
-   "name": "SVG Text Tool",
-   "section": "main",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KritaShape/KisToolLazyBrush",
-   "name": "Colorize Mask Editing Tool",
-   "section": "3 Krita/Fill",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KisToolSelectElliptical",
-   "name": "Elliptical Selection Tool",
-   "section": "5 Krita/Select",
-   "shortcut": "J"
-  },
-  {
-   "active": false,
-   "id": "ToolReferenceImages",
-   "name": "Reference Images Tool",
-   "section": "4 Krita/View",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KritaFill/KisToolGradient",
-   "name": "Gradient Tool",
-   "section": "3 Krita/Fill",
-   "shortcut": "G"
-  },
-  {
-   "active": false,
-   "id": "KritaShape/KisToolMultiBrush",
-   "name": "Multibrush Tool",
-   "section": "0 Krita/Shape",
-   "shortcut": "Q"
-  },
-  {
-   "active": false,
-   "id": "KisToolEncloseAndFill",
-   "name": "Enclose and Fill Tool",
-   "section": "3 Krita/Fill",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KritaShape/KisToolMeasure",
-   "name": "Measure Tool",
-   "section": "4 Krita/View",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KritaFill/KisToolFill",
-   "name": "Fill Tool",
-   "section": "3 Krita/Fill",
-   "shortcut": "F"
-  },
-  {
-   "active": false,
-   "id": "KisToolSelectPolygonal",
-   "name": "Polygonal Selection Tool",
-   "section": "5 Krita/Select",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KritaShape/KisToolRectangle",
-   "name": "Rectangle Tool",
-   "section": "0 Krita/Shape",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KisToolSelectPath",
-   "name": "Bezier Curve Selection Tool",
-   "section": "5 Krita/Select",
-   "shortcut": ""
-  },
-  {
-   "active": false,
-   "id": "KritaShape/KisToolSmartPatch",
-   "name": "Smart Patch Tool",
-   "section": "3 Krita/Fill",
-   "shortcut": ""
-  },
-  {
-   "active": false,
    "id": "KisToolCrop",
    "name": "Crop Tool",
+   "priority": 11,
    "section": "2 Krita/Transform",
    "shortcut": "C"
   },
   {
    "active": false,
-   "id": "KisToolPolyline",
-   "name": "Polyline Tool: Shift-mouseclick ends the polyline.",
-   "section": "0 Krita/Shape",
+   "id": "KritaShape/KisToolMeasure",
+   "name": "Measure Tool",
+   "priority": 1,
+   "section": "4 Krita/View",
    "shortcut": ""
   },
   {
    "active": false,
-   "id": "PathTool",
-   "name": "Edit Shapes Tool",
+   "id": "KarbonCalligraphyTool",
+   "name": "Calligraphy",
+   "priority": 6,
    "section": "main",
    "shortcut": ""
   }

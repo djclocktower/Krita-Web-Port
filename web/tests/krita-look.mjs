@@ -25,7 +25,7 @@ const icons = page => page.locator('[data-krita-tool]').evaluateAll(bs => bs.map
     const k = b.querySelector('.kicon'), cs = k && getComputedStyle(k);
     return { id: b.dataset.kritaTool, letters: !!b.querySelector('.letters'), mask: cs ? (cs.maskImage || cs.webkitMaskImage) : '', bg: cs?.backgroundColor, text: getComputedStyle(b).color };
 }));
-const menu = async (page, title) => { await page.getByRole('menuitem', { name: 'Settings', exact: true }).click(); await page.getByRole('menuitem', { name: title }).click(); };
+const menu = async (page, title) => { await page.getByRole('menuitem', { name: 'Settings', exact: true }).click(); await page.getByRole('menuitem', { name: 'Dockers' }).click(); await page.getByRole('menuitemcheckbox', { name: title }).click(); };
 
 // ================= mock
 {
@@ -72,8 +72,9 @@ const menu = async (page, title) => { await page.getByRole('menuitem', { name: '
 
     // dockers as panels
     await page.getByRole('menuitem', { name: 'Settings', exact: true }).click();
-    const items = await page.getByRole('menuitem').allInnerTexts();
-    check(items.some(t => t.includes('Krita Dockers › Mock Palette')) && items.some(t => t.includes('Krita Dockers › Mock Histogram')), 'Settings lists the Krita dockers', items.filter(t => /Docker/.test(t)));
+    await page.getByRole('menuitem', { name: 'Dockers' }).click();
+    const items = await page.getByRole('menuitemcheckbox').allInnerTexts();
+    check(items.some(t => t.includes('Mock Palette')) && items.some(t => t.includes('Mock Histogram')), 'Settings > Dockers lists the Krita dockers', items);
     await page.keyboard.press('Escape');
     await menu(page, /Mock Palette/);
     await page.waitForSelector('section[aria-label="right panels"] [role=tab]:text-is("Mock Palette")');
@@ -87,15 +88,16 @@ const menu = async (page, title) => { await page.getByRole('menuitem', { name: '
     await menu(page, /Mock Histogram/);
     await page.waitForSelector('section[aria-label="right panels"] [role=tab]:text-is("Mock Histogram")');
     await page.getByRole('menuitem', { name: 'Settings', exact: true }).click();
-    const marked = await page.getByRole('menuitem').allInnerTexts();
-    check(marked.some(t => t.startsWith('✓ Krita Dockers › Mock Palette')) && marked.some(t => t.startsWith('✓ Krita Dockers › Mock Histogram')), 'open dockers are marked in the menu', marked.filter(t => /Docker/.test(t)));
+    await page.getByRole('menuitem', { name: 'Dockers' }).click();
+    const marked = await page.locator('[role=menuitemcheckbox][aria-checked=true]').allInnerTexts();
+    check(marked.some(t => t.includes('Mock Palette')) && marked.some(t => t.includes('Mock Histogram')), 'open dockers are marked in the menu', marked);
     await page.keyboard.press('Escape');
     await page.getByRole('button', { name: 'Close Mock Palette' }).click();
     await page.waitForTimeout(300);
     check(await page.locator('[role=tab]:text-is("Mock Palette")').count() === 0, 'closing the panel removes it');
     check(JSON.stringify(await page.evaluate(() => __engine.__kritaLog.dockers)) === JSON.stringify([['mockPalette', true], ['mockHistogram', true], ['mockPalette', false]]), 'closing calls showKritaDocker(id, false)');
     // choosing an open docker again closes it
-    await menu(page, /Krita Dockers › Mock Histogram/);
+    await menu(page, /Mock Histogram/);
     await page.waitForTimeout(300);
     check(await page.locator('[role=tab]:text-is("Mock Histogram")').count() === 0, 'choosing an open docker closes it');
     await page.context().close();
@@ -104,7 +106,8 @@ const menu = async (page, title) => { await page.getByRole('menuitem', { name: '
     const phone = await open('?kritaMock=1', { width: 390, height: 780 });
     await phone.getByRole('button', { name: '☰ Menu' }).click();
     await phone.getByRole('button', { name: 'Settings', exact: true }).click();
-    await phone.getByRole('button', { name: /Mock Palette/ }).click();
+    await phone.getByRole('button', { name: 'Dockers' }).click();
+    await phone.getByRole('menuitemcheckbox', { name: /Mock Palette/ }).click();
     await phone.getByRole('button', { name: 'Panels' }).click();
     check(await phone.locator('.sheet-bottom [role=tab]:text-is("Mock Palette")').count() === 1, 'phone: an opened docker is a tab of the panel sheet');
     await phone.context().close();

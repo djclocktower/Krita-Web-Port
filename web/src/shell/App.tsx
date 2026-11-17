@@ -3,7 +3,7 @@ import { Canvas } from '../canvas/Canvas';
 import { view } from '../canvas/view';
 import type { Engine } from '../engine/protocol';
 import { attachKeys } from '../input/keys';
-import { effective, withShortcuts } from '../settings/shortcuts';
+import { withShortcuts } from '../settings/shortcuts';
 import { loadSettings, useSetting, type Area } from '../settings/store';
 import { type Command, type Panel } from '../panels';
 import { usePanels } from '../krita/dockers';
@@ -12,9 +12,9 @@ import { Dialogs } from '../dialogs';
 import { MobileShell } from '../mobile/MobileShell';
 import { newDocDefaults, refreshMode, useUiMode } from '../mobile/mode';
 import { KritaUI } from '../krita/Windows';
-import { krita } from '../krita/state';
 import { applyAppearance } from './appearance';
-import { allCommands, isEnabled, menuCommands } from './commands';
+import { allCommands, isEnabled } from './commands';
+import { MenuBar, pick, Tree, useMenus } from './menus';
 import { errors } from './errors';
 import { sheet, useLayout, useSheet, type Layout } from './layout';
 import { notice, restoreDocument, restoreResources, saveState, wrapEngine } from '../storage/session';
@@ -27,7 +27,6 @@ import './themes.css';
 
 if (import.meta.env.DEV) (window as unknown as { __app: unknown }).__app = app;   // for tests
 
-const MENUS = ['File', 'Edit', 'View', 'Image', 'Layer', 'Select', 'Filter', 'Tools', 'Settings'] as const;
 
 
 export function App({ engine: rawEngine }: { engine: Engine }) {
@@ -114,60 +113,6 @@ function ErrorBanner() {
     );
 }
 
-function MenuBar({ run }: { run: (c: Command) => void }) {
-    useStore(app); useStore(krita);   // re-render when what is enabled changes, or the Krita dockers do
-    const shortcuts = useSetting('shortcuts'); useSetting('workspaces');
-    const commands = menuCommands();
-    const [open, setOpen] = useState<string | null>(null);
-    const viaKey = useRef(false);
-    const bar = useRef<HTMLElement>(null);
-    const menus = MENUS.filter(m => commands.some(c => c.menu === m));
-
-    useEffect(() => {
-        if (!open) return;
-        if (viaKey.current) bar.current?.querySelector<HTMLElement>('.menu-list [role=menuitem]:not(:disabled)')?.focus();
-        const close = (e: PointerEvent) => { if (!bar.current?.contains(e.target as Node)) setOpen(null); };
-        document.addEventListener('pointerdown', close);
-        return () => document.removeEventListener('pointerdown', close);
-    }, [open]);
-
-
-    const keydown = (e: KeyboardEvent) => {
-        const t = e.target as HTMLElement, inList = !!t.closest('.menu-list'), i = menus.findIndex(m => m === (open ?? t.dataset.menu));
-        const move = (to: number) => { viaKey.current = true; setOpen(menus[(to + menus.length) % menus.length]); };
-        if (e.key === 'Escape' && open) { e.preventDefault(); setOpen(null); bar.current?.querySelector<HTMLElement>(`[data-menu="${open}"]`)?.focus(); }
-        else if (e.key === 'ArrowRight' && i >= 0) { e.preventDefault(); move(i + 1); }
-        else if (e.key === 'ArrowLeft' && i >= 0) { e.preventDefault(); move(i - 1); }
-        else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-            e.preventDefault();
-            if (!inList) { viaKey.current = true; setOpen(t.dataset.menu!); return; }
-            const items = [...bar.current!.querySelectorAll<HTMLElement>('.menu-list [role=menuitem]:not(:disabled)')];
-            items[(items.indexOf(t) + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length]?.focus();
-        }
-    };
-    return (
-        <nav class="menubar" role="menubar" aria-label="Main menu" ref={bar} onKeyDown={keydown}
-            onFocusOut={e => { if (!bar.current?.contains(e.relatedTarget as Node)) setOpen(null); }}>
-            {menus.map(m => (
-                <div class="menu" key={m}>
-                    <button role="menuitem" data-menu={m} aria-haspopup="menu" aria-expanded={open === m}
-                        onClick={e => { viaKey.current = e.detail === 0; setOpen(open === m ? null : m); }}
-                        onPointerEnter={e => { if (open && e.pointerType === 'mouse') { viaKey.current = false; setOpen(m); } }}>{m}</button>
-                    {open === m && (
-                        <div class="menu-list" role="menu" aria-label={m}>
-                            {commands.filter(c => c.menu === m).map(c => (
-                                <button role="menuitem" key={c.id} disabled={!isEnabled(c)} onClick={() => { setOpen(null); run(c); }}>
-                                    <span>{menuTitle(c)}</span>{effective(c, shortcuts) && <kbd>{effective(c, shortcuts)}</kbd>}
-                                </button>
-                            ))}
-                        </div>
-                    )}
-                </div>
-            ))}
-        </nav>
-    );
-}
-
 function Toolbar({ engine }: { engine: Engine }) {
     const { brush, fg, bg, history } = useStore(app);
     const color = (label: string, c: typeof fg, key: 'foreground' | 'background') => (
@@ -202,13 +147,12 @@ function Toolbar({ engine }: { engine: Engine }) {
 
 /** Phone: the menu bar is one button that opens a full-height list; the same bar opens the panel sheet. */
 function MobileBar({ run }: { run: (c: Command) => void }) {
-    const { doc } = useStore(app); useStore(krita);
+    const { doc } = useStore(app);
     const sh = useSheet();
+    const shortcuts = useSetting('shortcuts');
     const [open, setOpen] = useState(false);
-    const [group, setGroup] = useState<string | null>(null);
-    useSetting('workspaces');
-    const commands = menuCommands();
-    const menus = MENUS.filter(m => commands.some(c => c.menu === m));
+    const [group, setGroup] = useState('');
+    const menus = useMenus();
     return (
         <div class="mobile-bar">
             <button class="menu-toggle" aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>☰ Menu</button>
@@ -217,24 +161,15 @@ function MobileBar({ run }: { run: (c: Command) => void }) {
             {open && (
                 <nav id="mobile-menu" class="menu-sheet" aria-label="Main menu">
                     {menus.map(m => (
-                        <div key={m}>
-                            <button class="group" aria-expanded={group === m} onClick={() => setGroup(group === m ? null : m)}>{m}<span aria-hidden="true">{group === m ? '▾' : '▸'}</span></button>
-                            {group === m && commands.filter(c => c.menu === m).map(c => (
-                                <button class="item" key={c.id} disabled={!isEnabled(c)} onClick={() => { setOpen(false); run(c); }}>
-                                    <span>{menuTitle(c)}</span>
-                                </button>
-                            ))}
+                        <div key={m.name}>
+                            <button class="group" aria-expanded={group.split('>')[0] === m.name} onClick={() => setGroup(group.split('>')[0] === m.name ? '' : m.name)}>{m.name}<span aria-hidden="true">{group.split('>')[0] === m.name ? '▾' : '▸'}</span></button>
+                            {group.split('>')[0] === m.name && <Tree items={m.items} k={m.name} open={group} setOpen={setGroup} shortcuts={shortcuts} choose={e => { setOpen(false); pick(e, run); }} />}
                         </div>
                     ))}
                 </nav>
             )}
         </div>
     );
-}
-
-function menuTitle(c: Command) {
-    const { history } = app.get();
-    return c.id === 'edit.undo' && history.undoText ? `Undo ${history.undoText}` : c.id === 'edit.redo' && history.redoText ? `Redo ${history.redoText}` : c.title;
 }
 
 const shown = (p: Panel, visible: string[] | null) => !!p.close || !visible || visible.includes(p.id);   // an opened Krita docker is always shown

@@ -159,6 +159,16 @@ static QAtomicInt g_updatesInFlight;
 
 struct Failure { QString message; };
 
+/// Krita actions that take the engine (or the whole tab) down in this build; refused until fixed.
+// ponytail: a fixed list from the parity sweep (docs/parity/REPORT.md, A1); remove an entry when its cause is fixed.
+static const QSet<QString> &brokenActions()
+{
+    static const QSet<QString> names{
+        "add_new_fast_color_overlay_mask",   // crashes the tab at once; no stack obtained
+        "convert_to_filter_mask"};           // its dialog cannot be closed
+    return names;
+}
+
 /// KeyboardEvent.key -> Qt::Key
 static int qtKey(const QString &key)
 {
@@ -1633,12 +1643,14 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             QJsonArray list;
             for (QAction *a : window->actionCollection()->actions())
                 list.append(QJsonObject{{"name", a->objectName()}, {"text", a->text().remove('&')}, {"shortcut", a->shortcut().toString()},
-                                        {"enabled", a->isEnabled()}, {"checkable", a->isCheckable()}, {"checked", a->isChecked()}});
+                                        {"enabled", a->isEnabled() && !brokenActions().contains(a->objectName())},
+                                        {"checkable", a->isCheckable()}, {"checked", a->isChecked()}});
             return list;
         }
         if (m == "krita.trigger") {
             QAction *a = window->actionCollection()->action(p["name"].toString());
             if (!a) fail("Unknown action: " + p["name"].toString());
+            if (brokenActions().contains(a->objectName())) fail(a->text().remove('&') + " is not available in the web version yet");
             if (!a->isEnabled()) fail("Action is not available right now: " + p["name"].toString());
             a->trigger();
             settle();

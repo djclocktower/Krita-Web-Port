@@ -169,6 +169,32 @@ index 9321631..7527218 100644
  {
      dbg.nospace() << "Range(" << r.start << ", " << r.end << ")";
  
+diff --git a/libs/global/kis_assert.cpp b/libs/global/kis_assert.cpp
+index 0497700..e2e259c 100644
+--- a/libs/global/kis_assert.cpp
++++ b/libs/global/kis_assert.cpp
+@@ -8,6 +8,7 @@
+ 
+ #include <QString>
+ #include <QMessageBox>
++#include <stdexcept>
+ #include <QThread>
+ #include <QProcessEnvironment>
+ #include <QCoreApplication>
+@@ -86,6 +87,13 @@ void kis_assert_common(const char *assertion, const char *file, int line, bool a
+     }
+ 
+     if (button == QMessageBox::Abort || abort) {
++#ifdef __EMSCRIPTEN__
++        // In a browser tab a dead engine takes the whole session with it. On Krita's own thread the
++        // web bridge turns this into an error for the request that ran into it and carries on.
++        if (QCoreApplication::instance() && QThread::currentThread() == QCoreApplication::instance()->thread()) {
++            throw std::runtime_error(shortMessage.toStdString());
++        }
++#endif
+         qFatal("%s", shortMessage.toLatin1().data());
+     } else if (isIgnorable) {
+         // Assert is a bug! Please don't change this line to warnKrita,
 diff --git a/libs/image/kis_filter_weights_applicator.h b/libs/image/kis_filter_weights_applicator.h
 index c562543..1119bd0 100644
 --- a/libs/image/kis_filter_weights_applicator.h
@@ -978,6 +1004,63 @@ index 44b5c7e..2f1c4d2 100644
  ki18n_wrap_ui(kritalevelfilter_SOURCES
      KisLevelsConfigWidget.ui
      )
+diff --git a/plugins/generators/solid/kis_wdg_color.cpp b/plugins/generators/solid/kis_wdg_color.cpp
+index c99509e..ac8d41e 100644
+--- a/plugins/generators/solid/kis_wdg_color.cpp
++++ b/plugins/generators/solid/kis_wdg_color.cpp
+@@ -19,7 +19,7 @@
+ KisWdgColor::KisWdgColor(QWidget* parent, const KoColorSpace *cs)
+         : KisConfigWidget(parent)
+ {
+-    m_widget = new Ui_WdgColorOptions();
++    m_widget = new Ui_WdgSolidColorOptions();
+     m_widget->setupUi(this);
+     m_cs = cs;
+     connect(m_widget->bnColor, SIGNAL(changed(const KoColor&)), this, SIGNAL(sigConfigurationUpdated()));
+diff --git a/plugins/generators/solid/kis_wdg_color.h b/plugins/generators/solid/kis_wdg_color.h
+index d9b3287..10f6e72 100644
+--- a/plugins/generators/solid/kis_wdg_color.h
++++ b/plugins/generators/solid/kis_wdg_color.h
+@@ -13,7 +13,7 @@
+ #include <KoColorSpace.h>
+ #include <KoColorSpaceRegistry.h>
+ 
+-class Ui_WdgColorOptions;
++class Ui_WdgSolidColorOptions;
+ 
+ class KisWdgColor : public KisConfigWidget
+ {
+@@ -22,13 +22,13 @@ public:
+     KisWdgColor(QWidget* parent = 0, const KoColorSpace *cs = KoColorSpaceRegistry::instance()->rgb8());
+     ~KisWdgColor() override;
+ public:
+-    inline const Ui_WdgColorOptions* widget() const {
++    inline const Ui_WdgSolidColorOptions* widget() const {
+         return m_widget;
+     }
+     void setConfiguration(const KisPropertiesConfigurationSP) override;
+     KisPropertiesConfigurationSP configuration() const override;
+ private:
+-    Ui_WdgColorOptions* m_widget;
++    Ui_WdgSolidColorOptions* m_widget;
+     const KoColorSpace *m_cs;
+ };
+ 
+diff --git a/plugins/generators/solid/wdgcoloroptions.ui b/plugins/generators/solid/wdgcoloroptions.ui
+index 8ebda36..e99ef52 100644
+--- a/plugins/generators/solid/wdgcoloroptions.ui
++++ b/plugins/generators/solid/wdgcoloroptions.ui
+@@ -4,8 +4,8 @@
+     SPDX-FileCopyrightText: none
+     SPDX-License-Identifier: GPL-3.0-or-later
+   </author>
+- <class>WdgColorOptions</class>
+- <widget class="QWidget" name="WdgColorOptions">
++ <class>WdgSolidColorOptions</class>
++ <widget class="QWidget" name="WdgSolidColorOptions">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
 diff --git a/plugins/impex/exr/exr_export.cc b/plugins/impex/exr/exr_export.cc
 index 46ac959..0965352 100644
 --- a/plugins/impex/exr/exr_export.cc

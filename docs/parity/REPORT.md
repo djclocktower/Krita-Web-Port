@@ -1,6 +1,6 @@
 # Krita parity sweep report
 
-Generated 2026-11-17T08:57:17.430Z by `web/tests/parity-sweep.mjs` from `docs/parity/results/*.json` (engine in `web/public/engine`, Chromium + swiftshader).
+Generated 2026-11-17T09:18:37.378Z by `web/tests/parity-sweep.mjs` from `docs/parity/results/*.json` (engine in `web/public/engine`, Chromium + swiftshader).
 
 ## Headline counts
 
@@ -8,13 +8,14 @@ Generated 2026-11-17T08:57:17.430Z by `web/tests/parity-sweep.mjs` from `docs/pa
 
 | outcome | count |
 |---|---|
-| changed layers/selection/history/view | 141 |
-| no visible effect | 115 |
-| disabled | 109 |
-| changed image | 87 |
-| opened dialog | 73 |
+| changed layers/selection/history/view | 168 |
+| no visible effect | 139 |
+| changed image | 95 |
+| opened dialog | 74 |
+| disabled | 44 |
 | message | 19 |
 | opened popup | 12 |
+| not available when triggered | 5 |
 | crash | 4 |
 | hang | 1 |
 
@@ -111,6 +112,7 @@ _(docs/parity/NOTES.md missing)_
 | shearAllLayers | Shear All Layers... | dialog: Shear Layer – Krita | 250x121 modal | Escape | done | actions/shearimage__Shear_Image_Krita.png |
 | waveletdecompose | Wavelet Decompose ... | dialog: WaveletDecompose – Krita | 202x83 modal | Escape | done | actions/waveletdecompose__WaveletDecompose_Krita.png |
 | EditLayerMetaData | Edit metadata... | dialog:  | 100x30 modal | Escape | done | actions/EditLayerMetaData__.png |
+| svg_insert_special_character | Glyph Palette... | dialog: Glyph Palette | 500x300 | Escape | done | actions/svg_insert_special_character__Glyph_Palette.png |
 | save_incremental_version | Save Incremental Version | dialog: Saving As | 908x421 modal | Escape | done | actions/save_incremental_version__Saving_As.png |
 | save_incremental_backup | Save Incremental Backup | dialog: Saving As | 908x421 modal | Escape | done | actions/save_incremental_version__Saving_As.png |
 | tablet_debugger | Toggle Tablet Debugger | dialog: Krita | 640x480 modal | Escape | done | actions/tablet_debugger__Krita.png |
@@ -246,11 +248,35 @@ _(docs/parity/NOTES.md missing)_
 | paintops | Painter's Tools | - | base |  |
 | dockerBox | Docker Box | - | base |  |
 | LayerGroupSwitcher/next | Move into next group | - | group | cond 0 flags 0 |
+| calligraphy_increase_width | Calligraphy: increase width | - | vector |  |
+| calligraphy_decrease_width | Calligraphy: decrease width | - | vector |  |
+| calligraphy_increase_angle | Calligraphy: increase angle | - | vector |  |
+| calligraphy_decrease_angle | Calligraphy: decrease angle | - | vector |  |
 | rotate_brush_tip_clockwise | Rotate brush tip clockwise | - | base | cond 0 flags 0 |
 | rotate_brush_tip_clockwise_precise | Rotate brush tip clockwise (precise) | - | base | cond 0 flags 0 |
 | rotate_brush_tip_counter_clockwise | Rotate brush tip counter-clockwise | - | base | cond 0 flags 0 |
 | rotate_brush_tip_counter_clockwise_precise | Rotate brush tip counter-clockwise (precise) | - | base | cond 0 flags 0 |
+| object_order_front | Bring to Front | - | vector |  |
+| object_order_raise | Raise | - | vector |  |
+| object_order_lower | Lower | - | vector |  |
+| object_order_back | Send to Back | - | vector |  |
+| movetool-move-up | Move up | - | base |  |
+| movetool-move-down | Move down | - | base |  |
+| movetool-move-left | Move left | - | base |  |
+| movetool-move-right | Move right | - | base |  |
+| movetool-move-up-more | Move up more | - | base |  |
+| movetool-move-down-more | Move down more | - | base |  |
+| movetool-move-left-more | Move left more | - | base |  |
+| movetool-move-right-more | Move right more | - | base |  |
 | KritaShape/KisToolBrush | Freehand Brush Tool | - | base |  |
+| set_no_brush_smoothing | Brush Smoothing: Disabled | - | base |  |
+| set_simple_brush_smoothing | Brush Smoothing: Basic | - | base |  |
+| set_weighted_brush_smoothing | Brush Smoothing: Weighted | - | base |  |
+| set_stabilizer_brush_smoothing | Brush Smoothing: Stabilizer | - | base |  |
+| set_pixel_perfect_smoothing | Brush Smoothing: Pixel | - | base |  |
+| toggle_assistant | Toggle Snap To Assistants | - | base |  |
+| svg_paste_rich_text | Paste Rich Text | - | vector |  |
+| svg_paste_plain_text | Paste Plain Text | - | vector |  |
 | edit_redo | Redo  | Edit | base | cond 0 flags 1 |
 | open_resources_directory | Open Resources Folder | - | base | cond 0 flags 0 |
 | view_print_size | View Print Size | View | base |  |
@@ -276,24 +302,6 @@ _(docs/parity/NOTES.md missing)_
 | action | text | menu | activation in .action |
 |---|---|---|---|
 | configure_sap | Configure selection actions bar | Select |  |
-| calligraphy_increase_width | Calligraphy: increase width | - |  |
-| calligraphy_decrease_width | Calligraphy: decrease width | - |  |
-| calligraphy_increase_angle | Calligraphy: increase angle | - |  |
-| calligraphy_decrease_angle | Calligraphy: decrease angle | - |  |
-| selection_tool_mode_add | Selection Mode: Add | - |  |
-| selection_tool_mode_replace | Selection Mode: Replace | - |  |
-| selection_tool_mode_subtract | Selection Mode: Subtract | - |  |
-| selection_tool_mode_intersect | Selection Mode: Intersect | - |  |
-| object_order_front | Bring to Front | - |  |
-| object_order_raise | Raise | - |  |
-| object_order_lower | Lower | - |  |
-| object_order_back | Send to Back | - |  |
-| object_align_horizontal_left | Align Left | - |  |
-| object_align_horizontal_center | Horizontally Center | - |  |
-| object_align_horizontal_right | Align Right | - |  |
-| object_align_vertical_top | Align Top | - |  |
-| object_align_vertical_center | Vertically Center | - |  |
-| object_align_vertical_bottom | Align Bottom | - |  |
 | object_distribute_horizontal_left | Distribute Left | - |  |
 | object_distribute_horizontal_center | Distribute Centers Horizontally | - |  |
 | object_distribute_horizontal_right | Distribute Right | - |  |
@@ -304,18 +312,10 @@ _(docs/parity/NOTES.md missing)_
 | object_distribute_vertical_gaps | Distribute Vertical Gap | - |  |
 | object_group | Group | - |  |
 | object_ungroup | Ungroup | - |  |
-| object_transform_rotate_90_cw | Rotate 90° CW | - |  |
-| object_transform_rotate_90_ccw | Rotate 90° CCW | - |  |
-| object_transform_rotate_180 | Rotate 180° | - |  |
-| object_transform_mirror_horizontally | Mirror Horizontally | - |  |
-| object_transform_mirror_vertically | Mirror Vertically | - |  |
-| object_transform_reset | Reset Transformations | - |  |
 | object_unite | Unite | - |  |
 | object_intersect | Intersect | - |  |
 | object_subtract | Subtract | - |  |
 | object_split | Split | - |  |
-| text_type_preformatted | Convert Text To Preformatted | - |  |
-| text_type_pre_positioned | Convert Text To Pre-positioned | - |  |
 | text_type_inline_wrap | Convert Text To Inline Wrapped | - |  |
 | add_shape_to_flow_area | Flow Text in Shape | - |  |
 | subtract_shape_from_flow_area | Subtract Shape from Text Chain | - |  |
@@ -326,48 +326,10 @@ _(docs/parity/NOTES.md missing)_
 | flow_shape_order_earlier | Move Shape Earlier In Chain. | - |  |
 | flow_shape_order_later | Move Shape Later In Chain. | - |  |
 | flow_shape_order_front | Set Shape As First In Chain | - |  |
-| undo_polygon_selection | Undo Polygon Selection Points | - |  |
-| movetool-move-up | Move up | - |  |
-| movetool-move-down | Move down | - |  |
-| movetool-move-left | Move left | - |  |
-| movetool-move-right | Move right | - |  |
-| movetool-move-up-more | Move up more | - |  |
-| movetool-move-down-more | Move down more | - |  |
-| movetool-move-left-more | Move left more | - |  |
-| movetool-move-right-more | Move right more | - |  |
-| movetool-show-coordinates | Show Coordinates | - |  |
-| set_no_brush_smoothing | Brush Smoothing: Disabled | - |  |
-| set_simple_brush_smoothing | Brush Smoothing: Basic | - |  |
-| set_weighted_brush_smoothing | Brush Smoothing: Weighted | - |  |
-| set_stabilizer_brush_smoothing | Brush Smoothing: Stabilizer | - |  |
-| set_pixel_perfect_smoothing | Brush Smoothing: Pixel | - |  |
-| toggle_assistant | Toggle Snap To Assistants | - |  |
-| svg_align_center | Align Center | - |  |
-| svg_align_justified | Align Block | - |  |
-| svg_align_left | Align Left | - |  |
-| svg_align_right | Align Right | - |  |
-| svg_decrease_font_size | Decrease Font Size | - |  |
-| svg_font_kerning | Kerning | - |  |
-| svg_format_italic | Italic | - |  |
-| svg_format_strike_through | Strikethrough | - |  |
-| svg_format_subscript | Subscript | - |  |
-| svg_format_superscript | Superscript | - |  |
-| svg_format_underline | Underline | - |  |
-| svg_increase_font_size | Increase Font Size | - |  |
-| svg_weight_black | Black | - |  |
-| svg_weight_bold | Bold | - |  |
-| svg_weight_demi | Demi | - |  |
-| svg_weight_light | Light | - |  |
-| svg_weight_normal | Normal | - |  |
-| svg_insert_special_character | Glyph Palette... | - |  |
-| svg_paste_rich_text | Paste Rich Text | - |  |
-| svg_paste_plain_text | Paste Plain Text | - |  |
 | svg_type_setting_move_selection_start_down_1_px | Move Text Selection Down By 1 Pixel | - |  |
 | svg_type_setting_move_selection_start_up_1_px | Move Text Selection Up By 1 Pixel | - |  |
 | svg_type_setting_move_selection_start_left_1_px | Move Text Selection Left By 1 Pixel | - |  |
 | svg_type_setting_move_selection_start_right_1_px | Move Text Selection Right By 1 Pixel | - |  |
-| svg_remove_transforms_from_range | Remove Character Transforms | - |  |
-| svg_clear_formatting | Clear Formatting | - |  |
 | pathpoint-corner | Corner point | - |  |
 | pathpoint-smooth | Smooth point | - |  |
 | pathpoint-symmetric | Symmetric Point | - |  |
@@ -382,7 +344,6 @@ _(docs/parity/NOTES.md missing)_
 | path-break-selection | Break at selection | - |  |
 | pathpoint-join | Join with segment | - |  |
 | pathpoint-merge | Merge points | - |  |
-| convert-to-path | To Path | - |  |
 | file_open_recent | Open Recent | File | cond 0 flags 1 |
 
 ## A5. Every action
@@ -724,10 +685,10 @@ _(docs/parity/NOTES.md missing)_
 | EditLayerMetaData | Edit metadata... | base | opened dialog |  |
 | ZoomTool | Zoom Tool | base | changed layers/selection/history/view | enabledSet |
 | KarbonCalligraphyTool | Calligraphy | base | changed layers/selection/history/view | enabledSet |
-| calligraphy_increase_width | Calligraphy: increase width | vector | disabled |  |
-| calligraphy_decrease_width | Calligraphy: decrease width | vector | disabled |  |
-| calligraphy_increase_angle | Calligraphy: increase angle | vector | disabled |  |
-| calligraphy_decrease_angle | Calligraphy: decrease angle | vector | disabled |  |
+| calligraphy_increase_width | Calligraphy: increase width | vector | no visible effect |  |
+| calligraphy_decrease_width | Calligraphy: decrease width | vector | no visible effect |  |
+| calligraphy_increase_angle | Calligraphy: increase angle | vector | no visible effect |  |
+| calligraphy_decrease_angle | Calligraphy: decrease angle | vector | no visible effect |  |
 | KisToolSelectOutline | Freehand Selection Tool | base | changed layers/selection/history/view | enabledSet |
 | increase_brush_size | Increase Brush Size | base | changed layers/selection/history/view | Brush Size: 22 px ; brush |
 | decrease_brush_size | Decrease Brush Size | base | changed layers/selection/history/view | Brush Size: 18 px ; brush |
@@ -735,22 +696,22 @@ _(docs/parity/NOTES.md missing)_
 | rotate_brush_tip_clockwise_precise | Rotate brush tip clockwise (precise) | base | no visible effect |  |
 | rotate_brush_tip_counter_clockwise | Rotate brush tip counter-clockwise | base | no visible effect |  |
 | rotate_brush_tip_counter_clockwise_precise | Rotate brush tip counter-clockwise (precise) | base | no visible effect |  |
-| selection_tool_mode_add | Selection Mode: Add | base | disabled |  |
-| selection_tool_mode_replace | Selection Mode: Replace | base | disabled |  |
-| selection_tool_mode_subtract | Selection Mode: Subtract | base | disabled |  |
-| selection_tool_mode_intersect | Selection Mode: Intersect | base | disabled |  |
+| selection_tool_mode_add | Selection Mode: Add | base | not available when triggered | Action is not available right now: selection_tool_mode_add |
+| selection_tool_mode_replace | Selection Mode: Replace | base | not available when triggered | Action is not available right now: selection_tool_mode_replace |
+| selection_tool_mode_subtract | Selection Mode: Subtract | base | not available when triggered | Action is not available right now: selection_tool_mode_subtract |
+| selection_tool_mode_intersect | Selection Mode: Intersect | base | not available when triggered | Action is not available right now: selection_tool_mode_intersect |
 | PanTool | Pan Tool | base | changed layers/selection/history/view | enabledSet |
 | InteractionTool | Select Shapes Tool | base | changed layers/selection/history/view | enabledSet |
-| object_order_front | Bring to Front | vector | disabled |  |
-| object_order_raise | Raise | vector | disabled |  |
-| object_order_lower | Lower | vector | disabled |  |
-| object_order_back | Send to Back | vector | disabled |  |
-| object_align_horizontal_left | Align Left | vector | disabled |  |
-| object_align_horizontal_center | Horizontally Center | vector | disabled |  |
-| object_align_horizontal_right | Align Right | vector | disabled |  |
-| object_align_vertical_top | Align Top | vector | disabled |  |
-| object_align_vertical_center | Vertically Center | vector | disabled |  |
-| object_align_vertical_bottom | Align Bottom | vector | disabled |  |
+| object_order_front | Bring to Front | vector | no visible effect |  |
+| object_order_raise | Raise | vector | no visible effect |  |
+| object_order_lower | Lower | vector | no visible effect |  |
+| object_order_back | Send to Back | vector | no visible effect |  |
+| object_align_horizontal_left | Align Left | vector | changed image | image+history |
+| object_align_horizontal_center | Horizontally Center | vector | changed image | image+history |
+| object_align_horizontal_right | Align Right | vector | changed image | image+history |
+| object_align_vertical_top | Align Top | vector | changed image | image+history |
+| object_align_vertical_center | Vertically Center | vector | changed image | image+history |
+| object_align_vertical_bottom | Align Bottom | vector | changed image | image+history |
 | object_distribute_horizontal_left | Distribute Left | vector | disabled |  |
 | object_distribute_horizontal_center | Distribute Centers Horizontally | vector | disabled |  |
 | object_distribute_horizontal_right | Distribute Right | vector | disabled |  |
@@ -761,18 +722,18 @@ _(docs/parity/NOTES.md missing)_
 | object_distribute_vertical_gaps | Distribute Vertical Gap | vector | disabled |  |
 | object_group | Group | vector | disabled |  |
 | object_ungroup | Ungroup | vector | disabled |  |
-| object_transform_rotate_90_cw | Rotate 90° CW | vector | disabled |  |
-| object_transform_rotate_90_ccw | Rotate 90° CCW | vector | disabled |  |
-| object_transform_rotate_180 | Rotate 180° | vector | disabled |  |
-| object_transform_mirror_horizontally | Mirror Horizontally | vector | disabled |  |
-| object_transform_mirror_vertically | Mirror Vertically | vector | disabled |  |
-| object_transform_reset | Reset Transformations | vector | disabled |  |
+| object_transform_rotate_90_cw | Rotate 90° CW | vector | changed image | image+history |
+| object_transform_rotate_90_ccw | Rotate 90° CCW | vector | changed image | image+history |
+| object_transform_rotate_180 | Rotate 180° | vector | changed layers/selection/history/view | history |
+| object_transform_mirror_horizontally | Mirror Horizontally | vector | changed layers/selection/history/view | history |
+| object_transform_mirror_vertically | Mirror Vertically | vector | changed layers/selection/history/view | history |
+| object_transform_reset | Reset Transformations | vector | changed layers/selection/history/view | history |
 | object_unite | Unite | vector | disabled |  |
 | object_intersect | Intersect | vector | disabled |  |
 | object_subtract | Subtract | vector | disabled |  |
 | object_split | Split | vector | disabled |  |
-| text_type_preformatted | Convert Text To Preformatted | vector | disabled |  |
-| text_type_pre_positioned | Convert Text To Pre-positioned | vector | disabled |  |
+| text_type_preformatted | Convert Text To Preformatted | vector | changed layers/selection/history/view | history+enabledSet+checked |
+| text_type_pre_positioned | Convert Text To Pre-positioned | vector | changed layers/selection/history/view | history+enabledSet+checked |
 | text_type_inline_wrap | Convert Text To Inline Wrapped | vector | disabled |  |
 | add_shape_to_flow_area | Flow Text in Shape | vector | disabled |  |
 | subtract_shape_from_flow_area | Subtract Shape from Text Chain | vector | disabled |  |
@@ -789,18 +750,18 @@ _(docs/parity/NOTES.md missing)_
 | KritaShape/KisToolKnife | Comic Panel Editing Tool | base | changed layers/selection/history/view | enabledSet |
 | KisAssistantTool | Assistant Tool | base | changed layers/selection/history/view | enabledSet |
 | KisToolSelectMagnetic | Magnetic Selection Tool | base | changed layers/selection/history/view | enabledSet |
-| undo_polygon_selection | Undo Polygon Selection Points | base | disabled |  |
+| undo_polygon_selection | Undo Polygon Selection Points | base | not available when triggered | Action is not available right now: undo_polygon_selection |
 | KisToolSelectContiguous | Contiguous Selection Tool | base | changed layers/selection/history/view | enabledSet |
 | KisToolSelectSimilar | Similar Color Selection Tool | base | changed layers/selection/history/view |  |
 | KisToolTransform | Transform Tool | base | changed image | image+enabledSet |
-| movetool-move-up | Move up | base | disabled |  |
-| movetool-move-down | Move down | base | disabled |  |
-| movetool-move-left | Move left | base | disabled |  |
-| movetool-move-right | Move right | base | disabled |  |
-| movetool-move-up-more | Move up more | base | disabled |  |
-| movetool-move-down-more | Move down more | base | disabled |  |
-| movetool-move-left-more | Move left more | base | disabled |  |
-| movetool-move-right-more | Move right more | base | disabled |  |
+| movetool-move-up | Move up | base | no visible effect |  |
+| movetool-move-down | Move down | base | no visible effect |  |
+| movetool-move-left | Move left | base | no visible effect |  |
+| movetool-move-right | Move right | base | no visible effect |  |
+| movetool-move-up-more | Move up more | base | no visible effect |  |
+| movetool-move-down-more | Move down more | base | no visible effect |  |
+| movetool-move-left-more | Move left more | base | no visible effect |  |
+| movetool-move-right-more | Move right more | base | no visible effect |  |
 | KisToolTransformFree | Transform Tool (Free Transform) | base | changed image | image+enabledSet |
 | KisToolTransformPerspective | Transform Tool (Perspective Transform) | base | changed image | image+enabledSet |
 | KisToolTransformWarp | Transform Tool (Warp Transform) | base | changed image | image+enabledSet |
@@ -808,46 +769,46 @@ _(docs/parity/NOTES.md missing)_
 | KisToolTransformLiquify | Transform Tool (Liquify Transform) | base | changed image | image+enabledSet |
 | KisToolTransformMesh | Transform Tool (Mesh Transform) | base | changed image | image+enabledSet |
 | KritaTransform/KisToolMove | Move Tool | base | changed layers/selection/history/view | enabledSet |
-| movetool-show-coordinates | Show Coordinates | base | disabled |  |
+| movetool-show-coordinates | Show Coordinates | base | changed layers/selection/history/view | enabledSet+checked |
 | KisToolPolygon | Polygon Tool | base | changed layers/selection/history/view | enabledSet |
 | KritaShape/KisToolBrush | Freehand Brush Tool | base | no visible effect |  |
-| set_no_brush_smoothing | Brush Smoothing: Disabled | base | disabled |  |
-| set_simple_brush_smoothing | Brush Smoothing: Basic | base | disabled |  |
-| set_weighted_brush_smoothing | Brush Smoothing: Weighted | base | disabled |  |
-| set_stabilizer_brush_smoothing | Brush Smoothing: Stabilizer | base | disabled |  |
-| set_pixel_perfect_smoothing | Brush Smoothing: Pixel | base | disabled |  |
-| toggle_assistant | Toggle Snap To Assistants | base | disabled |  |
+| set_no_brush_smoothing | Brush Smoothing: Disabled | base | no visible effect |  |
+| set_simple_brush_smoothing | Brush Smoothing: Basic | base | no visible effect |  |
+| set_weighted_brush_smoothing | Brush Smoothing: Weighted | base | no visible effect |  |
+| set_stabilizer_brush_smoothing | Brush Smoothing: Stabilizer | base | no visible effect |  |
+| set_pixel_perfect_smoothing | Brush Smoothing: Pixel | base | no visible effect |  |
+| toggle_assistant | Toggle Snap To Assistants | base | no visible effect |  |
 | KritaShape/KisToolDyna | Dynamic Brush Tool | base | changed layers/selection/history/view | enabledSet |
 | KisToolPath | Bezier Curve Tool | base | changed layers/selection/history/view | enabledSet |
 | KritaSelected/KisToolColorSampler | Color Sampler | base | changed layers/selection/history/view | enabledSet |
 | KisToolPencil | Freehand Path Tool | base | changed layers/selection/history/view |  |
 | SvgTextTool | Text Tool | base | changed layers/selection/history/view | enabledSet |
-| svg_align_center | Align Center | vector | disabled |  |
-| svg_align_justified | Align Block | vector | disabled |  |
-| svg_align_left | Align Left | vector | disabled |  |
-| svg_align_right | Align Right | vector | disabled |  |
-| svg_decrease_font_size | Decrease Font Size | vector | disabled |  |
-| svg_font_kerning | Kerning | vector | disabled |  |
-| svg_format_italic | Italic | vector | disabled |  |
-| svg_format_strike_through | Strikethrough | vector | disabled |  |
-| svg_format_subscript | Subscript | vector | disabled |  |
-| svg_format_superscript | Superscript | vector | disabled |  |
-| svg_format_underline | Underline | vector | disabled |  |
-| svg_increase_font_size | Increase Font Size | vector | disabled |  |
-| svg_weight_black | Black | vector | disabled |  |
-| svg_weight_bold | Bold | vector | disabled |  |
-| svg_weight_demi | Demi | vector | disabled |  |
-| svg_weight_light | Light | vector | disabled |  |
-| svg_weight_normal | Normal | vector | disabled |  |
-| svg_insert_special_character | Glyph Palette... | vector | disabled |  |
-| svg_paste_rich_text | Paste Rich Text | vector | disabled |  |
-| svg_paste_plain_text | Paste Plain Text | vector | disabled |  |
+| svg_align_center | Align Center | vector | changed layers/selection/history/view | history |
+| svg_align_justified | Align Block | vector | changed layers/selection/history/view | history |
+| svg_align_left | Align Left | vector | changed layers/selection/history/view | history |
+| svg_align_right | Align Right | vector | changed layers/selection/history/view | history |
+| svg_decrease_font_size | Decrease Font Size | vector | changed layers/selection/history/view | history |
+| svg_font_kerning | Kerning | vector | changed layers/selection/history/view | history |
+| svg_format_italic | Italic | vector | changed layers/selection/history/view | history |
+| svg_format_strike_through | Strikethrough | vector | changed layers/selection/history/view | history |
+| svg_format_subscript | Subscript | vector | changed layers/selection/history/view | history |
+| svg_format_superscript | Superscript | vector | changed layers/selection/history/view | history |
+| svg_format_underline | Underline | vector | changed layers/selection/history/view | history |
+| svg_increase_font_size | Increase Font Size | vector | changed layers/selection/history/view | history |
+| svg_weight_black | Black | vector | changed layers/selection/history/view | history |
+| svg_weight_bold | Bold | vector | changed layers/selection/history/view | history |
+| svg_weight_demi | Demi | vector | changed layers/selection/history/view | history |
+| svg_weight_light | Light | vector | changed layers/selection/history/view | history |
+| svg_weight_normal | Normal | vector | changed layers/selection/history/view | history |
+| svg_insert_special_character | Glyph Palette... | vector | opened dialog | Glyph Palette |
+| svg_paste_rich_text | Paste Rich Text | vector | no visible effect |  |
+| svg_paste_plain_text | Paste Plain Text | vector | no visible effect |  |
 | svg_type_setting_move_selection_start_down_1_px | Move Text Selection Down By 1 Pixel | vector | disabled |  |
 | svg_type_setting_move_selection_start_up_1_px | Move Text Selection Up By 1 Pixel | vector | disabled |  |
 | svg_type_setting_move_selection_start_left_1_px | Move Text Selection Left By 1 Pixel | vector | disabled |  |
 | svg_type_setting_move_selection_start_right_1_px | Move Text Selection Right By 1 Pixel | vector | disabled |  |
-| svg_remove_transforms_from_range | Remove Character Transforms | vector | disabled |  |
-| svg_clear_formatting | Clear Formatting | vector | disabled |  |
+| svg_remove_transforms_from_range | Remove Character Transforms | vector | changed layers/selection/history/view | history |
+| svg_clear_formatting | Clear Formatting | vector | changed layers/selection/history/view | history |
 | KritaShape/KisToolLazyBrush | Colorize Mask Tool | base | changed layers/selection/history/view | enabledSet |
 | KisToolSelectElliptical | Elliptical Selection Tool | base | changed layers/selection/history/view | enabledSet |
 | KritaFill/KisToolGradient | Gradient Tool | base | changed layers/selection/history/view | enabledSet |
@@ -876,7 +837,7 @@ _(docs/parity/NOTES.md missing)_
 | path-break-selection | Break at selection | vector | disabled |  |
 | pathpoint-join | Join with segment | vector | disabled |  |
 | pathpoint-merge | Merge points | vector | disabled |  |
-| convert-to-path | To Path | vector | disabled |  |
+| convert-to-path | To Path | vector | changed layers/selection/history/view | history |
 | edit_undo | Undo  | base | changed layers/selection/history/view | history |
 | edit_redo | Redo  | base | no visible effect |  |
 | save_incremental_version | Save Incremental Version | base | opened dialog | Saving As |
@@ -1322,58 +1283,58 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | View | Zoom Out | view_zoom_out | View > Zoom Out |  | message |
 | View | Zoom In | view_zoom_in | View > Zoom In |  | message |
 | Settings | Settings... | svg_settings | - | not in engine | n/a |
-| Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | - | search only | changed layers/selection/history/view |
-| Filter > Colors | Minimize Channel | krita_filter_minimize | - | search only | changed image |
 | Filter > Colors | Color Transfer... | krita_filter_colortransfer | - | search only | changed image |
-| Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | - | search only | changed image |
-| Filter > Enhance | Sharpen | krita_filter_sharpen | - | search only | changed image |
-| Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | - | search only | changed image |
-| Filter > Adjust | Desaturate... | krita_filter_desaturate | - | search only | changed image |
-| Filter > Adjust | Dodge... | krita_filter_dodge | - | search only | changed image |
-| Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | - | search only | changed image |
-| Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | - | search only | changed image |
+| Filter > Other | Wave... | krita_filter_wave | - | search only | changed image |
+| Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | - | search only | changed image |
 | Filter > Other | Reset Transparent | krita_filter_resettransparent | - | search only | changed layers/selection/history/view |
-| Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | - | search only | changed layers/selection/history/view |
+| Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | - | search only | changed image |
+| Filter > Artistic | Raindrops... | krita_filter_raindrops | - | search only | changed image |
+| Filter > Artistic | Oilpaint... | krita_filter_oilpaint | - | search only | opened dialog |
+| Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | - | search only | changed image |
+| Filter > Adjust | Auto Contrast | krita_filter_autocontrast | - | search only | changed image |
+| Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | - | search only | changed image |
+| Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | - | search only | changed image |
 | Filter > Artistic | Halftone... | krita_filter_halftone | - | search only | changed image |
 | Filter > Artistic | Posterize... | krita_filter_posterize | - | search only | changed image |
-| Filter > Artistic | Raindrops... | krita_filter_raindrops | - | search only | changed image |
-| Filter > Artistic | Index Colors... | krita_filter_indexcolors | - | search only | changed image |
-| Filter > Artistic | Oilpaint... | krita_filter_oilpaint | - | search only | opened dialog |
-| Filter > Colors | Maximize Channel | krita_filter_maximize | - | search only | changed image |
-| Filter > Other | Random Noise... | krita_filter_noise | - | search only | changed image |
-| Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | - | search only | changed image |
-| Filter > Map | Small Tiles... | krita_filter_smalltiles | - | search only | changed image |
-| Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | - | search only | changed image |
-| Filter > Adjust | Levels... | krita_filter_levels | - | search only | changed layers/selection/history/view |
-| Filter > Adjust | Color Balance... | krita_filter_colorbalance | - | search only | changed layers/selection/history/view |
-| Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | - | search only | changed layers/selection/history/view |
-| Filter > Blur | Blur... | krita_filter_blur | - | search only | changed image |
-| Filter > Blur | Motion Blur... | krita_filter_motion blur | - | search only | changed image |
-| Filter > Enhance | Mean Removal | krita_filter_mean removal | - | search only | changed image |
-| Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | - | search only | changed image |
-| Filter > Other | Wave... | krita_filter_wave | - | search only | changed image |
-| Filter > Map | Gradient Map... | krita_filter_gradientmap | - | search only | changed image |
-| Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | - | search only | changed image |
+| Filter > Colors | Minimize Channel | krita_filter_minimize | - | search only | changed image |
 | Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | - | search only | changed image |
-| Filter > Map | Palettize... | krita_filter_palettize | - | search only | changed layers/selection/history/view |
-| Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | - | search only | changed image |
-| Filter > Adjust | Burn... | krita_filter_burn | - | search only | changed image |
-| Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | - | search only | changed image |
-| Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | - | search only | changed layers/selection/history/view |
-| Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | - | search only | changed image |
-| Filter > Map | Round Corners... | krita_filter_roundcorners | - | search only | changed layers/selection/history/view |
-| Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | - | search only | changed image |
-| Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | - | search only | changed image |
-| Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | - | search only | changed image |
-| Filter > Artistic | Pixelize... | krita_filter_pixelize | - | search only | changed image |
-| Filter > Map | Normalize | krita_filter_normalize | - | search only | changed image |
-| Filter > Blur | Lens Blur... | krita_filter_lens blur | - | search only | changed image |
-| Filter > Adjust | Threshold... | krita_filter_threshold | - | search only | changed image |
-| Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | - | search only | changed image |
-| Filter > Other | Random Pick... | krita_filter_randompick | - | search only | changed image |
-| Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | - | search only | changed image |
-| Filter > Adjust | Auto Contrast | krita_filter_autocontrast | - | search only | changed image |
+| Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | - | search only | changed layers/selection/history/view |
+| Filter > Adjust | Levels... | krita_filter_levels | - | search only | changed layers/selection/history/view |
 | Filter > Adjust | Invert | krita_filter_invert | - | search only | changed image |
+| Filter > Adjust | Burn... | krita_filter_burn | - | search only | changed image |
+| Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | - | search only | changed image |
+| Filter > Map | Normalize | krita_filter_normalize | - | search only | changed image |
+| Filter > Map | Palettize... | krita_filter_palettize | - | search only | changed layers/selection/history/view |
+| Filter > Other | Random Noise... | krita_filter_noise | - | search only | changed image |
+| Filter > Enhance | Mean Removal | krita_filter_mean removal | - | search only | changed image |
+| Filter > Other | Random Pick... | krita_filter_randompick | - | search only | changed image |
+| Filter > Adjust | Color Balance... | krita_filter_colorbalance | - | search only | changed layers/selection/history/view |
+| Filter > Adjust | Desaturate... | krita_filter_desaturate | - | search only | changed image |
+| Filter > Artistic | Index Colors... | krita_filter_indexcolors | - | search only | changed image |
+| Filter > Colors | Maximize Channel | krita_filter_maximize | - | search only | changed image |
+| Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | - | search only | changed image |
+| Filter > Blur | Lens Blur... | krita_filter_lens blur | - | search only | changed image |
+| Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | - | search only | changed image |
+| Filter > Enhance | Sharpen | krita_filter_sharpen | - | search only | changed image |
+| Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | - | search only | changed image |
+| Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | - | search only | changed image |
+| Filter > Blur | Blur... | krita_filter_blur | - | search only | changed image |
+| Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | - | search only | changed image |
+| Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | - | search only | changed image |
+| Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | - | search only | changed image |
+| Filter > Map | Gradient Map... | krita_filter_gradientmap | - | search only | changed image |
+| Filter > Blur | Motion Blur... | krita_filter_motion blur | - | search only | changed image |
+| Filter > Map | Small Tiles... | krita_filter_smalltiles | - | search only | changed image |
+| Filter > Map | Round Corners... | krita_filter_roundcorners | - | search only | changed layers/selection/history/view |
+| Filter > Artistic | Pixelize... | krita_filter_pixelize | - | search only | changed image |
+| Filter > Adjust | Threshold... | krita_filter_threshold | - | search only | changed image |
+| Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | - | search only | changed layers/selection/history/view |
+| Filter > Adjust | Dodge... | krita_filter_dodge | - | search only | changed image |
+| Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | - | search only | changed layers/selection/history/view |
+| Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | - | search only | changed image |
+| Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | - | search only | changed layers/selection/history/view |
+| Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | - | search only | changed image |
+| Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | - | search only | changed image |
 
 ## M2. Menu entries the page lacks, prioritised (works first, core menus first)
 
@@ -1489,58 +1450,58 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | add | View > Zoom, Rotate, and Mirror | Mirror View Around Cursor | mirror_canvas_around_cursor | changed layers/selection/history/view |
 | add | View > Zoom, Rotate, and Mirror | Mirror View Around Canvas | mirror_canvas_around_canvas | changed layers/selection/history/view |
 | add | View > Zoom, Rotate, and Mirror | Reset Display | reset_display | message |
-| add | Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | changed layers/selection/history/view |
-| add | Filter > Colors | Minimize Channel | krita_filter_minimize | changed image |
 | add | Filter > Colors | Color Transfer... | krita_filter_colortransfer | changed image |
-| add | Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | changed image |
-| add | Filter > Enhance | Sharpen | krita_filter_sharpen | changed image |
-| add | Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | changed image |
-| add | Filter > Adjust | Desaturate... | krita_filter_desaturate | changed image |
-| add | Filter > Adjust | Dodge... | krita_filter_dodge | changed image |
-| add | Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | changed image |
-| add | Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | changed image |
+| add | Filter > Other | Wave... | krita_filter_wave | changed image |
+| add | Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | changed image |
 | add | Filter > Other | Reset Transparent | krita_filter_resettransparent | changed layers/selection/history/view |
-| add | Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | changed layers/selection/history/view |
+| add | Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | changed image |
+| add | Filter > Artistic | Raindrops... | krita_filter_raindrops | changed image |
+| add | Filter > Artistic | Oilpaint... | krita_filter_oilpaint | opened dialog |
+| add | Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | changed image |
+| add | Filter > Adjust | Auto Contrast | krita_filter_autocontrast | changed image |
+| add | Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | changed image |
+| add | Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | changed image |
 | add | Filter > Artistic | Halftone... | krita_filter_halftone | changed image |
 | add | Filter > Artistic | Posterize... | krita_filter_posterize | changed image |
-| add | Filter > Artistic | Raindrops... | krita_filter_raindrops | changed image |
-| add | Filter > Artistic | Index Colors... | krita_filter_indexcolors | changed image |
-| add | Filter > Artistic | Oilpaint... | krita_filter_oilpaint | opened dialog |
-| add | Filter > Colors | Maximize Channel | krita_filter_maximize | changed image |
-| add | Filter > Other | Random Noise... | krita_filter_noise | changed image |
-| add | Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | changed image |
-| add | Filter > Map | Small Tiles... | krita_filter_smalltiles | changed image |
-| add | Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | changed image |
-| add | Filter > Adjust | Levels... | krita_filter_levels | changed layers/selection/history/view |
-| add | Filter > Adjust | Color Balance... | krita_filter_colorbalance | changed layers/selection/history/view |
-| add | Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | changed layers/selection/history/view |
-| add | Filter > Blur | Blur... | krita_filter_blur | changed image |
-| add | Filter > Blur | Motion Blur... | krita_filter_motion blur | changed image |
-| add | Filter > Enhance | Mean Removal | krita_filter_mean removal | changed image |
-| add | Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | changed image |
-| add | Filter > Other | Wave... | krita_filter_wave | changed image |
-| add | Filter > Map | Gradient Map... | krita_filter_gradientmap | changed image |
-| add | Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | changed image |
+| add | Filter > Colors | Minimize Channel | krita_filter_minimize | changed image |
 | add | Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | changed image |
-| add | Filter > Map | Palettize... | krita_filter_palettize | changed layers/selection/history/view |
-| add | Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | changed image |
-| add | Filter > Adjust | Burn... | krita_filter_burn | changed image |
-| add | Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | changed image |
-| add | Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | changed layers/selection/history/view |
-| add | Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | changed image |
-| add | Filter > Map | Round Corners... | krita_filter_roundcorners | changed layers/selection/history/view |
-| add | Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | changed image |
-| add | Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | changed image |
-| add | Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | changed image |
-| add | Filter > Artistic | Pixelize... | krita_filter_pixelize | changed image |
-| add | Filter > Map | Normalize | krita_filter_normalize | changed image |
-| add | Filter > Blur | Lens Blur... | krita_filter_lens blur | changed image |
-| add | Filter > Adjust | Threshold... | krita_filter_threshold | changed image |
-| add | Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | changed image |
-| add | Filter > Other | Random Pick... | krita_filter_randompick | changed image |
-| add | Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | changed image |
-| add | Filter > Adjust | Auto Contrast | krita_filter_autocontrast | changed image |
+| add | Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | changed layers/selection/history/view |
+| add | Filter > Adjust | Levels... | krita_filter_levels | changed layers/selection/history/view |
 | add | Filter > Adjust | Invert | krita_filter_invert | changed image |
+| add | Filter > Adjust | Burn... | krita_filter_burn | changed image |
+| add | Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | changed image |
+| add | Filter > Map | Normalize | krita_filter_normalize | changed image |
+| add | Filter > Map | Palettize... | krita_filter_palettize | changed layers/selection/history/view |
+| add | Filter > Other | Random Noise... | krita_filter_noise | changed image |
+| add | Filter > Enhance | Mean Removal | krita_filter_mean removal | changed image |
+| add | Filter > Other | Random Pick... | krita_filter_randompick | changed image |
+| add | Filter > Adjust | Color Balance... | krita_filter_colorbalance | changed layers/selection/history/view |
+| add | Filter > Adjust | Desaturate... | krita_filter_desaturate | changed image |
+| add | Filter > Artistic | Index Colors... | krita_filter_indexcolors | changed image |
+| add | Filter > Colors | Maximize Channel | krita_filter_maximize | changed image |
+| add | Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | changed image |
+| add | Filter > Blur | Lens Blur... | krita_filter_lens blur | changed image |
+| add | Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | changed image |
+| add | Filter > Enhance | Sharpen | krita_filter_sharpen | changed image |
+| add | Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | changed image |
+| add | Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | changed image |
+| add | Filter > Blur | Blur... | krita_filter_blur | changed image |
+| add | Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | changed image |
+| add | Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | changed image |
+| add | Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | changed image |
+| add | Filter > Map | Gradient Map... | krita_filter_gradientmap | changed image |
+| add | Filter > Blur | Motion Blur... | krita_filter_motion blur | changed image |
+| add | Filter > Map | Small Tiles... | krita_filter_smalltiles | changed image |
+| add | Filter > Map | Round Corners... | krita_filter_roundcorners | changed layers/selection/history/view |
+| add | Filter > Artistic | Pixelize... | krita_filter_pixelize | changed image |
+| add | Filter > Adjust | Threshold... | krita_filter_threshold | changed image |
+| add | Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | changed layers/selection/history/view |
+| add | Filter > Adjust | Dodge... | krita_filter_dodge | changed image |
+| add | Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | changed layers/selection/history/view |
+| add | Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | changed image |
+| add | Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | changed layers/selection/history/view |
+| add | Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | changed image |
+| add | Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | changed image |
 | add | File | Save As… | file_save_as | opened dialog |
 | add | File | Sessions... | file_sessions | opened dialog |
 | add | File | Open existing Document as Untitled Document... | file_import_file | opened dialog |
@@ -1783,31 +1744,31 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | Tools | animation.prev | Animation: Previous Frame |  |
 | Filter | filter.gallery | Filters… | filter_gallery |
 | Settings | presets.import | Import Resources… |  |
-| Settings | krita.docker.LogDocker | Krita Dockers › Log Viewer |  |
-| Settings | krita.docker.AnimationCurvesDocker | Krita Dockers › Animation Curves |  |
-| Settings | krita.docker.ArrangeDocker | Krita Dockers › Arrange |  |
-| Settings | krita.docker.ArtisticColorSelector | Krita Dockers › Artistic Color Selector |  |
-| Settings | krita.docker.BrushHudDocker | Krita Dockers › On-Canvas Brush Editor |  |
-| Settings | krita.docker.ChannelDocker | Krita Dockers › Channels |  |
-| Settings | krita.docker.ColorSelectorNg | Krita Dockers › Advanced Color Selector |  |
-| Settings | krita.docker.CompositionDocker | Krita Dockers › Compositions |  |
-| Settings | krita.docker.DigitalMixer | Krita Dockers › Digital Colors Mixer |  |
-| Settings | krita.docker.GamutMask | Krita Dockers › Gamut Masks |  |
-| Settings | krita.docker.GridDocker | Krita Dockers › Grid and Guides |  |
-| Settings | krita.docker.HistogramDocker | Krita Dockers › Histogram |  |
-| Settings | krita.docker.History | Krita Dockers › Undo History |  |
-| Settings | krita.docker.KisLayerBox | Krita Dockers › Layers |  |
-| Settings | krita.docker.OnionSkinsDocker | Krita Dockers › Onion Skins |  |
-| Settings | krita.docker.OverviewDocker | Krita Dockers › Overview |  |
-| Settings | krita.docker.PaletteDocker | Krita Dockers › Palette |  |
-| Settings | krita.docker.PatternDocker | Krita Dockers › Patterns |  |
-| Settings | krita.docker.PresetDocker | Krita Dockers › Brush Presets |  |
-| Settings | krita.docker.PresetHistory | Krita Dockers › Brush Preset History |  |
-| Settings | krita.docker.Snapshot | Krita Dockers › Snapshot Docker |  |
-| Settings | krita.docker.SpecificColorSelector | Krita Dockers › Specific Color Selector |  |
-| Settings | krita.docker.StoryboardDocker | Krita Dockers › Storyboard |  |
-| Settings | krita.docker.SvgSymbolCollectionDocker | Krita Dockers › Symbol Libraries |  |
-| Settings | krita.docker.TasksetDocker | Krita Dockers › Task Sets |  |
-| Settings | krita.docker.TextProperties | Krita Dockers › Text Properties |  |
-| Settings | krita.docker.TimelineDocker | Krita Dockers › Animation Timeline |  |
-| Settings | krita.docker.TouchDocker | Krita Dockers › Touch Docker |  |
+| Settings | krita.docker.LogDocker | Log Viewer |  |
+| Settings | krita.docker.AnimationCurvesDocker | Animation Curves |  |
+| Settings | krita.docker.ArrangeDocker | Arrange |  |
+| Settings | krita.docker.ArtisticColorSelector | Artistic Color Selector |  |
+| Settings | krita.docker.BrushHudDocker | On-Canvas Brush Editor |  |
+| Settings | krita.docker.ChannelDocker | Channels |  |
+| Settings | krita.docker.ColorSelectorNg | Advanced Color Selector |  |
+| Settings | krita.docker.CompositionDocker | Compositions |  |
+| Settings | krita.docker.DigitalMixer | Digital Colors Mixer |  |
+| Settings | krita.docker.GamutMask | Gamut Masks |  |
+| Settings | krita.docker.GridDocker | Grid and Guides |  |
+| Settings | krita.docker.HistogramDocker | Histogram |  |
+| Settings | krita.docker.History | Undo History |  |
+| Settings | krita.docker.KisLayerBox | Layers |  |
+| Settings | krita.docker.OnionSkinsDocker | Onion Skins |  |
+| Settings | krita.docker.OverviewDocker | Overview |  |
+| Settings | krita.docker.PaletteDocker | Palette |  |
+| Settings | krita.docker.PatternDocker | Patterns |  |
+| Settings | krita.docker.PresetDocker | Brush Presets |  |
+| Settings | krita.docker.PresetHistory | Brush Preset History |  |
+| Settings | krita.docker.Snapshot | Snapshot Docker |  |
+| Settings | krita.docker.SpecificColorSelector | Specific Color Selector |  |
+| Settings | krita.docker.StoryboardDocker | Storyboard |  |
+| Settings | krita.docker.SvgSymbolCollectionDocker | Symbol Libraries |  |
+| Settings | krita.docker.TasksetDocker | Task Sets |  |
+| Settings | krita.docker.TextProperties | Text Properties |  |
+| Settings | krita.docker.TimelineDocker | Animation Timeline |  |
+| Settings | krita.docker.TouchDocker | Touch Docker |  |

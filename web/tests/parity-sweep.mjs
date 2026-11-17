@@ -223,6 +223,7 @@ async function install() {
 const classify = r => {
     if (r.crash) return 'crash';
     if (r.hang) return 'hang';
+    if (r.state === 'error' && /not available right now/.test(r.error ?? '')) return 'not available when triggered';   // enabled in the survey, disabled by the time of the call
     if (r.state === 'error') return 'error';
     if (r.windows?.some(w => w.kind === 'dialog')) return 'opened dialog';
     if (r.windows?.some(w => w.kind === 'popup')) return 'opened popup';
