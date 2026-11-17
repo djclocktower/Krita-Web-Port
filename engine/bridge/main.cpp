@@ -550,7 +550,7 @@ public:
         if (e->type() == QEvent::Show && w->isWindow()) shows++;
         if (e->type() == QEvent::UpdateRequest) updateRequests++;
         if (w->isWindow() && e->type() == QEvent::Resize && e->spontaneous() && w->width() == 100 && w->height() == 30)   // KWDEBUG
-            EM_ASM({ console.error('KWDBG shrink ' + new Error().stack); });
+            EM_ASM({ Error.stackTraceLimit = 60; console.error('KWDBG shrink ' + new Error().stack); });
         switch (e->type()) {
         case QEvent::Show:
             if (w->isWindow() && w != window && w->windowType() != Qt::ToolTip && w->windowType() != Qt::Desktop) trackWindow(w);
@@ -1964,7 +1964,7 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_ack()
 int main(int argc, char *argv[])
 {
     // Uncaught errors in this worker reach the page without a stack; log it here first.
-    EM_ASM({ self.addEventListener('error', function (e) { console.error('ENGINE STACK ' + (e.error && e.error.stack ? e.error.stack : e.message)); }); });
+    EM_ASM({ Error.stackTraceLimit = 60; self.addEventListener('error', function (e) { console.error('ENGINE STACK ' + (e.error && e.error.stack ? e.error.stack : e.message)); }); });
     // Qt's and Krita's log lines each cost a synchronous round trip to the page's thread (that is
     // where the console is). Only errors are kept unless the page asks for the full log (?engineLog=1).
     if (!MAIN_THREAD_EM_ASM_INT({ return Module.kwLog ? 1 : 0; }))
