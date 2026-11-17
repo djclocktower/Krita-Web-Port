@@ -29,7 +29,8 @@ const upsert = (list: KritaWindow[], w: KritaWindow) => list.some(x => x.id === 
 export function startKrita(engine: Engine): () => void {
     current = engine;
     const sync = () => engine.kritaTools().then(list => {
-        const tools = list.filter(t => !HIDDEN.test(t.id));
+        // Krita lists tools in no fixed order; sort by its own priority so the toolbox is the same on every load.
+        const tools = list.filter(t => !HIDDEN.test(t.id)).sort((a, b) => (a.priority ?? 0) - (b.priority ?? 0) || a.id.localeCompare(b.id));
         krita.set({ tools, active: list.find(t => t.active)?.id ?? krita.get().active });
     }, () => {});
     const syncDockers = () => engine.kritaDockers().then(dockers => krita.set({ dockers }), () => {});

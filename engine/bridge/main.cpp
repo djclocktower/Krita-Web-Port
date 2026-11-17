@@ -29,6 +29,8 @@
 #include <kis_canvas2.h>
 #include <kis_config.h>
 #include <KoToolManager.h>
+#include <KoToolRegistry.h>
+#include <KoToolFactoryBase.h>
 #include <KoZoomMode.h>
 #include <qpa/qwindowsysteminterface.h>
 #include <kis_canvas_controller.h>
@@ -1622,6 +1624,7 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
             QJsonArray list;
             for (KoToolAction *t : KoToolManager::instance()->toolActionList())
                 list.append(QJsonObject{{"id", t->id()}, {"name", t->toolTip()}, {"section", t->section()}, {"shortcut", t->shortcut().toString()},
+                                        {"priority", KoToolRegistry::instance()->value(t->id()) ? KoToolRegistry::instance()->value(t->id())->priority() : 0},
                                         {"active", t->id() == KoToolManager::instance()->activeToolId()}});
             return list;
         }

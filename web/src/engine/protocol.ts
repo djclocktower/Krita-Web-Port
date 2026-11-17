@@ -127,7 +127,9 @@ export interface ColorSpaceInfo { model: string; modelName: string; depth: strin
 /** One of Krita's own menu actions (there are several hundred). */
 export interface KritaAction { name: string; text: string; shortcut: string; enabled: boolean; checkable: boolean; checked: boolean }
 /** One of Krita's own canvas tools. */
-export interface KritaTool { id: string; name: string; section: string; shortcut: string; active: boolean }
+export interface KritaTool { id: string; name: string; section: string; shortcut: string; active: boolean;
+    /** Krita's order of tools within a section (lower first). */
+    priority?: number }
 /** A pointer event for Krita's own canvas, in image pixels. Give `pressure` for a pen (it is then delivered as a tablet event). */
 export interface KritaPointer {
     type: 'press' | 'move' | 'release';

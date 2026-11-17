@@ -14168,5 +14168,257 @@
   "outcome": "opened dialog",
   "text": "",
   "when": "2026-11-17T03:51:39.047Z"
+ },
+ "split_alpha_write": {
+  "fixture": "base",
+  "ms": 9033,
+  "pending": true,
+  "alive": false,
+  "state": "pending",
+  "needReload": true,
+  "hang": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "pageErrors": [
+   "ErrorEvent",
+   "Aborted(). Build with -sASSERTIONS for more info."
+  ],
+  "console": [
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "ASSERT (krita): \"node->inherits(\"KisTransparencyMask\")\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402",
+   "Aborted()",
+   "ENGINE STACK RuntimeError: Aborted(). Build with -sASSERTIONS for more info.\n    at abort (http://localhost:5193/engine/kritaengine.js:8:30920)\n    at _abort (http://localhost:5193/engine/kritaengine.js:8:177185)\n    at http://localhost:519",
+   "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: Aborted(). Build with -sASSERTIONS for more info."
+  ],
+  "crash": true,
+  "note": " console shows abort",
+  "outcome": "crash",
+  "text": "",
+  "when": "2026-11-17T03:52:33.762Z"
+ },
+ "split_alpha_save_merged": {
+  "fixture": "base",
+  "ms": 9039,
+  "pending": true,
+  "alive": false,
+  "state": "pending",
+  "needReload": true,
+  "hang": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "pageErrors": [
+   "ErrorEvent",
+   "Aborted(). Build with -sASSERTIONS for more info."
+  ],
+  "console": [
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "ASSERT (krita): \"node->inherits(\"KisTransparencyMask\")\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402",
+   "Aborted()",
+   "ENGINE STACK RuntimeError: Aborted(). Build with -sASSERTIONS for more info.\n    at abort (http://localhost:5193/engine/kritaengine.js:8:30920)\n    at _abort (http://localhost:5193/engine/kritaengine.js:8:177185)\n    at http://localhost:519",
+   "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: Aborted(). Build with -sASSERTIONS for more info."
+  ],
+  "crash": true,
+  "note": " console shows abort",
+  "outcome": "crash",
+  "text": "",
+  "when": "2026-11-17T03:53:38.078Z"
+ },
+ "import_layer_from_file": {
+  "fixture": "base",
+  "ms": 170,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Import Image",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "516960519:382268:908x421",
+    "file": "actions/import_layer_from_file__Import_Image.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:54:26.734Z"
+ },
+ "import_layer_as_paint_layer": {
+  "fixture": "base",
+  "ms": 170,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Import Image",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "516960519:382268:908x421",
+    "file": "actions/import_layer_from_file__Import_Image.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:55:10.953Z"
+ },
+ "import_layer_as_transparency_mask": {
+  "fixture": "base",
+  "ms": 163,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Import Image",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "-2037133868:382268:908x421",
+    "file": "actions/import_layer_as_transparency_mask__Import_Image.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:55:52.793Z"
+ },
+ "import_layer_as_filter_mask": {
+  "fixture": "base",
+  "ms": 694,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Import Image",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "-2037133868:382268:908x421",
+    "file": "actions/import_layer_as_transparency_mask__Import_Image.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:56:27.451Z"
  }
 }
