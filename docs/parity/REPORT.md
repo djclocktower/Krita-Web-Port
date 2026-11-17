@@ -1,40 +1,40 @@
 # Krita parity sweep report
 
-Generated 2026-11-17T09:49:15.190Z by `web/tests/parity-sweep.mjs` from `docs/parity/results/*.json` (engine in `web/public/engine`, Chromium + swiftshader).
+Generated 2026-11-17T14:25:18.412Z by `web/tests/parity-sweep.mjs` from `docs/parity/results/*.json` (engine in `web/public/engine`, Chromium + swiftshader).
 
 ## Headline counts
 
-### Actions (561 of 563 swept)
+### Actions (563 of 563 swept)
 
 | outcome | count |
 |---|---|
-| changed layers/selection/history/view | 171 |
+| changed layers/selection/history/view | 166 |
 | no visible effect | 136 |
-| changed image | 95 |
-| opened dialog | 74 |
-| disabled | 44 |
-| message | 19 |
+| opened dialog | 107 |
+| changed image | 65 |
+| disabled | 47 |
+| message | 17 |
 | opened popup | 12 |
+| hang | 6 |
 | not available when triggered | 5 |
-| crash | 4 |
-| hang | 1 |
+| error | 2 |
 
 ### Tools (37 of 37)
 
 | outcome (raster + vector gestures) | count |
 |---|---|
-| changed image/history | 13 |
+| changed image/history | 11 |
 | changed selection/history | 8 |
 | overlay only | 5 |
 | changed image/layers/history | 3 |
+| changed history | 2 |
+| changed history/image | 2 |
 | message | 1 |
-| changed history (but intermittent hang, see note) | 1 |
+| no visible effect | 1 |
 | changed image/selection/history | 1 |
 | changed image/selection | 1 |
-| changed colors | 1 |
-| no visible effect | 1 |
-| changed history | 1 |
 | changed image/docinfo/selection | 1 |
+| changed colors | 1 |
 
 Tool option window: 0 blank, 1 identical to the previous tool's.
 
@@ -42,8 +42,8 @@ Tool option window: 0 blank, 1 identical to the previous tool's.
 
 | outcome | count |
 |---|---|
-| opens, no repaint on click | 16 |
-| opens, repaints on click | 12 |
+| opens, no repaint on click | 18 |
+| opens, repaints on click | 10 |
 
 
 _(docs/parity/NOTES.md missing)_
@@ -55,103 +55,147 @@ _(docs/parity/NOTES.md missing)_
 
 | action | text | menu | outcome | observed |
 |---|---|---|---|---|
-| add_new_fill_layer | Add Fill Layer... | Layer > New | crash |  console shows a wasm trap |
-| add_new_fast_color_overlay_mask | Add Color Overlay Mask | - | crash |  console shows abort |
-| convert_to_filter_mask | Convert to Filter Mask... | Layer > Convert | hang |  |
-| split_alpha_write | Write as Alpha | Layer > Split > Split Alpha | crash |  console shows abort |
-| split_alpha_save_merged | Save Merged... | Layer > Split > Split Alpha | crash |  console shows abort |
+| split_alpha_write | Write as Alpha | Layer > Split > Split Alpha | error | ASSERT (krita): "node->inherits("KisTransparencyMask")" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402 |
+| split_alpha_save_merged | Save Merged... | Layer > Split > Split Alpha | error | ASSERT (krita): "node->inherits("KisTransparencyMask")" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402 |
+| import_layer_as_selection_mask | as Selection Mask... | Layer > Import/Export > Import | hang | call never returned; engine still answered |
+| file_open | Open… | File | hang | call never returned; engine still answered |
+| file_save | Save | File | hang | call never returned; engine still answered |
+| file_import_file | Open existing Document as Untitled Document... | File | hang | call never returned; engine still answered |
+| file_export_file | Export... | File | hang | call never returned; engine still answered |
+| file_export_advanced | Export Advanced... | File | hang | call never returned; engine still answered |
 
 ## A2. Actions that opened a dialog or popup (picture saved)
 
-| action | text | window title | size | closed by | returned | picture |
-|---|---|---|---|---|---|---|
-| krita_filter_oilpaint | Oilpaint... | dialog: Filter: Oilpaint | 582x325 |  | done | actions/krita_filter_oilpaint__Filter_Oilpaint.png |
-| stroke_selection | Stroke Selection... | dialog: Stroke Selection Properties – Krita | 331x235 modal | Escape | done | actions/stroke_selection__Stroke_Selection_Properties_Krita.png |
-| show_snap_options_popup | Show Snap Options Popup | popup:  | 166x289 | Escape | done | actions/show_snap_options_popup__.png |
-| layer_style | Layer Style... | dialog: Layer Styles – Krita | 818x744 modal | Escape | done | actions/layer_style__Layer_Styles_Krita.png |
-| add_new_adjustment_layer | Add Filter Layer... | dialog: New Filter Layer – Krita | 722x527 modal | Escape | done | actions/add_new_adjustment_layer__New_Filter_Layer_Krita.png |
-| add_new_filter_mask | Add Filter Mask... | dialog: New Filter Mask – Krita | 722x527 modal | Escape | done | actions/add_new_filter_mask__New_Filter_Mask_Krita.png |
-| convert_to_filter_mask | Convert to Filter Mask... | dialog: New Filter Mask – Krita | 722x527 modal | STUCK,STUCK,STUCK,STUCK,STUCK | pending |  |
-| image_properties | Properties... | dialog: Image Properties – Krita | 560x552 modal | Escape | done | actions/image_properties__Image_Properties_Krita.png |
-| image_color | Image Background Color and Transparency... | dialog: Select a Color | 640x480 modal | Escape | done | actions/image_color__Select_a_Color.png |
-| patterns | Patterns | popup:  | 452x402 | Escape | done | actions/patterns__.png |
-| gradients | Gradients | popup:  | 322x398 | Escape | done | actions/gradients__.png |
-| brushslider1 | Brush option slider 1 | popup:  | 336x130 | Escape | done | actions/brushslider1__.png |
-| brushslider2 | Brush option slider 2 | popup:  | 336x130 | Escape | done | actions/brushslider2__.png |
-| brushslider3 | Brush option slider 3 | popup:  | 336x130 | Escape | done | actions/brushslider3__.png |
-| brushslider4 | Brush option slider 4 | popup:  | 336x130 | Escape | done | actions/brushslider3__.png |
-| brushslider5 | Brush option slider 5 | popup:  | 336x130 | Escape | done | actions/brushslider3__.png |
-| show_brush_presets | Show Brush Presets | popup:  | 452x552 | Escape | done | actions/show_brush_presets__.png |
-| workspaces | Workspaces | popup:  | 274x616 | Escape | done | actions/workspaces__.png |
-| chooseForegroundColor | Open Foreground color selector | dialog: Select a Color | 505x490 | Escape | done | actions/chooseForegroundColor__Select_a_Color.png |
-| chooseBackgroundColor | Open Background color selector | dialog: Select a Color | 505x490 | Escape | done | actions/chooseBackgroundColor__Select_a_Color.png |
-| docker_box | Show Docker Box | popup:  | 302x302 | Escape | done | actions/docker_box__.png |
-| imagesize | Scale Image To New Size... | dialog: Scale To New Size – Krita | 547x452 modal | Escape | done | actions/imagesize__Scale_To_New_Size_Krita.png |
-| canvassize | Resize Canvas... | dialog: Resize Canvas – Krita | 403x431 modal | Escape | done | actions/canvassize__Resize_Canvas_Krita.png |
-| layersize | Scale Layers to new Size... | dialog: Resize Layer – Krita | 377x257 modal | Escape | done | actions/layersize__Resize_Layer_Krita.png |
-| scaleAllLayers | Scale All Layers to new Size... | dialog: Resize Layer – Krita | 377x257 modal | Escape | done | actions/scaleAllLayers__Resize_Layer_Krita.png |
-| selectionscale | Scale... | dialog: Scale Selection – Krita | 377x257 modal | Escape | done | actions/layersize__Resize_Layer_Krita.png |
-| clones_array | Clones Array... | dialog: Create Clones Array – Krita | 836x205 modal | Escape | done | actions/clones_array__Create_Clones_Array_Krita.png |
-| colorrange | Select from Color Range... | dialog: Color Range – Krita | 408x236 modal | Escape | done |  |
-| imagecolorspaceconversion | Convert Image Color Space... | dialog: Convert All Layers From RGB/Alpha (8-bit integer/channel) – Krita | 658x444 modal | Escape | done | actions/imagecolorspaceconversion__Convert_All_Layers_From_RGB_Alpha_8-bit_integer_chann.png |
-| layercolorspaceconversion | Convert Layer Color Space... | dialog: Convert Current Layer From RGB/Alpha (8-bit integer/channel) – Krita | 658x444 modal | Escape | done | actions/imagecolorspaceconversion__Convert_All_Layers_From_RGB_Alpha_8-bit_integer_chann.png |
-| imagesplit | Image Split | dialog: Image Split – Krita | 616x328 modal | Escape | done | actions/imagesplit__Image_Split_Krita.png |
-| layersplit | Split Layer... | dialog: Split Layer – Krita | 640x480 modal | Escape | done | actions/layersplit__Split_Layer_Krita.png |
-| growselection | Grow Selection... | dialog: Grow Selection – Krita | 431x115 modal | Escape | done | actions/growselection__Grow_Selection_Krita.png |
-| shrinkselection | Shrink Selection... | dialog: Shrink Selection – Krita | 446x146 modal | Escape | done | actions/shrinkselection__Shrink_Selection_Krita.png |
-| borderselection | Border Selection... | dialog: Border Selection – Krita | 485x146 modal | Escape | done | actions/borderselection__Border_Selection_Krita.png |
-| featherselection | Feather Selection... | dialog: Feather Selection – Krita | 485x115 modal | Escape | done | actions/featherselection__Feather_Selection_Krita.png |
-| offsetimage | Offset Image... | dialog: Offset Image – Krita | 286x196 modal | Escape | done | actions/offsetimage__Offset_Image_Krita.png |
-| offsetlayer | Offset Layers... | dialog: Offset Layer – Krita | 286x196 modal | Escape | done | actions/offsetimage__Offset_Image_Krita.png |
-| rotateimage | Rotate Image... | dialog: Rotate Image – Krita | 387x337 modal | Escape | done | actions/rotateimage__Rotate_Image_Krita.png |
-| rotatelayer | Rotate Layers... | dialog: Rotate Layer – Krita | 387x337 modal | Escape | done | actions/rotateimage__Rotate_Image_Krita.png |
-| rotateAllLayers | Rotate All Layers... | dialog: Rotate Layer – Krita | 387x337 modal | Escape | done | actions/rotateimage__Rotate_Image_Krita.png |
-| separate | Separate Image... | dialog: Separate Image – Krita | 615x414 modal | Escape | done | actions/separate__Separate_Image_Krita.png |
-| shearimage | Shear Image... | dialog: Shear Image – Krita | 250x121 modal | Escape | done | actions/shearimage__Shear_Image_Krita.png |
-| shearlayer | Shear Layers... | dialog: Shear Layer – Krita | 250x121 modal | Escape | done | actions/shearimage__Shear_Image_Krita.png |
-| shearAllLayers | Shear All Layers... | dialog: Shear Layer – Krita | 250x121 modal | Escape | done | actions/shearimage__Shear_Image_Krita.png |
-| waveletdecompose | Wavelet Decompose ... | dialog: WaveletDecompose – Krita | 202x83 modal | Escape | done | actions/waveletdecompose__WaveletDecompose_Krita.png |
-| EditLayerMetaData | Edit metadata... | dialog:  | 100x30 modal | Escape | done | actions/EditLayerMetaData__.png |
-| svg_insert_special_character | Glyph Palette... | dialog: Glyph Palette | 500x300 | Escape | done | actions/svg_insert_special_character__Glyph_Palette.png |
-| save_incremental_version | Save Incremental Version | dialog: Saving As | 908x421 modal | Escape | done | actions/save_incremental_version__Saving_As.png |
-| save_incremental_backup | Save Incremental Backup | dialog: Saving As | 908x421 modal | Escape | done | actions/save_incremental_version__Saving_As.png |
-| tablet_debugger | Toggle Tablet Debugger | dialog: Krita | 640x480 modal | Escape | done | actions/tablet_debugger__Krita.png |
-| create_template | Create Template From Image... | dialog: Create Template – Krita | 442x279 modal | Escape | done | actions/create_template__Create_Template_Krita.png |
-| save_groups_as_images | Save Group Layers... | dialog: Krita | 640x480 modal | Escape | done | actions/save_groups_as_images__Krita.png |
-| save_node_as_image | Save Layer/Mask... | dialog: Export "Layer 2" | 908x421 modal | Escape | done | actions/save_node_as_image__Export_Layer_2_.png |
-| save_vector_node_to_svg | Save Vector Layer as SVG... | dialog: Export to SVG | 908x421 modal | Escape | done | actions/save_node_as_image__Export_Layer_2_.png |
-| add_new_file_layer | Add File Layer... | dialog: Krita | 422x377 modal | Escape | done | actions/add_new_file_layer__Krita.png |
-| convert_to_file_layer | Convert to File Layer... | dialog: Save layers to... | 640x480 modal | Escape | done | actions/convert_to_file_layer__Save_layers_to....png |
-| import_layer_from_file | Import Layer... | dialog: Import Image | 908x421 modal | Escape | done | actions/import_layer_from_file__Import_Image.png |
-| import_layer_as_paint_layer | as Paint Layer... | dialog: Import Image | 908x421 modal | Escape | done | actions/import_layer_from_file__Import_Image.png |
-| import_layer_as_transparency_mask | as Transparency Mask... | dialog: Import Image | 908x421 modal | Escape | done | actions/import_layer_as_transparency_mask__Import_Image.png |
-| import_layer_as_filter_mask | as Filter Mask... | dialog: Import Image | 908x421 modal | Escape | done | actions/import_layer_as_transparency_mask__Import_Image.png |
-| import_layer_as_selection_mask | as Selection Mask... | dialog: Import Image | 908x421 modal | Escape | done | actions/import_layer_from_file__Import_Image.png |
-| manage_bundles | Manage Resource Libraries... | dialog: Manage Resource Libraries – Krita | 742x535 modal | Escape | done | actions/manage_bundles__Manage_Resource_Libraries_Krita.png |
-| manage_resources | Manage Resources... | dialog: Manage Resources – Krita | 742x535 modal | Escape | done | actions/manage_resources__Manage_Resources_Krita.png |
-| file_new | New | dialog: Create new document | 505x270 modal | Escape | done |  |
-| file_open | Open… | dialog: Open Images | 908x421 modal | Escape | done | actions/import_layer_from_file__Import_Image.png |
-| file_quit | Quit | dialog: Krita | 441x111 modal | Escape | done | actions/file_quit__Krita.png |
-| options_configure_toolbars | Configure Toolbars… | dialog: Configure Toolbars | 618x460 modal | Escape | done | actions/options_configure_toolbars__Configure_Toolbars.png |
-| file_save | Save | dialog: Saving As | 908x421 modal | Escape | done | actions/save_incremental_version__Saving_As.png |
-| file_save_as | Save As… | dialog: Saving As | 908x421 modal | Escape | done | actions/save_incremental_version__Saving_As.png |
-| file_import_animation | Import animation frames... | dialog: Krita | 503x331 modal | Escape | done | actions/file_import_animation__Krita.png |
-| file_import_video_animation | Import video animation... | dialog: Krita | 500x103 modal | Escape,Escape | done | actions/file_import_video_animation__Krita.png |
-| render_animation | Render Animation... | dialog: Render Animation – Krita | 493x678 modal | Escape | done | actions/render_animation__Render_Animation_Krita.png |
-| file_close_all | Close All | dialog: Krita | 441x111 modal | Escape | done | actions/file_quit__Krita.png |
-| file_import_file | Open existing Document as Untitled Document... | dialog: Import Images | 908x421 modal | Escape | done | actions/import_layer_as_transparency_mask__Import_Image.png |
-| file_export_file | Export... | dialog: Exporting | 908x421 modal | Escape | done | actions/file_export_file__Exporting.png |
-| file_export_advanced | Export Advanced... | dialog: Exporting | 908x421 modal | Escape | done | actions/file_export_file__Exporting.png |
-| file_documentinfo | Document Information | dialog: Document Information | 100x30 modal | Escape | done | actions/file_documentinfo__Document_Information.png |
-| reset_configurations | Reset All Settings | dialog: Krita | 640x480 modal | Escape | done | actions/reset_configurations__Krita.png |
-| view_newwindow | New Window | dialog:  | 1280x720 | closeKritaWindow | done | actions/view_newwindow__.png |
-| file_close | Close | dialog: Krita | 441x111 modal | Escape | done | actions/file_quit__Krita.png |
-| file_sessions | Sessions... | dialog: Sessions | 363x238 | Escape | done | actions/file_sessions__Sessions.png |
-| command_bar_open | Search Actions | popup:  | 666x500 | Escape | done | actions/command_bar_open__.png |
-| options_configure | Configure Krita... | dialog: Configure Krita | 100x30 modal | Escape | done | actions/options_configure__Configure_Krita.png |
-| switch_application_language | Switch Application Language... | dialog: Switch Application Language | 100x30 | Escape | done | actions/switch_application_language__Switch_Application_Language.png |
-| help_about_app | About Krita | dialog: About Krita | 583x635 modal | Escape | done | actions/help_about_app__About_Krita.png |
-| help_about_kde | About KDE | dialog: About KDE | 100x30 | Escape | done | actions/switch_application_language__Switch_Application_Language.png |
+Qt file chooser = a Qt file dialog shown as a Krita window (the page has its own open/save). `returned` is whether the action call returned after the window was closed.
+
+| action | text | window title | size | Qt file chooser | closed by | returned | picture |
+|---|---|---|---|---|---|---|---|
+| krita_filter_asc-cdl | Slope, Offset, Power... | dialog: Filter: Slope, Offset, Power(ASC-CDL) | 582x294 |  | Escape | done | actions/krita_filter_asc-cdl__Filter_Slope_Offset_Power_ASC-CDL_.png |
+| krita_filter_blur | Blur... | dialog: Filter: Blur | 582x294 |  | Escape | done | actions/krita_filter_blur__Filter_Blur.png |
+| krita_filter_burn | Burn... | dialog: Filter: Burn... | 582x294 |  | Escape | done | actions/krita_filter_burn__Filter_Burn....png |
+| krita_filter_colorbalance | Color Balance... | dialog: Filter: Color Balance | 582x500 |  | Escape | done | actions/krita_filter_colorbalance__Filter_Color_Balance.png |
+| krita_filter_colortoalpha | Color to Alpha... | dialog: Filter: Color to Alpha | 582x500 |  | Escape | done | actions/krita_filter_colortoalpha__Filter_Color_to_Alpha.png |
+| krita_filter_colortransfer | Color Transfer... | dialog: Filter: Color Transfer | 582x500 |  | Escape | done | actions/krita_filter_colortransfer__Filter_Color_Transfer.png |
+| krita_filter_crosschannel | Cross-channel adjustment curves... | dialog: Filter: Cross-channel color adjustment | 582x500 |  | Escape | done | actions/krita_filter_crosschannel__Filter_Cross-channel_color_adjustment.png |
+| krita_filter_desaturate | Desaturate... | dialog: Filter: Desaturate | 582x500 |  | Escape | done | actions/krita_filter_desaturate__Filter_Desaturate.png |
+| krita_filter_dodge | Dodge... | dialog: Filter: Dodge... | 582x500 |  | Escape | done | actions/krita_filter_dodge__Filter_Dodge....png |
+| krita_filter_edge detection | Edge Detection... | dialog: Filter: Edge Detection | 582x500 |  | Escape | done | actions/krita_filter_edge_detection__Filter_Edge_Detection.png |
+| krita_filter_emboss | Emboss with Variable Depth... | dialog: Filter: Emboss with Variable Depth | 582x500 |  | Escape | done | actions/krita_filter_emboss__Filter_Emboss_with_Variable_Depth.png |
+| krita_filter_fastcoloroverlay | Fast Color Overlay... | dialog: Filter: Fast Color Overlay | 582x500 |  | Escape | done | actions/krita_filter_fastcoloroverlay__Filter_Fast_Color_Overlay.png |
+| krita_filter_gaussian blur | Gaussian Blur... | dialog: Filter: Gaussian Blur | 582x500 |  | Escape | done | actions/krita_filter_gaussian_blur__Filter_Gaussian_Blur.png |
+| krita_filter_gaussianhighpass | Gaussian High Pass... | dialog: Filter: Gaussian High Pass | 582x500 |  | Escape | done | actions/krita_filter_gaussianhighpass__Filter_Gaussian_High_Pass.png |
+| krita_filter_gaussiannoisereducer | Gaussian Noise Reduction... | dialog: Filter: Gaussian Noise Reducer | 582x500 |  | Escape | done | actions/krita_filter_gaussiannoisereducer__Filter_Gaussian_Noise_Reducer.png |
+| krita_filter_gradientmap | Gradient Map... | dialog: Filter: Gradient Map | 658x500 |  | Escape | done | actions/krita_filter_gradientmap__Filter_Gradient_Map.png |
+| krita_filter_halftone | Halftone... | dialog: Filter: Halftone | 582x357 |  | Escape | done | actions/krita_filter_halftone__Filter_Halftone.png |
+| krita_filter_height to normal | Height to Normal Map... | dialog: Filter: Height to Normal Map | 582x357 |  | Escape | done | actions/krita_filter_height_to_normal__Filter_Height_to_Normal_Map.png |
+| krita_filter_hsvadjustment | HSV Adjustment... | dialog: Filter: HSV/HSL Adjustment | 582x357 |  | Escape | done | actions/krita_filter_hsvadjustment__Filter_HSV_HSL_Adjustment.png |
+| krita_filter_indexcolors | Index Colors... | dialog: Filter: Index Colors | 582x500 |  | Escape | done | actions/krita_filter_indexcolors__Filter_Index_Colors.png |
+| krita_filter_lens blur | Lens Blur... | dialog: Filter: Lens Blur | 582x500 |  | Escape | done | actions/krita_filter_lens_blur__Filter_Lens_Blur.png |
+| krita_filter_levels | Levels... | dialog: Filter: Levels | 582x500 |  | Escape | done | actions/krita_filter_levels__Filter_Levels.png |
+| krita_filter_motion blur | Motion Blur... | dialog: Filter: Motion Blur | 582x500 |  | Escape | done | actions/krita_filter_motion_blur__Filter_Motion_Blur.png |
+| krita_filter_noise | Random Noise... | dialog: Filter: Random Noise | 582x500 |  | Escape | done | actions/krita_filter_noise__Filter_Random_Noise.png |
+| krita_filter_oilpaint | Oilpaint... | dialog: Filter: Oilpaint | 582x500 |  | Escape | done | actions/krita_filter_oilpaint__Filter_Oilpaint.png |
+| krita_filter_palettize | Palettize... | dialog: Filter: Palettize | 582x500 |  | Escape | done | actions/krita_filter_palettize__Filter_Palettize.png |
+| krita_filter_perchannel | Color Adjustment curves... | dialog: Filter: Color Adjustment | 582x500 |  | Escape | done | actions/krita_filter_perchannel__Filter_Color_Adjustment.png |
+| krita_filter_phongbumpmap | Phong Bumpmap... | dialog: Filter: Phong Bumpmap | 610x500 |  | Escape | done | actions/krita_filter_phongbumpmap__Filter_Phong_Bumpmap.png |
+| krita_filter_pixelize | Pixelize... | dialog: Filter: Pixelize | 610x500 |  | Escape | done | actions/krita_filter_pixelize__Filter_Pixelize.png |
+| krita_filter_posterize | Posterize... | dialog: Filter: Posterize | 610x500 |  | Escape | done | actions/krita_filter_posterize__Filter_Posterize.png |
+| krita_filter_propagatecolors | Propagate Colors... | dialog: Filter: Propagate Colors | 610x500 |  | Escape | done | actions/krita_filter_propagatecolors__Filter_Propagate_Colors.png |
+| krita_filter_raindrops | Raindrops... | dialog: Filter: Raindrops | 610x500 |  | Escape | done | actions/krita_filter_raindrops__Filter_Raindrops.png |
+| krita_filter_randompick | Random Pick... | dialog: Filter: Random Pick | 610x500 |  | Escape | done | actions/krita_filter_randompick__Filter_Random_Pick.png |
+| krita_filter_roundcorners | Round Corners... | dialog: Filter: Round Corners | 610x500 |  | Escape | done | actions/krita_filter_roundcorners__Filter_Round_Corners.png |
+| krita_filter_smalltiles | Small Tiles... | dialog: Filter: Small Tiles | 610x500 |  | Escape | done | actions/krita_filter_smalltiles__Filter_Small_Tiles.png |
+| krita_filter_threshold | Threshold... | dialog: Filter: Threshold | 610x500 |  | Escape | done | actions/krita_filter_threshold__Filter_Threshold.png |
+| krita_filter_unsharp | Unsharp Mask... | dialog: Filter: Unsharp Mask | 610x500 |  | Escape | done | actions/krita_filter_unsharp__Filter_Unsharp_Mask.png |
+| krita_filter_wave | Wave... | dialog: Filter: Wave | 610x500 |  | Escape | done | actions/krita_filter_wave__Filter_Wave.png |
+| krita_filter_waveletnoisereducer | Wavelet Noise Reducer... | dialog: Filter: Wavelet Noise Reducer | 610x500 |  | Escape | done | actions/krita_filter_waveletnoisereducer__Filter_Wavelet_Noise_Reducer.png |
+| stroke_selection | Stroke Selection... | dialog: Stroke Selection Properties – Krita | 331x235 modal |  | Escape | done | actions/stroke_selection__Stroke_Selection_Properties_Krita.png |
+| show_snap_options_popup | Show Snap Options Popup | popup:  | 166x289 |  | Escape | done | actions/show_snap_options_popup__.png |
+| layer_style | Layer Style... | dialog: Layer Styles – Krita | 818x744 modal |  | Escape | done | actions/layer_style__Layer_Styles_Krita.png |
+| add_new_adjustment_layer | Add Filter Layer... | dialog: New Filter Layer – Krita | 722x527 modal |  | Escape | done | actions/add_new_adjustment_layer__New_Filter_Layer_Krita.png |
+| add_new_filter_mask | Add Filter Mask... | dialog: New Filter Mask – Krita | 722x527 modal |  | Escape | done | actions/add_new_filter_mask__New_Filter_Mask_Krita.png |
+| image_properties | Properties... | dialog: Image Properties – Krita | 560x552 modal |  | Escape | done | actions/image_properties__Image_Properties_Krita.png |
+| image_color | Image Background Color and Transparency... | dialog: Select a Color | 640x480 modal |  | Escape | done | actions/image_color__Select_a_Color.png |
+| patterns | Patterns | popup:  | 452x402 |  | Escape | done | actions/patterns__.png |
+| gradients | Gradients | popup:  | 322x398 |  | Escape | done | actions/gradients__.png |
+| brushslider1 | Brush option slider 1 | popup:  | 336x130 |  | Escape | done | actions/brushslider1__.png |
+| brushslider2 | Brush option slider 2 | popup:  | 336x130 |  | Escape | done | actions/brushslider2__.png |
+| brushslider3 | Brush option slider 3 | popup:  | 336x130 |  | Escape | done | actions/brushslider3__.png |
+| brushslider4 | Brush option slider 4 | popup:  | 336x130 |  | Escape | done | actions/brushslider3__.png |
+| brushslider5 | Brush option slider 5 | popup:  | 336x130 |  | Escape | done | actions/brushslider3__.png |
+| show_brush_presets | Show Brush Presets | popup:  | 452x552 |  | Escape | done | actions/show_brush_presets__.png |
+| workspaces | Workspaces | popup:  | 274x616 |  | Escape | done | actions/workspaces__.png |
+| chooseForegroundColor | Open Foreground color selector | dialog: Select a Color | 505x490 |  | Escape | done | actions/chooseForegroundColor__Select_a_Color.png |
+| chooseBackgroundColor | Open Background color selector | dialog: Select a Color | 505x490 |  | Escape | done | actions/chooseBackgroundColor__Select_a_Color.png |
+| docker_box | Show Docker Box | popup:  | 302x302 |  | Escape | done | actions/docker_box__.png |
+| imagesize | Scale Image To New Size... | dialog: Scale To New Size – Krita | 547x452 modal |  | Escape | done | actions/imagesize__Scale_To_New_Size_Krita.png |
+| canvassize | Resize Canvas... | dialog: Resize Canvas – Krita | 403x431 modal |  | Escape | done | actions/canvassize__Resize_Canvas_Krita.png |
+| layersize | Scale Layers to new Size... | dialog: Resize Layer – Krita | 377x257 modal |  | Escape | done | actions/layersize__Resize_Layer_Krita.png |
+| scaleAllLayers | Scale All Layers to new Size... | dialog: Resize Layer – Krita | 377x257 modal |  | Escape | done | actions/layersize__Resize_Layer_Krita.png |
+| selectionscale | Scale... | dialog: Scale Selection – Krita | 377x257 modal |  | Escape | done | actions/layersize__Resize_Layer_Krita.png |
+| clones_array | Clones Array... | dialog: Create Clones Array – Krita | 836x205 modal |  | Escape | done | actions/clones_array__Create_Clones_Array_Krita.png |
+| colorrange | Select from Color Range... | dialog: Color Range – Krita | 408x236 modal |  | Escape | done | actions/colorrange__Color_Range_Krita.png |
+| imagecolorspaceconversion | Convert Image Color Space... | dialog: Convert All Layers From RGB/Alpha (8-bit integer/channel) – Krita | 658x444 modal |  | Escape | done | actions/imagecolorspaceconversion__Convert_All_Layers_From_RGB_Alpha_8-bit_integer_chann.png |
+| layercolorspaceconversion | Convert Layer Color Space... | dialog: Convert Current Layer From RGB/Alpha (8-bit integer/channel) – Krita | 658x444 modal |  | Escape | done | actions/imagecolorspaceconversion__Convert_All_Layers_From_RGB_Alpha_8-bit_integer_chann.png |
+| QMic | Start G'MIC-Qt | dialog: G'MIC-Qt for Krita - Generic Unix 32 bits - 3.7.2 | 1267x712 modal |  | closeKritaWindow | done | actions/QMic__G_MIC-Qt_for_Krita_-_Generic_Unix_32_bits_-_3.7.2.png |
+| imagesplit | Image Split | dialog: Image Split – Krita | 616x328 modal |  | Escape | done | actions/imagesplit__Image_Split_Krita.png |
+| layersplit | Split Layer... | dialog: Split Layer – Krita | 640x480 modal |  | Escape | done | actions/layersplit__Split_Layer_Krita.png |
+| growselection | Grow Selection... | dialog: Grow Selection – Krita | 431x115 modal |  | Escape | done | actions/growselection__Grow_Selection_Krita.png |
+| shrinkselection | Shrink Selection... | dialog: Shrink Selection – Krita | 446x146 modal |  | Escape | done | actions/shrinkselection__Shrink_Selection_Krita.png |
+| borderselection | Border Selection... | dialog: Border Selection – Krita | 485x146 modal |  | Escape | done | actions/borderselection__Border_Selection_Krita.png |
+| featherselection | Feather Selection... | dialog: Feather Selection – Krita | 485x115 modal |  | Escape | done | actions/featherselection__Feather_Selection_Krita.png |
+| offsetimage | Offset Image... | dialog: Offset Image – Krita | 286x196 modal |  | Escape | done | actions/offsetimage__Offset_Image_Krita.png |
+| offsetlayer | Offset Layers... | dialog: Offset Layer – Krita | 286x196 modal |  | Escape | done | actions/offsetimage__Offset_Image_Krita.png |
+| rotateimage | Rotate Image... | dialog: Rotate Image – Krita | 387x337 modal |  | Escape | done | actions/rotateimage__Rotate_Image_Krita.png |
+| rotatelayer | Rotate Layers... | dialog: Rotate Layer – Krita | 387x337 modal |  | Escape | done | actions/rotateimage__Rotate_Image_Krita.png |
+| rotateAllLayers | Rotate All Layers... | dialog: Rotate Layer – Krita | 387x337 modal |  | closeKritaWindow | done | actions/rotateimage__Rotate_Image_Krita.png |
+| separate | Separate Image... | dialog: Separate Image – Krita | 615x414 modal |  | Escape | done | actions/separate__Separate_Image_Krita.png |
+| shearimage | Shear Image... | dialog: Shear Image – Krita | 250x121 modal |  | Escape | done | actions/shearimage__Shear_Image_Krita.png |
+| shearlayer | Shear Layers... | dialog: Shear Layer – Krita | 250x121 modal |  | Escape | done | actions/shearimage__Shear_Image_Krita.png |
+| shearAllLayers | Shear All Layers... | dialog: Shear Layer – Krita | 250x121 modal |  | Escape | done | actions/shearimage__Shear_Image_Krita.png |
+| waveletdecompose | Wavelet Decompose ... | dialog: WaveletDecompose – Krita | 202x83 modal |  | Escape | done | actions/waveletdecompose__WaveletDecompose_Krita.png |
+| EditLayerMetaData | Edit metadata... | dialog:  | 100x30 modal |  | Escape | done | actions/EditLayerMetaData__.png |
+| svg_insert_special_character | Glyph Palette... | dialog: Glyph Palette | 500x300 |  | Escape | done | actions/svg_insert_special_character__Glyph_Palette.png |
+| save_incremental_version | Save Incremental Version | dialog: Saving As | 908x421 modal | YES | Escape | done | actions/save_incremental_version__Saving_As.png |
+| save_incremental_backup | Save Incremental Backup | dialog: Saving As | 908x421 modal | YES | Escape | done | actions/save_incremental_backup__Saving_As.png |
+| tablet_debugger | Toggle Tablet Debugger | dialog: Krita | 640x480 modal |  | Escape | done | actions/tablet_debugger__Krita.png |
+| create_template | Create Template From Image... | dialog: Create Template – Krita | 442x279 modal |  | Escape | done | actions/create_template__Create_Template_Krita.png |
+| save_groups_as_images | Save Group Layers... | dialog: Krita | 640x480 modal |  | Escape | done | actions/save_groups_as_images__Krita.png |
+| save_node_as_image | Save Layer/Mask... | dialog: Export "Layer 2" | 908x421 modal | YES | Escape | done | actions/save_incremental_backup__Saving_As.png |
+| save_vector_node_to_svg | Save Vector Layer as SVG... | dialog: Export to SVG | 908x421 modal | YES | Escape | done | actions/save_incremental_version__Saving_As.png |
+| add_new_file_layer | Add File Layer... | dialog: Krita | 422x377 modal |  | Escape | done | actions/add_new_file_layer__Krita.png |
+| convert_to_file_layer | Convert to File Layer... | dialog: Save layers to... | 640x480 modal | YES | Escape | done | actions/convert_to_file_layer__Save_layers_to....png |
+| import_layer_from_file | Import Layer... | dialog: Import Image | 908x421 modal | YES | Escape | done | actions/import_layer_from_file__Import_Image.png |
+| import_layer_as_paint_layer | as Paint Layer... | dialog: Import Image | 908x421 modal | YES | Escape | done | actions/import_layer_as_paint_layer__Import_Image.png |
+| import_layer_as_transparency_mask | as Transparency Mask... | dialog: Import Image | 908x421 modal | YES | Escape | done | actions/import_layer_as_paint_layer__Import_Image.png |
+| import_layer_as_filter_mask | as Filter Mask... | dialog: Import Image | 908x421 modal | YES | Escape | done | actions/import_layer_as_paint_layer__Import_Image.png |
+| import_layer_as_selection_mask | as Selection Mask... | dialog: Import Image | 908x421 modal | YES | Escape | NO (never returned) | actions/import_layer_from_file__Import_Image.png |
+| manage_bundles | Manage Resource Libraries... | dialog: Manage Resource Libraries – Krita | 742x535 modal |  | Escape | done | actions/manage_bundles__Manage_Resource_Libraries_Krita.png |
+| manage_resources | Manage Resources... | dialog: Manage Resources – Krita | 742x535 modal |  | Escape | done | actions/manage_resources__Manage_Resources_Krita.png |
+| file_new | New | dialog: Create new document | 505x270 modal |  | Escape | done |  |
+| file_open | Open… | dialog: Open Images | 908x421 modal | YES | Escape | NO (never returned) | actions/import_layer_as_paint_layer__Import_Image.png |
+| file_quit | Quit | dialog: Krita | 441x111 modal |  | Escape | done | actions/file_quit__Krita.png |
+| options_configure_toolbars | Configure Toolbars… | dialog: Configure Toolbars | 618x460 modal |  | Escape | done | actions/options_configure_toolbars__Configure_Toolbars.png |
+| file_save | Save | dialog: Saving As | 908x421 modal | YES | Escape | NO (never returned) | actions/save_incremental_backup__Saving_As.png |
+| file_save_as | Save As… | dialog: Saving As | 908x421 modal | YES | Escape | done | actions/save_incremental_version__Saving_As.png |
+| file_import_animation | Import animation frames... | dialog: Krita | 503x331 modal |  | Escape | done | actions/file_import_animation__Krita.png |
+| file_import_video_animation | Import video animation... | dialog: Krita | 500x103 modal |  | Escape,Escape | done | actions/file_import_video_animation__Krita.png |
+| file_import_video_animation | Import video animation... | dialog: Import Video Animation | 592x660 modal |  | Escape,Escape | done | actions/file_import_video_animation__Import_Video_Animation.png |
+| render_animation | Render Animation... | dialog: Render Animation – Krita | 493x678 modal |  | Escape | done | actions/render_animation__Render_Animation_Krita.png |
+| file_close_all | Close All | dialog: Krita | 441x111 modal |  | Escape | done | actions/file_quit__Krita.png |
+| file_import_file | Open existing Document as Untitled Document... | dialog: Import Images | 908x421 modal | YES | Escape | NO (never returned) | actions/import_layer_from_file__Import_Image.png |
+| file_export_file | Export... | dialog: Exporting | 908x421 modal | YES | Escape | NO (never returned) | actions/file_export_file__Exporting.png |
+| file_export_advanced | Export Advanced... | dialog: Exporting | 908x421 modal | YES | Escape | NO (never returned) | actions/file_export_file__Exporting.png |
+| file_documentinfo | Document Information | dialog: Document Information | 100x30 modal |  | Escape | done | actions/file_documentinfo__Document_Information.png |
+| reset_configurations | Reset All Settings | dialog: Krita | 640x480 modal |  | Escape | done | actions/reset_configurations__Krita.png |
+| view_newwindow | New Window | dialog:  | 1280x720 |  | closeKritaWindow | done | actions/view_newwindow__.png |
+| file_close | Close | dialog: Krita | 441x111 modal |  | Escape | done | actions/file_quit__Krita.png |
+| file_sessions | Sessions... | dialog: Sessions | 363x238 |  | Escape | done | actions/file_sessions__Sessions.png |
+| command_bar_open | Search Actions | popup:  | 666x500 |  | Escape | done | actions/command_bar_open__.png |
+| options_configure | Configure Krita... | dialog: Configure Krita | 100x30 modal |  | Escape | done | actions/options_configure__Configure_Krita.png |
+| switch_application_language | Switch Application Language... | dialog: Switch Application Language | 100x30 |  | Escape | done | actions/switch_application_language__Switch_Application_Language.png |
+| help_about_app | About Krita | dialog: About Krita | 583x635 modal |  | Escape | done | actions/help_about_app__About_Krita.png |
+| help_about_kde | About KDE | dialog: About KDE | 100x30 |  | Escape | done | actions/switch_application_language__Switch_Application_Language.png |
 
 ## A3. Actions that were enabled but had no visible effect
 
@@ -237,18 +281,14 @@ _(docs/parity/NOTES.md missing)_
 | hmirror_action | Horizontal Mirror Tool | - | base | flags 0 |
 | vmirror_action | Vertical Mirror Tool | - | base | flags 0 |
 | Select Normal Blending Mode | Select Normal Blending Mode | - | base | cond 0 flags 0 |
-| Select Clear Blending Mode | Select Clear Blending Mode | - | base | cond 0 flags 0 |
 | composite_actions | Brush composite | - | base |  |
 | mirror_actions | Mirror | - | base |  |
 | show_brush_editor | Show Brush Editor | - | base |  |
 | disable_pressure | Use Pen Pressure | - | base | flags 0 |
 | paintops | Painter's Tools | - | base |  |
 | dockerBox | Docker Box | - | base |  |
+| QMicAgain | Re-apply the last G'MIC filter | Filter | base |  |
 | LayerGroupSwitcher/next | Move into next group | - | group | cond 0 flags 0 |
-| calligraphy_increase_width | Calligraphy: increase width | - | vector |  |
-| calligraphy_decrease_width | Calligraphy: decrease width | - | vector |  |
-| calligraphy_increase_angle | Calligraphy: increase angle | - | vector |  |
-| calligraphy_decrease_angle | Calligraphy: decrease angle | - | vector |  |
 | rotate_brush_tip_clockwise | Rotate brush tip clockwise | - | base | cond 0 flags 0 |
 | rotate_brush_tip_clockwise_precise | Rotate brush tip clockwise (precise) | - | base | cond 0 flags 0 |
 | rotate_brush_tip_counter_clockwise | Rotate brush tip counter-clockwise | - | base | cond 0 flags 0 |
@@ -257,6 +297,15 @@ _(docs/parity/NOTES.md missing)_
 | object_order_raise | Raise | - | vector |  |
 | object_order_lower | Lower | - | vector |  |
 | object_order_back | Send to Back | - | vector |  |
+| svg_paste_rich_text | Paste Rich Text | - | vector |  |
+| svg_paste_plain_text | Paste Plain Text | - | vector |  |
+| set_no_brush_smoothing | Brush Smoothing: Disabled | - | base |  |
+| set_simple_brush_smoothing | Brush Smoothing: Basic | - | base |  |
+| set_weighted_brush_smoothing | Brush Smoothing: Weighted | - | base |  |
+| set_stabilizer_brush_smoothing | Brush Smoothing: Stabilizer | - | base |  |
+| set_pixel_perfect_smoothing | Brush Smoothing: Pixel | - | base |  |
+| toggle_assistant | Toggle Snap To Assistants | - | base |  |
+| KritaShape/KisToolBrush | Freehand Brush Tool | - | base |  |
 | movetool-move-up | Move up | - | base |  |
 | movetool-move-down | Move down | - | base |  |
 | movetool-move-left | Move left | - | base |  |
@@ -265,15 +314,10 @@ _(docs/parity/NOTES.md missing)_
 | movetool-move-down-more | Move down more | - | base |  |
 | movetool-move-left-more | Move left more | - | base |  |
 | movetool-move-right-more | Move right more | - | base |  |
-| KritaShape/KisToolBrush | Freehand Brush Tool | - | base |  |
-| set_no_brush_smoothing | Brush Smoothing: Disabled | - | base |  |
-| set_simple_brush_smoothing | Brush Smoothing: Basic | - | base |  |
-| set_weighted_brush_smoothing | Brush Smoothing: Weighted | - | base |  |
-| set_stabilizer_brush_smoothing | Brush Smoothing: Stabilizer | - | base |  |
-| set_pixel_perfect_smoothing | Brush Smoothing: Pixel | - | base |  |
-| toggle_assistant | Toggle Snap To Assistants | - | base |  |
-| svg_paste_rich_text | Paste Rich Text | - | vector |  |
-| svg_paste_plain_text | Paste Plain Text | - | vector |  |
+| calligraphy_increase_width | Calligraphy: increase width | - | vector |  |
+| calligraphy_decrease_width | Calligraphy: decrease width | - | vector |  |
+| calligraphy_increase_angle | Calligraphy: increase angle | - | vector |  |
+| calligraphy_decrease_angle | Calligraphy: decrease angle | - | vector |  |
 | edit_redo | Redo  | Edit | base | cond 0 flags 1 |
 | open_resources_directory | Open Resources Folder | - | base | cond 0 flags 0 |
 | view_print_size | View Print Size | View | base |  |
@@ -299,6 +343,9 @@ _(docs/parity/NOTES.md missing)_
 | action | text | menu | activation in .action |
 |---|---|---|---|
 | configure_sap | Configure selection actions bar | Select |  |
+| add_new_fill_layer | Add Fill Layer... | Layer > New | cond 0 flags 1000 |
+| add_new_fast_color_overlay_mask | Add Color Overlay Mask | - | cond 0 flags 100000 |
+| convert_to_filter_mask | Convert to Filter Mask... | Layer > Convert | cond 0 flags 1000 |
 | object_distribute_horizontal_left | Distribute Left | - |  |
 | object_distribute_horizontal_center | Distribute Centers Horizontally | - |  |
 | object_distribute_horizontal_right | Distribute Right | - |  |
@@ -365,11 +412,11 @@ _(docs/parity/NOTES.md missing)_
 | zoom_to_100pct | Zoom to 100% | base | no visible effect |  |
 | view_zoom_in | Zoom In | base | message | Zoom: 133.3 % |
 | view_zoom_out | Zoom Out | base | message | Zoom: 66.7 % |
-| zoom_to_fit | Fit to View | base | message | Zoom: 396.5 % |
+| zoom_to_fit | Fit to View | base | message | Zoom: 286.3 % |
 | zoom_to_fit_width | Fit to View Width | base | message | Zoom: 396.5 % |
-| zoom_to_fit_height | Fit to View Height | base | message | Zoom: 5,592,358.0 % |
+| zoom_to_fit_height | Fit to View Height | base | message | Zoom: 286.3 % |
 | toggle_zoom_to_fit | Toggle Fit to View | base | message | Zoom: 286.3 % |
-| reset_display | Reset Display | base | message | Rotation: 0.0° /Horizontal mirroring: OFF /Zoom: 396.5 % Rotation: 0.0°  |
+| reset_display | Reset Display | base | message | Rotation: 0.0° /Horizontal mirroring: OFF /Zoom: 286.3 % Rotation: 0.0°  |
 | settings_active_author | Active Author Profile | base | no visible effect |  |
 | view_pixel_grid | Show Pixel Grid | base | no visible effect |  |
 | toggle_fg_bg | Swap Foreground and Background Colors | base | changed layers/selection/history/view | colors |
@@ -378,73 +425,73 @@ _(docs/parity/NOTES.md missing)_
 | filter_apply_again | Apply Filter Again | base | no visible effect |  |
 | filter_apply_reprompt | Apply Filter Again (Reprompt) | base | no visible effect |  |
 | adjust_filters | Adjust | base | no visible effect |  |
-| krita_filter_asc-cdl | Slope, Offset, Power... | base | changed layers/selection/history/view | history |
+| krita_filter_asc-cdl | Slope, Offset, Power... | base | opened dialog | Filter: Slope, Offset, Power(ASC-CDL) |
 | krita_filter_autocontrast | Auto Contrast | base | changed image | image+history |
 | blur_filters | Blur | base | no visible effect |  |
-| krita_filter_blur | Blur... | base | changed image | image+history |
-| krita_filter_burn | Burn... | base | changed image | image+history |
-| krita_filter_colorbalance | Color Balance... | base | changed layers/selection/history/view | history |
+| krita_filter_blur | Blur... | base | opened dialog | Filter: Blur |
+| krita_filter_burn | Burn... | base | opened dialog | Filter: Burn... |
+| krita_filter_colorbalance | Color Balance... | base | opened dialog | Filter: Color Balance |
 | color_filters | Colors | base | no visible effect |  |
-| krita_filter_colortoalpha | Color to Alpha... | base | changed image | image+history |
-| krita_filter_colortransfer | Color Transfer... | base | changed image | image+history |
-| krita_filter_crosschannel | Cross-channel adjustment curves... | base | changed layers/selection/history/view | history |
-| krita_filter_desaturate | Desaturate... | base | changed image | image+history |
-| krita_filter_dodge | Dodge... | base | changed image | image+history |
+| krita_filter_colortoalpha | Color to Alpha... | base | opened dialog | Filter: Color to Alpha |
+| krita_filter_colortransfer | Color Transfer... | base | opened dialog | Filter: Color Transfer |
+| krita_filter_crosschannel | Cross-channel adjustment curves... | base | opened dialog | Filter: Cross-channel color adjustment |
+| krita_filter_desaturate | Desaturate... | base | opened dialog | Filter: Desaturate |
+| krita_filter_dodge | Dodge... | base | opened dialog | Filter: Dodge... |
 | edge_filters | Edge Detection | base | no visible effect |  |
-| krita_filter_edge detection | Edge Detection... | base | changed image | image+history |
+| krita_filter_edge detection | Edge Detection... | base | opened dialog | Filter: Edge Detection |
 | emboss_filters | Emboss | base | no visible effect |  |
-| krita_filter_emboss | Emboss with Variable Depth... | base | changed image | image+history |
+| krita_filter_emboss | Emboss with Variable Depth... | base | opened dialog | Filter: Emboss with Variable Depth |
 | krita_filter_emboss all directions | Emboss in All Directions | base | changed image | image+history |
 | krita_filter_emboss horizontal and vertical | Emboss Horizontal  Vertical | base | changed image | image+history |
 | krita_filter_emboss horizontal only | Emboss Horizontal Only | base | changed image | image+history |
 | krita_filter_emboss laplascian | Emboss (Laplacian) | base | changed image | image+history |
 | krita_filter_emboss vertical only | Emboss Vertical Only | base | changed image | image+history |
-| krita_filter_fastcoloroverlay | Fast Color Overlay... | base | changed image | image+history |
-| krita_filter_gaussian blur | Gaussian Blur... | base | changed image | image+history |
-| krita_filter_gaussianhighpass | Gaussian High Pass... | base | changed image | image+history |
+| krita_filter_fastcoloroverlay | Fast Color Overlay... | base | opened dialog | Filter: Fast Color Overlay |
+| krita_filter_gaussian blur | Gaussian Blur... | base | opened dialog | Filter: Gaussian Blur |
+| krita_filter_gaussianhighpass | Gaussian High Pass... | base | opened dialog | Filter: Gaussian High Pass |
 | enhance_filters | Enhance | base | no visible effect |  |
-| krita_filter_gaussiannoisereducer | Gaussian Noise Reduction... | base | changed image | image+history |
+| krita_filter_gaussiannoisereducer | Gaussian Noise Reduction... | base | opened dialog | Filter: Gaussian Noise Reducer |
 | map_filters | Map | base | no visible effect |  |
-| krita_filter_gradientmap | Gradient Map... | base | changed image | image+history |
+| krita_filter_gradientmap | Gradient Map... | base | opened dialog | Filter: Gradient Map |
 | artistic_filters | Artistic | base | no visible effect |  |
-| krita_filter_halftone | Halftone... | base | changed image | image+history |
-| krita_filter_height to normal | Height to Normal Map... | base | changed image | image+history |
-| krita_filter_hsvadjustment | HSV Adjustment... | base | changed layers/selection/history/view | history |
-| krita_filter_indexcolors | Index Colors... | base | changed image | image+history |
+| krita_filter_halftone | Halftone... | base | opened dialog | Filter: Halftone |
+| krita_filter_height to normal | Height to Normal Map... | base | opened dialog | Filter: Height to Normal Map |
+| krita_filter_hsvadjustment | HSV Adjustment... | base | opened dialog | Filter: HSV/HSL Adjustment |
+| krita_filter_indexcolors | Index Colors... | base | opened dialog | Filter: Index Colors |
 | krita_filter_invert | Invert | base | changed image | image+history |
-| krita_filter_lens blur | Lens Blur... | base | changed image | image+history |
-| krita_filter_levels | Levels... | base | changed layers/selection/history/view | history |
+| krita_filter_lens blur | Lens Blur... | base | opened dialog | Filter: Lens Blur |
+| krita_filter_levels | Levels... | base | opened dialog | Filter: Levels |
 | krita_filter_maximize | Maximize Channel | base | changed image | image+history |
 | krita_filter_mean removal | Mean Removal | base | changed image | image+history |
 | krita_filter_minimize | Minimize Channel | base | changed image | image+history |
-| krita_filter_motion blur | Motion Blur... | base | changed image | image+history |
+| krita_filter_motion blur | Motion Blur... | base | opened dialog | Filter: Motion Blur |
 | other_filters | Other | base | no visible effect |  |
-| krita_filter_noise | Random Noise... | base | changed image | image+history |
+| krita_filter_noise | Random Noise... | base | opened dialog | Filter: Random Noise |
 | krita_filter_normalize | Normalize | base | changed image | image+history |
-| krita_filter_oilpaint | Oilpaint... | base | opened dialog | Filter: Oilpaint ; image+history |
-| krita_filter_palettize | Palettize... | base | changed layers/selection/history/view | history |
-| krita_filter_perchannel | Color Adjustment curves... | base | changed layers/selection/history/view | history |
-| krita_filter_phongbumpmap | Phong Bumpmap... | base | changed image | image+history |
-| krita_filter_pixelize | Pixelize... | base | changed image | image+history |
-| krita_filter_posterize | Posterize... | base | changed image | image+history |
-| krita_filter_propagatecolors | Propagate Colors... | base | changed image | image+history |
-| krita_filter_raindrops | Raindrops... | base | changed image | image+history |
-| krita_filter_randompick | Random Pick... | base | changed image | image+history |
+| krita_filter_oilpaint | Oilpaint... | base | opened dialog | Filter: Oilpaint |
+| krita_filter_palettize | Palettize... | base | opened dialog | Filter: Palettize |
+| krita_filter_perchannel | Color Adjustment curves... | base | opened dialog | Filter: Color Adjustment |
+| krita_filter_phongbumpmap | Phong Bumpmap... | base | opened dialog | Filter: Phong Bumpmap |
+| krita_filter_pixelize | Pixelize... | base | opened dialog | Filter: Pixelize |
+| krita_filter_posterize | Posterize... | base | opened dialog | Filter: Posterize |
+| krita_filter_propagatecolors | Propagate Colors... | base | opened dialog | Filter: Propagate Colors |
+| krita_filter_raindrops | Raindrops... | base | opened dialog | Filter: Raindrops |
+| krita_filter_randompick | Random Pick... | base | opened dialog | Filter: Random Pick |
 | krita_filter_resettransparent | Reset Transparent | base | changed layers/selection/history/view | history |
-| krita_filter_roundcorners | Round Corners... | base | changed layers/selection/history/view | history |
+| krita_filter_roundcorners | Round Corners... | base | opened dialog | Filter: Round Corners |
 | krita_filter_sharpen | Sharpen | base | changed image | image+history |
-| krita_filter_smalltiles | Small Tiles... | base | changed image | image+history |
-| krita_filter_threshold | Threshold... | base | changed image | image+history |
-| krita_filter_unsharp | Unsharp Mask... | base | changed image | image+history |
-| krita_filter_wave | Wave... | base | changed image | image+history |
-| krita_filter_waveletnoisereducer | Wavelet Noise Reducer... | base | changed image | image+history |
+| krita_filter_smalltiles | Small Tiles... | base | opened dialog | Filter: Small Tiles |
+| krita_filter_threshold | Threshold... | base | opened dialog | Filter: Threshold |
+| krita_filter_unsharp | Unsharp Mask... | base | opened dialog | Filter: Unsharp Mask |
+| krita_filter_wave | Wave... | base | opened dialog | Filter: Wave |
+| krita_filter_waveletnoisereducer | Wavelet Noise Reducer... | base | opened dialog | Filter: Wavelet Noise Reducer |
 | edit_cut | Cut | base | changed image | image+history |
 | edit_copy | Copy | base | no visible effect |  |
-| edit_paste | Paste | base | changed image | image+layers+selection+history |
+| edit_paste | Paste | base | changed image | image+layers+selection+history+activeNode |
 | copy_sharp | Copy (sharp) | base | no visible effect |  |
 | cut_sharp | Cut (sharp) | base | changed image | image+history |
-| paste_new | Paste into New Image | base | changed layers/selection/history/view | Zoom: 119.5 %/Zoom: 576.5 % |
-| paste_at | Paste at Cursor | base | changed layers/selection/history/view | layers+selection+history |
+| paste_new | Paste into New Image | base | changed layers/selection/history/view | Zoom: 119.5 %/Zoom: 576.5 % ; activeNode |
+| paste_at | Paste at Cursor | base | changed layers/selection/history/view | layers+selection+history+activeNode |
 | paste_into | Paste into Active Layer | base | changed image | image+layers+selection+history+enabledSet |
 | paste_shape_style | Paste Shape Style | base | no visible effect |  |
 | copy_merged | Copy merged | base | changed layers/selection/history/view | history |
@@ -454,14 +501,14 @@ _(docs/parity/NOTES.md missing)_
 | reselect | Reselect | base | changed layers/selection/history/view | history |
 | invert_selection | Invert Selection | base | changed layers/selection/history/view | selection+history |
 | copy_selection_to_new_layer | Copy Selection to New Layer | base | changed image | image+layers+selection+history+activeNode |
-| cut_selection_to_new_layer | Cut Selection to New Layer | base | changed layers/selection/history/view | layers+selection+history |
+| cut_selection_to_new_layer | Cut Selection to New Layer | base | changed layers/selection/history/view | layers+selection+history+activeNode |
 | fill_selection_foreground_color | Fill with Foreground Color | base | changed image | image+history |
 | fill_selection_background_color | Fill with Background Color | base | changed image | image+history |
 | fill_selection_pattern | Fill with Pattern | base | changed image | image+history |
 | fill_selection_foreground_color_opacity | Fill with Foreground Color (Opacity) | base | changed image | image+history |
 | fill_selection_background_color_opacity | Fill with Background Color (Opacity) | base | changed image | image+history |
 | fill_selection_pattern_opacity | Fill with Pattern (Opacity) | base | changed image | image+history |
-| stroke_shapes | Stroke selected shapes | vector | changed layers/selection/history/view | layers+history+enabledSet |
+| stroke_shapes | Stroke selected shapes | vector | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
 | toggle_display_selection | Display Selection | base | no visible effect |  |
 | resizeimagetoselection | Trim to Selection | base | changed image | image+selection+history+docinfo |
 | edit_selection | Edit Selection | base | no visible effect |  |
@@ -485,10 +532,10 @@ _(docs/parity/NOTES.md missing)_
 | view_snap_image_bounds | Snap Image Bounds | base | no visible effect |  |
 | view_snap_image_center | Snap Image Center | base | no visible effect |  |
 | view_snap_to_pixel | Snap Pixel | base | no visible effect |  |
-| flatten_image | Flatten image | base | changed layers/selection/history/view | layers+selection+history |
-| merge_layer | Merge with Layer Below | base | changed layers/selection/history/view | layers+history+enabledSet |
-| flatten_layer | Flatten Layer | base | changed layers/selection/history/view | layers+history |
-| convert_group_to_animated | Convert Group to Animated Layer | group | changed layers/selection/history/view | layers+history+enabledSet |
+| flatten_image | Flatten image | base | changed layers/selection/history/view | layers+selection+history+activeNode |
+| merge_layer | Merge with Layer Below | base | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
+| flatten_layer | Flatten Layer | base | changed layers/selection/history/view | layers+history+activeNode |
+| convert_group_to_animated | Convert Group to Animated Layer | group | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
 | resizeimagetolayer | Trim to Current Layer | base | changed image | image+selection+history+docinfo |
 | trim_to_image | Trim to Image Size | base | changed layers/selection/history/view | history |
 | purge_unused_image_data | Purge Unused Image Data | base | changed layers/selection/history/view | history |
@@ -504,36 +551,36 @@ _(docs/parity/NOTES.md missing)_
 | activatePreviousLayer | Activate previous layer | base | changed layers/selection/history/view | activeNode+enabledSet |
 | activatePreviousSiblingLayer | Activate previous sibling layer, skipping over groups. | base | changed layers/selection/history/view | activeNode+enabledSet |
 | switchToPreviouslyActiveNode | Activate previously selected layer | base | changed layers/selection/history/view | activeNode+enabledSet |
-| duplicatelayer | Duplicate Layer or Mask | base | changed image | image+layers+history |
+| duplicatelayer | Duplicate Layer or Mask | base | changed image | image+layers+history+activeNode |
 | copy_layer_clipboard | Copy Layer | base | no visible effect |  |
 | cut_layer_clipboard | Cut Layer | base | changed image | image+layers+history+activeNode |
-| paste_layer_from_clipboard | Paste Layer | base | changed image | image+layers+history |
+| paste_layer_from_clipboard | Paste Layer | base | changed image | image+layers+history+activeNode |
 | create_quick_group | Quick Group | group | changed layers/selection/history/view | layers+history |
-| create_quick_clipping_group | Quick Clipping Group | group | changed layers/selection/history/view | layers+history+enabledSet |
-| quick_ungroup | Quick Ungroup | group | changed layers/selection/history/view | layers+history+enabledSet |
+| create_quick_clipping_group | Quick Clipping Group | group | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
+| quick_ungroup | Quick Ungroup | group | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
 | select_all_layers | All Layers | base | no visible effect |  |
 | select_visible_layers | Visible Layers | base | no visible effect |  |
 | select_locked_layers | Locked Layers | base | no visible effect |  |
 | select_invisible_layers | Invisible Layers | base | no visible effect |  |
 | select_unlocked_layers | Unlocked Layers | base | no visible effect |  |
-| new_from_visible | New Layer From Visible | base | changed layers/selection/history/view | layers+history |
+| new_from_visible | New Layer From Visible | base | changed layers/selection/history/view | layers+history+activeNode |
 | pin_to_timeline | Pin to Timeline | anim | changed layers/selection/history/view | enabledSet+checked |
-| add_new_paint_layer | Add Paint Layer | base | changed layers/selection/history/view | layers+history+enabledSet |
-| add_new_group_layer | Add Group Layer | base | changed layers/selection/history/view | layers+history+enabledSet |
-| add_new_clone_layer | Add Clone Layer | base | changed image | image+layers+history+enabledSet |
-| add_new_shape_layer | Add Vector Layer | vector | changed layers/selection/history/view | layers |
-| add_new_adjustment_layer | Add Filter Layer... | base | opened dialog | New Filter Layer – Krita ; history+enabledSet |
-| add_new_fill_layer | Add Fill Layer... | base | crash |  |
-| add_new_transparency_mask | Add Transparency Mask | mask | changed image | image+layers+selection+history |
-| add_new_filter_mask | Add Filter Mask... | mask | opened dialog | New Filter Mask – Krita ; history+enabledSet |
-| add_new_fast_color_overlay_mask | Add Color Overlay Mask | mask | crash |  |
-| add_new_colorize_mask | Add Colorize Mask | mask | changed layers/selection/history/view | layers+history+enabledSet |
-| add_new_transform_mask | Add Transform Mask | mask | changed layers/selection/history/view | layers+history+enabledSet |
+| add_new_paint_layer | Add Paint Layer | base | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
+| add_new_group_layer | Add Group Layer | base | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
+| add_new_clone_layer | Add Clone Layer | base | changed image | image+layers+history+activeNode+enabledSet |
+| add_new_shape_layer | Add Vector Layer | vector | changed layers/selection/history/view | layers+activeNode |
+| add_new_adjustment_layer | Add Filter Layer... | base | opened dialog | New Filter Layer – Krita ; history+activeNode+enabledSet |
+| add_new_fill_layer | Add Fill Layer... | base | disabled |  |
+| add_new_transparency_mask | Add Transparency Mask | mask | changed image | image+layers+selection+history+activeNode |
+| add_new_filter_mask | Add Filter Mask... | mask | opened dialog | New Filter Mask – Krita ; history+activeNode+enabledSet |
+| add_new_fast_color_overlay_mask | Add Color Overlay Mask | mask | disabled |  |
+| add_new_colorize_mask | Add Colorize Mask | mask | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
+| add_new_transform_mask | Add Transform Mask | mask | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
 | add_new_selection_mask | Add Local Selection | mask | changed layers/selection/history/view | layers+selection+history |
-| convert_to_paint_layer | Convert to Paint Layer | vector | changed layers/selection/history/view | layers+history+enabledSet |
+| convert_to_paint_layer | Convert to Paint Layer | vector | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
 | convert_to_selection_mask | Convert to Selection Mask | mask | changed layers/selection/history/view | layers+history+activeNode |
-| convert_to_filter_mask | Convert to Filter Mask... | mask | hang | New Filter Mask – Krita |
-| convert_to_transparency_mask | Convert to Transparency Mask | base | changed image | image+layers+history+enabledSet |
+| convert_to_filter_mask | Convert to Filter Mask... | mask | disabled |  |
+| convert_to_transparency_mask | Convert to Transparency Mask | base | changed image | image+layers+history+activeNode+enabledSet |
 | convert_to_animated | Convert to Animated Layer | anim | no visible effect |  |
 | isolate_active_layer | Isolate Active Layer | base | no visible effect |  |
 | isolate_active_group | Isolate Active Group | group | no visible effect |  |
@@ -541,7 +588,7 @@ _(docs/parity/NOTES.md missing)_
 | toggle_layer_lock | Toggle layer lock | base | changed layers/selection/history/view | layers+history |
 | toggle_layer_inherit_alpha | Toggle layer alpha inheritance | base | changed layers/selection/history/view | history |
 | toggle_layer_alpha_lock | Toggle layer alpha | base | changed layers/selection/history/view | layers+history |
-| split_alpha_into_mask | Alpha into Mask | base | changed layers/selection/history/view | layers+history+enabledSet |
+| split_alpha_into_mask | Alpha into Mask | base | changed layers/selection/history/view | layers+history+activeNode+enabledSet |
 | image_properties | Properties... | base | opened dialog | Image Properties – Krita |
 | image_color | Image Background Color and Transparency... | base | opened dialog | Select a Color ; history |
 | view_grid | Show Grid | base | no visible effect |  |
@@ -593,7 +640,7 @@ _(docs/parity/NOTES.md missing)_
 | Select Normal Blending Mode | Select Normal Blending Mode | base | no visible effect |  |
 | Select Dissolve Blending Mode | Select Dissolve Blending Mode | base | changed layers/selection/history/view | brush |
 | Select Behind Blending Mode | Select Behind Blending Mode | base | changed layers/selection/history/view | brush |
-| Select Clear Blending Mode | Select Clear Blending Mode | base | no visible effect |  |
+| Select Clear Blending Mode | Select Clear Blending Mode | base | changed layers/selection/history/view | brush |
 | Select Darken Blending Mode | Select Darken Blending Mode | base | changed layers/selection/history/view | brush |
 | Select Multiply Blending Mode | Select Multiply Blending Mode | base | changed layers/selection/history/view | brush |
 | Select Color Burn Blending Mode | Select Color Burn Blending Mode | base | changed layers/selection/history/view | brush |
@@ -623,8 +670,8 @@ _(docs/parity/NOTES.md missing)_
 | brushslider4 | Brush option slider 4 | base | opened popup |  |
 | brushslider5 | Brush option slider 5 | base | opened popup |  |
 | next_favorite_preset | Next Favourite Preset | base | changed layers/selection/history/view | c) Pencil-2 selected ; brush |
-| previous_favorite_preset | Previous Favourite Preset | base | message | b) Basic-5 Size Opacity selected |
-| previous_preset | Switch to Previous Preset | base | message | c) Pencil-2 selected |
+| previous_favorite_preset | Previous Favourite Preset | base | changed layers/selection/history/view | b) Basic-5 Size Opacity selected ; brush |
+| previous_preset | Switch to Previous Preset | base | changed layers/selection/history/view | c) Pencil-2 selected ; brush |
 | show_brush_presets | Show Brush Presets | base | opened popup |  |
 | mirror_actions | Mirror | base | no visible effect |  |
 | workspaces | Workspaces | base | opened popup |  |
@@ -644,11 +691,13 @@ _(docs/parity/NOTES.md missing)_
 | colorrange | Select from Color Range... | base | opened dialog | Color Range – Krita |
 | selectopaque | Select Opaque (Replace) | base | changed layers/selection/history/view | selection+history |
 | selectopaque_add | Select Opaque (Add) | base | changed layers/selection/history/view | selection+history |
-| selectopaque_subtract | Select Opaque (Subtract) | base | changed layers/selection/history/view | selection+history |
+| selectopaque_subtract | Select Opaque (Subtract) | base | changed layers/selection/history/view | history |
 | selectopaque_intersect | Select Opaque (Intersect) | base | changed layers/selection/history/view | selection+history |
 | imagecolorspaceconversion | Convert Image Color Space... | base | opened dialog | Convert All Layers From RGB/Alpha (8-bit integer/channel) – Krita |
 | layercolorspaceconversion | Convert Layer Color Space... | base | opened dialog | Convert Current Layer From RGB/Alpha (8-bit integer/channel) – Krita |
 | unifylayerscolorspace | Unify Layers Color Space | base | changed layers/selection/history/view | history |
+| QMic | Start G'MIC-Qt | base | opened dialog | G'MIC-Qt for Krita - Generic Unix 32 bits - 3.7.2 |
+| QMicAgain | Re-apply the last G'MIC filter | base | no visible effect |  |
 | imagesplit | Image Split | base | opened dialog | Image Split – Krita |
 | layersplit | Split Layer... | base | opened dialog | Split Layer – Krita |
 | growselection | Grow Selection... | base | opened dialog | Grow Selection – Krita |
@@ -658,7 +707,7 @@ _(docs/parity/NOTES.md missing)_
 | smoothselection | Smooth | base | changed layers/selection/history/view | selection+history |
 | offsetimage | Offset Image... | base | opened dialog | Offset Image – Krita |
 | offsetlayer | Offset Layers... | base | opened dialog | Offset Layer – Krita |
-| LayerGroupSwitcher/previous | Move into previous group | group | changed image | image+layers+enabledSet |
+| LayerGroupSwitcher/previous | Move into previous group | group | changed image | image+layers+activeNode+enabledSet |
 | LayerGroupSwitcher/next | Move into next group | group | no visible effect |  |
 | rotateimage | Rotate Image... | base | opened dialog | Rotate Image – Krita |
 | rotateImageCW90 | Rotate Image 90° to the Right | base | changed image | image+selection+history+docinfo |
@@ -680,13 +729,7 @@ _(docs/parity/NOTES.md missing)_
 | shearAllLayers | Shear All Layers... | base | opened dialog | Shear Layer – Krita |
 | waveletdecompose | Wavelet Decompose ... | base | opened dialog | WaveletDecompose – Krita |
 | EditLayerMetaData | Edit metadata... | base | opened dialog |  |
-| ZoomTool | Zoom Tool | base | changed layers/selection/history/view | enabledSet |
-| KarbonCalligraphyTool | Calligraphy | base | changed layers/selection/history/view | enabledSet |
-| calligraphy_increase_width | Calligraphy: increase width | vector | no visible effect |  |
-| calligraphy_decrease_width | Calligraphy: decrease width | vector | no visible effect |  |
-| calligraphy_increase_angle | Calligraphy: increase angle | vector | no visible effect |  |
-| calligraphy_decrease_angle | Calligraphy: decrease angle | vector | no visible effect |  |
-| KisToolSelectOutline | Freehand Selection Tool | base | changed layers/selection/history/view | enabledSet |
+| KisToolSelectContiguous | Contiguous Selection Tool | base | changed layers/selection/history/view |  |
 | increase_brush_size | Increase Brush Size | base | changed layers/selection/history/view | Brush Size: 22 px ; brush |
 | decrease_brush_size | Decrease Brush Size | base | changed layers/selection/history/view | Brush Size: 18 px ; brush |
 | rotate_brush_tip_clockwise | Rotate brush tip clockwise | base | no visible effect |  |
@@ -697,7 +740,6 @@ _(docs/parity/NOTES.md missing)_
 | selection_tool_mode_replace | Selection Mode: Replace | base | not available when triggered | Action is not available right now: selection_tool_mode_replace |
 | selection_tool_mode_subtract | Selection Mode: Subtract | base | not available when triggered | Action is not available right now: selection_tool_mode_subtract |
 | selection_tool_mode_intersect | Selection Mode: Intersect | base | not available when triggered | Action is not available right now: selection_tool_mode_intersect |
-| PanTool | Pan Tool | base | changed layers/selection/history/view | enabledSet |
 | InteractionTool | Select Shapes Tool | base | changed layers/selection/history/view | enabledSet |
 | object_order_front | Bring to Front | vector | no visible effect |  |
 | object_order_raise | Raise | vector | no visible effect |  |
@@ -741,44 +783,18 @@ _(docs/parity/NOTES.md missing)_
 | flow_shape_order_earlier | Move Shape Earlier In Chain. | vector | disabled |  |
 | flow_shape_order_later | Move Shape Later In Chain. | vector | disabled |  |
 | flow_shape_order_front | Set Shape As First In Chain | vector | disabled |  |
-| KritaShape/KisToolEllipse | Ellipse Tool | base | changed layers/selection/history/view |  |
-| KisToolSelectRectangular | Rectangular Selection Tool | base | changed layers/selection/history/view | enabledSet |
-| KritaShape/KisToolLine | Line Tool | base | changed layers/selection/history/view | enabledSet |
-| KritaShape/KisToolKnife | Comic Panel Editing Tool | base | changed layers/selection/history/view | enabledSet |
-| KisAssistantTool | Assistant Tool | base | changed layers/selection/history/view | enabledSet |
-| KisToolSelectMagnetic | Magnetic Selection Tool | base | changed layers/selection/history/view | enabledSet |
+| KisToolEncloseAndFill | Enclose and Fill Tool | base | changed layers/selection/history/view |  |
+| KisToolSelectPath | Bezier Curve Selection Tool | base | changed layers/selection/history/view |  |
+| KritaShape/KisToolRectangle | Rectangle Tool | base | changed layers/selection/history/view |  |
+| KisToolSelectElliptical | Elliptical Selection Tool | base | changed layers/selection/history/view |  |
+| KisToolSelectRectangular | Rectangular Selection Tool | base | changed layers/selection/history/view |  |
+| KisToolSelectMagnetic | Magnetic Selection Tool | base | changed layers/selection/history/view |  |
 | undo_polygon_selection | Undo Polygon Selection Points | base | not available when triggered | Action is not available right now: undo_polygon_selection |
-| KisToolSelectContiguous | Contiguous Selection Tool | base | changed layers/selection/history/view | enabledSet |
-| KisToolSelectSimilar | Similar Color Selection Tool | base | changed layers/selection/history/view |  |
-| KisToolTransform | Transform Tool | base | changed image | image+enabledSet |
-| movetool-move-up | Move up | base | no visible effect |  |
-| movetool-move-down | Move down | base | no visible effect |  |
-| movetool-move-left | Move left | base | no visible effect |  |
-| movetool-move-right | Move right | base | no visible effect |  |
-| movetool-move-up-more | Move up more | base | no visible effect |  |
-| movetool-move-down-more | Move down more | base | no visible effect |  |
-| movetool-move-left-more | Move left more | base | no visible effect |  |
-| movetool-move-right-more | Move right more | base | no visible effect |  |
-| KisToolTransformFree | Transform Tool (Free Transform) | base | changed image | image+enabledSet |
-| KisToolTransformPerspective | Transform Tool (Perspective Transform) | base | changed image | image+enabledSet |
-| KisToolTransformWarp | Transform Tool (Warp Transform) | base | changed image | image+enabledSet |
-| KisToolTransformCage | Transform Tool (Cage Transform) | base | changed image | image+enabledSet |
-| KisToolTransformLiquify | Transform Tool (Liquify Transform) | base | changed image | image+enabledSet |
-| KisToolTransformMesh | Transform Tool (Mesh Transform) | base | changed image | image+enabledSet |
-| KritaTransform/KisToolMove | Move Tool | base | changed layers/selection/history/view | enabledSet |
-| movetool-show-coordinates | Show Coordinates | base | changed layers/selection/history/view | enabledSet+checked |
-| KisToolPolygon | Polygon Tool | base | changed layers/selection/history/view | enabledSet |
-| KritaShape/KisToolBrush | Freehand Brush Tool | base | no visible effect |  |
-| set_no_brush_smoothing | Brush Smoothing: Disabled | base | no visible effect |  |
-| set_simple_brush_smoothing | Brush Smoothing: Basic | base | no visible effect |  |
-| set_weighted_brush_smoothing | Brush Smoothing: Weighted | base | no visible effect |  |
-| set_stabilizer_brush_smoothing | Brush Smoothing: Stabilizer | base | no visible effect |  |
-| set_pixel_perfect_smoothing | Brush Smoothing: Pixel | base | no visible effect |  |
-| toggle_assistant | Toggle Snap To Assistants | base | no visible effect |  |
-| KritaShape/KisToolDyna | Dynamic Brush Tool | base | changed layers/selection/history/view | enabledSet |
-| KisToolPath | Bezier Curve Tool | base | changed layers/selection/history/view | enabledSet |
-| KritaSelected/KisToolColorSampler | Color Sampler | base | changed layers/selection/history/view | enabledSet |
-| KisToolPencil | Freehand Path Tool | base | changed layers/selection/history/view |  |
+| KritaShape/KisToolLazyBrush | Colorize Mask Tool | base | changed layers/selection/history/view |  |
+| KritaShape/KisToolKnife | Comic Panel Editing Tool | base | changed layers/selection/history/view |  |
+| KritaShape/KisToolSmartPatch | Smart Patch Tool | base | changed layers/selection/history/view |  |
+| KisToolSelectOutline | Freehand Selection Tool | base | changed layers/selection/history/view | enabledSet |
+| KritaFill/KisToolFill | Fill Tool | base | changed layers/selection/history/view |  |
 | SvgTextTool | Text Tool | base | changed layers/selection/history/view | enabledSet |
 | svg_align_center | Align Center | vector | changed layers/selection/history/view | history |
 | svg_align_justified | Align Block | vector | changed layers/selection/history/view | history |
@@ -806,19 +822,37 @@ _(docs/parity/NOTES.md missing)_
 | svg_type_setting_move_selection_start_right_1_px | Move Text Selection Right By 1 Pixel | vector | disabled |  |
 | svg_remove_transforms_from_range | Remove Character Transforms | vector | changed layers/selection/history/view | history |
 | svg_clear_formatting | Clear Formatting | vector | changed layers/selection/history/view | history |
-| KritaShape/KisToolLazyBrush | Colorize Mask Tool | base | changed layers/selection/history/view | enabledSet |
-| KisToolSelectElliptical | Elliptical Selection Tool | base | changed layers/selection/history/view | enabledSet |
-| KritaFill/KisToolGradient | Gradient Tool | base | changed layers/selection/history/view | enabledSet |
-| KritaShape/KisToolMultiBrush | Multibrush Tool | base | changed layers/selection/history/view | enabledSet |
-| KisToolEncloseAndFill | Enclose and Fill Tool | base | changed layers/selection/history/view | enabledSet |
+| KritaShape/KisToolEllipse | Ellipse Tool | base | changed layers/selection/history/view |  |
 | KritaShape/KisToolMeasure | Measurement Tool | base | changed layers/selection/history/view | enabledSet |
-| KritaFill/KisToolFill | Fill Tool | base | changed layers/selection/history/view | enabledSet |
-| KisToolSelectPolygonal |  | base | changed layers/selection/history/view | enabledSet |
-| KritaShape/KisToolRectangle | Rectangle Tool | base | changed layers/selection/history/view | enabledSet |
-| KisToolSelectPath | Bezier Curve Selection Tool | base | changed layers/selection/history/view | enabledSet |
-| KritaShape/KisToolSmartPatch | Smart Patch Tool | base | changed layers/selection/history/view | enabledSet |
-| KisToolCrop | Crop Tool | base | changed image | image+selection+history+docinfo+enabledSet |
-| KisToolPolyline | Polyline Tool | base | changed layers/selection/history/view |  |
+| KritaShape/KisToolMultiBrush | Multibrush Tool | base | changed layers/selection/history/view | enabledSet |
+| set_no_brush_smoothing | Brush Smoothing: Disabled | base | no visible effect |  |
+| set_simple_brush_smoothing | Brush Smoothing: Basic | base | no visible effect |  |
+| set_weighted_brush_smoothing | Brush Smoothing: Weighted | base | no visible effect |  |
+| set_stabilizer_brush_smoothing | Brush Smoothing: Stabilizer | base | no visible effect |  |
+| set_pixel_perfect_smoothing | Brush Smoothing: Pixel | base | no visible effect |  |
+| toggle_assistant | Toggle Snap To Assistants | base | no visible effect |  |
+| ZoomTool | Zoom Tool | base | changed layers/selection/history/view | enabledSet |
+| KritaShape/KisToolBrush | Freehand Brush Tool | base | no visible effect |  |
+| KisToolSelectSimilar | Similar Color Selection Tool | base | changed layers/selection/history/view |  |
+| KritaFill/KisToolGradient | Gradient Tool | base | changed layers/selection/history/view |  |
+| KisAssistantTool | Assistant Tool | base | changed layers/selection/history/view | enabledSet |
+| KritaShape/KisToolLine | Line Tool | base | changed layers/selection/history/view |  |
+| KisToolTransform | Transform Tool | base | changed image | image+enabledSet |
+| movetool-move-up | Move up | base | no visible effect |  |
+| movetool-move-down | Move down | base | no visible effect |  |
+| movetool-move-left | Move left | base | no visible effect |  |
+| movetool-move-right | Move right | base | no visible effect |  |
+| movetool-move-up-more | Move up more | base | no visible effect |  |
+| movetool-move-down-more | Move down more | base | no visible effect |  |
+| movetool-move-left-more | Move left more | base | no visible effect |  |
+| movetool-move-right-more | Move right more | base | no visible effect |  |
+| KisToolTransformFree | Transform Tool (Free Transform) | base | changed image | image+enabledSet |
+| KisToolTransformPerspective | Transform Tool (Perspective Transform) | base | changed image | image+enabledSet |
+| KisToolTransformWarp | Transform Tool (Warp Transform) | base | changed image | image+enabledSet |
+| KisToolTransformCage | Transform Tool (Cage Transform) | base | changed image | image+enabledSet |
+| KisToolTransformLiquify | Transform Tool (Liquify Transform) | base | changed image | image+enabledSet |
+| KisToolTransformMesh | Transform Tool (Mesh Transform) | base | changed image | image+enabledSet |
+| KritaShape/KisToolDyna | Dynamic Brush Tool | base | changed layers/selection/history/view | enabledSet |
 | PathTool | Edit Shapes Tool | base | changed layers/selection/history/view | enabledSet |
 | pathpoint-corner | Corner point | vector | disabled |  |
 | pathpoint-smooth | Smooth point | vector | disabled |  |
@@ -835,13 +869,28 @@ _(docs/parity/NOTES.md missing)_
 | pathpoint-join | Join with segment | vector | disabled |  |
 | pathpoint-merge | Merge points | vector | disabled |  |
 | convert-to-path | To Path | vector | changed layers/selection/history/view | history |
+| KisToolPolygon | Polygon Tool | base | changed layers/selection/history/view | enabledSet |
+| KisToolSelectPolygonal |  | base | changed layers/selection/history/view | enabledSet |
+| KisToolPath | Bezier Curve Tool | base | changed layers/selection/history/view | enabledSet |
+| KritaTransform/KisToolMove | Move Tool | base | changed layers/selection/history/view | enabledSet |
+| movetool-show-coordinates | Show Coordinates | base | changed layers/selection/history/view | enabledSet+checked |
+| KisToolCrop | Crop Tool | base | changed image | image+selection+history+docinfo+enabledSet |
+| KritaSelected/KisToolColorSampler | Color Sampler | base | changed layers/selection/history/view | enabledSet |
+| KarbonCalligraphyTool | Calligraphy | base | changed layers/selection/history/view | enabledSet |
+| calligraphy_increase_width | Calligraphy: increase width | vector | no visible effect |  |
+| calligraphy_decrease_width | Calligraphy: decrease width | vector | no visible effect |  |
+| calligraphy_increase_angle | Calligraphy: increase angle | vector | no visible effect |  |
+| calligraphy_decrease_angle | Calligraphy: decrease angle | vector | no visible effect |  |
+| KisToolPolyline | Polyline Tool | base | changed layers/selection/history/view | enabledSet |
+| KisToolPencil | Freehand Path Tool | base | changed layers/selection/history/view | enabledSet |
+| PanTool | Pan Tool | base | changed layers/selection/history/view | enabledSet |
 | edit_undo | Undo  | base | changed layers/selection/history/view | history |
 | edit_redo | Redo  | base | no visible effect |  |
 | save_incremental_version | Save Incremental Version | base | opened dialog | Saving As |
 | save_incremental_backup | Save Incremental Backup | base | opened dialog | Saving As |
 | tablet_debugger | Toggle Tablet Debugger | base | opened dialog | Krita |
 | create_template | Create Template From Image... | base | opened dialog | Create Template – Krita |
-| create_copy | Create Copy From Current Image | base | changed layers/selection/history/view | Zoom: 100.0 %/Zoom: 59.3 %/Zoom: 286.3 % ; enabledSet |
+| create_copy | Create Copy From Current Image | base | changed layers/selection/history/view | Zoom: 100.0 %/Zoom: 59.3 %/Zoom: 286.3 % ; activeNode+enabledSet |
 | open_resources_directory | Open Resources Folder | base | no visible effect |  |
 | view_print_size | View Print Size | base | no visible effect |  |
 | paste_as_reference | Paste as Reference Image | base | changed layers/selection/history/view | layers+history+enabledSet |
@@ -852,32 +901,32 @@ _(docs/parity/NOTES.md missing)_
 | create_reference_image_from_visible_canvas | Reference Image from Visible | base | changed layers/selection/history/view | layers+history+enabledSet |
 | add_new_file_layer | Add File Layer... | base | opened dialog | Krita |
 | convert_to_file_layer | Convert to File Layer... | base | opened dialog | Save layers to... |
-| split_alpha_write | Write as Alpha | base | crash |  |
-| split_alpha_save_merged | Save Merged... | base | crash |  |
+| split_alpha_write | Write as Alpha | base | error | ASSERT (krita): "node->inherits("KisTransparencyMask")" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402 |
+| split_alpha_save_merged | Save Merged... | base | error | ASSERT (krita): "node->inherits("KisTransparencyMask")" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402 |
 | import_layer_from_file | Import Layer... | base | opened dialog | Import Image |
 | import_layer_as_paint_layer | as Paint Layer... | base | opened dialog | Import Image |
 | import_layer_as_transparency_mask | as Transparency Mask... | base | opened dialog | Import Image |
 | import_layer_as_filter_mask | as Filter Mask... | base | opened dialog | Import Image |
-| import_layer_as_selection_mask | as Selection Mask... | base | opened dialog | Import Image |
+| import_layer_as_selection_mask | as Selection Mask... | base | hang | Import Image |
 | manage_bundles | Manage Resource Libraries... | base | opened dialog | Manage Resource Libraries – Krita |
 | manage_resources | Manage Resources... | base | opened dialog | Manage Resources – Krita |
 | ToolReferenceImages | Reference Images Tool | base | changed layers/selection/history/view | enabledSet |
 | file_new | New | base | opened dialog | Create new document |
-| file_open | Open… | base | opened dialog | Open Images |
+| file_open | Open… | base | hang | Open Images |
 | file_quit | Quit | base | opened dialog | Krita |
 | options_configure_toolbars | Configure Toolbars… | base | opened dialog | Configure Toolbars |
 | fullscreen | Full Screen Mode | base | changed layers/selection/history/view | enabledSet+checked |
 | file_open_recent | Open Recent | base | disabled |  |
-| file_save | Save | base | opened dialog | Saving As |
+| file_save | Save | base | hang | Saving As |
 | file_save_as | Save As… | base | opened dialog | Saving As |
 | file_import_animation | Import animation frames... | base | opened dialog | Krita |
-| file_import_video_animation | Import video animation... | base | opened dialog | Krita |
+| file_import_video_animation | Import video animation... | base | opened dialog | Krita/Import Video Animation |
 | render_animation | Render Animation... | anim | opened dialog | Render Animation – Krita |
 | render_animation_again | Render Animation Again | anim | no visible effect |  |
 | file_close_all | Close All | base | opened dialog | Krita |
-| file_import_file | Open existing Document as Untitled Document... | base | opened dialog | Import Images |
-| file_export_file | Export... | base | opened dialog | Exporting |
-| file_export_advanced | Export Advanced... | base | opened dialog | Exporting |
+| file_import_file | Open existing Document as Untitled Document... | base | hang | Import Images |
+| file_export_file | Export... | base | hang | Exporting |
+| file_export_advanced | Export Advanced... | base | hang | Exporting |
 | file_documentinfo | Document Information | base | opened dialog | Document Information |
 | theme_menu | Themes | base | no visible effect |  |
 | view_toggledockers | Show Dockers | base | no visible effect |  |
@@ -913,76 +962,76 @@ _(docs/parity/NOTES.md missing)_
 
 | tool | option window | picture | raster gesture | vector gesture | overlay px (raster/vector) | messages | outcome |
 |---|---|---|---|---|---|---|---|
-| ZoomTool | 260x720 | ok | - | - | 0/0 | Zoom: 133.3 % / Zoom: 133.3 % | message |
-| KarbonCalligraphyTool | 260x720 | ok | image+layers+history | image+history | 1/2 |  | changed image/layers/history |
-| KisToolSelectOutline | 260x720 | ok | selection+history | selection+history | 1/1 |  | changed selection/history |
-| PanTool | 260x720 | ok | - | - | 1/1 |  | overlay only |
-| InteractionTool | 260x720 | ok | - | - | 0/2 | This tool only works on vector layers. You probably want the move tool. | overlay only |
-| KritaShape/KisToolEllipse | 260x720 | ok | image+history | image+history | 5/5 | Width: 0 px Height: 0 px / Width: 20 px Height: 15 px / Width: 40 px Height: 30 px | changed image/history |
-| KisToolSelectRectangular | 260x720 | ok | selection+history | selection+history | 4/3 | Width: 0 px Height: 0 px / Width: 20 px Height: 15 px / Width: 40 px Height: 30 px | changed selection/history |
-| KritaShape/KisToolLine | 260x720 | ok | image+history | image+history | 5/5 | Length: 0.0 px / Length: 25.0 px / Length: 50.0 px | changed image/history |
-| KritaShape/KisToolKnife | 260x720 | ok | - | - | 0/3 | This tool only works on vector layers. You probably want to create a vector layer and a starting shape first. | overlay only |
-| KisAssistantTool | 260x720 | ok | - | history | 2/3 |  | changed history (but intermittent hang, see note) |
-| KisToolSelectMagnetic | 260x720 | ok | selection+history | selection+history | 1/1 |  | changed selection/history |
 | KisToolSelectContiguous | 260x720 | ok | selection+history | selection+history | 0/0 |  | changed selection/history |
-| KisToolSelectSimilar | 260x720 | ok | selection+history | selection+history | 0/0 |  | changed selection/history |
-| KisToolTransform | 260x720 | ok | image+selection+history | image+selection+history | 4/4 |  | changed image/selection/history |
-| KritaTransform/KisToolMove | 260x720 | ok | image+selection | image | 0/0 |  | changed image/selection |
-| KisToolPolygon | 260x720 | ok | image+history | image+history | 3/3 |  | changed image/history |
-| KritaShape/KisToolBrush | 260x720 | ok | image+history | - | 3/1 | The brush tool cannot paint on this layer.  Please select a paint layer or mask. | changed image/history |
-| KritaShape/KisToolDyna | 260x720 | ok | image+history | - | 3/1 | The brush tool cannot paint on this layer.  Please select a paint layer or mask. | changed image/history |
-| KisToolPath | 260x720 | ok | image+history | image | 11/12 |  | changed image/history |
-| KritaSelected/KisToolColorSampler | 260x720 | ok | colors | colors | 1/1 |  | changed colors |
-| KisToolPencil | 260x720 | ok | image+history | image+history | 2/2 |  | changed image/history |
-| SvgTextTool | 260x720 | ok | image+layers+history | image+history | 7/7 |  | changed image/layers/history |
+| InteractionTool | 260x720 | ok | - | - | 0/2 | This tool only works on vector layers. You probably want the move tool. | overlay only |
+| KisToolEncloseAndFill | 260x720 | ok | history | - | 2/0 | You cannot use this tool with the selected layer type | changed history |
+| KisToolSelectPath | 260x720 | ok | selection+history | selection+history | 3/4 |  | changed selection/history |
+| KritaShape/KisToolRectangle | 260x720 | ok | image+history | image+history | 4/5 | Width: 0 px Height: 0 px / Width: 20 px Height: 15 px / Width: 60 px Height: 45 px | changed image/history |
+| KisToolSelectElliptical | 260x720 | ok | selection+history | selection+history | 3/3 | Width: 0 px Height: 0 px / Width: 20 px Height: 15 px / Width: 40 px Height: 30 px | changed selection/history |
+| KisToolSelectRectangular | 260x720 | ok | selection+history | selection+history | 4/3 | Width: 0 px Height: 0 px / Width: 20 px Height: 15 px / Width: 40 px Height: 30 px | changed selection/history |
+| KisToolSelectMagnetic | 260x720 | ok | selection+history | selection+history | 2/1 |  | changed selection/history |
 | KritaShape/KisToolLazyBrush | 260x720 | ok | image+layers+history | image+layers+history | 1/1 |  | changed image/layers/history |
-| KisToolSelectElliptical | 260x720 | ok | selection+history | selection+history | 4/3 | Width: 0 px Height: 0 px / Width: 20 px Height: 15 px / Width: 40 px Height: 30 px | changed selection/history |
-| ToolReferenceImages | 260x720 | same as previous | - | - | 0/0 |  | no visible effect |
-| KritaFill/KisToolGradient | 260x720 | ok | image+history | - | 4/4 |  | changed image/history |
-| KritaShape/KisToolMultiBrush | 260x720 | ok | image+history | - | 4/1 | The brush tool cannot paint on this layer.  Please select a paint layer or mask. | changed image/history |
-| KisToolEncloseAndFill | 260x720 | ok | history | - | 1/0 | You cannot use this tool with the selected layer type | changed history |
-| KritaShape/KisToolMeasure | 260x720 | ok | - | - | 4/3 | 25.0 px 36.9° / 50.0 px 36.9° / 75.0 px 36.9° | overlay only |
-| KritaFill/KisToolFill | 260x720 | ok | image+history | - | 0/0 | You cannot use this tool with the selected layer type | changed image/history |
-| KisToolSelectPolygonal | 260x720 | ok | selection+history | selection+history | 1/3 |  | changed selection/history |
-| KritaShape/KisToolRectangle | 260x720 | ok | image+history | image+history | 5/5 | Width: 0 px Height: 0 px / Width: 20 px Height: 15 px / Width: 40 px Height: 30 px | changed image/history |
-| KisToolSelectPath | 260x720 | ok | selection+history | selection+history | 5/5 |  | changed selection/history |
+| KritaShape/KisToolKnife | 260x720 | ok | - | - | 0/3 | This tool only works on vector layers. You probably want to create a vector layer and a starting shape first. | overlay only |
 | KritaShape/KisToolSmartPatch | 260x720 | ok | image+history | - | 3/2 | Select a paint layer to use this tool | changed image/history |
-| KisToolCrop | 260x720 | ok | image+docinfo+selection | image+docinfo+selection | 4/3 | Width: 1 px Height: 1 px / Width: 20 px Height: 15 px / Width: 40 px Height: 30 px | changed image/docinfo/selection |
-| KisToolPolyline | 260x720 | ok | image+history | image+history | 5/5 |  | changed image/history |
-| PathTool | 260x720 | ok | - | - | 3/6 |  | overlay only |
+| KisToolSelectOutline | 260x720 | ok | selection+history | selection+history | 1/1 |  | changed selection/history |
+| KritaFill/KisToolFill | 260x720 | ok | image+history | - | 0/0 | You cannot use this tool with the selected layer type | changed image/history |
+| SvgTextTool | 260x720 | ok | image+layers+history | image+history | 5/6 |  | changed image/layers/history |
+| KritaShape/KisToolEllipse | 260x720 | ok | image+history | image+history | 4/5 | Width: 0 px Height: 0 px / Width: 20 px Height: 15 px / Width: 60 px Height: 45 px | changed image/history |
+| KritaShape/KisToolMeasure | 260x720 | ok | - | - | 3/3 | 25.0 px 36.9° / 50.0 px 36.9° / 75.0 px 36.9° | overlay only |
+| KritaShape/KisToolMultiBrush | 260x720 | ok | image+history | - | 3/1 | The brush tool cannot paint on this layer.  Please select a paint layer or mask. | changed image/history |
+| ZoomTool | 260x720 | ok | - | - | 0/0 | Zoom: 133.3 % / Zoom: 133.3 % | message |
+| KritaShape/KisToolBrush | 260x720 | ok | image+history | - | 3/1 | The brush tool cannot paint on this layer.  Please select a paint layer or mask. | changed image/history |
+| KisToolSelectSimilar | 260x720 | ok | selection+history | selection+history | 0/0 |  | changed selection/history |
+| ToolReferenceImages | 260x720 | same as previous | - | - | 0/0 |  | no visible effect |
+| KritaFill/KisToolGradient | 260x720 | ok | image+history | - | 3/3 |  | changed image/history |
+| KisAssistantTool | 260x720 | ok | history | history | 1/2 |  | changed history |
+| KritaShape/KisToolLine | 260x720 | ok | image+history | image+history | 5/4 | Length: 0.0 px / Length: 25.0 px / Length: 50.0 px | changed image/history |
+| KisToolTransform | 260x720 | ok | image+selection+history | image+selection+history | 3/5 |  | changed image/selection/history |
+| KritaShape/KisToolDyna | 260x720 | ok | image+history | - | 3/1 | The brush tool cannot paint on this layer.  Please select a paint layer or mask. | changed image/history |
+| PathTool | 260x720 | ok | - | - | 1/3 |  | overlay only |
+| KisToolPolygon | 260x720 | ok | image+history | image+history | 2/2 |  | changed image/history |
+| KisToolSelectPolygonal | 260x720 | ok | selection+history | selection+history | 1/2 |  | changed selection/history |
+| KisToolPath | 260x720 | ok | history | image | 6/7 |  | changed history/image |
+| KritaTransform/KisToolMove | 260x720 | ok | image+selection | image | 0/0 |  | changed image/selection |
+| KisToolCrop | 260x720 | ok | image+docinfo+selection | image+docinfo+selection | 3/3 | Width: 1 px Height: 1 px / Width: 20 px Height: 15 px / Width: 40 px Height: 30 px | changed image/docinfo/selection |
+| KritaSelected/KisToolColorSampler | 260x720 | ok | colors | colors | 1/1 |  | changed colors |
+| KarbonCalligraphyTool | 260x720 | ok | image+layers+history | image+history | 1/2 |  | changed image/layers/history |
+| KisToolPolyline | 260x720 | ok | history | image+history | 2/3 |  | changed history/image |
+| KisToolPencil | 260x720 | ok | image+history | image+history | 2/1 |  | changed image/history |
+| PanTool | 260x720 | ok | - | - | 0/2 |  | overlay only |
 
 ## D1. Dockers
 
 | docker | title | open ms | size | colours | click repaint | outcome | picture |
 |---|---|---|---|---|---|---|---|
-| LogDocker | Log Viewer | 352 | 260x227 | 5 | 1 | opens, repaints on click | dockers/LogDocker.png |
-| AnimationCurvesDocker | Animation Curves | 352 | 516x195 | 46 | 0 | opens, no repaint on click | dockers/AnimationCurvesDocker.png |
-| ArrangeDocker | Arrange | 302 | 260x100 | 38 | 0 | opens, no repaint on click | dockers/ArrangeDocker.png |
-| ArtisticColorSelector | Artistic Color Selector | 410 | 200x101 | 375 | 1 | opens, repaints on click | dockers/ArtisticColorSelector.png |
-| BrushHudDocker | On-Canvas Brush Editor | 507 | 240x118 | 79 | 0 | opens, no repaint on click | dockers/BrushHudDocker.png |
-| ChannelDocker | Channels | 479 | 260x195 | 15 | 2 | opens, repaints on click | dockers/ChannelDocker.png |
-| ColorSelectorNg | Advanced Color Selector | 456 | 200x100 | 1157 | 1 | opens, repaints on click | dockers/ColorSelectorNg.png |
-| CompositionDocker | Compositions | 2265 | 288x221 | 16 | 0 | opens, no repaint on click | dockers/CompositionDocker.png |
-| DigitalMixer | Digital Colors Mixer | 358 | 312x167 | 794 | 0 | opens, no repaint on click | dockers/DigitalMixer.png |
-| GamutMask | Gamut Masks | 506 | 260x275 | 45 | 0 | opens, no repaint on click | dockers/GamutMask.png |
-| GridDocker | Grid and Guides | 362 | 315x539 | 102 | 1 | opens, repaints on click | dockers/GridDocker.png |
-| HistogramDocker | Histogram | 404 | 200x100 | 14 | 0 | opens, no repaint on click | dockers/HistogramDocker.png |
-| History | Undo History | 353 | 258x193 | 72 | 1 | opens, repaints on click | dockers/History.png |
-| KisLayerBox | Layers | 452 | 308x291 | 87 | 1 | opens, repaints on click | dockers/KisLayerBox.png |
-| OnionSkinsDocker | Onion Skins | 460 | 569x362 | 113 | 1 | opens, repaints on click | dockers/OnionSkinsDocker.png |
-| OverviewDocker | Overview | 352 | 200x112 | 128 | 0 | opens, no repaint on click | dockers/OverviewDocker.png |
-| PaletteDocker | Palette | 463 | 286x264 | 39 | 0 | opens, no repaint on click | dockers/PaletteDocker.png |
-| PatternDocker | Patterns | 611 | 260x313 | 369 | 0 | opens, no repaint on click | dockers/PatternDocker.png |
-| PresetDocker | Brush Presets | 611 | 741x100 | 577 | 1 | opens, repaints on click | dockers/PresetDocker.png |
-| PresetHistory | Brush Preset History | 356 | 258x193 | 32 | 1 | opens, repaints on click | dockers/PresetHistory.png |
-| Snapshot | Snapshot Docker | 412 | 260x224 | 6 | 0 | opens, no repaint on click | dockers/Snapshot.png |
-| SpecificColorSelector | Specific Color Selector | 354 | 272x202 | 367 | 0 | opens, no repaint on click | dockers/SpecificColorSelector.png |
-| StoryboardDocker | Storyboard | 405 | 265x196 | 23 | 0 | opens, no repaint on click | dockers/StoryboardDocker.png |
-| SvgSymbolCollectionDocker | Symbol Libraries | 352 | 260x226 | 21 | 0 | opens, no repaint on click | dockers/SvgSymbolCollectionDocker.png |
-| TasksetDocker | Task Sets | 372 | 323x224 | 7 | 0 | opens, no repaint on click | dockers/TasksetDocker.png |
-| TextProperties | Text Properties | 8240 | 200x101 | 125 | 1 | opens, repaints on click | dockers/TextProperties.png |
-| TimelineDocker | Animation Timeline | 505 | 258x193 | 62 | 1 | opens, repaints on click | dockers/TimelineDocker.png |
-| TouchDocker | Touch Docker | 409 | 200x258 | 21 | 0 | opens, no repaint on click | dockers/TouchDocker.png |
+| LogDocker | Log Viewer | 568 | 260x227 | 5 | 0 | opens, no repaint on click | dockers/LogDocker.png |
+| AnimationCurvesDocker | Animation Curves | 505 | 516x195 | 46 | 0 | opens, no repaint on click | dockers/AnimationCurvesDocker.png |
+| ArrangeDocker | Arrange | 504 | 260x100 | 38 | 0 | opens, no repaint on click | dockers/ArrangeDocker.png |
+| ArtisticColorSelector | Artistic Color Selector | 510 | 200x101 | 375 | 1 | opens, repaints on click | dockers/ArtisticColorSelector.png |
+| BrushHudDocker | On-Canvas Brush Editor | 603 | 240x118 | 79 | 0 | opens, no repaint on click | dockers/BrushHudDocker.png |
+| ChannelDocker | Channels | 554 | 260x195 | 71 | 1 | opens, repaints on click | dockers/ChannelDocker.png |
+| ColorSelectorNg | Advanced Color Selector | 603 | 200x100 | 1157 | 1 | opens, repaints on click | dockers/ColorSelectorNg.png |
+| CompositionDocker | Compositions | 506 | 288x221 | 16 | 0 | opens, no repaint on click | dockers/CompositionDocker.png |
+| DigitalMixer | Digital Colors Mixer | 510 | 312x167 | 794 | 0 | opens, no repaint on click | dockers/DigitalMixer.png |
+| GamutMask | Gamut Masks | 602 | 260x275 | 45 | 0 | opens, no repaint on click | dockers/GamutMask.png |
+| GridDocker | Grid and Guides | 552 | 315x539 | 102 | 1 | opens, repaints on click | dockers/GridDocker.png |
+| HistogramDocker | Histogram | 556 | 200x100 | 14 | 0 | opens, no repaint on click | dockers/HistogramDocker.png |
+| History | Undo History | 510 | 258x193 | 72 | 1 | opens, repaints on click | dockers/History.png |
+| KisLayerBox | Layers | 619 | 308x291 | 89 | 0 | opens, no repaint on click | dockers/KisLayerBox.png |
+| OnionSkinsDocker | Onion Skins | 512 | 569x362 | 113 | 1 | opens, repaints on click | dockers/OnionSkinsDocker.png |
+| OverviewDocker | Overview | 556 | 200x112 | 128 | 0 | opens, no repaint on click | dockers/OverviewDocker.png |
+| PaletteDocker | Palette | 609 | 286x264 | 39 | 0 | opens, no repaint on click | dockers/PaletteDocker.png |
+| PatternDocker | Patterns | 556 | 260x313 | 342 | 0 | opens, no repaint on click | dockers/PatternDocker.png |
+| PresetDocker | Brush Presets | 602 | 741x100 | 586 | 1 | opens, repaints on click | dockers/PresetDocker.png |
+| PresetHistory | Brush Preset History | 502 | 258x193 | 32 | 1 | opens, repaints on click | dockers/PresetHistory.png |
+| Snapshot | Snapshot Docker | 502 | 260x224 | 6 | 0 | opens, no repaint on click | dockers/Snapshot.png |
+| SpecificColorSelector | Specific Color Selector | 552 | 272x202 | 367 | 0 | opens, no repaint on click | dockers/SpecificColorSelector.png |
+| StoryboardDocker | Storyboard | 505 | 265x196 | 23 | 0 | opens, no repaint on click | dockers/StoryboardDocker.png |
+| SvgSymbolCollectionDocker | Symbol Libraries | 509 | 260x226 | 21 | 0 | opens, no repaint on click | dockers/SvgSymbolCollectionDocker.png |
+| TasksetDocker | Task Sets | 552 | 323x224 | 7 | 0 | opens, no repaint on click | dockers/TasksetDocker.png |
+| TextProperties | Text Properties | 7079 | 200x101 | 61 | 1 | opens, repaints on click | dockers/TextProperties.png |
+| TimelineDocker | Animation Timeline | 554 | 258x193 | 62 | 1 | opens, repaints on click | dockers/TimelineDocker.png |
+| TouchDocker | Touch Docker | 506 | 200x258 | 21 | 0 | opens, no repaint on click | dockers/TouchDocker.png |
 
 ## M1. Krita menu entries versus the page
 
@@ -991,15 +1040,15 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | Krita menu path | text | action | page menu | search | works |
 |---|---|---|---|---|---|
 | File | New | file_new | File > New… |  | opened dialog |
-| File | Open… | file_open | File > Open… |  | opened dialog |
+| File | Open… | file_open | File > Open… |  | hang |
 | File | Open Recent | file_open_recent | File > Open Recent… |  | disabled |
-| File | Save | file_save | File > Save as .kra |  | opened dialog |
+| File | Save | file_save | File > Save as .kra |  | hang |
 | File | Save As… | file_save_as | - | search only | opened dialog |
 | File | file_reload_file | file_reload_file | - | not in engine | n/a |
 | File | Sessions... | file_sessions | - | search only | opened dialog |
-| File | Open existing Document as Untitled Document... | file_import_file | - | search only | opened dialog |
-| File | Export... | file_export_file | File > Export… |  | opened dialog |
-| File | Export Advanced... | file_export_advanced | - | search only | opened dialog |
+| File | Open existing Document as Untitled Document... | file_import_file | - | search only | hang |
+| File | Export... | file_export_file | File > Export… |  | hang |
+| File | Export Advanced... | file_export_advanced | - | search only | hang |
 | File | file_export_pdf | file_export_pdf | - | not in engine | n/a |
 | File | Import animation frames... | file_import_animation | - | search only | opened dialog |
 | File | Import video animation... | file_import_video_animation | - | search only | opened dialog |
@@ -1116,7 +1165,7 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | Layer > New | Add Clone Layer | add_new_clone_layer | - | search only | changed image |
 | Layer > New | Add Vector Layer | add_new_shape_layer | - | search only | changed layers/selection/history/view |
 | Layer > New | Add Filter Layer... | add_new_adjustment_layer | - | search only | opened dialog |
-| Layer > New | Add Fill Layer... | add_new_fill_layer | - | search only | crash |
+| Layer > New | Add Fill Layer... | add_new_fill_layer | - | search only | disabled |
 | Layer > New | Add File Layer... | add_new_file_layer | - | search only | opened dialog |
 | Layer > New | Add Transparency Mask | add_new_transparency_mask | - | search only | changed image |
 | Layer > New | Add Filter Mask... | add_new_filter_mask | - | search only | opened dialog |
@@ -1134,10 +1183,10 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | Layer > Import/Export > Import | as Paint Layer... | import_layer_as_paint_layer | - | search only | opened dialog |
 | Layer > Import/Export > Import | as Transparency Mask... | import_layer_as_transparency_mask | - | search only | opened dialog |
 | Layer > Import/Export > Import | as Filter Mask... | import_layer_as_filter_mask | - | search only | opened dialog |
-| Layer > Import/Export > Import | as Selection Mask... | import_layer_as_selection_mask | - | search only | opened dialog |
+| Layer > Import/Export > Import | as Selection Mask... | import_layer_as_selection_mask | - | search only | hang |
 | Layer > Convert | Convert to Paint Layer | convert_to_paint_layer | - | search only | changed layers/selection/history/view |
 | Layer > Convert | Convert to Transparency Mask | convert_to_transparency_mask | - | search only | changed image |
-| Layer > Convert | Convert to Filter Mask... | convert_to_filter_mask | - | search only | hang |
+| Layer > Convert | Convert to Filter Mask... | convert_to_filter_mask | - | search only | disabled |
 | Layer > Convert | Convert to Selection Mask | convert_to_selection_mask | - | search only | changed layers/selection/history/view |
 | Layer > Convert | Convert to File Layer... | convert_to_file_layer | - | search only | opened dialog |
 | Layer > Convert | Convert Group to Animated Layer | convert_group_to_animated | - | search only | changed layers/selection/history/view |
@@ -1168,8 +1217,8 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | Layer > Transform All Layers > Rotate | Rotate All Layers 180° | rotateAllLayers180 | - | search only | changed image |
 | Layer > Transform All Layers | Shear All Layers... | shearAllLayers | - | search only | opened dialog |
 | Layer > Split > Split Alpha | Alpha into Mask | split_alpha_into_mask | - | search only | changed layers/selection/history/view |
-| Layer > Split > Split Alpha | Write as Alpha | split_alpha_write | - | search only | crash |
-| Layer > Split > Split Alpha | Save Merged... | split_alpha_save_merged | - | search only | crash |
+| Layer > Split > Split Alpha | Write as Alpha | split_alpha_write | - | search only | error |
+| Layer > Split > Split Alpha | Save Merged... | split_alpha_save_merged | - | search only | error |
 | Layer > Split | Split Layer... | layersplit | - | search only | opened dialog |
 | Layer > Split | Clones Array... | clones_array | - | search only | opened dialog |
 | Layer | Edit metadata... | EditLayerMetaData | - | search only | opened dialog |
@@ -1220,8 +1269,8 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | Filter | Map | map_filters | - | search only | no visible effect |
 | Filter | nonphotorealistic_filters | nonphotorealistic_filters | - | not in engine | n/a |
 | Filter | Other | other_filters | - | search only | no visible effect |
-| Filter | Start G'MIC-Qt | QMic | - | search only | ? |
-| Filter | Re-apply the last G'MIC filter | QMicAgain | - | search only | ? |
+| Filter | Start G'MIC-Qt | QMic | - | search only | opened dialog |
+| Filter | Re-apply the last G'MIC filter | QMicAgain | - | search only | no visible effect |
 | Settings | Configure Krita... | options_configure | Settings > Configure Krita… |  | opened dialog |
 | Settings | Change Interface Scale... | change_interface_scale | - | not in engine | n/a |
 | Settings | Manage Resource Libraries... | manage_bundles | - | search only | opened dialog |
@@ -1280,58 +1329,58 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | View | Zoom Out | view_zoom_out | View > Zoom Out |  | message |
 | View | Zoom In | view_zoom_in | View > Zoom In |  | message |
 | Settings | Settings... | svg_settings | - | not in engine | n/a |
-| Filter > Adjust | Desaturate... | krita_filter_desaturate | - | search only | changed image |
-| Filter > Map | Palettize... | krita_filter_palettize | - | search only | changed layers/selection/history/view |
-| Filter > Map | Small Tiles... | krita_filter_smalltiles | - | search only | changed image |
-| Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | - | search only | changed image |
-| Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | - | search only | changed image |
-| Filter > Blur | Motion Blur... | krita_filter_motion blur | - | search only | changed image |
-| Filter > Other | Reset Transparent | krita_filter_resettransparent | - | search only | changed layers/selection/history/view |
-| Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | - | search only | changed image |
-| Filter > Other | Random Pick... | krita_filter_randompick | - | search only | changed image |
-| Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | - | search only | changed image |
-| Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | - | search only | changed image |
-| Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | - | search only | changed image |
-| Filter > Map | Normalize | krita_filter_normalize | - | search only | changed image |
-| Filter > Artistic | Pixelize... | krita_filter_pixelize | - | search only | changed image |
+| Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | - | search only | opened dialog |
+| Filter > Adjust | Burn... | krita_filter_burn | - | search only | opened dialog |
 | Filter > Adjust | Auto Contrast | krita_filter_autocontrast | - | search only | changed image |
-| Filter > Colors | Color Transfer... | krita_filter_colortransfer | - | search only | changed image |
-| Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | - | search only | changed image |
-| Filter > Adjust | Burn... | krita_filter_burn | - | search only | changed image |
-| Filter > Adjust | Invert | krita_filter_invert | - | search only | changed image |
-| Filter > Map | Gradient Map... | krita_filter_gradientmap | - | search only | changed image |
-| Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | - | search only | changed layers/selection/history/view |
-| Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | - | search only | changed image |
-| Filter > Artistic | Raindrops... | krita_filter_raindrops | - | search only | changed image |
-| Filter > Colors | Maximize Channel | krita_filter_maximize | - | search only | changed image |
 | Filter > Enhance | Sharpen | krita_filter_sharpen | - | search only | changed image |
-| Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | - | search only | changed image |
-| Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | - | search only | changed image |
-| Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | - | search only | changed layers/selection/history/view |
-| Filter > Other | Random Noise... | krita_filter_noise | - | search only | changed image |
+| Filter > Map | Normalize | krita_filter_normalize | - | search only | changed image |
+| Filter > Artistic | Pixelize... | krita_filter_pixelize | - | search only | opened dialog |
+| Filter > Artistic | Index Colors... | krita_filter_indexcolors | - | search only | opened dialog |
+| Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | - | search only | opened dialog |
 | Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | - | search only | changed image |
-| Filter > Blur | Blur... | krita_filter_blur | - | search only | changed image |
-| Filter > Adjust | Dodge... | krita_filter_dodge | - | search only | changed image |
-| Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | - | search only | changed layers/selection/history/view |
-| Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | - | search only | changed layers/selection/history/view |
-| Filter > Artistic | Halftone... | krita_filter_halftone | - | search only | changed image |
+| Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | - | search only | opened dialog |
+| Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | - | search only | opened dialog |
+| Filter > Adjust | Levels... | krita_filter_levels | - | search only | opened dialog |
+| Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | - | search only | changed image |
+| Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | - | search only | opened dialog |
+| Filter > Other | Reset Transparent | krita_filter_resettransparent | - | search only | changed layers/selection/history/view |
+| Filter > Map | Palettize... | krita_filter_palettize | - | search only | opened dialog |
+| Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | - | search only | opened dialog |
 | Filter > Colors | Minimize Channel | krita_filter_minimize | - | search only | changed image |
-| Filter > Blur | Lens Blur... | krita_filter_lens blur | - | search only | changed image |
-| Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | - | search only | changed image |
-| Filter > Adjust | Color Balance... | krita_filter_colorbalance | - | search only | changed layers/selection/history/view |
-| Filter > Map | Round Corners... | krita_filter_roundcorners | - | search only | changed layers/selection/history/view |
-| Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | - | search only | changed image |
-| Filter > Artistic | Oilpaint... | krita_filter_oilpaint | - | search only | opened dialog |
-| Filter > Artistic | Posterize... | krita_filter_posterize | - | search only | changed image |
-| Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | - | search only | changed image |
+| Filter > Adjust | Invert | krita_filter_invert | - | search only | changed image |
+| Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | - | search only | opened dialog |
+| Filter > Artistic | Posterize... | krita_filter_posterize | - | search only | opened dialog |
+| Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | - | search only | opened dialog |
+| Filter > Blur | Blur... | krita_filter_blur | - | search only | opened dialog |
+| Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | - | search only | opened dialog |
+| Filter > Artistic | Halftone... | krita_filter_halftone | - | search only | opened dialog |
+| Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | - | search only | opened dialog |
+| Filter > Colors | Maximize Channel | krita_filter_maximize | - | search only | changed image |
+| Filter > Map | Gradient Map... | krita_filter_gradientmap | - | search only | opened dialog |
+| Filter > Other | Random Pick... | krita_filter_randompick | - | search only | opened dialog |
 | Filter > Enhance | Mean Removal | krita_filter_mean removal | - | search only | changed image |
+| Filter > Blur | Motion Blur... | krita_filter_motion blur | - | search only | opened dialog |
+| Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | - | search only | opened dialog |
+| Filter > Artistic | Raindrops... | krita_filter_raindrops | - | search only | opened dialog |
+| Filter > Blur | Lens Blur... | krita_filter_lens blur | - | search only | opened dialog |
+| Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | - | search only | opened dialog |
+| Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | - | search only | opened dialog |
+| Filter > Map | Round Corners... | krita_filter_roundcorners | - | search only | opened dialog |
 | Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | - | search only | changed image |
-| Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | - | search only | changed image |
-| Filter > Adjust | Levels... | krita_filter_levels | - | search only | changed layers/selection/history/view |
+| Filter > Artistic | Oilpaint... | krita_filter_oilpaint | - | search only | opened dialog |
+| Filter > Other | Random Noise... | krita_filter_noise | - | search only | opened dialog |
+| Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | - | search only | opened dialog |
+| Filter > Adjust | Dodge... | krita_filter_dodge | - | search only | opened dialog |
+| Filter > Other | Wave... | krita_filter_wave | - | search only | opened dialog |
+| Filter > Adjust | Threshold... | krita_filter_threshold | - | search only | opened dialog |
+| Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | - | search only | changed image |
+| Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | - | search only | opened dialog |
+| Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | - | search only | opened dialog |
+| Filter > Adjust | Desaturate... | krita_filter_desaturate | - | search only | opened dialog |
+| Filter > Map | Small Tiles... | krita_filter_smalltiles | - | search only | opened dialog |
+| Filter > Colors | Color Transfer... | krita_filter_colortransfer | - | search only | opened dialog |
 | Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | - | search only | changed image |
-| Filter > Artistic | Index Colors... | krita_filter_indexcolors | - | search only | changed image |
-| Filter > Adjust | Threshold... | krita_filter_threshold | - | search only | changed image |
-| Filter > Other | Wave... | krita_filter_wave | - | search only | changed image |
+| Filter > Adjust | Color Balance... | krita_filter_colorbalance | - | search only | opened dialog |
 
 ## M2. Menu entries the page lacks, prioritised (works first, core menus first)
 
@@ -1382,7 +1431,6 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | add | Layer > Import/Export > Import | as Paint Layer... | import_layer_as_paint_layer | opened dialog |
 | add | Layer > Import/Export > Import | as Transparency Mask... | import_layer_as_transparency_mask | opened dialog |
 | add | Layer > Import/Export > Import | as Filter Mask... | import_layer_as_filter_mask | opened dialog |
-| add | Layer > Import/Export > Import | as Selection Mask... | import_layer_as_selection_mask | opened dialog |
 | add | Layer > Convert | Convert to Paint Layer | convert_to_paint_layer | changed layers/selection/history/view |
 | add | Layer > Convert | Convert to Transparency Mask | convert_to_transparency_mask | changed image |
 | add | Layer > Convert | Convert to Selection Mask | convert_to_selection_mask | changed layers/selection/history/view |
@@ -1447,62 +1495,61 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | add | View > Zoom, Rotate, and Mirror | Mirror View Around Cursor | mirror_canvas_around_cursor | changed layers/selection/history/view |
 | add | View > Zoom, Rotate, and Mirror | Mirror View Around Canvas | mirror_canvas_around_canvas | changed layers/selection/history/view |
 | add | View > Zoom, Rotate, and Mirror | Reset Display | reset_display | message |
-| add | Filter > Adjust | Desaturate... | krita_filter_desaturate | changed image |
-| add | Filter > Map | Palettize... | krita_filter_palettize | changed layers/selection/history/view |
-| add | Filter > Map | Small Tiles... | krita_filter_smalltiles | changed image |
-| add | Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | changed image |
-| add | Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | changed image |
-| add | Filter > Blur | Motion Blur... | krita_filter_motion blur | changed image |
-| add | Filter > Other | Reset Transparent | krita_filter_resettransparent | changed layers/selection/history/view |
-| add | Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | changed image |
-| add | Filter > Other | Random Pick... | krita_filter_randompick | changed image |
-| add | Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | changed image |
-| add | Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | changed image |
-| add | Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | changed image |
-| add | Filter > Map | Normalize | krita_filter_normalize | changed image |
-| add | Filter > Artistic | Pixelize... | krita_filter_pixelize | changed image |
+| add | Filter | Start G'MIC-Qt | QMic | opened dialog |
+| add | Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | opened dialog |
+| add | Filter > Adjust | Burn... | krita_filter_burn | opened dialog |
 | add | Filter > Adjust | Auto Contrast | krita_filter_autocontrast | changed image |
-| add | Filter > Colors | Color Transfer... | krita_filter_colortransfer | changed image |
-| add | Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | changed image |
-| add | Filter > Adjust | Burn... | krita_filter_burn | changed image |
-| add | Filter > Adjust | Invert | krita_filter_invert | changed image |
-| add | Filter > Map | Gradient Map... | krita_filter_gradientmap | changed image |
-| add | Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | changed layers/selection/history/view |
-| add | Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | changed image |
-| add | Filter > Artistic | Raindrops... | krita_filter_raindrops | changed image |
-| add | Filter > Colors | Maximize Channel | krita_filter_maximize | changed image |
 | add | Filter > Enhance | Sharpen | krita_filter_sharpen | changed image |
-| add | Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | changed image |
-| add | Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | changed image |
-| add | Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | changed layers/selection/history/view |
-| add | Filter > Other | Random Noise... | krita_filter_noise | changed image |
+| add | Filter > Map | Normalize | krita_filter_normalize | changed image |
+| add | Filter > Artistic | Pixelize... | krita_filter_pixelize | opened dialog |
+| add | Filter > Artistic | Index Colors... | krita_filter_indexcolors | opened dialog |
+| add | Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | opened dialog |
 | add | Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | changed image |
-| add | Filter > Blur | Blur... | krita_filter_blur | changed image |
-| add | Filter > Adjust | Dodge... | krita_filter_dodge | changed image |
-| add | Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | changed layers/selection/history/view |
-| add | Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | changed layers/selection/history/view |
-| add | Filter > Artistic | Halftone... | krita_filter_halftone | changed image |
+| add | Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | opened dialog |
+| add | Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | opened dialog |
+| add | Filter > Adjust | Levels... | krita_filter_levels | opened dialog |
+| add | Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | changed image |
+| add | Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | opened dialog |
+| add | Filter > Other | Reset Transparent | krita_filter_resettransparent | changed layers/selection/history/view |
+| add | Filter > Map | Palettize... | krita_filter_palettize | opened dialog |
+| add | Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | opened dialog |
 | add | Filter > Colors | Minimize Channel | krita_filter_minimize | changed image |
-| add | Filter > Blur | Lens Blur... | krita_filter_lens blur | changed image |
-| add | Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | changed image |
-| add | Filter > Adjust | Color Balance... | krita_filter_colorbalance | changed layers/selection/history/view |
-| add | Filter > Map | Round Corners... | krita_filter_roundcorners | changed layers/selection/history/view |
-| add | Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | changed image |
-| add | Filter > Artistic | Oilpaint... | krita_filter_oilpaint | opened dialog |
-| add | Filter > Artistic | Posterize... | krita_filter_posterize | changed image |
-| add | Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | changed image |
+| add | Filter > Adjust | Invert | krita_filter_invert | changed image |
+| add | Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | opened dialog |
+| add | Filter > Artistic | Posterize... | krita_filter_posterize | opened dialog |
+| add | Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | opened dialog |
+| add | Filter > Blur | Blur... | krita_filter_blur | opened dialog |
+| add | Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | opened dialog |
+| add | Filter > Artistic | Halftone... | krita_filter_halftone | opened dialog |
+| add | Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | opened dialog |
+| add | Filter > Colors | Maximize Channel | krita_filter_maximize | changed image |
+| add | Filter > Map | Gradient Map... | krita_filter_gradientmap | opened dialog |
+| add | Filter > Other | Random Pick... | krita_filter_randompick | opened dialog |
 | add | Filter > Enhance | Mean Removal | krita_filter_mean removal | changed image |
+| add | Filter > Blur | Motion Blur... | krita_filter_motion blur | opened dialog |
+| add | Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | opened dialog |
+| add | Filter > Artistic | Raindrops... | krita_filter_raindrops | opened dialog |
+| add | Filter > Blur | Lens Blur... | krita_filter_lens blur | opened dialog |
+| add | Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | opened dialog |
+| add | Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | opened dialog |
+| add | Filter > Map | Round Corners... | krita_filter_roundcorners | opened dialog |
 | add | Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | changed image |
-| add | Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | changed image |
-| add | Filter > Adjust | Levels... | krita_filter_levels | changed layers/selection/history/view |
+| add | Filter > Artistic | Oilpaint... | krita_filter_oilpaint | opened dialog |
+| add | Filter > Other | Random Noise... | krita_filter_noise | opened dialog |
+| add | Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | opened dialog |
+| add | Filter > Adjust | Dodge... | krita_filter_dodge | opened dialog |
+| add | Filter > Other | Wave... | krita_filter_wave | opened dialog |
+| add | Filter > Adjust | Threshold... | krita_filter_threshold | opened dialog |
+| add | Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | changed image |
+| add | Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | opened dialog |
+| add | Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | opened dialog |
+| add | Filter > Adjust | Desaturate... | krita_filter_desaturate | opened dialog |
+| add | Filter > Map | Small Tiles... | krita_filter_smalltiles | opened dialog |
+| add | Filter > Colors | Color Transfer... | krita_filter_colortransfer | opened dialog |
 | add | Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | changed image |
-| add | Filter > Artistic | Index Colors... | krita_filter_indexcolors | changed image |
-| add | Filter > Adjust | Threshold... | krita_filter_threshold | changed image |
-| add | Filter > Other | Wave... | krita_filter_wave | changed image |
+| add | Filter > Adjust | Color Balance... | krita_filter_colorbalance | opened dialog |
 | add | File | Save As… | file_save_as | opened dialog |
 | add | File | Sessions... | file_sessions | opened dialog |
-| add | File | Open existing Document as Untitled Document... | file_import_file | opened dialog |
-| add | File | Export Advanced... | file_export_advanced | opened dialog |
 | add | File | Import animation frames... | file_import_animation | opened dialog |
 | add | File | Import video animation... | file_import_video_animation | opened dialog |
 | add | File | Render Animation... | render_animation | opened dialog |
@@ -1527,15 +1574,16 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | add after engine fix / check | Edit | Paste Shape Style | paste_shape_style | no visible effect |
 | add after engine fix / check | Edit | Paste Layer Style | paste_layer_style | no visible effect |
 | add after engine fix / check | Layer | Copy Layer | copy_layer_clipboard | no visible effect |
-| add after engine fix / check | Layer > New | Add Fill Layer... | add_new_fill_layer | crash |
-| add after engine fix / check | Layer > Convert | Convert to Filter Mask... | convert_to_filter_mask | hang |
+| add after engine fix / check | Layer > New | Add Fill Layer... | add_new_fill_layer | disabled |
+| add after engine fix / check | Layer > Import/Export > Import | as Selection Mask... | import_layer_as_selection_mask | hang |
+| add after engine fix / check | Layer > Convert | Convert to Filter Mask... | convert_to_filter_mask | disabled |
 | add after engine fix / check | Layer > Select | All Layers | select_all_layers | no visible effect |
 | add after engine fix / check | Layer > Select | Visible Layers | select_visible_layers | no visible effect |
 | add after engine fix / check | Layer > Select | Invisible Layers | select_invisible_layers | no visible effect |
 | add after engine fix / check | Layer > Select | Locked Layers | select_locked_layers | no visible effect |
 | add after engine fix / check | Layer > Select | Unlocked Layers | select_unlocked_layers | no visible effect |
-| add after engine fix / check | Layer > Split > Split Alpha | Write as Alpha | split_alpha_write | crash |
-| add after engine fix / check | Layer > Split > Split Alpha | Save Merged... | split_alpha_save_merged | crash |
+| add after engine fix / check | Layer > Split > Split Alpha | Write as Alpha | split_alpha_write | error |
+| add after engine fix / check | Layer > Split > Split Alpha | Save Merged... | split_alpha_save_merged | error |
 | add after engine fix / check | Select | Edit Selection | edit_selection | no visible effect |
 | add after engine fix / check | Select | Convert Shapes to Vector Selection | convert_shapes_to_vector_selection | no visible effect |
 | add after engine fix / check | Select | Convert to Shape | convert_selection_to_shape | no visible effect |
@@ -1574,8 +1622,9 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | add after engine fix / check | Filter | Enhance | enhance_filters | no visible effect |
 | add after engine fix / check | Filter | Map | map_filters | no visible effect |
 | add after engine fix / check | Filter | Other | other_filters | no visible effect |
-| add after engine fix / check | Filter | Start G'MIC-Qt | QMic | ? |
-| add after engine fix / check | Filter | Re-apply the last G'MIC filter | QMicAgain | ? |
+| add after engine fix / check | Filter | Re-apply the last G'MIC filter | QMicAgain | no visible effect |
+| add after engine fix / check | File | Open existing Document as Untitled Document... | file_import_file | hang |
+| add after engine fix / check | File | Export Advanced... | file_export_advanced | hang |
 | add after engine fix / check | Settings | Lock Toolbars | lock_toolbars | no visible effect |
 | add after engine fix / check | Settings | Show Dockers | view_toggledockers | no visible effect |
 | add after engine fix / check | Settings | Dockers | settings_dockers_menu | no visible effect |

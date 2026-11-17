@@ -1,0 +1,10 @@
+import { createRequire } from 'node:module';
+const { chromium } = createRequire('/home/user/Krita-Web-Port/web/tests/x.mjs')('playwright');
+const browser = await chromium.launch({ args: ['--use-angle=swiftshader'] });
+const page = await browser.newPage();
+page.on('console', m => { const t = m.text(); if (!/kf.i18n|KoShapeManager|vite|migration/.test(t)) console.log(t.slice(0, 400)); });
+await page.goto('http://localhost:5173/?engine=wasm&engineBase=/engine-dev/&engineLog=1');
+await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 150000 });
+const r = await page.evaluate(async (code) => { const sleep = ms => new Promise(r => setTimeout(r, ms)); return await eval(code)(sleep); }, process.argv[2]);
+console.log(JSON.stringify(r, null, 1).slice(0, 6000));
+await browser.close();

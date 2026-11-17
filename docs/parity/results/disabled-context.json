@@ -1,1 +1,240 @@
-{}
+{
+ "selection_tool_mode_add": [
+  "KisToolSelectContiguous",
+  "KisToolPolyline"
+ ],
+ "selection_tool_mode_replace": [
+  "KisToolSelectContiguous"
+ ],
+ "selection_tool_mode_subtract": [
+  "KisToolSelectContiguous"
+ ],
+ "selection_tool_mode_intersect": [
+  "KisToolSelectContiguous"
+ ],
+ "object_order_front": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_order_raise": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_order_lower": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_order_back": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_transform_rotate_90_cw": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_transform_rotate_90_ccw": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_transform_rotate_180": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_transform_mirror_horizontally": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_transform_mirror_vertically": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_transform_reset": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_align_horizontal_left": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_align_horizontal_center": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_align_horizontal_right": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_align_vertical_top": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_align_vertical_center": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "object_align_vertical_bottom": [
+  "InteractionTool",
+  "SvgTextTool",
+  "PathTool"
+ ],
+ "undo_polygon_selection": [
+  "KisToolSelectMagnetic",
+  "KisToolSelectPolygonal",
+  "KisToolPolyline"
+ ],
+ "svg_align_center": [
+  "SvgTextTool"
+ ],
+ "svg_align_justified": [
+  "SvgTextTool"
+ ],
+ "svg_align_left": [
+  "SvgTextTool"
+ ],
+ "svg_align_right": [
+  "SvgTextTool"
+ ],
+ "svg_decrease_font_size": [
+  "SvgTextTool"
+ ],
+ "svg_font_kerning": [
+  "SvgTextTool"
+ ],
+ "svg_format_italic": [
+  "SvgTextTool"
+ ],
+ "svg_format_strike_through": [
+  "SvgTextTool"
+ ],
+ "svg_format_subscript": [
+  "SvgTextTool"
+ ],
+ "svg_format_superscript": [
+  "SvgTextTool"
+ ],
+ "svg_format_underline": [
+  "SvgTextTool"
+ ],
+ "svg_increase_font_size": [
+  "SvgTextTool"
+ ],
+ "svg_weight_black": [
+  "SvgTextTool"
+ ],
+ "svg_weight_bold": [
+  "SvgTextTool"
+ ],
+ "svg_weight_demi": [
+  "SvgTextTool"
+ ],
+ "svg_weight_light": [
+  "SvgTextTool"
+ ],
+ "svg_weight_normal": [
+  "SvgTextTool"
+ ],
+ "svg_insert_special_character": [
+  "SvgTextTool"
+ ],
+ "svg_paste_rich_text": [
+  "SvgTextTool"
+ ],
+ "svg_paste_plain_text": [
+  "SvgTextTool"
+ ],
+ "text_type_preformatted": [
+  "SvgTextTool"
+ ],
+ "text_type_pre_positioned": [
+  "SvgTextTool"
+ ],
+ "svg_remove_transforms_from_range": [
+  "SvgTextTool"
+ ],
+ "svg_clear_formatting": [
+  "SvgTextTool"
+ ],
+ "set_no_brush_smoothing": [
+  "KritaShape/KisToolMultiBrush"
+ ],
+ "set_simple_brush_smoothing": [
+  "KritaShape/KisToolMultiBrush"
+ ],
+ "set_weighted_brush_smoothing": [
+  "KritaShape/KisToolMultiBrush"
+ ],
+ "set_stabilizer_brush_smoothing": [
+  "KritaShape/KisToolMultiBrush"
+ ],
+ "set_pixel_perfect_smoothing": [
+  "KritaShape/KisToolMultiBrush"
+ ],
+ "toggle_assistant": [
+  "KritaShape/KisToolMultiBrush"
+ ],
+ "movetool-move-up": [
+  "KisToolTransform",
+  "KritaTransform/KisToolMove"
+ ],
+ "movetool-move-down": [
+  "KisToolTransform",
+  "KritaTransform/KisToolMove"
+ ],
+ "movetool-move-left": [
+  "KisToolTransform",
+  "KritaTransform/KisToolMove"
+ ],
+ "movetool-move-right": [
+  "KisToolTransform",
+  "KritaTransform/KisToolMove"
+ ],
+ "movetool-move-up-more": [
+  "KisToolTransform",
+  "KritaTransform/KisToolMove"
+ ],
+ "movetool-move-down-more": [
+  "KisToolTransform",
+  "KritaTransform/KisToolMove"
+ ],
+ "movetool-move-left-more": [
+  "KisToolTransform",
+  "KritaTransform/KisToolMove"
+ ],
+ "movetool-move-right-more": [
+  "KisToolTransform",
+  "KritaTransform/KisToolMove"
+ ],
+ "convert-to-path": [
+  "PathTool"
+ ],
+ "movetool-show-coordinates": [
+  "KritaTransform/KisToolMove"
+ ],
+ "calligraphy_increase_width": [
+  "KarbonCalligraphyTool"
+ ],
+ "calligraphy_decrease_width": [
+  "KarbonCalligraphyTool"
+ ],
+ "calligraphy_increase_angle": [
+  "KarbonCalligraphyTool"
+ ],
+ "calligraphy_decrease_angle": [
+  "KarbonCalligraphyTool"
+ ]
+}

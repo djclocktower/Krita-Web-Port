@@ -4,6 +4,8 @@
 //   PART=actions|tools|menus|dockers|report         one part
 //   ONLY=regex                                      only names/ids matching (re-runs them, overwriting their records)
 //   FRESH=1                                         ignore earlier results
+//   FREEZE=1                                        copy the promoted engine to /tmp/parity-frozen and serve the app with that copy on PORT (default 5194),
+//                                                   so a promotion by someone else during the (2 hour) sweep cannot change the engine under it
 // Results: docs/parity/results/{inventory,actions,tools,dockers,menus}.json, pictures in docs/parity/pictures/,
 // report in docs/parity/REPORT.md (PART=report rebuilds it from the JSON and docs/parity/NOTES.md).
 import { createRequire } from 'node:module';
@@ -19,7 +21,28 @@ const OUT = path.join(ROOT, 'docs/parity');
 const RES = path.join(OUT, 'results');
 const PIC = path.join(OUT, 'pictures');
 for (const d of [RES, PIC + '/actions', PIC + '/tools', PIC + '/dockers']) fs.mkdirSync(d, { recursive: true });
-const URL_ = `http://localhost:${process.env.PORT ?? 5193}/?engine=wasm`;
+const FREEZE = !!process.env.FREEZE;
+const PORT = process.env.PORT ?? (FREEZE ? 5194 : 5193);
+const URL_ = `http://localhost:${PORT}/?engine=wasm`;
+let frozenServer = null, frozenEngineDir = null;
+async function startFrozenServer() {
+    const web = path.join(ROOT, 'web');
+    const src = fs.realpathSync(path.join(web, 'public/engine'));
+    const sha = createHash('sha1').update(fs.readFileSync(path.join(src, 'kritaengine.wasm'))).digest('hex');
+    const base = '/tmp/parity-frozen';
+    frozenEngineDir = path.join(base, 'engine-' + sha.slice(0, 12));
+    if (!fs.existsSync(path.join(frozenEngineDir, 'kritaengine.wasm'))) fs.cpSync(src, frozenEngineDir, { recursive: true, dereference: true });
+    const pub = path.join(base, 'public'); fs.mkdirSync(pub, { recursive: true });
+    try { fs.unlinkSync(path.join(pub, 'engine')); } catch {}
+    fs.symlinkSync(frozenEngineDir, path.join(pub, 'engine'));
+    const req = createRequire(path.join(web, 'package.json'));
+    const vite = req('vite'); const preactMod = req('@preact/preset-vite'); const preact = preactMod.default ?? preactMod;
+    frozenServer = await vite.createServer({ root: web, configFile: false, publicDir: pub, plugins: [preact()], base: './', logLevel: 'warn',
+        server: { port: Number(PORT), strictPort: true, headers: { 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Embedder-Policy': 'require-corp' }, fs: { allow: [ROOT, base] } } });
+    await frozenServer.listen();
+    console.log(`frozen engine ${sha.slice(0, 12)} (${src}) served on port ${PORT}`);
+}
+
 const PART = process.env.PART ?? 'all';
 const ONLY = process.env.ONLY ? new RegExp(process.env.ONLY) : null;
 const FRESH = !!process.env.FRESH;
@@ -358,8 +381,8 @@ async function writeInventory() {
     const inv = await inPage(async () => ({
         actions: await __engine.kritaActions(), tools: await __engine.kritaTools(), dockers: await __engine.kritaDockers(), windows: await __engine.kritaWindows(),
     }), null, 60000);
-    const eng = path.join(ROOT, 'web/public/engine/kritaengine.wasm');
-    inv.engine = { file: 'web/public/engine/kritaengine.wasm', bytes: fs.statSync(eng).size, modified: fs.statSync(eng).mtime.toISOString(), sha1: createHash('sha1').update(fs.readFileSync(eng)).digest('hex'), swept: new Date().toISOString() };
+    const eng = frozenEngineDir ? path.join(frozenEngineDir, 'kritaengine.wasm') : fs.realpathSync(path.join(ROOT, 'web/public/engine/kritaengine.wasm'));
+    inv.engine = { file: eng, frozenCopy: Boolean(frozenEngineDir), bytes: fs.statSync(eng).size, modified: fs.statSync(eng).mtime.toISOString(), sha1: createHash('sha1').update(fs.readFileSync(eng)).digest('hex'), swept: new Date().toISOString() };
     save('inventory.json', inv);
     console.log(`inventory: ${inv.actions.length} actions, ${inv.tools.length} tools, ${inv.dockers.length} dockers`);
 }
@@ -441,7 +464,9 @@ function writeReport() {
     o += `\n---\n# Appendix: generated tables\n\n## A1. Actions that hang, crash or error\n\n`;
     o += tbl(['action', 'text', 'menu', 'outcome', 'observed'], Object.entries(A).filter(([, v]) => ['hang', 'crash', 'error'].includes(v.outcome)).map(([n, v]) => [n, txt(n), (menuOf[n] ?? ['-']).join('; '), v.outcome, v.error ?? v.note ?? '']));
     o += `\n## A2. Actions that opened a dialog or popup (picture saved)\n\n`;
-    o += tbl(['action', 'text', 'window title', 'size', 'closed by', 'returned', 'picture'], Object.entries(A).filter(([, v]) => v.windows?.length).flatMap(([n, v]) => v.windows.map(w => [n, txt(n), `${w.kind}: ${w.title}`, `${w.width}x${w.height}${w.modal ? ' modal' : ''}`, (v.closedBy ?? []).join(','), v.state, w.file ?? ''])));
+    const fileChooser = w => /^(Open Images|Saving As|Exporting|Import Image|Import Images|Export |Export to SVG|Save layers to)/.test(w.title) || (w.width === 908 && w.height === 421);
+    o += 'Qt file chooser = a Qt file dialog shown as a Krita window (the page has its own open/save). `returned` is whether the action call returned after the window was closed.\n\n';
+    o += tbl(['action', 'text', 'window title', 'size', 'Qt file chooser', 'closed by', 'returned', 'picture'], Object.entries(A).filter(([, v]) => v.windows?.length).flatMap(([n, v]) => v.windows.map(w => [n, txt(n), `${w.kind}: ${w.title}`, `${w.width}x${w.height}${w.modal ? ' modal' : ''}`, fileChooser(w) ? 'YES' : '', (v.closedBy ?? []).join(','), v.pending ? 'NO (never returned)' : v.state, w.file ?? ''])));
     o += `\n## A3. Actions that were enabled but had no visible effect\n\n`;
     o += tbl(['action', 'text (from .action file when the engine has none)', 'menu', 'fixture', 'activation in .action'], Object.entries(A).filter(([, v]) => v.outcome === 'no visible effect').map(([n, v]) => [n, txt(n), (menuOf[n] ?? ['-']).join('; '), v.fixture, cond(n)]));
     o += `\n## A4. Actions disabled in every fixture (base, vector layer, group, mask, animated)\n\n`;
@@ -773,12 +798,13 @@ async function runMenus() {
 // ---------------------------------------------------------------------------------------------- main
 (async () => {
     try {
+        if (FREEZE) await startFrozenServer();
         if (!fs.existsSync(path.join(RES, 'inventory.json')) || FRESH) await writeInventory();
         if (want('actions')) await runActions();
         if (want('tools')) { await runTools(); await runToolModes(); }
         if (want('dockers')) await runDockers();
         if (want('menus')) await runMenus();
         if (want('report')) writeReport();
-    } finally { if (browser) await browser.close().catch(() => {}); }
+    } finally { if (browser) await browser.close().catch(() => {}); if (frozenServer) await frozenServer.close().catch(() => {}); }
     process.exit(0);
 })().catch(e => { console.error(e); process.exit(1); });

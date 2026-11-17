@@ -1,0 +1,113 @@
+{
+ "KisToolTransformFree": {
+  "name": "KisToolTransformFree",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "32035372:187200:260x720",
+  "overlayDuring": 6,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": true
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformFree.png"
+ },
+ "KisToolTransformPerspective": {
+  "name": "KisToolTransformPerspective",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "1064773453:187200:260x720",
+  "overlayDuring": 5,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": true
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformPerspective.png"
+ },
+ "KisToolTransformWarp": {
+  "name": "KisToolTransformWarp",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "-875778023:187200:260x720",
+  "overlayDuring": 3,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": true
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformWarp.png"
+ },
+ "KisToolTransformCage": {
+  "name": "KisToolTransformCage",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "1295348769:187200:260x720",
+  "overlayDuring": 1,
+  "changed": {
+   "image": true,
+   "history": false,
+   "selection": false
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformCage.png"
+ },
+ "KisToolTransformLiquify": {
+  "name": "KisToolTransformLiquify",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "-320393878:187200:260x720",
+  "overlayDuring": 3,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": false
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformLiquify.png"
+ },
+ "KisToolTransformMesh": {
+  "name": "KisToolTransformMesh",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "1828763478:187200:260x720",
+  "overlayDuring": 4,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": true
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformMesh.png"
+ },
+ "selection-modifiers": {
+  "name": "selection-modifiers",
+  "areas": {
+   "replace": 10000,
+   "shiftAdd": 19600,
+   "altSubtract": 18700,
+   "shiftAltIntersect": 4000
+  },
+  "works": {
+   "add": true,
+   "subtract": true,
+   "intersect": true
+  },
+  "alive": true
+ }
+}
