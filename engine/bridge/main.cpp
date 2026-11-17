@@ -398,7 +398,7 @@ private:
         fileLoops[id] = &loop;
         fileSaves[id] = save;
         emitEvent("kritaFileDialog", {{"id", id}, {"save", save}, {"multiple", type == KoFileDialog::OpenFiles || type == KoFileDialog::ImportFiles},
-                                      {"caption", caption}, {"filters", QJsonArray::fromStringList(filters)}, {"name", QFileInfo(proposed).fileName()}});
+                                      {"caption", caption}, {"filters", QJsonArray::fromStringList(filters)}, {"name", QFileInfo(proposed).suffix().isEmpty() ? QString() : QFileInfo(proposed).fileName()}});
         loop.exec();
         fileLoops.remove(id);
         fileSaves.remove(id);
@@ -549,8 +549,8 @@ public:
         auto *w = static_cast<QWidget *>(o);
         if (e->type() == QEvent::Show && w->isWindow()) shows++;
         if (e->type() == QEvent::UpdateRequest) updateRequests++;
-        if (w->isWindow() && w->inherits("QDialog") && e->type() != QEvent::UpdateRequest && e->type() != QEvent::Paint)   // KWDEBUG
-            fprintf(stderr, "KWDBG %s ev=%d %dx%d state=%d min=%dx%d max=%dx%d resized=%d spont=%d\n", w->metaObject()->className(), int(e->type()), w->width(), w->height(), int(w->windowState()), w->minimumWidth(), w->minimumHeight(), w->maximumWidth(), w->maximumHeight(), w->testAttribute(Qt::WA_Resized), e->spontaneous());
+        if (w->isWindow() && e->type() == QEvent::Resize && e->spontaneous() && w->width() == 100 && w->height() == 30)   // KWDEBUG
+            EM_ASM({ console.error('KWDBG shrink ' + new Error().stack); });
         switch (e->type()) {
         case QEvent::Show:
             if (w->isWindow() && w != window && w->windowType() != Qt::ToolTip && w->windowType() != Qt::Desktop) trackWindow(w);
@@ -1727,8 +1727,8 @@ QJsonValue Engine::handle(const QString &m, const Params &p, const QByteArray &d
         if (m == "krita.trigger") {
             QAction *a = window->actionCollection()->action(p["name"].toString());
             if (!a) fail("Unknown action: " + p["name"].toString());
-            if (brokenActions().contains(a->objectName())) fail(a->text().remove('&') + " is not available in the web version yet");
-            if (!a->isEnabled()) fail("Action is not available right now: " + p["name"].toString());
+            if (brokenActions().contains(a->objectName()) && !p["force"].toBool()) fail(a->text().remove('&') + " is not available in the web version yet");
+            if (!a->isEnabled() && !p["force"].toBool()) fail("Action is not available right now: " + p["name"].toString());
             a->trigger();
             settle();
             emitSelection();
