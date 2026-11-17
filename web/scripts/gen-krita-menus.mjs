@@ -17,6 +17,8 @@ const OUT = path.join(ROOT, 'web/src/krita/menus.generated.ts');
 const EXCLUDE = {
     'open or save through Qt file dialogs / the local disk (the page has its own Open, Save as .kra and Export; a tab has no disk)': [
         'file_save_as', 'file_import_file', 'file_export_advanced', 'file_import_animation', 'file_import_video_animation',
+        'add_new_file_layer', 'convert_to_file_layer', 'import_layer_as_filter_mask', 'import_layer_as_paint_layer', 'import_layer_as_selection_mask',
+        'import_layer_as_transparency_mask', 'import_layer_from_file', 'save_groups_as_images', 'save_node_as_image', 'save_vector_node_to_svg',   // Layer > Import/Export
         'render_animation', 'save_incremental_version', 'save_incremental_backup', 'file_sessions', 'file_reload_file', 'file_export_pdf', 'file_print',
     ],
     'closes, quits or opens windows (a tab is one window)': [
