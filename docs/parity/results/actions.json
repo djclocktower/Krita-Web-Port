@@ -5065,5 +5065,395 @@
   "outcome": "no visible effect",
   "text": "",
   "when": "2026-11-17T03:12:14.581Z"
+ },
+ "select_visible_layers": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:12:28.069Z"
+ },
+ "select_locked_layers": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:12:36.699Z"
+ },
+ "select_invisible_layers": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:12:41.483Z"
+ },
+ "select_unlocked_layers": {
+  "fixture": "base",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:12:55.067Z"
+ },
+ "new_from_visible": {
+  "fixture": "base",
+  "ms": 2908,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:13:01.099Z"
+ },
+ "pin_to_timeline": {
+  "fixture": "anim",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": true
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:13:07.634Z"
+ },
+ "add_new_paint_layer": {
+  "fixture": "base",
+  "ms": 187,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:13:14.346Z"
+ },
+ "add_new_group_layer": {
+  "fixture": "base",
+  "ms": 1385,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:13:23.495Z"
+ },
+ "add_new_clone_layer": {
+  "fixture": "base",
+  "ms": 960,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:13:29.572Z"
+ },
+ "add_new_shape_layer": {
+  "fixture": "vector",
+  "ms": 2405,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:13:34.332Z"
+ },
+ "add_new_adjustment_layer": {
+  "fixture": "base",
+  "ms": 207,
+  "windows": [
+   {
+    "id": 3,
+    "title": "New Filter Layer – Krita",
+    "kind": "dialog",
+    "width": 722,
+    "height": 527,
+    "modal": true,
+    "picture": "-489924031:380494:722x527",
+    "file": "actions/add_new_adjustment_layer__New_Filter_Layer_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 2,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:13:43.525Z"
+ },
+ "add_new_fill_layer": {
+  "fixture": "base",
+  "ms": 9007,
+  "pending": true,
+  "alive": false,
+  "state": "pending",
+  "needReload": true,
+  "hang": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "pageErrors": [
+   "ErrorEvent",
+   "operation does not support unaligned accesses"
+  ],
+  "console": [
+   "This plugin does not support setting window opacity",
+   "qt.core.qobject.connect: QObject::connect: No such signal QFormLayout::changed(const KoColor&)",
+   "qt.core.qobject.connect: QObject::connect:  (sender name:   'formLayout')",
+   "qt.core.qobject.connect: QObject::connect:  (receiver name: 'WdgColorOptions')",
+   "ENGINE STACK RuntimeError: operation does not support unaligned accesses\n    at http://localhost:5193/engine/kritaengine.wasm:wasm-function[4563]:0x250557\n    at http://localhost:5193/engine/kritaengine.wasm:wasm-function[140773]:0x47e028a\n",
+   "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: operation does not support unaligned accesses"
+  ],
+  "crash": true,
+  "note": " console shows abort",
+  "outcome": "crash",
+  "text": "",
+  "when": "2026-11-17T03:14:05.509Z"
  }
 }

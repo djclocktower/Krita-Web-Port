@@ -175,7 +175,7 @@ await page.getByRole('button', { name: 'Freehand Brush Tool' }).click();
 await page.mouse.click(box.x + 5, box.y + 5, { button: 'middle' });
 await page.keyboard.press('Control+Enter');
 await page.waitForSelector('.krita-search');
-check(await page.locator('.krita-search [role=option]').count() === 3, 'action search lists all actions');
+check(await page.locator('.krita-search [role=option]').count() === 4, 'action search lists all actions');
 await page.locator('.krita-search input').fill('dis');
 const dis = page.locator('.krita-search [role=option]');
 check(await dis.count() === 1 && await dis.getAttribute('aria-disabled') === 'true', 'disabled action is shown greyed (aria-disabled)');
