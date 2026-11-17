@@ -75,6 +75,10 @@ target_link_options(kritaengine PRIVATE
     "SHELL:--preload-file ${_spike}/fonts.conf@/etc/fonts/fonts.conf"
     "SHELL:--preload-file ${KRITA_WEB_FONT}@/usr/share/fonts/fallback.ttf")
 
+# The final whole-program pass optimises for size: measured 10% smaller (7% after compression) with no
+# measurable slowdown, and a faster start because the browser has less to compile. Krita's own code is still built -O3.
+target_link_options(kritaengine PRIVATE -Oz)
+
 # -DKRITA_WEB_WASMFS=ON keeps the in-memory file system inside the engine instead of on the page's thread, so
 # file reads from Krita's thread (its resource database, bundles, settings) stop being blocking round trips.
 if (KRITA_WEB_WASMFS)
