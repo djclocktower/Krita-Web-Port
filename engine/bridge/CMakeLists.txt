@@ -85,6 +85,9 @@ target_link_options(kritaengine PRIVATE
 # The final whole-program pass optimises for size: measured 10% smaller (7% after compression) with no
 # measurable slowdown, and a faster start because the browser has less to compile. Krita's own code is still built -O3.
 target_link_options(kritaengine PRIVATE -Oz)
+# Cache wasm table lookups in the exception trampolines (see the script; about 2x on a whole-canvas fill).
+add_custom_command(TARGET kritaengine POST_BUILD
+    COMMAND node ${CMAKE_CURRENT_LIST_DIR}/patch-engine-js.mjs $<TARGET_FILE_DIR:kritaengine>/kritaengine.js)
 
 # -DKRITA_WEB_WASMFS=ON keeps the in-memory file system inside the engine instead of on the page's thread, so
 # file reads from Krita's thread (its resource database, bundles, settings) stop being blocking round trips.
