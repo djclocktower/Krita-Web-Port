@@ -5419,16 +5419,16 @@
  },
  "add_new_adjustment_layer": {
   "fixture": "base",
-  "ms": 207,
+  "ms": 83,
   "windows": [
    {
-    "id": 3,
+    "id": 7,
     "title": "New Filter Layer – Krita",
     "kind": "dialog",
     "width": 722,
     "height": 527,
     "modal": true,
-    "picture": "-489924031:380494:722x527",
+    "picture": "906779203:380494:722x527",
     "file": "actions/add_new_adjustment_layer__New_Filter_Layer_Krita.png"
    }
   ],
@@ -5449,7 +5449,7 @@
   "messages": [],
   "toolChanged": [],
   "overlayPixels": 0,
-  "imageUpdates": 2,
+  "imageUpdates": 3,
   "enabledAfter": true,
   "enabled": true,
   "enabledIn": [
@@ -5461,11 +5461,32 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:13:43.525Z"
+  "when": "2026-11-17T04:40:42.156Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:13:43.525Z"
+  }
  },
  "add_new_fill_layer": {
   "fixture": "base",
-  "ms": 9021,
+  "ms": 46,
+  "windows": [
+   {
+    "id": 8,
+    "title": "",
+    "kind": "dialog",
+    "width": 700,
+    "height": 430,
+    "modal": true,
+    "picture": "-596416793:301000:700x430",
+    "file": "actions/add_new_fill_layer__.png"
+   }
+  ],
+  "closedBy": [
+   "STUCK",
+   "STUCK",
+   "STUCK"
+  ],
   "pending": true,
   "alive": false,
   "state": "pending",
@@ -5479,26 +5500,20 @@
    "mask",
    "anim"
   ],
-  "pageErrors": [
-   "ErrorEvent",
-   "operation does not support unaligned accesses"
-  ],
   "console": [
-   "This plugin does not support setting window opacity",
+   "qt.core.qobject.connect: QObject::connect:  (sender name:   'formLayout')",
+   "qt.core.qobject.connect: QObject::connect:  (receiver name: 'WdgColorOptions')",
    "qt.core.qobject.connect: QObject::connect: No such signal QFormLayout::changed(const KoColor&)",
    "qt.core.qobject.connect: QObject::connect:  (sender name:   'formLayout')",
    "qt.core.qobject.connect: QObject::connect:  (receiver name: 'WdgColorOptions')",
-   "ENGINE STACK RuntimeError: operation does not support unaligned accesses\n    at http://localhost:5193/engine/kritaengine.wasm:wasm-function[4563]:0x250557\n    at http://localhost:5193/engine/kritaengine.wasm:wasm-function[140773]:0x47e028a\n",
-   "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: operation does not support unaligned accesses"
+   "This plugin does not support setting window opacity"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "outcome": "crash",
+  "outcome": "hang",
   "text": "",
-  "when": "2026-11-17T04:32:35.540Z",
+  "when": "2026-11-17T04:41:16.053Z",
   "previous": {
    "outcome": "crash",
-   "when": "2026-11-17T03:14:05.509Z"
+   "when": "2026-11-17T04:32:35.540Z"
   }
  },
  "add_new_transparency_mask": {
@@ -5534,7 +5549,7 @@
  },
  "add_new_filter_mask": {
   "fixture": "mask",
-  "ms": 206,
+  "ms": 207,
   "windows": [
    {
     "id": 2,
@@ -5576,11 +5591,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:14:57.781Z"
+  "when": "2026-11-17T04:43:11.141Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:14:57.781Z"
+  }
  },
  "add_new_fast_color_overlay_mask": {
   "fixture": "mask",
-  "ms": 9012,
+  "ms": 9010,
   "pending": true,
   "alive": false,
   "state": "pending",
@@ -5610,10 +5629,10 @@
   "note": " console shows abort",
   "outcome": "crash",
   "text": "",
-  "when": "2026-11-17T04:33:32.419Z",
+  "when": "2026-11-17T04:43:33.292Z",
   "previous": {
    "outcome": "crash",
-   "when": "2026-11-17T03:15:19.504Z"
+   "when": "2026-11-17T04:33:32.419Z"
   }
  },
  "add_new_colorize_mask": {
@@ -5771,7 +5790,7 @@
  },
  "convert_to_filter_mask": {
   "fixture": "mask",
-  "ms": 203,
+  "ms": 210,
   "windows": [
    {
     "id": 2,
@@ -5785,7 +5804,9 @@
    }
   ],
   "closedBy": [
-   "Escape"
+   "STUCK",
+   "STUCK",
+   "STUCK"
   ],
   "pending": true,
   "alive": false,
@@ -5801,19 +5822,19 @@
    "anim"
   ],
   "console": [
-   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
    "SAFE ASSERT (krita): \"shape\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 166",
    "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
    "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "This plugin does not support setting window opacity",
    "This plugin does not support propagateSizeHints()",
    "This plugin does not support propagateSizeHints()"
   ],
   "outcome": "hang",
   "text": "",
-  "when": "2026-11-17T04:38:13.697Z",
+  "when": "2026-11-17T04:44:34.329Z",
   "previous": {
    "outcome": "hang",
-   "when": "2026-11-17T04:34:31.629Z"
+   "when": "2026-11-17T04:38:13.697Z"
   }
  },
  "convert_to_transparency_mask": {
@@ -6096,7 +6117,7 @@
  },
  "image_properties": {
   "fixture": "base",
-  "ms": 49,
+  "ms": 50,
   "windows": [
    {
     "id": 2,
@@ -6138,11 +6159,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:19:56.305Z"
+  "when": "2026-11-17T04:45:14.857Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:19:56.305Z"
+  }
  },
  "image_color": {
   "fixture": "base",
-  "ms": 40,
+  "ms": 51,
   "windows": [
    {
     "id": 3,
@@ -6184,7 +6209,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:20:03.924Z"
+  "when": "2026-11-17T04:45:21.805Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:20:03.924Z"
+  }
  },
  "view_grid": {
   "fixture": "base",
@@ -7047,7 +7076,7 @@
  },
  "patterns": {
   "fixture": "base",
-  "ms": 43,
+  "ms": 41,
   "windows": [
    {
     "id": 4,
@@ -7089,7 +7118,11 @@
   ],
   "outcome": "opened popup",
   "text": "Patterns",
-  "when": "2026-11-17T03:22:56.571Z"
+  "when": "2026-11-17T04:45:27.448Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:22:56.571Z"
+  }
  },
  "gradients": {
   "fixture": "base",
@@ -7135,7 +7168,11 @@
   ],
   "outcome": "opened popup",
   "text": "Gradients",
-  "when": "2026-11-17T03:23:01.853Z"
+  "when": "2026-11-17T04:45:34.263Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:23:01.853Z"
+  }
  },
  "dual": {
   "fixture": "base",
@@ -8503,10 +8540,10 @@
  },
  "brushslider1": {
   "fixture": "base",
-  "ms": 45,
+  "ms": 41,
   "windows": [
    {
-    "id": 2,
+    "id": 6,
     "title": "",
     "kind": "popup",
     "width": 336,
@@ -8545,14 +8582,18 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T03:29:13.209Z"
+  "when": "2026-11-17T04:45:39.611Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:29:13.209Z"
+  }
  },
  "brushslider2": {
   "fixture": "base",
-  "ms": 50,
+  "ms": 41,
   "windows": [
    {
-    "id": 3,
+    "id": 7,
     "title": "",
     "kind": "popup",
     "width": 336,
@@ -8591,14 +8632,18 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T03:29:20.143Z"
+  "when": "2026-11-17T04:45:44.843Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:29:20.143Z"
+  }
  },
  "brushslider3": {
   "fixture": "base",
-  "ms": 51,
+  "ms": 40,
   "windows": [
    {
-    "id": 4,
+    "id": 8,
     "title": "",
     "kind": "popup",
     "width": 336,
@@ -8637,14 +8682,18 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T03:29:28.091Z"
+  "when": "2026-11-17T04:45:50.450Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:29:28.091Z"
+  }
  },
  "brushslider4": {
   "fixture": "base",
-  "ms": 42,
+  "ms": 41,
   "windows": [
    {
-    "id": 5,
+    "id": 9,
     "title": "",
     "kind": "popup",
     "width": 336,
@@ -8683,14 +8732,18 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T03:29:33.945Z"
+  "when": "2026-11-17T04:45:55.889Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:29:33.945Z"
+  }
  },
  "brushslider5": {
   "fixture": "base",
-  "ms": 46,
+  "ms": 41,
   "windows": [
    {
-    "id": 6,
+    "id": 10,
     "title": "",
     "kind": "popup",
     "width": 336,
@@ -8729,7 +8782,11 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T03:29:40.795Z"
+  "when": "2026-11-17T04:46:02.499Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:29:40.795Z"
+  }
  },
  "next_favorite_preset": {
   "fixture": "base",
@@ -8832,16 +8889,16 @@
  },
  "show_brush_presets": {
   "fixture": "base",
-  "ms": 40,
+  "ms": 41,
   "windows": [
    {
-    "id": 7,
+    "id": 11,
     "title": "",
     "kind": "popup",
     "width": 452,
     "height": 552,
     "modal": false,
-    "picture": "1510200938:249504:452x552",
+    "picture": "-1852875894:249504:452x552",
     "file": "actions/show_brush_presets__.png"
    }
   ],
@@ -8874,7 +8931,11 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T03:30:04.538Z"
+  "when": "2026-11-17T04:46:07.473Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:30:04.538Z"
+  }
  },
  "mirror_actions": {
   "fixture": "base",
@@ -8912,7 +8973,7 @@
   "ms": 41,
   "windows": [
    {
-    "id": 8,
+    "id": 12,
     "title": "",
     "kind": "popup",
     "width": 274,
@@ -8951,7 +9012,11 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T03:30:18.603Z"
+  "when": "2026-11-17T04:46:13.501Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:30:18.603Z"
+  }
  },
  "show_brush_editor": {
   "fixture": "base",
@@ -9048,10 +9113,10 @@
  },
  "chooseForegroundColor": {
   "fixture": "base",
-  "ms": 46,
+  "ms": 40,
   "windows": [
    {
-    "id": 9,
+    "id": 13,
     "title": "Select a Color",
     "kind": "dialog",
     "width": 505,
@@ -9090,14 +9155,18 @@
   ],
   "outcome": "opened dialog",
   "text": "Open Foreground color selector",
-  "when": "2026-11-17T03:30:50.817Z"
+  "when": "2026-11-17T04:46:19.651Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:30:50.817Z"
+  }
  },
  "chooseBackgroundColor": {
   "fixture": "base",
-  "ms": 47,
+  "ms": 40,
   "windows": [
    {
-    "id": 10,
+    "id": 14,
     "title": "Select a Color",
     "kind": "dialog",
     "width": 505,
@@ -9136,14 +9205,18 @@
   ],
   "outcome": "opened dialog",
   "text": "Open Background color selector",
-  "when": "2026-11-17T03:30:56.224Z"
+  "when": "2026-11-17T04:46:25.080Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:30:56.224Z"
+  }
  },
  "docker_box": {
   "fixture": "base",
   "ms": 40,
   "windows": [
    {
-    "id": 11,
+    "id": 15,
     "title": "",
     "kind": "popup",
     "width": 302,
@@ -9182,7 +9255,11 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T03:31:00.649Z"
+  "when": "2026-11-17T04:46:30.655Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:31:00.649Z"
+  }
  },
  "dockerBox": {
   "fixture": "base",
@@ -9217,16 +9294,16 @@
  },
  "imagesize": {
   "fixture": "base",
-  "ms": 42,
+  "ms": 45,
   "windows": [
    {
-    "id": 12,
+    "id": 16,
     "title": "Scale To New Size – Krita",
     "kind": "dialog",
     "width": 547,
     "height": 452,
     "modal": true,
-    "picture": "1886673637:247244:547x452",
+    "picture": "-1339005282:247244:547x452",
     "file": "actions/imagesize__Scale_To_New_Size_Krita.png"
    }
   ],
@@ -9259,14 +9336,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:31:13.102Z"
+  "when": "2026-11-17T04:46:46.265Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:31:13.102Z"
+  }
  },
  "canvassize": {
   "fixture": "base",
-  "ms": 48,
+  "ms": 46,
   "windows": [
    {
-    "id": 13,
+    "id": 17,
     "title": "Resize Canvas – Krita",
     "kind": "dialog",
     "width": 403,
@@ -9305,20 +9386,24 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:31:17.973Z"
+  "when": "2026-11-17T04:46:58.397Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:31:17.973Z"
+  }
  },
  "layersize": {
   "fixture": "base",
   "ms": 43,
   "windows": [
    {
-    "id": 14,
+    "id": 18,
     "title": "Resize Layer – Krita",
     "kind": "dialog",
     "width": 377,
     "height": 257,
     "modal": true,
-    "picture": "-2144192010:96889:377x257",
+    "picture": "1521927255:96889:377x257",
     "file": "actions/layersize__Resize_Layer_Krita.png"
    }
   ],
@@ -9351,21 +9436,25 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:31:23.900Z"
+  "when": "2026-11-17T04:47:15.041Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:31:23.900Z"
+  }
  },
  "scaleAllLayers": {
   "fixture": "base",
-  "ms": 51,
+  "ms": 41,
   "windows": [
    {
-    "id": 15,
+    "id": 19,
     "title": "Resize Layer – Krita",
     "kind": "dialog",
     "width": 377,
     "height": 257,
     "modal": true,
     "picture": "-2144192010:96889:377x257",
-    "file": "actions/layersize__Resize_Layer_Krita.png"
+    "file": "actions/scaleAllLayers__Resize_Layer_Krita.png"
    }
   ],
   "closedBy": [
@@ -9397,21 +9486,25 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:31:29.650Z"
+  "when": "2026-11-17T04:47:26.831Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:31:29.650Z"
+  }
  },
  "selectionscale": {
   "fixture": "base",
-  "ms": 40,
+  "ms": 46,
   "windows": [
    {
-    "id": 16,
+    "id": 20,
     "title": "Scale Selection – Krita",
     "kind": "dialog",
     "width": 377,
     "height": 257,
     "modal": true,
     "picture": "1521927255:96889:377x257",
-    "file": "actions/selectionscale__Scale_Selection_Krita.png"
+    "file": "actions/layersize__Resize_Layer_Krita.png"
    }
   ],
   "closedBy": [
@@ -9443,14 +9536,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:31:35.180Z"
+  "when": "2026-11-17T04:47:43.739Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:31:35.180Z"
+  }
  },
  "clones_array": {
   "fixture": "base",
   "ms": 40,
   "windows": [
    {
-    "id": 17,
+    "id": 21,
     "title": "Create Clones Array – Krita",
     "kind": "dialog",
     "width": 836,
@@ -9489,21 +9586,25 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:31:40.669Z"
+  "when": "2026-11-17T04:47:49.580Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:31:40.669Z"
+  }
  },
  "colorrange": {
   "fixture": "base",
-  "ms": 49,
+  "ms": 40,
   "windows": [
    {
-    "id": 18,
+    "id": 22,
     "title": "Color Range – Krita",
     "kind": "dialog",
     "width": 408,
     "height": 236,
     "modal": true,
-    "picture": "857692824:96288:408x236",
-    "file": "actions/colorrange__Color_Range_Krita.png"
+    "picture": null,
+    "file": null
    }
   ],
   "closedBy": [
@@ -9535,7 +9636,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:31:46.765Z"
+  "when": "2026-11-17T04:47:57.230Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:31:46.765Z"
+  }
  },
  "selectopaque": {
   "fixture": "base",
@@ -9663,10 +9768,10 @@
  },
  "imagecolorspaceconversion": {
   "fixture": "base",
-  "ms": 40,
+  "ms": 41,
   "windows": [
    {
-    "id": 19,
+    "id": 23,
     "title": "Convert All Layers From RGB/Alpha (8-bit integer/channel) – Krita",
     "kind": "dialog",
     "width": 658,
@@ -9705,14 +9810,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:32:14.481Z"
+  "when": "2026-11-17T04:48:03.644Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:32:14.481Z"
+  }
  },
  "layercolorspaceconversion": {
   "fixture": "base",
-  "ms": 40,
+  "ms": 45,
   "windows": [
    {
-    "id": 20,
+    "id": 24,
     "title": "Convert Current Layer From RGB/Alpha (8-bit integer/channel) – Krita",
     "kind": "dialog",
     "width": 658,
@@ -9751,7 +9860,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:32:20.024Z"
+  "when": "2026-11-17T04:48:10.668Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:32:20.024Z"
+  }
  },
  "unifylayerscolorspace": {
   "fixture": "base",
@@ -9786,16 +9899,16 @@
  },
  "imagesplit": {
   "fixture": "base",
-  "ms": 82,
+  "ms": 81,
   "windows": [
    {
-    "id": 21,
+    "id": 25,
     "title": "Image Split – Krita",
     "kind": "dialog",
     "width": 616,
     "height": 328,
     "modal": true,
-    "picture": "1433556403:202048:616x328",
+    "picture": "2126108749:202048:616x328",
     "file": "actions/imagesplit__Image_Split_Krita.png"
    }
   ],
@@ -9828,14 +9941,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:32:30.401Z"
+  "when": "2026-11-17T04:48:17.412Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:32:30.401Z"
+  }
  },
  "layersplit": {
   "fixture": "base",
-  "ms": 81,
+  "ms": 83,
   "windows": [
    {
-    "id": 22,
+    "id": 26,
     "title": "Split Layer – Krita",
     "kind": "dialog",
     "width": 640,
@@ -9874,14 +9991,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:32:36.912Z"
+  "when": "2026-11-17T04:48:24.619Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:32:36.912Z"
+  }
  },
  "growselection": {
   "fixture": "base",
-  "ms": 43,
+  "ms": 40,
   "windows": [
    {
-    "id": 23,
+    "id": 27,
     "title": "Grow Selection – Krita",
     "kind": "dialog",
     "width": 431,
@@ -9920,14 +10041,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:32:41.980Z"
+  "when": "2026-11-17T04:48:30.889Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:32:41.980Z"
+  }
  },
  "shrinkselection": {
   "fixture": "base",
-  "ms": 41,
+  "ms": 2402,
   "windows": [
    {
-    "id": 24,
+    "id": 28,
     "title": "Shrink Selection – Krita",
     "kind": "dialog",
     "width": 446,
@@ -9966,20 +10091,24 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:32:47.839Z"
+  "when": "2026-11-17T04:48:45.441Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:32:47.839Z"
+  }
  },
  "borderselection": {
   "fixture": "base",
-  "ms": 44,
+  "ms": 41,
   "windows": [
    {
-    "id": 2,
+    "id": 29,
     "title": "Border Selection – Krita",
     "kind": "dialog",
     "width": 485,
     "height": 146,
     "modal": true,
-    "picture": "-580394536:70810:485x146",
+    "picture": "407046423:70810:485x146",
     "file": "actions/borderselection__Border_Selection_Krita.png"
    }
   ],
@@ -10012,14 +10141,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:33:24.434Z"
+  "when": "2026-11-17T04:48:57.278Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:33:24.434Z"
+  }
  },
  "featherselection": {
   "fixture": "base",
-  "ms": 41,
+  "ms": 480,
   "windows": [
    {
-    "id": 3,
+    "id": 30,
     "title": "Feather Selection – Krita",
     "kind": "dialog",
     "width": 485,
@@ -10058,7 +10191,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:33:31.058Z"
+  "when": "2026-11-17T04:49:11.835Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:33:31.058Z"
+  }
  },
  "smoothselection": {
   "fixture": "base",
@@ -10093,10 +10230,10 @@
  },
  "offsetimage": {
   "fixture": "base",
-  "ms": 45,
+  "ms": 40,
   "windows": [
    {
-    "id": 4,
+    "id": 31,
     "title": "Offset Image – Krita",
     "kind": "dialog",
     "width": 286,
@@ -10135,14 +10272,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:33:40.548Z"
+  "when": "2026-11-17T04:49:19.745Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:33:40.548Z"
+  }
  },
  "offsetlayer": {
   "fixture": "base",
-  "ms": 45,
+  "ms": 44,
   "windows": [
    {
-    "id": 5,
+    "id": 32,
     "title": "Offset Layer – Krita",
     "kind": "dialog",
     "width": 286,
@@ -10181,7 +10322,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:33:46.598Z"
+  "when": "2026-11-17T04:49:26.917Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:33:46.598Z"
+  }
  },
  "LayerGroupSwitcher/previous": {
   "fixture": "group",
@@ -10250,7 +10395,7 @@
   "ms": 41,
   "windows": [
    {
-    "id": 6,
+    "id": 33,
     "title": "Rotate Image – Krita",
     "kind": "dialog",
     "width": 387,
@@ -10289,7 +10434,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:34:05.431Z"
+  "when": "2026-11-17T04:49:34.382Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:34:05.431Z"
+  }
  },
  "rotateImageCW90": {
   "fixture": "base",
@@ -10451,7 +10600,7 @@
   "ms": 40,
   "windows": [
    {
-    "id": 7,
+    "id": 34,
     "title": "Rotate Layer – Krita",
     "kind": "dialog",
     "width": 387,
@@ -10490,7 +10639,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:34:39.745Z"
+  "when": "2026-11-17T04:49:41.300Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:34:39.745Z"
+  }
  },
  "rotateLayer180": {
   "fixture": "base",
@@ -10587,10 +10740,10 @@
  },
  "rotateAllLayers": {
   "fixture": "base",
-  "ms": 40,
+  "ms": 43,
   "windows": [
    {
-    "id": 8,
+    "id": 35,
     "title": "Rotate Layer – Krita",
     "kind": "dialog",
     "width": 387,
@@ -10629,7 +10782,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:34:59.411Z"
+  "when": "2026-11-17T04:49:47.170Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:34:59.411Z"
+  }
  },
  "rotateAllLayersCW90": {
   "fixture": "base",
@@ -10726,10 +10883,10 @@
  },
  "separate": {
   "fixture": "base",
-  "ms": 66,
+  "ms": 45,
   "windows": [
    {
-    "id": 9,
+    "id": 36,
     "title": "Separate Image – Krita",
     "kind": "dialog",
     "width": 615,
@@ -10768,14 +10925,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:35:20.957Z"
+  "when": "2026-11-17T04:49:55.110Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:35:20.957Z"
+  }
  },
  "shearimage": {
   "fixture": "base",
-  "ms": 41,
+  "ms": 40,
   "windows": [
    {
-    "id": 10,
+    "id": 37,
     "title": "Shear Image – Krita",
     "kind": "dialog",
     "width": 250,
@@ -10814,14 +10975,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:35:27.056Z"
+  "when": "2026-11-17T04:50:02.106Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:35:27.056Z"
+  }
  },
  "shearlayer": {
   "fixture": "base",
-  "ms": 47,
+  "ms": 44,
   "windows": [
    {
-    "id": 11,
+    "id": 38,
     "title": "Shear Layer – Krita",
     "kind": "dialog",
     "width": 250,
@@ -10860,14 +11025,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:35:32.590Z"
+  "when": "2026-11-17T04:50:09.700Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:35:32.590Z"
+  }
  },
  "shearAllLayers": {
   "fixture": "base",
-  "ms": 43,
+  "ms": 42,
   "windows": [
    {
-    "id": 12,
+    "id": 39,
     "title": "Shear Layer – Krita",
     "kind": "dialog",
     "width": 250,
@@ -10906,14 +11075,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:35:39.037Z"
+  "when": "2026-11-17T04:50:17.383Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:35:39.037Z"
+  }
  },
  "waveletdecompose": {
   "fixture": "base",
-  "ms": 41,
+  "ms": 42,
   "windows": [
    {
-    "id": 13,
+    "id": 40,
     "title": "WaveletDecompose – Krita",
     "kind": "dialog",
     "width": 202,
@@ -10952,14 +11125,18 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:35:45.118Z"
+  "when": "2026-11-17T04:50:23.819Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:35:45.118Z"
+  }
  },
  "EditLayerMetaData": {
   "fixture": "base",
-  "ms": 81,
+  "ms": 207,
   "windows": [
    {
-    "id": 14,
+    "id": 41,
     "title": "",
     "kind": "dialog",
     "width": 100,
@@ -10998,7 +11175,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:35:49.939Z"
+  "when": "2026-11-17T04:50:30.268Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:35:49.939Z"
+  }
  },
  "ZoomTool": {
   "fixture": "base",
@@ -13632,7 +13813,7 @@
  },
  "save_incremental_version": {
   "fixture": "base",
-  "ms": 162,
+  "ms": 161,
   "windows": [
    {
     "id": 2,
@@ -13641,29 +13822,19 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "1499309820:382268:908x421",
+    "picture": "-1054784567:382268:908x421",
     "file": "actions/save_incremental_version__Saving_As.png"
    }
   ],
   "closedBy": [
    "Escape"
   ],
+  "pending": true,
   "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "enabledSet": false,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 0,
-  "imageUpdates": 0,
-  "enabledAfter": true,
+  "state": "pending",
+  "needReload": true,
+  "hang": true,
+  "note": "call never returned; engine still answered",
   "enabled": true,
   "enabledIn": [
    "base",
@@ -13672,13 +13843,25 @@
    "mask",
    "anim"
   ],
-  "outcome": "opened dialog",
+  "console": [
+   "Numeric mode unsupported in the posix collation implementation",
+   "This plugin does not support propagateSizeHints()",
+   "This plugin does not support propagateSizeHints()",
+   "Case insensitive sorting unsupported in the posix collation implementation",
+   "Numeric mode unsupported in the posix collation implementation",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!"
+  ],
+  "outcome": "hang",
   "text": "",
-  "when": "2026-11-17T03:42:35.964Z"
+  "when": "2026-11-17T04:51:24.240Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:42:35.964Z"
+  }
  },
  "save_incremental_backup": {
   "fixture": "base",
-  "ms": 163,
+  "ms": 165,
   "windows": [
    {
     "id": 2,
@@ -13687,7 +13870,7 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "1499309820:382268:908x421",
+    "picture": "-1054784567:382268:908x421",
     "file": "actions/save_incremental_version__Saving_As.png"
    }
   ],
@@ -13720,11 +13903,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:43:12.830Z"
+  "when": "2026-11-17T04:52:06.469Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:43:12.830Z"
+  }
  },
  "tablet_debugger": {
   "fixture": "base",
-  "ms": 44,
+  "ms": 57,
   "windows": [
    {
     "id": 2,
@@ -13766,11 +13953,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:43:51.080Z"
+  "when": "2026-11-17T04:52:48.272Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:43:51.080Z"
+  }
  },
  "create_template": {
   "fixture": "base",
-  "ms": 244,
+  "ms": 136,
   "windows": [
    {
     "id": 2,
@@ -13779,7 +13970,7 @@
     "width": 442,
     "height": 279,
     "modal": true,
-    "picture": "769029581:123318:442x279",
+    "picture": "1973411756:123318:442x279",
     "file": "actions/create_template__Create_Template_Krita.png"
    }
   ],
@@ -13812,7 +14003,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:44:27.077Z"
+  "when": "2026-11-17T04:53:35.209Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:44:27.077Z"
+  }
  },
  "create_copy": {
   "fixture": "base",
@@ -13950,7 +14145,7 @@
  },
  "save_groups_as_images": {
   "fixture": "group",
-  "ms": 54,
+  "ms": 43,
   "windows": [
    {
     "id": 2,
@@ -13992,11 +14187,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:48:01.056Z"
+  "when": "2026-11-17T04:54:16.040Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:48:01.056Z"
+  }
  },
  "save_node_as_image": {
   "fixture": "base",
-  "ms": 127,
+  "ms": 161,
   "windows": [
    {
     "id": 2,
@@ -14006,7 +14205,7 @@
     "height": 421,
     "modal": true,
     "picture": "1499309820:382268:908x421",
-    "file": "actions/save_incremental_version__Saving_As.png"
+    "file": "actions/save_node_as_image__Export_Layer_2_.png"
    }
   ],
   "closedBy": [
@@ -14038,11 +14237,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:48:40.637Z"
+  "when": "2026-11-17T04:55:00.349Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:48:40.637Z"
+  }
  },
  "save_vector_node_to_svg": {
   "fixture": "vector",
-  "ms": 162,
+  "ms": 169,
   "windows": [
    {
     "id": 2,
@@ -14052,7 +14255,7 @@
     "height": 421,
     "modal": true,
     "picture": "1499309820:382268:908x421",
-    "file": "actions/save_incremental_version__Saving_As.png"
+    "file": "actions/save_node_as_image__Export_Layer_2_.png"
    }
   ],
   "closedBy": [
@@ -14080,7 +14283,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:49:16.395Z"
+  "when": "2026-11-17T04:55:50.996Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:49:16.395Z"
+  }
  },
  "create_reference_image_from_active_layer": {
   "fixture": "base",
@@ -14150,7 +14357,7 @@
  },
  "add_new_file_layer": {
   "fixture": "base",
-  "ms": 53,
+  "ms": 43,
   "windows": [
    {
     "id": 2,
@@ -14192,11 +14399,15 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:50:59.559Z"
+  "when": "2026-11-17T04:56:27.857Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:50:59.559Z"
+  }
  },
  "convert_to_file_layer": {
   "fixture": "base",
-  "ms": 49,
+  "ms": 48,
   "windows": [
    {
     "id": 2,
@@ -14238,9 +14449,51 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:51:39.047Z"
+  "when": "2026-11-17T04:57:04.624Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:51:39.047Z"
+  }
  },
  "split_alpha_write": {
+  "fixture": "base",
+  "ms": 9031,
+  "pending": true,
+  "alive": false,
+  "state": "pending",
+  "needReload": true,
+  "hang": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "pageErrors": [
+   "ErrorEvent",
+   "Aborted(). Build with -sASSERTIONS for more info."
+  ],
+  "console": [
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "ASSERT (krita): \"node->inherits(\"KisTransparencyMask\")\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402",
+   "ENGINE STACK RuntimeError: Aborted(). Build with -sASSERTIONS for more info.\n    at abort (http://localhost:5193/engine/kritaengine.js:8:30920)\n    at _abort (http://localhost:5193/engine/kritaengine.js:8:177185)\n    at http://localhost:519",
+   "Aborted()",
+   "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: Aborted(). Build with -sASSERTIONS for more info."
+  ],
+  "crash": true,
+  "note": " console shows abort",
+  "outcome": "crash",
+  "text": "",
+  "when": "2026-11-17T04:57:54.687Z",
+  "previous": {
+   "outcome": "crash",
+   "when": "2026-11-17T04:35:31.125Z"
+  }
+ },
+ "split_alpha_save_merged": {
   "fixture": "base",
   "ms": 9033,
   "pending": true,
@@ -14261,154 +14514,24 @@
    "Aborted(). Build with -sASSERTIONS for more info."
   ],
   "console": [
-   "This plugin does not support setting window opacity",
-   "This plugin does not support setting window opacity",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
    "ASSERT (krita): \"node->inherits(\"KisTransparencyMask\")\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402",
-   "ENGINE STACK RuntimeError: Aborted(). Build with -sASSERTIONS for more info.\n    at abort (http://localhost:5193/engine/kritaengine.js:8:30920)\n    at _abort (http://localhost:5193/engine/kritaengine.js:8:177185)\n    at http://localhost:519",
    "Aborted()",
+   "ENGINE STACK RuntimeError: Aborted(). Build with -sASSERTIONS for more info.\n    at abort (http://localhost:5193/engine/kritaengine.js:8:30920)\n    at _abort (http://localhost:5193/engine/kritaengine.js:8:177185)\n    at http://localhost:519",
    "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: Aborted(). Build with -sASSERTIONS for more info."
   ],
   "crash": true,
   "note": " console shows abort",
   "outcome": "crash",
   "text": "",
-  "when": "2026-11-17T04:35:31.125Z",
+  "when": "2026-11-17T04:58:48.758Z",
   "previous": {
    "outcome": "crash",
-   "when": "2026-11-17T03:52:33.762Z"
-  }
- },
- "split_alpha_save_merged": {
-  "fixture": "base",
-  "ms": 9036,
-  "pending": true,
-  "alive": false,
-  "state": "pending",
-  "needReload": true,
-  "hang": true,
-  "enabled": true,
-  "enabledIn": [
-   "base",
-   "vector",
-   "group",
-   "mask",
-   "anim"
-  ],
-  "pageErrors": [
-   "ErrorEvent",
-   "Aborted(). Build with -sASSERTIONS for more info."
-  ],
-  "console": [
-   "This plugin does not support setting window opacity",
-   "This plugin does not support setting window opacity",
-   "ASSERT (krita): \"node->inherits(\"KisTransparencyMask\")\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402",
-   "ENGINE STACK RuntimeError: Aborted(). Build with -sASSERTIONS for more info.\n    at abort (http://localhost:5193/engine/kritaengine.js:8:30920)\n    at _abort (http://localhost:5193/engine/kritaengine.js:8:177185)\n    at http://localhost:519",
-   "Aborted()",
-   "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: Aborted(). Build with -sASSERTIONS for more info."
-  ],
-  "crash": true,
-  "note": " console shows abort",
-  "outcome": "crash",
-  "text": "",
-  "when": "2026-11-17T04:36:23.557Z",
-  "previous": {
-   "outcome": "crash",
-   "when": "2026-11-17T03:53:38.078Z"
+   "when": "2026-11-17T04:36:23.557Z"
   }
  },
  "import_layer_from_file": {
-  "fixture": "base",
-  "ms": 170,
-  "windows": [
-   {
-    "id": 2,
-    "title": "Import Image",
-    "kind": "dialog",
-    "width": 908,
-    "height": 421,
-    "modal": true,
-    "picture": "516960519:382268:908x421",
-    "file": "actions/import_layer_from_file__Import_Image.png"
-   }
-  ],
-  "closedBy": [
-   "Escape"
-  ],
-  "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "enabledSet": false,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 0,
-  "imageUpdates": 0,
-  "enabledAfter": true,
-  "enabled": true,
-  "enabledIn": [
-   "base",
-   "vector",
-   "group",
-   "mask",
-   "anim"
-  ],
-  "outcome": "opened dialog",
-  "text": "",
-  "when": "2026-11-17T03:54:26.734Z"
- },
- "import_layer_as_paint_layer": {
-  "fixture": "base",
-  "ms": 170,
-  "windows": [
-   {
-    "id": 2,
-    "title": "Import Image",
-    "kind": "dialog",
-    "width": 908,
-    "height": 421,
-    "modal": true,
-    "picture": "516960519:382268:908x421",
-    "file": "actions/import_layer_from_file__Import_Image.png"
-   }
-  ],
-  "closedBy": [
-   "Escape"
-  ],
-  "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "enabledSet": false,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 0,
-  "imageUpdates": 0,
-  "enabledAfter": true,
-  "enabled": true,
-  "enabledIn": [
-   "base",
-   "vector",
-   "group",
-   "mask",
-   "anim"
-  ],
-  "outcome": "opened dialog",
-  "text": "",
-  "when": "2026-11-17T03:55:10.953Z"
- },
- "import_layer_as_transparency_mask": {
   "fixture": "base",
   "ms": 163,
   "windows": [
@@ -14420,98 +14543,6 @@
     "height": 421,
     "modal": true,
     "picture": "-2037133868:382268:908x421",
-    "file": "actions/import_layer_as_transparency_mask__Import_Image.png"
-   }
-  ],
-  "closedBy": [
-   "Escape"
-  ],
-  "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "enabledSet": false,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 0,
-  "imageUpdates": 0,
-  "enabledAfter": true,
-  "enabled": true,
-  "enabledIn": [
-   "base",
-   "vector",
-   "group",
-   "mask",
-   "anim"
-  ],
-  "outcome": "opened dialog",
-  "text": "",
-  "when": "2026-11-17T03:55:52.793Z"
- },
- "import_layer_as_filter_mask": {
-  "fixture": "base",
-  "ms": 694,
-  "windows": [
-   {
-    "id": 2,
-    "title": "Import Image",
-    "kind": "dialog",
-    "width": 908,
-    "height": 421,
-    "modal": true,
-    "picture": "-2037133868:382268:908x421",
-    "file": "actions/import_layer_as_transparency_mask__Import_Image.png"
-   }
-  ],
-  "closedBy": [
-   "Escape"
-  ],
-  "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "enabledSet": false,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 0,
-  "imageUpdates": 0,
-  "enabledAfter": true,
-  "enabled": true,
-  "enabledIn": [
-   "base",
-   "vector",
-   "group",
-   "mask",
-   "anim"
-  ],
-  "outcome": "opened dialog",
-  "text": "",
-  "when": "2026-11-17T03:56:27.451Z"
- },
- "import_layer_as_selection_mask": {
-  "fixture": "base",
-  "ms": 162,
-  "windows": [
-   {
-    "id": 2,
-    "title": "Import Image",
-    "kind": "dialog",
-    "width": 908,
-    "height": 421,
-    "modal": true,
-    "picture": "516960519:382268:908x421",
     "file": "actions/import_layer_from_file__Import_Image.png"
    }
   ],
@@ -14544,11 +14575,211 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:57:03.851Z"
+  "when": "2026-11-17T04:59:38.725Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:54:26.734Z"
+  }
+ },
+ "import_layer_as_paint_layer": {
+  "fixture": "base",
+  "ms": 167,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Import Image",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "-2037133868:382268:908x421",
+    "file": "actions/import_layer_from_file__Import_Image.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T05:00:24.909Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:55:10.953Z"
+  }
+ },
+ "import_layer_as_transparency_mask": {
+  "fixture": "base",
+  "ms": 172,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Import Image",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "516960519:382268:908x421",
+    "file": "actions/import_layer_as_transparency_mask__Import_Image.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "pending": true,
+  "alive": true,
+  "state": "pending",
+  "needReload": true,
+  "hang": true,
+  "note": "call never returned; engine still answered",
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "console": [
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!"
+  ],
+  "outcome": "hang",
+  "text": "",
+  "when": "2026-11-17T05:01:14.225Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:55:52.793Z"
+  }
+ },
+ "import_layer_as_filter_mask": {
+  "fixture": "base",
+  "ms": 163,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Import Image",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "-2037133868:382268:908x421",
+    "file": "actions/import_layer_from_file__Import_Image.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "pending": true,
+  "alive": true,
+  "state": "pending",
+  "needReload": true,
+  "hang": true,
+  "note": "call never returned; engine still answered",
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "console": [
+   "Numeric mode unsupported in the posix collation implementation",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!"
+  ],
+  "outcome": "hang",
+  "text": "",
+  "when": "2026-11-17T05:02:11.251Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:56:27.451Z"
+  }
+ },
+ "import_layer_as_selection_mask": {
+  "fixture": "base",
+  "ms": 249,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Import Image",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "-2037133868:382268:908x421",
+    "file": "actions/import_layer_from_file__Import_Image.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T05:02:59.041Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:57:03.851Z"
+  }
  },
  "manage_bundles": {
   "fixture": "base",
-  "ms": 48,
+  "ms": 45,
   "windows": [
    {
     "id": 2,
@@ -14590,11 +14821,15 @@
   ],
   "outcome": "opened dialog",
   "text": "Manage Resource Libraries...",
-  "when": "2026-11-17T03:57:36.737Z"
+  "when": "2026-11-17T05:03:35.103Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:57:36.737Z"
+  }
  },
  "manage_resources": {
   "fixture": "base",
-  "ms": 77,
+  "ms": 52,
   "windows": [
    {
     "id": 2,
@@ -14636,7 +14871,11 @@
   ],
   "outcome": "opened dialog",
   "text": "Manage Resources...",
-  "when": "2026-11-17T03:58:12.172Z"
+  "when": "2026-11-17T05:04:13.100Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:58:12.172Z"
+  }
  },
  "ToolReferenceImages": {
   "fixture": "base",
@@ -14673,7 +14912,7 @@
  },
  "file_new": {
   "fixture": "base",
-  "ms": 84,
+  "ms": 92,
   "windows": [
    {
     "id": 2,
@@ -14682,8 +14921,8 @@
     "width": 505,
     "height": 270,
     "modal": true,
-    "picture": "-1081109856:136350:505x270",
-    "file": "actions/file_new__Create_new_document.png"
+    "picture": null,
+    "file": null
    }
   ],
   "closedBy": [
@@ -14715,11 +14954,15 @@
   ],
   "outcome": "opened dialog",
   "text": "New",
-  "when": "2026-11-17T03:59:21.997Z"
+  "when": "2026-11-17T05:04:47.179Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:59:21.997Z"
+  }
  },
  "file_open": {
   "fixture": "base",
-  "ms": 170,
+  "ms": 201,
   "windows": [
    {
     "id": 2,
@@ -14728,7 +14971,7 @@
     "width": 908,
     "height": 421,
     "modal": true,
-    "picture": "516960519:382268:908x421",
+    "picture": "-2037133868:382268:908x421",
     "file": "actions/import_layer_from_file__Import_Image.png"
    }
   ],
@@ -14761,11 +15004,15 @@
   ],
   "outcome": "opened dialog",
   "text": "Open…",
-  "when": "2026-11-17T03:59:54.912Z"
+  "when": "2026-11-17T05:05:42.436Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:59:54.912Z"
+  }
  },
  "file_quit": {
   "fixture": "base",
-  "ms": 49,
+  "ms": 43,
   "windows": [
    {
     "id": 2,
@@ -14807,11 +15054,15 @@
   ],
   "outcome": "opened dialog",
   "text": "Quit",
-  "when": "2026-11-17T04:00:30.409Z"
+  "when": "2026-11-17T05:06:26.290Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:00:30.409Z"
+  }
  },
  "options_configure_toolbars": {
   "fixture": "base",
-  "ms": 82,
+  "ms": 89,
   "windows": [
    {
     "id": 2,
@@ -14853,7 +15104,11 @@
   ],
   "outcome": "opened dialog",
   "text": "Configure Toolbars…",
-  "when": "2026-11-17T04:01:04.044Z"
+  "when": "2026-11-17T05:07:02.179Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T04:01:04.044Z"
+  }
  },
  "fullscreen": {
   "fixture": "base",
