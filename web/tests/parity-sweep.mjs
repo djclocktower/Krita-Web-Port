@@ -37,6 +37,8 @@ async function launch() {
     page.on('pageerror', e => pageErrors.push(String(e.message).slice(0, 300)));
     page.on('crash', () => { crashed = true; });
     page.on('console', m => { const t = m.text().trim(); if (t && !/migration|vite|kf\.i18n|RAM|start-up|instantiated/.test(t)) { consoleTail.push(t.slice(0, 240)); if (consoleTail.length > 40) consoleTail.shift(); } });
+    // other people edit the app while this runs; a vite hot reload would reload the page under the sweep, so cut it off
+    await page.route('**/@vite/client', r => r.fulfill({ contentType: 'text/javascript', body: 'export function createHotContext(){return{accept(){},dispose(){},prune(){},invalidate(){},on(){},off(){},send(){}}};export function updateStyle(){};export function removeStyle(){};export function injectQuery(u){return u};export const ErrorOverlay=class{};' }));
     await page.goto(URL_);
     await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 180000 });
     await sleep(3000);
@@ -78,6 +80,9 @@ function install() {
             sel: JSON.stringify(await S.race(__engine.selectionOutline(), 5000, 'x')),
             hist: JSON.stringify(S.hist),
             info: JSON.stringify(await S.race(__engine.documentInfo(), 5000, 'x')),
+            colors: JSON.stringify(await S.race(__engine.colors(), 5000, 'x')),
+            brush: JSON.stringify(await S.race(__engine.brushState(), 5000, 'x')),
+            anim: JSON.stringify(await S.race(__engine.animation(), 5000, 'x')),
             acts: acts.map(a => (a.enabled ? 1 : 0) + '' + (a.checked ? 1 : 0)).join(''),
             checked: me ? me.checked : null, enabled: me ? me.enabled : null,
         };
@@ -182,7 +187,7 @@ function install() {
         let after = await S.snap(name);
         const diff = (b, a) => ({
             image: b.hash !== a.hash, layers: b.layers !== a.layers, selection: b.sel !== a.sel, history: b.hist !== a.hist,
-            docinfo: b.info !== a.info, enabledSet: b.acts !== a.acts, checked: b.checked !== a.checked,
+            docinfo: b.info !== a.info, colors: b.colors !== a.colors, brush: b.brush !== a.brush, animation: b.anim !== a.anim, enabledSet: b.acts !== a.acts, checked: b.checked !== a.checked,
         });
         let d = diff(before, after);
         if (!Object.values(d).some(Boolean) && !S.msgs.length && !S.tools.length && !seen.size && state !== 'error') { await sleep(1800); after = await S.snap(name); d = diff(before, after); }
@@ -203,7 +208,7 @@ const classify = r => {
     if (r.windows?.some(w => w.kind === 'docker')) return 'opened docker';
     const d = r.diff ?? {};
     if (d.image) return 'changed image';
-    if (d.layers || d.selection || d.history || d.docinfo || d.checked || r.toolChanged?.length) return 'changed layers/selection/history/view';
+    if (d.layers || d.selection || d.history || d.docinfo || d.colors || d.brush || d.animation || d.checked || r.toolChanged?.length) return 'changed layers/selection/history/view';
     if (r.messages?.length) return 'message';
     return 'no visible effect';
 };
@@ -257,15 +262,22 @@ async function runActions() {
             if (!fixture) { sinceLaunch--; const r0 = { fixture: pref ?? 'base', enabled: false, enabledIn: [], outcome: 'disabled', text: a?.text, when: new Date().toISOString() }; results[name] = r0; save('actions.json', results); console.log(`${name.padEnd(44)} disabled`); continue; }
             const enabledIn = fixtures.filter(f => enabledBy[f][name]);
             consoleTail.length = 0; pageErrors.length = 0;
-            let r;
-            try { r = await inPage(o => S.runAction(o), { name, fixture, timeout: 9000 }, 75000); }
-            catch (e) { r = { fixture, state: 'pending', [gone(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) }; sinceLaunch = 1e9; }
-            if (r.needReload) { sinceLaunch = 1e9; if (!r.alive) r.hang = true; else r.hang = true, r.note = 'call never returned; engine still answered'; }
-            r.enabled = true; r.enabledIn = enabledIn;
-            if (pageErrors.length) r.pageErrors = pageErrors.slice(0, 3);
-            if (consoleTail.length && (r.hang || r.crash || r.state === 'error' || pageErrors.length)) r.console = consoleTail.slice(-6);
-            const aborted = consoleTail.some(l => /abort|unreachable|RuntimeError|memory access out of bounds/i.test(l));
-            if (aborted && !r.crash) { r.crash = true; r.note = (r.note ?? '') + ' console shows abort'; sinceLaunch = 1e9; }
+            let r, tries = [];
+            for (let attempt = 0; attempt < 2; attempt++) {
+                if (attempt) { await launch(); sinceLaunch = 1; enabledBy = null; }
+                consoleTail.length = 0; pageErrors.length = 0;
+                try { r = await inPage(o => S.runAction(o), { name, fixture, timeout: 9000 }, 90000); }
+                catch (e) { r = { fixture, state: 'pending', [gone(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) }; sinceLaunch = 1e9; }
+                if (r.needReload) { sinceLaunch = 1e9; r.hang = true; if (r.alive) r.note = 'call never returned; engine still answered'; }
+                r.enabled = true; r.enabledIn = enabledIn;
+                if (pageErrors.length) r.pageErrors = pageErrors.slice(0, 3);
+                if (consoleTail.length && (r.hang || r.crash || r.state === 'error' || pageErrors.length)) r.console = consoleTail.slice(-6);
+                const aborted = consoleTail.some(l => /abort|unreachable|RuntimeError|memory access out of bounds/i.test(l));
+                if (aborted && !r.crash) { r.crash = true; r.note = (r.note ?? '') + ' console shows abort'; sinceLaunch = 1e9; }
+                tries.push(classify(r));
+                if (!(r.hang || r.crash)) break;
+            }
+            if (tries.length > 1) { r.attempts = tries; r.reproduced = Boolean(r.hang || r.crash); }
             record(name, r);
         }
     };
@@ -575,6 +587,7 @@ const PAGE_TO_KRITA = {
     'settings.configure': 'options_configure',
     'layer.newPaint': 'add_new_paint_layer', 'layer.newGroup': 'add_new_group_layer', 'layer.duplicate': 'duplicatelayer', 'layer.mergeDown': 'merge_layer', 'layer.remove': 'remove_layer', 'layer.properties': 'layer_properties',
     'filter.gallery': 'filter_gallery',
+    'view.rulers': 'view_ruler', 'view.grid': 'view_grid', 'view.guides': 'view_show_guides', 'view.lockGuides': 'view_lock_guides', 'view.snapGuides': 'view_snap_to_guides', 'view.snapGrid': 'view_snap_to_grid', 'view.snapBounds': 'view_snap_image_bounds', 'view.snapCenter': 'view_snap_image_center',
 };
 async function runMenus() {
     const inv = JSON.parse(fs.readFileSync(path.join(RES, 'inventory.json'), 'utf8'));
