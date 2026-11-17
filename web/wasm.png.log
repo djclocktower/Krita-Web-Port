@@ -1,6 +1,6 @@
 debug: [vite] connecting...
 debug: [vite] connected.
-info: engine module instantiated after 2396 ms
+info: engine module instantiated after 2776 ms
 warning: WARNING: QApplication was not created in the main() thread.
 
 log: No "haiku" available.
@@ -22,398 +22,6 @@ warning: krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
 warning: krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
 
 warning: krita.general: Cannot get the size of your RAM. Using 1 GiB by default.
-
-warning: Warning: requested data for unknown action "set_no_brush_smoothing"
-
-warning: Warning: requested data for unknown action "set_simple_brush_smoothing"
-
-warning: Warning: requested data for unknown action "set_weighted_brush_smoothing"
-
-warning: Warning: requested data for unknown action "set_stabilizer_brush_smoothing"
-
-warning: Warning: requested data for unknown action "set_pixel_perfect_smoothing"
-
-warning: Warning: requested data for unknown action "toggle_assistant"
-
-warning: Warning: requested data for unknown action "KritaShape/KisToolBrush"
-
-warning: Warning: requested data for unknown action "KritaShape/KisToolLine"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
-
-warning: Warning: requested data for unknown action "KisToolTransformFree"
-
-warning: Warning: requested data for unknown action "KisToolTransformPerspective"
-
-warning: Warning: requested data for unknown action "KisToolTransformWarp"
-
-warning: Warning: requested data for unknown action "KisToolTransformCage"
-
-warning: Warning: requested data for unknown action "KisToolTransformLiquify"
-
-warning: Warning: requested data for unknown action "KisToolTransformMesh"
-
-warning: Warning: requested data for unknown action "KisToolTransform"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
-
-warning: Warning: requested data for unknown action "undo_polygon_selection"
-
-warning: Warning: requested data for unknown action "selection_tool_mode_add"
-
-warning: Warning: requested data for unknown action "KisToolPolyline"
-
-warning: Warning: requested data for unknown action "selection_tool_mode_replace"
-
-warning: Warning: requested data for unknown action "selection_tool_mode_subtract"
-
-warning: Warning: requested data for unknown action "selection_tool_mode_intersect"
-
-warning: Warning: requested data for unknown action "KisToolSelectSimilar"
-
-warning: Tool "KisToolSelectSimilar" tries to add an action without a name
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Show Coordinates" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Show Coordinates" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Show absolute coordinates and offset while move action" msgid_plural: "" msgctxt: "action"
-
-warning: Warning: requested data for unknown action "KritaTransform/KisToolMove"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Show absolute coordinates and offset while move action" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Corner point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Corner point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Corner point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Smooth point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Smooth point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Smooth point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Symmetric Point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Symmetric Point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Symmetric Point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make curve point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make curve point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make curve point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make line point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make line point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make line point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Line" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Line" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Line" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Curve" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Curve" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Curve" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Insert point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Insert point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Insert point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Remove point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Remove point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Remove point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at segment" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at segment" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at segment" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at selection" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at selection" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at selection" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Join with segment" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Join with segment" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Join with segment" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Merge points" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Merge points" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Merge points" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "To Path" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "To Path" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "To Path" msgid_plural: "" msgctxt: "action"
-
-warning: Warning: requested data for unknown action "PathTool"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Corner point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Smooth point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Symmetric Point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make curve point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make line point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Line" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Curve" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Insert point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Remove point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at point" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at segment" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at selection" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Join with segment" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Merge points" msgid_plural: "" msgctxt: "action"
-
-warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "To Path" msgid_plural: "" msgctxt: "action"
-
-warning: Warning: requested data for unknown action "KritaShape/KisToolKnife"
-
-warning: Warning: requested data for unknown action "KisToolSelectContiguous"
-
-warning: Tool "KisToolSelectContiguous" tries to add an action without a name
-
-warning: Tool "KisToolSelectContiguous" tries to add an action without a name
-
-warning: Tool "KisToolSelectContiguous" tries to add an action without a name
-
-warning: Tool "KisToolSelectContiguous" tries to add an action without a name
-
-warning: Warning: requested data for unknown action "KisToolSelectRectangular"
-
-warning: Tool "KisToolSelectRectangular" tries to add an action without a name
-
-warning: Tool "KisToolSelectRectangular" tries to add an action without a name
-
-warning: Tool "KisToolSelectRectangular" tries to add an action without a name
-
-warning: Tool "KisToolSelectRectangular" tries to add an action without a name
-
-warning: Warning: requested data for unknown action "KritaShape/KisToolRectangle"
-
-warning: Warning: requested data for unknown action "KisToolEncloseAndFill"
-
-warning: Warning: requested data for unknown action "KisToolSelectOutline"
-
-warning: Tool "KisToolSelectOutline" tries to add an action without a name
-
-warning: Tool "KisToolSelectOutline" tries to add an action without a name
-
-warning: Tool "KisToolSelectOutline" tries to add an action without a name
-
-warning: Tool "KisToolSelectOutline" tries to add an action without a name
-
-warning: Warning: requested data for unknown action "KritaShape/KisToolSmartPatch"
-
-warning: Warning: requested data for unknown action "KritaShape/KisToolEllipse"
-
-warning: Warning: requested data for unknown action "KritaShape/KisToolMultiBrush"
-
-warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
-
-warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
-
-warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
-
-warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
-
-warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
-
-warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
-
-warning: Warning: requested data for unknown action "KisToolPencil"
-
-warning: Warning: requested data for unknown action "KritaShape/KisToolLazyBrush"
-
-warning: Warning: requested data for unknown action "KisToolPath"
-
-warning: Warning: requested data for unknown action "ZoomTool"
-
-warning: Warning: requested data for unknown action "KisToolPolygon"
-
-warning: Tool "KisToolPolygon" tries to add an action without a name
-
-warning: Tool "KisToolPolygon" tries to add an action without a name
-
-warning: Warning: requested data for unknown action "KritaShape/KisToolDyna"
-
-warning: Warning: requested data for unknown action "KisAssistantTool"
-
-warning: Warning: requested data for unknown action "KritaSelected/KisToolColorSampler"
-
-warning: Warning: requested data for unknown action "KisToolSelectElliptical"
-
-warning: Tool "KisToolSelectElliptical" tries to add an action without a name
-
-warning: Tool "KisToolSelectElliptical" tries to add an action without a name
-
-warning: Tool "KisToolSelectElliptical" tries to add an action without a name
-
-warning: Tool "KisToolSelectElliptical" tries to add an action without a name
-
-warning: Warning: requested data for unknown action "KisToolSelectPath"
-
-warning: Tool "KisToolSelectPath" tries to add an action without a name
-
-warning: Tool "KisToolSelectPath" tries to add an action without a name
-
-warning: Tool "KisToolSelectPath" tries to add an action without a name
-
-warning: Tool "KisToolSelectPath" tries to add an action without a name
-
-warning: Warning: requested data for unknown action "KisToolSelectMagnetic"
-
-warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
-
-warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
-
-warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
-
-warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
-
-warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
 
 warning: Warning: requested data for unknown action "svg_align_center"
 
@@ -493,7 +101,9 @@ warning: kf.i18n: KLocalizedString: Domain is not set for this string, translati
 
 warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Text wraps inside a fixed length, spaces and new lines are preserved. New lines are not removed." msgid_plural: "" msgctxt: "action"
 
-warning: Warning: requested data for unknown action "KisToolCrop"
+warning: Warning: requested data for unknown action "KritaShape/KisToolEllipse"
+
+warning: Warning: requested data for unknown action "KritaShape/KisToolSmartPatch"
 
 warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Bring to &Front" msgid_plural: "" msgctxt: "action"
 
@@ -783,17 +393,37 @@ warning: kf.i18n: KLocalizedString: Domain is not set for this string, translati
 
 warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make this flow shape the first in the text chain as used by text layout." msgid_plural: "" msgctxt: "action"
 
-warning: Warning: requested data for unknown action "PanTool"
+warning: Warning: requested data for unknown action "KisToolPencil"
 
-warning: Warning: requested data for unknown action "calligraphy_increase_width"
+warning: Warning: requested data for unknown action "KritaShape/KisToolLazyBrush"
 
-warning: Warning: requested data for unknown action "calligraphy_decrease_width"
+warning: Warning: requested data for unknown action "selection_tool_mode_add"
 
-warning: Warning: requested data for unknown action "calligraphy_increase_angle"
+warning: Warning: requested data for unknown action "selection_tool_mode_replace"
 
-warning: Warning: requested data for unknown action "calligraphy_decrease_angle"
+warning: Warning: requested data for unknown action "selection_tool_mode_subtract"
 
-warning: Warning: requested data for unknown action "KarbonCalligraphyTool"
+warning: Warning: requested data for unknown action "selection_tool_mode_intersect"
+
+warning: Warning: requested data for unknown action "KisToolSelectPath"
+
+warning: Warning: requested data for unknown action "KritaShape/KisToolRectangle"
+
+warning: Warning: requested data for unknown action "KisAssistantTool"
+
+warning: Warning: requested data for unknown action "undo_polygon_selection"
+
+warning: Warning: requested data for unknown action "KisToolSelectPolygonal"
+
+warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+
+warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+
+warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+
+warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+
+warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
 
 warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Bring to &Front" msgid_plural: "" msgctxt: "action"
 
@@ -1005,25 +635,395 @@ warning: kf.i18n: KLocalizedString: Domain is not set for this string, translati
 
 warning: Warning: requested data for unknown action "ToolReferenceImages"
 
-warning: Warning: requested data for unknown action "KritaShape/KisToolMeasure"
+warning: Warning: requested data for unknown action "KisToolSelectRectangular"
 
-warning: Warning: requested data for unknown action "KritaFill/KisToolFill"
+warning: Tool "KisToolSelectRectangular" tries to add an action without a name
+
+warning: Tool "KisToolSelectRectangular" tries to add an action without a name
+
+warning: Tool "KisToolSelectRectangular" tries to add an action without a name
+
+warning: Tool "KisToolSelectRectangular" tries to add an action without a name
+
+warning: Warning: requested data for unknown action "set_no_brush_smoothing"
+
+warning: Warning: requested data for unknown action "set_simple_brush_smoothing"
+
+warning: Warning: requested data for unknown action "set_weighted_brush_smoothing"
+
+warning: Warning: requested data for unknown action "set_stabilizer_brush_smoothing"
+
+warning: Warning: requested data for unknown action "set_pixel_perfect_smoothing"
+
+warning: Warning: requested data for unknown action "toggle_assistant"
+
+warning: Warning: requested data for unknown action "KritaShape/KisToolBrush"
+
+warning: Warning: requested data for unknown action "KritaShape/KisToolLine"
+
+warning: Warning: requested data for unknown action "KisToolSelectMagnetic"
+
+warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
+
+warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
+
+warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
+
+warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
+
+warning: Tool "KisToolSelectMagnetic" tries to add an action without a name
 
 warning: Warning: requested data for unknown action "KritaFill/KisToolGradient"
 
-warning: Warning: requested data for unknown action "KisToolSelectPolygonal"
+warning: Warning: requested data for unknown action "PanTool"
 
-warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+warning: Warning: requested data for unknown action "KisToolSelectElliptical"
 
-warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+warning: Tool "KisToolSelectElliptical" tries to add an action without a name
 
-warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+warning: Tool "KisToolSelectElliptical" tries to add an action without a name
 
-warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+warning: Tool "KisToolSelectElliptical" tries to add an action without a name
 
-warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+warning: Tool "KisToolSelectElliptical" tries to add an action without a name
 
-warning: Tool "KisToolSelectPolygonal" tries to add an action without a name
+warning: Warning: requested data for unknown action "KritaFill/KisToolFill"
+
+warning: Warning: requested data for unknown action "KisToolPath"
+
+warning: Warning: requested data for unknown action "KisToolPolygon"
+
+warning: Tool "KisToolPolygon" tries to add an action without a name
+
+warning: Tool "KisToolPolygon" tries to add an action without a name
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Show Coordinates" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Show Coordinates" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Show absolute coordinates and offset while move action" msgid_plural: "" msgctxt: "action"
+
+warning: Warning: requested data for unknown action "KritaTransform/KisToolMove"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Show absolute coordinates and offset while move action" msgid_plural: "" msgctxt: "action"
+
+warning: Warning: requested data for unknown action "KritaShape/KisToolDyna"
+
+warning: Warning: requested data for unknown action "KritaShape/KisToolMultiBrush"
+
+warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
+
+warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
+
+warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
+
+warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
+
+warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
+
+warning: Tool "KritaShape/KisToolMultiBrush" tries to add an action without a name
+
+warning: Warning: requested data for unknown action "KisToolSelectOutline"
+
+warning: Tool "KisToolSelectOutline" tries to add an action without a name
+
+warning: Tool "KisToolSelectOutline" tries to add an action without a name
+
+warning: Tool "KisToolSelectOutline" tries to add an action without a name
+
+warning: Tool "KisToolSelectOutline" tries to add an action without a name
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Corner point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Corner point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Corner point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Smooth point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Smooth point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Smooth point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Symmetric Point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Symmetric Point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Symmetric Point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make curve point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make curve point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make curve point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make line point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make line point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make line point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Line" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Line" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Line" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Curve" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Curve" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Curve" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Insert point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Insert point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Insert point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Remove point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Remove point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Remove point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at segment" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at segment" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at segment" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at selection" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at selection" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at selection" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Join with segment" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Join with segment" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Join with segment" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Merge points" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Merge points" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Merge points" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "To Path" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "To Path" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "To Path" msgid_plural: "" msgctxt: "action"
+
+warning: Warning: requested data for unknown action "PathTool"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Corner point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Smooth point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Symmetric Point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make curve point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Make line point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Line" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Segment to Curve" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Insert point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Remove point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at point" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at segment" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Break at selection" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Join with segment" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Merge points" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "To Path" msgid_plural: "" msgctxt: "action"
+
+warning: Warning: requested data for unknown action "KisToolSelectContiguous"
+
+warning: Tool "KisToolSelectContiguous" tries to add an action without a name
+
+warning: Tool "KisToolSelectContiguous" tries to add an action without a name
+
+warning: Tool "KisToolSelectContiguous" tries to add an action without a name
+
+warning: Tool "KisToolSelectContiguous" tries to add an action without a name
+
+warning: Warning: requested data for unknown action "KisToolCrop"
+
+warning: Warning: requested data for unknown action "KritaShape/KisToolMeasure"
+
+warning: Warning: requested data for unknown action "calligraphy_increase_width"
+
+warning: Warning: requested data for unknown action "calligraphy_decrease_width"
+
+warning: Warning: requested data for unknown action "calligraphy_increase_angle"
+
+warning: Warning: requested data for unknown action "calligraphy_decrease_angle"
+
+warning: Warning: requested data for unknown action "KarbonCalligraphyTool"
+
+warning: Warning: requested data for unknown action "KritaShape/KisToolKnife"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move up more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move down more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move left more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
+
+warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "Move right more" msgid_plural: "" msgctxt: "action"
+
+warning: Warning: requested data for unknown action "KisToolTransformFree"
+
+warning: Warning: requested data for unknown action "KisToolTransformPerspective"
+
+warning: Warning: requested data for unknown action "KisToolTransformWarp"
+
+warning: Warning: requested data for unknown action "KisToolTransformCage"
+
+warning: Warning: requested data for unknown action "KisToolTransformLiquify"
+
+warning: Warning: requested data for unknown action "KisToolTransformMesh"
+
+warning: Warning: requested data for unknown action "KisToolTransform"
+
+warning: Warning: requested data for unknown action "KritaSelected/KisToolColorSampler"
+
+warning: Warning: requested data for unknown action "ZoomTool"
+
+warning: Warning: requested data for unknown action "KisToolPolyline"
+
+warning: Tool "KisToolPolyline" tries to add an action without a name
+
+warning: Tool "KisToolPolyline" tries to add an action without a name
+
+warning: Warning: requested data for unknown action "KisToolSelectSimilar"
+
+warning: Tool "KisToolSelectSimilar" tries to add an action without a name
+
+warning: Tool "KisToolSelectSimilar" tries to add an action without a name
+
+warning: Tool "KisToolSelectSimilar" tries to add an action without a name
+
+warning: Tool "KisToolSelectSimilar" tries to add an action without a name
+
+warning: Warning: requested data for unknown action "KisToolEncloseAndFill"
 
 warning: kf.i18n: KLocalizedString: Domain is not set for this string, translation will not work. Please see https://api.kde.org/frameworks/ki18n/html/prg_guide.html msgid: "&File" msgid_plural: "" msgctxt: ""
 
@@ -1099,7 +1099,7 @@ warning: This plugin does not support propagateSizeHints()
 
 warning: This plugin does not support raise()
 
-info: engine start-up {"applicationMs":89,"brushEnginesMs":4,"defaultPresetMs":854,"engineMs":2881,"resourcesMs":807} since page load: 7296 ms
+info: engine start-up {"applicationMs":90,"brushEnginesMs":9,"defaultPresetMs":696,"engineMs":2877,"resourcesMs":1053} since page load: 7905 ms
 warning: This plugin does not support propagateSizeHints()
 
 warning: This plugin does not support propagateSizeHints()
@@ -1587,30 +1587,6 @@ warning: The imageRectInWidgetPixels topLeft() does not match the documentOffset
 warning:     imageRectInWidgetPixels: QRectF(-0.6,-0.6 0x0)
 
 warning:     documentOffsetF: QPointF(1,1)
-
-warning: QPainter::begin: Paint device returned engine == 0, type: 3
-
-warning: QPainter::setCompositionMode: Painter not active
-
-warning: QPainter::save: Painter not active
-
-warning: QPainter::setCompositionMode: Painter not active
-
-warning: QPainter::setRenderHint: Painter must be active to set rendering hints
-
-warning: QPainter::restore: Unbalanced save/restore
-
-warning: QPainter::begin: Paint device returned engine == 0, type: 3
-
-warning: QPainter::setCompositionMode: Painter not active
-
-warning: QPainter::save: Painter not active
-
-warning: QPainter::setCompositionMode: Painter not active
-
-warning: QPainter::setRenderHint: Painter must be active to set rendering hints
-
-warning: QPainter::restore: Unbalanced save/restore
 
 warning: QPainter::begin: Paint device returned engine == 0, type: 3
 
@@ -1802,22 +1778,6 @@ warning: This plugin does not support raise()
 
 warning: This plugin does not support setting window opacity
 
-warning: This plugin does not support setting window opacity
-
-warning: This plugin does not support setting window opacity
-
-warning: This plugin does not support setting window opacity
-
-warning: This plugin does not support setting window opacity
-
-warning: This plugin does not support setting window opacity
-
-warning: This plugin does not support setting window opacity
-
-warning: This plugin does not support setting window opacity
-
-warning: This plugin does not support setting window opacity
-
-warning: This plugin does not support setting window opacity
+warning: krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!
 
 warning: This plugin does not support setting window opacity

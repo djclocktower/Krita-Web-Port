@@ -420,7 +420,7 @@ async function runTools() {
                 const sleep = S.sleep;
                 const run = async scenario => {
                     const s = { scenario };
-                    await S.setup(scenario === 'vector' ? 'vector' : 'base');
+                    await S.setup(scenario === 'vector' ? 'vector' : 'base');   // 'pen' is the raster document with pressure on every event
                     await __engineCall('krita.viewport', { width: 900, height: 700, zoom: 1, offsetX: 50, offsetY: 50 });
                     const known = new Set(S.win.keys());
                     S.msgs.length = 0; S.overlayPx = 0; S.lastOverlay = null; S.imgUpd = 0;
@@ -464,19 +464,20 @@ async function runTools() {
                 };
                 // pointer helpers (page side)
                 const P = window.P = {
-                    pt: (x, y, extra = {}) => ({ x, y, ...extra }),
-                    click: async (x, y, extra = {}) => { __engine.kritaPointer({ type: 'move', x, y, ...extra }); await sleep(15); __engine.kritaPointer({ type: 'press', x, y, ...extra }); await sleep(30); __engine.kritaPointer({ type: 'release', x, y, ...extra }); await sleep(120); },
+                    pen: false,   // true: every event carries pressure (delivered to Krita as tablet events); false: plain mouse events
+                    pe: () => P.pen ? { pressure: 0.7 } : {},
+                    click: async (x, y, extra = {}) => { __engine.kritaPointer({ type: 'move', x, y, ...P.pe(), ...extra }); await sleep(15); __engine.kritaPointer({ type: 'press', x, y, ...P.pe(), ...extra }); await sleep(30); __engine.kritaPointer({ type: 'release', x, y, ...P.pe(), ...extra }); await sleep(120); },
                     drag: async (a, b, extra = {}, steps = 10) => {
-                        __engine.kritaPointer({ type: 'move', x: a.x, y: a.y, ...extra }); await sleep(15);
-                        __engine.kritaPointer({ type: 'press', x: a.x, y: a.y, pressure: 0.7, ...extra }); await sleep(20);
-                        for (let i = 1; i <= steps; i++) { __engine.kritaPointer({ type: 'move', down: true, x: a.x + (b.x - a.x) * i / steps, y: a.y + (b.y - a.y) * i / steps, pressure: 0.7, ...extra }); await sleep(15); }
-                        __engine.kritaPointer({ type: 'release', x: b.x, y: b.y, ...extra }); await sleep(250);
+                        __engine.kritaPointer({ type: 'move', x: a.x, y: a.y, ...P.pe(), ...extra }); await sleep(15);
+                        __engine.kritaPointer({ type: 'press', x: a.x, y: a.y, ...P.pe(), ...extra }); await sleep(20);
+                        for (let i = 1; i <= steps; i++) { __engine.kritaPointer({ type: 'move', down: true, x: a.x + (b.x - a.x) * i / steps, y: a.y + (b.y - a.y) * i / steps, ...P.pe(), ...extra }); await sleep(15); }
+                        __engine.kritaPointer({ type: 'release', x: b.x, y: b.y, ...P.pe(), ...extra }); await sleep(250);
                     },
                     path: async (pts, extra = {}) => {
-                        __engine.kritaPointer({ type: 'move', x: pts[0].x, y: pts[0].y, ...extra }); await sleep(15);
-                        __engine.kritaPointer({ type: 'press', x: pts[0].x, y: pts[0].y, pressure: 0.7, ...extra }); await sleep(20);
-                        for (const p of pts.slice(1)) { __engine.kritaPointer({ type: 'move', down: true, x: p.x, y: p.y, pressure: 0.7, ...extra }); await sleep(15); }
-                        const l = pts[pts.length - 1]; __engine.kritaPointer({ type: 'release', x: l.x, y: l.y, ...extra }); await sleep(250);
+                        __engine.kritaPointer({ type: 'move', x: pts[0].x, y: pts[0].y, ...P.pe(), ...extra }); await sleep(15);
+                        __engine.kritaPointer({ type: 'press', x: pts[0].x, y: pts[0].y, ...P.pe(), ...extra }); await sleep(20);
+                        for (const p of pts.slice(1)) { __engine.kritaPointer({ type: 'move', down: true, x: p.x, y: p.y, ...P.pe(), ...extra }); await sleep(15); }
+                        const l = pts[pts.length - 1]; __engine.kritaPointer({ type: 'release', x: l.x, y: l.y, ...P.pe(), ...extra }); await sleep(250);
                     },
                     dbl: async (x, y) => { await P.click(x, y); await P.click(x, y); },
                     type: async text => { for (const ch of text) { __engine.kritaKey({ type: 'keydown', key: ch, text: ch }); __engine.kritaKey({ type: 'keyup', key: ch }); await sleep(30); } },
@@ -525,8 +526,10 @@ async function runTools() {
                 };
                 o.raster = await run('raster');
                 o.vector = await run('vector');
+                P.pen = true; o.pen = await run('pen'); P.pen = false;
                 if (o.raster.png) { o.png = o.raster.png; delete o.raster.png; }
                 if (o.vector.png) delete o.vector.png;
+                delete o.pen.png; delete o.pen.windowPng;
                 if (o.raster.windowPng) { o.rasterWindowPng = o.raster.windowPng; delete o.raster.windowPng; }
                 if (o.vector.windowPng) delete o.vector.windowPng;
                 return o;
@@ -544,7 +547,8 @@ async function runTools() {
         r.optionSameAsPrevious = Boolean(ow && prevHash && ow.picture === prevHash);
         if (ow) prevHash = ow.picture;
         const ch = s => s?.changed ? Object.entries(s.changed).filter(([k, v]) => v && k !== 'imageBeforeFinish').map(([k]) => k) : [];
-        r.outcome = r.crash ? 'crash' : r.hang ? 'hang' : (r.raster?.error || r.vector?.error) ? 'error' : [r.raster, r.vector].some(s => s && !s.alive) ? 'engine stopped answering' : ch(r.raster).length || ch(r.vector).length ? 'changed ' + [...new Set([...ch(r.raster), ...ch(r.vector)])].join('/') : (r.raster?.overlayDuring?.withPixels || r.vector?.overlayDuring?.withPixels) ? 'overlay only' : (r.raster?.messages?.length || r.vector?.messages?.length) ? 'message' : 'no visible effect';
+        const S3 = [r.raster, r.vector, r.pen].filter(Boolean);
+        r.outcome = r.crash ? 'crash' : r.hang ? 'hang' : S3.some(s => s.error) ? 'error' : S3.some(s => !s.alive) ? 'engine stopped answering' : S3.some(s => ch(s).length) ? 'changed ' + [...new Set(S3.flatMap(ch))].join('/') : S3.some(s => s.overlayDuring?.withPixels) ? 'overlay only' : S3.some(s => s.messages?.length) ? 'message' : 'no visible effect';
         if (r.outcome === 'no visible effect' && !retried.has(t.id)) { retried.add(t.id); ti--; console.log(t.id + ' no visible effect, trying once more on a fresh page'); continue; }
         if (retried.has(t.id)) r.note = r.outcome === 'no visible effect' ? 'retried on a fresh page: still no visible effect' : 'first attempt on a fresh page: no visible effect; second attempt changed something';
         results[t.id] = r; save('tools.json', results);
