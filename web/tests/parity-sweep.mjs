@@ -40,8 +40,7 @@ async function launch1() {
     page.on('pageerror', e => pageErrors.push(String(e.message).slice(0, 300)));
     page.on('crash', () => { crashed = true; });
     page.on('console', m => { const t = m.text().trim(); if (t && !/migration|vite|kf\.i18n|RAM|start-up|instantiated/.test(t)) { consoleTail.push(t.slice(0, 240)); if (consoleTail.length > 40) consoleTail.shift(); } });
-    // other people edit the app while this runs; a vite hot reload would reload the page under the sweep, so cut it off
-    await page.route('**/@vite/client', r => r.fulfill({ contentType: 'text/javascript', body: 'export function createHotContext(){return{accept(){},dispose(){},prune(){},invalidate(){},on(){},off(){},send(){}}};export function updateStyle(){};export function removeStyle(){};export function injectQuery(u){return u};export const ErrorOverlay=class{};' }));
+    // note: a vite hot reload (someone edits web/src while this runs) reloads the page; calls that die that way are retried
     await page.goto(URL_);
     await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 180000 });
     await sleep(3000);
@@ -58,7 +57,7 @@ const gone = e => crashed || page.isClosed() || /closed|crash|Target|Execution c
 const isDead = e => gone(e) || /PAGE_TIMEOUT/.test(String(e?.message));
 
 // ---------------------------------------------------------------------------------------------- page helpers
-function install() {
+async function install() {
     const S = window.S = { win: new Map(), paint: new Map(), msgs: [], tools: [], hist: null, overlays: 0, overlayPx: 0, lastOverlay: null, imgUpd: 0, sel: null };
     const sleep = ms => new Promise(r => setTimeout(r, ms));
     S.sleep = sleep;
@@ -73,6 +72,7 @@ function install() {
     __engine.on('imageUpdate', () => S.imgUpd++);
     __engine.on('historyChanged', h => { S.hist = h; });
     __engine.on('selectionChanged', b => { S.sel = b; });
+    for (const w of await __engine.kritaWindows()) S.win.set(w.id, w);   // windows that opened before this ran (the tool option panel)
     S.hash = async () => { try { const b = await __engine.exportDocument('png'); let h = 0; for (const x of b) h = (h * 31 + x) | 0; return h; } catch (e) { return 'ERR ' + String(e.message).slice(0, 60); } };
     S.snap = async name => {
         const acts = await S.race(__engine.kritaActions(), 8000, []);
@@ -340,7 +340,7 @@ async function runDockers() {
                 o.hidden = ![...S.win.values()].some(x => x.id === w.id);
                 return o;
             }, d.id, 80000);
-        } catch (e) { r = { id: d.id, [isDead(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) }; await launch(); }
+        } catch (e) { r = { id: d.id, [gone(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) }; await launch(); }
         if (pageErrors.length) r.pageErrors = pageErrors.slice(0, 3);
         if (r.png) { r.file = savePicture('dockers', d.id, r.png, pics); delete r.png; }
         r.title = d.title;
@@ -424,7 +424,7 @@ async function runTools() {
                     await __engineCall('krita.viewport', { width: 900, height: 700, zoom: 1, offsetX: 50, offsetY: 50 });
                     const known = new Set(S.win.keys());
                     S.msgs.length = 0; S.overlayPx = 0; S.lastOverlay = null; S.imgUpd = 0;
-                    const tw0 = [...S.win.values()].find(w => w.kind === 'toolOptions');
+                    for (const w of await __engine.kritaWindows()) S.win.set(w.id, w);
                     if (scenario === 'vector' && /Path|Interaction|Knife/.test(id)) {   // give them a shape to work on
                         await __engine.setKritaTool('KritaShape/KisToolRectangle'); await sleep(300);
                         await P.drag({ x: 70, y: 70 }, { x: 200, y: 160 }); await sleep(500);
@@ -433,7 +433,8 @@ async function runTools() {
                     try { await S.race(__engine.setKritaTool(id), 20000); } catch (e) { s.error = 'setKritaTool: ' + e.message; }
                     await sleep(900);
                     if (scenario === 'raster') {
-                        const w = [...S.win.values()].find(x => x.kind === 'toolOptions');
+                        let w = [...S.win.values()].find(x => x.kind === 'toolOptions');
+                        if (w) { await S.race(__engine.resizeKritaWindow(w.id, 260, 720), 5000); await sleep(700); w = S.win.get(w.id) ?? w; }   // the page gives the panel its dock size
                         if (w) { const pa = S.paint.get(w.id); s.optionWindow = { id: w.id, width: w.width, height: w.height, picture: S.pixHash(w.id), solid: pa?.solid, total: pa ? pa.width * pa.height : 0, title: w.title }; if (pa) { const set = new Set(); for (let i = 0; i < pa.px.length; i += 4 * 29) set.add((pa.px[i] << 16) | (pa.px[i + 1] << 8) | pa.px[i + 2]); s.optionWindow.distinctColours = set.size; } s.png = S.png(w.id); }
                         else s.optionWindow = null;
                     }
@@ -457,7 +458,7 @@ async function runTools() {
                     const after = await S.snap('x');
                     const wins = S.newWins(known).map(S.winRec);
                     if (wins.length) { s.windows = wins; s.windowPng = S.png(S.newWins(known)[0].id); await S.closeNew(known); }
-                    s.changed = { image: before.hash !== after.hash, imageBeforeFinish: before.hash !== mid.hash, layers: before.layers !== after.layers, selection: before.sel !== after.sel, history: before.hist !== after.hist };
+                    s.changed = { image: before.hash !== after.hash, colors: before.colors !== after.colors, docinfo: before.info !== after.info, imageBeforeFinish: before.hash !== mid.hash, layers: before.layers !== after.layers, selection: before.sel !== after.sel, history: before.hist !== after.hist };
                     try { const L = JSON.parse(after.layers), B = JSON.parse(before.layers); const cnt = a => { let n = 0; const w = x => { for (const c of x) { n++; w(c.children ?? []); } }; w(a); return n; }; s.layerCount = [cnt(B), cnt(L)]; } catch {}
                     s.messages = [...S.msgs]; s.imageUpdates = S.imgUpd; s.hashes = [before.hash, mid.hash, after.hash];
                     s.alive = (await S.race(__engine.documentInfo(), 6000, null)) !== null;
@@ -503,9 +504,9 @@ async function runTools() {
                     'KisToolSelectMagnetic': async () => { await P.click(A.x, A.y); await P.click(B.x, A.y); await P.click(C.x, C.y); await P.dbl(A.x + 2, A.y + 2); },
                     'KisToolSelectContiguous': () => P.click(250, 220),
                     'KisToolSelectSimilar': () => P.click(250, 220),
-                    'KritaFill/KisToolFill': () => P.click(300, 130),
-                    'KritaFill/KisToolGradient': () => P.drag(A, B),
-                    'KisToolEncloseAndFill': () => P.path([A, { x: B.x, y: A.y }, B, { x: A.x, y: B.y }, A]),
+                    'KritaFill/KisToolFill': () => P.click(150, 100),
+                    'KritaFill/KisToolGradient': () => P.drag({ x: 90, y: 70 }, { x: 240, y: 170 }),
+                    'KisToolEncloseAndFill': () => P.path([{ x: 90, y: 70 }, { x: 240, y: 70 }, { x: 240, y: 170 }, { x: 90, y: 170 }, { x: 90, y: 70 }]),
                     'KritaSelected/KisToolColorSampler': () => P.click(130 + 10, 130 + 10),
                     'KritaShape/KisToolMeasure': () => P.drag(A, B),
                     'ZoomTool': () => P.click(250, 250),
@@ -513,8 +514,8 @@ async function runTools() {
                     'KisToolCrop': () => P.drag(A, B),
                     'KritaTransform/KisToolMove': () => P.drag({ x: 200, y: 200 }, { x: 260, y: 240 }),
                     'KisToolTransform': () => P.drag({ x: 250, y: 220 }, { x: 290, y: 250 }),
-                    'InteractionTool': () => P.drag({ x: 150, y: 120 }, { x: 190, y: 150 }),
-                    'PathTool': () => P.click(150, 120),
+                    'InteractionTool': async () => { await P.click(70, 110); await P.drag({ x: 70, y: 110 }, { x: 110, y: 140 }); },
+                    'PathTool': async () => { await P.click(70, 110); await P.drag({ x: 70, y: 70 }, { x: 100, y: 90 }); },
                     'ToolReferenceImages': () => P.click(250, 250),
                     'KisAssistantTool': async () => { await P.click(A.x, A.y); await P.click(B.x, A.y); await P.click(C.x, C.y); },
                     'KritaShape/KisToolKnife': () => P.drag({ x: 100, y: 110 }, { x: 250, y: 190 }),
@@ -537,7 +538,7 @@ async function runTools() {
                 return o;
             }, { id: t.id, prev: prevHash }, 150000);
         } catch (e) {
-            r = { id: t.id, [isDead(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) };
+            r = { id: t.id, [gone(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) };
             await launch(); prevHash = null;
         }
         if (pageErrors.length) r.pageErrors = pageErrors.slice(0, 3);
