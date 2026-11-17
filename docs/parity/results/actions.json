@@ -12653,5 +12653,155 @@
   "outcome": "opened dialog",
   "text": "",
   "when": "2026-11-17T10:21:59.597Z"
+ },
+ "shearlayer": {
+  "fixture": "base",
+  "ms": 45,
+  "windows": [
+   {
+    "id": 18,
+    "title": "Shear Layer – Krita",
+    "kind": "dialog",
+    "width": 250,
+    "height": 121,
+    "modal": true,
+    "picture": "2099715329:30250:250x121",
+    "file": "actions/shearimage__Shear_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T10:22:06.262Z"
+ },
+ "shearAllLayers": {
+  "fixture": "base",
+  "ms": 41,
+  "windows": [
+   {
+    "id": 19,
+    "title": "Shear Layer – Krita",
+    "kind": "dialog",
+    "width": 250,
+    "height": 121,
+    "modal": true,
+    "picture": "2099715329:30250:250x121",
+    "file": "actions/shearimage__Shear_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T10:22:11.838Z"
+ },
+ "waveletdecompose": {
+  "fixture": "base",
+  "ms": 40,
+  "windows": [
+   {
+    "id": 20,
+    "title": "WaveletDecompose – Krita",
+    "kind": "dialog",
+    "width": 202,
+    "height": 83,
+    "modal": true,
+    "picture": "996857056:16766:202x83",
+    "file": "actions/waveletdecompose__WaveletDecompose_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "activeNode": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T10:22:17.418Z"
  }
 }
