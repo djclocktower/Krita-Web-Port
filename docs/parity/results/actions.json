@@ -7561,5 +7561,6320 @@
   "outcome": "no visible effect",
   "text": "",
   "when": "2026-11-17T03:25:07.252Z"
+ },
+ "Previous Blending Mode": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:25:14.782Z"
+ },
+ "Select Normal Blending Mode": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:25:20.352Z"
+ },
+ "Select Dissolve Blending Mode": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:25:29.215Z"
+ },
+ "Select Behind Blending Mode": {
+  "fixture": "base",
+  "ms": 168,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:25:35.591Z"
+ },
+ "Select Clear Blending Mode": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:26:11.314Z"
+ },
+ "Select Darken Blending Mode": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:26:17.217Z"
+ },
+ "Select Multiply Blending Mode": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:26:24.229Z"
+ },
+ "Select Color Burn Blending Mode": {
+  "fixture": "base",
+  "ms": 164,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:26:28.788Z"
+ },
+ "Select Linear Burn Blending Mode": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:26:37.153Z"
+ },
+ "Select Lighten Blending Mode": {
+  "fixture": "base",
+  "ms": 164,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:26:43.681Z"
+ },
+ "Select Screen Blending Mode": {
+  "fixture": "base",
+  "ms": 165,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:26:49.451Z"
+ },
+ "Select Color Dodge Blending Mode": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:26:54.762Z"
+ },
+ "Select Linear Dodge Blending Mode": {
+  "fixture": "base",
+  "ms": 167,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:27:01.674Z"
+ },
+ "Select Overlay Blending Mode": {
+  "fixture": "base",
+  "ms": 168,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:27:12.095Z"
+ },
+ "Select Hard Overlay Blending Mode": {
+  "fixture": "base",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:27:21.183Z"
+ },
+ "Select Soft Light Blending Mode": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:27:30.506Z"
+ },
+ "Select Hard Light Blending Mode": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:27:38.435Z"
+ },
+ "Select Vivid Light Blending Mode": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:27:42.912Z"
+ },
+ "Select Linear Light Blending Mode": {
+  "fixture": "base",
+  "ms": 167,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:27:51.526Z"
+ },
+ "Select Pin Light Blending Mode": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:28:01.620Z"
+ },
+ "Select Hard Mix Blending Mode": {
+  "fixture": "base",
+  "ms": 166,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:28:07.496Z"
+ },
+ "Select Difference Blending Mode": {
+  "fixture": "base",
+  "ms": 167,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:28:17.611Z"
+ },
+ "Select Exclusion Blending Mode": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:28:24.915Z"
+ },
+ "Select Hue Blending Mode": {
+  "fixture": "base",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:28:29.659Z"
+ },
+ "Select Saturation Blending Mode": {
+  "fixture": "base",
+  "ms": 167,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:28:42.326Z"
+ },
+ "Select Color Blending Mode": {
+  "fixture": "base",
+  "ms": 169,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:28:51.395Z"
+ },
+ "Select Luminosity Blending Mode": {
+  "fixture": "base",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:28:59.184Z"
+ },
+ "composite_actions": {
+  "fixture": "base",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Brush composite",
+  "when": "2026-11-17T03:29:07.815Z"
+ },
+ "brushslider1": {
+  "fixture": "base",
+  "ms": 45,
+  "windows": [
+   {
+    "id": 2,
+    "title": "",
+    "kind": "popup",
+    "width": 336,
+    "height": 130,
+    "modal": false,
+    "picture": "-1113807992:43680:336x130",
+    "file": "actions/brushslider1__.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened popup",
+  "text": "",
+  "when": "2026-11-17T03:29:13.209Z"
+ },
+ "brushslider2": {
+  "fixture": "base",
+  "ms": 50,
+  "windows": [
+   {
+    "id": 3,
+    "title": "",
+    "kind": "popup",
+    "width": 336,
+    "height": 130,
+    "modal": false,
+    "picture": "31278359:43680:336x130",
+    "file": "actions/brushslider2__.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened popup",
+  "text": "",
+  "when": "2026-11-17T03:29:20.143Z"
+ },
+ "brushslider3": {
+  "fixture": "base",
+  "ms": 51,
+  "windows": [
+   {
+    "id": 4,
+    "title": "",
+    "kind": "popup",
+    "width": 336,
+    "height": 130,
+    "modal": false,
+    "picture": "1219511846:43680:336x130",
+    "file": "actions/brushslider3__.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened popup",
+  "text": "",
+  "when": "2026-11-17T03:29:28.091Z"
+ },
+ "brushslider4": {
+  "fixture": "base",
+  "ms": 42,
+  "windows": [
+   {
+    "id": 5,
+    "title": "",
+    "kind": "popup",
+    "width": 336,
+    "height": 130,
+    "modal": false,
+    "picture": "1219511846:43680:336x130",
+    "file": "actions/brushslider3__.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened popup",
+  "text": "",
+  "when": "2026-11-17T03:29:33.945Z"
+ },
+ "brushslider5": {
+  "fixture": "base",
+  "ms": 46,
+  "windows": [
+   {
+    "id": 6,
+    "title": "",
+    "kind": "popup",
+    "width": 336,
+    "height": 130,
+    "modal": false,
+    "picture": "1219511846:43680:336x130",
+    "file": "actions/brushslider3__.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened popup",
+  "text": "",
+  "when": "2026-11-17T03:29:40.795Z"
+ },
+ "next_favorite_preset": {
+  "fixture": "base",
+  "ms": 257,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [
+   "c) Pencil-2\nselected"
+  ],
+  "toolChanged": [],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "message",
+  "text": "",
+  "when": "2026-11-17T03:29:43.641Z"
+ },
+ "previous_favorite_preset": {
+  "fixture": "base",
+  "ms": 201,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [
+   "b) Basic-5 Size Opacity\nselected"
+  ],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "message",
+  "text": "",
+  "when": "2026-11-17T03:29:46.485Z"
+ },
+ "previous_preset": {
+  "fixture": "base",
+  "ms": 206,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [
+   "c) Pencil-2\nselected"
+  ],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "message",
+  "text": "",
+  "when": "2026-11-17T03:29:57.699Z"
+ },
+ "show_brush_presets": {
+  "fixture": "base",
+  "ms": 40,
+  "windows": [
+   {
+    "id": 7,
+    "title": "",
+    "kind": "popup",
+    "width": 452,
+    "height": 552,
+    "modal": false,
+    "picture": "1510200938:249504:452x552",
+    "file": "actions/show_brush_presets__.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened popup",
+  "text": "",
+  "when": "2026-11-17T03:30:04.538Z"
+ },
+ "mirror_actions": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:30:12.627Z"
+ },
+ "workspaces": {
+  "fixture": "base",
+  "ms": 41,
+  "windows": [
+   {
+    "id": 8,
+    "title": "",
+    "kind": "popup",
+    "width": 274,
+    "height": 616,
+    "modal": false,
+    "picture": "-217714016:168784:274x616",
+    "file": "actions/workspaces__.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened popup",
+  "text": "",
+  "when": "2026-11-17T03:30:18.603Z"
+ },
+ "show_brush_editor": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:30:23.524Z"
+ },
+ "disable_pressure": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:30:32.185Z"
+ },
+ "paintops": {
+  "fixture": "base",
+  "ms": 168,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Painter's Tools",
+  "when": "2026-11-17T03:30:42.832Z"
+ },
+ "chooseForegroundColor": {
+  "fixture": "base",
+  "ms": 46,
+  "windows": [
+   {
+    "id": 9,
+    "title": "Select a Color",
+    "kind": "dialog",
+    "width": 505,
+    "height": 490,
+    "modal": false,
+    "picture": "273538019:247450:505x490",
+    "file": "actions/chooseForegroundColor__Select_a_Color.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "Open Foreground color selector",
+  "when": "2026-11-17T03:30:50.817Z"
+ },
+ "chooseBackgroundColor": {
+  "fixture": "base",
+  "ms": 47,
+  "windows": [
+   {
+    "id": 10,
+    "title": "Select a Color",
+    "kind": "dialog",
+    "width": 505,
+    "height": 490,
+    "modal": false,
+    "picture": "-1731317777:247450:505x490",
+    "file": "actions/chooseBackgroundColor__Select_a_Color.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "Open Background color selector",
+  "when": "2026-11-17T03:30:56.224Z"
+ },
+ "docker_box": {
+  "fixture": "base",
+  "ms": 40,
+  "windows": [
+   {
+    "id": 11,
+    "title": "",
+    "kind": "popup",
+    "width": 302,
+    "height": 302,
+    "modal": false,
+    "picture": "572089095:91204:302x302",
+    "file": "actions/docker_box__.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened popup",
+  "text": "",
+  "when": "2026-11-17T03:31:00.649Z"
+ },
+ "dockerBox": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Docker Box",
+  "when": "2026-11-17T03:31:07.687Z"
+ },
+ "imagesize": {
+  "fixture": "base",
+  "ms": 42,
+  "windows": [
+   {
+    "id": 12,
+    "title": "Scale To New Size – Krita",
+    "kind": "dialog",
+    "width": 547,
+    "height": 452,
+    "modal": true,
+    "picture": "1886673637:247244:547x452",
+    "file": "actions/imagesize__Scale_To_New_Size_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:31:13.102Z"
+ },
+ "canvassize": {
+  "fixture": "base",
+  "ms": 48,
+  "windows": [
+   {
+    "id": 13,
+    "title": "Resize Canvas – Krita",
+    "kind": "dialog",
+    "width": 403,
+    "height": 431,
+    "modal": true,
+    "picture": "-443712493:173693:403x431",
+    "file": "actions/canvassize__Resize_Canvas_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:31:17.973Z"
+ },
+ "layersize": {
+  "fixture": "base",
+  "ms": 43,
+  "windows": [
+   {
+    "id": 14,
+    "title": "Resize Layer – Krita",
+    "kind": "dialog",
+    "width": 377,
+    "height": 257,
+    "modal": true,
+    "picture": "-2144192010:96889:377x257",
+    "file": "actions/layersize__Resize_Layer_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:31:23.900Z"
+ },
+ "scaleAllLayers": {
+  "fixture": "base",
+  "ms": 51,
+  "windows": [
+   {
+    "id": 15,
+    "title": "Resize Layer – Krita",
+    "kind": "dialog",
+    "width": 377,
+    "height": 257,
+    "modal": true,
+    "picture": "-2144192010:96889:377x257",
+    "file": "actions/layersize__Resize_Layer_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:31:29.650Z"
+ },
+ "selectionscale": {
+  "fixture": "base",
+  "ms": 40,
+  "windows": [
+   {
+    "id": 16,
+    "title": "Scale Selection – Krita",
+    "kind": "dialog",
+    "width": 377,
+    "height": 257,
+    "modal": true,
+    "picture": "1521927255:96889:377x257",
+    "file": "actions/selectionscale__Scale_Selection_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:31:35.180Z"
+ },
+ "clones_array": {
+  "fixture": "base",
+  "ms": 40,
+  "windows": [
+   {
+    "id": 17,
+    "title": "Create Clones Array – Krita",
+    "kind": "dialog",
+    "width": 836,
+    "height": 205,
+    "modal": true,
+    "picture": "653954726:171380:836x205",
+    "file": "actions/clones_array__Create_Clones_Array_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:31:40.669Z"
+ },
+ "colorrange": {
+  "fixture": "base",
+  "ms": 49,
+  "windows": [
+   {
+    "id": 18,
+    "title": "Color Range – Krita",
+    "kind": "dialog",
+    "width": 408,
+    "height": 236,
+    "modal": true,
+    "picture": "857692824:96288:408x236",
+    "file": "actions/colorrange__Color_Range_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:31:46.765Z"
+ },
+ "selectopaque": {
+  "fixture": "base",
+  "ms": 253,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:31:49.396Z"
+ },
+ "selectopaque_add": {
+  "fixture": "base",
+  "ms": 282,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:31:51.839Z"
+ },
+ "selectopaque_subtract": {
+  "fixture": "base",
+  "ms": 211,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:32:03.609Z"
+ },
+ "selectopaque_intersect": {
+  "fixture": "base",
+  "ms": 207,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:32:07.775Z"
+ },
+ "imagecolorspaceconversion": {
+  "fixture": "base",
+  "ms": 40,
+  "windows": [
+   {
+    "id": 19,
+    "title": "Convert All Layers From RGB/Alpha (8-bit integer/channel) – Krita",
+    "kind": "dialog",
+    "width": 658,
+    "height": 444,
+    "modal": true,
+    "picture": "455830184:292152:658x444",
+    "file": "actions/imagecolorspaceconversion__Convert_All_Layers_From_RGB_Alpha_8-bit_integer_chann.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:32:14.481Z"
+ },
+ "layercolorspaceconversion": {
+  "fixture": "base",
+  "ms": 40,
+  "windows": [
+   {
+    "id": 20,
+    "title": "Convert Current Layer From RGB/Alpha (8-bit integer/channel) – Krita",
+    "kind": "dialog",
+    "width": 658,
+    "height": 444,
+    "modal": true,
+    "picture": "455830184:292152:658x444",
+    "file": "actions/imagecolorspaceconversion__Convert_All_Layers_From_RGB_Alpha_8-bit_integer_chann.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:32:20.024Z"
+ },
+ "unifylayerscolorspace": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:32:24.005Z"
+ },
+ "imagesplit": {
+  "fixture": "base",
+  "ms": 82,
+  "windows": [
+   {
+    "id": 21,
+    "title": "Image Split – Krita",
+    "kind": "dialog",
+    "width": 616,
+    "height": 328,
+    "modal": true,
+    "picture": "1433556403:202048:616x328",
+    "file": "actions/imagesplit__Image_Split_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:32:30.401Z"
+ },
+ "layersplit": {
+  "fixture": "base",
+  "ms": 81,
+  "windows": [
+   {
+    "id": 22,
+    "title": "Split Layer – Krita",
+    "kind": "dialog",
+    "width": 640,
+    "height": 480,
+    "modal": true,
+    "picture": "1955694090:307200:640x480",
+    "file": "actions/layersplit__Split_Layer_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:32:36.912Z"
+ },
+ "growselection": {
+  "fixture": "base",
+  "ms": 43,
+  "windows": [
+   {
+    "id": 23,
+    "title": "Grow Selection – Krita",
+    "kind": "dialog",
+    "width": 431,
+    "height": 115,
+    "modal": true,
+    "picture": "153320482:49565:431x115",
+    "file": "actions/growselection__Grow_Selection_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:32:41.980Z"
+ },
+ "shrinkselection": {
+  "fixture": "base",
+  "ms": 41,
+  "windows": [
+   {
+    "id": 24,
+    "title": "Shrink Selection – Krita",
+    "kind": "dialog",
+    "width": 446,
+    "height": 146,
+    "modal": true,
+    "picture": "1232057793:65116:446x146",
+    "file": "actions/shrinkselection__Shrink_Selection_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:32:47.839Z"
+ },
+ "borderselection": {
+  "fixture": "base",
+  "ms": 44,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Border Selection – Krita",
+    "kind": "dialog",
+    "width": 485,
+    "height": 146,
+    "modal": true,
+    "picture": "-580394536:70810:485x146",
+    "file": "actions/borderselection__Border_Selection_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:33:24.434Z"
+ },
+ "featherselection": {
+  "fixture": "base",
+  "ms": 41,
+  "windows": [
+   {
+    "id": 3,
+    "title": "Feather Selection – Krita",
+    "kind": "dialog",
+    "width": 485,
+    "height": 115,
+    "modal": true,
+    "picture": "1885630096:55775:485x115",
+    "file": "actions/featherselection__Feather_Selection_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:33:31.058Z"
+ },
+ "smoothselection": {
+  "fixture": "base",
+  "ms": 254,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:33:33.900Z"
+ },
+ "offsetimage": {
+  "fixture": "base",
+  "ms": 45,
+  "windows": [
+   {
+    "id": 4,
+    "title": "Offset Image – Krita",
+    "kind": "dialog",
+    "width": 286,
+    "height": 196,
+    "modal": true,
+    "picture": "1581167699:56056:286x196",
+    "file": "actions/offsetimage__Offset_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:33:40.548Z"
+ },
+ "offsetlayer": {
+  "fixture": "base",
+  "ms": 45,
+  "windows": [
+   {
+    "id": 5,
+    "title": "Offset Layer – Krita",
+    "kind": "dialog",
+    "width": 286,
+    "height": 196,
+    "modal": true,
+    "picture": "1581167699:56056:286x196",
+    "file": "actions/offsetimage__Offset_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:33:46.598Z"
+ },
+ "LayerGroupSwitcher/previous": {
+  "fixture": "group",
+  "ms": 181,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": true,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "Move into previous group",
+  "when": "2026-11-17T03:33:50.931Z"
+ },
+ "LayerGroupSwitcher/next": {
+  "fixture": "group",
+  "ms": 2057,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Move into next group",
+  "when": "2026-11-17T03:33:57.185Z"
+ },
+ "rotateimage": {
+  "fixture": "base",
+  "ms": 41,
+  "windows": [
+   {
+    "id": 6,
+    "title": "Rotate Image – Krita",
+    "kind": "dialog",
+    "width": 387,
+    "height": 337,
+    "modal": true,
+    "picture": "38036320:130419:387x337",
+    "file": "actions/rotateimage__Rotate_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:34:05.431Z"
+ },
+ "rotateImageCW90": {
+  "fixture": "base",
+  "ms": 253,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": true,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:34:08.607Z"
+ },
+ "rotateImage180": {
+  "fixture": "base",
+  "ms": 252,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:34:11.483Z"
+ },
+ "rotateImageCCW90": {
+  "fixture": "base",
+  "ms": 208,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": true,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:34:22.122Z"
+ },
+ "mirrorImageHorizontal": {
+  "fixture": "base",
+  "ms": 201,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:34:28.125Z"
+ },
+ "mirrorImageVertical": {
+  "fixture": "base",
+  "ms": 207,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:34:30.547Z"
+ },
+ "rotatelayer": {
+  "fixture": "base",
+  "ms": 40,
+  "windows": [
+   {
+    "id": 7,
+    "title": "Rotate Layer – Krita",
+    "kind": "dialog",
+    "width": 387,
+    "height": 337,
+    "modal": true,
+    "picture": "38036320:130419:387x337",
+    "file": "actions/rotateimage__Rotate_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:34:39.745Z"
+ },
+ "rotateLayer180": {
+  "fixture": "base",
+  "ms": 246,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:34:43.337Z"
+ },
+ "rotateLayerCW90": {
+  "fixture": "base",
+  "ms": 418,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:34:45.980Z"
+ },
+ "rotateLayerCCW90": {
+  "fixture": "base",
+  "ms": 255,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:34:53.025Z"
+ },
+ "rotateAllLayers": {
+  "fixture": "base",
+  "ms": 40,
+  "windows": [
+   {
+    "id": 8,
+    "title": "Rotate Layer – Krita",
+    "kind": "dialog",
+    "width": 387,
+    "height": 337,
+    "modal": true,
+    "picture": "38036320:130419:387x337",
+    "file": "actions/rotateimage__Rotate_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:34:59.411Z"
+ },
+ "rotateAllLayersCW90": {
+  "fixture": "base",
+  "ms": 248,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:35:02.104Z"
+ },
+ "rotateAllLayersCCW90": {
+  "fixture": "base",
+  "ms": 253,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:35:10.341Z"
+ },
+ "rotateAllLayers180": {
+  "fixture": "base",
+  "ms": 297,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:35:12.983Z"
+ },
+ "separate": {
+  "fixture": "base",
+  "ms": 66,
+  "windows": [
+   {
+    "id": 9,
+    "title": "Separate Image – Krita",
+    "kind": "dialog",
+    "width": 615,
+    "height": 414,
+    "modal": true,
+    "picture": "1784734356:254610:615x414",
+    "file": "actions/separate__Separate_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:35:20.957Z"
+ },
+ "shearimage": {
+  "fixture": "base",
+  "ms": 41,
+  "windows": [
+   {
+    "id": 10,
+    "title": "Shear Image – Krita",
+    "kind": "dialog",
+    "width": 250,
+    "height": 121,
+    "modal": true,
+    "picture": "2099715329:30250:250x121",
+    "file": "actions/shearimage__Shear_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:35:27.056Z"
+ },
+ "shearlayer": {
+  "fixture": "base",
+  "ms": 47,
+  "windows": [
+   {
+    "id": 11,
+    "title": "Shear Layer – Krita",
+    "kind": "dialog",
+    "width": 250,
+    "height": 121,
+    "modal": true,
+    "picture": "2099715329:30250:250x121",
+    "file": "actions/shearimage__Shear_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:35:32.590Z"
+ },
+ "shearAllLayers": {
+  "fixture": "base",
+  "ms": 43,
+  "windows": [
+   {
+    "id": 12,
+    "title": "Shear Layer – Krita",
+    "kind": "dialog",
+    "width": 250,
+    "height": 121,
+    "modal": true,
+    "picture": "2099715329:30250:250x121",
+    "file": "actions/shearimage__Shear_Image_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:35:39.037Z"
+ },
+ "waveletdecompose": {
+  "fixture": "base",
+  "ms": 41,
+  "windows": [
+   {
+    "id": 13,
+    "title": "WaveletDecompose – Krita",
+    "kind": "dialog",
+    "width": 202,
+    "height": 83,
+    "modal": true,
+    "picture": "996857056:16766:202x83",
+    "file": "actions/waveletdecompose__WaveletDecompose_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:35:45.118Z"
+ },
+ "EditLayerMetaData": {
+  "fixture": "base",
+  "ms": 81,
+  "windows": [
+   {
+    "id": 14,
+    "title": "",
+    "kind": "dialog",
+    "width": 100,
+    "height": 30,
+    "modal": true,
+    "picture": "1126348098:3000:100x30",
+    "file": "actions/EditLayerMetaData__.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:35:49.939Z"
+ },
+ "ZoomTool": {
+  "fixture": "base",
+  "ms": 242,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "ZoomTool"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:35:53.605Z"
+ },
+ "KarbonCalligraphyTool": {
+  "fixture": "base",
+  "ms": 284,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KarbonCalligraphyTool"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:35:57.977Z"
+ },
+ "calligraphy_increase_width": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:35:57.979Z"
+ },
+ "calligraphy_decrease_width": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:35:57.985Z"
+ },
+ "calligraphy_increase_angle": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:35:57.989Z"
+ },
+ "calligraphy_decrease_angle": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:35:57.996Z"
+ },
+ "KisToolSelectOutline": {
+  "fixture": "base",
+  "ms": 251,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolSelectOutline"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:36:02.853Z"
+ },
+ "increase_brush_size": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [
+   "Brush Size: 22 px"
+  ],
+  "toolChanged": [],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "message",
+  "text": "Increase Brush Size",
+  "when": "2026-11-17T03:36:06.984Z"
+ },
+ "decrease_brush_size": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [
+   "Brush Size: 18 px"
+  ],
+  "toolChanged": [],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "message",
+  "text": "Decrease Brush Size",
+  "when": "2026-11-17T03:36:11.187Z"
+ },
+ "rotate_brush_tip_clockwise": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Rotate brush tip clockwise",
+  "when": "2026-11-17T03:36:18.573Z"
+ },
+ "rotate_brush_tip_clockwise_precise": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Rotate brush tip clockwise (precise)",
+  "when": "2026-11-17T03:36:24.205Z"
+ },
+ "rotate_brush_tip_counter_clockwise": {
+  "fixture": "base",
+  "ms": 165,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Rotate brush tip counter-clockwise",
+  "when": "2026-11-17T03:36:30.473Z"
+ },
+ "rotate_brush_tip_counter_clockwise_precise": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Rotate brush tip counter-clockwise (precise)",
+  "when": "2026-11-17T03:36:39.173Z"
+ },
+ "selection_tool_mode_add": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:36:39.177Z"
+ },
+ "selection_tool_mode_replace": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:36:39.179Z"
+ },
+ "selection_tool_mode_subtract": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:36:39.184Z"
+ },
+ "selection_tool_mode_intersect": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:36:39.188Z"
+ },
+ "PanTool": {
+  "fixture": "base",
+  "ms": 209,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "PanTool"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:36:42.784Z"
+ },
+ "InteractionTool": {
+  "fixture": "base",
+  "ms": 223,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "InteractionTool"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:36:45.882Z"
+ },
+ "object_order_front": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Bring to Front",
+  "when": "2026-11-17T03:36:45.885Z"
+ },
+ "object_order_raise": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Raise",
+  "when": "2026-11-17T03:36:45.893Z"
+ },
+ "object_order_lower": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Lower",
+  "when": "2026-11-17T03:36:45.896Z"
+ },
+ "object_order_back": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Send to Back",
+  "when": "2026-11-17T03:36:45.927Z"
+ },
+ "object_align_horizontal_left": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Align Left",
+  "when": "2026-11-17T03:36:45.942Z"
+ },
+ "object_align_horizontal_center": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Horizontally Center",
+  "when": "2026-11-17T03:36:45.974Z"
+ },
+ "object_align_horizontal_right": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Align Right",
+  "when": "2026-11-17T03:36:46.089Z"
+ },
+ "object_align_vertical_top": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Align Top",
+  "when": "2026-11-17T03:36:46.098Z"
+ },
+ "object_align_vertical_center": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Vertically Center",
+  "when": "2026-11-17T03:36:46.104Z"
+ },
+ "object_align_vertical_bottom": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Align Bottom",
+  "when": "2026-11-17T03:36:46.125Z"
+ },
+ "object_distribute_horizontal_left": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Distribute Left",
+  "when": "2026-11-17T03:36:46.128Z"
+ },
+ "object_distribute_horizontal_center": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Distribute Centers Horizontally",
+  "when": "2026-11-17T03:36:46.147Z"
+ },
+ "object_distribute_horizontal_right": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Distribute Right",
+  "when": "2026-11-17T03:36:46.288Z"
+ },
+ "object_distribute_horizontal_gaps": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Distribute Horizontal Gap",
+  "when": "2026-11-17T03:36:46.330Z"
+ },
+ "object_distribute_vertical_top": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Distribute Top",
+  "when": "2026-11-17T03:36:46.432Z"
+ },
+ "object_distribute_vertical_center": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Distribute Centers Vertically",
+  "when": "2026-11-17T03:36:46.434Z"
+ },
+ "object_distribute_vertical_bottom": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Distribute Bottom",
+  "when": "2026-11-17T03:36:46.436Z"
+ },
+ "object_distribute_vertical_gaps": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Distribute Vertical Gap",
+  "when": "2026-11-17T03:36:46.439Z"
+ },
+ "object_group": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Group",
+  "when": "2026-11-17T03:36:46.443Z"
+ },
+ "object_ungroup": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Ungroup",
+  "when": "2026-11-17T03:36:46.457Z"
+ },
+ "object_transform_rotate_90_cw": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Rotate 90° CW",
+  "when": "2026-11-17T03:36:46.458Z"
+ },
+ "object_transform_rotate_90_ccw": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Rotate 90° CCW",
+  "when": "2026-11-17T03:36:46.460Z"
+ },
+ "object_transform_rotate_180": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Rotate 180°",
+  "when": "2026-11-17T03:36:46.475Z"
+ },
+ "object_transform_mirror_horizontally": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Mirror Horizontally",
+  "when": "2026-11-17T03:36:46.476Z"
+ },
+ "object_transform_mirror_vertically": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Mirror Vertically",
+  "when": "2026-11-17T03:36:46.478Z"
+ },
+ "object_transform_reset": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Reset Transformations",
+  "when": "2026-11-17T03:36:46.484Z"
+ },
+ "object_unite": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Unite",
+  "when": "2026-11-17T03:36:46.490Z"
+ },
+ "object_intersect": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Intersect",
+  "when": "2026-11-17T03:36:46.496Z"
+ },
+ "object_subtract": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Subtract",
+  "when": "2026-11-17T03:36:46.500Z"
+ },
+ "object_split": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Split",
+  "when": "2026-11-17T03:36:46.504Z"
+ },
+ "text_type_preformatted": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Convert Text To Preformatted",
+  "when": "2026-11-17T03:36:46.508Z"
+ },
+ "text_type_pre_positioned": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Convert Text To Pre-positioned",
+  "when": "2026-11-17T03:36:46.512Z"
+ },
+ "text_type_inline_wrap": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Convert Text To Inline Wrapped",
+  "when": "2026-11-17T03:36:46.516Z"
+ },
+ "add_shape_to_flow_area": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Flow Text in Shape",
+  "when": "2026-11-17T03:36:46.520Z"
+ },
+ "subtract_shape_from_flow_area": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Subtract Shape from Text Chain",
+  "when": "2026-11-17T03:36:46.524Z"
+ },
+ "put_text_on_path": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Put Text On Path",
+  "when": "2026-11-17T03:36:46.528Z"
+ },
+ "remove_shapes_from_text_flow": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Remove Shapes from Text Chain",
+  "when": "2026-11-17T03:36:46.532Z"
+ },
+ "flow_shape_type_toggle": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Toggle Flow Shape Type",
+  "when": "2026-11-17T03:36:46.536Z"
+ },
+ "flow_shape_order_back": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Set Flow Shape as Last",
+  "when": "2026-11-17T03:36:46.540Z"
+ },
+ "flow_shape_order_earlier": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move Shape Earlier In Chain.",
+  "when": "2026-11-17T03:36:46.571Z"
+ },
+ "flow_shape_order_later": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move Shape Later In Chain.",
+  "when": "2026-11-17T03:36:46.577Z"
+ },
+ "flow_shape_order_front": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Set Shape As First In Chain",
+  "when": "2026-11-17T03:36:46.580Z"
+ },
+ "KritaShape/KisToolEllipse": {
+  "fixture": "base",
+  "ms": 300,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaShape/KisToolEllipse"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:36:53.680Z"
+ },
+ "KisToolSelectRectangular": {
+  "fixture": "base",
+  "ms": 249,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolSelectRectangular"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:36:56.360Z"
+ },
+ "KritaShape/KisToolLine": {
+  "fixture": "base",
+  "ms": 209,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaShape/KisToolLine"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:36:58.840Z"
+ },
+ "KritaShape/KisToolKnife": {
+  "fixture": "base",
+  "ms": 213,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaShape/KisToolKnife"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:37:05.578Z"
+ },
+ "KisAssistantTool": {
+  "fixture": "base",
+  "ms": 242,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisAssistantTool"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:37:08.326Z"
+ },
+ "KisToolSelectMagnetic": {
+  "fixture": "base",
+  "ms": 289,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolSelectMagnetic"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:37:14.490Z"
+ },
+ "undo_polygon_selection": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:37:14.501Z"
+ },
+ "KisToolSelectContiguous": {
+  "fixture": "base",
+  "ms": 250,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolSelectContiguous"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:37:17.090Z"
+ },
+ "KisToolSelectSimilar": {
+  "fixture": "base",
+  "ms": 203,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolSelectSimilar"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:37:22.603Z"
+ },
+ "KisToolTransform": {
+  "fixture": "base",
+  "ms": 3148,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:37:28.119Z"
+ },
+ "movetool-move-up": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move up",
+  "when": "2026-11-17T03:37:28.121Z"
+ },
+ "movetool-move-down": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move down",
+  "when": "2026-11-17T03:37:28.123Z"
+ },
+ "movetool-move-left": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move left",
+  "when": "2026-11-17T03:37:28.129Z"
+ },
+ "movetool-move-right": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move right",
+  "when": "2026-11-17T03:37:28.137Z"
+ },
+ "movetool-move-up-more": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move up more",
+  "when": "2026-11-17T03:37:28.140Z"
+ },
+ "movetool-move-down-more": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move down more",
+  "when": "2026-11-17T03:37:28.145Z"
+ },
+ "movetool-move-left-more": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move left more",
+  "when": "2026-11-17T03:37:28.152Z"
+ },
+ "movetool-move-right-more": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Move right more",
+  "when": "2026-11-17T03:37:28.157Z"
+ },
+ "KisToolTransformFree": {
+  "fixture": "base",
+  "ms": 3161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:37:37.229Z"
+ },
+ "KisToolTransformPerspective": {
+  "fixture": "base",
+  "ms": 3172,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:37:45.130Z"
+ },
+ "KisToolTransformWarp": {
+  "fixture": "base",
+  "ms": 3104,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:37:52.566Z"
+ },
+ "KisToolTransformCage": {
+  "fixture": "base",
+  "ms": 3072,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:38:01.116Z"
+ },
+ "KisToolTransformLiquify": {
+  "fixture": "base",
+  "ms": 3106,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:38:06.823Z"
+ },
+ "KisToolTransformMesh": {
+  "fixture": "base",
+  "ms": 3114,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:38:12.414Z"
+ },
+ "KritaTransform/KisToolMove": {
+  "fixture": "base",
+  "ms": 250,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaTransform/KisToolMove"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:38:26.889Z"
+ },
+ "movetool-show-coordinates": {
+  "fixture": "base",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Show Coordinates",
+  "when": "2026-11-17T03:38:26.894Z"
+ },
+ "KisToolPolygon": {
+  "fixture": "base",
+  "ms": 245,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolPolygon"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:38:29.762Z"
+ },
+ "KritaShape/KisToolBrush": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:38:39.741Z"
+ },
+ "set_no_brush_smoothing": {
+  "fixture": "base",
+  "ms": 164,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:38:49.588Z"
+ },
+ "set_simple_brush_smoothing": {
+  "fixture": "base",
+  "ms": 169,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:38:56.975Z"
+ },
+ "set_weighted_brush_smoothing": {
+  "fixture": "base",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:39:04.652Z"
+ },
+ "set_stabilizer_brush_smoothing": {
+  "fixture": "base",
+  "ms": 165,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:39:09.025Z"
+ },
+ "set_pixel_perfect_smoothing": {
+  "fixture": "base",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:39:59.013Z"
+ },
+ "toggle_assistant": {
+  "fixture": "base",
+  "ms": 167,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:40:05.875Z"
+ },
+ "KritaShape/KisToolDyna": {
+  "fixture": "base",
+  "ms": 246,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaShape/KisToolDyna"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:40:10.509Z"
+ },
+ "KisToolPath": {
+  "fixture": "base",
+  "ms": 251,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolPath"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:40:15.529Z"
+ },
+ "KritaSelected/KisToolColorSampler": {
+  "fixture": "base",
+  "ms": 294,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaSelected/KisToolColorSampler"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:40:21.966Z"
+ },
+ "KisToolPencil": {
+  "fixture": "base",
+  "ms": 337,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolPencil"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:40:24.720Z"
+ },
+ "SvgTextTool": {
+  "fixture": "base",
+  "ms": 9024,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "SvgTextTool"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:40:45.329Z"
+ },
+ "svg_align_center": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.331Z"
+ },
+ "svg_align_justified": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.337Z"
+ },
+ "svg_align_left": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.340Z"
+ },
+ "svg_align_right": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.344Z"
+ },
+ "svg_decrease_font_size": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.349Z"
+ },
+ "svg_font_kerning": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.352Z"
+ },
+ "svg_format_italic": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.356Z"
+ },
+ "svg_format_strike_through": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.360Z"
+ },
+ "svg_format_subscript": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.364Z"
+ },
+ "svg_format_superscript": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.368Z"
+ },
+ "svg_format_underline": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.372Z"
+ },
+ "svg_increase_font_size": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.376Z"
+ },
+ "svg_weight_black": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.380Z"
+ },
+ "svg_weight_bold": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.384Z"
+ },
+ "svg_weight_demi": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.386Z"
+ },
+ "svg_weight_light": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.396Z"
+ },
+ "svg_weight_normal": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.400Z"
+ },
+ "svg_insert_special_character": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.404Z"
+ },
+ "svg_paste_rich_text": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.408Z"
+ },
+ "svg_paste_plain_text": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.412Z"
+ },
+ "svg_type_setting_move_selection_start_down_1_px": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.416Z"
+ },
+ "svg_type_setting_move_selection_start_up_1_px": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.420Z"
+ },
+ "svg_type_setting_move_selection_start_left_1_px": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.424Z"
+ },
+ "svg_type_setting_move_selection_start_right_1_px": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.428Z"
+ },
+ "svg_remove_transforms_from_range": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.436Z"
+ },
+ "svg_clear_formatting": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "",
+  "when": "2026-11-17T03:40:45.440Z"
+ },
+ "KritaShape/KisToolLazyBrush": {
+  "fixture": "base",
+  "ms": 250,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaShape/KisToolLazyBrush"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:40:48.217Z"
+ },
+ "KisToolSelectElliptical": {
+  "fixture": "base",
+  "ms": 324,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolSelectElliptical"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:40:51.273Z"
+ },
+ "KritaFill/KisToolGradient": {
+  "fixture": "base",
+  "ms": 245,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaFill/KisToolGradient"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:40:58.395Z"
+ },
+ "KritaShape/KisToolMultiBrush": {
+  "fixture": "base",
+  "ms": 295,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaShape/KisToolMultiBrush"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:03.467Z"
+ },
+ "KisToolEncloseAndFill": {
+  "fixture": "base",
+  "ms": 287,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolEncloseAndFill"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:06.151Z"
+ },
+ "KritaShape/KisToolMeasure": {
+  "fixture": "base",
+  "ms": 296,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaShape/KisToolMeasure"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:12.377Z"
+ },
+ "KritaFill/KisToolFill": {
+  "fixture": "base",
+  "ms": 253,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaFill/KisToolFill"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:15.013Z"
+ },
+ "KisToolSelectPolygonal": {
+  "fixture": "base",
+  "ms": 207,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolSelectPolygonal"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:22.408Z"
+ },
+ "KritaShape/KisToolRectangle": {
+  "fixture": "base",
+  "ms": 247,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaShape/KisToolRectangle"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:25.341Z"
+ },
+ "KisToolSelectPath": {
+  "fixture": "base",
+  "ms": 243,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolSelectPath"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:27.926Z"
+ },
+ "KritaShape/KisToolSmartPatch": {
+  "fixture": "base",
+  "ms": 244,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KritaShape/KisToolSmartPatch"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:35.266Z"
+ },
+ "KisToolCrop": {
+  "fixture": "base",
+  "ms": 256,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": false,
+   "selection": true,
+   "history": true,
+   "docinfo": true,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolCrop"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:41:38.117Z"
+ },
+ "KisToolPolyline": {
+  "fixture": "base",
+  "ms": 249,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "KisToolPolyline"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:40.760Z"
+ },
+ "PathTool": {
+  "fixture": "base",
+  "ms": 244,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "PathTool"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:41:48.057Z"
+ },
+ "pathpoint-corner": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Corner point",
+  "when": "2026-11-17T03:41:48.060Z"
+ },
+ "pathpoint-smooth": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Smooth point",
+  "when": "2026-11-17T03:41:48.062Z"
+ },
+ "pathpoint-symmetric": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Symmetric Point",
+  "when": "2026-11-17T03:41:48.069Z"
+ },
+ "pathpoint-curve": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Make curve point",
+  "when": "2026-11-17T03:41:48.073Z"
+ },
+ "pathpoint-line": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Make line point",
+  "when": "2026-11-17T03:41:48.080Z"
+ },
+ "pathsegment-line": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Segment to Line",
+  "when": "2026-11-17T03:41:48.084Z"
+ },
+ "pathsegment-curve": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Segment to Curve",
+  "when": "2026-11-17T03:41:48.088Z"
+ },
+ "pathpoint-insert": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Insert point",
+  "when": "2026-11-17T03:41:48.092Z"
+ },
+ "pathpoint-remove": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Remove point",
+  "when": "2026-11-17T03:41:48.096Z"
+ },
+ "path-break-point": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Break at point",
+  "when": "2026-11-17T03:41:48.100Z"
+ },
+ "path-break-segment": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Break at segment",
+  "when": "2026-11-17T03:41:48.104Z"
+ },
+ "path-break-selection": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Break at selection",
+  "when": "2026-11-17T03:41:48.109Z"
+ },
+ "pathpoint-join": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Join with segment",
+  "when": "2026-11-17T03:41:48.112Z"
+ },
+ "pathpoint-merge": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "Merge points",
+  "when": "2026-11-17T03:41:48.116Z"
+ },
+ "convert-to-path": {
+  "fixture": "vector",
+  "enabled": false,
+  "enabledIn": [],
+  "outcome": "disabled",
+  "text": "To Path",
+  "when": "2026-11-17T03:41:48.120Z"
+ },
+ "edit_undo": {
+  "fixture": "base",
+  "ms": 163,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "Undo ",
+  "when": "2026-11-17T03:41:51.003Z"
+ },
+ "edit_redo": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "Redo ",
+  "when": "2026-11-17T03:42:00.449Z"
+ },
+ "save_incremental_version": {
+  "fixture": "base",
+  "ms": 162,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Saving As",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "1499309820:382268:908x421",
+    "file": "actions/save_incremental_version__Saving_As.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:42:35.964Z"
+ },
+ "save_incremental_backup": {
+  "fixture": "base",
+  "ms": 163,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Saving As",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "1499309820:382268:908x421",
+    "file": "actions/save_incremental_version__Saving_As.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:43:12.830Z"
+ },
+ "tablet_debugger": {
+  "fixture": "base",
+  "ms": 44,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Krita",
+    "kind": "dialog",
+    "width": 640,
+    "height": 480,
+    "modal": true,
+    "picture": "1912533898:307200:640x480",
+    "file": "actions/tablet_debugger__Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:43:51.080Z"
+ },
+ "create_template": {
+  "fixture": "base",
+  "ms": 244,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Create Template – Krita",
+    "kind": "dialog",
+    "width": 442,
+    "height": 279,
+    "modal": true,
+    "picture": "769029581:123318:442x279",
+    "file": "actions/create_template__Create_Template_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:44:27.077Z"
+ },
+ "create_copy": {
+  "fixture": "base",
+  "ms": 989,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [
+   "Zoom: 100.0 %",
+   "Zoom: 59.3 %",
+   "Zoom: 286.3 %"
+  ],
+  "toolChanged": [
+   "InteractionTool",
+   "KritaShape/KisToolBrush",
+   "KritaShape/KisToolBrush"
+  ],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:45:04.300Z"
+ },
+ "open_resources_directory": {
+  "fixture": "base",
+  "ms": 169,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:45:47.123Z"
+ },
+ "view_print_size": {
+  "fixture": "base",
+  "ms": 161,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T03:46:34.303Z"
+ },
+ "paste_as_reference": {
+  "fixture": "base",
+  "ms": 296,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "ToolReferenceImages"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:47:14.520Z"
  }
 }
