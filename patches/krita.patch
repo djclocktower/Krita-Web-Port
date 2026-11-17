@@ -943,6 +943,20 @@ index 6bca124..524a05b 100644
  
  Plugin::Plugin(QObject *parent, const QVariantList &)
      : QObject(parent)
+diff --git a/plugins/extensions/qmic/CMakeLists.txt b/plugins/extensions/qmic/CMakeLists.txt
+index e12875e..c1b4285 100644
+--- a/plugins/extensions/qmic/CMakeLists.txt
++++ b/plugins/extensions/qmic/CMakeLists.txt
+@@ -44,4 +44,9 @@ target_link_libraries(kritaqmic kritaqmicinterface)
+ 
+ install(TARGETS kritaqmic LIBRARY DESTINATION ${KRITA_PLUGIN_INSTALL_DIR})
+ 
++# WebAssembly: the G'MIC-Qt host plugin is built from source and linked into the engine
++if (EMSCRIPTEN AND KRITA_WEB_GMIC_DIR)
++    add_subdirectory(gmic-qt-web)
++endif()
++
+ add_subdirectory(tests)
 diff --git a/plugins/filters/levelfilter/CMakeLists.txt b/plugins/filters/levelfilter/CMakeLists.txt
 index 44b5c7e..2f1c4d2 100644
 --- a/plugins/filters/levelfilter/CMakeLists.txt

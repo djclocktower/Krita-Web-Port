@@ -58,6 +58,13 @@ foreach(_dep jxl jxl_threads jxl_cms hwy brotlienc brotlidec brotlicommon heif d
     endif()
 endforeach()
 
+# G'MIC (core and FFTW) live in their own prefix, so that Krita's own FindFFTW3 does not pick FFTW up
+foreach(_dep gmic fftw3f fftw3)
+    if (KRITA_WEB_GMIC_PREFIX AND EXISTS ${KRITA_WEB_GMIC_PREFIX}/lib/lib${_dep}.a)
+        target_link_libraries(kritaengine PRIVATE ${KRITA_WEB_GMIC_PREFIX}/lib/lib${_dep}.a)
+    endif()
+endforeach()
+
 set(_data ${CMAKE_SOURCE_DIR}/krita/data)
 # ponytail: font taken from the build machine; the real app ships its own font set.
 set(KRITA_WEB_FONT /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf CACHE FILEPATH "Fallback font to bundle")
