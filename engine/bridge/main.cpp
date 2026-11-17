@@ -543,7 +543,11 @@ public:
             if (w->isWindow() && w != window && w->windowType() != Qt::ToolTip && w->windowType() != Qt::Desktop) trackWindow(w);
             break;
         case QEvent::Hide:
-            if (w->inherits("QDialog")) EM_ASM({ Error.stackTraceLimit = 70; console.error('KWDBG hide ' + new Error().stack); });   // KWDEBUG
+            if (w->inherits("QDialog")) {   // KWDEBUG
+                EM_ASM({ Error.stackTraceLimit = 250; console.error('KWDBG hide ' + new Error().stack); });
+                fprintf(stderr, "KWDBG hide level=%d modal=%p w=%p\n", QThread::currentThread()->loopLevel(), (void *)QApplication::activeModalWidget(), (void *)w);
+                QTimer::singleShot(700, this, [] { fprintf(stderr, "KWDBG later level=%d modal=%p\n", QThread::currentThread()->loopLevel(), (void *)QApplication::activeModalWidget()); });
+            }
             dropWindow(w);
             break;
         case QEvent::Resize:

@@ -2,7 +2,7 @@ import { createRequire } from 'node:module';
 const { chromium } = createRequire('/home/user/Krita-Web-Port/web/tests/x.mjs')('playwright');
 const browser = await chromium.launch({ args: ['--use-angle=swiftshader'] });
 const page = await browser.newPage();
-page.on('console', m => { const t = m.text(); if (!/kf.i18n|KoShapeManager|vite|migration/.test(t)) console.log(t.slice(0, 6000)); });
+page.on('console', m => { const t = m.text(); if (!/kf.i18n|KoShapeManager|vite|migration/.test(t)) console.log(t.slice(0, 400000)); });
 await page.goto(`http://localhost:5173/?engine=wasm&engineBase=${process.env.EB ?? "/engine-dev/"}`);
 await page.waitForFunction(() => window.__engine && __engine.documentInfo().then(Boolean), null, { timeout: 150000 });
 const r = await page.evaluate(async (code) => { const sleep = ms => new Promise(r => setTimeout(r, ms)); return await eval(code)(sleep); }, process.argv[2]);
