@@ -1363,29 +1363,14 @@
  },
  "krita_filter_edge detection": {
   "fixture": "base",
-  "ms": 41,
-  "windows": [
-   {
-    "id": 11,
-    "title": "Filter: Edge Detection",
-    "kind": "dialog",
-    "width": 582,
-    "height": 500,
-    "modal": false,
-    "picture": "-2142808877:291000:582x500",
-    "file": "actions/krita_filter_edge_detection__Filter_Edge_Detection.png"
-   }
-  ],
-  "closedBy": [
-   "Escape"
-  ],
+  "ms": 75,
   "alive": true,
   "state": "done",
   "diff": {
-   "image": false,
+   "image": true,
    "layers": false,
    "selection": false,
-   "history": false,
+   "history": true,
    "docinfo": false,
    "enabledSet": false,
    "checked": false
@@ -1393,7 +1378,7 @@
   "messages": [],
   "toolChanged": [],
   "overlayPixels": 0,
-  "imageUpdates": 2,
+  "imageUpdates": 1,
   "enabledAfter": true,
   "enabled": true,
   "enabledIn": [
@@ -1401,9 +1386,13 @@
    "mask",
    "anim"
   ],
-  "outcome": "opened dialog",
+  "outcome": "changed image",
   "text": "Edge Detection...",
-  "when": "2026-11-17T02:50:53.103Z"
+  "when": "2026-11-17T04:40:00.022Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T02:50:53.103Z"
+  }
  },
  "emboss_filters": {
   "fixture": "base",
@@ -2261,26 +2250,24 @@
   "ms": 46,
   "windows": [
    {
-    "id": 10,
+    "id": 3,
     "title": "Filter: Oilpaint",
     "kind": "dialog",
     "width": 582,
-    "height": 500,
+    "height": 325,
     "modal": false,
-    "picture": "1560865169:291000:582x500",
+    "picture": "-1505920591:189150:582x325",
     "file": "actions/krita_filter_oilpaint__Filter_Oilpaint.png"
    }
   ],
-  "closedBy": [
-   "Escape"
-  ],
+  "closedBy": [],
   "alive": true,
   "state": "done",
   "diff": {
-   "image": false,
+   "image": true,
    "layers": false,
    "selection": false,
-   "history": false,
+   "history": true,
    "docinfo": false,
    "enabledSet": false,
    "checked": false
@@ -2288,7 +2275,7 @@
   "messages": [],
   "toolChanged": [],
   "overlayPixels": 0,
-  "imageUpdates": 2,
+  "imageUpdates": 1,
   "enabledAfter": true,
   "enabled": true,
   "enabledIn": [
@@ -2298,7 +2285,11 @@
   ],
   "outcome": "opened dialog",
   "text": "Oilpaint...",
-  "when": "2026-11-17T02:53:45.962Z"
+  "when": "2026-11-17T04:40:12.749Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T02:53:45.962Z"
+  }
  },
  "krita_filter_palettize": {
   "fixture": "base",
@@ -3817,10 +3808,10 @@
  },
  "stroke_selection": {
   "fixture": "base",
-  "ms": 52,
+  "ms": 44,
   "windows": [
    {
-    "id": 2,
+    "id": 4,
     "title": "Stroke Selection Properties – Krita",
     "kind": "dialog",
     "width": 331,
@@ -3859,7 +3850,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:02:41.125Z"
+  "when": "2026-11-17T04:40:20.192Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:02:41.125Z"
+  }
  },
  "view_show_guides": {
   "fixture": "base",
@@ -3956,10 +3951,10 @@
  },
  "show_snap_options_popup": {
   "fixture": "base",
-  "ms": 44,
+  "ms": 40,
   "windows": [
    {
-    "id": 3,
+    "id": 5,
     "title": "",
     "kind": "popup",
     "width": 166,
@@ -3998,7 +3993,11 @@
   ],
   "outcome": "opened popup",
   "text": "",
-  "when": "2026-11-17T03:03:17.440Z"
+  "when": "2026-11-17T04:40:26.128Z",
+  "previous": {
+   "outcome": "opened popup",
+   "when": "2026-11-17T03:03:17.440Z"
+  }
  },
  "view_snap_orthogonal": {
   "fixture": "base",
@@ -4471,10 +4470,10 @@
  },
  "layer_style": {
   "fixture": "base",
-  "ms": 509,
+  "ms": 458,
   "windows": [
    {
-    "id": 2,
+    "id": 6,
     "title": "Layer Styles – Krita",
     "kind": "dialog",
     "width": 818,
@@ -4513,7 +4512,11 @@
   ],
   "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T03:09:17.751Z"
+  "when": "2026-11-17T04:40:32.914Z",
+  "previous": {
+   "outcome": "opened dialog",
+   "when": "2026-11-17T03:09:17.751Z"
+  }
  },
  "copy_layer_style": {
   "fixture": "base",
@@ -5577,7 +5580,7 @@
  },
  "add_new_fast_color_overlay_mask": {
   "fixture": "mask",
-  "ms": 9019,
+  "ms": 9012,
   "pending": true,
   "alive": false,
   "state": "pending",
@@ -5596,8 +5599,8 @@
    "null function"
   ],
   "console": [
-   "SAFE ASSERT (krita): \"shape\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 166",
    "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "SAFE ASSERT (krita): \"shape\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 166",
    "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
    "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
    "ENGINE STACK RuntimeError: null function\n    at http://localhost:5193/engine/kritaengine.wasm:wasm-function[110637]:0x4022d48\n    at invoke_viiiii (http://localhost:5193/engine/kritaengine.js:8:344445)\n    at http://localhost:5193/engine/kr",
@@ -5607,7 +5610,11 @@
   "note": " console shows abort",
   "outcome": "crash",
   "text": "",
-  "when": "2026-11-17T03:15:19.504Z"
+  "when": "2026-11-17T04:33:32.419Z",
+  "previous": {
+   "outcome": "crash",
+   "when": "2026-11-17T03:15:19.504Z"
+  }
  },
  "add_new_colorize_mask": {
   "fixture": "mask",
@@ -5764,9 +5771,27 @@
  },
  "convert_to_filter_mask": {
   "fixture": "mask",
+  "ms": 203,
+  "windows": [
+   {
+    "id": 2,
+    "title": "New Filter Mask – Krita",
+    "kind": "dialog",
+    "width": 722,
+    "height": 527,
+    "modal": true,
+    "picture": null,
+    "file": null
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "pending": true,
+  "alive": false,
   "state": "pending",
+  "needReload": true,
   "hang": true,
-  "error": "PAGE_TIMEOUT",
   "enabled": true,
   "enabledIn": [
    "base",
@@ -5776,16 +5801,20 @@
    "anim"
   ],
   "console": [
-   "SAFE ASSERT (krita): \"shape\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 166",
-   "This plugin does not support raise()",
    "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
-   "SAFE ASSERT (krita): \"!cacheInterface || p->sanityCheckResourceCacheIsValid(cacheInterface)\" in file /home/user/Krita-Web-Port/krita/libs/ui/tool/kis_resources_snapshot.cpp, line 106",
-   "SAFE ASSERT (krita): \"!cacheInterface || p->sanityCheckResourceCacheIsValid(cacheInterface)\" in file /home/user/Krita-Web-Port/krita/libs/ui/tool/kis_resources_snapshot.cpp, line 106",
+   "SAFE ASSERT (krita): \"shape\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 166",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "This plugin does not support propagateSizeHints()",
    "This plugin does not support propagateSizeHints()"
   ],
   "outcome": "hang",
   "text": "",
-  "when": "2026-11-17T03:17:43.866Z"
+  "when": "2026-11-17T04:38:13.697Z",
+  "previous": {
+   "outcome": "hang",
+   "when": "2026-11-17T04:34:31.629Z"
+  }
  },
  "convert_to_transparency_mask": {
   "fixture": "base",
@@ -14235,19 +14264,23 @@
    "This plugin does not support setting window opacity",
    "This plugin does not support setting window opacity",
    "ASSERT (krita): \"node->inherits(\"KisTransparencyMask\")\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402",
-   "Aborted()",
    "ENGINE STACK RuntimeError: Aborted(). Build with -sASSERTIONS for more info.\n    at abort (http://localhost:5193/engine/kritaengine.js:8:30920)\n    at _abort (http://localhost:5193/engine/kritaengine.js:8:177185)\n    at http://localhost:519",
+   "Aborted()",
    "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: Aborted(). Build with -sASSERTIONS for more info."
   ],
   "crash": true,
   "note": " console shows abort",
   "outcome": "crash",
   "text": "",
-  "when": "2026-11-17T03:52:33.762Z"
+  "when": "2026-11-17T04:35:31.125Z",
+  "previous": {
+   "outcome": "crash",
+   "when": "2026-11-17T03:52:33.762Z"
+  }
  },
  "split_alpha_save_merged": {
   "fixture": "base",
-  "ms": 9039,
+  "ms": 9036,
   "pending": true,
   "alive": false,
   "state": "pending",
@@ -14266,18 +14299,22 @@
    "Aborted(). Build with -sASSERTIONS for more info."
   ],
   "console": [
-   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
-   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "This plugin does not support setting window opacity",
+   "This plugin does not support setting window opacity",
    "ASSERT (krita): \"node->inherits(\"KisTransparencyMask\")\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 1402",
-   "Aborted()",
    "ENGINE STACK RuntimeError: Aborted(). Build with -sASSERTIONS for more info.\n    at abort (http://localhost:5193/engine/kritaengine.js:8:30920)\n    at _abort (http://localhost:5193/engine/kritaengine.js:8:177185)\n    at http://localhost:519",
+   "Aborted()",
    "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: Aborted(). Build with -sASSERTIONS for more info."
   ],
   "crash": true,
   "note": " console shows abort",
   "outcome": "crash",
   "text": "",
-  "when": "2026-11-17T03:53:38.078Z"
+  "when": "2026-11-17T04:36:23.557Z",
+  "previous": {
+   "outcome": "crash",
+   "when": "2026-11-17T03:53:38.078Z"
+  }
  },
  "import_layer_from_file": {
   "fixture": "base",
@@ -14997,7 +15034,7 @@
  },
  "file_import_video_animation": {
   "fixture": "base",
-  "ms": 49,
+  "ms": 45,
   "windows": [
    {
     "id": 2,
@@ -15021,14 +15058,25 @@
    }
   ],
   "closedBy": [
+   "Escape",
    "Escape"
   ],
-  "pending": true,
   "alive": true,
-  "state": "pending",
-  "needReload": true,
-  "hang": true,
-  "note": "call never returned; engine still answered",
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
   "enabled": true,
   "enabledIn": [
    "base",
@@ -15037,17 +15085,13 @@
    "mask",
    "anim"
   ],
-  "console": [
-   "This plugin does not support setting window opacity",
-   "This plugin does not support propagateSizeHints()",
-   "This plugin does not support setting window opacity",
-   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
-   "This plugin does not support propagateSizeHints()",
-   "This plugin does not support propagateSizeHints()"
-  ],
-  "outcome": "hang",
+  "outcome": "opened dialog",
   "text": "",
-  "when": "2026-11-17T04:04:48.548Z"
+  "when": "2026-11-17T04:38:53.529Z",
+  "previous": {
+   "outcome": "hang",
+   "when": "2026-11-17T04:37:04.331Z"
+  }
  },
  "render_animation": {
   "fixture": "anim",

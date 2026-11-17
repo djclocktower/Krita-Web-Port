@@ -142,6 +142,12 @@ function install() {
         }
         return how;
     };
+    /** Waits until the new windows stop repainting and resizing (dialogs build their layout after they open). */
+    S.settle = async known => {
+        const sig = () => S.newWins(known).map(w => `${w.id}:${w.width}x${w.height}:${S.paint.get(w.id)?.n ?? 0}`).join(',');
+        let last = sig(), still = 0;
+        for (let i = 0; i < 40 && still < 5; i++) { await sleep(150); const c = sig(); still = c === last ? still + 1 : 0; last = c; }
+    };
     S.runAction = async ({ name, fixture, timeout }) => {
         const rec = { fixture };
         await S.setup(fixture);
@@ -154,12 +160,16 @@ function install() {
         rec.ms = Math.round(performance.now() - t0);
         await sleep(state === 'pending' ? 900 : 500);   // pictures and late windows
         const seen = new Map();
-        const grab = () => { for (const w of S.newWins(known)) if (!seen.has(w.id)) seen.set(w.id, { ...S.winRec(w), picture: S.pixHash(w.id), png: S.png(w.id) }); };
+        const grab = () => { for (const w of S.newWins(known)) { const ph = S.pixHash(w.id), e = seen.get(w.id); if (!e || e.picture !== ph || e.width !== w.width) seen.set(w.id, { ...S.winRec(w), picture: ph, png: S.png(w.id) }); } };
         grab();
-        if (seen.size) { rec.windows = [...seen.values()]; rec.closedBy = await S.closeNew(known); }
+        if (seen.size) { await S.settle(known); grab(); rec.windows = [...seen.values()]; rec.closedBy = await S.closeNew(known); }
         if (state === 'pending') {            // waits on a window, or hangs
             const t1 = performance.now();
-            while (state === 'pending' && performance.now() - t1 < (seen.size ? 6000 : 4000)) { grab(); await sleep(100); }
+            while (state === 'pending' && performance.now() - t1 < (seen.size ? 8000 : 4000)) {
+                grab();
+                if (S.newWins(known).length) { await S.settle(known); grab(); rec.closedBy = (rec.closedBy ?? []).concat(await S.closeNew(known)); rec.windows = [...seen.values()]; }
+                await sleep(100);
+            }
             if (state === 'pending') { rec.pending = true; }
         }
         if (seen.size && !rec.windows) rec.windows = [...seen.values()];
@@ -168,7 +178,7 @@ function install() {
         rec.state = state; if (err) rec.error = err;
         if (!rec.alive || rec.pending) { rec.needReload = true; return rec; }
         // leftover windows opened late
-        if (S.newWins(known).length) { grab(); rec.windows = [...seen.values()]; rec.closedBy = (rec.closedBy ?? []).concat(await S.closeNew(known)); }
+        if (S.newWins(known).length) { await S.settle(known); grab(); rec.windows = [...seen.values()]; rec.closedBy = (rec.closedBy ?? []).concat(await S.closeNew(known)); }
         let after = await S.snap(name);
         const diff = (b, a) => ({
             image: b.hash !== a.hash, layers: b.layers !== a.layers, selection: b.sel !== a.sel, history: b.hist !== a.hist,
