@@ -1,0 +1,33 @@
+{
+ "KisToolTransformFree": {
+  "name": "KisToolTransformFree",
+  "toolChanged": [
+   "KisToolTransform"
+  ],
+  "optionPicture": "32035372:187200:260x720",
+  "overlayDuring": 4,
+  "changed": {
+   "image": true,
+   "history": true,
+   "selection": true
+  },
+  "messages": [],
+  "alive": true,
+  "file": "tools/mode_KisToolTransformFree.png"
+ },
+ "selection-modifiers": {
+  "name": "selection-modifiers",
+  "areas": {
+   "replace": 10000,
+   "shiftAdd": 19600,
+   "altSubtract": 18700,
+   "shiftAltIntersect": 4000
+  },
+  "works": {
+   "add": true,
+   "subtract": true,
+   "intersect": true
+  },
+  "alive": true
+ }
+}

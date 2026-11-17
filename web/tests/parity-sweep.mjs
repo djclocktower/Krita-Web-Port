@@ -8,6 +8,7 @@
 // report in docs/parity/REPORT.md (PART=report rebuilds it from the JSON and docs/parity/NOTES.md).
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -219,7 +220,7 @@ const classify = r => {
 
 const savePicture = (dir, base, b64, seenPics) => {
     if (!b64) return null;
-    const key = b64.length + ':' + b64.slice(-64);
+    const key = createHash('sha1').update(b64).digest('hex');
     if (seenPics[key]) return seenPics[key];
     const f = `${dir}/${safe(base)}.png`;
     fs.writeFileSync(path.join(PIC, f), Buffer.from(b64, 'base64'));
@@ -419,7 +420,7 @@ async function runTools() {
                 const o = { id };
                 const sleep = S.sleep;
                 const run = async scenario => {
-                    const s = { scenario };
+                    const s = { scenario }; const prog = (window.__prog ??= []); prog.push(scenario + ' start');
                     await S.setup(scenario === 'vector' ? 'vector' : 'base');   // 'pen' is the raster document with pressure on every event
                     await __engineCall('krita.viewport', { width: 900, height: 700, zoom: 1, offsetX: 50, offsetY: 50 });
                     const known = new Set(S.win.keys());
@@ -431,7 +432,7 @@ async function runTools() {
                     }
                     let state = 'ok';
                     try { await S.race(__engine.setKritaTool(id), 20000); } catch (e) { s.error = 'setKritaTool: ' + e.message; }
-                    await sleep(900);
+                    prog.push('tool set'); await sleep(900);
                     if (scenario === 'raster') {
                         let w = [...S.win.values()].find(x => x.kind === 'toolOptions');
                         if (w) { await S.race(__engine.resizeKritaWindow(w.id, 260, 720), 5000); await sleep(700); w = S.win.get(w.id) ?? w; }   // the page gives the panel its dock size
@@ -442,20 +443,20 @@ async function runTools() {
                     const before = await S.snap('x');
                     s.overlayTrace.push(S.overlays);
                     S.msgs.length = 0; S.overlayPx = 0; S.overlays = 0; S.imgUpd = 0; S.tools.length = 0;
-                    const g = G[id] ?? G.drag;
+                    prog.push('snapshot taken'); const g = G[id] ?? G.drag;
                     const t0 = performance.now();
                     try {
                         await S.race(g(), 20000);
                     } catch (e) { s.error = 'gesture: ' + e.message; }
-                    s.gestureMs = Math.round(performance.now() - t0);
+                    s.gestureMs = Math.round(performance.now() - t0); prog.push('gesture done');
                     s.overlayDuring = { events: S.overlays, withPixels: S.overlayPx, last: S.lastOverlay ? { rect: S.lastOverlay.rect } : null };
                     await sleep(700);
                     const mid = await S.snap('x');
                     s.overlayAfterGesture = S.overlayPx;
                     // finishing keys
-                    const fin = FIN[id];
+                    prog.push('mid snapshot'); const fin = FIN[id];
                     if (fin) { for (const k of fin) { __engine.kritaKey({ type: 'keydown', key: k }); __engine.kritaKey({ type: 'keyup', key: k }); await sleep(120); } await sleep(900); }
-                    const after = await S.snap('x');
+                    prog.push('finish keys sent'); const after = await S.snap('x'); prog.push('after snapshot');
                     const wins = S.newWins(known).map(S.winRec);
                     if (wins.length) { s.windows = wins; s.windowPng = S.png(S.newWins(known)[0].id); await S.closeNew(known); }
                     s.changed = { image: before.hash !== after.hash, colors: before.colors !== after.colors, docinfo: before.info !== after.info, imageBeforeFinish: before.hash !== mid.hash, layers: before.layers !== after.layers, selection: before.sel !== after.sel, history: before.hist !== after.hist };
@@ -539,6 +540,7 @@ async function runTools() {
             }, { id: t.id, prev: prevHash }, 150000);
         } catch (e) {
             r = { id: t.id, [gone(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) };
+            try { r.progress = await Promise.race([page.evaluate(() => window.__prog), sleep(5000).then(() => 'page not answering')]); } catch { r.progress = 'page gone'; }
             await launch(); prevHash = null;
         }
         if (pageErrors.length) r.pageErrors = pageErrors.slice(0, 3);
@@ -559,6 +561,64 @@ async function runTools() {
     }
 }
 
+
+// Tool modes that can be reached without clicking inside the option panel: the six transform modes are Krita actions of their
+// own; the selection tools' add / subtract / intersect modes are the Shift, Alt and Shift+Alt modifiers.
+async function runToolModes() {
+    const results = load('toolmodes.json');
+    const jobs = [['KisToolTransformFree', 'transform'], ['KisToolTransformPerspective', 'transform'], ['KisToolTransformWarp', 'transform'], ['KisToolTransformCage', 'transform'], ['KisToolTransformLiquify', 'transform'], ['KisToolTransformMesh', 'transform'], ['selection-modifiers', 'select']];
+    const pics = {};
+    for (const [name, kind] of jobs) {
+        if ((ONLY && !ONLY.test(name)) || (!ONLY && results[name])) continue;
+        await launch();
+        let r;
+        try {
+            r = await inPage(async ({ name, kind }) => {
+                const sleep = S.sleep, o = { name };
+                const pt = (type, x, y, extra = {}) => __engine.kritaPointer({ type, x, y, ...extra });
+                const drag = async (a, b, extra = {}) => { pt('move', a.x, a.y, extra); await sleep(15); pt('press', a.x, a.y, extra); await sleep(20); for (let i = 1; i <= 10; i++) { pt('move', b.x * i / 10 + a.x * (1 - i / 10), b.y * i / 10 + a.y * (1 - i / 10), { down: true, ...extra }); await sleep(15); } pt('release', b.x, b.y, extra); await sleep(300); };
+                const click = async (x, y) => { pt('move', x, y); await sleep(15); pt('press', x, y); await sleep(30); pt('release', x, y); await sleep(200); };
+                const enter = async () => { __engine.kritaKey({ type: 'keydown', key: 'Enter' }); __engine.kritaKey({ type: 'keyup', key: 'Enter' }); await sleep(900); };
+                const area = polys => Math.abs(polys.reduce((t, p) => { let a = 0; for (let i = 0; i < p.length; i += 2) { const j = (i + 2) % p.length; a += p[i] * p[j + 1] - p[j] * p[i + 1]; } return t + a / 2; }, 0));
+                await S.setup('base'); await __engineCall('krita.viewport', { width: 900, height: 700, zoom: 1, offsetX: 50, offsetY: 50 });
+                if (kind === 'select') {
+                    await __engine.deselect(); await __engine.setKritaTool('KisToolSelectRectangular'); await sleep(900);
+                    const areas = {};
+                    await drag({ x: 60, y: 60 }, { x: 160, y: 160 }); areas.replace = area(await __engine.selectionOutline());
+                    await drag({ x: 120, y: 100 }, { x: 240, y: 200 }, { shift: true }); areas.shiftAdd = area(await __engine.selectionOutline());
+                    await drag({ x: 100, y: 100 }, { x: 130, y: 130 }, { alt: true }); areas.altSubtract = area(await __engine.selectionOutline());
+                    await drag({ x: 70, y: 70 }, { x: 140, y: 140 }, { shift: true, alt: true }); areas.shiftAltIntersect = area(await __engine.selectionOutline());
+                    o.areas = areas;
+                    o.works = { add: areas.shiftAdd > areas.replace, subtract: areas.altSubtract < areas.shiftAdd, intersect: areas.shiftAltIntersect < areas.altSubtract };
+                    o.alive = (await S.race(__engine.documentInfo(), 6000, null)) !== null;
+                    return o;
+                }
+                await __engine.selectAll();
+                const tools0 = S.tools.length; S.msgs.length = 0;
+                await S.race(__engine.triggerKritaAction(name), 20000); await sleep(1800);
+                o.toolChanged = S.tools.slice(tools0);
+                for (const w of await __engine.kritaWindows()) S.win.set(w.id, w);
+                const w = [...S.win.values()].find(x => x.kind === 'toolOptions');
+                if (w) { await S.race(__engine.resizeKritaWindow(w.id, 260, 720), 5000); await sleep(700); o.optionPicture = S.pixHash(w.id); o.png = S.png(w.id); }
+                S.overlayPx = 0; const before = await S.snap('x');
+                const mode = name.replace('KisToolTransform', '');
+                if (mode === 'Cage') { for (const [x, y] of [[60, 50], [260, 50], [260, 190], [60, 190]]) await click(x, y); await enter(); await drag({ x: 60, y: 50 }, { x: 90, y: 70 }); }
+                else if (mode === 'Perspective') await drag({ x: 50, y: 40 }, { x: 80, y: 60 });
+                else await drag({ x: 160, y: 120 }, { x: 200, y: 150 });
+                o.overlayDuring = S.overlayPx;
+                await enter();
+                const after = await S.snap('x');
+                o.changed = { image: before.hash !== after.hash, history: before.hist !== after.hist, selection: before.sel !== after.sel };
+                o.messages = [...S.msgs].slice(0, 4);
+                o.alive = (await S.race(__engine.documentInfo(), 6000, null)) !== null;
+                return o;
+            }, { name, kind }, 120000);
+        } catch (e) { r = { name, [gone(e) ? 'crash' : 'hang']: true, error: String(e.message).slice(0, 200) }; }
+        if (r.png) { r.file = savePicture('tools', 'mode_' + name, r.png, pics); delete r.png; }
+        results[name] = r; save('toolmodes.json', results);
+        console.log(name.padEnd(30), JSON.stringify({ ...r, png: undefined }).slice(0, 300));
+    }
+}
 
 // ---------------------------------------------------------------------------------------------- menus
 const strip = t => t.replace(/&amp;/g, '\u0001').replace(/&(?!&)/g, '').replace(/\u0001/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -647,7 +707,7 @@ async function runMenus() {
     try {
         if (!fs.existsSync(path.join(RES, 'inventory.json')) || FRESH) await writeInventory();
         if (want('actions')) await runActions();
-        if (want('tools')) await runTools();
+        if (want('tools')) { await runTools(); await runToolModes(); }
         if (want('dockers')) await runDockers();
         if (want('menus')) await runMenus();
         if (want('report')) writeReport();
