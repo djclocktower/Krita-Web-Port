@@ -543,6 +543,7 @@ public:
             if (w->isWindow() && w != window && w->windowType() != Qt::ToolTip && w->windowType() != Qt::Desktop) trackWindow(w);
             break;
         case QEvent::Hide:
+            if (w->inherits("QDialog")) EM_ASM({ Error.stackTraceLimit = 70; console.error('KWDBG hide ' + new Error().stack); });   // KWDEBUG
             dropWindow(w);
             break;
         case QEvent::Resize:

@@ -11,7 +11,7 @@ client.on('Target.receivedMessageFromTarget', e => {
     if (m.method === 'Debugger.paused') {
         const frames = m.params.callFrames.map(f => f.functionName || '(anon)');
         console.log(`\n=== worker ${e.sessionId.slice(0, 6)}: ${frames.length} frames`);
-        console.log(frames.slice(0, 45).join('\n'));
+        console.log(frames.slice(0, 160).join('\n'));
     }
 });
 const sendTo = (sessionId, method, params = {}) => client.send('Target.sendMessageToTarget', { sessionId, message: JSON.stringify({ id: nextId++, method, params }) }).catch(() => {});
