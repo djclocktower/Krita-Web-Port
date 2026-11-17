@@ -1,0 +1,215 @@
+{
+ "KisToolSelectRectangular": {
+  "id": "KisToolSelectRectangular",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 604,
+    "picture": "-106623191:144960:240x604",
+    "solid": 144960,
+    "total": 144960,
+    "title": "Tool Options",
+    "distinctColours": 129
+   },
+   "gestureMs": 445,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": true,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    2
+   ],
+   "messages": [
+    "Width: 0 px\nHeight: 0 px"
+   ],
+   "imageUpdates": 0,
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 455,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "alive": true
+  },
+  "name": "Rectangular Selection Tool",
+  "section": "5 Krita/Select",
+  "file": "tools/KisToolSelectRectangular.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed layers/selection/history"
+ },
+ "KisToolPolygon": {
+  "id": "KisToolPolygon",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 784,
+    "picture": "1268183059:188160:240x784",
+    "solid": 188160,
+    "total": 188160,
+    "title": "Tool Options",
+    "distinctColours": 94
+   },
+   "gestureMs": 502,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 502,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "alive": true
+  },
+  "name": "Polygon Tool: Shift-mouseclick ends the polygon.",
+  "section": "0 Krita/Shape",
+  "file": "tools/KisToolPolygon.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed image/history"
+ },
+ "KritaShape/KisToolBrush": {
+  "id": "KritaShape/KisToolBrush",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 600,
+    "picture": "-179577305:144000:240x600",
+    "solid": 144000,
+    "total": 144000,
+    "title": "Tool Options",
+    "distinctColours": 62
+   },
+   "gestureMs": 396,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    -1092977605,
+    -1092977605
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 387,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Freehand Brush Tool",
+  "section": "0 Krita/Shape",
+  "file": "tools/KritaShape_KisToolBrush.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed image/history"
+ }
+}

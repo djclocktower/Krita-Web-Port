@@ -271,9 +271,9 @@ async function runActions() {
                 if (r.needReload) { sinceLaunch = 1e9; r.hang = true; if (r.alive) r.note = 'call never returned; engine still answered'; }
                 r.enabled = true; r.enabledIn = enabledIn;
                 if (pageErrors.length) r.pageErrors = pageErrors.slice(0, 3);
-                if (consoleTail.length && (r.hang || r.crash || r.state === 'error' || pageErrors.length)) r.console = consoleTail.slice(-6);
-                const aborted = consoleTail.some(l => /abort|unreachable|RuntimeError|memory access out of bounds/i.test(l));
-                if (aborted && !r.crash) { r.crash = true; r.note = (r.note ?? '') + ' console shows abort'; sinceLaunch = 1e9; }
+                const aborted = consoleTail.some(l => /Aborted\(|RuntimeError|worker sent an error|memory access out of bounds/.test(l));
+                if (consoleTail.length && (r.hang || r.crash || aborted || r.state === 'error' || pageErrors.length)) r.console = consoleTail.slice(-6);
+                if (aborted && !r.crash) { r.crash = true; r.note = (r.note ?? '') + ' console shows a wasm trap'; sinceLaunch = 1e9; }
                 tries.push(classify(r));
                 if (!(r.hang || r.crash)) break;
             }
@@ -406,7 +406,7 @@ async function runTools() {
     let prevHash = null;
     for (const t of inv.tools) {
         if ((ONLY && !ONLY.test(t.id)) || (!ONLY && results[t.id])) continue;
-        if (!page || page.isClosed() || crashed) { await launch(); prevHash = null; }
+        if (!page || page.isClosed() || crashed || !process.env.REUSE) { await launch(); }   // a fresh page per tool: one tool's leftovers must not decide the next one's result
         let r;
         try {
             r = await inPage(async ({ id, prev }) => {
@@ -451,7 +451,7 @@ async function runTools() {
                     if (wins.length) { s.windows = wins; s.windowPng = S.png(S.newWins(known)[0].id); await S.closeNew(known); }
                     s.changed = { image: before.hash !== after.hash, imageBeforeFinish: before.hash !== mid.hash, layers: before.layers !== after.layers, selection: before.sel !== after.sel, history: before.hist !== after.hist };
                     try { const L = JSON.parse(after.layers), B = JSON.parse(before.layers); const cnt = a => { let n = 0; const w = x => { for (const c of x) { n++; w(c.children ?? []); } }; w(a); return n; }; s.layerCount = [cnt(B), cnt(L)]; } catch {}
-                    s.messages = [...S.msgs]; s.imageUpdates = S.imgUpd;
+                    s.messages = [...S.msgs]; s.imageUpdates = S.imgUpd; s.hashes = [before.hash, mid.hash, after.hash];
                     s.alive = (await S.race(__engine.documentInfo(), 6000, null)) !== null;
                     try { __engine.kritaKey({ type: 'keydown', key: 'Escape' }); __engine.kritaKey({ type: 'keyup', key: 'Escape' }); } catch {}
                     return s;

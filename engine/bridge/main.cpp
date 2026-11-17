@@ -1753,6 +1753,19 @@ uintptr_t __stack_chk_guard = 0x595e9fbd;
 void __stack_chk_fail() { abort(); }
 }
 
+#ifdef KRITA_WEB_WASMFS
+// Qt's event dispatcher registers socket callbacks that only Emscripten's default file system
+// provides. Nothing in the engine uses sockets, so with the in-engine file system they do nothing.
+extern "C" {
+void emscripten_set_socket_error_callback(void *, void (*)(int, int, const char *, void *)) {}
+void emscripten_set_socket_open_callback(void *, void (*)(int, void *)) {}
+void emscripten_set_socket_listen_callback(void *, void (*)(int, void *)) {}
+void emscripten_set_socket_connection_callback(void *, void (*)(int, void *)) {}
+void emscripten_set_socket_message_callback(void *, void (*)(int, void *)) {}
+void emscripten_set_socket_close_callback(void *, void (*)(int, void *)) {}
+}
+#endif
+
 static Engine *g_engine = nullptr;
 
 // Qt only runs application-wide event filters on what it considers the main thread, and here that is

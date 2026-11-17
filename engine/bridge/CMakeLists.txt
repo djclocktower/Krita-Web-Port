@@ -79,6 +79,7 @@ target_link_options(kritaengine PRIVATE
 # file reads from Krita's thread (its resource database, bundles, settings) stop being blocking round trips.
 if (KRITA_WEB_WASMFS)
     target_link_options(kritaengine PRIVATE -sWASMFS)
+    target_compile_definitions(kritaengine PRIVATE KRITA_WEB_WASMFS)
 endif()
 # -DKRITA_WEB_LINK_MAP=ON writes kritaengine.map next to the build: which library every byte of the binary came from.
 if (KRITA_WEB_LINK_MAP)

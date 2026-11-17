@@ -8473,7 +8473,7 @@
  },
  "Previous Blending Mode": {
   "fixture": "base",
-  "ms": 164,
+  "ms": 161,
   "alive": true,
   "state": "done",
   "diff": {
@@ -8501,19 +8501,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T05:57:52.255Z",
+  "when": "2026-11-17T06:38:03.073Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:25:14.782Z"
+   "outcome": "crash",
+   "when": "2026-11-17T05:57:52.255Z"
   }
  },
  "Select Normal Blending Mode": {
@@ -8680,7 +8673,7 @@
  },
  "Select Darken Blending Mode": {
   "fixture": "base",
-  "ms": 165,
+  "ms": 162,
   "alive": true,
   "state": "done",
   "diff": {
@@ -8708,19 +8701,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:01:34.374Z",
+  "when": "2026-11-17T06:38:06.232Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:26:17.217Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:01:34.374Z"
   }
  },
  "Select Multiply Blending Mode": {
@@ -8763,7 +8749,7 @@
  },
  "Select Color Burn Blending Mode": {
   "fixture": "base",
-  "ms": 162,
+  "ms": 161,
   "alive": true,
   "state": "done",
   "diff": {
@@ -8791,19 +8777,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:02:30.205Z",
+  "when": "2026-11-17T06:38:09.694Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:26:28.788Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:02:30.205Z"
   }
  },
  "Select Linear Burn Blending Mode": {
@@ -8851,7 +8830,7 @@
  },
  "Select Lighten Blending Mode": {
   "fixture": "base",
-  "ms": 168,
+  "ms": 161,
   "alive": true,
   "state": "done",
   "diff": {
@@ -8879,19 +8858,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:04:02.307Z",
+  "when": "2026-11-17T06:38:12.981Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:26:43.681Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:04:02.307Z"
   }
  },
  "Select Screen Blending Mode": {
@@ -8934,7 +8906,7 @@
  },
  "Select Color Dodge Blending Mode": {
   "fixture": "base",
-  "ms": 161,
+  "ms": 162,
   "alive": true,
   "state": "done",
   "diff": {
@@ -8962,24 +8934,17 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:05:04.165Z",
+  "when": "2026-11-17T06:38:16.109Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:26:54.762Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:05:04.165Z"
   }
  },
  "Select Linear Dodge Blending Mode": {
   "fixture": "base",
-  "ms": 172,
+  "ms": 162,
   "alive": true,
   "state": "done",
   "diff": {
@@ -9007,24 +8972,17 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:06:00.164Z",
+  "when": "2026-11-17T06:38:19.245Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:27:01.674Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:06:00.164Z"
   }
  },
  "Select Overlay Blending Mode": {
   "fixture": "base",
-  "ms": 202,
+  "ms": 168,
   "alive": true,
   "state": "done",
   "diff": {
@@ -9052,19 +9010,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:06:54.724Z",
+  "when": "2026-11-17T06:38:22.903Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:27:12.095Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:06:54.724Z"
   }
  },
  "Select Hard Overlay Blending Mode": {
@@ -9173,19 +9124,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:08:02.412Z",
+  "when": "2026-11-17T06:38:26.767Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:27:38.435Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:08:02.412Z"
   }
  },
  "Select Vivid Light Blending Mode": {
@@ -9218,19 +9162,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:08:52.241Z",
+  "when": "2026-11-17T06:38:30.308Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:27:42.912Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:08:52.241Z"
   }
  },
  "Select Linear Light Blending Mode": {
@@ -9273,7 +9210,7 @@
  },
  "Select Pin Light Blending Mode": {
   "fixture": "base",
-  "ms": 161,
+  "ms": 160,
   "alive": true,
   "state": "done",
   "diff": {
@@ -9301,23 +9238,54 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:09:40.756Z",
+  "when": "2026-11-17T06:38:33.682Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:28:01.620Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:09:40.756Z"
   }
  },
  "Select Hard Mix Blending Mode": {
   "fixture": "base",
+  "ms": 165,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": true,
+   "animation": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T06:38:37.738Z",
+  "previous": {
+   "outcome": "crash",
+   "when": "2026-11-17T06:10:25.514Z"
+  }
+ },
+ "Select Difference Blending Mode": {
+  "fixture": "base",
   "ms": 161,
   "alive": true,
   "state": "done",
@@ -9346,69 +9314,17 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:10:25.514Z",
+  "when": "2026-11-17T06:38:41.781Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:28:07.496Z"
-  }
- },
- "Select Difference Blending Mode": {
-  "fixture": "base",
-  "ms": 166,
-  "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "colors": false,
-   "brush": true,
-   "animation": false,
-   "enabledSet": false,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 0,
-  "imageUpdates": 0,
-  "enabledAfter": true,
-  "enabled": true,
-  "enabledIn": [
-   "base",
-   "vector",
-   "group",
-   "mask",
-   "anim"
-  ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
-  "text": "",
-  "when": "2026-11-17T06:11:08.908Z",
-  "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:28:17.611Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:11:08.908Z"
   }
  },
  "Select Exclusion Blending Mode": {
   "fixture": "base",
-  "ms": 170,
+  "ms": 161,
   "alive": true,
   "state": "done",
   "diff": {
@@ -9436,19 +9352,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:11:52.476Z",
+  "when": "2026-11-17T06:38:45.436Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:28:24.915Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:11:52.476Z"
   }
  },
  "Select Hue Blending Mode": {
@@ -9491,7 +9400,7 @@
  },
  "Select Saturation Blending Mode": {
   "fixture": "base",
-  "ms": 161,
+  "ms": 171,
   "alive": true,
   "state": "done",
   "diff": {
@@ -9519,19 +9428,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:12:41.845Z",
+  "when": "2026-11-17T06:38:49.089Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:28:42.326Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:12:41.845Z"
   }
  },
  "Select Color Blending Mode": {
@@ -9602,19 +9504,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "",
-  "when": "2026-11-17T06:13:32.413Z",
+  "when": "2026-11-17T06:38:52.698Z",
   "previous": {
-   "outcome": "no visible effect",
-   "when": "2026-11-17T03:28:59.184Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:13:32.413Z"
   }
  },
  "composite_actions": {
@@ -12524,24 +12419,17 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "Increase Brush Size",
-  "when": "2026-11-17T06:15:15.064Z",
+  "when": "2026-11-17T06:38:55.897Z",
   "previous": {
-   "outcome": "message",
-   "when": "2026-11-17T03:36:06.984Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:15:15.064Z"
   }
  },
  "decrease_brush_size": {
   "fixture": "base",
-  "ms": 163,
+  "ms": 164,
   "alive": true,
   "state": "done",
   "diff": {
@@ -12571,19 +12459,12 @@
    "mask",
    "anim"
   ],
-  "crash": true,
-  "note": " console shows abort",
-  "attempts": [
-   "crash",
-   "crash"
-  ],
-  "reproduced": true,
-  "outcome": "crash",
+  "outcome": "changed layers/selection/history/view",
   "text": "Decrease Brush Size",
-  "when": "2026-11-17T06:16:01.763Z",
+  "when": "2026-11-17T06:38:59.090Z",
   "previous": {
-   "outcome": "message",
-   "when": "2026-11-17T03:36:11.187Z"
+   "outcome": "crash",
+   "when": "2026-11-17T06:16:01.763Z"
   }
  },
  "rotate_brush_tip_clockwise": {
@@ -17103,7 +16984,7 @@
  },
  "style_menu": {
   "fixture": "base",
-  "ms": 161,
+  "ms": 164,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17112,6 +16993,9 @@
    "selection": false,
    "history": false,
    "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
    "enabledSet": false,
    "checked": false
   },
@@ -17130,40 +17014,13 @@
   ],
   "outcome": "no visible effect",
   "text": "Styles",
-  "when": "2026-11-17T04:13:41.378Z"
+  "when": "2026-11-17T06:23:29.678Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:13:41.378Z"
+  }
  },
  "windows_cascade": {
-  "fixture": "base",
-  "ms": 167,
-  "alive": true,
-  "state": "done",
-  "diff": {
-   "image": false,
-   "layers": false,
-   "selection": false,
-   "history": false,
-   "docinfo": false,
-   "enabledSet": false,
-   "checked": false
-  },
-  "messages": [],
-  "toolChanged": [],
-  "overlayPixels": 1,
-  "imageUpdates": 0,
-  "enabledAfter": true,
-  "enabled": true,
-  "enabledIn": [
-   "base",
-   "vector",
-   "group",
-   "mask",
-   "anim"
-  ],
-  "outcome": "no visible effect",
-  "text": "",
-  "when": "2026-11-17T04:14:33.050Z"
- },
- "windows_tile": {
   "fixture": "base",
   "ms": 208,
   "alive": true,
@@ -17174,6 +17031,9 @@
    "selection": false,
    "history": false,
    "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
    "enabledSet": false,
    "checked": false
   },
@@ -17192,11 +17052,15 @@
   ],
   "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T04:15:12.888Z"
+  "when": "2026-11-17T06:24:06.724Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:14:33.050Z"
+  }
  },
- "windows_next": {
+ "windows_tile": {
   "fixture": "base",
-  "ms": 161,
+  "ms": 230,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17205,6 +17069,9 @@
    "selection": false,
    "history": false,
    "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
    "enabledSet": false,
    "checked": false
   },
@@ -17223,7 +17090,49 @@
   ],
   "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T04:15:54.451Z"
+  "when": "2026-11-17T06:24:42.755Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:15:12.888Z"
+  }
+ },
+ "windows_next": {
+  "fixture": "base",
+  "ms": 162,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "no visible effect",
+  "text": "",
+  "when": "2026-11-17T06:25:20.599Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:15:54.451Z"
+  }
  },
  "windows_previous": {
   "fixture": "base",
@@ -17236,6 +17145,9 @@
    "selection": false,
    "history": false,
    "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
    "enabledSet": false,
    "checked": false
   },
@@ -17254,7 +17166,11 @@
   ],
   "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T04:16:35.317Z"
+  "when": "2026-11-17T06:25:57.693Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:16:35.317Z"
+  }
  },
  "view_newwindow": {
   "fixture": "base",
@@ -17508,7 +17424,7 @@
  },
  "expanding_spacer_0": {
   "fixture": "base",
-  "ms": 161,
+  "ms": 162,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17517,6 +17433,9 @@
    "selection": false,
    "history": false,
    "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
    "enabledSet": false,
    "checked": false
   },
@@ -17535,11 +17454,15 @@
   ],
   "outcome": "no visible effect",
   "text": "Expanding Spacer",
-  "when": "2026-11-17T04:19:50.892Z"
+  "when": "2026-11-17T06:26:33.056Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:19:50.892Z"
+  }
  },
  "expanding_spacer_1": {
   "fixture": "base",
-  "ms": 162,
+  "ms": 163,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17548,6 +17471,9 @@
    "selection": false,
    "history": false,
    "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
    "enabledSet": false,
    "checked": false
   },
@@ -17566,11 +17492,15 @@
   ],
   "outcome": "no visible effect",
   "text": "Expanding Spacer",
-  "when": "2026-11-17T04:20:20.057Z"
+  "when": "2026-11-17T06:27:09.126Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:20:20.057Z"
+  }
  },
  "lock_toolbars": {
   "fixture": "base",
-  "ms": 162,
+  "ms": 163,
   "alive": true,
   "state": "done",
   "diff": {
@@ -17579,6 +17509,9 @@
    "selection": false,
    "history": false,
    "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
    "enabledSet": false,
    "checked": false
   },
@@ -17597,7 +17530,11 @@
   ],
   "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T04:20:54.675Z"
+  "when": "2026-11-17T06:27:45.894Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:20:54.675Z"
+  }
  },
  "help_contents": {
   "fixture": "base",
@@ -17610,6 +17547,9 @@
    "selection": false,
    "history": false,
    "docinfo": false,
+   "colors": false,
+   "brush": false,
+   "animation": false,
    "enabledSet": false,
    "checked": false
   },
@@ -17628,7 +17568,11 @@
   ],
   "outcome": "no visible effect",
   "text": "Krita Handbook",
-  "when": "2026-11-17T04:21:26.541Z"
+  "when": "2026-11-17T06:28:22.552Z",
+  "previous": {
+   "outcome": "no visible effect",
+   "when": "2026-11-17T04:21:26.541Z"
+  }
  },
  "switch_application_language": {
   "fixture": "base",
