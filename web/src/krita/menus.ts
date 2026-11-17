@@ -13,8 +13,6 @@ export const BLOCKED: string[] = [
     'add_new_fill_layer',
     'add_new_fast_color_overlay_mask',
     'convert_to_filter_mask',
-    'split_alpha_write',
-    'split_alpha_save_merged',
 ];
 
 /** Krita action -> id of the page command that does the same (it is shown at the action's place and the action is not repeated). */

@@ -1,15 +1,15 @@
 # Krita parity sweep report
 
-Generated 2026-11-17T09:18:37.378Z by `web/tests/parity-sweep.mjs` from `docs/parity/results/*.json` (engine in `web/public/engine`, Chromium + swiftshader).
+Generated 2026-11-17T09:49:15.190Z by `web/tests/parity-sweep.mjs` from `docs/parity/results/*.json` (engine in `web/public/engine`, Chromium + swiftshader).
 
 ## Headline counts
 
-### Actions (561 of 561 swept)
+### Actions (561 of 563 swept)
 
 | outcome | count |
 |---|---|
-| changed layers/selection/history/view | 168 |
-| no visible effect | 139 |
+| changed layers/selection/history/view | 171 |
+| no visible effect | 136 |
 | changed image | 95 |
 | opened dialog | 74 |
 | disabled | 44 |
@@ -208,9 +208,6 @@ _(docs/parity/NOTES.md missing)_
 | paste_layer_style | Paste Layer Style | Edit | base | cond 0 flags 1 |
 | activateNextLayer | Activate next layer | - | base | cond 0 flags 1000 |
 | activateNextSiblingLayer | Activate next sibling layer, skipping over groups. | - | base | cond 0 flags 1000 |
-| activatePreviousLayer | Activate previous layer | - | base | cond 0 flags 1000 |
-| activatePreviousSiblingLayer | Activate previous sibling layer, skipping over groups. | - | base | cond 0 flags 1000 |
-| switchToPreviouslyActiveNode | Activate previously selected layer | - | base | cond 0 flags 1000 |
 | copy_layer_clipboard | Copy Layer | Layer | base | cond 0 flags 1000 |
 | select_all_layers | All Layers | Layer > Select | base | cond 0 flags 1000 |
 | select_visible_layers | Visible Layers | Layer > Select | base | cond 0 flags 1000 |
@@ -504,9 +501,9 @@ _(docs/parity/NOTES.md missing)_
 | mirrorAllNodesY | Mirror All Layers Vertically | base | changed image | image+history |
 | activateNextLayer | Activate next layer | base | no visible effect |  |
 | activateNextSiblingLayer | Activate next sibling layer, skipping over groups. | base | no visible effect |  |
-| activatePreviousLayer | Activate previous layer | base | no visible effect | enabledSet |
-| activatePreviousSiblingLayer | Activate previous sibling layer, skipping over groups. | base | no visible effect | enabledSet |
-| switchToPreviouslyActiveNode | Activate previously selected layer | base | no visible effect | enabledSet |
+| activatePreviousLayer | Activate previous layer | base | changed layers/selection/history/view | activeNode+enabledSet |
+| activatePreviousSiblingLayer | Activate previous sibling layer, skipping over groups. | base | changed layers/selection/history/view | activeNode+enabledSet |
+| switchToPreviouslyActiveNode | Activate previously selected layer | base | changed layers/selection/history/view | activeNode+enabledSet |
 | duplicatelayer | Duplicate Layer or Mask | base | changed image | image+layers+history |
 | copy_layer_clipboard | Copy Layer | base | no visible effect |  |
 | cut_layer_clipboard | Cut Layer | base | changed image | image+layers+history+activeNode |
@@ -1223,8 +1220,8 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | Filter | Map | map_filters | - | search only | no visible effect |
 | Filter | nonphotorealistic_filters | nonphotorealistic_filters | - | not in engine | n/a |
 | Filter | Other | other_filters | - | search only | no visible effect |
-| Filter | Start G'MIC-Qt | QMic | - | not in engine | n/a |
-| Filter | Re-apply the last G'MIC filter | QMicAgain | - | not in engine | n/a |
+| Filter | Start G'MIC-Qt | QMic | - | search only | ? |
+| Filter | Re-apply the last G'MIC filter | QMicAgain | - | search only | ? |
 | Settings | Configure Krita... | options_configure | Settings > Configure Krita… |  | opened dialog |
 | Settings | Change Interface Scale... | change_interface_scale | - | not in engine | n/a |
 | Settings | Manage Resource Libraries... | manage_bundles | - | search only | opened dialog |
@@ -1283,58 +1280,58 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | View | Zoom Out | view_zoom_out | View > Zoom Out |  | message |
 | View | Zoom In | view_zoom_in | View > Zoom In |  | message |
 | Settings | Settings... | svg_settings | - | not in engine | n/a |
-| Filter > Colors | Color Transfer... | krita_filter_colortransfer | - | search only | changed image |
-| Filter > Other | Wave... | krita_filter_wave | - | search only | changed image |
-| Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | - | search only | changed image |
-| Filter > Other | Reset Transparent | krita_filter_resettransparent | - | search only | changed layers/selection/history/view |
-| Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | - | search only | changed image |
-| Filter > Artistic | Raindrops... | krita_filter_raindrops | - | search only | changed image |
-| Filter > Artistic | Oilpaint... | krita_filter_oilpaint | - | search only | opened dialog |
-| Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | - | search only | changed image |
-| Filter > Adjust | Auto Contrast | krita_filter_autocontrast | - | search only | changed image |
-| Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | - | search only | changed image |
-| Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | - | search only | changed image |
-| Filter > Artistic | Halftone... | krita_filter_halftone | - | search only | changed image |
-| Filter > Artistic | Posterize... | krita_filter_posterize | - | search only | changed image |
-| Filter > Colors | Minimize Channel | krita_filter_minimize | - | search only | changed image |
-| Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | - | search only | changed image |
-| Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | - | search only | changed layers/selection/history/view |
-| Filter > Adjust | Levels... | krita_filter_levels | - | search only | changed layers/selection/history/view |
-| Filter > Adjust | Invert | krita_filter_invert | - | search only | changed image |
-| Filter > Adjust | Burn... | krita_filter_burn | - | search only | changed image |
-| Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | - | search only | changed image |
-| Filter > Map | Normalize | krita_filter_normalize | - | search only | changed image |
-| Filter > Map | Palettize... | krita_filter_palettize | - | search only | changed layers/selection/history/view |
-| Filter > Other | Random Noise... | krita_filter_noise | - | search only | changed image |
-| Filter > Enhance | Mean Removal | krita_filter_mean removal | - | search only | changed image |
-| Filter > Other | Random Pick... | krita_filter_randompick | - | search only | changed image |
-| Filter > Adjust | Color Balance... | krita_filter_colorbalance | - | search only | changed layers/selection/history/view |
 | Filter > Adjust | Desaturate... | krita_filter_desaturate | - | search only | changed image |
-| Filter > Artistic | Index Colors... | krita_filter_indexcolors | - | search only | changed image |
-| Filter > Colors | Maximize Channel | krita_filter_maximize | - | search only | changed image |
-| Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | - | search only | changed image |
-| Filter > Blur | Lens Blur... | krita_filter_lens blur | - | search only | changed image |
-| Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | - | search only | changed image |
-| Filter > Enhance | Sharpen | krita_filter_sharpen | - | search only | changed image |
-| Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | - | search only | changed image |
-| Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | - | search only | changed image |
-| Filter > Blur | Blur... | krita_filter_blur | - | search only | changed image |
-| Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | - | search only | changed image |
-| Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | - | search only | changed image |
-| Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | - | search only | changed image |
-| Filter > Map | Gradient Map... | krita_filter_gradientmap | - | search only | changed image |
-| Filter > Blur | Motion Blur... | krita_filter_motion blur | - | search only | changed image |
+| Filter > Map | Palettize... | krita_filter_palettize | - | search only | changed layers/selection/history/view |
 | Filter > Map | Small Tiles... | krita_filter_smalltiles | - | search only | changed image |
-| Filter > Map | Round Corners... | krita_filter_roundcorners | - | search only | changed layers/selection/history/view |
+| Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | - | search only | changed image |
+| Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | - | search only | changed image |
+| Filter > Blur | Motion Blur... | krita_filter_motion blur | - | search only | changed image |
+| Filter > Other | Reset Transparent | krita_filter_resettransparent | - | search only | changed layers/selection/history/view |
+| Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | - | search only | changed image |
+| Filter > Other | Random Pick... | krita_filter_randompick | - | search only | changed image |
+| Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | - | search only | changed image |
+| Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | - | search only | changed image |
+| Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | - | search only | changed image |
+| Filter > Map | Normalize | krita_filter_normalize | - | search only | changed image |
 | Filter > Artistic | Pixelize... | krita_filter_pixelize | - | search only | changed image |
-| Filter > Adjust | Threshold... | krita_filter_threshold | - | search only | changed image |
+| Filter > Adjust | Auto Contrast | krita_filter_autocontrast | - | search only | changed image |
+| Filter > Colors | Color Transfer... | krita_filter_colortransfer | - | search only | changed image |
+| Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | - | search only | changed image |
+| Filter > Adjust | Burn... | krita_filter_burn | - | search only | changed image |
+| Filter > Adjust | Invert | krita_filter_invert | - | search only | changed image |
+| Filter > Map | Gradient Map... | krita_filter_gradientmap | - | search only | changed image |
+| Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | - | search only | changed layers/selection/history/view |
+| Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | - | search only | changed image |
+| Filter > Artistic | Raindrops... | krita_filter_raindrops | - | search only | changed image |
+| Filter > Colors | Maximize Channel | krita_filter_maximize | - | search only | changed image |
+| Filter > Enhance | Sharpen | krita_filter_sharpen | - | search only | changed image |
+| Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | - | search only | changed image |
+| Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | - | search only | changed image |
 | Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | - | search only | changed layers/selection/history/view |
+| Filter > Other | Random Noise... | krita_filter_noise | - | search only | changed image |
+| Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | - | search only | changed image |
+| Filter > Blur | Blur... | krita_filter_blur | - | search only | changed image |
 | Filter > Adjust | Dodge... | krita_filter_dodge | - | search only | changed image |
 | Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | - | search only | changed layers/selection/history/view |
-| Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | - | search only | changed image |
 | Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | - | search only | changed layers/selection/history/view |
+| Filter > Artistic | Halftone... | krita_filter_halftone | - | search only | changed image |
+| Filter > Colors | Minimize Channel | krita_filter_minimize | - | search only | changed image |
+| Filter > Blur | Lens Blur... | krita_filter_lens blur | - | search only | changed image |
+| Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | - | search only | changed image |
+| Filter > Adjust | Color Balance... | krita_filter_colorbalance | - | search only | changed layers/selection/history/view |
+| Filter > Map | Round Corners... | krita_filter_roundcorners | - | search only | changed layers/selection/history/view |
+| Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | - | search only | changed image |
+| Filter > Artistic | Oilpaint... | krita_filter_oilpaint | - | search only | opened dialog |
+| Filter > Artistic | Posterize... | krita_filter_posterize | - | search only | changed image |
 | Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | - | search only | changed image |
-| Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | - | search only | changed image |
+| Filter > Enhance | Mean Removal | krita_filter_mean removal | - | search only | changed image |
+| Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | - | search only | changed image |
+| Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | - | search only | changed image |
+| Filter > Adjust | Levels... | krita_filter_levels | - | search only | changed layers/selection/history/view |
+| Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | - | search only | changed image |
+| Filter > Artistic | Index Colors... | krita_filter_indexcolors | - | search only | changed image |
+| Filter > Adjust | Threshold... | krita_filter_threshold | - | search only | changed image |
+| Filter > Other | Wave... | krita_filter_wave | - | search only | changed image |
 
 ## M2. Menu entries the page lacks, prioritised (works first, core menus first)
 
@@ -1450,58 +1447,58 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | add | View > Zoom, Rotate, and Mirror | Mirror View Around Cursor | mirror_canvas_around_cursor | changed layers/selection/history/view |
 | add | View > Zoom, Rotate, and Mirror | Mirror View Around Canvas | mirror_canvas_around_canvas | changed layers/selection/history/view |
 | add | View > Zoom, Rotate, and Mirror | Reset Display | reset_display | message |
-| add | Filter > Colors | Color Transfer... | krita_filter_colortransfer | changed image |
-| add | Filter > Other | Wave... | krita_filter_wave | changed image |
-| add | Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | changed image |
-| add | Filter > Other | Reset Transparent | krita_filter_resettransparent | changed layers/selection/history/view |
-| add | Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | changed image |
-| add | Filter > Artistic | Raindrops... | krita_filter_raindrops | changed image |
-| add | Filter > Artistic | Oilpaint... | krita_filter_oilpaint | opened dialog |
-| add | Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | changed image |
-| add | Filter > Adjust | Auto Contrast | krita_filter_autocontrast | changed image |
-| add | Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | changed image |
-| add | Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | changed image |
-| add | Filter > Artistic | Halftone... | krita_filter_halftone | changed image |
-| add | Filter > Artistic | Posterize... | krita_filter_posterize | changed image |
-| add | Filter > Colors | Minimize Channel | krita_filter_minimize | changed image |
-| add | Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | changed image |
-| add | Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | changed layers/selection/history/view |
-| add | Filter > Adjust | Levels... | krita_filter_levels | changed layers/selection/history/view |
-| add | Filter > Adjust | Invert | krita_filter_invert | changed image |
-| add | Filter > Adjust | Burn... | krita_filter_burn | changed image |
-| add | Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | changed image |
-| add | Filter > Map | Normalize | krita_filter_normalize | changed image |
-| add | Filter > Map | Palettize... | krita_filter_palettize | changed layers/selection/history/view |
-| add | Filter > Other | Random Noise... | krita_filter_noise | changed image |
-| add | Filter > Enhance | Mean Removal | krita_filter_mean removal | changed image |
-| add | Filter > Other | Random Pick... | krita_filter_randompick | changed image |
-| add | Filter > Adjust | Color Balance... | krita_filter_colorbalance | changed layers/selection/history/view |
 | add | Filter > Adjust | Desaturate... | krita_filter_desaturate | changed image |
-| add | Filter > Artistic | Index Colors... | krita_filter_indexcolors | changed image |
-| add | Filter > Colors | Maximize Channel | krita_filter_maximize | changed image |
-| add | Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | changed image |
-| add | Filter > Blur | Lens Blur... | krita_filter_lens blur | changed image |
-| add | Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | changed image |
-| add | Filter > Enhance | Sharpen | krita_filter_sharpen | changed image |
-| add | Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | changed image |
-| add | Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | changed image |
-| add | Filter > Blur | Blur... | krita_filter_blur | changed image |
-| add | Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | changed image |
-| add | Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | changed image |
-| add | Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | changed image |
-| add | Filter > Map | Gradient Map... | krita_filter_gradientmap | changed image |
-| add | Filter > Blur | Motion Blur... | krita_filter_motion blur | changed image |
+| add | Filter > Map | Palettize... | krita_filter_palettize | changed layers/selection/history/view |
 | add | Filter > Map | Small Tiles... | krita_filter_smalltiles | changed image |
-| add | Filter > Map | Round Corners... | krita_filter_roundcorners | changed layers/selection/history/view |
+| add | Filter > Edge Detection | Edge Detection... | krita_filter_edge detection | changed image |
+| add | Filter > Colors | Fast Color Overlay... | krita_filter_fastcoloroverlay | changed image |
+| add | Filter > Blur | Motion Blur... | krita_filter_motion blur | changed image |
+| add | Filter > Other | Reset Transparent | krita_filter_resettransparent | changed layers/selection/history/view |
+| add | Filter > Colors | Propagate Colors... | krita_filter_propagatecolors | changed image |
+| add | Filter > Other | Random Pick... | krita_filter_randompick | changed image |
+| add | Filter > Emboss | Emboss Horizontal Only | krita_filter_emboss horizontal only | changed image |
+| add | Filter > Emboss | Emboss with Variable Depth... | krita_filter_emboss | changed image |
+| add | Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | changed image |
+| add | Filter > Map | Normalize | krita_filter_normalize | changed image |
 | add | Filter > Artistic | Pixelize... | krita_filter_pixelize | changed image |
-| add | Filter > Adjust | Threshold... | krita_filter_threshold | changed image |
+| add | Filter > Adjust | Auto Contrast | krita_filter_autocontrast | changed image |
+| add | Filter > Colors | Color Transfer... | krita_filter_colortransfer | changed image |
+| add | Filter > Map | Phong Bumpmap... | krita_filter_phongbumpmap | changed image |
+| add | Filter > Adjust | Burn... | krita_filter_burn | changed image |
+| add | Filter > Adjust | Invert | krita_filter_invert | changed image |
+| add | Filter > Map | Gradient Map... | krita_filter_gradientmap | changed image |
+| add | Filter > Adjust | Cross-channel adjustment curves... | krita_filter_crosschannel | changed layers/selection/history/view |
+| add | Filter > Colors | Color to Alpha... | krita_filter_colortoalpha | changed image |
+| add | Filter > Artistic | Raindrops... | krita_filter_raindrops | changed image |
+| add | Filter > Colors | Maximize Channel | krita_filter_maximize | changed image |
+| add | Filter > Enhance | Sharpen | krita_filter_sharpen | changed image |
+| add | Filter > Enhance | Wavelet Noise Reducer... | krita_filter_waveletnoisereducer | changed image |
+| add | Filter > Emboss | Emboss in All Directions | krita_filter_emboss all directions | changed image |
 | add | Filter > Adjust | Slope, Offset, Power... | krita_filter_asc-cdl | changed layers/selection/history/view |
+| add | Filter > Other | Random Noise... | krita_filter_noise | changed image |
+| add | Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | changed image |
+| add | Filter > Blur | Blur... | krita_filter_blur | changed image |
 | add | Filter > Adjust | Dodge... | krita_filter_dodge | changed image |
 | add | Filter > Adjust | Color Adjustment curves... | krita_filter_perchannel | changed layers/selection/history/view |
-| add | Filter > Emboss | Emboss (Laplacian) | krita_filter_emboss laplascian | changed image |
 | add | Filter > Adjust | HSV Adjustment... | krita_filter_hsvadjustment | changed layers/selection/history/view |
+| add | Filter > Artistic | Halftone... | krita_filter_halftone | changed image |
+| add | Filter > Colors | Minimize Channel | krita_filter_minimize | changed image |
+| add | Filter > Blur | Lens Blur... | krita_filter_lens blur | changed image |
+| add | Filter > Enhance | Unsharp Mask... | krita_filter_unsharp | changed image |
+| add | Filter > Adjust | Color Balance... | krita_filter_colorbalance | changed layers/selection/history/view |
+| add | Filter > Map | Round Corners... | krita_filter_roundcorners | changed layers/selection/history/view |
+| add | Filter > Enhance | Gaussian Noise Reduction... | krita_filter_gaussiannoisereducer | changed image |
+| add | Filter > Artistic | Oilpaint... | krita_filter_oilpaint | opened dialog |
+| add | Filter > Artistic | Posterize... | krita_filter_posterize | changed image |
 | add | Filter > Edge Detection | Height to Normal Map... | krita_filter_height to normal | changed image |
-| add | Filter > Edge Detection | Gaussian High Pass... | krita_filter_gaussianhighpass | changed image |
+| add | Filter > Enhance | Mean Removal | krita_filter_mean removal | changed image |
+| add | Filter > Emboss | Emboss Vertical Only | krita_filter_emboss vertical only | changed image |
+| add | Filter > Blur | Gaussian Blur... | krita_filter_gaussian blur | changed image |
+| add | Filter > Adjust | Levels... | krita_filter_levels | changed layers/selection/history/view |
+| add | Filter > Emboss | Emboss Horizontal  Vertical | krita_filter_emboss horizontal and vertical | changed image |
+| add | Filter > Artistic | Index Colors... | krita_filter_indexcolors | changed image |
+| add | Filter > Adjust | Threshold... | krita_filter_threshold | changed image |
+| add | Filter > Other | Wave... | krita_filter_wave | changed image |
 | add | File | Save As… | file_save_as | opened dialog |
 | add | File | Sessions... | file_sessions | opened dialog |
 | add | File | Open existing Document as Untitled Document... | file_import_file | opened dialog |
@@ -1577,6 +1574,8 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | add after engine fix / check | Filter | Enhance | enhance_filters | no visible effect |
 | add after engine fix / check | Filter | Map | map_filters | no visible effect |
 | add after engine fix / check | Filter | Other | other_filters | no visible effect |
+| add after engine fix / check | Filter | Start G'MIC-Qt | QMic | ? |
+| add after engine fix / check | Filter | Re-apply the last G'MIC filter | QMicAgain | ? |
 | add after engine fix / check | Settings | Lock Toolbars | lock_toolbars | no visible effect |
 | add after engine fix / check | Settings | Show Dockers | view_toggledockers | no visible effect |
 | add after engine fix / check | Settings | Dockers | settings_dockers_menu | no visible effect |
@@ -1608,8 +1607,6 @@ Columns: `page menu` = the page's own menu offers it directly; `search` = only t
 | Filter | filter_gallery | filter_gallery | krita/krita/krita5.xmlgui | only in the xmlgui (dangling in Krita too) |
 | Filter | decor_filters | decor_filters | krita/krita/krita5.xmlgui | only in the xmlgui (dangling in Krita too) |
 | Filter | nonphotorealistic_filters | nonphotorealistic_filters | krita/krita/krita5.xmlgui | only in the xmlgui (dangling in Krita too) |
-| Filter | Start G'MIC-Qt | QMic | krita/krita/krita5.xmlgui | krita/krita/kritamenu.action, krita/plugins/extensions/qmic/QMic.cpp |
-| Filter | Re-apply the last G'MIC filter | QMicAgain | krita/krita/krita5.xmlgui | krita/krita/kritamenu.action, krita/plugins/extensions/qmic/QMic.cpp |
 | Settings | Change Interface Scale... | change_interface_scale | krita/krita/krita5.xmlgui | krita/libs/ui/KisMainWindow.cpp, krita/krita/kritamenu_android.action |
 | Settings | Get More Resources... | manage_supporter_bundles | krita/krita/krita5.xmlgui | krita/libs/ui/KisMainWindow.cpp, krita/krita/kritamenu_android.action |
 | Settings | Manage Supporter Benefits... | manage_donations | krita/krita/krita5.xmlgui | krita/libs/ui/KisMainWindow.cpp, krita/krita/kritamenu_android.action |

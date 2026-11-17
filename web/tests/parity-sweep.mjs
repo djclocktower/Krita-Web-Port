@@ -358,6 +358,8 @@ async function writeInventory() {
     const inv = await inPage(async () => ({
         actions: await __engine.kritaActions(), tools: await __engine.kritaTools(), dockers: await __engine.kritaDockers(), windows: await __engine.kritaWindows(),
     }), null, 60000);
+    const eng = path.join(ROOT, 'web/public/engine/kritaengine.wasm');
+    inv.engine = { file: 'web/public/engine/kritaengine.wasm', bytes: fs.statSync(eng).size, modified: fs.statSync(eng).mtime.toISOString(), sha1: createHash('sha1').update(fs.readFileSync(eng)).digest('hex'), swept: new Date().toISOString() };
     save('inventory.json', inv);
     console.log(`inventory: ${inv.actions.length} actions, ${inv.tools.length} tools, ${inv.dockers.length} dockers`);
 }

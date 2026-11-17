@@ -164,6 +164,7 @@ struct Failure { QString message; };
 static const QSet<QString> &brokenActions()
 {
     static const QSet<QString> names{
+        "add_new_fill_layer",                // its dialog opens, then the engine stops answering (the page has its own Add Fill Layer)
         "add_new_fast_color_overlay_mask",   // crashes the tab at once; no stack obtained
         "convert_to_filter_mask"};           // its dialog cannot be closed
     return names;

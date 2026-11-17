@@ -1,0 +1,4960 @@
+{
+ "actions": [
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "save_incremental_version",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "save_incremental_backup",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "tablet_debugger",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "create_template",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "create_copy",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "open_resources_directory",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotate_canvas_right",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotate_canvas_left",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "reset_canvas_rotation",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "wrap_around_mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "wrap_around_hv_axis",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "wrap_around_h_axis",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "wrap_around_v_axis",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "level_of_detail_mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "softProof",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "gamutCheck",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "showStatusBar",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_show_canvas_only",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "ruler_pixel_multiple2",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_ruler",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rulers_track_mouse",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "zoom_to_100pct",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_zoom_in",
+   "shortcut": "",
+   "text": "Zoom In"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_zoom_out",
+   "shortcut": "",
+   "text": "Zoom Out"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "zoom_to_fit",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "zoom_to_fit_width",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "zoom_to_fit_height",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "toggle_zoom_to_fit",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "reset_display",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_print_size",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "settings_active_author",
+   "shortcut": "",
+   "text": "Active Author Profile"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_pixel_grid",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "toggle_fg_bg",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "reset_fg_bg",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "toggle_brush_outline",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "filter_apply_again",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "filter_apply_reprompt",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "adjust_filters",
+   "shortcut": "",
+   "text": "Adjust"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_asc-cdl",
+   "shortcut": "",
+   "text": "Slope, Offset, Power..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_autocontrast",
+   "shortcut": "",
+   "text": "Auto Contrast"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "blur_filters",
+   "shortcut": "",
+   "text": "Blur"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_blur",
+   "shortcut": "",
+   "text": "Blur..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_burn",
+   "shortcut": "",
+   "text": "Burn..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_colorbalance",
+   "shortcut": "",
+   "text": "Color Balance..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "color_filters",
+   "shortcut": "",
+   "text": "Colors"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_colortoalpha",
+   "shortcut": "",
+   "text": "Color to Alpha..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_colortransfer",
+   "shortcut": "",
+   "text": "Color Transfer..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_crosschannel",
+   "shortcut": "",
+   "text": "Cross-channel adjustment curves..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_desaturate",
+   "shortcut": "",
+   "text": "Desaturate..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_dodge",
+   "shortcut": "",
+   "text": "Dodge..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "edge_filters",
+   "shortcut": "",
+   "text": "Edge Detection"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_edge detection",
+   "shortcut": "",
+   "text": "Edge Detection..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "emboss_filters",
+   "shortcut": "",
+   "text": "Emboss"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_emboss",
+   "shortcut": "",
+   "text": "Emboss with Variable Depth..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_emboss all directions",
+   "shortcut": "",
+   "text": "Emboss in All Directions"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_emboss horizontal and vertical",
+   "shortcut": "",
+   "text": "Emboss Horizontal  Vertical"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_emboss horizontal only",
+   "shortcut": "",
+   "text": "Emboss Horizontal Only"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_emboss laplascian",
+   "shortcut": "",
+   "text": "Emboss (Laplacian)"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_emboss vertical only",
+   "shortcut": "",
+   "text": "Emboss Vertical Only"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_fastcoloroverlay",
+   "shortcut": "",
+   "text": "Fast Color Overlay..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_gaussian blur",
+   "shortcut": "",
+   "text": "Gaussian Blur..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_gaussianhighpass",
+   "shortcut": "",
+   "text": "Gaussian High Pass..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "enhance_filters",
+   "shortcut": "",
+   "text": "Enhance"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_gaussiannoisereducer",
+   "shortcut": "",
+   "text": "Gaussian Noise Reduction..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "map_filters",
+   "shortcut": "",
+   "text": "Map"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_gradientmap",
+   "shortcut": "",
+   "text": "Gradient Map..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "artistic_filters",
+   "shortcut": "",
+   "text": "Artistic"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_halftone",
+   "shortcut": "",
+   "text": "Halftone..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_height to normal",
+   "shortcut": "",
+   "text": "Height to Normal Map..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_hsvadjustment",
+   "shortcut": "",
+   "text": "HSV Adjustment..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_indexcolors",
+   "shortcut": "",
+   "text": "Index Colors..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_invert",
+   "shortcut": "",
+   "text": "Invert"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_lens blur",
+   "shortcut": "",
+   "text": "Lens Blur..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_levels",
+   "shortcut": "",
+   "text": "Levels..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_maximize",
+   "shortcut": "",
+   "text": "Maximize Channel"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_mean removal",
+   "shortcut": "",
+   "text": "Mean Removal"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_minimize",
+   "shortcut": "",
+   "text": "Minimize Channel"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_motion blur",
+   "shortcut": "",
+   "text": "Motion Blur..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "other_filters",
+   "shortcut": "",
+   "text": "Other"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_noise",
+   "shortcut": "",
+   "text": "Random Noise..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_normalize",
+   "shortcut": "",
+   "text": "Normalize"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_oilpaint",
+   "shortcut": "",
+   "text": "Oilpaint..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_palettize",
+   "shortcut": "",
+   "text": "Palettize..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_perchannel",
+   "shortcut": "",
+   "text": "Color Adjustment curves..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_phongbumpmap",
+   "shortcut": "",
+   "text": "Phong Bumpmap..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_pixelize",
+   "shortcut": "",
+   "text": "Pixelize..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_posterize",
+   "shortcut": "",
+   "text": "Posterize..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_propagatecolors",
+   "shortcut": "",
+   "text": "Propagate Colors..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_raindrops",
+   "shortcut": "",
+   "text": "Raindrops..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_randompick",
+   "shortcut": "",
+   "text": "Random Pick..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_resettransparent",
+   "shortcut": "",
+   "text": "Reset Transparent"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_roundcorners",
+   "shortcut": "",
+   "text": "Round Corners..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_sharpen",
+   "shortcut": "",
+   "text": "Sharpen"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_smalltiles",
+   "shortcut": "",
+   "text": "Small Tiles..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_threshold",
+   "shortcut": "",
+   "text": "Threshold..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_unsharp",
+   "shortcut": "",
+   "text": "Unsharp Mask..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_wave",
+   "shortcut": "",
+   "text": "Wave..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "krita_filter_waveletnoisereducer",
+   "shortcut": "",
+   "text": "Wavelet Noise Reducer..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "edit_cut",
+   "shortcut": "",
+   "text": "Cut"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "edit_copy",
+   "shortcut": "",
+   "text": "Copy"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "edit_paste",
+   "shortcut": "",
+   "text": "Paste"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "copy_sharp",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "cut_sharp",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "paste_new",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "paste_at",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "paste_into",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "paste_as_reference",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "paste_shape_style",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "copy_merged",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "select_all",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "deselect",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "clear",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "reselect",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "invert_selection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "copy_selection_to_new_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "cut_selection_to_new_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "fill_selection_foreground_color",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "fill_selection_background_color",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "fill_selection_pattern",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "fill_selection_foreground_color_opacity",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "fill_selection_background_color_opacity",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "fill_selection_pattern_opacity",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "stroke_shapes",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "toggle_display_selection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "resizeimagetoselection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "edit_selection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_to_vector_selection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_to_raster_selection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_shapes_to_vector_selection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_selection_to_shape",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "enable_sap",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "configure_sap",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "toggle-selection-overlay-mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "stroke_selection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_show_guides",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_lock_guides",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_to_guides",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "show_snap_options_popup",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_orthogonal",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_node",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_extension",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_intersection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_bounding_box",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_image_bounds",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_image_center",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_to_pixel",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "flatten_image",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "merge_layer",
+   "shortcut": "",
+   "text": "Merge with Layer Below"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "flatten_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "save_groups_as_images",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_group_to_animated",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "resizeimagetolayer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "trim_to_image",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "purge_unused_image_data",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "layer_style",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "copy_layer_style",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "paste_layer_style",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorNodeX",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorNodeY",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorAllNodesX",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorAllNodesY",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "activateNextLayer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "activateNextSiblingLayer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "activatePreviousLayer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "activatePreviousSiblingLayer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "switchToPreviouslyActiveNode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "save_node_as_image",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "save_vector_node_to_svg",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "duplicatelayer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "copy_layer_clipboard",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "cut_layer_clipboard",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "paste_layer_from_clipboard",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "create_quick_group",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "create_quick_clipping_group",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "quick_ungroup",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "select_all_layers",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "select_visible_layers",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "select_locked_layers",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "select_invisible_layers",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "select_unlocked_layers",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "new_from_visible",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "create_reference_image_from_active_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "create_reference_image_from_visible_canvas",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": true,
+   "checked": true,
+   "enabled": true,
+   "name": "pin_to_timeline",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_paint_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_group_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_clone_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_shape_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_adjustment_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_fill_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_file_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_transparency_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_filter_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_fast_color_overlay_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_colorize_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_transform_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "add_new_selection_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "convert_to_paint_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_to_selection_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_to_filter_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_to_transparency_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_to_animated",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "convert_to_file_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "isolate_active_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "isolate_active_group",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "toggle_layer_visibility",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "toggle_layer_lock",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "toggle_layer_inherit_alpha",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "toggle_layer_alpha_lock",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "split_alpha_into_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "split_alpha_write",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "split_alpha_save_merged",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "import_layer_from_file",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "image_properties",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "import_layer_as_paint_layer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "import_layer_as_transparency_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "import_layer_as_filter_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "import_layer_as_selection_mask",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "image_color",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_grid",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_snap_to_grid",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_toggle_painting_assistants",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_toggle_assistant_previews",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_toggle_reference_images",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": true,
+   "checked": false,
+   "enabled": true,
+   "name": "force_palette_colors",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "make_brush_color_lighter",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "make_brush_color_darker",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "make_brush_color_saturated",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "make_brush_color_desaturated",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "shift_brush_color_clockwise",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "shift_brush_color_counter_clockwise",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "make_brush_color_redder",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "make_brush_color_greener",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "make_brush_color_bluer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "make_brush_color_yellower",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "increase_opacity",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "decrease_opacity",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "increase_flow",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "decrease_flow",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "increase_fade",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "decrease_fade",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "increase_scatter",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "decrease_scatter",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": true,
+   "checked": false,
+   "enabled": true,
+   "name": "mirror_canvas",
+   "shortcut": "",
+   "text": "Mirror View"
+  },
+  {
+   "checkable": true,
+   "checked": false,
+   "enabled": true,
+   "name": "mirror_canvas_around_cursor",
+   "shortcut": "",
+   "text": "Mirror View Around Cursor"
+  },
+  {
+   "checkable": true,
+   "checked": false,
+   "enabled": true,
+   "name": "mirror_canvas_around_canvas",
+   "shortcut": "",
+   "text": "Mirror View Around Canvas"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "patterns",
+   "shortcut": "",
+   "text": "Patterns"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "gradients",
+   "shortcut": "",
+   "text": "Gradients"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "dual",
+   "shortcut": "",
+   "text": "Choose foreground and background colors"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "erase_action",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "eraser_preset_action",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "eraser_select_preset_action",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "brush_select_preset_action",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "reload_preset_action",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "preserve_alpha",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorX-hideDecorations",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorX-lock",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorX-moveToCenter",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorY-hideDecorations",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorY-lock",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorY-moveToCenter",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "hmirror_action",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "vmirror_action",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Next Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Previous Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Normal Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Dissolve Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Behind Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Clear Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Darken Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Multiply Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Color Burn Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Linear Burn Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Lighten Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Screen Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Color Dodge Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Linear Dodge Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Overlay Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Hard Overlay Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Soft Light Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Hard Light Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Vivid Light Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Linear Light Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Pin Light Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Hard Mix Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Difference Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Exclusion Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Hue Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Saturation Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Color Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "Select Luminosity Blending Mode",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "composite_actions",
+   "shortcut": "",
+   "text": "Brush composite"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "brushslider1",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "brushslider2",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "brushslider3",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "brushslider4",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "brushslider5",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "next_favorite_preset",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "previous_favorite_preset",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "previous_preset",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "show_brush_presets",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirror_actions",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "workspaces",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "show_brush_editor",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "disable_pressure",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "paintops",
+   "shortcut": "",
+   "text": "Painter's Tools"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "chooseForegroundColor",
+   "shortcut": "",
+   "text": "Open Foreground color selector"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "chooseBackgroundColor",
+   "shortcut": "",
+   "text": "Open Background color selector"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "docker_box",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "dockerBox",
+   "shortcut": "",
+   "text": "Docker Box"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "imagesize",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "canvassize",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "layersize",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "scaleAllLayers",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "selectionscale",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "clones_array",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "colorrange",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "selectopaque",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "selectopaque_add",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "selectopaque_subtract",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "selectopaque_intersect",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "imagecolorspaceconversion",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "layercolorspaceconversion",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "unifylayerscolorspace",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "QMic",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "QMicAgain",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "imagesplit",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "layersplit",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "growselection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "shrinkselection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "borderselection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "featherselection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "smoothselection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "offsetimage",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "offsetlayer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "LayerGroupSwitcher/previous",
+   "shortcut": "",
+   "text": "Move into previous group"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "LayerGroupSwitcher/next",
+   "shortcut": "",
+   "text": "Move into next group"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "manage_bundles",
+   "shortcut": "",
+   "text": "Manage Resource Libraries..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "manage_resources",
+   "shortcut": "",
+   "text": "Manage Resources..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateimage",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateImageCW90",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateImage180",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateImageCCW90",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorImageHorizontal",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "mirrorImageVertical",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotatelayer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateLayer180",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateLayerCW90",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateLayerCCW90",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateAllLayers",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateAllLayersCW90",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateAllLayersCCW90",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotateAllLayers180",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "separate",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "shearimage",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "shearlayer",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "shearAllLayers",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "waveletdecompose",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "EditLayerMetaData",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolRectangle",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "increase_brush_size",
+   "shortcut": "",
+   "text": "Increase Brush Size"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "decrease_brush_size",
+   "shortcut": "",
+   "text": "Decrease Brush Size"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotate_brush_tip_clockwise",
+   "shortcut": "",
+   "text": "Rotate brush tip clockwise"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotate_brush_tip_clockwise_precise",
+   "shortcut": "",
+   "text": "Rotate brush tip clockwise (precise)"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotate_brush_tip_counter_clockwise",
+   "shortcut": "",
+   "text": "Rotate brush tip counter-clockwise"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "rotate_brush_tip_counter_clockwise_precise",
+   "shortcut": "",
+   "text": "Rotate brush tip counter-clockwise (precise)"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolSmartPatch",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "PathTool",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-corner",
+   "shortcut": "",
+   "text": "Corner point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-smooth",
+   "shortcut": "",
+   "text": "Smooth point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-symmetric",
+   "shortcut": "",
+   "text": "Symmetric Point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-curve",
+   "shortcut": "",
+   "text": "Make curve point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-line",
+   "shortcut": "",
+   "text": "Make line point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathsegment-line",
+   "shortcut": "F",
+   "text": "Segment to Line"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathsegment-curve",
+   "shortcut": "Shift+C",
+   "text": "Segment to Curve"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-insert",
+   "shortcut": "Ins",
+   "text": "Insert point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-remove",
+   "shortcut": "Backspace",
+   "text": "Remove point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "path-break-point",
+   "shortcut": "",
+   "text": "Break at point"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "path-break-segment",
+   "shortcut": "",
+   "text": "Break at segment"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "path-break-selection",
+   "shortcut": "Ctrl+B",
+   "text": "Break at selection"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-join",
+   "shortcut": "J",
+   "text": "Join with segment"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "pathpoint-merge",
+   "shortcut": "",
+   "text": "Merge points"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "convert-to-path",
+   "shortcut": "P",
+   "text": "To Path"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolPolyline",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "undo_polygon_selection",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "selection_tool_mode_add",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolDyna",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectElliptical",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "selection_tool_mode_replace",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "selection_tool_mode_subtract",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "selection_tool_mode_intersect",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaSelected/KisToolColorSampler",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolEncloseAndFill",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolPencil",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolPolygon",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectPolygonal",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectSimilar",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "ToolReferenceImages",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_order_front",
+   "shortcut": "Ctrl+Shift+]",
+   "text": "Bring to Front"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_order_raise",
+   "shortcut": "Ctrl+Alt+]",
+   "text": "Raise"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_order_lower",
+   "shortcut": "Ctrl+Alt+[",
+   "text": "Lower"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_order_back",
+   "shortcut": "Ctrl+Shift+[",
+   "text": "Send to Back"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_transform_rotate_90_cw",
+   "shortcut": "",
+   "text": "Rotate 90° CW"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_transform_rotate_90_ccw",
+   "shortcut": "",
+   "text": "Rotate 90° CCW"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_transform_rotate_180",
+   "shortcut": "",
+   "text": "Rotate 180°"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_transform_mirror_horizontally",
+   "shortcut": "",
+   "text": "Mirror Horizontally"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_transform_mirror_vertically",
+   "shortcut": "",
+   "text": "Mirror Vertically"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_transform_reset",
+   "shortcut": "",
+   "text": "Reset Transformations"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolPath",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectMagnetic",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaFill/KisToolFill",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaTransform/KisToolMove",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "movetool-move-up",
+   "shortcut": "Up",
+   "text": "Move up"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "movetool-move-down",
+   "shortcut": "Down",
+   "text": "Move down"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "movetool-move-left",
+   "shortcut": "Left",
+   "text": "Move left"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "movetool-move-right",
+   "shortcut": "Right",
+   "text": "Move right"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "movetool-move-up-more",
+   "shortcut": "Shift+Up",
+   "text": "Move up more"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "movetool-move-down-more",
+   "shortcut": "Shift+Down",
+   "text": "Move down more"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "movetool-move-left-more",
+   "shortcut": "Shift+Left",
+   "text": "Move left more"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "movetool-move-right-more",
+   "shortcut": "Shift+Right",
+   "text": "Move right more"
+  },
+  {
+   "checkable": true,
+   "checked": false,
+   "enabled": false,
+   "name": "movetool-show-coordinates",
+   "shortcut": "Ctrl+Alt+Shift+C",
+   "text": "Show Coordinates"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolEllipse",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolMultiBrush",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "set_no_brush_smoothing",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "set_simple_brush_smoothing",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "set_weighted_brush_smoothing",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "set_stabilizer_brush_smoothing",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "set_pixel_perfect_smoothing",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "toggle_assistant",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolKnife",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectContiguous",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "SvgTextTool",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_align_center",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_align_justified",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_align_left",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_align_right",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_decrease_font_size",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_font_kerning",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_format_italic",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_format_strike_through",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_format_subscript",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_format_superscript",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_format_underline",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_increase_font_size",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_weight_black",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_weight_bold",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_weight_demi",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_weight_light",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_weight_normal",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_insert_special_character",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_paste_rich_text",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_paste_plain_text",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "text_type_preformatted",
+   "shortcut": "",
+   "text": "Convert Text To Preformatted"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "text_type_pre_positioned",
+   "shortcut": "",
+   "text": "Convert Text To Pre-positioned"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "text_type_inline_wrap",
+   "shortcut": "",
+   "text": "Convert Text To Inline Wrapped"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_type_setting_move_selection_start_down_1_px",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_type_setting_move_selection_start_up_1_px",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_type_setting_move_selection_start_left_1_px",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_type_setting_move_selection_start_right_1_px",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_remove_transforms_from_range",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "svg_clear_formatting",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "PanTool",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolLine",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisAssistantTool",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "ZoomTool",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaFill/KisToolGradient",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectRectangular",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectOutline",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "InteractionTool",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_align_horizontal_left",
+   "shortcut": "",
+   "text": "Align Left"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_align_horizontal_center",
+   "shortcut": "",
+   "text": "Horizontally Center"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_align_horizontal_right",
+   "shortcut": "",
+   "text": "Align Right"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_align_vertical_top",
+   "shortcut": "",
+   "text": "Align Top"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_align_vertical_center",
+   "shortcut": "",
+   "text": "Vertically Center"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_align_vertical_bottom",
+   "shortcut": "",
+   "text": "Align Bottom"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_horizontal_left",
+   "shortcut": "",
+   "text": "Distribute Left"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_horizontal_center",
+   "shortcut": "",
+   "text": "Distribute Centers Horizontally"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_horizontal_right",
+   "shortcut": "",
+   "text": "Distribute Right"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_horizontal_gaps",
+   "shortcut": "",
+   "text": "Distribute Horizontal Gap"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_vertical_top",
+   "shortcut": "",
+   "text": "Distribute Top"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_vertical_center",
+   "shortcut": "",
+   "text": "Distribute Centers Vertically"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_vertical_bottom",
+   "shortcut": "",
+   "text": "Distribute Bottom"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_distribute_vertical_gaps",
+   "shortcut": "",
+   "text": "Distribute Vertical Gap"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_group",
+   "shortcut": "",
+   "text": "Group"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_ungroup",
+   "shortcut": "",
+   "text": "Ungroup"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_unite",
+   "shortcut": "",
+   "text": "Unite"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_intersect",
+   "shortcut": "",
+   "text": "Intersect"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_subtract",
+   "shortcut": "",
+   "text": "Subtract"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "object_split",
+   "shortcut": "",
+   "text": "Split"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "add_shape_to_flow_area",
+   "shortcut": "",
+   "text": "Flow Text in Shape"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "subtract_shape_from_flow_area",
+   "shortcut": "",
+   "text": "Subtract Shape from Text Chain"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "put_text_on_path",
+   "shortcut": "",
+   "text": "Put Text On Path"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "remove_shapes_from_text_flow",
+   "shortcut": "",
+   "text": "Remove Shapes from Text Chain"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_type_toggle",
+   "shortcut": "",
+   "text": "Toggle Flow Shape Type"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_order_back",
+   "shortcut": "",
+   "text": "Set Flow Shape as Last"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_order_earlier",
+   "shortcut": "",
+   "text": "Move Shape Earlier In Chain."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_order_later",
+   "shortcut": "",
+   "text": "Move Shape Later In Chain."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "flow_shape_order_front",
+   "shortcut": "",
+   "text": "Set Shape As First In Chain"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolSelectPath",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransform",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformFree",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformPerspective",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformWarp",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformCage",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformLiquify",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolTransformMesh",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolLazyBrush",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolBrush",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KisToolCrop",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KritaShape/KisToolMeasure",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "KarbonCalligraphyTool",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "calligraphy_increase_width",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "calligraphy_decrease_width",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "calligraphy_increase_angle",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "calligraphy_decrease_angle",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_new",
+   "shortcut": "",
+   "text": "New"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_open",
+   "shortcut": "",
+   "text": "Open…"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_quit",
+   "shortcut": "",
+   "text": "Quit"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "options_configure_toolbars",
+   "shortcut": "",
+   "text": "Configure Toolbars…"
+  },
+  {
+   "checkable": true,
+   "checked": false,
+   "enabled": true,
+   "name": "fullscreen",
+   "shortcut": "",
+   "text": "Full Screen Mode"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "file_open_recent",
+   "shortcut": "",
+   "text": "Open Recent"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_save",
+   "shortcut": "",
+   "text": "Save"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_save_as",
+   "shortcut": "",
+   "text": "Save As…"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "edit_undo",
+   "shortcut": "",
+   "text": "Undo "
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "edit_redo",
+   "shortcut": "",
+   "text": "Redo "
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_import_animation",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_import_video_animation",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "render_animation",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": false,
+   "name": "render_animation_again",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_close_all",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_import_file",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_export_file",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_export_advanced",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_documentinfo",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "theme_menu",
+   "shortcut": "",
+   "text": "Themes"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_toggledockers",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "reset_configurations",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_detached_canvas",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_toggledockertitlebars",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "settings_dockers_menu",
+   "shortcut": "",
+   "text": "Dockers"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "window",
+   "shortcut": "",
+   "text": "Window"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "style_menu",
+   "shortcut": "",
+   "text": "Styles"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "windows_cascade",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "windows_tile",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "windows_next",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "windows_previous",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "view_newwindow",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_close",
+   "shortcut": "",
+   "text": "Close"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "file_sessions",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "command_bar_open",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "options_configure",
+   "shortcut": "",
+   "text": "Configure Krita..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "expanding_spacer_0",
+   "shortcut": "",
+   "text": "Expanding Spacer"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "expanding_spacer_1",
+   "shortcut": "",
+   "text": "Expanding Spacer"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "lock_toolbars",
+   "shortcut": "",
+   "text": ""
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "help_contents",
+   "shortcut": "",
+   "text": "Krita Handbook"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "switch_application_language",
+   "shortcut": "",
+   "text": "Switch Application Language..."
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "help_about_app",
+   "shortcut": "",
+   "text": "About Krita"
+  },
+  {
+   "checkable": false,
+   "checked": false,
+   "enabled": true,
+   "name": "help_about_kde",
+   "shortcut": "",
+   "text": "About KDE"
+  },
+  {
+   "checkable": true,
+   "checked": true,
+   "enabled": true,
+   "name": "mainToolBar",
+   "shortcut": "",
+   "text": "Hide File Toolbar"
+  },
+  {
+   "checkable": true,
+   "checked": true,
+   "enabled": true,
+   "name": "editToolBar",
+   "shortcut": "",
+   "text": "Hide Edit Toolbar"
+  },
+  {
+   "checkable": true,
+   "checked": true,
+   "enabled": true,
+   "name": "BrushesAndStuff",
+   "shortcut": "",
+   "text": "Hide Brushes and Stuff Toolbar"
+  },
+  {
+   "checkable": true,
+   "checked": true,
+   "enabled": true,
+   "name": "customToolBar1",
+   "shortcut": "",
+   "text": "Hide Custom toolbar 1 Toolbar"
+  },
+  {
+   "checkable": true,
+   "checked": true,
+   "enabled": true,
+   "name": "customToolBar2",
+   "shortcut": "",
+   "text": "Hide Custom toolbar 2 Toolbar"
+  }
+ ],
+ "tools": [
+  {
+   "active": false,
+   "id": "KritaShape/KisToolRectangle",
+   "name": "Rectangle Tool",
+   "priority": 2,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolSmartPatch",
+   "name": "Smart Patch Tool",
+   "priority": 4,
+   "section": "3 Krita/Fill",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "PathTool",
+   "name": "Edit Shapes Tool",
+   "priority": 2,
+   "section": "main",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolPolyline",
+   "name": "Polyline Tool: Shift-mouseclick ends the polyline.",
+   "priority": 5,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolDyna",
+   "name": "Dynamic Brush Tool",
+   "priority": 10,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectElliptical",
+   "name": "Elliptical Selection Tool",
+   "priority": 1,
+   "section": "5 Krita/Select",
+   "shortcut": "J"
+  },
+  {
+   "active": false,
+   "id": "KritaSelected/KisToolColorSampler",
+   "name": "Color Sampler Tool",
+   "priority": 2,
+   "section": "3 Krita/Fill",
+   "shortcut": "P"
+  },
+  {
+   "active": false,
+   "id": "KisToolEncloseAndFill",
+   "name": "Enclose and Fill Tool",
+   "priority": 15,
+   "section": "3 Krita/Fill",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolPencil",
+   "name": "Freehand Path Tool",
+   "priority": 9,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolPolygon",
+   "name": "Polygon Tool: Shift-mouseclick ends the polygon.",
+   "priority": 4,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectPolygonal",
+   "name": "Polygonal Selection Tool",
+   "priority": 2,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectSimilar",
+   "name": "Similar Color Selection Tool",
+   "priority": 5,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "ToolReferenceImages",
+   "name": "Reference Images Tool",
+   "priority": 2,
+   "section": "4 Krita/View",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolPath",
+   "name": "Bezier Curve Tool: Shift-mouseclick ends the curve.",
+   "priority": 7,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectMagnetic",
+   "name": "Magnetic Selection Tool",
+   "priority": 8,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaFill/KisToolFill",
+   "name": "Fill Tool",
+   "priority": 14,
+   "section": "3 Krita/Fill",
+   "shortcut": "F"
+  },
+  {
+   "active": false,
+   "id": "KritaTransform/KisToolMove",
+   "name": "Move Tool",
+   "priority": 3,
+   "section": "2 Krita/Transform",
+   "shortcut": "T"
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolEllipse",
+   "name": "Ellipse Tool",
+   "priority": 3,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolMultiBrush",
+   "name": "Multibrush Tool",
+   "priority": 11,
+   "section": "0 Krita/Shape",
+   "shortcut": "Q"
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolKnife",
+   "name": "Comic Panel Editing Tool",
+   "priority": 7,
+   "section": "main",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectContiguous",
+   "name": "Contiguous Selection Tool",
+   "priority": 4,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "SvgTextTool",
+   "name": "SVG Text Tool",
+   "priority": 1,
+   "section": "main",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "PanTool",
+   "name": "Pan Tool",
+   "priority": 2,
+   "section": "navigation",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolLine",
+   "name": "Line Tool",
+   "priority": 1,
+   "section": "0 Krita/Shape",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisAssistantTool",
+   "name": "Assistant Tool",
+   "priority": 0,
+   "section": "4 Krita/View",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "ZoomTool",
+   "name": "Zoom",
+   "priority": 0,
+   "section": "navigation",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KritaFill/KisToolGradient",
+   "name": "Gradient Tool",
+   "priority": 1,
+   "section": "3 Krita/Fill",
+   "shortcut": "G"
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectRectangular",
+   "name": "Rectangular Selection Tool",
+   "priority": 0,
+   "section": "5 Krita/Select",
+   "shortcut": "Ctrl+R"
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectOutline",
+   "name": "Freehand Selection Tool",
+   "priority": 3,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "InteractionTool",
+   "name": "Select Shapes Tool",
+   "priority": 0,
+   "section": "main",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolSelectPath",
+   "name": "Bezier Curve Selection Tool",
+   "priority": 6,
+   "section": "5 Krita/Select",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KisToolTransform",
+   "name": "Transform a layer or a selection",
+   "priority": 2,
+   "section": "2 Krita/Transform",
+   "shortcut": "Ctrl+T"
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolLazyBrush",
+   "name": "Colorize Mask Editing Tool",
+   "priority": 3,
+   "section": "3 Krita/Fill",
+   "shortcut": ""
+  },
+  {
+   "active": true,
+   "id": "KritaShape/KisToolBrush",
+   "name": "Freehand Brush Tool",
+   "priority": 0,
+   "section": "0 Krita/Shape",
+   "shortcut": "B"
+  },
+  {
+   "active": false,
+   "id": "KisToolCrop",
+   "name": "Crop Tool",
+   "priority": 11,
+   "section": "2 Krita/Transform",
+   "shortcut": "C"
+  },
+  {
+   "active": false,
+   "id": "KritaShape/KisToolMeasure",
+   "name": "Measure Tool",
+   "priority": 1,
+   "section": "4 Krita/View",
+   "shortcut": ""
+  },
+  {
+   "active": false,
+   "id": "KarbonCalligraphyTool",
+   "name": "Calligraphy",
+   "priority": 6,
+   "section": "main",
+   "shortcut": ""
+  }
+ ],
+ "dockers": [
+  {
+   "id": "LogDocker",
+   "title": "Log Viewer",
+   "visible": false
+  },
+  {
+   "id": "AnimationCurvesDocker",
+   "title": "Animation Curves",
+   "visible": false
+  },
+  {
+   "id": "ArrangeDocker",
+   "title": "Arrange",
+   "visible": false
+  },
+  {
+   "id": "ArtisticColorSelector",
+   "title": "Artistic Color Selector",
+   "visible": false
+  },
+  {
+   "id": "BrushHudDocker",
+   "title": "On-Canvas Brush Editor",
+   "visible": false
+  },
+  {
+   "id": "ChannelDocker",
+   "title": "Channels",
+   "visible": false
+  },
+  {
+   "id": "ColorSelectorNg",
+   "title": "Advanced Color Selector",
+   "visible": false
+  },
+  {
+   "id": "CompositionDocker",
+   "title": "Compositions",
+   "visible": false
+  },
+  {
+   "id": "DigitalMixer",
+   "title": "Digital Colors Mixer",
+   "visible": false
+  },
+  {
+   "id": "GamutMask",
+   "title": "Gamut Masks",
+   "visible": false
+  },
+  {
+   "id": "GridDocker",
+   "title": "Grid and Guides",
+   "visible": false
+  },
+  {
+   "id": "HistogramDocker",
+   "title": "Histogram",
+   "visible": false
+  },
+  {
+   "id": "History",
+   "title": "Undo History",
+   "visible": false
+  },
+  {
+   "id": "KisLayerBox",
+   "title": "Layers",
+   "visible": false
+  },
+  {
+   "id": "OnionSkinsDocker",
+   "title": "Onion Skins",
+   "visible": false
+  },
+  {
+   "id": "OverviewDocker",
+   "title": "Overview",
+   "visible": false
+  },
+  {
+   "id": "PaletteDocker",
+   "title": "Palette",
+   "visible": false
+  },
+  {
+   "id": "PatternDocker",
+   "title": "Patterns",
+   "visible": false
+  },
+  {
+   "id": "PresetDocker",
+   "title": "Brush Presets",
+   "visible": false
+  },
+  {
+   "id": "PresetHistory",
+   "title": "Brush Preset History",
+   "visible": false
+  },
+  {
+   "id": "Snapshot",
+   "title": "Snapshot Docker",
+   "visible": false
+  },
+  {
+   "id": "SpecificColorSelector",
+   "title": "Specific Color Selector",
+   "visible": false
+  },
+  {
+   "id": "StoryboardDocker",
+   "title": "Storyboard",
+   "visible": false
+  },
+  {
+   "id": "SvgSymbolCollectionDocker",
+   "title": "Symbol Libraries",
+   "visible": false
+  },
+  {
+   "id": "TasksetDocker",
+   "title": "Task Sets",
+   "visible": false
+  },
+  {
+   "id": "TextProperties",
+   "title": "Text Properties",
+   "visible": false
+  },
+  {
+   "id": "TimelineDocker",
+   "title": "Animation Timeline",
+   "visible": false
+  },
+  {
+   "id": "TouchDocker",
+   "title": "Touch Docker",
+   "visible": false
+  }
+ ],
+ "windows": [
+  {
+   "height": 162,
+   "id": 1,
+   "kind": "toolOptions",
+   "modal": false,
+   "title": "Tool Options",
+   "width": 227,
+   "x": 1524,
+   "y": 60
+  }
+ ]
+}
