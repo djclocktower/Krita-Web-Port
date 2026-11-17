@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <title>Krita Web</title>
+  <!-- Start the engine downloads while the page's own scripts load (they ask for the same files later). -->
+  <link rel="preload" href="engine/kritaengine.js" as="script">
+  <link rel="preload" href="engine/kritaengine.wasm" as="fetch" crossorigin>
+  <link rel="preload" href="engine/kritaengine.data" as="fetch" crossorigin>
+  <link rel="preload" href="engine/resource-cache/manifest.json" as="fetch" crossorigin>
+  <link rel="preload" href="engine/resource-cache/resourcecache.sqlite" as="fetch" crossorigin>
   <style>
     body { margin: 0; background: #2b2b2b; }
     /* Shown until the engine has started (removed in main.tsx); plain CSS so it appears before any script loads. */
