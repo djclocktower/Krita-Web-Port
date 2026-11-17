@@ -5455,5 +5455,116 @@
   "outcome": "crash",
   "text": "",
   "when": "2026-11-17T03:14:05.509Z"
+ },
+ "add_new_transparency_mask": {
+  "fixture": "mask",
+  "ms": 485,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": true,
+   "layers": true,
+   "selection": true,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 1,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed image",
+  "text": "",
+  "when": "2026-11-17T03:14:51.304Z"
+ },
+ "add_new_filter_mask": {
+  "fixture": "mask",
+  "ms": 206,
+  "windows": [
+   {
+    "id": 2,
+    "title": "New Filter Mask – Krita",
+    "kind": "dialog",
+    "width": 722,
+    "height": 527,
+    "modal": true,
+    "picture": "-1156236044:380494:722x527",
+    "file": "actions/add_new_filter_mask__New_Filter_Mask_Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 2,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:14:57.781Z"
+ },
+ "add_new_fast_color_overlay_mask": {
+  "fixture": "mask",
+  "ms": 9019,
+  "pending": true,
+  "alive": false,
+  "state": "pending",
+  "needReload": true,
+  "hang": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "pageErrors": [
+   "ErrorEvent",
+   "null function"
+  ],
+  "console": [
+   "SAFE ASSERT (krita): \"shape\" in file /home/user/Krita-Web-Port/krita/libs/ui/kis_node_manager.cpp, line 166",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "krita.lib.flake: KoShapeManager::paint  Painting with a painter that has no clipping will lead to too much being painted!",
+   "ENGINE STACK RuntimeError: null function\n    at http://localhost:5193/engine/kritaengine.wasm:wasm-function[110637]:0x4022d48\n    at invoke_viiiii (http://localhost:5193/engine/kritaengine.js:8:344445)\n    at http://localhost:5193/engine/kr",
+   "worker sent an error! http://localhost:5193/engine/kritaengine.worker.js:1: Uncaught RuntimeError: null function"
+  ],
+  "crash": true,
+  "note": " console shows abort",
+  "outcome": "crash",
+  "text": "",
+  "when": "2026-11-17T03:15:19.504Z"
  }
 }

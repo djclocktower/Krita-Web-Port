@@ -63,11 +63,8 @@ export async function serveKrita(request, env) {
     headers.set('Accept-Ranges', 'bytes');
     headers.set('Vary', 'Accept-Encoding');
 
-    // Only brotli is stored for compressed objects; every browser that can run the engine accepts it.
-    const encoding = headers.get('Content-Encoding');
-    if (encoding === 'br' && !/\bbr\b/.test(request.headers.get('Accept-Encoding') ?? '')) {
-        return reply('This file is Brotli-compressed; use a browser or add "Accept-Encoding: br".', { status: 406 });
-    }
+    // Compressed objects are stored as brotli (Content-Encoding: br above). No Accept-Encoding check here: Cloudflare's edge
+    // normalises that header for Workers and itself decodes br for the rare visitor that does not accept it.
 
     if (request.method === 'HEAD') {
         headers.set('Content-Length', String(object.size));
