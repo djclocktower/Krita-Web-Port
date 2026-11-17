@@ -56,9 +56,9 @@ await step('tool options', async () => {
     const r = await E(async () => {
         const panel = [...W.windows.values()].find(w => w.kind === 'toolOptions');
         if (!panel) return { panel: null, all: [...W.windows.values()] };
-        await __engine.setKritaTool('KritaShape/KisToolBrush'); await sleep(600);
+        await __engine.setKritaTool('KritaShape/KisToolBrush'); await sleep(1500);
         const a = { ...W.paints.get(panel.id) };
-        await __engine.setKritaTool('KisToolSelectRectangular'); await sleep(600);
+        await __engine.setKritaTool('KisToolSelectRectangular'); await sleep(1500);
         const b = { ...W.paints.get(panel.id) };
         await __engine.resizeKritaWindow(panel.id, 260, 420); await sleep(400);
         const c = { ...W.paints.get(panel.id) };
