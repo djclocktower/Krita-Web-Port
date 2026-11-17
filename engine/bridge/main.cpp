@@ -38,6 +38,7 @@
 #include <QMouseEvent>
 #include <QApplication>
 #include <QDockWidget>
+#include <kis_image_config.h>
 #include <KoDockRegistry.h>
 #include <KoDockFactoryBase.h>
 #include <KoCanvasObserverBase.h>
@@ -1886,6 +1887,9 @@ int main(int argc, char *argv[])
     // Krita's own application class: parts of Krita cast qApp to it (e.g. the input manager).
     WebApplication app(QStringLiteral("krita-web"), argc, argv);
     app.setApplicationDisplayName(QStringLiteral("Krita"));
+    // Keep tile data (and with it the undo history) in memory rather than in Krita's swap file:
+    // there is no disk here, and swapped data came back blank (undo of a filter restored only a few tiles).
+    { KisImageConfig config(false); config.setMemorySoftLimitPercent(95); }
     lap("applicationMs");
     // Preloaded files get "now" as their modification time on every page load, which would make
     // Krita think the bundle changed and re-import it. Pin it so a stored database stays valid.

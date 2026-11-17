@@ -202,6 +202,25 @@ index 1b26f02..c29abb6 100644
      dbg.nospace() << v.toFloat() << " (d = " << v.d << ")";
      return dbg.space();
  }
+diff --git a/libs/image/kis_image_config.cpp b/libs/image/kis_image_config.cpp
+index eba8c3c..71d4616 100644
+--- a/libs/image/kis_image_config.cpp
++++ b/libs/image/kis_image_config.cpp
+@@ -428,7 +428,13 @@ int KisImageConfig::totalRAM()
+     int totalMemory = 1000; // MiB
+     int error = 1;
+ 
+-#if defined Q_OS_LINUX
++#if defined __EMSCRIPTEN__
++    // A browser tab: the engine's memory can grow to 4 GiB. Left at the 1000 MiB fallback, Krita
++    // started swapping tile data (undo history included) to a file almost at once, and in the
++    // in-memory file system that data read back blank.
++    totalMemory = 3000;
++    error = 0;
++#elif defined Q_OS_LINUX
+     struct sysinfo info;
+ 
+     error = sysinfo(&info);
 diff --git a/libs/image/lazybrush/kis_lazy_fill_graph.h b/libs/image/lazybrush/kis_lazy_fill_graph.h
 index d63161d..0a5fbe0 100644
 --- a/libs/image/lazybrush/kis_lazy_fill_graph.h
