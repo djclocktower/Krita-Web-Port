@@ -87,5 +87,5 @@ if (KRITA_WEB_LINK_MAP)
 endif()
 # -DKRITA_WEB_PROFILING=ON keeps function names in the binary so crashes give readable stacks (larger download).
 if (KRITA_WEB_PROFILING)
-    target_link_options(kritaengine PRIVATE --profiling-funcs)
+    target_link_options(kritaengine PRIVATE --profiling-funcs -sASSERTIONS=1)   # assertions: say why the runtime aborted
 endif()

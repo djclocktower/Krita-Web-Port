@@ -29,7 +29,10 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // ---------------------------------------------------------------------------------------------- browser
 let browser = null, page = null, consoleTail = [], pageErrors = [], crashed = false;
-async function launch() {
+async function launch(tries = 3) {
+    try { await launch1(); } catch (e) { if (tries <= 1) throw e; console.log('launch failed (' + String(e.message).split('\n')[0] + '), retrying'); await launch(tries - 1); }
+}
+async function launch1() {
     if (browser) { try { await Promise.race([browser.close(), sleep(5000)]); } catch {} }
     browser = await chromium.launch({ args: ['--use-angle=swiftshader'] });
     page = await browser.newPage();
@@ -83,6 +86,7 @@ function install() {
             colors: JSON.stringify(await S.race(__engine.colors(), 5000, 'x')),
             brush: JSON.stringify(await S.race(__engine.brushState(), 5000, 'x')),
             anim: JSON.stringify(await S.race(__engine.animation(), 5000, 'x')),
+            active: JSON.stringify(await S.race(__engine.activeNode(), 5000, 'x')) + JSON.stringify(await S.race(__engine.activeNode().then(id => id && __engine.keyframes(id)), 5000, 'x')),
             acts: acts.map(a => (a.enabled ? 1 : 0) + '' + (a.checked ? 1 : 0)).join(''),
             checked: me ? me.checked : null, enabled: me ? me.enabled : null,
         };
@@ -187,7 +191,7 @@ function install() {
         let after = await S.snap(name);
         const diff = (b, a) => ({
             image: b.hash !== a.hash, layers: b.layers !== a.layers, selection: b.sel !== a.sel, history: b.hist !== a.hist,
-            docinfo: b.info !== a.info, colors: b.colors !== a.colors, brush: b.brush !== a.brush, animation: b.anim !== a.anim, enabledSet: b.acts !== a.acts, checked: b.checked !== a.checked,
+            docinfo: b.info !== a.info, colors: b.colors !== a.colors, brush: b.brush !== a.brush, animation: b.anim !== a.anim, activeNode: b.active !== a.active, enabledSet: b.acts !== a.acts, checked: b.checked !== a.checked,
         });
         let d = diff(before, after);
         if (!Object.values(d).some(Boolean) && !S.msgs.length && !S.tools.length && !seen.size && state !== 'error') { await sleep(1800); after = await S.snap(name); d = diff(before, after); }
@@ -208,7 +212,7 @@ const classify = r => {
     if (r.windows?.some(w => w.kind === 'docker')) return 'opened docker';
     const d = r.diff ?? {};
     if (d.image) return 'changed image';
-    if (d.layers || d.selection || d.history || d.docinfo || d.colors || d.brush || d.animation || d.checked || r.toolChanged?.length) return 'changed layers/selection/history/view';
+    if (d.layers || d.selection || d.history || d.docinfo || d.colors || d.brush || d.animation || d.activeNode || d.checked || r.toolChanged?.length) return 'changed layers/selection/history/view';
     if (r.messages?.length) return 'message';
     return 'no visible effect';
 };
@@ -404,7 +408,9 @@ async function runTools() {
     const inv = JSON.parse(fs.readFileSync(path.join(RES, 'inventory.json'), 'utf8'));
     const results = load('tools.json'); const pics = {};
     let prevHash = null;
-    for (const t of inv.tools) {
+    const retried = new Set();
+    for (let ti = 0; ti < inv.tools.length; ti++) {
+        const t = inv.tools[ti];
         if ((ONLY && !ONLY.test(t.id)) || (!ONLY && results[t.id])) continue;
         if (!page || page.isClosed() || crashed || !process.env.REUSE) { await launch(); }   // a fresh page per tool: one tool's leftovers must not decide the next one's result
         let r;
@@ -539,6 +545,8 @@ async function runTools() {
         if (ow) prevHash = ow.picture;
         const ch = s => s?.changed ? Object.entries(s.changed).filter(([k, v]) => v && k !== 'imageBeforeFinish').map(([k]) => k) : [];
         r.outcome = r.crash ? 'crash' : r.hang ? 'hang' : (r.raster?.error || r.vector?.error) ? 'error' : [r.raster, r.vector].some(s => s && !s.alive) ? 'engine stopped answering' : ch(r.raster).length || ch(r.vector).length ? 'changed ' + [...new Set([...ch(r.raster), ...ch(r.vector)])].join('/') : (r.raster?.overlayDuring?.withPixels || r.vector?.overlayDuring?.withPixels) ? 'overlay only' : (r.raster?.messages?.length || r.vector?.messages?.length) ? 'message' : 'no visible effect';
+        if (r.outcome === 'no visible effect' && !retried.has(t.id)) { retried.add(t.id); ti--; console.log(t.id + ' no visible effect, trying once more on a fresh page'); continue; }
+        if (retried.has(t.id)) r.note = r.outcome === 'no visible effect' ? 'retried on a fresh page: still no visible effect' : 'first attempt on a fresh page: no visible effect; second attempt changed something';
         results[t.id] = r; save('tools.json', results);
         console.log(`${t.id.padEnd(30)} ${r.outcome} option ${ow ? ow.width + 'x' + ow.height : 'none'}${r.optionBlank ? ' BLANK' : ''}${r.optionSameAsPrevious ? ' same-as-prev' : ''}`);
     }
