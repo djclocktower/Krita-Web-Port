@@ -77,7 +77,7 @@ target_link_options(kritaengine PRIVATE
     -fexceptions
     -sPROXY_TO_PTHREAD   # main() runs in a worker; the browser's main thread stays free
     -sPTHREAD_POOL_SIZE=16 -sINITIAL_MEMORY=512MB -sALLOW_MEMORY_GROWTH=1 -sMAXIMUM_MEMORY=4GB
-    -sEXPORTED_FUNCTIONS=_main,_malloc,_free,_kw_request,_kw_ack
+    -sEXPORTED_FUNCTIONS=_main,_malloc,_free,_kw_request,_kw_ack,_kw_wake
     "SHELL:--preload-file ${_data}/profiles@/share/krita/profiles"
     "SHELL:--preload-file ${CMAKE_BINARY_DIR}/kw-actions@/share/krita/actions"
     "SHELL:--preload-file ${CMAKE_SOURCE_DIR}/plugins/paintops/mypaint/brushes@/share/krita/paintoppresets"   # MyPaint presets

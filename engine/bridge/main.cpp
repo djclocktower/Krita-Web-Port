@@ -16,6 +16,7 @@
 #include <QRegularExpression>
 #include <QThread>
 #include <QTimer>
+#include <atomic>
 #include <QEventLoop>
 #include <QFileInfo>
 #include <QDateTime>
@@ -151,6 +152,18 @@ static void post(const QJsonObject &message, const QByteArray &bytes = QByteArra
         try { Module.kwOnMessage(UTF8ToString($0), $1 ? HEAPU8.subarray($1, $1 + $2) : null); }
         finally { _free($0); if ($1) _free($1); }
     }, j, b, int(bytes.size()));
+}
+
+// Qt's WebAssembly event dispatcher can go back to sleep right after an event loop was told to exit from
+// inside its own event processing (a dialog closing on Escape): the wake-up is issued before the wait
+// starts and is lost, so the action that opened the dialog only returned when the next request arrived.
+// A wake-up from the page's thread a moment later cannot be lost that way.
+// ponytail: fixed delays (20 ms and 250 ms); the real fix is in Qt's dispatcher.
+static std::atomic<bool> g_wakePending{false};
+static void wakeSoon()
+{
+    if (g_wakePending.exchange(true)) return;
+    MAIN_THREAD_ASYNC_EM_ASM({ setTimeout(function () { _kw_wake(0); }, 20); setTimeout(function () { _kw_wake(1); }, 250); });
 }
 
 static void emitEvent(const char *name, QJsonObject fields = QJsonObject(), const QByteArray &bytes = QByteArray())
@@ -543,11 +556,7 @@ public:
             if (w->isWindow() && w != window && w->windowType() != Qt::ToolTip && w->windowType() != Qt::Desktop) trackWindow(w);
             break;
         case QEvent::Hide:
-            if (w->inherits("QDialog")) {   // KWDEBUG
-                EM_ASM({ Error.stackTraceLimit = 250; console.error('KWDBG hide ' + new Error().stack); });
-                fprintf(stderr, "KWDBG hide level=%d modal=%p w=%p\n", QThread::currentThread()->loopLevel(), (void *)QApplication::activeModalWidget(), (void *)w);
-                QTimer::singleShot(700, this, [] { fprintf(stderr, "KWDBG later level=%d modal=%p\n", QThread::currentThread()->loopLevel(), (void *)QApplication::activeModalWidget()); });
-            }
+            if (w->inherits("QDialog")) wakeSoon();
             dropWindow(w);
             break;
         case QEvent::Resize:
@@ -1952,7 +1961,14 @@ extern "C" EMSCRIPTEN_KEEPALIVE void kw_request(int id, int seq)
          next();
          running--;
      }
+     if (id) wakeSoon();     // not for stroke samples (id 0): they arrive in a stream anyway
     }, Qt::QueuedConnection);
+}
+
+extern "C" EMSCRIPTEN_KEEPALIVE void kw_wake(int last)
+{
+    if (last) g_wakePending = false;
+    if (g_engine) QMetaObject::invokeMethod(g_engine, [] {}, Qt::QueuedConnection);
 }
 
 /// The page calls this after it has drawn an imageUpdate.
