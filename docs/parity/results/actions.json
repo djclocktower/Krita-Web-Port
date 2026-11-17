@@ -20042,7 +20042,7 @@
  },
  "lock_toolbars": {
   "fixture": "base",
-  "ms": 163,
+  "ms": 161,
   "alive": true,
   "state": "done",
   "diff": {
@@ -20054,6 +20054,7 @@
    "colors": false,
    "brush": false,
    "animation": false,
+   "activeNode": false,
    "enabledSet": false,
    "checked": false
   },
@@ -20072,10 +20073,10 @@
   ],
   "outcome": "no visible effect",
   "text": "",
-  "when": "2026-11-17T06:27:45.894Z",
+  "when": "2026-11-17T09:44:37.241Z",
   "previous": {
    "outcome": "no visible effect",
-   "when": "2026-11-17T04:20:54.675Z"
+   "when": "2026-11-17T06:27:45.894Z"
   }
  },
  "help_contents": {
@@ -20092,6 +20093,7 @@
    "colors": false,
    "brush": false,
    "animation": false,
+   "activeNode": false,
    "enabledSet": false,
    "checked": false
   },
@@ -20110,10 +20112,10 @@
   ],
   "outcome": "no visible effect",
   "text": "Krita Handbook",
-  "when": "2026-11-17T06:28:22.552Z",
+  "when": "2026-11-17T09:45:24.241Z",
   "previous": {
    "outcome": "no visible effect",
-   "when": "2026-11-17T04:21:26.541Z"
+   "when": "2026-11-17T06:28:22.552Z"
   }
  },
  "switch_application_language": {
