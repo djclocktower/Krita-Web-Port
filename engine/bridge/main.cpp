@@ -313,7 +313,12 @@ public:
         connect(&flushTimer, &QTimer::timeout, this, &Engine::flushImage);
         layersTimer.setSingleShot(true);
         layersTimer.setInterval(0);
-        connect(&layersTimer, &QTimer::timeout, this, [] { emitEvent("layersChanged"); });
+        connect(&layersTimer, &QTimer::timeout, this, [this] {
+            // On the desktop the Layers docker moves the selection off a layer that was removed (a cancelled
+            // Add Fill Layer); nothing does here, and actions then silently fail on a layer that is gone.
+            if (active && !active->parent() && doc && doc->image() && active != doc->image()->root()) setActive(doc->image()->root()->lastChild());
+            emitEvent("layersChanged");
+        });
     }
 
     QJsonValue handle(const QString &m, const Params &p, const QByteArray &data, QByteArray &out);

@@ -184,7 +184,7 @@ await step('file dialogs go to the page', async () => {
         o.asked = reqs.length === 1 && !reqs[0].save;
         if (reqs[0]) await __engine.answerKritaFileDialog(reqs[0].id, [{ name: 'in.png', bytes: png }]);
         await Promise.race([p, sleep(10000)]);
-        o.imported = done; o.added = (await count()) - n0;
+        o.imported = done; for (let i = 0; i < 10 && (o.added = (await count()) - n0) < 1; i++) await sleep(500);   // the layer is added by a stroke that may still be running
         done = false;
         p = __engine.triggerKritaAction('file_open').then(() => { done = true; }, e => { done = e.message; });
         await sleep(1500);

@@ -1,4 +1,4 @@
 debug: [vite] connecting...
 debug: [vite] connected.
-info: engine module instantiated after 3341 ms
-info: engine start-up {"applicationMs":143,"brushEnginesMs":5,"defaultPresetMs":968,"engineMs":3830,"resourcesMs":1094} since page load: 9814 ms
+info: engine module instantiated after 2351 ms
+info: engine start-up {"applicationMs":104,"brushEnginesMs":3,"defaultPresetMs":756,"engineMs":2908,"resourcesMs":918} since page load: 7285 ms
