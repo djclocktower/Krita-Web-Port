@@ -83,6 +83,36 @@ Reported with a screenshot of Help > About Krita on a Windows laptop: the text i
   not export `ENV`, so the page cannot set it without a rebuild anyway.
 - Cost: DPR squared more pixels per window repaint (2.25x at 150%), so dialog repaints get slower.
 
+## 3. Slow first load
+
+Cold load in headless Chromium on a fast connection, about 10-15 s to the first document.
+
+| Stage | Time |
+|---|---|
+| Page and its scripts load before any engine download starts | about 3 s (fixed, below) |
+| Engine download, 30 MB + 19 MB in parallel | 2-3 s here; the bulk of it on slow connections |
+| Compile after the download ends (streaming compile is already used) | about 3 s |
+| Krita start-up (`engineMs` 2.0-2.3 s, `defaultPresetMs` 0.63 s, `resourcesMs` 0.75-0.87 s) | about 3.5 s |
+| Start-up done until the first document shows | about 2 s |
+
+### Done, live
+
+- **Preload hints in `web/index.html`** for `kritaengine.js`, `.wasm`, `.data` and the resource cache
+  (commit ca8f2ea). Downloads start 0.6-1.5 s earlier; the browser reuses every preloaded response (checked: no
+  file fetched twice, including the `.data` package, which Emscripten fetches with XHR). Measured 0.1-1.1 s
+  faster per cold load here. Note `?engineBase=` makes the preloads wasted downloads.
+- **Engine re-uploaded at Brotli quality 11** (it had gone up at 9): 29.8 MB to 26.2 MB. `deploy/upload.sh`
+  already defaults to 11; nothing to change there. About 5.5 minutes to compress.
+- **Loading spinner** in `web/index.html`, removed by `web/src/main.tsx` (commit 9f27df5).
+
+### Needs a rebuild
+
+- Krita start-up items from `docs/speed/REPORT.md`: the default preset updating the unseen preset editor,
+  resource database registration, the main window's action icons.
+- Download size: the "lite" options in `docs/speed/REPORT.md` (patterns about 6 MB of the 19.7 MB data file,
+  which barely compresses; G'MIC, QML, rare formats). Trimming content is the owner's decision.
+- Compile time scales with the 119 MB binary; only a smaller engine helps.
+
 ## Deploying a new build to the live site
 
 `deploy/upload.sh <folder containing krita/> botc-wiki-art --remote` (needs a Cloudflare API token with
