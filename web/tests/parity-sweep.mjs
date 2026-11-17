@@ -230,6 +230,7 @@ async function runActions() {
     const record = (name, r) => {
         for (const w of r.windows ?? []) { w.file = savePicture('actions', `${name}__${w.title}`, w.png, pics); delete w.png; }
         r.outcome = classify(r); r.text = inv.actions.find(a => a.name === name)?.text; r.when = new Date().toISOString();
+        if (results[name]) r.previous = { outcome: results[name].outcome, error: results[name].error, when: results[name].when };
         results[name] = r; save('actions.json', results);
         console.log(`${name.padEnd(44)} ${r.fixture ?? ''} ${r.outcome}${r.windows ? ' [' + r.windows.map(w => w.title + ' ' + w.width + 'x' + w.height).join('; ') + ']' : ''}${r.error ? ' ERR ' + r.error.slice(0, 80) : ''}`);
     };
@@ -258,7 +259,7 @@ async function runActions() {
             record(name, r);
         }
     };
-    await batchRun(normal, 60);
+    await batchRun(normal, process.env.ISOLATE ? 1 : 60);
     // dangerous ones: each in its own page, last
     for (const name of danger) await batchRun([name], 1);
     if (browser) { await browser.close(); browser = null; page = null; }
