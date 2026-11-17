@@ -861,5 +861,1723 @@
   "optionBlank": false,
   "optionSameAsPrevious": false,
   "outcome": "changed selection/history"
+ },
+ "KisToolSelectContiguous": {
+  "id": "KisToolSelectContiguous",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 596,
+    "picture": "1658443920:143040:240x596",
+    "solid": 143040,
+    "total": 143040,
+    "title": "Tool Options",
+    "distinctColours": 166
+   },
+   "gestureMs": 173,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 167,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Contiguous Selection Tool",
+  "section": "5 Krita/Select",
+  "file": "tools/KisToolSelectContiguous.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed selection/history"
+ },
+ "KisToolSelectSimilar": {
+  "id": "KisToolSelectSimilar",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 608,
+    "picture": "-989761011:144960:240x604",
+    "solid": 144960,
+    "total": 144960,
+    "title": "Tool Options",
+    "distinctColours": 149
+   },
+   "gestureMs": 167,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 167,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Similar Color Selection Tool",
+  "section": "5 Krita/Select",
+  "file": "tools/KisToolSelectSimilar.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed selection/history"
+ },
+ "KisToolTransform": {
+  "id": "KisToolTransform",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 600,
+    "picture": "-1036424071:144000:240x600",
+    "solid": 144000,
+    "total": 144000,
+    "title": "Tool Options",
+    "distinctColours": 105
+   },
+   "gestureMs": 493,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 3,
+   "hashes": [
+    "ERR The image is busy with a tool. Finish or cancel it, then sav",
+    "ERR The image is busy with a tool. Finish or cancel it, then sav",
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 564,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": true,
+    "selection": true,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    1
+   ],
+   "messages": [],
+   "imageUpdates": 2,
+   "hashes": [
+    "ERR The image is busy with a tool. Finish or cancel it, then sav",
+    "NOHASH",
+    "NOHASH"
+   ],
+   "alive": false
+  },
+  "name": "Transform a layer or a selection",
+  "section": "2 Krita/Transform",
+  "file": "tools/KisToolTransform.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "engine stopped answering"
+ },
+ "KritaTransform/KisToolMove": {
+  "id": "KritaTransform/KisToolMove",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 612,
+    "picture": "2032378452:146880:240x612",
+    "solid": 146880,
+    "total": 146880,
+    "title": "Tool Options",
+    "distinctColours": 125
+   },
+   "gestureMs": 519,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    "ERR The image is busy with a tool. Finish or cancel it, then sav",
+    "ERR The image is busy with a tool. Finish or cancel it, then sav"
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 463,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Move Tool",
+  "section": "2 Krita/Transform",
+  "file": "tools/KritaTransform_KisToolMove.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed image"
+ },
+ "KisToolPolygon": {
+  "id": "KisToolPolygon",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 596,
+    "picture": "6444051:143040:240x596",
+    "solid": 143040,
+    "total": 143040,
+    "title": "Tool Options",
+    "distinctColours": 92
+   },
+   "gestureMs": 500,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    924780664,
+    924780664
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 529,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    -1479423268,
+    -1479423268
+   ],
+   "alive": true
+  },
+  "name": "Polygon Tool: Shift-mouseclick ends the polygon.",
+  "section": "0 Krita/Shape",
+  "file": "tools/KisToolPolygon.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed image/history"
+ },
+ "KritaShape/KisToolBrush": {
+  "id": "KritaShape/KisToolBrush",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 584,
+    "picture": "70004263:140160:240x584",
+    "solid": 140160,
+    "total": 140160,
+    "title": "Tool Options",
+    "distinctColours": 64
+   },
+   "gestureMs": 386,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    -1092977605,
+    -1092977605
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 391,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Freehand Brush Tool",
+  "section": "0 Krita/Shape",
+  "file": "tools/KritaShape_KisToolBrush.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed image/history"
+ },
+ "KritaShape/KisToolDyna": {
+  "id": "KritaShape/KisToolDyna",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 596,
+    "picture": "-2092016076:143040:240x596",
+    "solid": 143040,
+    "total": 143040,
+    "title": "Tool Options",
+    "distinctColours": 76
+   },
+   "gestureMs": 371,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    -1092977605,
+    -1092977605
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 357,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Dynamic Brush Tool",
+  "section": "0 Krita/Shape",
+  "file": "tools/KritaShape_KisToolDyna.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed image/history"
+ },
+ "KisToolPath": {
+  "id": "KisToolPath",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 604,
+    "picture": "-968290156:144000:240x600",
+    "solid": 144000,
+    "total": 144000,
+    "title": "Tool Options",
+    "distinctColours": 103
+   },
+   "gestureMs": 1067,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 1047,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Bezier Curve Tool: Shift-mouseclick ends the curve.",
+  "section": "0 Krita/Shape",
+  "file": "tools/KisToolPath.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "no visible effect",
+  "note": "retried on a fresh page: still no visible effect"
+ },
+ "KritaSelected/KisToolColorSampler": {
+  "id": "KritaSelected/KisToolColorSampler",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 604,
+    "picture": "1686835623:144000:240x600",
+    "solid": 144000,
+    "total": 144000,
+    "title": "Tool Options",
+    "distinctColours": 121
+   },
+   "gestureMs": 168,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 172,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Color Sampler Tool",
+  "section": "3 Krita/Fill",
+  "file": "tools/KritaSelected_KisToolColorSampler.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "no visible effect",
+  "note": "retried on a fresh page: still no visible effect"
+ },
+ "KisToolPencil": {
+  "id": "KisToolPencil",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 604,
+    "picture": "313033191:144000:240x600",
+    "solid": 144000,
+    "total": 144000,
+    "title": "Tool Options",
+    "distinctColours": 101
+   },
+   "gestureMs": 383,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 402,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Freehand Path Tool",
+  "section": "0 Krita/Shape",
+  "file": "tools/KisToolPencil.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": true,
+  "outcome": "no visible effect",
+  "note": "retried on a fresh page: still no visible effect"
+ },
+ "SvgTextTool": {
+  "id": "SvgTextTool",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 600,
+    "picture": "127062157:143040:240x596",
+    "solid": 143040,
+    "total": 143040,
+    "title": "Tool Options",
+    "distinctColours": 141
+   },
+   "gestureMs": 1143,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 1210,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "SVG Text Tool",
+  "section": "main",
+  "file": "tools/SvgTextTool.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": true,
+  "outcome": "no visible effect",
+  "note": "retried on a fresh page: still no visible effect"
+ },
+ "KritaShape/KisToolLazyBrush": {
+  "id": "KritaShape/KisToolLazyBrush",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 604,
+    "picture": "-761574932:144960:240x604",
+    "solid": 144960,
+    "total": 144960,
+    "title": "Tool Options",
+    "distinctColours": 83
+   },
+   "gestureMs": 570,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": true,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 2,
+   "hashes": [
+    456536421,
+    -1065187244,
+    -1065187244
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 375,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Colorize Mask Editing Tool",
+  "section": "3 Krita/Fill",
+  "file": "tools/KritaShape_KisToolLazyBrush.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed image/layers/history"
+ },
+ "KisToolSelectElliptical": {
+  "id": "KisToolSelectElliptical",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 592,
+    "picture": "-885969341:142080:240x592",
+    "solid": 142080,
+    "total": 142080,
+    "title": "Tool Options",
+    "distinctColours": 119
+   },
+   "gestureMs": 516,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": true,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    2
+   ],
+   "messages": [
+    "Width: 0 px\nHeight: 0 px"
+   ],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 482,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Elliptical Selection Tool",
+  "section": "5 Krita/Select",
+  "file": "tools/KisToolSelectElliptical.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed layers/selection/history"
+ },
+ "ToolReferenceImages": {
+  "id": "ToolReferenceImages",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 592,
+    "picture": "-738734304:142080:240x592",
+    "solid": 142080,
+    "total": 142080,
+    "title": "Tool Options",
+    "distinctColours": 82
+   },
+   "gestureMs": 166,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 166,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Reference Images Tool",
+  "section": "4 Krita/View",
+  "file": "tools/ToolReferenceImages.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "no visible effect",
+  "note": "retried on a fresh page: still no visible effect"
+ },
+ "KritaFill/KisToolGradient": {
+  "id": "KritaFill/KisToolGradient",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 588,
+    "picture": "-589698860:141120:240x588",
+    "solid": 141120,
+    "total": 141120,
+    "title": "Tool Options",
+    "distinctColours": 84
+   },
+   "gestureMs": 488,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 457,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Gradient Tool",
+  "section": "3 Krita/Fill",
+  "file": "tools/KritaFill_KisToolGradient.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "no visible effect",
+  "note": "retried on a fresh page: still no visible effect"
+ },
+ "KritaShape/KisToolMultiBrush": {
+  "id": "KritaShape/KisToolMultiBrush",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 600,
+    "picture": "1938509712:143040:240x596",
+    "solid": 143040,
+    "total": 143040,
+    "title": "Tool Options",
+    "distinctColours": 119
+   },
+   "gestureMs": 352,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": true,
+    "imageBeforeFinish": true,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 1,
+   "hashes": [
+    456536421,
+    -1104445695,
+    -1104445695
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 357,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Multibrush Tool",
+  "section": "0 Krita/Shape",
+  "file": "tools/KritaShape_KisToolMultiBrush.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed image/history"
+ },
+ "KisToolEncloseAndFill": {
+  "id": "KisToolEncloseAndFill",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 604,
+    "picture": "-1064431640:144960:240x604",
+    "solid": 144960,
+    "total": 144960,
+    "title": "Tool Options",
+    "distinctColours": 161
+   },
+   "gestureMs": 370,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 389,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Enclose and Fill Tool",
+  "section": "3 Krita/Fill",
+  "file": "tools/KisToolEncloseAndFill.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "no visible effect",
+  "note": "retried on a fresh page: still no visible effect"
+ },
+ "KritaShape/KisToolMeasure": {
+  "id": "KritaShape/KisToolMeasure",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 588,
+    "picture": "1268530910:141120:240x588",
+    "solid": 141120,
+    "total": 141120,
+    "title": "Tool Options",
+    "distinctColours": 55
+   },
+   "gestureMs": 479,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 542,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Measure Tool",
+  "section": "4 Krita/View",
+  "file": "tools/KritaShape_KisToolMeasure.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "no visible effect",
+  "note": "retried on a fresh page: still no visible effect"
+ },
+ "KritaFill/KisToolFill": {
+  "id": "KritaFill/KisToolFill",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 600,
+    "picture": "1211702410:144000:240x600",
+    "solid": 144000,
+    "total": 144000,
+    "title": "Tool Options",
+    "distinctColours": 186
+   },
+   "gestureMs": 168,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 170,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [
+    "You cannot use this tool with the selected layer type"
+   ],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Fill Tool",
+  "section": "3 Krita/Fill",
+  "file": "tools/KritaFill_KisToolFill.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed history"
+ },
+ "KisToolSelectPolygonal": {
+  "id": "KisToolSelectPolygonal",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 604,
+    "picture": "-1513953701:144000:240x600",
+    "solid": 144000,
+    "total": 144000,
+    "title": "Tool Options",
+    "distinctColours": 83
+   },
+   "gestureMs": 845,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 896,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Polygonal Selection Tool",
+  "section": "5 Krita/Select",
+  "file": "tools/KisToolSelectPolygonal.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed selection/history"
+ },
+ "KritaShape/KisToolRectangle": {
+  "id": "KritaShape/KisToolRectangle",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 604,
+    "picture": "2048417387:144000:240x600",
+    "solid": 144000,
+    "total": 144000,
+    "title": "Tool Options",
+    "distinctColours": 115
+   },
+   "gestureMs": 477,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [
+    "Width: 0 px\nHeight: 0 px"
+   ],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 476,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Rectangle Tool",
+  "section": "0 Krita/Shape",
+  "file": "tools/KritaShape_KisToolRectangle.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "message"
+ },
+ "KisToolSelectPath": {
+  "id": "KisToolSelectPath",
+  "raster": {
+   "scenario": "raster",
+   "optionWindow": {
+    "id": 1,
+    "width": 240,
+    "height": 596,
+    "picture": "-926395344:143040:240x596",
+    "solid": 143040,
+    "total": 143040,
+    "title": "Tool Options",
+    "distinctColours": 116
+   },
+   "gestureMs": 874,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": true,
+    "history": true
+   },
+   "layerCount": [
+    3,
+    3
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "vector": {
+   "scenario": "vector",
+   "gestureMs": 833,
+   "overlayDuring": {
+    "events": 0,
+    "withPixels": 0,
+    "last": null
+   },
+   "overlayAfterGesture": 0,
+   "changed": {
+    "image": false,
+    "imageBeforeFinish": false,
+    "layers": false,
+    "selection": false,
+    "history": false
+   },
+   "layerCount": [
+    4,
+    4
+   ],
+   "messages": [],
+   "imageUpdates": 0,
+   "hashes": [
+    456536421,
+    456536421,
+    456536421
+   ],
+   "alive": true
+  },
+  "name": "Bezier Curve Selection Tool",
+  "section": "5 Krita/Select",
+  "file": "tools/KisToolSelectPath.png",
+  "optionBlank": false,
+  "optionSameAsPrevious": false,
+  "outcome": "changed selection/history"
+ },
+ "KritaShape/KisToolSmartPatch": {
+  "id": "KritaShape/KisToolSmartPatch",
+  "crash": true,
+  "error": "PAGE_TIMEOUT",
+  "name": "Smart Patch Tool",
+  "section": "3 Krita/Fill",
+  "optionBlank": true,
+  "optionSameAsPrevious": false,
+  "outcome": "crash"
  }
 }

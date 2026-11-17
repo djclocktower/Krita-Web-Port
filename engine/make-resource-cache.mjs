@@ -3,7 +3,7 @@
 // saves the database files next to the engine as resource-cache/ (web/src/engine/wasm.ts restores them).
 // Usage: node engine/make-resource-cache.mjs <engine bin dir>     (rerun after rebuilding the engine)
 import { createRequire } from 'node:module';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 const { chromium } = createRequire(import.meta.url)('playwright');
@@ -74,6 +74,9 @@ try {
     console.log(`${loose.length} loose resource files copied from /share/krita at start-up`);
     writeFileSync(`${out}/manifest.json`, JSON.stringify({ dir, files, copies }));
     console.log(`resource cache written to ${out} (${files.length} files, ${(total / 1e6).toFixed(1)} MB)`);
+    // Most of the database is thumbnails stored far larger than any chooser shows them.
+    const shrink = spawnSync('python3', [fileURLToPath(new URL('./shrink-resource-cache.py', import.meta.url)), `${out}/resourcecache.sqlite`], { encoding: 'utf8' });
+    console.log(shrink.status === 0 ? shrink.stdout.trim() : `thumbnails not shrunk (needs python3 with Pillow): ${(shrink.stderr || shrink.error || '').toString().split('\n')[0]}`);
 } finally {
     await Promise.race([browser.close(), new Promise(r => setTimeout(r, 5000))]);
     server.kill();
