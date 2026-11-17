@@ -4,7 +4,7 @@
 import { useRef, useState } from 'preact/hooks';
 import type { Engine, KritaAction } from '../engine/protocol';
 import type { Command } from '../panels';
-import { BLOCKED, leaves, menuData, clean, type Entry } from '../krita/menus';
+import { leaves, menuData, clean, type Entry } from '../krita/menus';
 import { effective } from '../settings/shortcuts';
 import { useSetting } from '../settings/store';
 import { isEnabled } from '../shell/commands';
@@ -28,7 +28,7 @@ export function CommandList({ engine, run }: { engine: Engine; run: (c: Command)
     const text = (e: Entry & { kind: 'cmd' | 'action' }) => e.kind === 'cmd' ? menuTitle(e.cmd) : e.label;
     const found = words.length ? all.filter(l => match(`${l.path} ${text(l.entry)}`)).slice(0, MAX) : [];
     const inTree = new Set(all.flatMap(l => l.entry.kind === 'action' ? [l.entry.name] : []));
-    const foundActions = words.length ? actions.filter(a => !inTree.has(a.name) && !BLOCKED.includes(a.name) && match(`${clean(a.text)} ${a.name}`)).slice(0, MAX) : [];
+    const foundActions = words.length ? actions.filter(a => !inTree.has(a.name) && match(`${clean(a.text)} ${a.name}`)).slice(0, MAX) : [];
     const choose = (e: Entry & { kind: 'cmd' | 'action' }) => { closeSheet(); pick(e, run); };
     const top = group.split('>')[0];
     return (

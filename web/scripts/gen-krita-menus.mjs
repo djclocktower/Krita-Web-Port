@@ -13,12 +13,10 @@ const OUT = path.join(ROOT, 'web/src/krita/menus.generated.ts');
 // Actions left out of the generated tree, grouped by why. Delete a line to bring one back (and regenerate).
 // Page equivalents (File > New/Open/Open Recent/Save/Export, Undo, Redo, zoom, ...) are NOT listed: they stay in the tree so the
 // page's own command shows at Krita's position (see PAGE_EQUIV in menus.ts).
-// The five actions that crash or hang the engine (A1 of docs/parity/REPORT.md) are in BLOCKED in menus.ts instead; they stay in the tree.
 const EXCLUDE = {
     'open or save through Qt file dialogs / the local disk (the page has its own Open, Save as .kra and Export; a tab has no disk)': [
         'file_save_as', 'file_import_file', 'file_export_advanced', 'file_import_animation', 'file_import_video_animation',
-        'add_new_file_layer', 'convert_to_file_layer', 'import_layer_as_filter_mask', 'import_layer_as_paint_layer', 'import_layer_as_selection_mask',
-        'import_layer_as_transparency_mask', 'import_layer_from_file', 'save_groups_as_images', 'save_node_as_image', 'save_vector_node_to_svg',   // Layer > Import/Export
+        'add_new_file_layer', 'convert_to_file_layer', 'save_groups_as_images',   // need a file that stays on disk, or a folder
         'render_animation', 'save_incremental_version', 'save_incremental_backup', 'file_sessions', 'file_reload_file', 'file_export_pdf', 'file_print',
     ],
     'closes, quits or opens windows (a tab is one window)': [

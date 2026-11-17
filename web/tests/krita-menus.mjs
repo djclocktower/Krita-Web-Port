@@ -22,7 +22,6 @@ const open = async (query, opts = { viewport: { width: 1280, height: 900 } }) =>
     await page.waitForTimeout(query.includes('wasm') ? 3500 : 400);
     return page;
 };
-const BLOCKED = ['add_new_fill_layer', 'add_new_fast_color_overlay_mask', 'convert_to_filter_mask'];
 const closeAll = async page => { await page.evaluate(() => document.body.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }))); await sleep(60); };
 const norm = s => s.replace(/✓/g, '').replace(/\s*(\.\.\.|…)$/, '').replace(/\s+/g, ' ').trim().toLowerCase();
 
@@ -76,9 +75,6 @@ let desktopLabels;
     check(by('Edit', 'edit_cut')?.label === 'Cut' && by('Edit', 'edit_cut')?.kbd === 'Ctrl+X', 'mock: label from the engine ("Cu&t" -> "Cut") and its shortcut is shown', by('Edit', 'edit_cut'));
     check(w.all.find(l => l.key === 'Layer>Select' && l.action === 'select_all_layers')?.label === 'All Layers', 'mock: Layer > Select > All Layers');
     check(w.all.find(l => l.key === 'Edit>Fill Special')?.action === 'fill_selection_pattern_opacity', 'mock: Edit > Fill Special holds its entry');
-    check(!w.all.some(l => BLOCKED.includes(l.action)) && !w.all.some(l => /fill layer/i.test(l.label)), 'mock: a BLOCKED action the engine lists is not offered');
-    const mod = await page.evaluate(async () => (await import('/src/krita/menus.ts')).BLOCKED);
-    check(JSON.stringify(mod) === JSON.stringify(BLOCKED), 'BLOCKED lists the five A1 actions', mod);
     check(by('Edit', 'copy_merged')?.disabled === true && !by('Edit', 'edit_cut').disabled, 'mock: a disabled action is greyed (disabled)');
     // duplicates: a page command and a Krita entry never share a label within a menu
     const dups = w.tops.flatMap(t => { const ls = w.all.filter(l => topOf(l) === t).map(l => norm(l.label)); return ls.filter((l, i) => ls.indexOf(l) !== i).map(l => `${t}: ${l}`); });
@@ -186,7 +182,6 @@ let desktopLabels;
     await page.locator('.m-menu input[type=search]').fill('wrap around');
     check(await page.locator('.m-menu [data-action=wrap_around_mode]').count() === 1 && /View/.test(await page.locator('.m-menu [data-action=wrap_around_mode]').textContent()), 'phone: search finds an entry and shows its menu path');
     await page.locator('.m-menu input[type=search]').fill('fill layer');
-    check(await page.locator('.m-menu [data-action=add_new_fill_layer]').count() === 0, 'phone: a BLOCKED action is not offered, not even by search');
     await page.locator('.m-menu input[type=search]').fill('');
     await page.locator('.m-menu-list > div > .group', { hasText: 'Layer' }).first().tap();
     await page.screenshot({ path: `${SHOTS}krita-menus-phone.png` });
@@ -209,7 +204,6 @@ if (!process.env.NO_WASM) {
     check(ka.every(l => byName.has(l.action)), 'real: every Krita entry is an action the engine has', ka.filter(l => !byName.has(l.action)).map(l => l.action));
     const bad = ka.filter(l => { const a = byName.get(l.action); return a && (l.label !== (clean(a.text) || l.label) || l.disabled === a.enabled || (a.shortcut && !a.shortcut.split(',').includes(l.kbd) && l.kbd !== a.shortcut)); });
     check(bad.length === 0, 'real: label, enabled state and shortcut of each entry come from the engine', bad.slice(0, 5));
-    check(!w.all.some(l => BLOCKED.includes(l.action)), 'real: none of the BLOCKED actions is offered');
     const SAMPLE = [['File', 'create_copy'], ['File', 'file_documentinfo'], ['Edit', 'edit_cut'], ['Edit', 'edit_paste'], ['Edit', 'paste_new'], ['Edit', 'fill_selection_pattern'], ['Edit', 'fill_selection_pattern_opacity'],
         ['Edit', 'stroke_selection'], ['View', 'wrap_around_mode'], ['View', 'softProof'], ['View', 'view_pixel_grid'], ['View', 'view_snap_node'], ['View', 'mirror_canvas_around_cursor'], ['View', 'view_toggle_reference_images'],
         ['Image', 'image_properties'], ['Image', 'trim_to_image'], ['Image', 'shearimage'], ['Image', 'offsetimage'], ['Image', 'imagesplit'], ['Image', 'purge_unused_image_data'],

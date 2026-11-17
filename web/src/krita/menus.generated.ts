@@ -169,6 +169,18 @@ export const KRITA_MENUS: MenuDef[] = [
             { action: "cut_selection_to_new_layer", text: "Cut Selection to New Layer" },
             { action: "copy_selection_to_new_layer", text: "Copy Selection to New Layer" },
         ] },
+        { menu: "LayerImportExport", text: "Import/Export", items: [
+            { action: "save_node_as_image", text: "Save Layer/Mask..." },
+            { action: "save_vector_node_to_svg", text: "Save Vector Layer as SVG..." },
+            { sep: true },
+            { action: "import_layer_from_file", text: "Import Layer..." },
+            { menu: "LayerImportAs", text: "Import", items: [
+                { action: "import_layer_as_paint_layer", text: "as Paint Layer..." },
+                { action: "import_layer_as_transparency_mask", text: "as Transparency Mask..." },
+                { action: "import_layer_as_filter_mask", text: "as Filter Mask..." },
+                { action: "import_layer_as_selection_mask", text: "as Selection Mask..." },
+            ] },
+        ] },
         { menu: "LayerConvert", text: "Convert", items: [
             { action: "convert_to_paint_layer", text: "Convert to Paint Layer" },
             { action: "convert_to_transparency_mask", text: "Convert to Transparency Mask" },

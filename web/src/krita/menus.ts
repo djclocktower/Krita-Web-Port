@@ -8,13 +8,6 @@ import { store } from '../shell/store';
 import { kritaEngine } from './state';
 import { KRITA_MENUS, type MenuItem } from './menus.generated';
 
-/** Actions that crash or hang the engine today (A1 of docs/parity/REPORT.md). Delete a line to offer one again once the engine is fixed. */
-export const BLOCKED: string[] = [
-    'add_new_fill_layer',
-    'add_new_fast_color_overlay_mask',
-    'convert_to_filter_mask',
-];
-
 /** Krita action -> id of the page command that does the same (it is shown at the action's place and the action is not repeated). */
 export const PAGE_EQUIV: Record<string, string> = {
     file_new: 'file.new', file_open: 'file.open', file_open_recent: 'file.openRecent', file_save: 'file.saveKra', file_export_file: 'file.export',
@@ -74,7 +67,6 @@ export function buildMenus(commands: Command[], actions: KritaAction[], filters:
     const convert = (items: MenuItem[], top: string): Entry[] => tidy(items.flatMap((i): Entry[] => {
         if ('sep' in i) return [{ kind: 'sep' }];
         if ('menu' in i) { const sub = convert(i.items, top); return sub.length ? [{ kind: 'menu', label: i.text, items: sub }] : []; }
-        if (BLOCKED.includes(i.action)) return [];
         const cmd = byId.get(PAGE_EQUIV[i.action]);
         if (cmd) {   // the page's command wins; one that lives in another menu than Krita's entry stays in its own menu, so the entry is dropped
             if (cmd.menu !== top) return [];

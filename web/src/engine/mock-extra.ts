@@ -347,7 +347,7 @@ const MOCK_ACTIONS: KritaAction[] = [
     { name: 'wrap_around_mode', text: 'Wrap Around Mode', shortcut: 'W', enabled: true, checkable: true, checked: false },
     { name: 'select_all_layers', text: 'All Layers', shortcut: '', enabled: true, checkable: false, checked: false },
     { name: 'fill_selection_pattern_opacity', text: 'Fill with Pattern (Opacity)', shortcut: '', enabled: true, checkable: false, checked: false },
-    { name: 'add_new_fill_layer', text: 'Add Fill Layer...', shortcut: '', enabled: true, checkable: false, checked: false },   // a BLOCKED action: the menu must not offer it
+    { name: 'add_new_fill_layer', text: 'Add Fill Layer...', shortcut: '', enabled: true, checkable: false, checked: false },
 ];
 const MOCK_PLAIN = new Set(['edit_cut', 'select_all_layers', 'fill_selection_pattern_opacity', 'add_new_fill_layer']);   // trigger and do nothing but log
 const DIALOG = 2, POPUP = 3, OPTIONS = 1;
