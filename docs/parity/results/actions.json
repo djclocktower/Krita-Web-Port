@@ -13876,5 +13876,297 @@
   "outcome": "changed layers/selection/history/view",
   "text": "",
   "when": "2026-11-17T03:47:14.520Z"
+ },
+ "save_groups_as_images": {
+  "fixture": "group",
+  "ms": 54,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Krita",
+    "kind": "dialog",
+    "width": 640,
+    "height": 480,
+    "modal": true,
+    "picture": "886849295:307200:640x480",
+    "file": "actions/save_groups_as_images__Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:48:01.056Z"
+ },
+ "save_node_as_image": {
+  "fixture": "base",
+  "ms": 127,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Export \"Layer 2\"",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "1499309820:382268:908x421",
+    "file": "actions/save_incremental_version__Saving_As.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:48:40.637Z"
+ },
+ "save_vector_node_to_svg": {
+  "fixture": "vector",
+  "ms": 162,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Export to SVG",
+    "kind": "dialog",
+    "width": 908,
+    "height": 421,
+    "modal": true,
+    "picture": "1499309820:382268:908x421",
+    "file": "actions/save_incremental_version__Saving_As.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "vector"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:49:16.395Z"
+ },
+ "create_reference_image_from_active_layer": {
+  "fixture": "base",
+  "ms": 249,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "ToolReferenceImages"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:49:46.063Z"
+ },
+ "create_reference_image_from_visible_canvas": {
+  "fixture": "base",
+  "ms": 229,
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": true,
+   "selection": false,
+   "history": true,
+   "docinfo": false,
+   "enabledSet": true,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [
+   "ToolReferenceImages"
+  ],
+  "overlayPixels": 1,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "changed layers/selection/history/view",
+  "text": "",
+  "when": "2026-11-17T03:50:17.832Z"
+ },
+ "add_new_file_layer": {
+  "fixture": "base",
+  "ms": 53,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Krita",
+    "kind": "dialog",
+    "width": 422,
+    "height": 377,
+    "modal": true,
+    "picture": "1055600056:159094:422x377",
+    "file": "actions/add_new_file_layer__Krita.png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:50:59.559Z"
+ },
+ "convert_to_file_layer": {
+  "fixture": "base",
+  "ms": 49,
+  "windows": [
+   {
+    "id": 2,
+    "title": "Save layers to...",
+    "kind": "dialog",
+    "width": 640,
+    "height": 480,
+    "modal": true,
+    "picture": "-1517970905:307200:640x480",
+    "file": "actions/convert_to_file_layer__Save_layers_to....png"
+   }
+  ],
+  "closedBy": [
+   "Escape"
+  ],
+  "alive": true,
+  "state": "done",
+  "diff": {
+   "image": false,
+   "layers": false,
+   "selection": false,
+   "history": false,
+   "docinfo": false,
+   "enabledSet": false,
+   "checked": false
+  },
+  "messages": [],
+  "toolChanged": [],
+  "overlayPixels": 0,
+  "imageUpdates": 0,
+  "enabledAfter": true,
+  "enabled": true,
+  "enabledIn": [
+   "base",
+   "vector",
+   "group",
+   "mask",
+   "anim"
+  ],
+  "outcome": "opened dialog",
+  "text": "",
+  "when": "2026-11-17T03:51:39.047Z"
  }
 }
